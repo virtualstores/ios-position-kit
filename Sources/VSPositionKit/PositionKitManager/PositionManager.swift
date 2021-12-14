@@ -28,7 +28,8 @@ public class PositionManager: PositionKit {
         interpreter = StepDetectorStateMachine(delegate: self)
         interpreter?.initStates()
 
-        cancellable = sensor.sensorPublisher.sink { error in
+        cancellable = sensor.sensorPublisher.receive(on: RunLoop.main)
+            .sink { error in
             print("error")
         } receiveValue: { [weak self] data in
             print(#function, "Data:", data)
