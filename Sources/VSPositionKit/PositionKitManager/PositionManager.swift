@@ -31,6 +31,7 @@ public class PositionManager: PositionKit {
         cancellable = sensor.sensorPublisher.sink { error in
             print("error")
         } receiveValue: { [weak self] data in
+            print(#function, "Data:", data)
             guard let self = self, let data = data else { return }
 
             self.interpreter?.input(motionSensorData: data)
@@ -42,7 +43,7 @@ public class PositionManager: PositionKit {
     }
 }
 
-//MARK: IStepDelegate
+//MARK: IStepDetectorStateMachineDelegate
 extension PositionManager: IStepDetectorStateMachineDelegate {
     public func onProcessed(step: StepData) {
         print("onProcessed")

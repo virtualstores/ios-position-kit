@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "VSFoundation",
+        "repositoryURL": "https://github.com/virtualstores/ios-foundation.git",
+        "state": {
+          "branch": null,
+          "revision": "3f97229824934efaed8c5345e448fd10ef691317",
+          "version": "0.0.2-7-SNAPSHOT"
+        }
+      },
+      {
+        "package": "VSSensorFusion",
+        "repositoryURL": "https://github.com/virtualstores/ios-sensor-fusion.git",
+        "state": {
+          "branch": "feature/suggested-implementation",
+          "revision": "078554926542d21e6a3aca4ee3184d94c39d7a6c",
+          "version": null
+        }
+      },
+      {
+        "package": "VSSensorInterpreter",
+        "repositoryURL": "https://github.com/virtualstores/ios-sensor-interpreter.git",
+        "state": {
+          "branch": "stepdetector-state-machine",
+          "revision": "5bb95e7f4c9ae99e6f6acf6290109d34559dc4c4",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
