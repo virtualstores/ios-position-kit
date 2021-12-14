@@ -23,13 +23,10 @@ public class PositionManager: PositionKit {
     public init(){}
         
     public func start() throws {
-        try sensor.start()
-        
         interpreter = StepDetectorStateMachine(delegate: self)
         interpreter?.initStates()
 
-        cancellable = sensor.sensorPublisher.receive(on: RunLoop.main)
-            .sink { error in
+        cancellable = sensor.sensorPublisher.sink { error in
             print("error")
         } receiveValue: { [weak self] data in
             print(#function, "Data:", data)
@@ -37,6 +34,8 @@ public class PositionManager: PositionKit {
 
             self.interpreter?.input(motionSensorData: data)
         }
+        
+        try sensor.start()
     }
     
     public func stop(){
