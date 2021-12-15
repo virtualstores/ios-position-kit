@@ -15,6 +15,12 @@ import VSFoundation
 public class PositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionData?, PositionError>  = .init(nil)
     
+    public var activateBackgroundAccess: Bool? {
+        didSet {
+            activateBackgroundAccess == true ? backgroundAccess.activate() : backgroundAccess.deactivate()
+        }
+    }
+    
     private let sensor: SensorManager
     private let backgroundAccess: BackgroundAccessManager
     private var interpreter: StepDetectorStateMachine?
@@ -24,40 +30,35 @@ public class PositionManager: PositionKit {
         sensor = SensorManager()
         backgroundAccess = BackgroundAccessManager()
     }
-
-    public func start() throws {
-        try sensor.start()
         
+    public func start() throws {
         interpreter = StepDetectorStateMachine(delegate: self)
         interpreter?.initStates()
-        
+
         cancellable = sensor.sensorPublisher
             .compactMap { $0 }
             .sink { error in
-                print("error")
-            } receiveValue: { _ data in
-                print(#function, "Data:", data)
-                self.interpreter?.input(motionSensorData: data)
-            }
+                self.positionPublisher.send(completion: .failure(PositionError.noData))
+        } receiveValue: { data in
+            self.interpreter?.input(motionSensorData: data)
+        }
+        
+        try sensor.start()
     }
     
     public func stop(){
+        sensor.stop()
         cancellable?.cancel()
     }
     
     deinit {
-        stop()
+        cancellable?.cancel()
     }
 }
 
-//MARK: IStepDelegate
+//MARK: IStepDetectorStateMachineDelegate
 extension PositionManager: IStepDetectorStateMachineDelegate {
-    public func onProcessed(step: StepData) {
-        print("onProcessed")
-        print(step)
-    }
+    public func onProcessed(step: StepData) { }
     
-    public func onSensorsInitiated(currentTime: Int) {
-        print(#function,String(currentTime))
-    }
+    public func onSensorsInitiated(currentTime: Int) { }
 }
