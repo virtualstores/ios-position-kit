@@ -15,30 +15,38 @@ import VSFoundation
 public class PositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionData?, PositionError>  = .init(nil)
     
-    private let sensor = SensorManager()
-    private let backgroundAccess = BackgroundAccessManager()
+    private let sensor: SensorManager
+    private let backgroundAccess: BackgroundAccessManager
     private var interpreter: StepDetectorStateMachine?
     private var cancellable: AnyCancellable?
     
-    public init(){}
-        
+    public init(){
+        sensor = SensorManager()
+        backgroundAccess = BackgroundAccessManager()
+    }
+
     public func start() throws {
         try sensor.start()
         
         interpreter = StepDetectorStateMachine(delegate: self)
         interpreter?.initStates()
-
-        cancellable = sensor.sensorPublisher.sink { error in
-            print("error")
-        } receiveValue: { [weak self] data in
-            guard let self = self, let data = data else { return }
-
-            self.interpreter?.input(motionSensorData: data)
-        }
+        
+        cancellable = sensor.sensorPublisher
+            .compactMap { $0 }
+            .sink { error in
+                print("error")
+            } receiveValue: { _ data in
+                print(#function, "Data:", data)
+                self.interpreter?.input(motionSensorData: data)
+            }
     }
     
     public func stop(){
         cancellable?.cancel()
+    }
+    
+    deinit {
+        stop()
     }
 }
 
