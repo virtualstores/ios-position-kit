@@ -14,51 +14,51 @@ import VSFoundation
 
 public class PositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionData?, PositionError>  = .init(nil)
-    
+
     public var activateBackgroundAccess: Bool? {
         didSet {
             activateBackgroundAccess == true ? backgroundAccess.activate() : backgroundAccess.deactivate()
         }
     }
-    
+
     private let sensor: SensorManager
     private let backgroundAccess: BackgroundAccessManager
     private var interpreter: StepDetectorStateMachine?
     private var cancellable: AnyCancellable?
-    
-    public init(){
+
+    public init() {
         sensor = SensorManager()
         backgroundAccess = BackgroundAccessManager()
     }
-        
+
     public func start() throws {
         interpreter = StepDetectorStateMachine(delegate: self)
         interpreter?.initStates()
 
         cancellable = sensor.sensorPublisher
             .compactMap { $0 }
-            .sink { error in
+            .sink { _ in
                 self.positionPublisher.send(completion: .failure(PositionError.noData))
         } receiveValue: { data in
             self.interpreter?.input(motionSensorData: data)
         }
-        
+
         try sensor.start()
     }
-    
-    public func stop(){
+
+    public func stop() {
         sensor.stop()
         cancellable?.cancel()
     }
-    
+
     deinit {
         cancellable?.cancel()
     }
 }
 
-//MARK: IStepDetectorStateMachineDelegate
+// MARK: IStepDetectorStateMachineDelegate
 extension PositionManager: IStepDetectorStateMachineDelegate {
     public func onProcessed(step: StepData) { }
-    
+
     public func onSensorsInitiated(currentTime: Int) { }
 }
