@@ -10,4 +10,3 @@ import Foundation
 
 /// Model for returning Position data.
 public struct PositionData {}
-    
