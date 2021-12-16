@@ -12,14 +12,8 @@ import VSSensorFusion
 import VSSensorInterpreter
 import VSFoundation
 
-public class PositionManager: PositionKit {
+final public class PositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionData?, PositionError>  = .init(nil)
-
-    public var activateBackgroundAccess: Bool? {
-        didSet {
-            activateBackgroundAccess == true ? backgroundAccess.activate() : backgroundAccess.deactivate()
-        }
-    }
 
     private let sensor: SensorManager
     private let backgroundAccess: BackgroundAccessManager
@@ -50,9 +44,13 @@ public class PositionManager: PositionKit {
         sensor.stop()
         cancellable?.cancel()
     }
+    
+    public func setBackgroundAccess(isActive: Bool) {
+        isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
+    }
 
     deinit {
-        cancellable?.cancel()
+        stop()
     }
 }
 

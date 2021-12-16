@@ -21,8 +21,8 @@ public protocol PositionKit {
     /// Stops position managers.
     func stop()
 
-    /// Temporary flag for activating and deactivating background access
-    var activateBackgroundAccess: Bool? { get set }
+    /// Temporary setter for activating and deactivating background access
+    func setBackgroundAccess(isActive: Bool) 
 }
 
 public enum PositionError: Error {
