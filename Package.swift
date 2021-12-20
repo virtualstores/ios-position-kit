@@ -6,7 +6,9 @@ import PackageDescription
 let package = Package(
     name: "VSPositionKit",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v13),
+        .macOS(.v11),
+        .watchOS(.v6)
     ],
     products: [
         .library(
@@ -15,12 +17,16 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", branch: "feature/suggested-implementation"),
+        .package(url: "https://github.com/virtualstores/ios-sensor-interpreter.git", branch: "stepdetector-state-machine"),
     ],
     targets: [
         .target(
             name: "VSPositionKit",
-            dependencies: []),
+            dependencies: [
+                .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
+                .product(name: "VSSensorInterpreter", package: "ios-sensor-interpreter")
+            ]),
         .testTarget(
             name: "VSPositionKitTests",
             dependencies: ["VSPositionKit"]),
