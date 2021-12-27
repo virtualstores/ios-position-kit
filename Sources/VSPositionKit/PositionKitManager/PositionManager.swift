@@ -82,8 +82,5 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
 
 // MARK: Private helpers
 private extension PositionManager {
-    func setupEngineWrapper(with step: StepData) {
-        // let engineWrapperStep = EngineWrapperStepData()
-        // engineWrapper.update(with: engineWrapperStep)
-    }
+    func setupEngineWrapper(with step: StepData) {}
 }
