@@ -17,8 +17,8 @@ public protocol PositionKit {
     var positionPublisher: CurrentValueSubject<PositionData?, PositionKitError> { get }
 
     /// Temporary publisher for step counts test
-    var stepCountPublisher: CurrentValueSubject<Int, PositionKitError> { get }
-    
+    var stepCountPublisher: CurrentValueSubject<Int, Never> { get }
+
     /// Publishes if all packages are ready to start  or error
     var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }
 
@@ -30,12 +30,9 @@ public protocol PositionKit {
 
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)
-    
+
     /// Temporary MapFence setup methode which will be used from old app
     func setupMapFenceFromJson(with path: String)
-    
-    /// MapFence setup methode which will be used for stepData setup
-    func setupMapFence(with data: MapFence)
 }
 
 public enum PositionKitError: Error {

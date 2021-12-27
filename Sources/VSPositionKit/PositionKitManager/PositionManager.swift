@@ -15,21 +15,21 @@ import VSEngineWrapper
 
 final public class PositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionData?, PositionKitError>  = .init(nil)
-    public var stepCountPublisher: CurrentValueSubject<Int, PositionKitError>  = .init(0)
+    public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
-    
+
     private var stepCount = 0
     private let sensor: SensorManager
     private var interpreter: StepDetectorStateMachine?
     private var engineWrapper: EngineWrapperManager
-    
+
     private let backgroundAccess: BackgroundAccessManager
-    
+
     private var cancellable: AnyCancellable?
-    
-    public init() {
+
+    public init(with mapData: MapFence) {
         sensor = SensorManager()
-        engineWrapper = EngineWrapperManager()
+        engineWrapper = EngineWrapperManager(mapData: mapData)
         backgroundAccess = BackgroundAccessManager()
     }
 
@@ -46,7 +46,6 @@ final public class PositionManager: PositionKit {
         }
 
         try sensor.start()
-        
     }
 
     public func stop() {
@@ -54,18 +53,14 @@ final public class PositionManager: PositionKit {
         sensor.stop()
         cancellable?.cancel()
     }
-    
+
     public func setBackgroundAccess(isActive: Bool) {
         isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
     }
-    
+
     /// Temporary step setup methode which will be used from old app
     public func setupMapFenceFromJson(with path: String) {
         engineWrapper.setupMapFenceFromJson(with: path)
-    }
-    
-    public func setupMapFence(with data: MapFence) {
-        engineWrapper.setupMapFence(with: data)
     }
 
     deinit {
@@ -78,17 +73,17 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
     public func onProcessed(step: StepData) {
         stepCount = stepCount + 1
         stepCountPublisher.send(stepCount)
-    
+
         setupEngineWrapper(with: step)
     }
 
     public func onSensorsInitiated(currentTime: Int) { }
 }
 
-//MARK: Private helpers
+// MARK: Private helpers
 private extension PositionManager {
     func setupEngineWrapper(with step: StepData) {
-        //let engineWrapperStep = EngineWrapperStepData()
-        //engineWrapper.update(with: engineWrapperStep)
+        // let engineWrapperStep = EngineWrapperStepData()
+        // engineWrapper.update(with: engineWrapperStep)
     }
 }
