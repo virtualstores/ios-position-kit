@@ -18,19 +18,16 @@ final public class PositionManager: PositionKit {
     public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
+    private let context = Context(PositionKitConfig())
     private var stepCount = 0
-    private let sensor: SensorManager
     private var interpreter: StepDetectorStateMachine?
     private var engineWrapper: EngineWrapperManager?
-
-    private let backgroundAccess: BackgroundAccessManager
-
     private var cancellable: AnyCancellable?
-
-    public init() {
-        sensor = SensorManager()
-        backgroundAccess = BackgroundAccessManager()
-    }
+    
+    @Inject var backgroundAccess: BackgroundAccessManager
+    @Inject var sensor: SensorManager
+    
+    public init() {}
     
     public func setupMapFence(with mapData: MapFence) throws {
         engineWrapper = EngineWrapperManager(mapData: mapData)
