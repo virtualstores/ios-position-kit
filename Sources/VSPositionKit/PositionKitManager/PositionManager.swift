@@ -21,16 +21,20 @@ final public class PositionManager: PositionKit {
     private var stepCount = 0
     private let sensor: SensorManager
     private var interpreter: StepDetectorStateMachine?
-    private var engineWrapper: EngineWrapperManager
+    private var engineWrapper: EngineWrapperManager?
 
     private let backgroundAccess: BackgroundAccessManager
 
     private var cancellable: AnyCancellable?
 
-    public init(with mapData: MapFence) {
+    public init() {
         sensor = SensorManager()
-        engineWrapper = EngineWrapperManager(mapData: mapData)
         backgroundAccess = BackgroundAccessManager()
+    }
+    
+    public func setupMapFence(with mapData: MapFence) throws {
+        engineWrapper = EngineWrapperManager(mapData: mapData)
+        try engineWrapper?.startEngine()
     }
 
     public func start() throws {
@@ -43,6 +47,7 @@ final public class PositionManager: PositionKit {
                 self.positionPublisher.send(completion: .failure(PositionKitError.noData))
         } receiveValue: { data in
             self.interpreter?.input(motionSensorData: data)
+            self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
         }
 
         try sensor.start()
@@ -60,7 +65,11 @@ final public class PositionManager: PositionKit {
 
     /// Temporary step setup methode which will be used from old app
     public func setupMapFenceFromJson(with path: String) {
-        engineWrapper.setupMapFenceFromJson(with: path)
+        engineWrapper?.setupMapFenceFromJson(with: path)
+    }
+    
+    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
+        engineWrapper?.setPosition(x: xPosition, y: yPosition, angle: direction)
     }
 
     deinit {
@@ -82,5 +91,10 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
 
 // MARK: Private helpers
 private extension PositionManager {
-    func setupEngineWrapper(with step: StepData) {}
+    func setupEngineWrapper(with step: StepData) {
+        guard let speed = step.speed?.asFloat else { return }
+        
+        let engineWrapperStepData = WrapperStepData(speed: speed, direction: step.direction!, duration: Int64(step.duration), currentTime: Int64(step.timestamp), orientation: step.orientation)
+        engineWrapper?.update(with: engineWrapperStepData)
+    }
 }

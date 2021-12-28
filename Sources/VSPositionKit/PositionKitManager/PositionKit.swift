@@ -33,6 +33,12 @@ public protocol PositionKit {
 
     /// Temporary MapFence setup methode which will be used from old app
     func setupMapFenceFromJson(with path: String)
+    
+    /// MapFence setup methode
+    func setupMapFence(with mapData: MapFence) throws
+    
+    /// Start navigation setup methode
+    func startNavigation(with direction: Double, xPosition: Double, yPosition: Double)
 }
 
 public enum PositionKitError: Error {
