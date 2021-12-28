@@ -53,6 +53,7 @@ final public class PositionManager: PositionKit {
     public func stop() {
         stepCount = 0
         sensor.stop()
+        engineWrapper?.stopEngine()
         cancellable?.cancel()
     }
 
