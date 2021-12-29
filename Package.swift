@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "VSPositionKit",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v13),
         .macOS(.v11),
         .watchOS(.v6)
     ],
@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/virtualstores/ios-foundation.git", .exact("0.0.2-19-SNAPSHOT")),
+        .package(url: "https://github.com/virtualstores/ios-foundation.git", .exact("0.0.2-20-SNAPSHOT")),
         .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", branch: "master"),
         .package(url: "https://github.com/virtualstores/ios-sensor-interpreter.git", branch: "stepdetector-state-machine"),
         .package(url: "https://github.com/virtualstores/ios-engine-wrapper", branch: "initialSetup"),
