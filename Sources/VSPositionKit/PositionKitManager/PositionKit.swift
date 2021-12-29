@@ -32,7 +32,7 @@ public protocol PositionKit {
     func setBackgroundAccess(isActive: Bool)
 
     /// Temporary MapFence setup methode which will be used from old app
-    func setupMapFenceFromJson(with path: String)
+    func setupMapFence(with mapData: Data) throws
     
     /// MapFence setup methode
     func setupMapFence(with mapData: MapFence) throws

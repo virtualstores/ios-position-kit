@@ -33,6 +33,12 @@ final public class PositionManager: PositionKit {
         engineWrapper = EngineWrapperManager(mapData: mapData)
         try engineWrapper?.startEngine()
     }
+    
+    /// Temporary step setup methode which will be used from old app
+    public func setupMapFence(with mapData: Data) throws {
+        engineWrapper = EngineWrapperManager(mapData: mapData)
+        try engineWrapper?.startEngine()
+    }
 
     public func start() throws {
         interpreter = StepDetectorStateMachine(delegate: self)
@@ -59,11 +65,6 @@ final public class PositionManager: PositionKit {
 
     public func setBackgroundAccess(isActive: Bool) {
         isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
-    }
-
-    /// Temporary step setup methode which will be used from old app
-    public func setupMapFenceFromJson(with path: String) {
-        engineWrapper?.setupMapFenceFromJson(with: path)
     }
     
     public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
