@@ -15,22 +15,23 @@ import VSEngineWrapper
 
 final public class PositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionData?, PositionKitError>  = .init(nil)
-    public var stepCountPublisher: CurrentValueSubject<Int, PositionKitError>  = .init(0)
+    public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
-    
+
+    private let context = Context(PositionKitConfig())
     private var stepCount = 0
-    private let sensor: SensorManager
     private var interpreter: StepDetectorStateMachine?
-    private var engineWrapper: EngineWrapperManager
-    
-    private let backgroundAccess: BackgroundAccessManager
-    
+    private var engineWrapper: EngineWrapperManager?
     private var cancellable: AnyCancellable?
     
-    public init() {
-        sensor = SensorManager()
-        engineWrapper = EngineWrapperManager()
-        backgroundAccess = BackgroundAccessManager()
+    @Inject var backgroundAccess: BackgroundAccessManager
+    @Inject var sensor: SensorManager
+    
+    public init() {}
+    
+    public func setupMapFence(with mapData: MapFence) throws {
+        engineWrapper = EngineWrapperManager(mapData: mapData)
+        try engineWrapper?.startEngine()
     }
 
     public func start() throws {
@@ -43,29 +44,30 @@ final public class PositionManager: PositionKit {
                 self.positionPublisher.send(completion: .failure(PositionKitError.noData))
         } receiveValue: { data in
             self.interpreter?.input(motionSensorData: data)
+            self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
         }
 
         try sensor.start()
-        
     }
 
     public func stop() {
         stepCount = 0
         sensor.stop()
+        engineWrapper?.stopEngine()
         cancellable?.cancel()
     }
-    
+
     public func setBackgroundAccess(isActive: Bool) {
         isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
     }
-    
+
     /// Temporary step setup methode which will be used from old app
     public func setupMapFenceFromJson(with path: String) {
-        engineWrapper.setupMapFenceFromJson(with: path)
+        engineWrapper?.setupMapFenceFromJson(with: path)
     }
     
-    public func setupMapFence(with data: MapFence) {
-        engineWrapper.setupMapFence(with: data)
+    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
+        engineWrapper?.setPosition(x: xPosition, y: yPosition, angle: direction)
     }
 
     deinit {
@@ -78,17 +80,19 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
     public func onProcessed(step: StepData) {
         stepCount = stepCount + 1
         stepCountPublisher.send(stepCount)
-    
+
         setupEngineWrapper(with: step)
     }
 
     public func onSensorsInitiated(currentTime: Int) { }
 }
 
-//MARK: Private helpers
+// MARK: Private helpers
 private extension PositionManager {
     func setupEngineWrapper(with step: StepData) {
-        //let engineWrapperStep = EngineWrapperStepData()
-        //engineWrapper.update(with: engineWrapperStep)
+        guard let speed = step.speed?.asFloat else { return }
+        
+        let engineWrapperStepData = WrapperStepData(speed: speed, direction: step.direction!, duration: Int64(step.duration), currentTime: Int64(step.timestamp), orientation: step.orientation)
+        engineWrapper?.update(with: engineWrapperStepData)
     }
 }
