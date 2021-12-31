@@ -14,7 +14,7 @@ import VSFoundation
 import VSEngineWrapper
 
 final public class PositionManager: PositionKit {
-    public var positionPublisher: CurrentValueSubject<PositionData?, PositionKitError>  = .init(nil)
+    public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
     public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
@@ -23,21 +23,32 @@ final public class PositionManager: PositionKit {
     private var interpreter: StepDetectorStateMachine?
     private var engineWrapper: EngineWrapperManager?
     private var cancellable: AnyCancellable?
-    
+    private var positionBundleCancellable: AnyCancellable?
+
     @Inject var backgroundAccess: BackgroundAccessManager
     @Inject var sensor: SensorManager
-    
+
     public init() {}
-    
+
     public func setupMapFence(with mapData: MapFence) throws {
-        engineWrapper = EngineWrapperManager(mapData: mapData)
-        try engineWrapper?.startEngine()
+        DispatchQueue.main.async {
+            do {
+                self.engineWrapper = EngineWrapperManager(mapData: mapData)
+                try self.engineWrapper?.startEngine()
+                self.bindEnginePublishers()
+            } catch {}
+        }
     }
-    
+
     /// Temporary step setup methode which will be used from old app
     public func setupMapFence(with mapData: Data) throws {
-        engineWrapper = EngineWrapperManager(mapData: mapData)
-        try engineWrapper?.startEngine()
+        DispatchQueue.main.async {
+            do {
+                self.engineWrapper = EngineWrapperManager(mapData: mapData)
+                try self.engineWrapper?.startEngine()
+                self.bindEnginePublishers()
+            } catch {}
+        }
     }
 
     public func start() throws {
@@ -48,10 +59,12 @@ final public class PositionManager: PositionKit {
             .compactMap { $0 }
             .sink { _ in
                 self.positionPublisher.send(completion: .failure(PositionKitError.noData))
-        } receiveValue: { data in
-            self.interpreter?.input(motionSensorData: data)
-            self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
-        }
+            } receiveValue: { data in
+                DispatchQueue.main.async {
+                    self.interpreter?.input(motionSensorData: data)
+                    self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
+                }
+            }
 
         try sensor.start()
     }
@@ -66,9 +79,20 @@ final public class PositionManager: PositionKit {
     public func setBackgroundAccess(isActive: Bool) {
         isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
     }
-    
+
     public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
-        engineWrapper?.setPosition(x: xPosition, y: yPosition, angle: direction)
+        DispatchQueue.main.async {
+            self.engineWrapper?.setPosition(x: xPosition, y: yPosition, angle: direction)
+        }
+    }
+
+    func bindEnginePublishers() {
+        self.positionBundleCancellable = self.engineWrapper?.positionPublisher
+            .sink { data in
+                print(data)
+            } receiveValue: { [weak self] positionBundle in
+                self?.positionPublisher.send(positionBundle)
+            }
     }
 
     deinit {
@@ -92,8 +116,10 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
 private extension PositionManager {
     func setupEngineWrapper(with step: StepData) {
         guard let speed = step.speed?.asFloat else { return }
-        
-        let engineWrapperStepData = WrapperStepData(speed: speed, direction: step.direction!, duration: Int64(step.duration), currentTime: Int64(step.timestamp), orientation: step.orientation)
-        engineWrapper?.update(with: engineWrapperStepData)
+
+        DispatchQueue.main.async {
+            let engineWrapperStepData = WrapperStepData(speed: speed, direction: step.direction!, duration: Int64(step.duration), currentTime: Int64(step.timestamp), orientation: step.orientation)
+            self.engineWrapper?.update(with: engineWrapperStepData)
+        }
     }
 }

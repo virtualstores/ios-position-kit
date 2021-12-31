@@ -14,7 +14,7 @@ import VSFoundation
 public protocol PositionKit {
 
     /// Publishes the position data or error
-    var positionPublisher: CurrentValueSubject<PositionData?, PositionKitError> { get }
+    var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError> { get }
 
     /// Temporary publisher for step counts test
     var stepCountPublisher: CurrentValueSubject<Int, Never> { get }
@@ -33,10 +33,10 @@ public protocol PositionKit {
 
     /// Temporary MapFence setup methode which will be used from old app
     func setupMapFence(with mapData: Data) throws
-    
+
     /// MapFence setup methode
     func setupMapFence(with mapData: MapFence) throws
-    
+
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double)
 }
