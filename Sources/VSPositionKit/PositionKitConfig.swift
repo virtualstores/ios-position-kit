@@ -14,15 +14,14 @@ struct PositionKitConfig: Config {
     func configure(_ injector: Injector) {
         injectManagers(injector)
     }
-    
+
     private func injectManagers(_ injector: Injector) {
         injector.map(BackgroundAccessManager.self) {
             BackgroundAccessManager()
         }
-        
+
         injector.map(SensorManager.self) {
             SensorManager()
         }
     }
 }
-
