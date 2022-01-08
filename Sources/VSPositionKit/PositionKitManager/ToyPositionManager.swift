@@ -65,10 +65,10 @@ final internal class ToyPositionManager: PositionKit {
   }
 
   public func stop() {
+    cancellable?.cancel()
     stepCount = 0
     sensor.stop()
     engineWrapper?.stopEngine()
-    cancellable?.cancel()
   }
 
   public func setBackgroundAccess(isActive: Bool) {
