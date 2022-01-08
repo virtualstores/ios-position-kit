@@ -1,16 +1,14 @@
-//
-// PositionKitConfig
+// PositionKitTestConfig.swift
 // VSPositionKit
-//
-// Created by Hripsime on 2021-12-28
-// Copyright Virtual Stores - 2021
-//
+
+// Created by: CJ on 2022-01-08
+// Copyright (c) 2022 Virtual Stores
 
 import Foundation
 import VSFoundation
 import VSSensorFusion
 
-public struct PositionKitConfig: Config {
+public struct PositionKitTestConfig: Config {
   public init(){}
   public func configure(_ injector: Injector) {
     injectManagers(injector)
@@ -18,11 +16,11 @@ public struct PositionKitConfig: Config {
 
   private func injectManagers(_ injector: Injector) {
     injector.map(IBackgroundAccessManager.self) {
-      BackgroundAccessManager()
+      FakeBackgroundAccessManager()
     }
 
     injector.map(ISensorManager.self) {
-      SensorManager()
+      FakeSensorManager()
     }
   }
 }

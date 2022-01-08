@@ -13,7 +13,7 @@ import VSEngineWrapper
 
 /// This class is a copy of the current PositionManager without BackgroundAccess manager to enable to run unit tests on it
 /// Todo: Refactor PositiningManager to be able to take in different types of Config for injecting a FakeBackgroundAccessmanager or something so that we dont need this class... 
-final internal class ToyPositionManager: PositionKit {
+final internal class ToyPositionManager: IPositionKit {
   public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
   public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
   public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
@@ -85,7 +85,7 @@ final internal class ToyPositionManager: PositionKit {
         print(data)
         print("Sink:")
       } receiveValue: { [weak self] positionBundle in
-        print("PositionBundle: \(positionBundle)")
+        //print("PositionBundle: \(positionBundle)")
         self?.positionPublisher.send(positionBundle)
       }
   }

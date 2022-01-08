@@ -13,22 +13,24 @@ import VSSensorInterpreter
 import VSFoundation
 import VSEngineWrapper
 
-final public class PositionManager: PositionKit {
+final public class PositionManager: IPositionKit {
   public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
   public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
   public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
-  private let context = Context(PositionKitConfig())
+  private let context: Context
   private var stepCount = 0
   private var interpreter: StepDetectorStateMachine?
   private var engineWrapper: EngineWrapperManager?
   private var cancellable: AnyCancellable?
   private var positionBundleCancellable: AnyCancellable?
 
-  @Inject var backgroundAccess: BackgroundAccessManager
-  @Inject var sensor: SensorManager
+  @Inject var backgroundAccess: IBackgroundAccessManager
+  @Inject public var sensor: ISensorManager
 
-  public init() {}
+  public init(context: Context = Context(PositionKitConfig())) {
+    self.context = context
+  }
 
   public func setupMapFence(with mapData: MapFence) throws {
     do {
@@ -83,7 +85,9 @@ final public class PositionManager: PositionKit {
       .sink { data in
         print(data)
       } receiveValue: { [weak self] positionBundle in
-        self?.positionPublisher.send(positionBundle)
+        DispatchQueue.main.async {
+          self?.positionPublisher.send(positionBundle)
+        }
       }
   }
 

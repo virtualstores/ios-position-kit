@@ -10,21 +10,34 @@ final class ios_position_kit_manager_Tests: XCTestCase {
       if let replayData = ReplaySensorDataLoader().decodeFileFrom(url: replayUrl, fileVersion: .v5),
          let mapFenceData = loadFile(url: mapFenceUrl) {
 
-        let fakeSensorManager = FakeSensorManager(data: replayData.sensorData)
-        let manager = ToyPositionManager(sensorManager: fakeSensorManager)
+        let expectedAtLeastNumberOfPositonBundles = 1330
+
+        let expectation = self.expectation(description: "Awaiting publisher")
+
+        let manager = PositionManager(context: Context(PositionKitTestConfig()))
+
+        (manager.sensor as? IFakeSensorManager)?.setFakeData(data: replayData.sensorData)
+
         try manager.setupMapFence(with: mapFenceData)
-        try manager.start()
+
+        let cancellable = manager.positionPublisher
+          .compactMap { $0 }
+          .collect(expectedAtLeastNumberOfPositonBundles)
+          .sink { [weak self] error in
+            print("Error, \(error), \(String(describing: self))")
+          } receiveValue: { [weak self]  positionBundle in
+            print("Success: \(String(describing: self))")
+            expectation.fulfill()
+          }
+
         manager.startNavigation(
           with: replayData.startPosition.angle,
           xPosition: replayData.startPosition.position.x,
           yPosition: replayData.startPosition.position.y
         )
-        manager.positionPublisher.compactMap { $0 }
-        .sink { _ in
-          print("Error")
-        } receiveValue: { data in
-          print("Position: \(data)")
-        }
+        try manager.start()
+        waitForExpectations(timeout: 10)
+        cancellable.cancel()
       }
     }
   }
