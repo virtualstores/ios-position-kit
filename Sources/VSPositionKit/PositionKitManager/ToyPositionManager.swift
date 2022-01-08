@@ -1,10 +1,8 @@
-//
-// PositionManager
-// VSPositionKit
-//
-// Created by Hripsime on 2021-12-14
-// Copyright Virtual Stores - 2021
-//
+// File.swift
+// 
+
+// Created by: CJ on 2022-01-07
+// Copyright (c) 2022 ___ORGANIZATIONNAME___
 
 import Foundation
 import Combine
@@ -13,7 +11,7 @@ import VSSensorInterpreter
 import VSFoundation
 import VSEngineWrapper
 
-final public class PositionManager: PositionKit {
+final public class ToyPositionManager: PositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
     public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
@@ -25,24 +23,25 @@ final public class PositionManager: PositionKit {
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
 
-    @Inject var backgroundAccess: BackgroundAccessManager
-    @Inject var sensor: SensorManager
+    var sensor: ISensorManager
 
-    public init() {}
+  public init(sensorManager: ISensorManager) {
+    sensor = sensorManager
+  }
 
     public func setupMapFence(with mapData: MapFence) throws {
-        //DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             do {
                 self.engineWrapper = EngineWrapperManager(mapData: mapData)
                 try self.engineWrapper?.startEngine()
                 self.bindEnginePublishers()
             } catch {}
-        //}
+//        }
     }
 
     /// Temporary step setup methode which will be used from old app
     public func setupMapFence(with mapData: Data) throws {
-        //DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             do {
                 self.engineWrapper = EngineWrapperManager(mapData: mapData)
                 try self.engineWrapper?.startEngine()
@@ -60,10 +59,10 @@ final public class PositionManager: PositionKit {
             .sink { _ in
                 self.positionPublisher.send(completion: .failure(PositionKitError.noData))
             } receiveValue: { data in
-//                DispatchQueue.main.async {
+                DispatchQueue.main.async {
                     self.interpreter?.input(motionSensorData: data)
                     self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
-//                }
+                }
             }
 
         try sensor.start()
@@ -77,7 +76,7 @@ final public class PositionManager: PositionKit {
     }
 
     public func setBackgroundAccess(isActive: Bool) {
-        isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
+        //isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
     }
 
     public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
@@ -90,8 +89,10 @@ final public class PositionManager: PositionKit {
         self.positionBundleCancellable = self.engineWrapper?.positionPublisher
             .sink { data in
                 print(data)
+              print("Sink:")
             } receiveValue: { [weak self] positionBundle in
-                self?.positionPublisher.send(positionBundle)
+              print("PositionBundle: \(positionBundle)")
+              self?.positionPublisher.send(positionBundle)
             }
     }
 
@@ -101,11 +102,10 @@ final public class PositionManager: PositionKit {
 }
 
 // MARK: IStepDetectorStateMachineDelegate
-extension PositionManager: IStepDetectorStateMachineDelegate {
+extension ToyPositionManager: IStepDetectorStateMachineDelegate {
     public func onProcessed(step: StepData) {
         stepCount = stepCount + 1
         stepCountPublisher.send(stepCount)
-
         setupEngineWrapper(with: step)
     }
 
@@ -113,7 +113,7 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
 }
 
 // MARK: Private helpers
-private extension PositionManager {
+private extension ToyPositionManager {
     func setupEngineWrapper(with step: StepData) {
         guard let speed = step.speed?.asFloat else { return }
 
