@@ -4,8 +4,7 @@ import VSFoundation
 import VSSensorFusion
 
 final class ios_position_kit_manager_Tests: XCTestCase {
-  func test_data_flow() throws {
-
+  func test_data_flow_through_interpreter_and_enginge() throws {
 
     if let replayUrl = URL.ReplayData.goskaRegularSteps, let mapFenceUrl = URL.MapFence.vsOfficeMapFence {
       if let replayData = ReplaySensorDataLoader().decodeFileFrom(url: replayUrl, fileVersion: .v5),
@@ -22,7 +21,7 @@ final class ios_position_kit_manager_Tests: XCTestCase {
         )
         manager.positionPublisher.compactMap { $0 }
         .sink { _ in
-            print("Error")
+          print("Error")
         } receiveValue: { data in
           print("Position: \(data)")
         }
@@ -43,4 +42,3 @@ final class ios_position_kit_manager_Tests: XCTestCase {
     }
   }
 }
-
