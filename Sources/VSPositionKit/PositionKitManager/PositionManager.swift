@@ -24,12 +24,14 @@ final public class PositionManager: IPositionKit {
   private var engineWrapper: EngineWrapperManager?
   private var cancellable: AnyCancellable?
   private var positionBundleCancellable: AnyCancellable?
+  private var rotationSensor: RotationSensor?
   
   @Inject var backgroundAccess: IBackgroundAccessManager
   @Inject var sensor: ISensorManager
   
   public init(context: Context = Context(PositionKitConfig())) {
     self.context = context
+
   }
   
   public func setupMapFence(with mapData: MapFence) throws {
@@ -52,13 +54,16 @@ final public class PositionManager: IPositionKit {
   public func start() throws {
     interpreter = StepDetectorStateMachine(delegate: self)
     interpreter?.initStates()
-    
+
+    rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
+
     cancellable = sensor.sensorPublisher
       .compactMap { $0 }
       .sink { _ in
         self.positionPublisher.send(completion: .failure(PositionKitError.noData))
       } receiveValue: { data in
         self.interpreter?.input(motionSensorData: data)
+        self.rotationSensor?.input(motionSensorData: data)
         self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
       }
     
@@ -112,5 +117,11 @@ private extension PositionManager {
     guard let speed = step.speed?.asFloat else { return }
     let engineWrapperStepData = WrapperStepData(speed: speed, direction: step.direction!, duration: Int64(step.duration), currentTime: Int64(step.timestamp), orientation: step.orientation)
     self.engineWrapper?.update(with: engineWrapperStepData)
+  }
+}
+
+extension PositionManager: IRotationSensorDelegate {
+  func onNew(rotation: RotationBundle) {
+    // what to do ?? ?
   }
 }

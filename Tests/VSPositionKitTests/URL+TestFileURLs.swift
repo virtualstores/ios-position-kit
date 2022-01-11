@@ -13,5 +13,6 @@ extension URL {
 
   enum ReplayData {
     static let goskaRegularSteps = Bundle.module.url(forResource: "SensorData/replayData", withExtension: "json")
+    static let altitudeFloorChangeData = Bundle.module.url(forResource: "SensorData/altitudeReplayData", withExtension: "json")
   }
 }

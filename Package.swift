@@ -17,10 +17,10 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/virtualstores/ios-foundation.git", .exact("0.0.6")),
-        .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .exact("0.0.3")),
-        .package(url: "https://github.com/virtualstores/ios-sensor-interpreter.git", branch: "stepdetector-state-machine"),
-        .package(url: "https://github.com/virtualstores/ios-engine-wrapper", branch: "testing-threading"),
+        .package(url: "https://github.com/virtualstores/ios-foundation.git", .branch("develop")),
+        .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .branch("master")),
+        .package(url: "https://github.com/virtualstores/ios-sensor-interpreter.git", .branch("stepdetector-state-machine")),
+        .package(url: "https://github.com/virtualstores/ios-engine-wrapper.git", .branch("testing-threading")),
 
     ],
     targets: [
