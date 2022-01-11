@@ -25,6 +25,8 @@ final public class PositionManager: IPositionKit {
   private var cancellable: AnyCancellable?
   private var positionBundleCancellable: AnyCancellable?
   private var rotationSensor: RotationSensor?
+  let serialEngingeQueue = DispatchQueue(label: "engine")
+  let serialInterpreterQueue = DispatchQueue(label: "interpreter")
   
   @Inject var backgroundAccess: IBackgroundAccessManager
   @Inject var sensor: ISensorManager
@@ -62,11 +64,14 @@ final public class PositionManager: IPositionKit {
       .sink { _ in
         self.positionPublisher.send(completion: .failure(PositionKitError.noData))
       } receiveValue: { data in
-        self.interpreter?.input(motionSensorData: data)
-        self.rotationSensor?.input(motionSensorData: data)
-        self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
+        self.serialInterpreterQueue.async {
+          self.interpreter?.input(motionSensorData: data)
+          self.rotationSensor?.input(motionSensorData: data)
+        }
+        self.serialEngingeQueue.async {
+          self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
+        }
       }
-    
     try sensor.start()
   }
   
@@ -104,8 +109,9 @@ extension PositionManager: IStepDetectorStateMachineDelegate {
   public func onProcessed(step: StepData) {
     stepCount = stepCount + 1
     stepCountPublisher.send(stepCount)
-    
-    setupEngineWrapper(with: step)
+    self.serialEngingeQueue.async {
+      self.setupEngineWrapper(with: step)
+    }
   }
   
   public func onSensorsInitiated(currentTime: Int) { }
