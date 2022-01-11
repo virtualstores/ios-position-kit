@@ -10,7 +10,11 @@ import Foundation
 class AuxSensorFactory {
 
   func createRotationSensor(delegate: IRotationSensorDelegate) -> RotationSensor {
-     return RotationSensor(delegate: delegate)
+    return RotationSensor(delegate: delegate)
+  }
+
+  func createAltitudeFloorSensor(floorDistance: Double, delegate: IFloorChangeDelegate) {
+    return AltitudeBasedFloorSensor(floorDistance: floorDistance, delegate: delegate)
   }
 
 }
