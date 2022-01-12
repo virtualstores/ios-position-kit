@@ -38,7 +38,7 @@ final public class PositionManager: IPositionKit {
   
   public func setupMapFence(with mapData: MapFence) throws {
     do {
-      //self.engineWrapper = EngineWrapperManager(mapData: mapData)
+      self.engineWrapper = EngineWrapperManager(mapData: mapData)
       try self.engineWrapper?.startEngine()
       self.bindEnginePublishers()
     } catch {}
