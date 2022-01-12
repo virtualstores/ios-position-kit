@@ -20,7 +20,7 @@ let package = Package(
         .package(url: "https://github.com/virtualstores/ios-foundation.git", .branch("develop")),
         .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .branch("master")),
         .package(url: "https://github.com/virtualstores/ios-sensor-interpreter.git", .branch("matrix-neural-network-speedup")),
-        .package(url: "https://github.com/virtualstores/ios-engine-wrapper.git", .branch("testing-threading")),
+        .package(url: "https://github.com/virtualstores/ios-engine-wrapper.git", .branch("testing-gc-collect")),
 
     ],
     targets: [
