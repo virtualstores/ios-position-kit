@@ -9,7 +9,7 @@ import VSFoundation
 import VSSensorFusion
 
 public struct PositionKitTestConfig: Config {
-  public init(){}
+  public init() {}
   public func configure(_ injector: Injector) {
     injectManagers(injector)
   }

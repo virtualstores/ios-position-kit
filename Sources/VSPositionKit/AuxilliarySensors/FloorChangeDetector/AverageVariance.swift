@@ -7,10 +7,8 @@
 import Foundation
 import VSFoundation
 
-
 class AverageVariance {
-
-  struct DoublePack{
+  struct DoublePack {
     let average: Double
     let variance: Double
     let totalVariation: Double
@@ -49,7 +47,6 @@ class AverageVariance {
     totalVariation += abs(lastData - data) - abs(queue.peek! - firstData)
 
     return DoublePack(average: avg, variance: variance, totalVariation: totalVariation)
-
   }
 
   func min() -> Double {
@@ -58,5 +55,4 @@ class AverageVariance {
   func max() -> Double {
     return queue.asArray().max()!
   }
-
 }

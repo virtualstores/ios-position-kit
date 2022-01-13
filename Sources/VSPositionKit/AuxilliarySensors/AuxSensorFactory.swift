@@ -6,7 +6,6 @@
 
 import Foundation
 
-
 class AuxSensorFactory {
 
   func createRotationSensor(delegate: IRotationSensorDelegate) -> RotationSensor {

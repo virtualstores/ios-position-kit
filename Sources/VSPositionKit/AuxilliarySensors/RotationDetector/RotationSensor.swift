@@ -9,7 +9,7 @@ import VSFoundation
 
 class RotationSensor: IAuxiliarySensor {
 
-  private var delegate: IRotationSensorDelegate
+  private weak var delegate: IRotationSensorDelegate
   private var currentData: MotionSensorData?
   private var yAxisDirection = 0.0
   private var regularDirection = 0.0

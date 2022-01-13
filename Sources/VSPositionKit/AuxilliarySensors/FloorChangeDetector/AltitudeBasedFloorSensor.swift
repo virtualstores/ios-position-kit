@@ -28,7 +28,7 @@ final class AltitudeBasedFloorSensor: FloorSensor {
   private var longStabilityMeasure = 0.0
   private var lastCompensationUpdate = 0
 
-  init(floorDistance: Double, delegate: IFloorChangeDelegate){
+  init(floorDistance: Double, delegate: IFloorChangeDelegate) {
     self.floorDistance = floorDistance
     self.changeThreshold = parameters.changeThresholdPrecentage * floorDistance
     self.dataHistory = AverageVariance(size: parameters.dataHistorySize)
@@ -42,9 +42,9 @@ final class AltitudeBasedFloorSensor: FloorSensor {
     let altitudeMeasurement = filterSensorData(data: altitudeData)
     let adjustedData = altitudeMeasurement - altitudeAdjustment
     adjustDataHistory(data: adjustedData)
-    if (currentState == .stable) {
+    if currentState == .stable {
       checkForFloorChange(data: adjustedData)
-      compensateDrift(data: adjustedData,timestamp: timestamp)
+      compensateDrift(data: adjustedData, timestamp: timestamp)
     } else {
       checkForStableFloor(data: adjustedData, timestamp: timestamp)
     }
@@ -55,9 +55,9 @@ final class AltitudeBasedFloorSensor: FloorSensor {
   }
 
   private func checkForFloorChange(data: Double) {
-    if (data > changeThreshold) {
+    if data > changeThreshold {
       currentState = .goingUp
-    } else if (data < -changeThreshold) {
+    } else if data < -changeThreshold {
       currentState = .goingDown
     }
   }
@@ -68,7 +68,7 @@ final class AltitudeBasedFloorSensor: FloorSensor {
   }
 
   private func checkForStableFloor(data: Double, timestamp: Int) {
-    if (shortStabilityMeasure < parameters.stableVarianceThreshold) {
+    if shortStabilityMeasure < parameters.stableVarianceThreshold {
       let difference: Int = Int(round(data/floorDistance))
 
       delegate.onDetectedFloorChange(floorDifference: difference, timestamp: timestamp)
@@ -79,9 +79,9 @@ final class AltitudeBasedFloorSensor: FloorSensor {
   }
 
   private func compensateDrift(data: Double, timestamp: Int) {
-    if (longStabilityMeasure < parameters.driftCompensationVarianceThreshold &&
-        timestamp - lastCompensationUpdate > parameters.driftCompensationInterval) {
-      if (abs(data) < parameters.driftCompensationAltitudeLimit) {
+    if longStabilityMeasure < parameters.driftCompensationVarianceThreshold &&
+        timestamp - lastCompensationUpdate > parameters.driftCompensationInterval {
+      if abs(data) < parameters.driftCompensationAltitudeLimit {
         altitudeAdjustment += data
         lastCompensationUpdate = timestamp
       }

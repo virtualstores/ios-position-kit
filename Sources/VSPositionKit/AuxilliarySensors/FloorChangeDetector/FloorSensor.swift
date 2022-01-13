@@ -9,7 +9,7 @@ import VSFoundation
 
 class FloorSensor: IAuxiliarySensor {
 
-  var delegate: IFloorChangeDelegate
+  weak var delegate: IFloorChangeDelegate
 
   init(delegate: IFloorChangeDelegate) {
     self.delegate = delegate
@@ -26,6 +26,4 @@ class FloorSensor: IAuxiliarySensor {
   func stop() {
     // do nothing yet, maby cleanup
   }
-
-
 }
