@@ -20,7 +20,7 @@ final public class PositionManager: IPositionKit {
 
   private let context: Context
   private var stepCount = 0
-  private var interpreter: StepDetectorStateMachine?
+  private var interpreter: StepDetectorManager?
   private var engineWrapper: EngineWrapperManager?
   private var cancellable: AnyCancellable?
   private var positionBundleCancellable: AnyCancellable?
@@ -51,7 +51,7 @@ final public class PositionManager: IPositionKit {
   }
 
   public func start() throws {
-    interpreter = StepDetectorStateMachine(delegate: self)
+    interpreter = StepDetectorManager(delegate: self)
     interpreter?.initStates()
 
     rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
@@ -98,7 +98,7 @@ final public class PositionManager: IPositionKit {
 }
 
 // MARK: IStepDetectorStateMachineDelegate
-extension PositionManager: IStepDetectorStateMachineDelegate {
+extension PositionManager: IStepDetectorManagerDelegate {
   public func onProcessed(step: StepData) {
     stepCount = stepCount + 1
     stepCountPublisher.send(stepCount)
