@@ -9,7 +9,7 @@ import VSFoundation
 
 class FloorSensor: IAuxiliarySensor {
 
-  weak var delegate: IFloorChangeDelegate
+  var delegate: IFloorChangeDelegate
 
   init(delegate: IFloorChangeDelegate) {
     self.delegate = delegate
