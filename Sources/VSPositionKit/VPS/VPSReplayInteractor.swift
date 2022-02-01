@@ -11,11 +11,11 @@ import Combine
 
 public class VPSReplayInteractor: IQPSReplayInteractor {
     public var replayInteractorDataPublisher: CurrentValueSubject<(String?, String?), Never>?
-    
+
     public func getData(identifier: String, printMissingFileException: Bool) -> String? {
         return ""
     }
-    
+
     public func postData(data: String, identifier: String) {
         replayInteractorDataPublisher?.send((identifier, data))
     }

@@ -13,11 +13,11 @@ public struct Goal {
     public let position: CGPoint
     public let data: Any?
     public let type: GoalType
-    
+
     public enum GoalType {
         case end, start, target
     }
-    
+
     public init(id: String, position: CGPoint, data: Any?, type: GoalType) {
         self.id = id
         self.position = position

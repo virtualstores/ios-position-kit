@@ -19,10 +19,10 @@ public protocol VPSWrapper {
 
     /// Publishes the device orientation or error
     var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
-    
+
     /// Publishes the illegal behaviour from vps
     var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> { get }
-    
+
     /// Publishes the bad Step Length from vps
     var badStepLengthPublisher: CurrentValueSubject<Void?, Never> { get }
 
@@ -31,7 +31,7 @@ public protocol VPSWrapper {
 
     /// Publishes  when recording  the sensors data from vps
     var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> { get }
-    
+
     /// Publishes  trolley Mode from vps
     var trolleyModePublisher: CurrentValueSubject<Int64?, Never> { get }
 
@@ -40,7 +40,7 @@ public protocol VPSWrapper {
 
     /// Publishes the floor change
     var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
-    
+
     /// Starts the vps
     func start()
 }
