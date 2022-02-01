@@ -19,8 +19,6 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/virtualstores/ios-foundation.git", .branch("develop")),
         .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .branch("master")),
-        .package(url: "https://github.com/virtualstores/ios-sensor-interpreter.git", .branch("matrix-neural-network-speedup")),
-        .package(url: "https://github.com/virtualstores/ios-engine-wrapper.git", .branch("testing-threading")),
 
     ],
     targets: [
@@ -29,9 +27,6 @@ let package = Package(
             dependencies: [
                 .product(name: "VSFoundation", package: "ios-foundation"),
                 .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
-                .product(name: "VSSensorInterpreter", package: "ios-sensor-interpreter"),
-                .product(name: "VSEngineWrapper", package: "ios-engine-wrapper"),
-
             ]),
         .testTarget(
             name: "VSPositionKitTests",
