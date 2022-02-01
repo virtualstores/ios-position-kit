@@ -8,6 +8,7 @@
 
 import Foundation
 import qps
+import CoreMotion
 
 public class QPSSensor: RawSensor {
     let motion: CMMotionManager
