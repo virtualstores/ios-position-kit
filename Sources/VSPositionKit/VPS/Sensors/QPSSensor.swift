@@ -13,7 +13,7 @@ import CoreMotion
 public class QPSSensor: RawSensor {
     let motion: CMMotionManager
 
-    var activated: Bool = false
+    var activated = false
     var timer: Timer?
 
     public init(motion: CMMotionManager) {

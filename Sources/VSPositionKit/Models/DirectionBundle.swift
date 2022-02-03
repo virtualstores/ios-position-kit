@@ -6,7 +6,6 @@
 // Copyright Virtual Stores - 2021
 
 import Foundation
-import UIKit
 
 /// Model which contains direction data 
 public struct DirectionBundle {

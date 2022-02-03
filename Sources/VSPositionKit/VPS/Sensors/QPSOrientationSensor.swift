@@ -14,5 +14,5 @@ public class QPSOrientationSensor: QPSSensor {
         .geomagnetic
     }
 
-    var counter: Int = 0
+    var counter = 0
 }

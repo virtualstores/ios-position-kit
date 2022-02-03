@@ -27,13 +27,17 @@ let package = Package(
             dependencies: [
                 .product(name: "VSFoundation", package: "ios-foundation"),
                 .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
+                "QPS",
             ]),
         .testTarget(
             name: "VSPositionKitTests",
-            dependencies: ["VSPositionKit"],
+            dependencies: ["VSPositionKit", "QPS"],
             resources: [
               .copy("TestResources/MapFence/"),
               .copy("TestResources/SensorData/")
             ]),
+        .binaryTarget(
+            name: "QPS",
+            path: "qps.xcframework"),
     ]
 )
