@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import qps
+import vps
 import CoreMotion
 
 public class QPSSensor: RawSensor {

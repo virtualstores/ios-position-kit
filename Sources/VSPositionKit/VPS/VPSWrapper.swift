@@ -44,25 +44,25 @@ public protocol VPSWrapper {
 
     /// Starts the vps
     func start()
-    
+
     /// Stop the vps
     func stop()
-    
+
     /// Start navigation setup methode
     func startNavigation(startPosition: CGPoint, startAngle: Double)
-    
+
     /// Position Sync methode
     func initPositionSync()
-    
+
     /// Set position change  methode
     func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool)
-    
+
     /// Start recording for vps
     func startRecording(startPosition: PositionBundle, currentDirection: Double)
-    
+
     /// Stop recording for vps
     func stopRecording()
-    
+
     /// Provide device start angle
     func prepareAngle()
 }

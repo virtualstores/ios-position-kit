@@ -36,9 +36,6 @@ public protocol IPositionKit {
 
   /// MapFence setup methode
   func setupMapFence(with mapData: MapFence) throws
-
-  /// Start navigation setup methode
-  func startNavigation(with direction: Double, xPosition: Double, yPosition: Double)
 }
 
 public enum PositionKitError: Error {

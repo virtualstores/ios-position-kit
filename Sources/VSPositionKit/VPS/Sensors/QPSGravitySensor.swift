@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import qps
+import vps
 
 public class QPSGravitySensor: QPSSensor {
     override public var sensorDataType: RawSensorData.SensorDataType {

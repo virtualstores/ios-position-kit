@@ -11,7 +11,7 @@ import CoreMotion
 import Combine
 import VSFoundation
 import VSSensorFusion
-import qps
+import vps
 
 public class VPSSensorManager: IQPSRawSensorManager {
     @Inject var sensorManager: SensorManager
@@ -81,7 +81,7 @@ public class VPSSensorManager: IQPSRawSensorManager {
         do {
             try sensorManager.start()
         } catch {
-            
+
         }
     }
 
@@ -140,9 +140,9 @@ public class VPSSensorManager: IQPSRawSensorManager {
               self.replayHandler?.addData(type: .rotation, data: data)
           }
     }
-    
+
     private func reportData(data: RawSensorData) { }
-    
+
     private func handleData(_ accData: RawSensorData, _ gravData: RawSensorData, _ rotData: RawSensorData, _ orienData: RawSensorData?, timeLimit: Double) {
 
     }

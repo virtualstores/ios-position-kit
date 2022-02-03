@@ -7,7 +7,7 @@
 
 import Foundation
 import VSFoundation
-import qps
+import vps
 
 extension IQPSDeviceOrientation {
     var asDeviceOrientation: DeviceOrientation? {

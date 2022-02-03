@@ -9,7 +9,8 @@ import Foundation
 import VSFoundation
 import CoreGraphics
 import Combine
-import qps
+import vps
+import VSSensorFusion
 
 public class VPSManager: VPSWrapper {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
@@ -21,60 +22,132 @@ public class VPSManager: VPSWrapper {
     public var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
     public var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-
-    /// Publishes the floor change
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
 
-    public private(set) var qpsRunning: Bool = false
+    @Inject var sensor: VPSSensorManager
+
+    public private(set) var pathfinder: BasePathfinder?
+    public private(set) var qpsRunning = false
+
+    /// vps properties
     private var qpsHandler: IQPSVPS?
-    
+    private var baseVPSHandler: BaseVPSHandler?
+    private let qpsReplayInteractor: VPSReplayInteractor
+    private var vps: IQPSVPS? { baseVPSHandler?.vps }
+    private var mapInformation: VPSMapInformation?
+
+    private var isRecording = false
+    private let isRecordPossibilityOn = false
+
+    public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
+
+        self.qpsReplayInteractor = VPSReplayInteractor()
+        mapInformation = VPSMapInformation(width: 20, height: 200, mapFenceImage: nil, mapFencePolygons: [], mapFenceScale: 20, offsetZones: [], offsetZoneScale: 1, realWorldOffset: 2, floorHeight: 3)
+    }
+
     public func start() {
         qpsRunning = true
-    }
-}
+        createBaseVPSHandler()
 
-extension VPSManager: BaseVPSHandlerDelegate {
+        guard let mapInfo = mapInformation, let handler = baseVPSHandler, !qpsRunning else {
+            return
+        }
 
-    public func onFloorChange(floorDifference: Int32, timestamp: Int64) {
-        changedFloorPublisher.send(Int(floorDifference))
+        self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: VPSUserSettings(), parameterPackageEnum: .retail, mlCommunicator: nil)
     }
-    
-    public func onIllegalBehaviour() {
-        illegalBehaviourPublisher.send(())
+
+    public func stop() {
+        if qpsRunning {
+            qpsRunning = false
+            vps?.stopNavigation()
+            qpsHandler = nil
+        }
     }
-    
-    public func onNewDebugMessage(message: String) { }
-    
-    public func onNewDeviceOrientation(orientation: IQPSDeviceOrientation) {
-        deviceOrientationPublisher.send(orientation.asDeviceOrientation)
+
+    public func startNavigation(startPosition: CGPoint, startAngle: Double) {
+        if !qpsRunning {
+            start()
+        }
+
+        vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true)
     }
-    
-    public func onNewDirectionBundle(directionBundle: DirectionBundle) {
-        // if self.qpsSensorManager.sensorEventQueue.isEmpty {
-               //    directionPublisher.send(directionBundle)
-              // }
+
+    public func initPositionSync() {
+        if qpsRunning {
+            vps?.doInitPositionSyncEvent()
+        }
     }
-    
-    public func onNewNavigationBundle(navigationBundle: NavBundle) {
-//        if let position = navigationBundle.position, let std = navigationBundle.std {//self.qpsSensorManager.sensorEventQueue.isEmpty
-//            let bundle = PositionBundle(position: CGPoint(x: position.x, y: position.y), std: Double(truncating: std))
-//            positionPublisher.send(bundle)
-//        }
+
+    public func setPathfinder(pathfinder: BasePathfinder) {
+        self.pathfinder = pathfinder
     }
-    
-    public func onPositionEvent(positionEvent: PositionEvent) { }
-    
-    public func onRescueMode(currentTime: Int64) {
-        rescueModePublisher.send(currentTime)
+
+    public func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool) {
+        if self.qpsRunning {
+            let data = VPSSyncData()
+            data.timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+            data.positions = [PointWithOffset(position: point.asPointF, offset: direction.asPointF)]
+            data.isValidSyncRotation = syncDirection
+            data.forceSyncPosition = forceSyncPosition
+            data.delayedAngle = Float(delayedAngle)
+            vps?.onPositionSyncEvent(data: data)
+        } else {
+            self.start()
+            let angle = syncDirection ? Double((atan2(direction.y, direction.x)) + 180.0) * -1.0 : Double.nan
+            self.startNavigation(startPosition: point, startAngle: angle)
+        }
     }
-    
-    public func onSensorsInitiated() {
-        self.sensorsInitiatedPublisher.send(())
+
+    public func startRecording(startPosition: PositionBundle, currentDirection: Double) {
+        if qpsRunning && isRecordPossibilityOn {
+            vps?.startRecording(startPosition: startPosition.asNavBundle, currentDirection: KotlinDouble(double: currentDirection))
+            isRecording = true
+        }
     }
-    
-    public func onTrolleyDetection(currentTime: Int64) {
-        trolleyModePublisher.send((currentTime))
+
+    public func stopRecording() {
+        if qpsRunning && isRecording {
+            vps?.stopRecording()
+            isRecording = false
+        }
     }
-    
-    public func whatToDoWithScrubbedListIfInWarehouseMode(list: NSMutableArray, timestamp: Int64) { }
+
+    public func prepareAngle() { }
+
+    private func createBaseVPSHandler() {
+        self.baseVPSHandler = BaseVPSHandler(parameterPackageEnum: .retail,
+                                             onNewNavigationBundle: { [weak self] (x, y, std, _) -> Void in
+
+            self?.updatePositionBundle(with: x, y: y, std: std)
+        },
+                                             onPositionEvent: { (_) -> Void in },
+                                             onIllegalBehaviour: { [weak self] () -> Void in
+            self?.illegalBehaviourPublisher.send(())
+        },
+                                             onTrolleyDetection: { [weak self] (currentTime) -> Void in
+            self?.trolleyModePublisher.send(Int64(truncating: currentTime))
+        },
+                                             onRescueMode: { [weak self] (currentTime) -> Void in
+            self?.rescueModePublisher.send(Int64(truncating: currentTime))
+        },
+                                             onSensorsInitiated: { [weak self] () -> Void in
+            self?.sensorsInitiatedPublisher.send(())
+        },
+                                             onNewDeviceOrientation: { [weak self] (orientation) -> Void in
+            self?.deviceOrientationPublisher.send(orientation.asDeviceOrientation)
+        },
+                                             onFloorChange: { [weak self] (floorDifferential, _) -> Void in
+            self?.changedFloorPublisher.send(Int(truncating: floorDifferential))
+        },
+                                             onNewDebugMessage: nil,
+                                             onNewDirectionBundle: { (_) -> Void in })
+    }
+
+    private func updatePositionBundle(with x: Float?, y: Float?, std: Double?) {
+        if let x = x, let y = y, let std = std {
+
+            let position = PositionBundle(x: Float(truncating: x), y: Float(truncating: y), std: Double(truncating: std))
+            positionPublisher.send(position)
+        }
+    }
 }

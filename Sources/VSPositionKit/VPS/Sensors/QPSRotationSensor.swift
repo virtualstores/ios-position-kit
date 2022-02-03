@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import qps
+import vps
 
 public class QPSRotationSensor: QPSSensor {
     override public var sensorDataType: RawSensorData.SensorDataType {
