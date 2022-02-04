@@ -143,13 +143,13 @@ public class VPSManager: VPSWrapper {
                                              onNewDebugMessage: nil,
                                              onNewDirectionBundle: { (_) -> Void in })
     }
-    
+
     private func createMapInformation(with data: MapFence) {
         let mapFaceData = MapFenceFactory.getMapFenceData(fromMapFence: data)
         let fencePolygons = mapFaceData?.polygons ?? []
         let height = mapFaceData?.height ?? 0
         let width = mapFaceData?.width ?? 0
-        
+
          mapInformation = VPSMapInformation(fHeight: 1.1, mapHeight: Int32(height), fenceImage: nil, fencePolygons: fencePolygons, fenceScale: 50, zoneScale: nil, worldOffset: 2.1, mapWidth: Int32(width))
     }
 }

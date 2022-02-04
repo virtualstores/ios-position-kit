@@ -57,4 +57,3 @@ internal class MapFenceParser: NSObject {
         return MapFenceData(width: Int(mapFence.properties.width), height: Int(mapFence.properties.height), widthInPixels: mapFence.properties.width, heightInPixels: mapFence.properties.height, polygons: output)
     }
 }
-

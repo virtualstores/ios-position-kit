@@ -24,7 +24,7 @@ public class VPSSensorManager: IQPSRawSensorManager {
     private let qpsGravitySensor: QPSGravitySensor
     private let qpsRotationSensor: QPSRotationSensor
     private let qpsAltitudeSensor: QPSAltitudeSensor
-    private var qpsOrientationSensor: QPSOrientationSensor? = nil
+    private var qpsOrientationSensor: QPSOrientationSensor?
     private let qpsAccelerationSensorUncalibrated: QPSAccelerationUncalibratedSensor? = nil
     private let qpsGyroscopeSensorUncalibrated: QPSGyroscopeUncalibratedSensor? = nil
 
@@ -43,7 +43,7 @@ public class VPSSensorManager: IQPSRawSensorManager {
     public var gravitySensor: RawSensor {
         qpsGravitySensor
     }
-    
+
     public var orientationSensor: RawSensor? {
         qpsOrientationSensor
     }
@@ -55,7 +55,7 @@ public class VPSSensorManager: IQPSRawSensorManager {
     public var gyroscopeSensorUncalibrated: RawSensor? {
         qpsGyroscopeSensorUncalibrated
     }
-    
+
     public var barometerSensor: RawSensor?
     public var lockedSensor: RawSensor?
     public var luxSensor: RawSensor?
@@ -68,7 +68,7 @@ public class VPSSensorManager: IQPSRawSensorManager {
         self.qpsGravitySensor = QPSGravitySensor(motion: motion)
         self.qpsRotationSensor = QPSRotationSensor(motion: motion)
         self.qpsAltitudeSensor = QPSAltitudeSensor(motion: motion)
-        
+
         bindPublishers()
     }
 
