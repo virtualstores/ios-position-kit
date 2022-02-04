@@ -35,31 +35,31 @@ public final class VPSPathfinderAdapter: PathfinderProtocol {
     public func setUserPosition(position: CGPoint?) {
         self.vpsPathfinder.setUserPosition(position: position?.asPointF)
     }
-    
+
     public func add(goal: Goal, completion: @escaping () -> Void) {
         self.vpsPathfinder.addGoal(goal: goal.asVPSGoal, callback: completion)
     }
-    
+
     public func add(goals: [Goal], completion: @escaping () -> Void) {
         self.vpsPathfinder.addGoals(goals: goals.map { $0.asVPSGoal }, callback: completion)
     }
-    
+
     public func set(goals: [Goal], completion: @escaping () -> Void) {
         self.vpsPathfinder.setGoals(goals: goals.map { $0.asVPSGoal }, callback: completion)
     }
-    
+
     public func remove(goal: Goal, completion: @escaping () -> Void) {
         self.vpsPathfinder.removeGoal(id: goal.id, callback: completion)
     }
-    
+
     public func remove(goals: [Goal], completion: @escaping () -> Void) {
         self.vpsPathfinder.removeGoals(ids: goals.map { $0.id }, callback: completion)
     }
-    
+
     public func popGoal() {
         self.vpsPathfinder.popGoal()
     }
-    
+
     public func forceRefresh(withTSP: Bool, overridePosition: CGPoint?, completion: @escaping () -> Void) {
         self.vpsPathfinder.forceRefresh(withTSP: withTSP, overridePosition: overridePosition?.asPointF, callback: completion)
     }

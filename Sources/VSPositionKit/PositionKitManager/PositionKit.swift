@@ -32,7 +32,7 @@ public protocol IPositionKit {
   func setBackgroundAccess(isActive: Bool)
 
   /// MapFence setup methode
-  func setupMapFence(with mapData: MapFence) throws
+  func setupMapFence(with mapData: MapFence)
 }
 
 public enum PositionKitError: Error {
