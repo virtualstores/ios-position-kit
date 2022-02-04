@@ -9,7 +9,7 @@ import Foundation
 import vps
 import Combine
 
-public class VPSReplayInteractor: IQPSReplayInteractor {
+public final class VPSReplayInteractor: IQPSReplayInteractor {
     public var replayInteractorDataPublisher: CurrentValueSubject<(String?, String?), Never>?
 
     public func getData(identifier: String, printMissingFileException: Bool) -> String? {

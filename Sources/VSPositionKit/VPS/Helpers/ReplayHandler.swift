@@ -9,7 +9,7 @@
 import Foundation
 import VSFoundation
 
-class ReplayHandler {
+final class ReplayHandler {
     var accelerationData: [MotionSensorData] = []
     var gravityData: [MotionSensorData] = []
     var rotationData: [MotionSensorData] = []

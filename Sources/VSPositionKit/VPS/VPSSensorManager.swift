@@ -13,7 +13,7 @@ import VSFoundation
 import VSSensorFusion
 import vps
 
-public class VPSSensorManager: IQPSRawSensorManager {
+public final class VPSSensorManager: IQPSRawSensorManager {
     @Inject var sensorManager: SensorManager
 
     private var replayHandler: ReplayHandler?

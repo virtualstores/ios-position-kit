@@ -9,7 +9,7 @@ import Foundation
 import vps
 import UIKit
 
-public class VPSMapInformation: IQPSMapInformation {
+public final class VPSMapInformation: IQPSMapInformation {
     let fHeight: Double?
     let mapHeight: Int32
     let fenceImage: UIImage?

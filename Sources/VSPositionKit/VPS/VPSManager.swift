@@ -12,7 +12,7 @@ import Combine
 import vps
 import VSSensorFusion
 
-public class VPSManager: VPSWrapper {
+public final class VPSManager: VPSWrapper {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
     public var directionPublisher: CurrentValueSubject<DirectionBundle?, VPSWrapperError> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)

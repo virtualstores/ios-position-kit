@@ -8,7 +8,7 @@
 import Foundation
 import vps
 
-public class VPSSyncData: IQPSSyncData {
+public final class VPSSyncData: IQPSSyncData {
     public var forceSyncPosition: Bool = false
     public var isValidSyncRotation: Bool = false
     public var positions: [PointWithOffset] = []
