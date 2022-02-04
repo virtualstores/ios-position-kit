@@ -20,55 +20,55 @@ public class VPSSensorManager: IQPSRawSensorManager {
     private var motion: MotionSensorData?
     private var cancellable: AnyCancellable?
 
+    private let qpsAccelerationSensor: QPSAccelerationSensor
+    private let qpsGravitySensor: QPSGravitySensor
+    private let qpsRotationSensor: QPSRotationSensor
+    private let qpsAltitudeSensor: QPSAltitudeSensor
+    private var qpsOrientationSensor: QPSOrientationSensor? = nil
+    private let qpsAccelerationSensorUncalibrated: QPSAccelerationUncalibratedSensor? = nil
+    private let qpsGyroscopeSensorUncalibrated: QPSGyroscopeUncalibratedSensor? = nil
+
     public var accelerationSensor: RawSensor {
-    // TODO: use sensorManager.motion
-        QPSAccelerationSensor(motion: CMMotionManager())
+        qpsAccelerationSensor
     }
 
     public var accelerationSensorUncalibrated: RawSensor? {
-        nil
+        qpsAccelerationSensorUncalibrated
     }
 
     public var altitudeSensor: RawSensor? {
-        nil
+        qpsAltitudeSensor
     }
 
-    public var barometerSensor: RawSensor? {
-        nil
-    }
     public var gravitySensor: RawSensor {
-        // TODO: use sensorManager.motion
-        QPSGravitySensor(motion: CMMotionManager())
+        qpsGravitySensor
     }
-
-    public var gyroscopeSensorUncalibrated: RawSensor? {
-        nil
-    }
-
-    public var lockedSensor: RawSensor? {
-        nil
-    }
-
-    public var luxSensor: RawSensor? {
-        nil
-    }
-
+    
     public var orientationSensor: RawSensor? {
-        nil
+        qpsOrientationSensor
     }
 
     public var rotationSensor: RawSensor {
-        // TODO: use sensorManager.motion
-        QPSRotationSensor(motion: CMMotionManager())
+       qpsRotationSensor
     }
 
-    public var screenBrightnessSensor: RawSensor? {
-        nil
+    public var gyroscopeSensorUncalibrated: RawSensor? {
+        qpsGyroscopeSensorUncalibrated
     }
+    
+    public var barometerSensor: RawSensor?
+    public var lockedSensor: RawSensor?
+    public var luxSensor: RawSensor?
+    public var screenBrightnessSensor: RawSensor?
 
     public let systemType: IQPSSystemType = IQPSSystemType.ios
 
-    public init() {
+    public init(with motion: CMMotionManager) {
+        self.qpsAccelerationSensor = QPSAccelerationSensor(motion: motion)
+        self.qpsGravitySensor = QPSGravitySensor(motion: motion)
+        self.qpsRotationSensor = QPSRotationSensor(motion: motion)
+        self.qpsAltitudeSensor = QPSAltitudeSensor(motion: motion)
+        
         bindPublishers()
     }
 
@@ -141,7 +141,16 @@ public class VPSSensorManager: IQPSRawSensorManager {
           }
     }
 
-    private func reportData(data: RawSensorData) { }
+    private func reportData(data: RawSensorData) {
+            switch data.sensorDataType {
+            case .acceleration: self.qpsAccelerationSensor.onNewData(data: data)
+            case .gravity: self.qpsGravitySensor.onNewData(data: data)
+            case .rotation: self.qpsRotationSensor.onNewData(data: data)
+            case .geomagnetic: self.qpsOrientationSensor?.onNewData(data: data)
+            case .altitude: self.qpsAccelerationSensor.onNewData(data: data)
+            default: break
+            }
+    }
 
     private func handleData(_ accData: RawSensorData, _ gravData: RawSensorData, _ rotData: RawSensorData, _ orienData: RawSensorData?, timeLimit: Double) {
 

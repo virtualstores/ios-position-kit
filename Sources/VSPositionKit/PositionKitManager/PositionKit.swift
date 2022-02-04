@@ -31,9 +31,6 @@ public protocol IPositionKit {
   /// Temporary setter for activating and deactivating background access
   func setBackgroundAccess(isActive: Bool)
 
-  /// Temporary MapFence setup methode which will be used from old app
-  func setupMapFence(with mapData: Data) throws
-
   /// MapFence setup methode
   func setupMapFence(with mapData: MapFence) throws
 }
