@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 import VSFoundation
-import qps
+import vps
 
 // MARK: - Extensions for VPS
 extension CGPoint {
@@ -58,6 +58,13 @@ extension IPathfinderGoalType {
 
 extension IPathfinderPath {
     var asPath: Path {
-        Path(head: head.map { $0.asCGPoint }, body: body.map { $0.asCGPoint }, tail: tail.map { $0.asCGPoint })
+        Path(head: head.map { $0.asCGPoint }, body: body.flatMap({ $0 }).map { $0.asCGPoint }, tail: tail.map { $0.asCGPoint })
+    }
+}
+
+extension PositionBundle {
+    var asNavBundle: NavBundle {
+        let timestampLocal = Int64(Date().timeIntervalSince1970 * 1000)
+        return NavBundle(position: self.position.asPointF, timestamp: timestampLocal, std: KotlinFloat(float: Float(self.std!)))
     }
 }

@@ -41,19 +41,18 @@ public class VPSManager: VPSWrapper {
 
     public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
 
-        self.qpsReplayInteractor = VPSReplayInteractor()
-        mapInformation = VPSMapInformation(width: 20, height: 200, mapFenceImage: nil, mapFencePolygons: [], mapFenceScale: 20, offsetZones: [], offsetZoneScale: 1, realWorldOffset: 2, floorHeight: 3)
+        qpsReplayInteractor = VPSReplayInteractor()
+        createMapInformation(with: mapData)
     }
 
     public func start() {
-        qpsRunning = true
         createBaseVPSHandler()
 
         guard let mapInfo = mapInformation, let handler = baseVPSHandler, !qpsRunning else {
             return
         }
-
-        self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: VPSUserSettings(), parameterPackageEnum: .retail, mlCommunicator: nil)
+        qpsRunning = true
+        qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: VPSUserSettings(), parameterPackageEnum: .retail, mlCommunicator: nil)
     }
 
     public func stop() {
@@ -117,8 +116,10 @@ public class VPSManager: VPSWrapper {
     private func createBaseVPSHandler() {
         self.baseVPSHandler = BaseVPSHandler(parameterPackageEnum: .retail,
                                              onNewNavigationBundle: { [weak self] (x, y, std, _) -> Void in
-
-            self?.updatePositionBundle(with: x, y: y, std: std)
+            if let x = x, let y = y, let std = std {
+                let position =  PositionBundle(x: Float(truncating: x), y: Float(truncating: y), std: Float(truncating: std))
+                self?.positionPublisher.send(position)
+            }
         },
                                              onPositionEvent: { (_) -> Void in },
                                              onIllegalBehaviour: { [weak self] () -> Void in
@@ -142,12 +143,13 @@ public class VPSManager: VPSWrapper {
                                              onNewDebugMessage: nil,
                                              onNewDirectionBundle: { (_) -> Void in })
     }
-
-    private func updatePositionBundle(with x: Float?, y: Float?, std: Double?) {
-        if let x = x, let y = y, let std = std {
-
-            let position = PositionBundle(x: Float(truncating: x), y: Float(truncating: y), std: Double(truncating: std))
-            positionPublisher.send(position)
-        }
+    
+    private func createMapInformation(with data: MapFence) {
+        let mapFaceData = MapFenceFactory.getMapFenceData(fromMapFence: data)
+        let fencePolygons = mapFaceData?.polygons ?? []
+        let height = mapFaceData?.height ?? 0
+        let width = mapFaceData?.width ?? 0
+        
+         mapInformation = VPSMapInformation(fHeight: 1.1, mapHeight: Int32(height), fenceImage: nil, fencePolygons: fencePolygons, fenceScale: 50, zoneScale: nil, worldOffset: 2.1, mapWidth: Int32(width))
     }
 }

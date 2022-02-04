@@ -10,35 +10,42 @@ import vps
 import UIKit
 
 public class VPSMapInformation: IQPSMapInformation {
-    public let width: Int32
-    public let height: Int32
-    public let mapFenceImage: UIImage?
-    public let mapFencePolygons: [[PointF]]
-    public let mapFenceScale: Double
-    public let offsetZones: [IQPSOffsetZone]
-    public let offsetZoneScale: KotlinDouble?
-    public let realWorldOffset: Double
-    public let floorHeight: KotlinDouble?
+    let fHeight: Double?
+    let mapHeight: Int32
+    let fenceImage: UIImage?
+    let fencePolygons: [[PointF]]
+    let fenceScale: Double
+    let zoneScale: Double?
+    let worldOffset: Double
+    let mapWidth: Int32
 
-    public init(
-        width: Int32,
-        height: Int32,
-        mapFenceImage: UIImage? = nil,
-        mapFencePolygons: [[PointF]]?,
-        mapFenceScale: Double = 50.0,
-        offsetZones: [IQPSOffsetZone],
-        offsetZoneScale: Double? = 1000.0,
-        realWorldOffset: Double = 0.0,
-        floorHeight: KotlinDouble?
-    ) {
-        self.width = width
-        self.height = height
-        self.mapFenceImage = mapFenceImage
-        self.mapFencePolygons = mapFencePolygons ?? [[]]
-        self.mapFenceScale = mapFenceScale
-        self.offsetZones = offsetZones
-        self.offsetZoneScale = KotlinDouble.init(double: offsetZoneScale!)
-        self.realWorldOffset = realWorldOffset
-        self.floorHeight = floorHeight
+    public init(fHeight: Double, mapHeight: Int32, fenceImage: UIImage?, fencePolygons: [[PointF]],
+                fenceScale: Double, zoneScale: Double?, worldOffset: Double, mapWidth: Int32) {
+        self.mapHeight = mapHeight
+        self.fHeight = fHeight
+        self.fenceImage = fenceImage
+        self.fencePolygons = fencePolygons
+        self.fenceScale = fenceScale
+        self.zoneScale = zoneScale
+        self.worldOffset = worldOffset
+        self.mapWidth = mapWidth
     }
+
+    public var floorHeight: KotlinDouble? { nil }
+
+    public var height: Int32 { mapHeight }
+
+    public var mapFenceImage: UIImage? { fenceImage }
+
+    public var mapFencePolygons: [[PointF]] { fencePolygons }
+
+    public var mapFenceScale: Double { fenceScale }
+
+    public var offsetZoneScale: KotlinDouble? { nil }
+
+    public var offsetZones: [IQPSOffsetZone] { [] }
+
+    public var realWorldOffset: Double { worldOffset }
+
+    public var width: Int32 { mapWidth }
 }
