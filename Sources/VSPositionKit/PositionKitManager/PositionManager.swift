@@ -47,7 +47,12 @@ public final class PositionManager: IPositionKit {
             } receiveValue: { data in
                 self.rotationSensor?.input(motionSensorData: data)
             }
+        
         try sensor.start()
+    }
+    
+    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
+        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction)
     }
 
     public func stop() {
@@ -63,6 +68,7 @@ public final class PositionManager: IPositionKit {
 
     func bindEnginePublishers() {
         self.positionBundleCancellable = self.vps?.positionPublisher
+            .compactMap { $0 }
             .sink { data in
                 print(data)
             } receiveValue: { [weak self] positionBundle in

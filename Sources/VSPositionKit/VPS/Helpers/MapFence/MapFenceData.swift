@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import vps
+import qps
 
 public struct MapFenceData {
     private let flippedYAxis: Bool

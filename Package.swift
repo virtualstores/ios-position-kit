@@ -25,9 +25,9 @@ let package = Package(
         .target(
             name: "VSPositionKit",
             dependencies: [
+                "QPS",
                 .product(name: "VSFoundation", package: "ios-foundation"),
                 .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
-                "QPS",
             ]),
         .testTarget(
             name: "VSPositionKitTests",

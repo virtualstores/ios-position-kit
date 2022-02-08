@@ -23,7 +23,7 @@ public protocol IPositionKit {
   var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }
 
   /// Starts position managers. Will produce results to positionPublisher.
-  func start() throws
+    func start() throws
 
   /// Stops position managers.
   func stop()
@@ -33,6 +33,9 @@ public protocol IPositionKit {
 
   /// MapFence setup methode
   func setupMapFence(with mapData: MapFence)
+    
+    /// Start navigation setup methode
+    func startNavigation(with direction: Double, xPosition: Double, yPosition: Double)
 }
 
 public enum PositionKitError: Error {

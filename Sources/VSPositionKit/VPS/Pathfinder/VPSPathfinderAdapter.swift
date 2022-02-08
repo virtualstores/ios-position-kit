@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import CoreGraphics
 import VSFoundation
-import vps
+import qps
 
 public final class VPSPathfinderAdapter: PathfinderProtocol {
     public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> {

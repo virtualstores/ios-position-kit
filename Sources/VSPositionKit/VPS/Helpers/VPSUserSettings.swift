@@ -6,10 +6,12 @@
 // Copyright Virtual Stores - 2022
 
 import Foundation
-import vps
+import qps
 
 public final class VPSUserSettings: IQPSUserSettings {
     public var speedRegressionIntercept: KotlinFloat?
+    
     public var speedRegressionSlope: KotlinFloat?
+    
     public var userHeight: KotlinFloat?
 }

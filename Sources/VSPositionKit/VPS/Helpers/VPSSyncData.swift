@@ -6,7 +6,7 @@
 // Copyright Virtual Stores - 2021
 
 import Foundation
-import vps
+import qps
 
 public final class VPSSyncData: IQPSSyncData {
     public var forceSyncPosition: Bool = false

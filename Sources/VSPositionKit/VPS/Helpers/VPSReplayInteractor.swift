@@ -6,7 +6,7 @@
 // Copyright Virtual Stores - 2021
 
 import Foundation
-import vps
+import qps
 import Combine
 
 public final class VPSReplayInteractor: IQPSReplayInteractor {

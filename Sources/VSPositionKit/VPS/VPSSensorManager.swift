@@ -11,12 +11,12 @@ import CoreMotion
 import Combine
 import VSFoundation
 import VSSensorFusion
-import vps
+import qps
 
 public final class VPSSensorManager: IQPSRawSensorManager {
-    @Inject var sensorManager: SensorManager
+     var sensorManager: SensorManager
 
-    private var replayHandler: ReplayHandler?
+    private var replayHandler = ReplayHandler()
     private var motion: MotionSensorData?
     private var cancellable: AnyCancellable?
 
@@ -63,12 +63,18 @@ public final class VPSSensorManager: IQPSRawSensorManager {
 
     public let systemType: IQPSSystemType = IQPSSystemType.ios
 
-    public init(with motion: CMMotionManager) {
-        self.qpsAccelerationSensor = QPSAccelerationSensor(motion: motion)
-        self.qpsGravitySensor = QPSGravitySensor(motion: motion)
-        self.qpsRotationSensor = QPSRotationSensor(motion: motion)
-        self.qpsAltitudeSensor = QPSAltitudeSensor(motion: motion)
+    public init(sensorManager: SensorManager) {
+        self.sensorManager = sensorManager
+        
+        self.qpsAccelerationSensor = QPSAccelerationSensor(motion: sensorManager.motion)
+        self.qpsGravitySensor = QPSGravitySensor(motion:  sensorManager.motion)
+        self.qpsRotationSensor = QPSRotationSensor(motion:  sensorManager.motion)
+        self.qpsAltitudeSensor = QPSAltitudeSensor(motion:  sensorManager.motion)
 
+        self.qpsAccelerationSensor.delegate = self
+        self.qpsGravitySensor.delegate = self
+        self.qpsOrientationSensor?.delegate = self
+        
         bindPublishers()
     }
 
@@ -117,6 +123,20 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         self.clearAllObservers()
     }
 
+    public func startAllSensors() {
+        self.accelerationSensor.start()
+        self.gravitySensor.start()
+        self.rotationSensor.start()
+        self.orientationSensor?.start()
+        self.accelerationSensorUncalibrated?.start()
+        self.gyroscopeSensorUncalibrated?.start()
+        self.altitudeSensor?.start()
+        self.lockedSensor?.start()
+        self.luxSensor?.start()
+        self.screenBrightnessSensor?.start()
+        self.barometerSensor?.start()
+    }
+    
     public func stopAllSensors() {
         self.accelerationSensor.stop()
         self.gravitySensor.stop()
@@ -136,11 +156,37 @@ public final class VPSSensorManager: IQPSRawSensorManager {
           .compactMap { $0 }
           .sink { _ in
               Logger.init().log(message: "sensorPublisher error")
-          } receiveValue: { data in
-              self.replayHandler?.addData(type: .rotation, data: data)
+          } receiveValue: { [weak self] data in
+              self?.reportSensorData(for: data)
           }
     }
 
+    private func reportSensorData(for data: MotionSensorData) {
+        let accelerationArr = KotlinFloatArray(size: Int32(data.acceleration.data.count))
+        let gravityArr = KotlinFloatArray(size: Int32(data.gravity.data.count))
+        let rotationArr = KotlinFloatArray(size: Int32(data.rotation.data.count))
+
+        for (index, value) in data.acceleration.data.enumerated() {
+            accelerationArr.set(index: Int32(index), value: value.asFloat)
+        }
+        
+        for (index, value) in data.gravity.data.enumerated() {
+            gravityArr.set(index: Int32(index), value: value.asFloat)
+        }
+        
+        for (index, value) in data.rotation.data.enumerated() {
+            rotationArr.set(index: Int32(index), value: value.asFloat)
+        }
+
+        let accData = RawSensorData(values: accelerationArr, sensorDataType: .acceleration, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let gravData = RawSensorData(values: gravityArr, sensorDataType: self.gravitySensor.sensorDataType, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let rotData = RawSensorData(values: rotationArr, sensorDataType: self.rotationSensor.sensorDataType, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        
+        self.reportData(data: accData)
+        self.reportData(data: gravData)
+        self.reportData(data: rotData)
+    }
+    
     private func reportData(data: RawSensorData) {
             switch data.sensorDataType {
             case .acceleration: self.qpsAccelerationSensor.onNewData(data: data)
@@ -154,5 +200,15 @@ public final class VPSSensorManager: IQPSRawSensorManager {
 
     private func handleData(_ accData: RawSensorData, _ gravData: RawSensorData, _ rotData: RawSensorData, _ orienData: RawSensorData?, timeLimit: Double) {
 
+    }
+}
+
+extension VPSSensorManager: RawSensorDelegate {
+    func onStart() {
+        self.start()
+    }
+    
+    func onStop() {
+        self.stop()
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import VSFoundation
 import CoreGraphics
 import Combine
-import vps
+import qps
 import VSSensorFusion
 
 public final class VPSManager: VPSWrapper {
@@ -36,13 +36,15 @@ public final class VPSManager: VPSWrapper {
     private var vps: IQPSVPS? { baseVPSHandler?.vps }
     private var mapInformation: VPSMapInformation?
 
+    private let shouldRecord: Bool
     private var isRecording = false
     private let isRecordPossibilityOn = false
 
     public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
-
-        qpsReplayInteractor = VPSReplayInteractor()
-        createMapInformation(with: mapData)
+        self.shouldRecord = shouldRecord
+        self.qpsReplayInteractor = VPSReplayInteractor()
+        
+        self.createMapInformation(with: mapData)
     }
 
     public func start() {
@@ -52,7 +54,11 @@ public final class VPSManager: VPSWrapper {
             return
         }
         qpsRunning = true
+        
         qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: VPSUserSettings(), parameterPackageEnum: .retail, mlCommunicator: nil)
+                
+        
+        sensor.startAllSensors()
     }
 
     public func stop() {
@@ -145,11 +151,24 @@ public final class VPSManager: VPSWrapper {
     }
 
     private func createMapInformation(with data: MapFence) {
-        let mapFaceData = MapFenceFactory.getMapFenceData(fromMapFence: data)
-        let fencePolygons = mapFaceData?.polygons ?? []
-        let height = mapFaceData?.height ?? 0
-        let width = mapFaceData?.width ?? 0
+        guard let mapFenceData = MapFenceFactory.getMapFenceData(fromMapFence: data) else { return }
+        
+        let fencePolygons = mapFenceData.polygons
+        let height = mapFenceData.height
+        let width = Int32(mapFenceData.width - (mapFenceData.width % 16))
+        
+        //TODO: create offsetZones
+        let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
+        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: offsetZones, realWorldOffset: 0.0, floorHeight: 3)
+    }
+}
 
-         mapInformation = VPSMapInformation(fHeight: 1.1, mapHeight: Int32(height), fenceImage: nil, fencePolygons: fencePolygons, fenceScale: 50, zoneScale: nil, worldOffset: 2.1, mapWidth: Int32(width))
+extension VPSManager: RawSensorDelegate {
+    func onStart() {
+        sensor.start()
+    }
+    
+    func onStop() {
+        sensor.stop()
     }
 }

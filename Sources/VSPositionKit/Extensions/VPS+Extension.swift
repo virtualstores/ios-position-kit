@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 import VSFoundation
-import vps
+import qps
 
 // MARK: - Extensions for VPS
 extension CGPoint {

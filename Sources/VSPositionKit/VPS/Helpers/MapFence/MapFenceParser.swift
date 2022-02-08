@@ -9,7 +9,7 @@
 import UIKit
 import CoreFoundation
 import VSFoundation
-import vps
+import qps
 
 private typealias Polygon = [[CGPoint]]
 private typealias PolygonJson = [String: AnyObject]

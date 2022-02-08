@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import vps
+import qps
 
 class QPSAccelerationUncalibratedSensor: QPSSensor {
     override public var sensorDataType: RawSensorData.SensorDataType {
