@@ -14,18 +14,16 @@ import CoreGraphics
 
 public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
-    public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
     private let context: Context
-    private var stepCount = 0
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
     @Inject var backgroundAccess: IBackgroundAccessManager
     @Inject var sensor: ISensorManager
-    public var vps: VPSManager?
+    private var vps: VPSManager?
 
     public init(context: Context = Context(PositionKitConfig())) {
         self.context = context
@@ -43,7 +41,7 @@ public final class PositionManager: IPositionKit {
         cancellable = sensor.sensorPublisher
             .compactMap { $0 }
             .sink { _ in
-                self.positionPublisher.send(completion: .failure(PositionKitError.noData))
+               // self.positionPublisher.send(completion: .failure(PositionKitError.noData))
             } receiveValue: { data in
                 self.rotationSensor?.input(motionSensorData: data)
             }
@@ -56,7 +54,6 @@ public final class PositionManager: IPositionKit {
     }
 
     public func stop() {
-        stepCount = 0
         sensor.stop()
         vps?.stop()
         cancellable?.cancel()
@@ -72,11 +69,7 @@ public final class PositionManager: IPositionKit {
             .sink { data in
                 print(data)
             } receiveValue: { [weak self] positionBundle in
-                guard let self = self else { return }
-
-                self.stepCount = self.stepCount + 1
-                self.stepCountPublisher.send(self.stepCount)
-                self.positionPublisher.send(positionBundle)
+                self?.positionPublisher.send(positionBundle)
             }
     }
 
