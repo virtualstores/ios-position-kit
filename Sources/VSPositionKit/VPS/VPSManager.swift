@@ -159,7 +159,7 @@ public final class VPSManager: VPSWrapper {
         
         //TODO: create offsetZones
         let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
-        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: offsetZones, realWorldOffset: 0.0, floorHeight: 3)
+        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: offsetZones, realWorldOffset: 0.0, floorHeight: 3.0)
     }
 }
 

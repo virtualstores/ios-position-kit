@@ -29,7 +29,7 @@ public protocol IPositionKit {
     func setBackgroundAccess(isActive: Bool)
     
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions)
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double)

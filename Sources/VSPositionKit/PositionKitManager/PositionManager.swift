@@ -29,9 +29,10 @@ public final class PositionManager: IPositionKit {
         self.context = context
     }
 
-    public func setupMapFence(with mapData: MapFence) {
-        vps = VPSManager(size: CGSize(width: 100, height: 200), shouldRecord: true, floorHeightDiffInMeters: 3.0, mapData: mapData)
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions) {
+        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: true, floorHeightDiffInMeters: 3.0, mapData: mapData)
         vps?.start()
+        
         bindEnginePublishers()
     }
 
@@ -41,7 +42,6 @@ public final class PositionManager: IPositionKit {
         cancellable = sensor.sensorPublisher
             .compactMap { $0 }
             .sink { _ in
-               // self.positionPublisher.send(completion: .failure(PositionKitError.noData))
             } receiveValue: { data in
                 self.rotationSensor?.input(motionSensorData: data)
             }
@@ -66,8 +66,8 @@ public final class PositionManager: IPositionKit {
     func bindEnginePublishers() {
         self.positionBundleCancellable = self.vps?.positionPublisher
             .compactMap { $0 }
-            .sink { data in
-                print(data)
+            .sink { [weak self] _ in
+                self?.positionPublisher.send(completion: .failure(PositionKitError.noData))
             } receiveValue: { [weak self] positionBundle in
                 self?.positionPublisher.send(positionBundle)
             }
