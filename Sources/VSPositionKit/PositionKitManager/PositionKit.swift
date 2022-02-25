@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 import VSFoundation
+import CoreLocation
 
 /// Manager for PositionKit data. Will give positions
 public protocol IPositionKit {
@@ -16,8 +17,8 @@ public protocol IPositionKit {
     /// Publishes the position data or error
     var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError> { get }
 
-    /// Publishes the latest altimeter data.
-    var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, PositionKitError> { get }
+    /// Publishes the current heading from CLLocationManager
+    var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> { get }
     
     /// Publishes if all packages are ready to start  or error
     var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }

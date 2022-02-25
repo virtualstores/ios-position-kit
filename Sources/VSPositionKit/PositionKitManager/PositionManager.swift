@@ -11,16 +11,17 @@ import Combine
 import VSSensorFusion
 import VSFoundation
 import CoreGraphics
+import CoreLocation
 
 public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
-    public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, PositionKitError> = .init(nil)
+    public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
     private let context: Context
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
-    private var altimeterCancellable: AnyCancellable?
+    private var locationHeadingCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
     @Inject var backgroundAccess: IBackgroundAccessManager
@@ -74,12 +75,12 @@ public final class PositionManager: IPositionKit {
                 self?.positionPublisher.send(positionBundle)
             }
 
-        self.altimeterCancellable = self.sensor.altimeterPublisher
+        self.locationHeadingCancellable = self.backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
-            .sink{ error in
+            .sink { error in
                 print(error)
             } receiveValue: { data in
-                self.altimeterPublisher.send(data)
+                self.locationHeadingPublisher.send(data)
             }
     }
 
