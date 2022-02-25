@@ -79,8 +79,8 @@ public final class PositionManager: IPositionKit {
             .compactMap { $0 }
             .sink { error in
                 print(error)
-            } receiveValue: { data in
-                self.locationHeadingPublisher.send(data)
+            } receiveValue: { [weak self] data in
+                self?.locationHeadingPublisher.send(data)
             }
     }
 
