@@ -1,6 +1,0 @@
-framework module vps {
-    umbrella header "vps.h"
-
-    export *
-    module * { export * }
-}

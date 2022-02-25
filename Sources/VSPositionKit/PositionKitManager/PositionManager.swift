@@ -14,11 +14,13 @@ import CoreGraphics
 
 public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
+    public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, PositionKitError> = .init(nil)
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
     private let context: Context
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
+    private var altimeterCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
     @Inject var backgroundAccess: IBackgroundAccessManager
@@ -49,8 +51,8 @@ public final class PositionManager: IPositionKit {
         try sensor.start()
     }
     
-    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
-        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction)
+    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool) {
+        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
     }
 
     public func stop() {
@@ -66,10 +68,18 @@ public final class PositionManager: IPositionKit {
     func bindEnginePublishers() {
         self.positionBundleCancellable = self.vps?.positionPublisher
             .compactMap { $0 }
-            .sink { data in
-                print(data)
+            .sink { error in
+                print(error)
             } receiveValue: { [weak self] positionBundle in
                 self?.positionPublisher.send(positionBundle)
+            }
+
+        self.altimeterCancellable = self.sensor.altimeterPublisher
+            .compactMap { $0 }
+            .sink{ error in
+                print(error)
+            } receiveValue: { data in
+                self.altimeterPublisher.send(data)
             }
     }
 

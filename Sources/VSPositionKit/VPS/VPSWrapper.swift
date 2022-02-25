@@ -49,13 +49,13 @@ public protocol VPSWrapper {
     func stop()
 
     /// Start navigation setup methode
-    func startNavigation(startPosition: CGPoint, startAngle: Double)
+    func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool)
 
     /// Position Sync methode
     func initPositionSync()
 
     /// Set position change  methode
-    func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool)
+    func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool, uncertainAngle: Bool)
 
     /// Start recording for vps
     func startRecording(startPosition: PositionBundle, currentDirection: Double)

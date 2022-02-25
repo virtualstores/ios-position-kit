@@ -17,15 +17,12 @@ protocol RawSensorDelegate: AnyObject {
 }
 
 public class QPSSensor: RawSensor {
-    let motion: CMMotionManager
     var activated = false
     var timer: Timer?
     
     weak var delegate: RawSensorDelegate?
     
-    public init(motion: CMMotionManager) {
-        self.motion = motion
-    }
+    public override init() { }
     
     override public func start() {
         self.activated = true
