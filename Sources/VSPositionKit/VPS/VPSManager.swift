@@ -69,12 +69,12 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-    public func startNavigation(startPosition: CGPoint, startAngle: Double) {
+    public func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool) {
         if !qpsRunning {
             start()
         }
 
-        vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true)
+        vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true/*, uncertainAngle: uncertainAngle*/)
     }
 
     public func initPositionSync() {
@@ -87,7 +87,7 @@ public final class VPSManager: VPSWrapper {
         self.pathfinder = pathfinder
     }
 
-    public func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool) {
+    public func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool, uncertainAngle: Bool) {
         if self.qpsRunning {
             let data = VPSSyncData()
             data.timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
@@ -95,11 +95,11 @@ public final class VPSManager: VPSWrapper {
             data.isValidSyncRotation = syncDirection
             data.forceSyncPosition = forceSyncPosition
             data.delayedAngle = Float(delayedAngle)
-            vps?.onPositionSyncEvent(data: data)
+            vps?.onPositionSyncEvent(data: data/*, uncertainAngle: uncertainAngle*/)
         } else {
             self.start()
             let angle = syncDirection ? Double((atan2(direction.y, direction.x)) + 180.0) * -1.0 : Double.nan
-            self.startNavigation(startPosition: point, startAngle: angle)
+            self.startNavigation(startPosition: point, startAngle: angle, uncertainAngle: uncertainAngle)
         }
     }
 
@@ -158,8 +158,8 @@ public final class VPSManager: VPSWrapper {
         let width = Int32(mapFenceData.width - (mapFenceData.width % 16))
         
         //TODO: create offsetZones
-        let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
-        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: offsetZones, realWorldOffset: 0.0, floorHeight: 3.0)
+        //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
+        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: [], realWorldOffset: 0.0, floorHeight: 3)
     }
 }
 

@@ -11,14 +11,17 @@ import Combine
 import VSSensorFusion
 import VSFoundation
 import CoreGraphics
+import CoreLocation
 
 public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
+    public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
 
     private let context: Context
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
+    private var locationHeadingCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
     @Inject var backgroundAccess: IBackgroundAccessManager
@@ -49,8 +52,8 @@ public final class PositionManager: IPositionKit {
         try sensor.start()
     }
     
-    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
-        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction)
+    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool) {
+        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
     }
 
     public func stop() {
@@ -70,6 +73,14 @@ public final class PositionManager: IPositionKit {
                 self?.positionPublisher.send(completion: .failure(PositionKitError.noData))
             } receiveValue: { [weak self] positionBundle in
                 self?.positionPublisher.send(positionBundle)
+            }
+
+        self.locationHeadingCancellable = self.backgroundAccess.locationHeadingPublisher
+            .compactMap { $0 }
+            .sink { error in
+                print(error)
+            } receiveValue: { [weak self] data in
+                self?.locationHeadingPublisher.send(data)
             }
     }
 

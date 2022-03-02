@@ -18,7 +18,8 @@ public final class VPSSensorManager: IQPSRawSensorManager {
 
     private var replayHandler = ReplayHandler()
     private var motion: MotionSensorData?
-    private var cancellable: AnyCancellable?
+    private var motionCancellable: AnyCancellable?
+    private var altimeterCancellable: AnyCancellable?
     
     private let qpsAccelerationSensor: QPSAccelerationSensor
     private let qpsGravitySensor: QPSGravitySensor
@@ -66,10 +67,10 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     public init(sensorManager: SensorManager) {
         self.sensorManager = sensorManager
         
-        self.qpsAccelerationSensor = QPSAccelerationSensor(motion: sensorManager.motion)
-        self.qpsGravitySensor = QPSGravitySensor(motion:  sensorManager.motion)
-        self.qpsRotationSensor = QPSRotationSensor(motion:  sensorManager.motion)
-        self.qpsAltitudeSensor = QPSAltitudeSensor(motion:  sensorManager.motion)
+        self.qpsAccelerationSensor = QPSAccelerationSensor()
+        self.qpsGravitySensor = QPSGravitySensor()
+        self.qpsRotationSensor = QPSRotationSensor()
+        self.qpsAltitudeSensor = QPSAltitudeSensor()
         
         self.qpsAccelerationSensor.delegate = self
         self.qpsGravitySensor.delegate = self
@@ -85,13 +86,19 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     
     public func startMotion() {
         do {
-            try sensorManager.start()
+            try sensorManager.startMotion()
         } catch {
-            Logger.init().log(message: "sensorManager start error")
+            Logger().log(message: "sensorManager startMotion error")
         }
     }
     
-    public func startAltimeter() { }
+    public func startAltimeter() {
+        do {
+            try sensorManager.startAltimeter()
+        } catch {
+            Logger().log(message: "sensorManager startAltimeter error")
+        }
+    }
     
     public func stop() {
         self.stopMotion()
@@ -99,10 +106,12 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     }
     
     public func stopMotion() {
-        sensorManager.stop()
+        sensorManager.stopMotion()
     }
     
-    public func stopAltimeter() { }
+    public func stopAltimeter() {
+        sensorManager.stopAltimeter()
+    }
     
     public func clearAllObservers() {
         self.accelerationSensor.deleteObservers()
@@ -152,13 +161,21 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     }
     
     func bindPublishers() {
-        cancellable = sensorManager.sensorPublisher
+        motionCancellable = sensorManager.sensorPublisher
             .compactMap { $0 }
             .sink { _ in
                 Logger.init().log(message: "sensorPublisher error")
             } receiveValue: { [weak self] data in
                 self?.reportSensorData(for: data)
             }
+
+      altimeterCancellable = sensorManager.altimeterPublisher
+        .compactMap { $0 }
+        .sink { _ in
+            Logger().log(message: "altimeterPublisher error")
+        } receiveValue: { [weak self] data in
+            self?.reportAltimeterData(data: data)
+        }
     }
     
     private func reportSensorData(for data: MotionSensorData) {
@@ -185,6 +202,16 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         self.reportData(data: accData)
         self.reportData(data: gravData)
         self.reportData(data: rotData)
+    }
+
+    private func reportAltimeterData(data: AltitudeSensorData) {
+        let altitudeArr = KotlinFloatArray(size: 1)
+        data.altitude.data.enumerated().forEach { (index, data) in
+            altitudeArr.set(index: Int32(index), value: Float(data))
+        }
+
+        let altitudeData = RawSensorData(values: altitudeArr, sensorDataType: .altitude, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        self.reportData(data: altitudeData)
     }
     
     private func reportData(data: RawSensorData) {
