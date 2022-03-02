@@ -220,7 +220,7 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         case .gravity: self.qpsGravitySensor.onNewData(data: data)
         case .rotation: self.qpsRotationSensor.onNewData(data: data)
         case .geomagnetic: self.qpsOrientationSensor?.onNewData(data: data)
-        case .altitude: self.qpsAccelerationSensor.onNewData(data: data)
+        case .altitude: self.qpsAltitudeSensor.onNewData(data: data)
         default: break
         }
     }
