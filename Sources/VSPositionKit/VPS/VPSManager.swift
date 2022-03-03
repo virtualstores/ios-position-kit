@@ -74,7 +74,7 @@ public final class VPSManager: VPSWrapper {
             start()
         }
 
-        vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true/*, uncertainAngle: uncertainAngle*/)
+        vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
     }
 
     public func initPositionSync() {
@@ -95,7 +95,7 @@ public final class VPSManager: VPSWrapper {
             data.isValidSyncRotation = syncDirection
             data.forceSyncPosition = forceSyncPosition
             data.delayedAngle = Float(delayedAngle)
-            vps?.onPositionSyncEvent(data: data/*, uncertainAngle: uncertainAngle*/)
+            vps?.onPositionSyncEvent(data: data, uncertainAngle: uncertainAngle)
         } else {
             self.start()
             let angle = syncDirection ? Double((atan2(direction.y, direction.x)) + 180.0) * -1.0 : Double.nan

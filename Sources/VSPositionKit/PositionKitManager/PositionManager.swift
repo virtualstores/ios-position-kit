@@ -17,7 +17,8 @@ public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
-
+    public var rtlsOption: RtlsOptions?
+    
     private let context: Context
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
@@ -33,6 +34,7 @@ public final class PositionManager: IPositionKit {
     }
 
     public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions) {
+        self.rtlsOption = rtlsOption
         vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: true, floorHeightDiffInMeters: 3.0, mapData: mapData)
         vps?.start()
         

@@ -66,6 +66,8 @@ public final class VPSPathfinderAdapter: PathfinderProtocol {
 }
 
 extension VPSPathfinderAdapter: IPathfinderListener {
+    public var id_: String { "VPSPathfinderAdapter" }
+    
     public var id: String { "VPSPathfinderAdapter" }
 
     public func onCurrentGoalUpdated(goal: IPathfinderGoal?) {

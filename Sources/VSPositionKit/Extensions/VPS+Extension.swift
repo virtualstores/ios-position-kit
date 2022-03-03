@@ -31,7 +31,7 @@ extension Goal {
 
 extension IPathfinderGoal {
     var asGoal: Goal {
-        Goal(id: self.id, position: self.position.asCGPoint, data: self.data, type: self.type.asGoalType)
+        Goal(id: self.id_, position: self.position.asCGPoint, data: self.data, type: self.type.asGoalType)
     }
 }
 

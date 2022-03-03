@@ -17,18 +17,18 @@ public struct PositionKitConfig: Config {
   }
 
   private func injectManagers(_ injector: Injector) {
-    injector.map(IBackgroundAccessManager.self) {
-      BackgroundAccessManager()
-    }
-
-    injector.map(ISensorManager.self) {
-      SensorManager()
-    }
-
+      injector.map(IBackgroundAccessManager.self) {
+          BackgroundAccessManager()
+      }
+      
+      injector.map(ISensorManager.self) {
+          SensorManager()
+      }
+      
       injector.map(VPSSensorManager.self) {
           VPSSensorManager(sensorManager: SensorManager())
       }
-
+      
       injector.map(SensorManager.self) {
           SensorManager()
       }
