@@ -13,7 +13,6 @@ import CoreLocation
 
 /// Manager for PositionKit data. Will give positions
 public protocol IPositionKit {
-    
     /// Publishes the position data or error
     var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError> { get }
 
@@ -37,6 +36,9 @@ public protocol IPositionKit {
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)
+    
+    func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool)
+
 }
 
 public enum PositionKitError: Error {

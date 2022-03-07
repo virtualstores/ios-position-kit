@@ -27,6 +27,7 @@ public final class PositionManager: IPositionKit {
 
     @Inject var backgroundAccess: IBackgroundAccessManager
     @Inject var sensor: ISensorManager
+
     private var vps: VPSManager?
 
     public init(context: Context = Context(PositionKitConfig())) {
@@ -56,6 +57,10 @@ public final class PositionManager: IPositionKit {
     
     public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool) {
         vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
+    }
+    
+    public func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool) {
+        vps?.syncPosition(position: position, syncRotation: syncRotation, forceSync: forceSync, uncertainAngle: uncertainAngle)
     }
 
     public func stop() {

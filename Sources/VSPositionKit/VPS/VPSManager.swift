@@ -57,7 +57,6 @@ public final class VPSManager: VPSWrapper {
         
         qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: VPSUserSettings(), parameterPackageEnum: .retail, mlCommunicator: nil)
                 
-        
         sensor.startAllSensors()
     }
 
@@ -75,6 +74,18 @@ public final class VPSManager: VPSWrapper {
         }
 
         vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
+    }
+    
+    public func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool) {
+        let syncData = VPSSyncData()
+        
+        let point = PointWithOffset(position: position.point.asPointF, offset: position.offset.asPointF)
+        syncData.positions = [point]
+        syncData.forceSyncPosition = forceSync
+        syncData.isValidSyncRotation = syncRotation
+        
+        //TODO: calculate delayed angel
+        vps?.onPositionSyncEvent(data: syncData, uncertainAngle: uncertainAngle)
     }
 
     public func initPositionSync() {
