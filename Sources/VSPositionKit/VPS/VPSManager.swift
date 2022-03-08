@@ -39,6 +39,8 @@ public final class VPSManager: VPSWrapper {
     private let shouldRecord: Bool
     private var isRecording = false
     private let isRecordPossibilityOn = false
+    
+    private var dataCommunicator = VPSDataCommunicator()
 
     public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
         self.shouldRecord = shouldRecord
@@ -55,7 +57,7 @@ public final class VPSManager: VPSWrapper {
         }
         qpsRunning = true
         
-        qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: VPSUserSettings(), parameterPackageEnum: .retail, mlCommunicator: nil)
+        qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: sensor, interactor: handler, replayInteractor: qpsReplayInteractor, mapInformation: mapInfo, userSettings: dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .retail, mlCommunicator: dataCommunicator)
                 
         sensor.startAllSensors()
     }

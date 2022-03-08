@@ -68,3 +68,9 @@ extension PositionBundle {
         return NavBundle(position: self.position.asPointF, timestamp: timestampLocal, std: KotlinFloat(float: Float(self.std!)))
     }
 }
+
+extension KotlinFloat {
+    var kotlinFloatAsFloat: Float {
+        return Float(truncating: self)
+    }
+}
