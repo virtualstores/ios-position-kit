@@ -42,5 +42,17 @@ public protocol IPositionKit {
 }
 
 public enum PositionKitError: Error {
-    case noData
+    case noPositions
+    case noDirection
+    case alreadyStarted
+}
+
+extension PositionKitError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .noPositions: return NSLocalizedString("No position data avaialable", comment: "Check VPS connection")
+        case .noDirection: return NSLocalizedString("No direction data available", comment: "Check VPS connection")
+        case .alreadyStarted: return NSLocalizedString("VPS already started", comment: "VPS can only be started once")
+        }
+    }
 }

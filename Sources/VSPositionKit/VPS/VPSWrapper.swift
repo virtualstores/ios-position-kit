@@ -16,7 +16,7 @@ public protocol VPSWrapper {
     var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> { get }
 
     /// Publishes the direction data or error
-     var directionPublisher: CurrentValueSubject<DirectionBundle?, VPSWrapperError> { get }
+     var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> { get }
 
     /// Publishes the device orientation or error
     var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }

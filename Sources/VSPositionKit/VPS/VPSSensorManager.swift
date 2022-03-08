@@ -16,6 +16,8 @@ import qps
 public final class VPSSensorManager: IQPSRawSensorManager {
     public let systemType: IQPSSystemType = IQPSSystemType.ios
 
+    var serialDispatch = DispatchQueue(label: "VPSSensorManagerSerial")
+
     private var replayHandler = ReplayHandler()
     private var motion: MotionSensorData?
     private var motionCancellable: AnyCancellable?
@@ -166,7 +168,9 @@ public final class VPSSensorManager: IQPSRawSensorManager {
             .sink { _ in
                 Logger.init().log(message: "sensorPublisher error")
             } receiveValue: { [weak self] data in
-                self?.reportSensorData(for: data)
+                self?.serialDispatch.async {
+                    self?.reportSensorData(for: data)
+                }
             }
 
       altimeterCancellable = sensorManager.altimeterPublisher
@@ -174,7 +178,9 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         .sink { _ in
             Logger().log(message: "altimeterPublisher error")
         } receiveValue: { [weak self] data in
-            self?.reportAltimeterData(data: data)
+            self?.serialDispatch.async {
+                self?.reportAltimeterData(data: data)
+            }
         }
     }
     

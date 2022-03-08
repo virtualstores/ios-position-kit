@@ -15,6 +15,7 @@ import CoreLocation
 
 public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
+    public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, Error> = .init(nil)
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
     public var rtlsOption: RtlsOptions?
@@ -22,6 +23,7 @@ public final class PositionManager: IPositionKit {
     private let context: Context
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
+    private var directionBundleCancellable: AnyCancellable?
     private var locationHeadingCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
@@ -64,8 +66,8 @@ public final class PositionManager: IPositionKit {
     }
 
     public func stop() {
-        sensor.stop()
-        vps?.stop()
+        self.sensor.stop()
+        self.vps?.stop()
         cancellable?.cancel()
     }
 
@@ -77,10 +79,18 @@ public final class PositionManager: IPositionKit {
         self.positionBundleCancellable = self.vps?.positionPublisher
             .compactMap { $0 }
             .sink { [weak self] _ in
-                self?.positionPublisher.send(completion: .failure(PositionKitError.noData))
+                self?.positionPublisher.send(completion: .failure(PositionKitError.noPositions))
             } receiveValue: { [weak self] positionBundle in
                 self?.positionPublisher.send(positionBundle)
             }
+
+        self.directionBundleCancellable = self.vps?.directionPublisher
+          .compactMap { $0 }
+          .sink(receiveCompletion: { [weak self] (_) in
+              self?.directionPublisher.send(completion: .failure(PositionKitError.noDirection))
+          }, receiveValue: { data in
+              self.directionPublisher.send(data)
+          })
 
         self.locationHeadingCancellable = self.backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
