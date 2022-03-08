@@ -13,11 +13,11 @@ public final class VPSUserSettings: IQPSUserSettings {
     @Inject var persistence: Persistence
     
     public init() {
-        seveUserData()
+        saveUserData()
     }
     
-    func seveUserData() {
-        var object = VPSUser()
+    func saveUserData() {
+        var object = User()
         object.userId = userId
         
         do {
