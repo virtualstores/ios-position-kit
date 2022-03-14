@@ -9,38 +9,50 @@
 import Foundation
 import Combine
 import VSFoundation
+import CoreLocation
 
 /// Manager for PositionKit data. Will give positions
 public protocol IPositionKit {
+    /// Publishes the position data or error
+    var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError> { get }
 
-  /// Publishes the position data or error
-  var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError> { get }
+    /// Publishes the current heading from CLLocationManager
+    var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> { get }
+    
+    /// Publishes if all packages are ready to start  or error
+    var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }
+    
+    /// Starts position managers. Will produce results to positionPublisher.
+    func start() throws
+    
+    /// Stops position managers.
+    func stop()
+    
+    /// Temporary setter for activating and deactivating background access
+    func setBackgroundAccess(isActive: Bool)
+    
+    /// MapFence setup methode
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions)
+    
+    /// Start navigation setup methode
+    func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)
+    
+    func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool)
 
-  /// Temporary publisher for step counts test
-  var stepCountPublisher: CurrentValueSubject<Int, Never> { get }
-
-  /// Publishes if all packages are ready to start  or error
-  var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }
-
-  /// Starts position managers. Will produce results to positionPublisher.
-  func start() throws
-
-  /// Stops position managers.
-  func stop()
-
-  /// Temporary setter for activating and deactivating background access
-  func setBackgroundAccess(isActive: Bool)
-
-  /// Temporary MapFence setup methode which will be used from old app
-  func setupMapFence(with mapData: Data) throws
-
-  /// MapFence setup methode
-  func setupMapFence(with mapData: MapFence) throws
-
-  /// Start navigation setup methode
-  func startNavigation(with direction: Double, xPosition: Double, yPosition: Double)
 }
 
 public enum PositionKitError: Error {
-  case noData
+    case noPositions
+    case noDirection
+    case alreadyStarted
+}
+
+extension PositionKitError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .noPositions: return NSLocalizedString("No position data avaialable", comment: "Check VPS connection")
+        case .noDirection: return NSLocalizedString("No direction data available", comment: "Check VPS connection")
+        case .alreadyStarted: return NSLocalizedString("VPS already started", comment: "VPS can only be started once")
+        }
+    }
 }

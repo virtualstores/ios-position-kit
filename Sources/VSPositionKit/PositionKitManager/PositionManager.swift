@@ -9,117 +9,105 @@
 import Foundation
 import Combine
 import VSSensorFusion
-import VSSensorInterpreter
 import VSFoundation
-import VSEngineWrapper
+import CoreGraphics
+import CoreLocation
 
-final public class PositionManager: IPositionKit {
-  public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
-  public var stepCountPublisher: CurrentValueSubject<Int, Never>  = .init(0)
-  public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
+public final class PositionManager: IPositionKit {
+    public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
+    public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, Error> = .init(nil)
+    public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
+    public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
+    public var rtlsOption: RtlsOptions?
+    
+    private let context: Context
+    private var cancellable: AnyCancellable?
+    private var positionBundleCancellable: AnyCancellable?
+    private var directionBundleCancellable: AnyCancellable?
+    private var locationHeadingCancellable: AnyCancellable?
+    private var rotationSensor: RotationSensor?
 
-  private let context: Context
-  private var stepCount = 0
-  private var interpreter: StepDetectorManager?
-  private var engineWrapper: EngineWrapperManager?
-  private var cancellable: AnyCancellable?
-  private var positionBundleCancellable: AnyCancellable?
-  private var rotationSensor: RotationSensor?
+    @Inject var backgroundAccess: IBackgroundAccessManager
+    @Inject var sensor: ISensorManager
 
-  @Inject var backgroundAccess: IBackgroundAccessManager
-  @Inject var sensor: ISensorManager
+    private var vps: VPSManager?
 
-  public init(context: Context = Context(PositionKitConfig())) {
-    self.context = context
-  }
+    public init(context: Context = Context(PositionKitConfig())) {
+        self.context = context
+    }
 
-  public func setupMapFence(with mapData: MapFence) throws {
-    do {
-      self.engineWrapper = EngineWrapperManager(mapData: mapData)
-      try self.engineWrapper?.startEngine()
-      self.bindEnginePublishers()
-    } catch {}
-  }
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions) {
+        self.rtlsOption = rtlsOption
+        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: true, floorHeightDiffInMeters: 3.0, mapData: mapData)
+        vps?.start()
+        
+        bindEnginePublishers()
+    }
 
-  /// Temporary step setup methode which will be used from old app
-  public func setupMapFence(with mapData: Data) throws {
-    do {
-      self.engineWrapper = EngineWrapperManager(mapData: mapData)
-      try self.engineWrapper?.startEngine()
-      self.bindEnginePublishers()
-    } catch {}
-  }
+    public func start() throws {
+        rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
 
-  public func start() throws {
-    interpreter = StepDetectorManager(delegate: self)
-    interpreter?.initStates()
+        cancellable = sensor.sensorPublisher
+            .compactMap { $0 }
+            .sink { _ in
+            } receiveValue: { data in
+                self.rotationSensor?.input(motionSensorData: data)
+            }
+        
+        try sensor.start()
+    }
+    
+    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool) {
+        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
+    }
+    
+    public func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool) {
+        vps?.syncPosition(position: position, syncRotation: syncRotation, forceSync: forceSync, uncertainAngle: uncertainAngle)
+    }
 
-    rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
+    public func stop() {
+        self.sensor.stop()
+        self.vps?.stop()
+        cancellable?.cancel()
+    }
 
-    cancellable = sensor.sensorPublisher
-      .compactMap { $0 }
-      .sink { _ in
-        self.positionPublisher.send(completion: .failure(PositionKitError.noData))
-      } receiveValue: { data in
-        self.interpreter?.input(motionSensorData: data)
-        self.rotationSensor?.input(motionSensorData: data)
-        self.engineWrapper?.setupTime(with: Int64(data.timestampSensor))
-      }
-    try sensor.start()
-  }
+    public func setBackgroundAccess(isActive: Bool) {
+        isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
+    }
 
-  public func stop() {
-    stepCount = 0
-    sensor.stop()
-    engineWrapper?.stopEngine()
-    cancellable?.cancel()
-  }
+    func bindEnginePublishers() {
+        self.positionBundleCancellable = self.vps?.positionPublisher
+            .compactMap { $0 }
+            .sink { [weak self] _ in
+                self?.positionPublisher.send(completion: .failure(PositionKitError.noPositions))
+            } receiveValue: { [weak self] positionBundle in
+                self?.positionPublisher.send(positionBundle)
+            }
 
-  public func setBackgroundAccess(isActive: Bool) {
-    isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
-  }
+        self.directionBundleCancellable = self.vps?.directionPublisher
+          .compactMap { $0 }
+          .sink(receiveCompletion: { [weak self] (_) in
+              self?.directionPublisher.send(completion: .failure(PositionKitError.noDirection))
+          }, receiveValue: { data in
+              self.directionPublisher.send(data)
+          })
 
-  public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double) {
-    self.engineWrapper?.setPosition(x: xPosition, y: yPosition, angle: direction)
-  }
+        self.locationHeadingCancellable = self.backgroundAccess.locationHeadingPublisher
+            .compactMap { $0 }
+            .sink { error in
+                print(error)
+            } receiveValue: { [weak self] data in
+                self?.locationHeadingPublisher.send(data)
+            }
+    }
 
-  func bindEnginePublishers() {
-    self.positionBundleCancellable = self.engineWrapper?.positionPublisher
-      .sink { data in
-        print(data)
-      } receiveValue: { [weak self] positionBundle in
-        self?.positionPublisher.send(positionBundle)
-      }
-  }
-
-  deinit {
-    stop()
-  }
-}
-
-// MARK: IStepDetectorStateMachineDelegate
-extension PositionManager: IStepDetectorManagerDelegate {
-  public func onProcessed(step: StepData) {
-    stepCount = stepCount + 1
-    stepCountPublisher.send(stepCount)
-    self.setupEngineWrapper(with: step)
-  }
-
-  public func onSensorsInitiated(currentTime: Int) { }
-}
-
-// MARK: Private helpers
-private extension PositionManager {
-  func setupEngineWrapper(with step: StepData) {
-    guard let speed = step.speed?.asFloat else { return }
-    let engineWrapperStepData = WrapperStepData(speed: speed, direction: step.direction!,
-                                                duration: Int64(step.duration), currentTime: Int64(step.timestamp), orientation: step.orientation)
-    self.engineWrapper?.update(with: engineWrapperStepData)
-  }
+    deinit {
+        stop()
+    }
 }
 
 extension PositionManager: IRotationSensorDelegate {
-  func onNew(rotation: RotationBundle) {
-    // what to do ?? ?
-  }
+    func onNew(rotation: RotationBundle) {
+        // what to do ?? ?
+    }
 }
