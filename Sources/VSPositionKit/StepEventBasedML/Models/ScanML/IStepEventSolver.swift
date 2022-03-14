@@ -7,7 +7,7 @@
 import Foundation
 
 protocol IStepEventSolver {
-  func solve(X: [[Double]], y: [Double]): Pair<Double, Double>
+  //func solve(X: [[Double]], y: [Double]): Pair<Double, Double>
 
   func dispose()
 }
