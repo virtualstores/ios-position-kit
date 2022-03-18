@@ -10,41 +10,42 @@ import VSFoundation
 import qps
 
 public final class VPSUserSettings: IQPSUserSettings {
-    @Inject var persistence: Persistence
+    //@Inject var persistence: Persistence
     
     public init() {
         saveUserData()
     }
     
     func saveUserData() {
-        var object = User()
-        object.userId = userId
-        
-        do {
-            try persistence.save(&object)
-        } catch {
-            Logger.init(verbosity: .silent).log(tag: Logger.createTag(fileName: #file, functionName: #function),
-                                                message: "Save User Object SQLite error")
-        }
+//        var object = User()
+//        object.userId = userId
+//
+//        do {
+//            try persistence.save(&object)
+//        } catch {
+//            Logger.init(verbosity: .silent).log(tag: Logger.createTag(fileName: #file, functionName: #function),
+//                                                message: "Save User Object SQLite error")
+//        }
     }
     
     var userObject: User? {
-        return persistence.get(object: User.self)
+        return nil//persistence.get(object: User.self)
     }
     
     var userId: String {
-        return persistence.get(object: User.self)?.id ?? ""
+        return ""//persistence.get(object: User.self)?.id ?? ""
     }
     
     var alpha: [KotlinFloat] {
         set {
             for obj in newValue {
-                userObject?.alpha?.append(obj.kotlinFloatAsFloat)
+//                userObject?.alpha?.append(obj.kotlinFloatAsFloat)
             }
             save(editableObject: userObject)
         }
         get {
-            guard let tmp = userObject?.alpha else { return [] }
+            let tmp: [Float] = []
+//            guard let tmp = userObject?.alpha else { return [] }
             var arr: [KotlinFloat] = []
             for num in tmp {
                 arr.append(KotlinFloat(float: num))
@@ -57,24 +58,25 @@ public final class VPSUserSettings: IQPSUserSettings {
     func save(editableObject: User?) {
         guard var object = editableObject else { return }
         
-        do {
-            try persistence.save(&object)
-        } catch {
-            Logger.init(verbosity: .silent).log(tag: Logger.createTag(fileName: #file, functionName: #function),
-                                                message: "Update Points SQLite error")
-        }
+//        do {
+//            try persistence.save(&object)
+//        } catch {
+//            Logger.init(verbosity: .silent).log(tag: Logger.createTag(fileName: #file, functionName: #function),
+//                                                message: "Update Points SQLite error")
+//        }
     }
     
     var beta: [KotlinFloat] {
         set {
             for obj in newValue {
-                userObject?.beta?.append(obj.kotlinFloatAsFloat)
+//                userObject?.beta?.append(obj.kotlinFloatAsFloat)
             }
             
             save(editableObject: userObject)
         }
         get {
-            guard let tmp = userObject?.beta else { return [] }
+            let tmp: [Float] = []
+//            guard let tmp = userObject?.beta else { return [] }
             var arr: [KotlinFloat] = []
             for num in tmp {
                 arr.append(KotlinFloat(float: num))
@@ -86,12 +88,13 @@ public final class VPSUserSettings: IQPSUserSettings {
     var y: [KotlinFloat] {
         set {
             for obj in newValue {
-                userObject?.y?.append(obj.kotlinFloatAsFloat)
+//                userObject?.y?.append(obj.kotlinFloatAsFloat)
             }
             save(editableObject: userObject)
         }
         get {
-            guard let tmp = userObject?.y else { return [] }
+            let tmp: [Float] = []
+//            guard let tmp = userObject?.y else { return [] }
             var arr: [KotlinFloat] = []
             for num in tmp {
                 arr.append(KotlinFloat(float: num))
@@ -114,11 +117,12 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     public var speedRegressionIntercept: KotlinFloat? {
         set {
-            userObject?.speedRegressionIntercept = newValue?.kotlinFloatAsFloat
+//            userObject?.speedRegressionIntercept = newValue?.kotlinFloatAsFloat
             save(editableObject: userObject)
         }
         get {
-            guard let tmp = userObject?.speedRegressionIntercept else { return nil }
+            let tmp: Float = 1.0
+//            guard let tmp = userObject?.speedRegressionIntercept else { return nil }
             
             if tmp == 0 {
                 return nil
@@ -129,11 +133,12 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     public var speedRegressionSlope: KotlinFloat? {
         set {
-            userObject?.speedRegressionSlope = newValue?.kotlinFloatAsFloat
+//            userObject?.speedRegressionSlope = newValue?.kotlinFloatAsFloat
             save(editableObject: userObject)
         }
         get {
-            guard let tmp = userObject?.speedRegressionSlope else { return nil }
+            let tmp: Float = 1.0
+//            guard let tmp = userObject?.speedRegressionSlope else { return nil }
             
             if tmp == 0 {
                 return nil
@@ -145,12 +150,12 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     
     public func reset() {
-        userObject?.alpha = nil
-        userObject?.beta = nil
-        userObject?.y = nil
+//        userObject?.alpha = nil
+//        userObject?.beta = nil
+//        userObject?.y = nil
         userObject?.userHeight = nil
-        userObject?.speedRegressionSlope = nil
-        userObject?.speedRegressionIntercept = nil
+//        userObject?.speedRegressionSlope = nil
+//        userObject?.speedRegressionIntercept = nil
         
         save(editableObject: userObject)
     }
