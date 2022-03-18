@@ -18,13 +18,16 @@ public final class PositionManager: IPositionKit {
     public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, Error> = .init(nil)
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
+    public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
+
     public var rtlsOption: RtlsOptions?
     
-    private let context: Context
+    private let context = Context(PositionKitConfig())
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
     private var directionBundleCancellable: AnyCancellable?
     private var locationHeadingCancellable: AnyCancellable?
+    private var changeFloorCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
     @Inject var backgroundAccess: IBackgroundAccessManager
@@ -32,14 +35,11 @@ public final class PositionManager: IPositionKit {
 
     private var vps: VPSManager?
 
-    public init(context: Context = Context(PositionKitConfig())) {
-        self.context = context
-    }
+    public init() {}
 
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions) {
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0) {
         self.rtlsOption = rtlsOption
-        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: true, floorHeightDiffInMeters: 3.0, mapData: mapData)
-        vps?.start()
+        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: true, floorHeightDiffInMeters: floorheight, mapData: mapData)
         
         bindEnginePublishers()
     }
@@ -65,8 +65,10 @@ public final class PositionManager: IPositionKit {
         vps?.syncPosition(position: position, syncRotation: syncRotation, forceSync: forceSync, uncertainAngle: uncertainAngle)
     }
 
-    public func stop() {
-        self.sensor.stop()
+    public func stop(stopSensors: Bool = true) {
+        if stopSensors {
+            self.sensor.stop()
+        }
         self.vps?.stop()
         cancellable?.cancel()
     }
@@ -95,9 +97,18 @@ public final class PositionManager: IPositionKit {
         self.locationHeadingCancellable = self.backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
             .sink { error in
-                print(error)
+                Logger.init().log(message: "locationHeadingPublisher error")
+
             } receiveValue: { [weak self] data in
                 self?.locationHeadingPublisher.send(data)
+            }
+        
+        self.changeFloorCancellable = self.vps?.changedFloorPublisher
+            .compactMap { $0 }
+            .sink { error in
+                Logger.init().log(message: "changeFloorCancellable error")
+            } receiveValue: { [weak self] data in
+                self?.changedFloorPublisher.send(data)
             }
     }
 

@@ -22,23 +22,25 @@ public protocol IPositionKit {
     /// Publishes if all packages are ready to start  or error
     var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }
     
+    /// Publishes the floor change
+    var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
+    
     /// Starts position managers. Will produce results to positionPublisher.
     func start() throws
     
     /// Stops position managers.
-    func stop()
+    func stop(stopSensors: Bool)
     
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)
     
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double)
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)
     
     func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool)
-
 }
 
 public enum PositionKitError: Error {
