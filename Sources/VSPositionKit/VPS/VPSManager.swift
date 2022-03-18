@@ -26,7 +26,7 @@ public final class VPSManager: VPSWrapper {
 
     @Inject var sensor: VPSSensorManager
 
-    public private(set) var pathfinder: BasePathfinder?
+    public private (set) var pathfinder: BasePathfinder?
     public private(set) var qpsRunning = false
 
     /// vps properties
@@ -39,13 +39,14 @@ public final class VPSManager: VPSWrapper {
     private let shouldRecord: Bool
     private var isRecording = false
     private let isRecordPossibilityOn = false
+    private var floorHeightDiffInMeters: Double?
     
     private var dataCommunicator = VPSDataCommunicator()
 
     public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
         self.shouldRecord = shouldRecord
         self.qpsReplayInteractor = VPSReplayInteractor()
-        
+        self.floorHeightDiffInMeters = floorHeightDiffInMeters
         self.createMapInformation(with: mapData)
     }
 
@@ -76,10 +77,7 @@ public final class VPSManager: VPSWrapper {
     }
 
     public func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool) {
-        if !qpsRunning {
-            start()
-        }
-
+        start()
         sensor.serialDispatch.async {
             self.vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
         }
@@ -190,6 +188,6 @@ public final class VPSManager: VPSWrapper {
         
         //TODO: create offsetZones
         //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
-        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: [], realWorldOffset: 0.0, floorHeight: 3)
+        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
     }
 }
