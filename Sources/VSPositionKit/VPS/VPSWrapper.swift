@@ -55,10 +55,10 @@ public protocol VPSWrapper {
     func initPositionSync()
 
     /// Set position change  methode
-    func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool, uncertainAngle: Bool)
+    func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool)
 
     /// Start recording for vps
-    func startRecording(startPosition: PositionBundle, currentDirection: Double)
+    func startRecording()
 
     /// Stop recording for vps
     func stopRecording()

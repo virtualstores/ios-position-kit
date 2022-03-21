@@ -40,7 +40,7 @@ public protocol IPositionKit {
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)
     
-    func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool)
+    func syncPosition(xPosition: Double, yPosition: Double, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool)
 }
 
 public enum PositionKitError: Error {

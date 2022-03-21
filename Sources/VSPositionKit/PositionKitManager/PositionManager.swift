@@ -61,8 +61,8 @@ public final class PositionManager: IPositionKit {
         vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
     }
     
-    public func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool) {
-        vps?.syncPosition(position: position, syncRotation: syncRotation, forceSync: forceSync, uncertainAngle: uncertainAngle)
+    public func syncPosition(xPosition: Double, yPosition: Double, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
+        vps?.syncPosition(position: CGPoint(x: xPosition, y: yPosition), startAngle: startAngle, syncPosition: syncPosition, syncAngle: syncAngle, uncertainAngle: uncertainAngle)
     }
 
     public func stop(stopSensors: Bool = true) {
