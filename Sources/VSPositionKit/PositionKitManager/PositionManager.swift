@@ -16,6 +16,7 @@ import CoreLocation
 public final class PositionManager: IPositionKit {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
     public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, Error> = .init(nil)
+    public var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, Error> = .init(nil)
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
@@ -26,6 +27,7 @@ public final class PositionManager: IPositionKit {
     private var cancellable: AnyCancellable?
     private var positionBundleCancellable: AnyCancellable?
     private var directionBundleCancellable: AnyCancellable?
+    private var realWorldOffsetCancellable: AnyCancellable?
     private var locationHeadingCancellable: AnyCancellable?
     private var changeFloorCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
@@ -93,6 +95,14 @@ public final class PositionManager: IPositionKit {
           }, receiveValue: { data in
               self.directionPublisher.send(data)
           })
+
+        self.realWorldOffsetCancellable = self.vps?.realWorldOffsetPublisher
+                .compactMap { $0 }
+                .sink(receiveCompletion: { [weak self] (_) in
+                    self?.realWorldOffsetPublisher.send(completion: .failure(PositionKitError.noRealWorldOffset))
+                }, receiveValue: { data in
+                    self.realWorldOffsetPublisher.send(data)
+                })
 
         self.locationHeadingCancellable = self.backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }

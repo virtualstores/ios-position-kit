@@ -15,6 +15,7 @@ import VSSensorFusion
 public final class VPSManager: VPSWrapper {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
     public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
+    public var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
     public var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
@@ -157,6 +158,9 @@ public final class VPSManager: VPSWrapper {
                 self?.positionPublisher.send(position)
               }
             },
+            onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
+                self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction))
+            },
             onPositionEvent: { (_) in },
             onIllegalBehaviour: { [weak self] () in
               self?.illegalBehaviourPublisher.send(())
@@ -179,7 +183,8 @@ public final class VPSManager: VPSWrapper {
             onNewDebugMessage: nil,
             onNewDirectionBundle: { [weak self] (directionBundle) in
               self?.directionPublisher.send(VPSDirectionBundle(angle: directionBundle.direction))
-            })
+            }
+        )
     }
 
     private func createMapInformation(with data: MapFence) {

@@ -47,6 +47,7 @@ public enum PositionKitError: Error {
     case noPositions
     case noDirection
     case alreadyStarted
+    case noRealWorldOffset
 }
 
 extension PositionKitError: LocalizedError {

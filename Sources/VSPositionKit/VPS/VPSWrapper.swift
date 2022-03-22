@@ -18,6 +18,9 @@ public protocol VPSWrapper {
     /// Publishes the direction data or error
      var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> { get }
 
+    /// Publishes the offset of unit quaternion (start angle) and the map
+    var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> { get }
+
     /// Publishes the device orientation or error
     var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
 
