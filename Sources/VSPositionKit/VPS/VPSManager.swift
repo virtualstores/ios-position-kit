@@ -158,9 +158,6 @@ public final class VPSManager: VPSWrapper {
                 self?.positionPublisher.send(position)
               }
             },
-            onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
-                self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction))
-            },
             onPositionEvent: { (_) in },
             onIllegalBehaviour: { [weak self] () in
               self?.illegalBehaviourPublisher.send(())
@@ -183,6 +180,9 @@ public final class VPSManager: VPSWrapper {
             onNewDebugMessage: nil,
             onNewDirectionBundle: { [weak self] (directionBundle) in
               self?.directionPublisher.send(VPSDirectionBundle(angle: directionBundle.direction))
+            },
+            onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
+                self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction))
             }
         )
     }
