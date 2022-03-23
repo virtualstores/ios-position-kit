@@ -19,6 +19,7 @@ public final class PositionManager: IPositionKit {
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
+    public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
 
     public var rtlsOption: RtlsOptions?
     
@@ -28,6 +29,7 @@ public final class PositionManager: IPositionKit {
     private var directionBundleCancellable: AnyCancellable?
     private var locationHeadingCancellable: AnyCancellable?
     private var changeFloorCancellable: AnyCancellable?
+    private var recordingCancellable: AnyCancellable?
     private var rotationSensor: RotationSensor?
 
     @Inject var backgroundAccess: IBackgroundAccessManager
@@ -37,9 +39,9 @@ public final class PositionManager: IPositionKit {
 
     public init() {}
 
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0) {
+  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, shouldRecord: Bool) {
         self.rtlsOption = rtlsOption
-        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: true, floorHeightDiffInMeters: floorheight, mapData: mapData)
+        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: shouldRecord, floorHeightDiffInMeters: floorheight, mapData: mapData)
         
         bindEnginePublishers()
     }
@@ -110,6 +112,12 @@ public final class PositionManager: IPositionKit {
             } receiveValue: { [weak self] data in
                 self?.changedFloorPublisher.send(data)
             }
+
+        self.recordingCancellable = self.vps?.recordingPublisher
+            .compactMap { $0 }
+            .sink(receiveValue: { (identifier, data) in
+                self.recordingPublisher.send((identifier: identifier, data: data))
+            })
     }
 
     deinit {
