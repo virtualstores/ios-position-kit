@@ -74,18 +74,13 @@ public final class VPSManager: VPSWrapper {
             self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .retail, mlCommunicator: self.dataCommunicator)
 
             self.sensor.startAllSensors()
-            self.sensor.serialDispatch.asyncAfter(deadline: .now() + 1) {
-                if let bundle = self.positionPublisher.value, let direction = self.directionPublisher.value {
-                    self.startRecording(startPosition: bundle, currentDirection: direction.angle)
-                }
-            }
         }
     }
 
-  public func startRecording(startPosition: PositionBundle, currentDirection: Double) {
+  public func startRecording() {
       sensor.serialDispatch.async {
             if self.qpsRunning && self.shouldRecord {
-              self.vps?.startRecording(startPosition: startPosition.asNavBundle, currentDirection: KotlinDouble(double: currentDirection))
+              self.vps?.startRecording()
               self.isRecording = true
           }
       }
@@ -116,6 +111,7 @@ public final class VPSManager: VPSWrapper {
         start()
         sensor.serialDispatch.async {
             self.vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
+            self.startRecording()
         }
     }
     
