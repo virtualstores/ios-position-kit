@@ -40,13 +40,14 @@ public protocol IPositionKit {
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)
     
-    func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool)
+    func syncPosition(xPosition: Double, yPosition: Double, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool)
 }
 
 public enum PositionKitError: Error {
     case noPositions
     case noDirection
     case alreadyStarted
+    case noRealWorldOffset
 }
 
 extension PositionKitError: LocalizedError {
@@ -55,6 +56,7 @@ extension PositionKitError: LocalizedError {
         case .noPositions: return NSLocalizedString("No position data avaialable", comment: "Check VPS connection")
         case .noDirection: return NSLocalizedString("No direction data available", comment: "Check VPS connection")
         case .alreadyStarted: return NSLocalizedString("VPS already started", comment: "VPS can only be started once")
+        case .noRealWorldOffset: return NSLocalizedString("No offset data available", comment: "Check VPS connection")
         }
     }
 }

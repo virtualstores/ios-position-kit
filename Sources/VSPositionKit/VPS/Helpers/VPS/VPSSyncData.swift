@@ -9,9 +9,10 @@ import Foundation
 import qps
 
 public final class VPSSyncData: IQPSSyncData {
-    public var forceSyncPosition: Bool = false
-    public var isValidSyncRotation: Bool = false
-    public var positions: [PointWithOffset] = []
+    public var position: PointF = PointF(x: Double(0.0), y: Double(0.0))
+    public var angle: Float = 0
     public var timestamp: Int64 = 0
-    public var delayedAngle: Float = 0
+    public var syncPosition: Bool = false
+    public var syncAngle: Bool = false
+    public var uncertainAngle: Bool = false
 }

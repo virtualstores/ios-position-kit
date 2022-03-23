@@ -15,6 +15,7 @@ import VSSensorFusion
 public final class VPSManager: VPSWrapper {
     public var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
     public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
+    public var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
     public var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
@@ -118,17 +119,19 @@ public final class VPSManager: VPSWrapper {
         }
     }
     
-    public func syncPosition(position: TT2PointWithOffset, syncRotation: Bool, forceSync: Bool, uncertainAngle: Bool) {
+    public func syncPosition(position: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
         sensor.serialDispatch.async {
             let syncData = VPSSyncData()
 
-            let point = PointWithOffset(position: position.point.asPointF, offset: position.offset.asPointF)
-            syncData.positions = [point]
-            syncData.forceSyncPosition = forceSync
-            syncData.isValidSyncRotation = syncRotation
+            syncData.position = position.asPointF
+            syncData.angle = Float(startAngle)
+            syncData.timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+            syncData.syncPosition = syncPosition
+            syncData.syncAngle = syncAngle
+            syncData.uncertainAngle = uncertainAngle
 
             //TODO: calculate delayed angel
-            self.vps?.onPositionSyncEvent(data: syncData, uncertainAngle: uncertainAngle)
+            self.vps?.onPositionSyncEvent(data: syncData)
         }
     }
 
@@ -142,20 +145,21 @@ public final class VPSManager: VPSWrapper {
         self.pathfinder = pathfinder
     }
 
-    public func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool, uncertainAngle: Bool) {
+    // why does this exist? is this not the same as sync?
+    public func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
         sensor.serialDispatch.async {
             if self.qpsRunning {
                 let data = VPSSyncData()
+                data.position = point.asPointF
+                data.angle = Float(startAngle)
                 data.timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
-                data.positions = [PointWithOffset(position: point.asPointF, offset: direction.asPointF)]
-                data.isValidSyncRotation = syncDirection
-                data.forceSyncPosition = forceSyncPosition
-                data.delayedAngle = Float(delayedAngle)
-                self.vps?.onPositionSyncEvent(data: data, uncertainAngle: uncertainAngle)
+                data.syncPosition = syncPosition
+                data.syncAngle = syncAngle
+                data.uncertainAngle = uncertainAngle
+                self.vps?.onPositionSyncEvent(data: data)
             } else {
                 self.start()
-                let angle = syncDirection ? Double((atan2(direction.y, direction.x)) + 180.0) * -1.0 : Double.nan
-                self.startNavigation(startPosition: point, startAngle: angle, uncertainAngle: uncertainAngle)
+                self.startNavigation(startPosition: point, startAngle: startAngle, uncertainAngle: uncertainAngle)
             }
         }
     }
@@ -193,7 +197,11 @@ public final class VPSManager: VPSWrapper {
             onNewDebugMessage: nil,
             onNewDirectionBundle: { [weak self] (directionBundle) in
               self?.directionPublisher.send(VPSDirectionBundle(angle: directionBundle.direction))
-            })
+            },
+            onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
+                self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction))
+            }
+        )
     }
 
     private func createMapInformation(with data: MapFence) {

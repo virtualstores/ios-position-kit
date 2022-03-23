@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class QpsGlobalQPSValues, QpsIQPSDeviceMode, QpsKotlinFloatArray, QpsIQPSParameterPackageEnum, QpsKotlinArray<T>, QpsMoveVector, QpsVector, QpsKotlinEnumCompanion, QpsKotlinEnum<E>, QpsIQPSDeviceOrientation, UIImage, QpsPointF, QpsRawSensor, QpsIQPSSystemType, QpsIQPSReplayInteractorCompanion, QpsPointWithOffset, QpsNavBundle, QpsStepData, QpsQLayerHandlerCompanion, QpsKotlinUnit, QpsMapData, QpsReplayDataHandler, QpsKotlinPair<__covariant A, __covariant B>, QpsOutputSignalSignalType, QpsDirectionBundle, QpsPositionEventPosEventType, QpsPrecisionCircle, QpsNotificationType, QpsNotificationSeverity, QpsNotification, QpsQLayerHealthData, QpsLegacyStepDetectorFactory, QpsExternalDataManager, QpsStepStateEvaluator, QpsLegacyStepDetectorManager, QpsLegacyStepDetectorManagerCompanion, QpsModularStepDetectorFactory, QpsSpackListeningMLStepDetector, QpsSpackExtractor, QpsObservable, QpsStepFillEvaluatorSetLeniency, QpsStepState, QpsStepDetectorManagerCompanion, QpsStateBasedStepFilter, QpsStepFillEvaluatorCompanion, QpsKeyValueData, QpsSensorListeningStepDetector, QpsRegularKeyValueData, QpsSpack, QpsStepEventDataCompanion, QpsStepEventData, QpsSensorListener, QpsMLModel, QpsMLStepDetectorBaseCompanion, QpsSVM, QpsTrolleySVMStepDetectorCompanion, QpsTrolleyStepDetectorCompanion, QpsMLStepDetectorBase, QpsAndroidMLJacketPocketStepDetectorCompanion, QpsAndroidMLPocketStepDetectorCompanion, QpsNoPCAEllipseEvaluator, QpsAndroidMLRegularStepDetectorCompanion, QpsEllipseEvaluator, QpsPCATransformer, QpsStandardScaler, QpsMLJacketPocketStepDetectorCompanion, QpsMLPocketStepDetectorCompanion, QpsMLRegularStepDetectorCompanion, QpsMLSwingAntiSymStepDetectorCompanion, QpsMLSwingStepDetectorCompanion, QpsSwingPCAEvaluator, QpsMLSwingSymStepDetectorCompanion, QpsHyperbolaEvaluator, QpsNeuralNetwork, QpsAndroidJacketPocketDirectionNNParameters, QpsAndroidPocketDirectionNNParameters, QpsDirectionNeuralNetworkParameters, QpsJacketAndSwingDirectionNNParameters, QpsJacketPocketDirectionNNParameters, QpsKotlinDoubleArray, QpsSpackStepData, QpsHistoryHandler<T>, QpsRotatorDirection, QpsPocketDirectionNNParameters, QpsSanityCheckDirectionNeuralNetworkParameters, QpsSwingAntiSymDirectionNNParameters, QpsSwingSymDirectionNNParameters, QpsNDirectionsFilter, QpsStepStateCompanion, QpsFusionSensorManagerParameters, QpsStepDataDiscreteSpeedFunction, QpsJacketPocketStateCompanion, QpsRegularStateCompanion, QpsSwingAntiSymStateCompanion, QpsSwingSymStateCompanion, QpsTrolleyStateCompanion, QpsTrouserPocketStateCompanion, QpsSpeedSensorHelper, QpsTrolleySpeedBundle, QpsMapCoordinate, QpsAuxSensorHelper, QpsRawSensorDataSensorDataType, QpsRawSensorDataCompanion, QpsRawSensorData, QpsReplaySensorCompanion, QpsReplaySensor, QpsReplayDataCoordinator, QpsReplayDataVersion, QpsFrequencyUser, QpsEmilsPocketSensorCompanion, QpsMaxRetardNN, QpsModularSpackUser, QpsRotationSensorCompanion, QpsIReplayDataHandlerSyncPositionData, QpsQPosition, QpsStartPosition, QpsIReplayDataHandlerCompanion, QpsIReplayDataHandlerIReplayConfig, QpsBuggedSyncReplayDataV5Companion, QpsBuggedSyncReplayDataV5, QpsReplayDataV2Companion, QpsReplayDataV2, QpsReplayDataV3Companion, QpsReplayDataV3, QpsReplayDataV4Companion, QpsReplayDataV4, QpsReplayDataV5Companion, QpsReplayDataV5, QpsReplayDataV6Companion, QpsReplayDataV6, QpsInteractorActionType, QpsInteractorActionCompanion, QpsInteractorAction, QpsPathUpdateCompanion, QpsPathUpdate, QpsReplaySensorDataCompanion, QpsReplaySensorData, QpsStartPositionCompanion, QpsSyncPositionCompanion, QpsSyncPosition, QpsTickCompanion, QpsTick, QpsContinuousMoveVectorQueueCompanion, QpsTimedMoveVector, QpsIDNameGenerator, QpsQuaternionUtils, QpsVectorUtils, QpsprintHelpers, QpsClockClockType, QpsAverageVarianceDoublePack, QpsAverageVarianceFloatPack, QpsModifierManager<T>, QpsNumericalModifier<T>, QpsOffsetHelper, QpsSpackFeaturisationHelpers, QpsClusterSpawnAlgos, QpsHistoryHandlerTimedData<T, T_>, QpsPolynomial, QpsComplex, QpsRational, QpsAnalogPrototypeCompanion, QpsAnalogPrototype, QpsPassbandType, QpsSecondOrderSection, QpsIIRFilter, QpsComplexCompanion, QpsButterworth, QpsMedFilter, QpsLagrangePolynomialCompanion, QpsKotlinIntArray, QpsAllpass, QpsTimedDebugPositions, QpsTimedDebugRadius, QpsDebugClusterCompanion, QpsDebugCluster, QpsDebugClusterAngleCompanion, QpsDebugClusterAngle, QpsDebugPositionCompanion, QpsDebugPosition, QpsDebugPrinter, QpsDebugQPositionSpeedCompanion, QpsDebugQPositionSpeed, QpsDebugStateCompanion, QpsDebugState, QpsTimedDebugClusterAnglesCompanion, QpsTimedDebugClusterAngles, QpsTimedDebugClustersCompanion, QpsTimedDebugClusters, QpsTimedDebugMessagesCompanion, QpsTimedDebugMessages, QpsTimedDebugPositionCompanion, QpsTimedDebugPosition, QpsTimedDebugPositionsCompanion, QpsTimedDebugRadiusCompanion, QpsTimedDebugStatesCompanion, QpsTimedDebugStates, Qpstt2EngineParameterManagerClassParameters, QpsPositionData, QpsReferenceAngle, QpsQLayerParameterManagerCompanion, QpsDirectionPrioParameters, QpsDirectionTrackerParameters, QpsGetNewPositionsAmountParameters, QpsMiscParameters, QpsMovementStateManagerParameters, QpsAnglePIDParameters, QpsQClusterParameters, QpsQLayerParameters, QpsQLayerQueueParameters, QpsQPosParameters, QpsSlidingRatioParameters, QpsSmallClusterSpreadIncreaserParameters, QpsSpeedSpreadHandlerParameters, QpsSplitPositionsParameters, QpsTrolleySkipParameters, QpsTSPPrioParameters, QpsPointFCompanion, QpsQPositionCompanion, QpsAndroidRegularMLStepDetectorParameters, QpsClusterBootParameters, QpsFloorSensorParameters, QpsQPSHandlerParameters, QpsRegularMLStepDetectorParameters, QpsSwingMLStepDetectorParameters, QpsTrolleyStepDetectorParameters, QpsVeddestaScrubberParameters, QpsAndroidPocketMLStepDetectorParameters, QpsAxisParameters, QpsPocketMLStepDetectorParameters, QpsSwingAntiSymMLStepDetectorParameters, QpsSwingSymMLStepDetectorParameters, QpsJulaQPSValues, QpsPS20QPSValues, QpsRetailQPSValues, QpsWarehouseQPSValues, QpsAnglePIDParametersCompanion, QpsDirectionTrackerParametersCompanion, QpsGetNewPositionsAmountParametersCompanion, QpsMovementStateManagerParametersCompanion, QpsQClusterParametersCompanion, QpsQLayerParametersCompanion, QpsQLayerQueueParametersCompanion, QpsQPosParametersCompanion, QpsSlidingRatioParametersCompanion, QpsSpeedSpreadHandlerParametersCompanion, QpsSplitPositionsParametersCompanion, QpsKotlinThrowable, QpsQCluster, QpsQClusterQClusterResetDegree, QpsQClusterClusterState, QpsQClusterClusterType, QpsAdditiveModifier, QpsMoveEventData, QpsContextManager, QpsPolarPoint, QpsMoveVectorMoveType, QpsReferenceAngleState, QpsReplayPositionCompanion, QpsReplayPosition, QpsTimedReplayPositionsCompanion, QpsTimedReplayPositions, QpsSensorBundleBundleType, QpsSensorBundle, QpsRotationBundleTurn, QpsVectorTransformer, QpsAndroidJacketPocketMLParameters, QpsAndroidPantJacketDistinguishParameters, QpsAndroidPocketLenientParameters, QpsAndroidPocketMLParameters, QpsAndroidPocketOrSwingNNParameters, QpsAndroidRegularMLParameters, QpsIOSJacketPocketNeuralNetworkParameters, QpsIOSPantJacketDistinguishParameters, QpsIOSPocketNeuralNetworkParameters, QpsMLModelFactory, QpsNNActivationFunctions, QpsNNCoefficientReader, QpsNNCoefficientReaderJsonNN, QpsNNCoefficientReaderJsonNNCompanion, QpsNeuralNetworkActivationFunctionType, QpsPocketOrSwingNeuralNetworkParameters, QpsRegularNeuralNetworkParameters, QpsSwingAntiSymNeuralNetworkParameters, QpsSwingNeuralNetworkParameters, QpsSwingSymNeuralNetworkParameters, QpsTrolleyNeuralNetworkParameters, QpsLinearSVMSwingStepDetectorValues, QpsRegularRBFSVMsupport, QpsSVMHelpers, QpsSpackRBFSVMsupport, QpsSwingAntiSymLenientParameters, QpsSwingSymLenientParameters, QpsSymAntiSymParameters, QpsWeakEvaluatorParameters, QpsPositionEvent, QpsSignalHandler, QpsAverageVariance, QpsAltitudeBasedFloorSensorFloorState, QpsAltitudeBasedFloorSensor, QpsNavMeshScrubber, QpsSequentialScrubber, QpsQLayerHandler, QpsAltitudeOptions, QpsAltitudeCompanion, QpsSingleLinkedQueue<T>, QpsAltitudeOptionsCompanion, QpsNode<T>, QpsBaseSignalDispatcher, QpsPositionEventHandler, QpsNavGraph, QpsIPathfinderGoalType, QpsDjikstrasOptimizedCompanion, QpsDjikstrasOptimizedOldNodeGraph, QpsNavGraphVertex, QpsPriorityQueueUsingSinglyLinkedList<T>, QpsNavGraphCompanion, QpsNavGraphVertexCompanion, QpsPathProcessor, QpsPathProcessorBSpline, QpsTSPThreeOptAlgorithmCompanion, QpsKotlinRandom, QpsDataCommunicatorRegressionVectors, QpsStepEventBasedMLObservationType, QpsKotlinFloatIterator, QpsKotlinDoubleIterator, QpsKotlinIntIterator, QpsKotlinRandomDefault, QpsKotlinByteArray, QpsKotlinx_serialization_coreSerializersModule, QpsKotlinx_serialization_coreSerialKind, QpsKotlinNothing, QpsKotlinByteIterator;
+@class QpsGlobalQPSValues, QpsIQPSDeviceMode, QpsKotlinFloatArray, QpsIQPSParameterPackageEnum, QpsKotlinArray<T>, QpsMoveVector, QpsVector, QpsKotlinEnumCompanion, QpsKotlinEnum<E>, QpsIQPSDeviceOrientation, UIImage, QpsPointF, QpsRawSensor, QpsIQPSSystemType, QpsIQPSReplayInteractorCompanion, QpsStepData, QpsQLayerHandlerCompanion, QpsKotlinUnit, QpsQLayerHandlerMemeTrolle, QpsMapData, QpsReplayDataHandler, QpsNavBundle, QpsKotlinPair<__covariant A, __covariant B>, QpsOutputSignalSignalType, QpsDirectionBundle, QpsPositionEventPosEventType, QpsPrecisionCircle, QpsRealWorldOffsetUpdate, QpsNotificationType, QpsNotificationSeverity, QpsNotification, QpsQLayerHealthData, QpsLegacyStepDetectorFactory, QpsExternalDataManager, QpsStepStateEvaluator, QpsLegacyStepDetectorManager, QpsLegacyStepDetectorManagerCompanion, QpsModularStepDetectorFactory, QpsSpackListeningMLStepDetector, QpsSpackExtractor, QpsObservable, QpsStepFillEvaluatorSetLeniency, QpsStepState, QpsStepDetectorManagerCompanion, QpsStateBasedStepFilter, QpsStepFillEvaluatorCompanion, QpsKeyValueData, QpsSensorListeningStepDetector, QpsRegularKeyValueData, QpsSpack, QpsStepEventDataCompanion, QpsStepEventData, QpsSensorListener, QpsMLModel, QpsMLStepDetectorBaseCompanion, QpsSVM, QpsTrolleySVMStepDetectorCompanion, QpsTrolleyStepDetectorCompanion, QpsMLStepDetectorBase, QpsAndroidMLJacketPocketStepDetectorCompanion, QpsAndroidMLPocketStepDetectorCompanion, QpsNoPCAEllipseEvaluator, QpsAndroidMLRegularStepDetectorCompanion, QpsEllipseEvaluator, QpsPCATransformer, QpsStandardScaler, QpsMLJacketPocketStepDetectorCompanion, QpsMLPocketStepDetectorCompanion, QpsMLRegularStepDetectorCompanion, QpsMLSwingAntiSymStepDetectorCompanion, QpsMLSwingStepDetectorCompanion, QpsSwingPCAEvaluator, QpsMLSwingSymStepDetectorCompanion, QpsHyperbolaEvaluator, QpsNeuralNetwork, QpsAndroidJacketPocketDirectionNNParameters, QpsAndroidPocketDirectionNNParameters, QpsDirectionNeuralNetworkParameters, QpsJacketPocketDirectionNNParameters, QpsKotlinDoubleArray, QpsSpackStepData, QpsHistoryHandler<T>, QpsRotatorDirection, QpsPocketDirectionNNParameters, QpsSanityCheckDirectionNeuralNetworkParameters, QpsSwingAntiSymDirectionNNParameters, QpsSwingSymDirectionNNParameters, QpsNDirectionsFilter, QpsStepStateCompanion, QpsFusionSensorManagerParameters, QpsStepDataDiscreteSpeedFunction, QpsJacketPocketStateCompanion, QpsRegularStateCompanion, QpsSwingAntiSymStateCompanion, QpsSwingSymStateCompanion, QpsTrolleyStateCompanion, QpsTrouserPocketStateCompanion, QpsSpeedSensorHelper, QpsTrolleySpeedBundle, QpsMapCoordinate, QpsAuxSensorHelper, QpsRawSensorDataSensorDataType, QpsRawSensorDataCompanion, QpsRawSensorData, QpsReplaySensorCompanion, QpsReplaySensor, QpsReplayDataCoordinator, QpsReplayDataVersion, QpsFrequencyUser, QpsEmilsPocketSensorCompanion, QpsMaxRetardNN, QpsModularSpackUser, QpsRotationSensorCompanion, QpsIReplayDataHandlerSyncPositionData, QpsQPosition, QpsStartPosition, QpsIReplayDataHandlerCompanion, QpsIReplayDataHandlerIReplayConfig, QpsPointWithOffset, QpsIReplayDataHandlerLegacySyncPositionData, QpsBuggedSyncReplayDataV5Companion, QpsBuggedSyncReplayDataV5, QpsReplayDataV2Companion, QpsReplayDataV2, QpsReplayDataV3Companion, QpsReplayDataV3, QpsReplayDataV4Companion, QpsReplayDataV4, QpsReplayDataV5Companion, QpsReplayDataV5, QpsReplayDataV6Companion, QpsReplayDataV6, QpsReplayDataV7Companion, QpsReplayDataV7, QpsInteractorActionType, QpsInteractorActionCompanion, QpsInteractorAction, QpsLegacySyncPositionCompanion, QpsLegacySyncPosition, QpsPathUpdateCompanion, QpsPathUpdate, QpsReplaySensorDataCompanion, QpsReplaySensorData, QpsStartPositionCompanion, QpsSyncPositionCompanion, QpsSyncPosition, QpsTickCompanion, QpsTick, QpsContinuousMoveVectorQueueCompanion, QpsTimedMoveVector, QpsIDNameGenerator, QpsQuaternionUtils, QpsVectorUtils, QpsprintHelpers, QpsClockClockType, QpsAverageVarianceDoublePack, QpsAverageVarianceFloatPack, QpsModifierManager<T>, QpsNumericalModifier<T>, QpsOffsetHelper, QpsSpackFeaturisationHelpers, QpsClusterSpawnAlgos, QpsHistoryHandlerTimedData<T, T_>, QpsPolynomial, QpsComplex, QpsRational, QpsAnalogPrototypeCompanion, QpsAnalogPrototype, QpsPassbandType, QpsSecondOrderSection, QpsIIRFilter, QpsComplexCompanion, QpsButterworth, QpsMedFilter, QpsLagrangePolynomialCompanion, QpsKotlinIntArray, QpsAllpass, QpsTimedDebugPositions, QpsTimedDebugRadius, QpsDebugClusterCompanion, QpsDebugCluster, QpsDebugClusterAngleCompanion, QpsDebugClusterAngle, QpsDebugPositionCompanion, QpsDebugPosition, QpsDebugPrinter, QpsDebugQPositionSpeedCompanion, QpsDebugQPositionSpeed, QpsDebugStateCompanion, QpsDebugState, QpsTimedDebugClusterAnglesCompanion, QpsTimedDebugClusterAngles, QpsTimedDebugClustersCompanion, QpsTimedDebugClusters, QpsTimedDebugMessagesCompanion, QpsTimedDebugMessages, QpsTimedDebugPositionCompanion, QpsTimedDebugPosition, QpsTimedDebugPositionsCompanion, QpsTimedDebugRadiusCompanion, QpsTimedDebugStatesCompanion, QpsTimedDebugStates, Qpstt2EngineParameterManagerClassParameters, QpsPositionData, QpsQLayerParameterManagerCompanion, QpsDirectionPrioParameters, QpsDirectionTrackerParameters, QpsGetNewPositionsAmountParameters, QpsMiscParameters, QpsMovementStateManagerParameters, QpsAnglePIDParameters, QpsQClusterParameters, QpsQLayerParameters, QpsQLayerQueueParameters, QpsQPosParameters, QpsSlidingRatioParameters, QpsSmallClusterSpreadIncreaserParameters, QpsSpeedSpreadHandlerParameters, QpsSplitPositionsParameters, QpsTrolleySkipParameters, QpsTSPPrioParameters, QpsPointFCompanion, QpsQPositionCompanion, QpsAndroidRegularMLStepDetectorParameters, QpsClusterBootParameters, QpsFloorSensorParameters, QpsQPSHandlerParameters, QpsRegularMLStepDetectorParameters, QpsSwingMLStepDetectorParameters, QpsTrolleyStepDetectorParameters, QpsVeddestaScrubberParameters, QpsAndroidPocketMLStepDetectorParameters, QpsAxisParameters, QpsPocketMLStepDetectorParameters, QpsSwingAntiSymMLStepDetectorParameters, QpsSwingSymMLStepDetectorParameters, QpsJulaQPSValues, QpsPS20QPSValues, QpsRetailQPSValues, QpsWarehouseQPSValues, QpsAnglePIDParametersCompanion, QpsDirectionTrackerParametersCompanion, QpsGetNewPositionsAmountParametersCompanion, QpsMovementStateManagerParametersCompanion, QpsQClusterParametersCompanion, QpsQLayerParametersCompanion, QpsQLayerQueueParametersCompanion, QpsQPosParametersCompanion, QpsSlidingRatioParametersCompanion, QpsSpeedSpreadHandlerParametersCompanion, QpsSplitPositionsParametersCompanion, QpsKotlinThrowable, QpsQCluster, QpsQClusterQClusterResetDegree, QpsQClusterClusterState, QpsQClusterClusterType, QpsAdditiveModifier, QpsMoveEventData, QpsContextManager, QpsPolarPoint, QpsMoveVectorMoveType, QpsReferenceAngleState, QpsReferenceAngle, QpsReplayPositionCompanion, QpsReplayPosition, QpsTimedReplayPositionsCompanion, QpsTimedReplayPositions, QpsSensorBundleBundleType, QpsSensorBundle, QpsRotationBundleTurn, QpsVectorTransformer, QpsAndroidJacketPocketMLParameters, QpsAndroidPantJacketDistinguishParameters, QpsAndroidPocketLenientParameters, QpsAndroidPocketMLParameters, QpsAndroidPocketOrSwingNNParameters, QpsAndroidRegularMLParameters, QpsIOSJacketPocketNeuralNetworkParameters, QpsIOSPantJacketDistinguishParameters, QpsIOSPocketNeuralNetworkParameters, QpsMLModelFactory, QpsNNActivationFunctions, QpsNNCoefficientReader, QpsNNCoefficientReaderJsonNN, QpsNNCoefficientReaderJsonNNCompanion, QpsNeuralNetworkActivationFunctionType, QpsPocketOrSwingNeuralNetworkParameters, QpsRegularNeuralNetworkParameters, QpsSwingAntiSymNeuralNetworkParameters, QpsSwingNeuralNetworkParameters, QpsSwingSymNeuralNetworkParameters, QpsTrolleyNeuralNetworkParameters, QpsLinearSVMSwingStepDetectorValues, QpsRegularRBFSVMsupport, QpsSVMHelpers, QpsSpackRBFSVMsupport, QpsSwingAntiSymLenientParameters, QpsSwingSymLenientParameters, QpsSymAntiSymParameters, QpsWeakEvaluatorParameters, QpsPositionEvent, QpsSignalHandler, QpsAverageVariance, QpsAltitudeBasedFloorSensorFloorState, QpsAltitudeBasedFloorSensor, QpsNavMeshScrubber, QpsSequentialScrubber, QpsQLayerHandler, QpsAltitudeOptions, QpsAltitudeCompanion, QpsSingleLinkedQueue<T>, QpsAltitudeOptionsCompanion, QpsNode<T>, QpsBaseSignalDispatcher, QpsPositionEventHandler, QpsNavGraph, QpsIPathfinderGoalType, QpsDjikstrasOptimizedCompanion, QpsDjikstrasOptimizedOldNodeGraph, QpsNavGraphVertex, QpsPriorityQueueUsingSinglyLinkedList<T>, QpsNavGraphCompanion, QpsNavGraphVertexCompanion, QpsPathProcessor, QpsPathProcessorBSpline, QpsTSPThreeOptAlgorithmCompanion, QpsKotlinRandom, QpsDataCommunicatorRegressionVectors, QpsStepEventBasedMLObservationType, QpsKotlinFloatIterator, QpsKotlinDoubleIterator, QpsKotlinIntIterator, QpsKotlinRandomDefault, QpsKotlinByteArray, QpsKotlinx_serialization_coreSerializersModule, QpsKotlinx_serialization_coreSerialKind, QpsKotlinNothing, QpsKotlinByteIterator;
 
 @protocol QpsKotlinComparable, QpsOutputSignal, QpsIQPSVPS, QpsIQPSOffsetZone, QpsIQPSSyncData, QpsIQPSRawSensorManager, QpsSDPerformanceTestObject, QpsStepListener, QpsSensorInterpreterStepListener, QpsSDPerformanceTestObjectPerformanceTestObjectDelegate, Qpstt2EngineTt2EngineDelegate, QpsStepEventBasedMLStepEventBasedMLDelegate, QpsPositioningHandler, QpsClockListener, QpsIQPSInteractor, QpsIQPSReplayInteractor, QpsIQPSMapInformation, QpsIQPSUserSettings, QpsSensorInterpreter, Qpstt2Engine, QpsDataCommunicator, Qpstt2EngineParameterManager, QpsStepDetector, QpsIStepDetectorManager, QpsObserver, QpsStepEventFilter, QpsKotlinx_serialization_coreKSerializer, QpsSpackListener, QpsSpackEvaluator, QpsSpackFeaturisationModule, QpsDirectionModel, QpsDirectionFilter, QpsDiscreteSpeedFunction, QpsContinuousSpeedFunction, QpsAuxiliarySensor, QpsAuxiliarySensorManager, QpsIReplayDataHandler, QpsPocketSensor, QpsIReplayData, QpsRollingFeaturiser, QpsContextReturnData, QpsKotlinIterator, QpsKotlinIterable, QpsKotlinCollection, QpsKotlinMutableIterable, QpsKotlinMutableCollection, QpsKotlinx_coroutines_coreDisposableHandle, QpsKotlinMutableIterator, QpsContextListener, QpsContextTracker, QpsContextData, QpsSignalDispatcher, QpsLegacyInterface, QpsSignalResponse, QpsSignalListener, QpsLegacyInterfacePlus, QpsFloorSensor, QpsScrubber, QpsAltitudeDelegate, QpsIPathfinderGoal, QpsIPathfinderPath, QpsIPathfinderListener, QpsIPathfinder, QpsStepEventBasedML, QpsCorridorFinder, QpsKotlinx_serialization_coreEncoder, QpsKotlinx_serialization_coreSerialDescriptor, QpsKotlinx_serialization_coreSerializationStrategy, QpsKotlinx_serialization_coreDecoder, QpsKotlinx_serialization_coreDeserializationStrategy, QpsKotlinx_serialization_coreCompositeEncoder, QpsKotlinAnnotation, QpsKotlinx_serialization_coreCompositeDecoder, QpsKotlinx_serialization_coreSerializersModuleCollector, QpsKotlinKClass, QpsKotlinKDeclarationContainer, QpsKotlinKAnnotatedElement, QpsKotlinKClassifier;
 
@@ -332,11 +332,12 @@ __attribute__((swift_name("IQPSReplayInteractorCompanion")))
 __attribute__((swift_name("IQPSSyncData")))
 @protocol QpsIQPSSyncData
 @required
-@property (readonly) float delayedAngle __attribute__((swift_name("delayedAngle")));
-@property (readonly) BOOL forceSyncPosition __attribute__((swift_name("forceSyncPosition")));
-@property (readonly) BOOL isValidSyncRotation __attribute__((swift_name("isValidSyncRotation")));
-@property (readonly) NSArray<QpsPointWithOffset *> *positions __attribute__((swift_name("positions")));
+@property (readonly) float angle __attribute__((swift_name("angle")));
+@property (readonly) QpsPointF *position __attribute__((swift_name("position")));
+@property (readonly) BOOL syncAngle __attribute__((swift_name("syncAngle")));
+@property (readonly) BOOL syncPosition __attribute__((swift_name("syncPosition")));
 @property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) BOOL uncertainAngle __attribute__((swift_name("uncertainAngle")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -365,10 +366,10 @@ __attribute__((swift_name("IQPSVPS")))
 - (QpsKotlinFloatArray * _Nullable)getLastRotation __attribute__((swift_name("getLastRotation()")));
 - (void)doInitPositionSyncEvent __attribute__((swift_name("doInitPositionSyncEvent()")));
 - (void)onPathUpdateEventPath:(NSArray<QpsPointF *> *)path __attribute__((swift_name("onPathUpdateEvent(path:)")));
-- (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("onPositionSyncEvent(data:uncertainAngle:)")));
-- (void)setCurrentDirectionOffset:(QpsPointF *)offset __attribute__((swift_name("setCurrentDirection(offset:)")));
+- (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data __attribute__((swift_name("onPositionSyncEvent(data:)")));
+- (void)setCurrentDirectionAngle:(float)angle __attribute__((swift_name("setCurrentDirection(angle:)")));
 - (void)startNavigationStartPos:(QpsPointF *)startPos startAngle:(double)startAngle startSensors:(BOOL)startSensors uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("startNavigation(startPos:startAngle:startSensors:uncertainAngle:)")));
-- (void)startRecordingStartPosition:(QpsNavBundle * _Nullable)startPosition currentDirection:(QpsDouble * _Nullable)currentDirection __attribute__((swift_name("startRecording(startPosition:currentDirection:)")));
+- (void)startRecording __attribute__((swift_name("startRecording()")));
 - (void)stopNavigation __attribute__((swift_name("stopNavigation()")));
 - (void)stopRecording __attribute__((swift_name("stopRecording()")));
 - (BOOL)validPositionX:(float)x y:(float)y __attribute__((swift_name("validPosition(x:y:)")));
@@ -425,6 +426,7 @@ __attribute__((swift_name("StepEventBasedMLStepEventBasedMLDelegate")))
 @required
 - (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:)")));
 - (void)onSpeedCoefficientSuggestionAlpha:(QpsFloat * _Nullable)alpha beta:(QpsFloat * _Nullable)beta __attribute__((swift_name("onSpeedCoefficientSuggestion(alpha:beta:)")));
+- (void)onSpeedScalingSuggestionScaleFactor:(QpsFloat * _Nullable)scaleFactor __attribute__((swift_name("onSpeedScalingSuggestion(scaleFactor:)")));
 @end;
 
 __attribute__((swift_name("PositioningHandler")))
@@ -450,12 +452,13 @@ __attribute__((swift_name("QLayerHandler")))
 - (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:)")));
 - (void)onNewPositionX:(QpsFloat * _Nullable)x y:(QpsFloat * _Nullable)y std:(QpsFloat * _Nullable)std timestamp:(int64_t)timestamp __attribute__((swift_name("onNewPosition(x:y:std:timestamp:)")));
 - (void)onPathUpdateEventPath:(NSArray<QpsPointF *> *)path __attribute__((swift_name("onPathUpdateEvent(path:)")));
-- (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("onPositionSyncEvent(data:uncertainAngle:)")));
+- (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data __attribute__((swift_name("onPositionSyncEvent(data:)")));
 - (void)onSpeedCoefficientSuggestionAlpha:(QpsFloat * _Nullable)alpha beta:(QpsFloat * _Nullable)beta __attribute__((swift_name("onSpeedCoefficientSuggestion(alpha:beta:)")));
-- (void)setCurrentDirectionOffset:(QpsPointF *)offset __attribute__((swift_name("setCurrentDirection(offset:)")));
+- (void)onSpeedScalingSuggestionScaleFactor:(QpsFloat * _Nullable)scaleFactor __attribute__((swift_name("onSpeedScalingSuggestion(scaleFactor:)")));
+- (void)setCurrentDirectionAngle:(float)angle __attribute__((swift_name("setCurrentDirection(angle:)")));
 - (void)startDebugStartPos:(QpsPointF * _Nullable)startPos startAngle:(QpsDouble * _Nullable)startAngle uncertainAngle:(BOOL)uncertainAngle startSensors:(BOOL)startSensors __attribute__((swift_name("startDebug(startPos:startAngle:uncertainAngle:startSensors:)")));
 - (void)startNavigationStartPos:(QpsPointF *)startPos startAngle:(double)startAngle startSensors:(BOOL)startSensors uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("startNavigation(startPos:startAngle:startSensors:uncertainAngle:)")));
-- (void)startRecordingStartPosition:(QpsNavBundle * _Nullable)startPosition currentDirection:(QpsDouble * _Nullable)currentDirection __attribute__((swift_name("startRecording(startPosition:currentDirection:)")));
+- (void)startRecording __attribute__((swift_name("startRecording()")));
 - (void)stopNavigation __attribute__((swift_name("stopNavigation()")));
 - (void)stopRecording __attribute__((swift_name("stopRecording()")));
 - (void)tikTokOnTheClockCurrentTime:(int64_t)currentTime __attribute__((swift_name("tikTokOnTheClock(currentTime:)")));
@@ -471,6 +474,17 @@ __attribute__((swift_name("QLayerHandler.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) QpsQLayerHandlerCompanion *shared __attribute__((swift_name("shared")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("QLayerHandler.memeTrolle")))
+@interface QpsQLayerHandlerMemeTrolle : QpsKotlinEnum<QpsQLayerHandlerMemeTrolle *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) QpsQLayerHandlerMemeTrolle *inTrolle __attribute__((swift_name("inTrolle")));
+@property (class, readonly) QpsQLayerHandlerMemeTrolle *notTrolle __attribute__((swift_name("notTrolle")));
++ (QpsKotlinArray<QpsQLayerHandlerMemeTrolle *> *)values __attribute__((swift_name("values()")));
 @end;
 
 __attribute__((swift_name("SDPerformanceTestObjectPerformanceTestObjectDelegate")))
@@ -505,8 +519,9 @@ __attribute__((swift_name("tt2Engine")))
 @required
 - (void)configureOutput:(id<Qpstt2EngineTt2EngineDelegate> _Nullable)output replayDataHandler:(QpsReplayDataHandler * _Nullable)replayDataHandler __attribute__((swift_name("configure(output:replayDataHandler:)")));
 - (void)dispose __attribute__((swift_name("dispose()")));
+- (double)getRealWorldOrientation __attribute__((swift_name("getRealWorldOrientation()")));
 - (QpsNavBundle * _Nullable)moveEventLength:(float)length direction:(double)direction duration:(int64_t)duration currentTime:(int64_t)currentTime orientation:(QpsIQPSDeviceOrientation *)orientation __attribute__((swift_name("moveEvent(length:direction:duration:currentTime:orientation:)")));
-- (void)setPositionX:(float)x y:(float)y angle:(QpsDouble * _Nullable)angle angleStd:(QpsDouble * _Nullable)angleStd __attribute__((swift_name("setPosition(x:y:angle:angleStd:)")));
+- (void)setPositionX:(float)x y:(float)y angleStd:(QpsDouble * _Nullable)angleStd numClusters:(QpsInt * _Nullable)numClusters __attribute__((swift_name("setPosition(x:y:angleStd:numClusters:)")));
 - (void)setRealWorldOrientationAngle:(double)angle __attribute__((swift_name("setRealWorldOrientation(angle:)")));
 - (void)start __attribute__((swift_name("start()")));
 - (void)tickCurrentTime:(int64_t)currentTime __attribute__((swift_name("tick(currentTime:)")));
@@ -563,6 +578,7 @@ __attribute__((swift_name("OutputSignalSignalType")))
 @property (class, readonly) QpsOutputSignalSignalType *navBundle __attribute__((swift_name("navBundle")));
 @property (class, readonly) QpsOutputSignalSignalType *notification __attribute__((swift_name("notification")));
 @property (class, readonly) QpsOutputSignalSignalType *directionBundle __attribute__((swift_name("directionBundle")));
+@property (class, readonly) QpsOutputSignalSignalType *realWorldOffsetUpdate __attribute__((swift_name("realWorldOffsetUpdate")));
 + (QpsKotlinArray<QpsOutputSignalSignalType *> *)values __attribute__((swift_name("values()")));
 @end;
 
@@ -602,6 +618,21 @@ __attribute__((swift_name("PrecisionCircle")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) QpsPointF *center __attribute__((swift_name("center")));
 @property (readonly) double radius __attribute__((swift_name("radius")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RealWorldOffsetUpdate")))
+@interface QpsRealWorldOffsetUpdate : QpsBase <QpsOutputSignal>
+- (instancetype)initWithDirection:(double)direction timestamp:(int64_t)timestamp __attribute__((swift_name("init(direction:timestamp:)"))) __attribute__((objc_designated_initializer));
+- (double)component1 __attribute__((swift_name("component1()")));
+- (int64_t)component2 __attribute__((swift_name("component2()")));
+- (QpsRealWorldOffsetUpdate *)doCopyDirection:(double)direction timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(direction:timestamp:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) double direction __attribute__((swift_name("direction")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) QpsOutputSignalSignalType *type __attribute__((swift_name("type")));
 @end;
 
 __attribute__((swift_name("Notification")))
@@ -1874,143 +1905,6 @@ __attribute__((swift_name("DirectionNeuralNetworkParameters")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("JacketAndSwingDirectionNNParameters")))
-@interface QpsJacketAndSwingDirectionNNParameters : QpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)jacketAndSwingDirectionNNParameters __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) QpsJacketAndSwingDirectionNNParameters *shared __attribute__((swift_name("shared")));
-@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<QpsFloat *> *> *> *coeff_jacket_dir_nn_20211012_133415 __attribute__((swift_name("coeff_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<NSMutableArray<QpsFloat *> *> *intercepts_jacket_dir_nn_20211012_133415 __attribute__((swift_name("intercepts_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_0_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_0_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_10_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_10_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_11_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_11_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_12_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_12_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_13_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_13_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_14_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_14_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_15_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_15_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_16_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_16_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_17_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_17_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_18_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_18_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_19_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_19_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_1_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_1_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_20_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_20_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_21_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_21_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_22_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_22_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_23_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_23_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_24_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_24_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_25_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_25_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_26_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_26_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_27_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_27_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_28_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_28_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_29_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_29_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_2_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_2_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_30_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_30_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_31_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_31_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_32_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_32_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_33_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_33_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_34_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_34_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_35_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_35_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_36_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_36_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_37_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_37_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_38_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_38_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_39_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_39_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_3_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_3_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_40_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_40_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_41_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_41_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_42_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_42_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_43_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_43_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_44_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_44_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_45_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_45_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_46_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_46_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_47_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_47_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_48_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_48_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_49_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_49_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_4_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_4_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_50_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_50_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_51_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_51_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_52_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_52_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_53_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_53_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_54_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_54_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_55_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_55_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_56_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_56_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_57_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_57_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_58_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_58_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_59_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_59_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_5_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_5_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_60_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_60_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_61_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_61_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_62_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_62_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_63_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_63_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_64_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_64_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_65_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_65_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_66_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_66_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_67_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_67_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_68_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_68_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_69_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_69_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_6_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_6_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_70_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_70_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_71_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_71_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_72_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_72_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_73_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_73_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_74_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_74_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_75_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_75_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_76_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_76_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_77_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_77_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_78_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_78_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_79_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_79_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_7_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_7_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_8_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_8_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_coeff_9_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_9_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<NSMutableArray<QpsFloat *> *> *layer_0_coeff_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_coeff_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_0_intercepts_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_0_intercepts_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_0_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_0_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_10_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_10_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_11_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_11_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_12_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_12_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_13_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_13_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_14_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_14_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_15_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_15_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_16_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_16_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_17_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_17_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_18_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_18_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_19_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_19_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_1_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_1_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_20_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_20_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_21_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_21_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_22_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_22_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_23_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_23_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_24_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_24_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_25_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_25_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_26_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_26_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_27_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_27_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_28_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_28_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_29_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_29_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_2_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_2_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_30_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_30_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_31_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_31_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_32_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_32_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_33_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_33_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_34_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_34_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_35_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_35_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_36_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_36_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_37_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_37_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_38_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_38_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_39_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_39_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_3_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_3_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_4_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_4_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_5_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_5_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_6_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_6_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_7_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_7_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_8_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_8_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_coeff_9_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_9_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<NSMutableArray<QpsFloat *> *> *layer_1_coeff_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_coeff_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *layer_1_intercepts_jacket_dir_nn_20211012_133415 __attribute__((swift_name("layer_1_intercepts_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *means_jacket_dir_nn_20211012_133415 __attribute__((swift_name("means_jacket_dir_nn_20211012_133415")));
-@property (readonly) NSMutableArray<QpsFloat *> *scales_jacket_dir_nn_20211012_133415 __attribute__((swift_name("scales_jacket_dir_nn_20211012_133415")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("JacketPocketDirectionNNParameters")))
 @interface QpsJacketPocketDirectionNNParameters : QpsBase
 + (instancetype)alloc __attribute__((unavailable));
@@ -3201,6 +3095,17 @@ __attribute__((swift_name("TrolleySpeedBundle")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TrolleySpeedFunction")))
+@interface QpsTrolleySpeedFunction : QpsStepDataDiscreteSpeedFunction
+- (instancetype)initWithCoefficient:(float)coefficient intercept:(float)intercept certaintylessScalar:(QpsFloat * _Nullable)certaintylessScalar __attribute__((swift_name("init(coefficient:intercept:certaintylessScalar:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (float)calculateSpeedFromStepDataStepData:(QpsStepData *)stepData __attribute__((swift_name("calculateSpeedFromStepData(stepData:)")));
+@property (readonly) float ALPHA __attribute__((swift_name("ALPHA")));
+@property (readonly) QpsFloat * _Nullable certaintylessScalar __attribute__((swift_name("certaintylessScalar")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("TrolleySpeedManager")))
 @interface QpsTrolleySpeedManager : QpsBase <QpsContinuousSpeedFunction>
 - (instancetype)initWithV0:(float)v0 vMax:(float)vMax alpha:(float)alpha beta:(float)beta __attribute__((swift_name("init(v0:vMax:alpha:beta:)"))) __attribute__((objc_designated_initializer));
@@ -3325,13 +3230,13 @@ __attribute__((swift_name("RawSensorData")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SyncTrigger")))
 @interface QpsSyncTrigger : QpsRawSensorData <QpsIQPSSyncData>
-- (instancetype)initWithCurrentTime:(int64_t)currentTime angle:(QpsDouble * _Nullable)angle positions:(NSArray<QpsPointWithOffset *> *)positions isValidSyncRotation:(BOOL)isValidSyncRotation forceSyncPosition:(BOOL)forceSyncPosition _delayedAngle:(QpsFloat * _Nullable)_delayedAngle __attribute__((swift_name("init(currentTime:angle:positions:isValidSyncRotation:forceSyncPosition:_delayedAngle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCurrentTime:(int64_t)currentTime angle:(float)angle position:(QpsPointF *)position syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("init(currentTime:angle:position:syncPosition:syncAngle:uncertainAngle:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithValues:(QpsKotlinFloatArray *)values sensorDataType:(QpsRawSensorDataSensorDataType *)sensorDataType timestamp:(int64_t)timestamp systemTimestamp:(int64_t)systemTimestamp sensorAccuracy:(QpsFloat * _Nullable)sensorAccuracy __attribute__((swift_name("init(values:sensorDataType:timestamp:systemTimestamp:sensorAccuracy:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (readonly) QpsDouble * _Nullable angle __attribute__((swift_name("angle")));
-@property (readonly) float delayedAngle __attribute__((swift_name("delayedAngle")));
-@property (readonly) BOOL forceSyncPosition __attribute__((swift_name("forceSyncPosition")));
-@property (readonly) BOOL isValidSyncRotation __attribute__((swift_name("isValidSyncRotation")));
-@property (readonly) NSArray<QpsPointWithOffset *> *positions __attribute__((swift_name("positions")));
+@property (readonly) float angle __attribute__((swift_name("angle")));
+@property (readonly) QpsPointF *position __attribute__((swift_name("position")));
+@property (readonly) BOOL syncAngle __attribute__((swift_name("syncAngle")));
+@property (readonly) BOOL syncPosition __attribute__((swift_name("syncPosition")));
+@property (readonly) BOOL uncertainAngle __attribute__((swift_name("uncertainAngle")));
 @end;
 
 __attribute__((swift_name("Observable")))
@@ -3659,7 +3564,7 @@ __attribute__((swift_name("IReplayDataHandler")))
 - (NSArray<QpsRawSensorData *> *)getSensorDataDataType:(QpsRawSensorDataSensorDataType *)dataType __attribute__((swift_name("getSensorData(dataType:)")));
 - (QpsStartPosition *)getStartPosition __attribute__((swift_name("getStartPosition()")));
 - (NSArray<QpsRawSensorData *> *)loadReplayDataDataTypes:(NSArray<QpsRawSensorDataSensorDataType *> *)dataTypes dataVersion:(QpsReplayDataVersion *)dataVersion __attribute__((swift_name("loadReplayData(dataTypes:dataVersion:)")));
-- (void)setStartPositionTimestamp:(QpsLong * _Nullable)timestamp startPos:(QpsPointF * _Nullable)startPos startAngle:(QpsDouble * _Nullable)startAngle __attribute__((swift_name("setStartPosition(timestamp:startPos:startAngle:)")));
+- (void)setStartPositionTimestamp:(QpsLong * _Nullable)timestamp startPos:(QpsPointF * _Nullable)startPos startAngle:(QpsDouble * _Nullable)startAngle uncertainAngle:(QpsBoolean * _Nullable)uncertainAngle __attribute__((swift_name("setStartPosition(timestamp:startPos:startAngle:uncertainAngle:)")));
 - (void)startRecording __attribute__((swift_name("startRecording()")));
 - (void)stopRecording __attribute__((swift_name("stopRecording()")));
 @end;
@@ -3689,19 +3594,40 @@ __attribute__((swift_name("IReplayDataHandlerIReplayConfig")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("IReplayDataHandlerSyncPositionData")))
-@interface QpsIReplayDataHandlerSyncPositionData : QpsBase
+__attribute__((swift_name("IReplayDataHandlerLegacySyncPositionData")))
+@interface QpsIReplayDataHandlerLegacySyncPositionData : QpsBase
 - (instancetype)initWithPointWithOffset:(QpsPointWithOffset *)pointWithOffset isValidSyncRotation:(BOOL)isValidSyncRotation delayedAngle:(float)delayedAngle __attribute__((swift_name("init(pointWithOffset:isValidSyncRotation:delayedAngle:)"))) __attribute__((objc_designated_initializer));
 - (QpsPointWithOffset *)component1 __attribute__((swift_name("component1()")));
 - (BOOL)component2 __attribute__((swift_name("component2()")));
 - (float)component3 __attribute__((swift_name("component3()")));
-- (QpsIReplayDataHandlerSyncPositionData *)doCopyPointWithOffset:(QpsPointWithOffset *)pointWithOffset isValidSyncRotation:(BOOL)isValidSyncRotation delayedAngle:(float)delayedAngle __attribute__((swift_name("doCopy(pointWithOffset:isValidSyncRotation:delayedAngle:)")));
+- (QpsIReplayDataHandlerLegacySyncPositionData *)doCopyPointWithOffset:(QpsPointWithOffset *)pointWithOffset isValidSyncRotation:(BOOL)isValidSyncRotation delayedAngle:(float)delayedAngle __attribute__((swift_name("doCopy(pointWithOffset:isValidSyncRotation:delayedAngle:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+- (QpsIReplayDataHandlerSyncPositionData *)toSyncPositionData __attribute__((swift_name("toSyncPositionData()")));
 @property (readonly) float delayedAngle __attribute__((swift_name("delayedAngle")));
 @property (readonly) BOOL isValidSyncRotation __attribute__((swift_name("isValidSyncRotation")));
 @property (readonly) QpsPointWithOffset *pointWithOffset __attribute__((swift_name("pointWithOffset")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IReplayDataHandlerSyncPositionData")))
+@interface QpsIReplayDataHandlerSyncPositionData : QpsBase
+- (instancetype)initWithPosition:(QpsPointF *)position angle:(float)angle syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("init(position:angle:syncPosition:syncAngle:uncertainAngle:)"))) __attribute__((objc_designated_initializer));
+- (QpsPointF *)component1 __attribute__((swift_name("component1()")));
+- (float)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (BOOL)component4 __attribute__((swift_name("component4()")));
+- (BOOL)component5 __attribute__((swift_name("component5()")));
+- (QpsIReplayDataHandlerSyncPositionData *)doCopyPosition:(QpsPointF *)position angle:(float)angle syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("doCopy(position:angle:syncPosition:syncAngle:uncertainAngle:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float angle __attribute__((swift_name("angle")));
+@property (readonly) QpsPointF *position __attribute__((swift_name("position")));
+@property (readonly) BOOL syncAngle __attribute__((swift_name("syncAngle")));
+@property (readonly) BOOL syncPosition __attribute__((swift_name("syncPosition")));
+@property (readonly) BOOL uncertainAngle __attribute__((swift_name("uncertainAngle")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -3715,7 +3641,7 @@ __attribute__((swift_name("ReplayDataHandler")))
 - (NSArray<QpsRawSensorData *> *)getSensorDataDataType:(QpsRawSensorDataSensorDataType *)dataType __attribute__((swift_name("getSensorData(dataType:)")));
 - (QpsStartPosition *)getStartPosition __attribute__((swift_name("getStartPosition()")));
 - (NSArray<QpsRawSensorData *> *)loadReplayDataDataTypes:(NSArray<QpsRawSensorDataSensorDataType *> *)dataTypes dataVersion:(QpsReplayDataVersion *)dataVersion __attribute__((swift_name("loadReplayData(dataTypes:dataVersion:)")));
-- (void)setStartPositionTimestamp:(QpsLong * _Nullable)timestamp startPos:(QpsPointF * _Nullable)startPos startAngle:(QpsDouble * _Nullable)startAngle __attribute__((swift_name("setStartPosition(timestamp:startPos:startAngle:)")));
+- (void)setStartPositionTimestamp:(QpsLong * _Nullable)timestamp startPos:(QpsPointF * _Nullable)startPos startAngle:(QpsDouble * _Nullable)startAngle uncertainAngle:(QpsBoolean * _Nullable)uncertainAngle __attribute__((swift_name("setStartPosition(timestamp:startPos:startAngle:uncertainAngle:)")));
 - (void)startRecording __attribute__((swift_name("startRecording()")));
 - (void)stopRecording __attribute__((swift_name("stopRecording()")));
 @end;
@@ -3949,6 +3875,41 @@ __attribute__((swift_name("ReplayDataV6.Companion")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ReplayDataV7")))
+@interface QpsReplayDataV7 : QpsBase <QpsIReplayData>
+- (instancetype)initWithQpsValues:(NSString *)qpsValues versionOfVPS:(NSString *)versionOfVPS systemType:(NSString *)systemType ecsuValue:(QpsDouble * _Nullable)ecsuValue __attribute__((swift_name("init(qpsValues:versionOfVPS:systemType:ecsuValue:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) QpsReplayDataV7Companion *companion __attribute__((swift_name("companion")));
+- (void)addPathUpdateTimestamp:(int64_t)timestamp path:(NSArray<QpsPointF *> *)path __attribute__((swift_name("addPathUpdate(timestamp:path:)")));
+- (void)addSensorDataData:(QpsRawSensorData *)data __attribute__((swift_name("addSensorData(data:)")));
+- (void)addSyncPositionTimestamp:(int64_t)timestamp syncPositionData:(QpsIReplayDataHandlerSyncPositionData *)syncPositionData __attribute__((swift_name("addSyncPosition(timestamp:syncPositionData:)")));
+- (void)addTickDataNavBundle:(QpsNavBundle *)navBundle currentTime:(int64_t)currentTime azimuth:(double)azimuth magnitude:(double)magnitude qPositions:(NSArray<QpsQPosition *> *)qPositions __attribute__((swift_name("addTickData(navBundle:currentTime:azimuth:magnitude:qPositions:)")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
+- (QpsDouble * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (QpsReplayDataV7 *)doCopyQpsValues:(NSString *)qpsValues versionOfVPS:(NSString *)versionOfVPS systemType:(NSString *)systemType ecsuValue:(QpsDouble * _Nullable)ecsuValue __attribute__((swift_name("doCopy(qpsValues:versionOfVPS:systemType:ecsuValue:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSArray<QpsRawSensorData *> *)loadReplayJsonData:(NSString * _Nullable)jsonData dataTypes:(NSArray<QpsRawSensorDataSensorDataType *> *)dataTypes __attribute__((swift_name("loadReplay(jsonData:dataTypes:)")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) QpsDouble * _Nullable ecsuValue __attribute__((swift_name("ecsuValue")));
+@property (readonly) NSString *qpsValues __attribute__((swift_name("qpsValues")));
+@property QpsStartPosition *startPosition __attribute__((swift_name("startPosition")));
+@property (readonly) NSString *systemType __attribute__((swift_name("systemType")));
+@property (readonly) NSString *versionOfVPS __attribute__((swift_name("versionOfVPS")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ReplayDataV7.Companion")))
+@interface QpsReplayDataV7Companion : QpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) QpsReplayDataV7Companion *shared __attribute__((swift_name("shared")));
+- (id<QpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("InteractorAction")))
 @interface QpsInteractorAction : QpsBase
 - (instancetype)initWithTimestamp:(int64_t)timestamp type:(QpsInteractorActionType *)type __attribute__((swift_name("init(timestamp:type:)"))) __attribute__((objc_designated_initializer));
@@ -3982,6 +3943,35 @@ __attribute__((swift_name("InteractorAction.Type_")))
 @property (class, readonly) QpsInteractorActionType *syncposition __attribute__((swift_name("syncposition")));
 @property (class, readonly) QpsInteractorActionType *currentPathUpdate __attribute__((swift_name("currentPathUpdate")));
 + (QpsKotlinArray<QpsInteractorActionType *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("LegacySyncPosition")))
+@interface QpsLegacySyncPosition : QpsBase
+- (instancetype)initWithTimestamp:(int64_t)timestamp position:(QpsKotlinPair<QpsPointF *, QpsPointF *> *)position isValidSyncRotation:(BOOL)isValidSyncRotation delayAngle:(float)delayAngle __attribute__((swift_name("init(timestamp:position:isValidSyncRotation:delayAngle:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) QpsLegacySyncPositionCompanion *companion __attribute__((swift_name("companion")));
+- (int64_t)component1 __attribute__((swift_name("component1()")));
+- (QpsKotlinPair<QpsPointF *, QpsPointF *> *)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (float)component4 __attribute__((swift_name("component4()")));
+- (QpsLegacySyncPosition *)doCopyTimestamp:(int64_t)timestamp position:(QpsKotlinPair<QpsPointF *, QpsPointF *> *)position isValidSyncRotation:(BOOL)isValidSyncRotation delayAngle:(float)delayAngle __attribute__((swift_name("doCopy(timestamp:position:isValidSyncRotation:delayAngle:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float delayAngle __attribute__((swift_name("delayAngle")));
+@property (readonly) BOOL isValidSyncRotation __attribute__((swift_name("isValidSyncRotation")));
+@property (readonly) QpsKotlinPair<QpsPointF *, QpsPointF *> *position __attribute__((swift_name("position")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("LegacySyncPosition.Companion")))
+@interface QpsLegacySyncPositionCompanion : QpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) QpsLegacySyncPositionCompanion *shared __attribute__((swift_name("shared")));
+- (id<QpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4022,6 +4012,7 @@ __attribute__((swift_name("ReplayDataVersion")))
 @property (class, readonly) QpsReplayDataVersion *v5 __attribute__((swift_name("v5")));
 @property (class, readonly) QpsReplayDataVersion *v6 __attribute__((swift_name("v6")));
 @property (class, readonly) QpsReplayDataVersion *v5bug __attribute__((swift_name("v5bug")));
+@property (class, readonly) QpsReplayDataVersion *v7 __attribute__((swift_name("v7")));
 + (QpsKotlinArray<QpsReplayDataVersion *> *)values __attribute__((swift_name("values()")));
 @end;
 
@@ -4057,18 +4048,20 @@ __attribute__((swift_name("ReplaySensorData.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("StartPosition")))
 @interface QpsStartPosition : QpsBase
-- (instancetype)initWithTimestamp:(QpsLong * _Nullable)timestamp position:(QpsPointF * _Nullable)position angle:(QpsDouble * _Nullable)angle __attribute__((swift_name("init(timestamp:position:angle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTimestamp:(QpsLong * _Nullable)timestamp position:(QpsPointF * _Nullable)position angle:(QpsDouble * _Nullable)angle uncertainAngle:(QpsBoolean * _Nullable)uncertainAngle __attribute__((swift_name("init(timestamp:position:angle:uncertainAngle:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) QpsStartPositionCompanion *companion __attribute__((swift_name("companion")));
 - (QpsLong * _Nullable)component1 __attribute__((swift_name("component1()")));
 - (QpsPointF * _Nullable)component2 __attribute__((swift_name("component2()")));
 - (QpsDouble * _Nullable)component3 __attribute__((swift_name("component3()")));
-- (QpsStartPosition *)doCopyTimestamp:(QpsLong * _Nullable)timestamp position:(QpsPointF * _Nullable)position angle:(QpsDouble * _Nullable)angle __attribute__((swift_name("doCopy(timestamp:position:angle:)")));
+- (QpsBoolean * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (QpsStartPosition *)doCopyTimestamp:(QpsLong * _Nullable)timestamp position:(QpsPointF * _Nullable)position angle:(QpsDouble * _Nullable)angle uncertainAngle:(QpsBoolean * _Nullable)uncertainAngle __attribute__((swift_name("doCopy(timestamp:position:angle:uncertainAngle:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) QpsDouble * _Nullable angle __attribute__((swift_name("angle")));
 @property (readonly) QpsPointF * _Nullable position __attribute__((swift_name("position")));
 @property (readonly) QpsLong * _Nullable timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) QpsBoolean * _Nullable uncertainAngle __attribute__((swift_name("uncertainAngle")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4084,20 +4077,24 @@ __attribute__((swift_name("StartPosition.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SyncPosition")))
 @interface QpsSyncPosition : QpsBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp position:(QpsKotlinPair<QpsPointF *, QpsPointF *> *)position isValidSyncRotation:(BOOL)isValidSyncRotation delayAngle:(float)delayAngle __attribute__((swift_name("init(timestamp:position:isValidSyncRotation:delayAngle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTimestamp:(int64_t)timestamp position:(QpsPointF *)position angle:(float)angle syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("init(timestamp:position:angle:syncPosition:syncAngle:uncertainAngle:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) QpsSyncPositionCompanion *companion __attribute__((swift_name("companion")));
 - (int64_t)component1 __attribute__((swift_name("component1()")));
-- (QpsKotlinPair<QpsPointF *, QpsPointF *> *)component2 __attribute__((swift_name("component2()")));
-- (BOOL)component3 __attribute__((swift_name("component3()")));
-- (float)component4 __attribute__((swift_name("component4()")));
-- (QpsSyncPosition *)doCopyTimestamp:(int64_t)timestamp position:(QpsKotlinPair<QpsPointF *, QpsPointF *> *)position isValidSyncRotation:(BOOL)isValidSyncRotation delayAngle:(float)delayAngle __attribute__((swift_name("doCopy(timestamp:position:isValidSyncRotation:delayAngle:)")));
+- (QpsPointF *)component2 __attribute__((swift_name("component2()")));
+- (float)component3 __attribute__((swift_name("component3()")));
+- (BOOL)component4 __attribute__((swift_name("component4()")));
+- (BOOL)component5 __attribute__((swift_name("component5()")));
+- (BOOL)component6 __attribute__((swift_name("component6()")));
+- (QpsSyncPosition *)doCopyTimestamp:(int64_t)timestamp position:(QpsPointF *)position angle:(float)angle syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("doCopy(timestamp:position:angle:syncPosition:syncAngle:uncertainAngle:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float delayAngle __attribute__((swift_name("delayAngle")));
-@property (readonly) BOOL isValidSyncRotation __attribute__((swift_name("isValidSyncRotation")));
-@property (readonly) QpsKotlinPair<QpsPointF *, QpsPointF *> *position __attribute__((swift_name("position")));
+@property (readonly) float angle __attribute__((swift_name("angle")));
+@property (readonly) QpsPointF *position __attribute__((swift_name("position")));
+@property (readonly) BOOL syncAngle __attribute__((swift_name("syncAngle")));
+@property (readonly) BOOL syncPosition __attribute__((swift_name("syncPosition")));
 @property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) BOOL uncertainAngle __attribute__((swift_name("uncertainAngle")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -5160,8 +5157,9 @@ __attribute__((swift_name("NaivePositionFilter")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)configureOutput:(id<Qpstt2EngineTt2EngineDelegate> _Nullable)output replayDataHandler:(QpsReplayDataHandler * _Nullable)replayDataHandler __attribute__((swift_name("configure(output:replayDataHandler:)")));
 - (void)dispose __attribute__((swift_name("dispose()")));
+- (double)getRealWorldOrientation __attribute__((swift_name("getRealWorldOrientation()")));
 - (QpsNavBundle * _Nullable)moveEventLength:(float)length direction:(double)direction duration:(int64_t)duration currentTime:(int64_t)currentTime orientation:(QpsIQPSDeviceOrientation *)orientation __attribute__((swift_name("moveEvent(length:direction:duration:currentTime:orientation:)")));
-- (void)setPositionX:(float)x y:(float)y angle:(QpsDouble * _Nullable)angle angleStd:(QpsDouble * _Nullable)angleStd __attribute__((swift_name("setPosition(x:y:angle:angleStd:)")));
+- (void)setPositionX:(float)x y:(float)y angleStd:(QpsDouble * _Nullable)angleStd numClusters:(QpsInt * _Nullable)numClusters __attribute__((swift_name("setPosition(x:y:angleStd:numClusters:)")));
 - (void)setRealWorldOrientationAngle:(double)angle __attribute__((swift_name("setRealWorldOrientation(angle:)")));
 - (void)start __attribute__((swift_name("start()")));
 - (void)tickCurrentTime:(int64_t)currentTime __attribute__((swift_name("tick(currentTime:)")));
@@ -5174,7 +5172,7 @@ __attribute__((swift_name("ParticleFilter")))
 @required
 - (void)reset __attribute__((swift_name("reset()")));
 - (void)setPositionPositionData:(QpsPositionData *)positionData __attribute__((swift_name("setPosition(positionData:)")));
-- (void)setRealWorldOrientationReferenceAngle:(QpsReferenceAngle *)referenceAngle __attribute__((swift_name("setRealWorldOrientation(referenceAngle:)")));
+- (void)setRealWorldOrientationReferenceAngle:(double)referenceAngle __attribute__((swift_name("setRealWorldOrientation(referenceAngle:)")));
 - (void)start __attribute__((swift_name("start()")));
 - (void)stop __attribute__((swift_name("stop()")));
 - (void)updateWayfindingPathPath_:(NSArray<QpsPointF *> *)path __attribute__((swift_name("updateWayfindingPath(path_:)")));
@@ -7021,16 +7019,16 @@ __attribute__((swift_name("QCluster.QClusterResetDegree")))
 __attribute__((swift_name("PositionData")))
 @interface QpsPositionData : QpsBase
 - (instancetype)initWithPoint:(QpsPointF *)point angle:(QpsDouble * _Nullable)angle __attribute__((swift_name("init(point:angle:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) QpsDouble * _Nullable angle __attribute__((swift_name("angle")));
+@property (readonly) QpsDouble * _Nullable angle_ __attribute__((swift_name("angle_")));
 @property (readonly) QpsPointF *point __attribute__((swift_name("point")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QLayerPositionData")))
 @interface QpsQLayerPositionData : QpsPositionData
-- (instancetype)initWithPoint:(QpsPointF *)point useUserSettingsECSU:(BOOL)useUserSettingsECSU syncPositionData:(QpsIReplayDataHandlerSyncPositionData * _Nullable)syncPositionData __attribute__((swift_name("init(point:useUserSettingsECSU:syncPositionData:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPoint:(QpsPointF *)point useUserSettingsECSU:(BOOL)useUserSettingsECSU syncPositionData:(QpsIReplayDataHandlerLegacySyncPositionData * _Nullable)syncPositionData __attribute__((swift_name("init(point:useUserSettingsECSU:syncPositionData:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithPoint:(QpsPointF *)point angle:(QpsDouble * _Nullable)angle __attribute__((swift_name("init(point:angle:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (readonly) QpsIReplayDataHandlerSyncPositionData * _Nullable syncPositionData __attribute__((swift_name("syncPositionData")));
+@property (readonly) QpsIReplayDataHandlerLegacySyncPositionData * _Nullable syncPositionData __attribute__((swift_name("syncPositionData")));
 @property (readonly) BOOL useUserSettingsECSU __attribute__((swift_name("useUserSettingsECSU")));
 @end;
 
@@ -7229,7 +7227,7 @@ __attribute__((swift_name("PointF.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("PointWithOffset")))
 @interface QpsPointWithOffset : QpsBase
-- (instancetype)initWithPosition:(QpsPointF *)position offset:(QpsPointF *)offset __attribute__((swift_name("init(position:offset:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPosition:(QpsPointF *)position offset:(QpsPointF *)offset __attribute__((swift_name("init(position:offset:)"))) __attribute__((objc_designated_initializer)) __attribute__((deprecated("Deprecated, do not use offset, use angle")));
 - (QpsPointF *)component1 __attribute__((swift_name("component1()")));
 - (QpsPointF *)component2 __attribute__((swift_name("component2()")));
 - (QpsPointWithOffset *)doCopyPosition:(QpsPointF *)position offset:(QpsPointF *)offset __attribute__((swift_name("doCopy(position:offset:)")));
@@ -9300,9 +9298,9 @@ __attribute__((swift_name("NoRescueAfterSyncExample")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SetDirectionResponse")))
 @interface QpsSetDirectionResponse : QpsBase <QpsSignalResponse>
-- (instancetype)initWithOffset:(QpsPointF *)offset __attribute__((swift_name("init(offset:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithAngle:(float)angle __attribute__((swift_name("init(angle:)"))) __attribute__((objc_designated_initializer));
 - (void)responseVps:(id<QpsIQPSVPS>)vps __attribute__((swift_name("response(vps:)")));
-@property (readonly) QpsPointF *offset __attribute__((swift_name("offset")));
+@property (readonly) float angle __attribute__((swift_name("angle")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -9318,7 +9316,7 @@ __attribute__((swift_name("TSPDirectionExample")))
 @interface QpsTSPDirectionExample : QpsBase <QpsSignalListener>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (QpsPointF * _Nullable)getTSPDirectionPosition:(QpsPointF *)position __attribute__((swift_name("getTSPDirection(position:)")));
+- (float)getTSPDirectionPosition:(QpsPointF *)position __attribute__((swift_name("getTSPDirection(position:)")));
 - (id<QpsSignalResponse> _Nullable)listenSignal:(id<QpsOutputSignal>)signal __attribute__((swift_name("listen(signal:)")));
 @property (readonly) int64_t TROLLEY_TSP_DIRECTION_THRESHOLD __attribute__((swift_name("TROLLEY_TSP_DIRECTION_THRESHOLD")));
 @property QpsPointF * _Nullable currentPosition __attribute__((swift_name("currentPosition")));
@@ -9458,7 +9456,7 @@ __attribute__((swift_name("LegacyQPSHandlerEmulator")))
 @interface QpsLegacyQPSHandlerEmulator : QpsQLayerHandler
 - (instancetype)initWithRawSensorManager:(id<QpsIQPSRawSensorManager>)rawSensorManager interactor:(id<QpsIQPSInteractor>)interactor replayInteractor:(id<QpsIQPSReplayInteractor>)replayInteractor mapInformation:(id<QpsIQPSMapInformation>)mapInformation userSettings:(id<QpsIQPSUserSettings>)userSettings parameterPackageEnum:(QpsIQPSParameterPackageEnum *)parameterPackageEnum mlCommunicator:(id<QpsDataCommunicator> _Nullable)mlCommunicator __attribute__((swift_name("init(rawSensorManager:interactor:replayInteractor:mapInformation:userSettings:parameterPackageEnum:mlCommunicator:)"))) __attribute__((objc_designated_initializer)) __attribute__((deprecated("Use QLayerHandler")));
 - (instancetype)initWithRawSensorManager:(id<QpsIQPSRawSensorManager>)rawSensorManager interactor:(id<QpsIQPSInteractor>)interactor replayInteractor:(id<QpsIQPSReplayInteractor> _Nullable)replayInteractor mapInformation:(id<QpsIQPSMapInformation>)mapInformation userSettings:(id<QpsIQPSUserSettings> _Nullable)userSettings parameterPackageEnum:(QpsIQPSParameterPackageEnum *)parameterPackageEnum playback:(BOOL)playback sensorInterpreter:(id<QpsSensorInterpreter> _Nullable)sensorInterpreter particleFilter:(id<Qpstt2Engine> _Nullable)particleFilter mlDataCommunicator:(id<QpsDataCommunicator> _Nullable)mlDataCommunicator tt2EngineParameterManager:(id<Qpstt2EngineParameterManager> _Nullable)tt2EngineParameterManager __attribute__((swift_name("init(rawSensorManager:interactor:replayInteractor:mapInformation:userSettings:parameterPackageEnum:playback:sensorInterpreter:particleFilter:mlDataCommunicator:tt2EngineParameterManager:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("onPositionSyncEvent(data:uncertainAngle:)")));
+- (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data __attribute__((swift_name("onPositionSyncEvent(data:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -9586,7 +9584,7 @@ __attribute__((swift_name("IPathfinderListener")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseVPSHandler")))
 @interface QpsBaseVPSHandler : QpsBase <QpsIQPSInteractor, QpsIPathfinderListener>
-- (instancetype)initWithParameterPackageEnum:(QpsIQPSParameterPackageEnum *)parameterPackageEnum onNewNavigationBundle:(void (^ _Nullable)(QpsFloat * _Nullable, QpsFloat * _Nullable, QpsFloat * _Nullable, QpsLong *))onNewNavigationBundle onPositionEvent:(void (^ _Nullable)(QpsPositionEvent *))onPositionEvent onIllegalBehaviour:(void (^ _Nullable)(void))onIllegalBehaviour onTrolleyDetection:(void (^ _Nullable)(QpsLong *))onTrolleyDetection onRescueMode:(void (^ _Nullable)(QpsLong *))onRescueMode onSensorsInitiated:(void (^ _Nullable)(void))onSensorsInitiated onNewDeviceOrientation:(void (^ _Nullable)(QpsIQPSDeviceOrientation *))onNewDeviceOrientation onFloorChange:(void (^ _Nullable)(QpsInt *, QpsLong *))onFloorChange onNewDebugMessage:(void (^ _Nullable)(NSString *))onNewDebugMessage onNewDirectionBundle:(void (^ _Nullable)(QpsDirectionBundle *))onNewDirectionBundle __attribute__((swift_name("init(parameterPackageEnum:onNewNavigationBundle:onPositionEvent:onIllegalBehaviour:onTrolleyDetection:onRescueMode:onSensorsInitiated:onNewDeviceOrientation:onFloorChange:onNewDebugMessage:onNewDirectionBundle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithParameterPackageEnum:(QpsIQPSParameterPackageEnum *)parameterPackageEnum onNewNavigationBundle:(void (^ _Nullable)(QpsFloat * _Nullable, QpsFloat * _Nullable, QpsFloat * _Nullable, QpsLong *))onNewNavigationBundle onPositionEvent:(void (^ _Nullable)(QpsPositionEvent *))onPositionEvent onIllegalBehaviour:(void (^ _Nullable)(void))onIllegalBehaviour onTrolleyDetection:(void (^ _Nullable)(QpsLong *))onTrolleyDetection onRescueMode:(void (^ _Nullable)(QpsLong *))onRescueMode onSensorsInitiated:(void (^ _Nullable)(void))onSensorsInitiated onNewDeviceOrientation:(void (^ _Nullable)(QpsIQPSDeviceOrientation *))onNewDeviceOrientation onFloorChange:(void (^ _Nullable)(QpsInt *, QpsLong *))onFloorChange onNewDebugMessage:(void (^ _Nullable)(NSString *))onNewDebugMessage onNewDirectionBundle:(void (^ _Nullable)(QpsDirectionBundle *))onNewDirectionBundle onNewRealWorldOffsetUpdate:(void (^ _Nullable)(QpsRealWorldOffsetUpdate *))onNewRealWorldOffsetUpdate __attribute__((swift_name("init(parameterPackageEnum:onNewNavigationBundle:onPositionEvent:onIllegalBehaviour:onTrolleyDetection:onRescueMode:onSensorsInitiated:onNewDeviceOrientation:onFloorChange:onNewDebugMessage:onNewDirectionBundle:onNewRealWorldOffsetUpdate:)"))) __attribute__((objc_designated_initializer));
 - (void)handleNeoSignalSignal:(id<QpsOutputSignal>)signal __attribute__((swift_name("handleNeoSignal(signal:)")));
 - (void)onCurrentGoalUpdatedGoal:(id<QpsIPathfinderGoal> _Nullable)goal __attribute__((swift_name("onCurrentGoalUpdated(goal:)")));
 - (void)onDestroy __attribute__((swift_name("onDestroy()")));
@@ -9612,6 +9610,7 @@ __attribute__((swift_name("BaseVPSHandlerDelegate")))
 - (void)onNewDeviceOrientationOrientation:(QpsIQPSDeviceOrientation *)orientation __attribute__((swift_name("onNewDeviceOrientation(orientation:)")));
 - (void)onNewDirectionBundleDirectionBundle:(QpsDirectionBundle *)directionBundle __attribute__((swift_name("onNewDirectionBundle(directionBundle:)")));
 - (void)onNewNavigationBundleNavigationBundle:(QpsNavBundle *)navigationBundle __attribute__((swift_name("onNewNavigationBundle(navigationBundle:)")));
+- (void)onNewRealWorldOffsetUpdateRealWorldOffsetUpdate:(QpsRealWorldOffsetUpdate *)realWorldOffsetUpdate __attribute__((swift_name("onNewRealWorldOffsetUpdate(realWorldOffsetUpdate:)")));
 - (void)onPositionEventPositionEvent:(QpsPositionEvent *)positionEvent __attribute__((swift_name("onPositionEvent(positionEvent:)")));
 - (void)onRescueModeCurrentTime:(int64_t)currentTime __attribute__((swift_name("onRescueMode(currentTime:)")));
 - (void)onSensorsInitiated __attribute__((swift_name("onSensorsInitiated()")));
@@ -9918,6 +9917,7 @@ __attribute__((swift_name("StepBasedMLHandler")))
 - (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:)")));
 - (void)onObservationX:(float)x y:(float)y std:(QpsFloat * _Nullable)std offset:(QpsFloat * _Nullable)offset observationType:(QpsStepEventBasedMLObservationType *)observationType __attribute__((swift_name("onObservation(x:y:std:offset:observationType:)")));
 - (void)onSpeedCoefficientSuggestionAlpha:(QpsFloat * _Nullable)alpha beta:(QpsFloat * _Nullable)beta __attribute__((swift_name("onSpeedCoefficientSuggestion(alpha:beta:)")));
+- (void)onSpeedScalingSuggestionScaleFactor:(QpsFloat * _Nullable)scaleFactor __attribute__((swift_name("onSpeedScalingSuggestion(scaleFactor:)")));
 - (void)onStepEventSuccess:(BOOL)success magnitude:(double)magnitude direction:(double)direction duration:(int64_t)duration timestamp:(int64_t)timestamp deviceOrientation:(QpsIQPSDeviceOrientation * _Nullable)deviceOrientation __attribute__((swift_name("onStepEvent(success:magnitude:direction:duration:timestamp:deviceOrientation:)")));
 - (void)reset __attribute__((swift_name("reset()")));
 - (void)start __attribute__((swift_name("start()")));

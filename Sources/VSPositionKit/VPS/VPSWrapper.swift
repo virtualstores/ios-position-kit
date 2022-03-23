@@ -18,6 +18,9 @@ public protocol VPSWrapper {
     /// Publishes the direction data or error
      var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> { get }
 
+    /// Publishes the offset of unit quaternion (start angle) and the map
+    var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> { get }
+
     /// Publishes the device orientation or error
     var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
 
@@ -55,10 +58,10 @@ public protocol VPSWrapper {
     func initPositionSync()
 
     /// Set position change  methode
-    func setPosition(point: CGPoint, direction: CGPoint, delayedAngle: Double, syncDirection: Bool, forceSyncPosition: Bool, uncertainAngle: Bool)
+    func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool)
 
     /// Start recording for vps
-    func startRecording(startPosition: PositionBundle, currentDirection: Double)
+    func startRecording()
 
     /// Stop recording for vps
     func stopRecording()
