@@ -8,15 +8,17 @@
 import Foundation
 import qps
 import Combine
+import VSFoundation
 
 public final class VPSReplayInteractor: IQPSReplayInteractor {
-    public var replayInteractorDataPublisher: CurrentValueSubject<(String?, String?), Never>?
+    public var replayInteractorDataPublisher: CurrentValueSubject<(String, String)?, Never> = .init(nil)
 
     public func getData(identifier: String, printMissingFileException: Bool) -> String? {
         return ""
     }
 
     public func postData(data: String, identifier: String) {
-        replayInteractorDataPublisher?.send((identifier, data))
+        Logger(verbosity: .debug).log(message: "RecordingData: \(identifier)")
+        replayInteractorDataPublisher.send((identifier, data))
     }
 }

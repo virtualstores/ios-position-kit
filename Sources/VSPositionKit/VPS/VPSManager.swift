@@ -24,6 +24,7 @@ public final class VPSManager: VPSWrapper {
     public var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
+    public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
 
@@ -39,16 +40,26 @@ public final class VPSManager: VPSWrapper {
 
     private let shouldRecord: Bool
     private var isRecording = false
-    private let isRecordPossibilityOn = false
     private var floorHeightDiffInMeters: Double?
     
     private var dataCommunicator = VPSDataCommunicator()
+
+    private var recordingCancellable: AnyCancellable?
 
     public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
         self.shouldRecord = shouldRecord
         self.qpsReplayInteractor = VPSReplayInteractor()
         self.floorHeightDiffInMeters = floorHeightDiffInMeters
         self.createMapInformation(with: mapData)
+        self.bindPublishers()
+    }
+
+    func bindPublishers() {
+        recordingCancellable = self.qpsReplayInteractor.replayInteractorDataPublisher
+            .compactMap { $0 }
+            .sink { (identifier, data) in
+                self.recordingPublisher.send((identifier: identifier, data: data))
+            }
     }
 
     public func start() {
@@ -63,16 +74,40 @@ public final class VPSManager: VPSWrapper {
             self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .retail, mlCommunicator: self.dataCommunicator)
 
             self.sensor.startAllSensors()
+            self.sensor.serialDispatch.asyncAfter(deadline: .now() + 1) {
+                if let bundle = self.positionPublisher.value, let direction = self.directionPublisher.value {
+                    self.startRecording(startPosition: bundle, currentDirection: direction.angle)
+                }
+            }
         }
     }
+
+  public func startRecording(startPosition: PositionBundle, currentDirection: Double) {
+      sensor.serialDispatch.async {
+            if self.qpsRunning && self.shouldRecord {
+              self.vps?.startRecording(startPosition: startPosition.asNavBundle, currentDirection: KotlinDouble(double: currentDirection))
+              self.isRecording = true
+          }
+      }
+  }
 
     public func stop() {
         sensor.serialDispatch.async {
             if self.qpsRunning {
+                self.stopRecording()
                 self.qpsRunning = false
                 self.vps?.stopNavigation()
                 self.qpsHandler = nil
                 self.sensor.shutDown()
+            }
+        }
+    }
+
+    public func stopRecording() {
+        sensor.serialDispatch.async {
+              if self.isRecording {
+                self.vps?.stopRecording()
+                self.isRecording = false
             }
         }
     }
@@ -125,24 +160,6 @@ public final class VPSManager: VPSWrapper {
             } else {
                 self.start()
                 self.startNavigation(startPosition: point, startAngle: startAngle, uncertainAngle: uncertainAngle)
-            }
-        }
-    }
-
-    public func startRecording() {
-        sensor.serialDispatch.async {
-              if self.qpsRunning && self.isRecordPossibilityOn {
-                self.vps?.startRecording()
-                self.isRecording = true
-            }
-        }
-    }
-
-    public func stopRecording() {
-        sensor.serialDispatch.async {
-              if self.qpsRunning && self.isRecording {
-                self.vps?.stopRecording()
-                self.isRecording = false
             }
         }
     }
