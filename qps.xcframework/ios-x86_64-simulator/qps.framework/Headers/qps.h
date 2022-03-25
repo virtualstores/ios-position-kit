@@ -187,7 +187,7 @@ __attribute__((swift_name("GlobalQPSValues")))
 @property QpsKotlinFloatArray *Y_AXIS __attribute__((swift_name("Y_AXIS")));
 @property (readonly) QpsMoveVector *ZERO_MOVE_VECTOR __attribute__((swift_name("ZERO_MOVE_VECTOR")));
 @property (readonly) QpsVector *ZERO_VECTOR __attribute__((swift_name("ZERO_VECTOR")));
-@property (readonly) double magneticHeadingErrorStd __attribute__((swift_name("magneticHeadingErrorStd")));
+@property (readonly) QpsDouble * _Nullable magneticHeadingErrorStd __attribute__((swift_name("magneticHeadingErrorStd")));
 @end;
 
 __attribute__((swift_name("IQPS")))
@@ -424,7 +424,7 @@ __attribute__((swift_name("tt2EngineTt2EngineDelegate")))
 __attribute__((swift_name("StepEventBasedMLStepEventBasedMLDelegate")))
 @protocol QpsStepEventBasedMLStepEventBasedMLDelegate
 @required
-- (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:)")));
+- (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset deviceOrientation:(QpsIQPSDeviceOrientation *)deviceOrientation __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:deviceOrientation:)")));
 - (void)onSpeedCoefficientSuggestionAlpha:(QpsFloat * _Nullable)alpha beta:(QpsFloat * _Nullable)beta __attribute__((swift_name("onSpeedCoefficientSuggestion(alpha:beta:)")));
 - (void)onSpeedScalingSuggestionScaleFactor:(QpsFloat * _Nullable)scaleFactor __attribute__((swift_name("onSpeedScalingSuggestion(scaleFactor:)")));
 @end;
@@ -449,7 +449,7 @@ __attribute__((swift_name("QLayerHandler")))
 - (QpsKotlinFloatArray * _Nullable)getLastRotation __attribute__((swift_name("getLastRotation()")));
 - (void)doInitPositionSyncEvent __attribute__((swift_name("doInitPositionSyncEvent()")));
 - (QpsKotlinUnit *)moveEventStep:(QpsStepData *)moveEventData __attribute__((swift_name("moveEvent(step:)")));
-- (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:)")));
+- (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset deviceOrientation:(QpsIQPSDeviceOrientation *)deviceOrientation __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:deviceOrientation:)")));
 - (void)onNewPositionX:(QpsFloat * _Nullable)x y:(QpsFloat * _Nullable)y std:(QpsFloat * _Nullable)std timestamp:(int64_t)timestamp __attribute__((swift_name("onNewPosition(x:y:std:timestamp:)")));
 - (void)onPathUpdateEventPath:(NSArray<QpsPointF *> *)path __attribute__((swift_name("onPathUpdateEvent(path:)")));
 - (void)onPositionSyncEventData:(id<QpsIQPSSyncData>)data __attribute__((swift_name("onPositionSyncEvent(data:)")));
@@ -504,6 +504,7 @@ __attribute__((swift_name("SensorInterpreter")))
 - (void)startRecording __attribute__((swift_name("startRecording()")));
 - (void)stop __attribute__((swift_name("stop()")));
 - (void)stopRecording __attribute__((swift_name("stopRecording()")));
+- (void)updateAxisAxis:(QpsKotlinFloatArray *)axis mode:(QpsIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property (readonly) id<QpsPositioningHandler> handler __attribute__((swift_name("handler")));
 @end;
 
@@ -716,6 +717,7 @@ __attribute__((swift_name("IStepDetectorManager")))
 @protocol QpsIStepDetectorManager
 @required
 - (void)changeStateStateType:(QpsIQPSDeviceOrientation *)stateType timestamp:(int64_t)timestamp __attribute__((swift_name("changeState(stateType:timestamp:)")));
+- (void)updateAxisAxis:(QpsKotlinFloatArray *)axis mode:(QpsIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property (readonly) BOOL forcePocket __attribute__((swift_name("forcePocket")));
 @end;
 
@@ -738,6 +740,7 @@ __attribute__((swift_name("LegacyStepDetectorManager")))
 - (QpsKotlinUnit *)moveEventStep:(QpsStepData *)step __attribute__((swift_name("moveEvent(step:)")));
 - (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
 - (void)stop __attribute__((swift_name("stop()")));
+- (void)updateAxisAxis:(QpsKotlinFloatArray *)axis mode:(QpsIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property BOOL forcePocket __attribute__((swift_name("forcePocket")));
 @property (readonly) id<QpsSensorInterpreterStepListener> stepListener __attribute__((swift_name("stepListener")));
 @end;
@@ -802,6 +805,7 @@ __attribute__((swift_name("StepDetectorManager")))
 - (QpsKotlinUnit *)moveEventStep:(QpsStepData *)step __attribute__((swift_name("moveEvent(step:)")));
 - (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
 - (void)stop __attribute__((swift_name("stop()")));
+- (void)updateAxisAxis:(QpsKotlinFloatArray *)axis mode:(QpsIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property BOOL forcePocket __attribute__((swift_name("forcePocket")));
 @property (readonly) id<QpsSensorInterpreterStepListener> stepListener __attribute__((swift_name("stepListener")));
 @end;
@@ -1757,14 +1761,16 @@ __attribute__((swift_name("DirectionModel")))
 @protocol QpsDirectionModel
 @required
 - (QpsStepData *)getDirectionStepData:(QpsStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
+- (void)setAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("AverageDirectionModel")))
 @interface QpsAverageDirectionModel : QpsBase <QpsDirectionModel>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithExternalDataManager:(QpsExternalDataManager *)externalDataManager __attribute__((swift_name("init(externalDataManager:)"))) __attribute__((objc_designated_initializer));
 - (QpsStepData *)getDirectionStepData:(QpsStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
+- (void)setAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
+@property (readonly) QpsExternalDataManager *externalDataManager __attribute__((swift_name("externalDataManager")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -2049,6 +2055,7 @@ __attribute__((swift_name("RotatorDirection")))
 - (QpsStepData *)getDirectionStepData:(QpsStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
 - (double)getDirectionCertaintyScoreArray:(QpsKotlinDoubleArray *)scoreArray angles:(QpsKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionCertainty(scoreArray:angles:)")));
 - (double)getDirectionFromScoreArrayScoreArray:(QpsKotlinDoubleArray *)scoreArray angles:(QpsKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionFromScoreArray(scoreArray:angles:)")));
+- (void)setAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 - (double)targetFunctionDirectionalData:(NSMutableArray<QpsFloat *> *)directionalData __attribute__((swift_name("targetFunction(directionalData:)")));
 @property int64_t currentTime __attribute__((swift_name("currentTime")));
 @property (readonly) QpsHistoryHandler<QpsSpackStepData *> *spackDataHistory __attribute__((swift_name("spackDataHistory")));
@@ -2063,6 +2070,7 @@ __attribute__((swift_name("JacketPocketRotatingNNDirection")))
 - (NSMutableArray<QpsFloat *> *)fetchRotatedSpacksAngle:(double)angle __attribute__((swift_name("fetchRotatedSpacks(angle:)")));
 - (double)getDirectionCertaintyScoreArray:(QpsKotlinDoubleArray *)scoreArray angles:(QpsKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionCertainty(scoreArray:angles:)")));
 - (double)getDirectionFromScoreArrayScoreArray:(QpsKotlinDoubleArray *)scoreArray angles:(QpsKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionFromScoreArray(scoreArray:angles:)")));
+- (void)setAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 - (double)targetFunctionDirectionalData:(NSMutableArray<QpsFloat *> *)directionalData __attribute__((swift_name("targetFunction(directionalData:)")));
 @property (readonly) QpsHistoryHandler<QpsSpackStepData *> *spackDataHistory __attribute__((swift_name("spackDataHistory")));
 @end;
@@ -2695,7 +2703,18 @@ __attribute__((swift_name("TestModel")))
 @interface QpsTestModel : QpsBase <QpsDirectionModel>
 - (instancetype)initWithDirection:(double)direction __attribute__((swift_name("init(direction:)"))) __attribute__((objc_designated_initializer));
 - (QpsStepData *)getDirectionStepData:(QpsStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
+- (void)setAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 @property (readonly) double direction __attribute__((swift_name("direction")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TwoStepAverageDirectionModel")))
+@interface QpsTwoStepAverageDirectionModel : QpsBase <QpsDirectionModel>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (QpsStepData *)getDirectionStepData:(QpsStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
+- (void)setAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
+@property (readonly) QpsHistoryHandler<QpsSpackStepData *> *spackDataHistory __attribute__((swift_name("spackDataHistory")));
 @end;
 
 __attribute__((swift_name("DirectionFilter")))
@@ -2803,6 +2822,7 @@ __attribute__((swift_name("StepState")))
 - (void)setToStrict __attribute__((swift_name("setToStrict()")));
 - (void)stop __attribute__((swift_name("stop()")));
 - (void)update __attribute__((swift_name("update()")));
+- (void)updateAxisAxis:(QpsKotlinFloatArray *)axis __attribute__((swift_name("updateAxis(axis:)")));
 @property (readonly) QpsIQPSDeviceOrientation *deviceOrientation __attribute__((swift_name("deviceOrientation")));
 @property (readonly) id<QpsDirectionFilter> _Nullable directionFilter __attribute__((swift_name("directionFilter")));
 @property (readonly) id<QpsDirectionModel> _Nullable directionModel __attribute__((swift_name("directionModel")));
@@ -5256,6 +5276,7 @@ __attribute__((swift_name("QLayerVectorQueueHandler")))
 - (void)clearQueue __attribute__((swift_name("clearQueue()")));
 - (QpsFloat * _Nullable)getCompassOffset __attribute__((swift_name("getCompassOffset()")));
 - (NSString *)getMoveVectorString __attribute__((swift_name("getMoveVectorString()")));
+- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
 - (QpsMoveVector *)nextMovement __attribute__((swift_name("nextMovement()")));
 - (void)setCompassOffsetOffset:(float)offset __attribute__((swift_name("setCompassOffset(offset:)")));
 - (void)setGameVectorDirectionAngle:(float)angle __attribute__((swift_name("setGameVectorDirection(angle:)")));
@@ -9914,7 +9935,7 @@ __attribute__((swift_name("StepBasedMLHandler")))
 - (instancetype)initWithMlAlgos:(NSArray<id<QpsStepEventBasedML>> *)mlAlgos __attribute__((swift_name("init(mlAlgos:)"))) __attribute__((objc_designated_initializer));
 - (void)configureDelegate:(id<QpsStepEventBasedMLStepEventBasedMLDelegate>)delegate isPointOnNavMesh:(QpsBoolean *(^)(QpsFloat *, QpsFloat *))isPointOnNavMesh __attribute__((swift_name("configure(delegate:isPointOnNavMesh:)")));
 - (void)dispose __attribute__((swift_name("dispose()")));
-- (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:)")));
+- (void)onHeadingCorrectionSuggestionOffset:(QpsDouble * _Nullable)offset deviceOrientation:(QpsIQPSDeviceOrientation *)deviceOrientation __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:deviceOrientation:)")));
 - (void)onObservationX:(float)x y:(float)y std:(QpsFloat * _Nullable)std offset:(QpsFloat * _Nullable)offset observationType:(QpsStepEventBasedMLObservationType *)observationType __attribute__((swift_name("onObservation(x:y:std:offset:observationType:)")));
 - (void)onSpeedCoefficientSuggestionAlpha:(QpsFloat * _Nullable)alpha beta:(QpsFloat * _Nullable)beta __attribute__((swift_name("onSpeedCoefficientSuggestion(alpha:beta:)")));
 - (void)onSpeedScalingSuggestionScaleFactor:(QpsFloat * _Nullable)scaleFactor __attribute__((swift_name("onSpeedScalingSuggestion(scaleFactor:)")));
@@ -9966,6 +9987,16 @@ __attribute__((swift_name("BasicYAxisGetter")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (QpsDouble * _Nullable)findClearPathX:(float)x y:(float)y nonRelativePath:(NSMutableArray<QpsKotlinPair<QpsDouble *, QpsDouble *> *> *)nonRelativePath pointOnNavMesh:(QpsBoolean *(^ _Nullable)(QpsFloat *, QpsFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:nonRelativePath:pointOnNavMesh:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OrientationHistory")))
+@interface QpsOrientationHistory : QpsBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)addElement:(QpsIQPSDeviceOrientation * _Nullable)element __attribute__((swift_name("add(element:)")));
+- (void)clear __attribute__((swift_name("clear()")));
+- (QpsIQPSDeviceOrientation * _Nullable)getMostCommonOrientation __attribute__((swift_name("getMostCommonOrientation()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -10031,6 +10062,7 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("AxisUtilKt")))
 @interface QpsAxisUtilKt : QpsBase
 + (QpsKotlinFloatArray *)getAxisType:(QpsIQPSDeviceOrientation *)type swingAxis:(QpsKotlinFloatArray *)swingAxis __attribute__((swift_name("getAxis(type:swingAxis:)")));
++ (QpsKotlinFloatArray *)rotateAxisAxis:(QpsKotlinFloatArray *)axis offset:(double)offset deviceOrientation:(QpsIQPSDeviceOrientation *)deviceOrientation parameterPackageEnum:(QpsIQPSParameterPackageEnum *)parameterPackageEnum __attribute__((swift_name("rotateAxis(axis:offset:deviceOrientation:parameterPackageEnum:)")));
 + (void)setArmRotationMatrixAngle:(double)angle __attribute__((swift_name("setArmRotationMatrix(angle:)")));
 @end;
 

@@ -18,7 +18,6 @@ public final class VPSReplayInteractor: IQPSReplayInteractor {
     }
 
     public func postData(data: String, identifier: String) {
-        Logger(verbosity: .debug).log(message: "RecordingData: \(identifier)")
         replayInteractorDataPublisher.send((identifier, data))
     }
 }
