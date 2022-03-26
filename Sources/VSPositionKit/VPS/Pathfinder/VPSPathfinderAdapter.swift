@@ -11,7 +11,7 @@ import CoreGraphics
 import VSFoundation
 import qps
 
-public final class VPSPathfinderAdapter: PathfinderProtocol {
+public final class VPSPathfinderAdapter: IFoundationPathfinder {
     public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> {
          .init(self.vpsPathfinder.currentGoal?.asGoal)
     }
