@@ -13,7 +13,7 @@ let package = Package(
     products: [
         .library(
             name: "VSPositionKit",
-            targets: ["VSPositionKit"]),
+            targets: ["VSPositionKitTargets"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
