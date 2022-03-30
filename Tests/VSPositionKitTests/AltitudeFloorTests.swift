@@ -6,7 +6,7 @@
 
 import Foundation
 import XCTest
-@testable import VSPositionKit
+@testable import VSPositionKitTargets
 import VSFoundation
 import VSSensorFusion
 

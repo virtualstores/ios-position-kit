@@ -1,6 +1,0 @@
-framework module qps {
-    umbrella header "qps.h"
-
-    export *
-    module * { export * }
-}

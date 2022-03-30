@@ -22,21 +22,21 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "VSPositionKit",
+            name: "VSPositionKitTargets",
             dependencies: [
-                "QPS",
+                .target(name: "VSPositionKit"),
                 .product(name: "VSFoundation", package: "ios-foundation"),
                 .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
             ]),
         .testTarget(
             name: "VSPositionKitTests",
-            dependencies: ["VSPositionKit", "QPS"],
+            dependencies: ["VSPositionKitTargets"],
             resources: [
               .copy("TestResources/MapFence/"),
               .copy("TestResources/SensorData/")
             ]),
         .binaryTarget(
-            name: "QPS",
-            path: "qps.xcframework"),
+            name: "VSPositionKit",
+            path: "VSPositionKit.xcframework"),
     ]
 )
