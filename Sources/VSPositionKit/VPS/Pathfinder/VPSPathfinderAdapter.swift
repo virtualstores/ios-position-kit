@@ -43,7 +43,7 @@ public final class VPSPathfinderAdapter: IFoundationPathfinder {
     }
 
     public func add(goal: Goal, completion: @escaping () -> Void) {
-        self.vpsPathfinder.addGoal(goal: goal.convertFromMeterToPixel(converter: converter, height: height).asVPSGoal, callback: completion)
+        self.vpsPathfinder.addGoal(goal: goal.asVPSGoal, callback: completion)
     }
 
     public func add(goals: [Goal], completion: @escaping () -> Void) {
@@ -99,28 +99,4 @@ extension TT2NavGraph {
     }
     return NavGraph(spacing: Int32(spacing), numVertices: numVertices, vertices: modifiedVertices)
   }
-}
-
-extension Goal {
-    func convertFromMeterToPixel(converter: ICoordinateConverter, height: Double = 0.0) -> Goal {
-        let x = converter.convertFromMetersToPixels(input: position.x)
-        let y: Double
-        if height > 0.0 {
-            y = converter.convertFromMetersToPixels(input: height - position.y)
-        } else {
-            y = converter.convertFromMetersToPixels(input: position.y)
-        }
-        return Goal(id: id, position: CGPoint(x: x, y: y), data: data, type: type)
-    }
-
-    func convertFromPixelToMeter(converter: ICoordinateConverter, height: Double = 0.0) -> Goal {
-        let x = converter.convertFromPixelsToMeters(input: position.x)
-        let y: Double
-        if height > 0.0 {
-            y = converter.convertFromPixelsToMeters(input: height - position.y)
-        } else {
-            y = converter.convertFromPixelsToMeters(input: position.y)
-        }
-        return Goal(id: id, position: CGPoint(x: x, y: y), data: data, type: type)
-    }
 }
