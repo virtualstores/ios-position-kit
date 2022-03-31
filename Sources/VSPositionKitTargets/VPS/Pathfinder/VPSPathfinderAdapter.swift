@@ -12,12 +12,8 @@ import VSFoundation
 import VSPositionKit
 
 public final class VPSPathfinderAdapter: IFoundationPathfinder {
-    public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> {
-         .init(self.vpsPathfinder.currentGoal?.asGoal)
-    }
-    public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> {
-        .init(self.vpsPathfinder.sortedGoals.map { $0.asGoal })
-    }
+    public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> = .init(nil)
+    public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
     public var pathUpdatedPublisher: CurrentValueSubject<Path?, Never> = .init(nil)
 
     public var hasGoal: CurrentValueSubject<Bool, Never> {
