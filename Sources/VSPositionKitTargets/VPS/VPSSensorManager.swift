@@ -234,6 +234,11 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     private func handleData(_ accData: RawSensorData, _ gravData: RawSensorData, _ rotData: RawSensorData, _ orienData: RawSensorData?, timeLimit: Double) {
         
     }
+    
+    deinit {
+        motionCancellable?.cancel()
+        altimeterCancellable?.cancel()
+    }
 }
 
 extension VPSSensorManager: RawSensorDelegate {

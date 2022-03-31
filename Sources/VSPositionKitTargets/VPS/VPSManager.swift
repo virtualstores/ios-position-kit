@@ -211,4 +211,8 @@ public final class VPSManager: VPSWrapper {
         //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
         mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
     }
+    
+    deinit {
+        recordingCancellable?.cancel()
+    }
 }
