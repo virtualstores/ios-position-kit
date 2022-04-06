@@ -168,34 +168,34 @@ public final class VPSManager: VPSWrapper {
             onNewNavigationBundle: { [weak self] (x, y, std, _) in
               if let x = x, let y = y, let std = std {
                 let position =  PositionBundle(x: Float(truncating: x), y: Float(truncating: y), std: Float(truncating: std))
-                self?.positionPublisher.send(position)
+                DispatchQueue.main.async { self?.positionPublisher.send(position) }
               }
             },
             onPositionEvent: { (_) in },
             onIllegalBehaviour: { [weak self] () in
-              self?.illegalBehaviourPublisher.send(())
+              DispatchQueue.main.async { self?.illegalBehaviourPublisher.send(()) }
             },
             onTrolleyDetection: { [weak self] (currentTime) in
-              self?.trolleyModePublisher.send(Int64(truncating: currentTime))
+              DispatchQueue.main.async { self?.trolleyModePublisher.send(Int64(truncating: currentTime)) }
             },
             onRescueMode: { [weak self] (currentTime) in
-              self?.rescueModePublisher.send(Int64(truncating: currentTime))
+              DispatchQueue.main.async { self?.rescueModePublisher.send(Int64(truncating: currentTime)) }
             },
             onSensorsInitiated: { [weak self] () in
-              self?.sensorsInitiatedPublisher.send(())
+              DispatchQueue.main.async { self?.sensorsInitiatedPublisher.send(()) }
             },
             onNewDeviceOrientation: { [weak self] (orientation) in
-              self?.deviceOrientationPublisher.send(orientation.asDeviceOrientation)
+              DispatchQueue.main.async { self?.deviceOrientationPublisher.send(orientation.asDeviceOrientation) }
             },
             onFloorChange: { [weak self] (floorDifferential, _) in
-              self?.changedFloorPublisher.send(Int(truncating: floorDifferential))
+              DispatchQueue.main.async { self?.changedFloorPublisher.send(Int(truncating: floorDifferential)) }
             },
             onNewDebugMessage: nil,
             onNewDirectionBundle: { [weak self] (directionBundle) in
-              self?.directionPublisher.send(VPSDirectionBundle(angle: directionBundle.direction))
+              DispatchQueue.main.async { self?.directionPublisher.send(VPSDirectionBundle(angle: directionBundle.direction)) }
             },
             onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
-                self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction))
+              DispatchQueue.main.async { self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction)) }
             }
         )
     }
