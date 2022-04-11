@@ -70,7 +70,6 @@ public final class PositionManager: IPositionKit {
             self.sensor.stop()
         }
         self.vps?.stop()
-        cancellable.removeAll()
     }
     
     public func setBackgroundAccess(isActive: Bool) {
@@ -134,6 +133,7 @@ public final class PositionManager: IPositionKit {
     
     deinit {
         stop()
+        cancellable.removeAll()
     }
 }
 
