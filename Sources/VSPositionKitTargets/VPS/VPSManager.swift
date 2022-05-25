@@ -46,11 +46,11 @@ public final class VPSManager: VPSWrapper {
 
     private var recordingCancellable: AnyCancellable?
 
-    public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence) {
+    public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double) {
         self.shouldRecord = shouldRecord
         self.qpsReplayInteractor = VPSReplayInteractor()
         self.floorHeightDiffInMeters = floorHeightDiffInMeters
-        self.createMapInformation(with: mapData)
+        self.createMapInformation(with: mapData, pixelsPerMeter: pixelsPerMeter)
         self.bindPublishers()
     }
 
@@ -200,7 +200,7 @@ public final class VPSManager: VPSWrapper {
         )
     }
 
-    private func createMapInformation(with data: MapFence) {
+    private func createMapInformation(with data: MapFence, pixelsPerMeter: Double) {
         guard let mapFenceData = MapFenceFactory.getMapFenceData(fromMapFence: data) else { return }
         
         let fencePolygons = mapFenceData.polygons
@@ -209,7 +209,7 @@ public final class VPSManager: VPSWrapper {
         
         //TODO: create offsetZones
         //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
-        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: 50, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
+        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: pixelsPerMeter, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
     }
     
     deinit {

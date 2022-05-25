@@ -35,7 +35,7 @@ public protocol IPositionKit {
     func setBackgroundAccess(isActive: Bool)
     
     /// MapFence setup methode
-  func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, shouldRecord: Bool)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, shouldRecord: Bool)
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)

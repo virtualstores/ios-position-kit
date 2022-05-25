@@ -18,7 +18,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/virtualstores/ios-foundation.git", .upToNextMajor(from: "0.0.8")),
-        .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .upToNextMajor(from: "0.0.5")),
+        .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .exact("0.0.8")),
     ],
     targets: [
         .target(
