@@ -21,6 +21,7 @@ public final class PositionManager: IPositionKit {
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     
     public var rtlsOption: RtlsOptions?
     
@@ -129,6 +130,14 @@ public final class PositionManager: IPositionKit {
                 self.recordingPublisher.send((identifier: identifier, data: data))
             })
             .store(in: &cancellable)
+
+        self.vps?.deviceOrientationPublisher
+            .compactMap { $0 }
+            .sink(receiveCompletion: { (_) in
+                self.deviceOrientationPublisher.send(completion: .failure(.noData))
+            }, receiveValue: { (orientation) in
+                self.deviceOrientationPublisher.send(orientation)
+            }).store(in: &cancellable)
     }
     
     deinit {

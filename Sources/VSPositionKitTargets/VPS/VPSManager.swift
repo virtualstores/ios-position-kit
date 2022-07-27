@@ -71,7 +71,7 @@ public final class VPSManager: VPSWrapper {
             }
             self.qpsRunning = true
 
-            self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .retail, mlCommunicator: self.dataCommunicator)
+            self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .retail, mlCommunicator: self.dataCommunicator, enableTeoML: false)
 
             self.sensor.startAllSensors()
         }

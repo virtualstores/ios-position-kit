@@ -24,6 +24,8 @@ public protocol IPositionKit {
     
     /// Publishes the floor change
     var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
+
+    var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
     
     /// Starts position managers. Will produce results to positionPublisher.
     func start() throws
