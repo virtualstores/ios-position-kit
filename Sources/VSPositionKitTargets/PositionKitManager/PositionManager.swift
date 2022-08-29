@@ -65,12 +65,20 @@ public final class PositionManager: IPositionKit {
     public func syncPosition(xPosition: Double, yPosition: Double, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
         vps?.syncPosition(position: CGPoint(x: xPosition, y: yPosition), startAngle: startAngle, syncPosition: syncPosition, syncAngle: syncAngle, uncertainAngle: uncertainAngle)
     }
+
+    public func startRecording() {
+        vps?.startRecording()
+    }
     
     public func stop(stopSensors: Bool = true) {
         if stopSensors {
             self.sensor.stop()
         }
         self.vps?.stop()
+    }
+
+    public func stopRecording() {
+        vps?.stopRecording()
     }
     
     public func setBackgroundAccess(isActive: Bool) {

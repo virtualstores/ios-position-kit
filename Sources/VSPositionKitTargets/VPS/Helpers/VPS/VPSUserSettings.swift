@@ -106,7 +106,7 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     public var userHeight: KotlinFloat? {
         set {
-            userObject?.userHeight = newValue?.kotlinFloatAsFloat
+            userObject?.height = newValue?.kotlinFloatAsFloat
             save(editableObject: userObject)
         }
         get {
@@ -153,7 +153,7 @@ public final class VPSUserSettings: IQPSUserSettings {
 //        userObject?.alpha = nil
 //        userObject?.beta = nil
 //        userObject?.y = nil
-        userObject?.userHeight = nil
+        userObject?.height = nil
 //        userObject?.speedRegressionSlope = nil
 //        userObject?.speedRegressionIntercept = nil
         

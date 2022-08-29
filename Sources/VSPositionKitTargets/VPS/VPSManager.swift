@@ -77,14 +77,14 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-  public func startRecording() {
-      sensor.serialDispatch.async {
-            if self.qpsRunning && self.shouldRecord {
-              self.vps?.startRecording()
-              self.isRecording = true
-          }
-      }
-  }
+    public func startRecording() {
+        sensor.serialDispatch.async {
+              if self.qpsRunning /*&& self.shouldRecord*/ {
+                self.vps?.startRecording()
+                self.isRecording = true
+            }
+        }
+    }
 
     public func stop() {
         sensor.serialDispatch.async {
@@ -111,7 +111,7 @@ public final class VPSManager: VPSWrapper {
         start()
         sensor.serialDispatch.async {
             self.vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
-            self.startRecording()
+            //self.startRecording()
         }
     }
     
