@@ -22,6 +22,7 @@ public final class PositionManager: IPositionKit {
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
+    public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
     
     public var rtlsOption: RtlsOptions?
     
@@ -86,66 +87,64 @@ public final class PositionManager: IPositionKit {
     }
     
     func bindEnginePublishers() {
-        self.vps?.positionPublisher
+        vps?.positionPublisher
             .compactMap { $0 }
             .sink { [weak self] _ in
                 self?.positionPublisher.send(completion: .failure(PositionKitError.noPositions))
             } receiveValue: { [weak self] positionBundle in
                 self?.positionPublisher.send(positionBundle)
-            }
-            .store(in: &cancellable)
+            }.store(in: &cancellable)
         
-        self.vps?.directionPublisher
+        vps?.directionPublisher
             .compactMap { $0 }
             .sink(receiveCompletion: { [weak self] (_) in
                 self?.directionPublisher.send(completion: .failure(PositionKitError.noDirection))
             }, receiveValue: { data in
                 self.directionPublisher.send(data)
-            })
-            .store(in: &cancellable)
+            }).store(in: &cancellable)
         
-        self.vps?.realWorldOffsetPublisher
+        vps?.realWorldOffsetPublisher
             .compactMap { $0 }
             .sink(receiveCompletion: { [weak self] (_) in
                 self?.realWorldOffsetPublisher.send(completion: .failure(PositionKitError.noRealWorldOffset))
             }, receiveValue: { data in
                 self.realWorldOffsetPublisher.send(data)
-            })
-            .store(in: &cancellable)
+            }).store(in: &cancellable)
         
-        self.backgroundAccess.locationHeadingPublisher
+        backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
             .sink { error in
                 Logger.init().log(message: "locationHeadingPublisher error")
-                
             } receiveValue: { [weak self] data in
                 self?.locationHeadingPublisher.send(data)
-            }
-            .store(in: &cancellable)
+            }.store(in: &cancellable)
         
-        self.vps?.changedFloorPublisher
+        vps?.changedFloorPublisher
             .compactMap { $0 }
             .sink { error in
                 Logger.init().log(message: "changeFloorCancellable error")
             } receiveValue: { [weak self] data in
                 self?.changedFloorPublisher.send(data)
-            }
-            .store(in: &cancellable)
+            }.store(in: &cancellable)
         
-        self.vps?.recordingPublisher
+        vps?.recordingPublisher
             .compactMap { $0 }
             .sink(receiveValue: { (identifier, data) in
                 self.recordingPublisher.send((identifier: identifier, data: data))
-            })
-            .store(in: &cancellable)
+            }).store(in: &cancellable)
 
-        self.vps?.deviceOrientationPublisher
+        vps?.deviceOrientationPublisher
             .compactMap { $0 }
             .sink(receiveCompletion: { (_) in
                 self.deviceOrientationPublisher.send(completion: .failure(.noData))
             }, receiveValue: { (orientation) in
                 self.deviceOrientationPublisher.send(orientation)
             }).store(in: &cancellable)
+
+        vps?.modifiedUserPublisher
+            .compactMap { $0 }
+            .sink { [weak self] in self?.modifiedUserPublisher.send($0) }
+            .store(in: &cancellable)
     }
     
     deinit {

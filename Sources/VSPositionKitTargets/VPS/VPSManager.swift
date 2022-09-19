@@ -25,6 +25,7 @@ public final class VPSManager: VPSWrapper {
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
 
@@ -44,7 +45,7 @@ public final class VPSManager: VPSWrapper {
     
     private var dataCommunicator = VPSDataCommunicator()
 
-    private var recordingCancellable: AnyCancellable?
+    private var cancellable = Set<AnyCancellable>()
 
     public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double) {
         self.shouldRecord = shouldRecord
@@ -54,24 +55,37 @@ public final class VPSManager: VPSWrapper {
         self.bindPublishers()
     }
 
+    deinit {
+        cancellable.removeAll()
+    }
+
     func bindPublishers() {
-        recordingCancellable = self.qpsReplayInteractor.replayInteractorDataPublisher
+//        qpsReplayInteractor.replayInteractorDataPublisher
+//            .compactMap { $0 }
+//            .sink { (identifier, data) in
+//                self.recordingPublisher.send((identifier: identifier, data: data))
+//            }.store(in: &cancellable)
+
+        qpsReplayInteractor.replayInteractorDataPublisher
             .compactMap { $0 }
-            .sink { (identifier, data) in
-                self.recordingPublisher.send((identifier: identifier, data: data))
-            }
+            .sink { [weak self] in self?.recordingPublisher.send($0) }
+            .store(in: &cancellable)
+        DispatchQueue.main.async {
+            self.dataCommunicator.dataCommunicatorSettings.modifiedUserPublisher
+                .compactMap { $0 }
+                .sink { [weak self] in self?.modifiedUserPublisher.send($0) }
+                .store(in: &self.cancellable)
+        }
     }
 
     public func start() {
         sensor.serialDispatch.async {
             self.createBaseVPSHandler()
 
-            guard let mapInfo = self.mapInformation, let handler = self.baseVPSHandler, !self.qpsRunning else {
-                return
-            }
+            guard let mapInfo = self.mapInformation, let handler = self.baseVPSHandler, !self.qpsRunning else { return }
             self.qpsRunning = true
 
-            self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .retail, mlCommunicator: self.dataCommunicator, enableTeoML: false)
+            self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .ikea, mlCommunicator: self.dataCommunicator, enableTeoML: false)
 
             self.sensor.startAllSensors()
         }
@@ -210,9 +224,5 @@ public final class VPSManager: VPSWrapper {
         //TODO: create offsetZones
         //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
         mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: pixelsPerMeter, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
-    }
-    
-    deinit {
-        recordingCancellable?.cancel()
     }
 }

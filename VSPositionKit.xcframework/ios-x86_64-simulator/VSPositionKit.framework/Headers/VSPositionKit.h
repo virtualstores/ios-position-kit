@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VSPKGlobalQPSValues, VSPKIQPSDeviceMode, VSPKKotlinFloatArray, VSPKIQPSParameterPackageEnum, VSPKKotlinArray<T>, VSPKMoveVector, VSPKVector, VSPKKotlinEnumCompanion, VSPKKotlinEnum<E>, VSPKIQPSDeviceOrientation, UIImage, VSPKPointF, VSPKRawSensor, VSPKIQPSSystemType, VSPKIQPSReplayInteractorCompanion, VSPKStepData, VSPKQLayerHandlerCompanion, VSPKKotlinUnit, VSPKQLayerHandlerMemeTrolle, VSPKMapData, VSPKReplayDataHandler, VSPKNavBundle, VSPKKotlinPair<__covariant A, __covariant B>, VSPKOutputSignalSignalType, VSPKDirectionBundle, VSPKPositionEventPosEventType, VSPKPrecisionCircle, VSPKRealWorldOffsetUpdate, VSPKNotificationType, VSPKNotificationSeverity, VSPKNotification, VSPKQLayerHealthData, VSPKLegacyStepDetectorFactory, VSPKExternalDataManager, VSPKStepStateEvaluator, VSPKLegacyStepDetectorManager, VSPKLegacyStepDetectorManagerCompanion, VSPKModularStepDetectorFactory, VSPKSpackListeningMLStepDetector, VSPKSpackExtractor, VSPKObservable, VSPKStepFillEvaluatorSetLeniency, VSPKStepState, VSPKStepDetectorManagerCompanion, VSPKStateBasedStepFilter, VSPKRegularState, VSPKStepFillEvaluatorCompanion, VSPKKeyValueData, VSPKSensorListeningStepDetector, VSPKRegularKeyValueData, VSPKSpack, VSPKStepEventDataCompanion, VSPKStepEventData, VSPKSensorListener, VSPKMLModel, VSPKMLStepDetectorBaseCompanion, VSPKSVM, VSPKTrolleySVMStepDetectorCompanion, VSPKTrolleyStepDetectorCompanion, VSPKMLStepDetectorBase, VSPKAndroidMLJacketPocketStepDetectorCompanion, VSPKAndroidMLPocketStepDetectorCompanion, VSPKNoPCAEllipseEvaluator, VSPKAndroidMLRegularStepDetectorCompanion, VSPKEllipseEvaluator, VSPKPCATransformer, VSPKStandardScaler, VSPKMLJacketPocketStepDetectorCompanion, VSPKMLPocketStepDetectorCompanion, VSPKMLRegularStepDetectorCompanion, VSPKMLSwingAntiSymStepDetectorCompanion, VSPKMLSwingStepDetectorCompanion, VSPKSwingPCAEvaluator, VSPKMLSwingSymStepDetectorCompanion, VSPKHyperbolaEvaluator, VSPKNeuralNetwork, VSPKAndroidJacketPocketDirectionNNParameters, VSPKAndroidPocketDirectionNNParameters, VSPKDirectionNeuralNetworkParameters, VSPKJacketPocketDirectionNNParameters, VSPKKotlinDoubleArray, VSPKSpackStepData, VSPKHistoryHandler<T>, VSPKRotatorDirection, VSPKPocketDirectionNNParameters, VSPKSanityCheckDirectionNeuralNetworkParameters, VSPKSwingAntiSymDirectionNNParameters, VSPKSwingSymDirectionNNParameters, VSPKNDirectionsFilter, VSPKStepStateCompanion, VSPKFusionSensorManagerParameters, VSPKStepDataDiscreteSpeedFunction, VSPKJacketPocketStateCompanion, VSPKRegularStateCompanion, VSPKSwingAntiSymStateCompanion, VSPKSwingSymStateCompanion, VSPKTrolleyStateCompanion, VSPKTrouserPocketStateCompanion, VSPKSpeedSensorHelper, VSPKTrolleySpeedBundle, VSPKMapCoordinate, VSPKAuxSensorHelper, VSPKRawSensorDataSensorDataType, VSPKRawSensorDataCompanion, VSPKRawSensorData, VSPKReplaySensorCompanion, VSPKReplaySensor, VSPKReplayDataCoordinator, VSPKReplayDataVersion, VSPKFrequencyUser, VSPKEmilsPocketSensorCompanion, VSPKMaxRetardNN, VSPKModularSpackUser, VSPKRotationSensorCompanion, VSPKIReplayDataHandlerSyncPositionData, VSPKQPosition, VSPKStartPosition, VSPKIReplayDataHandlerCompanion, VSPKIReplayDataHandlerIReplayConfig, VSPKPointWithOffset, VSPKIReplayDataHandlerLegacySyncPositionData, VSPKBuggedSyncReplayDataV5Companion, VSPKBuggedSyncReplayDataV5, VSPKReplayDataV2Companion, VSPKReplayDataV2, VSPKReplayDataV3Companion, VSPKReplayDataV3, VSPKReplayDataV4Companion, VSPKReplayDataV4, VSPKReplayDataV5Companion, VSPKReplayDataV5, VSPKReplayDataV6Companion, VSPKReplayDataV6, VSPKReplayDataV7Companion, VSPKReplayDataV7, VSPKInteractorActionType, VSPKInteractorActionCompanion, VSPKInteractorAction, VSPKLegacySyncPositionCompanion, VSPKLegacySyncPosition, VSPKPathUpdateCompanion, VSPKPathUpdate, VSPKReplaySensorDataCompanion, VSPKReplaySensorData, VSPKStartPositionCompanion, VSPKSyncPositionCompanion, VSPKSyncPosition, VSPKTickCompanion, VSPKTick, VSPKContinuousMoveVectorQueueCompanion, VSPKTimedMoveVector, VSPKIDNameGenerator, VSPKQuaternionUtils, VSPKVectorUtils, VSPKprintHelpers, VSPKClockClockType, VSPKAverageVarianceDoublePack, VSPKAverageVarianceFloatPack, VSPKModifierManager<T>, VSPKNumericalModifier<T>, VSPKOffsetHelper, VSPKSpackFeaturisationHelpers, VSPKClusterSpawnAlgos, VSPKHistoryHandlerTimedData<T, T_>, VSPKPolynomial, VSPKComplex, VSPKRational, VSPKAnalogPrototypeCompanion, VSPKAnalogPrototype, VSPKPassbandType, VSPKSecondOrderSection, VSPKIIRFilter, VSPKComplexCompanion, VSPKButterworth, VSPKMedFilter, VSPKLagrangePolynomialCompanion, VSPKKotlinIntArray, VSPKAllpass, VSPKTimedDebugPositions, VSPKTimedDebugRadius, VSPKDebugClusterCompanion, VSPKDebugCluster, VSPKDebugClusterAngleCompanion, VSPKDebugClusterAngle, VSPKDebugPositionCompanion, VSPKDebugPosition, VSPKDebugPrinter, VSPKDebugQPositionSpeedCompanion, VSPKDebugQPositionSpeed, VSPKDebugStateCompanion, VSPKDebugState, VSPKTimedDebugClusterAnglesCompanion, VSPKTimedDebugClusterAngles, VSPKTimedDebugClustersCompanion, VSPKTimedDebugClusters, VSPKTimedDebugMessagesCompanion, VSPKTimedDebugMessages, VSPKTimedDebugPositionCompanion, VSPKTimedDebugPosition, VSPKTimedDebugPositionsCompanion, VSPKTimedDebugRadiusCompanion, VSPKTimedDebugStatesCompanion, VSPKTimedDebugStates, VSPKtt2EngineParameterManagerClassParameters, VSPKPositionData, VSPKQLayerParameterManagerCompanion, VSPKDirectionPrioParameters, VSPKDirectionTrackerParameters, VSPKGetNewPositionsAmountParameters, VSPKMiscParameters, VSPKMovementStateManagerParameters, VSPKAnglePIDParameters, VSPKQClusterParameters, VSPKQLayerParameters, VSPKQLayerQueueParameters, VSPKQPosParameters, VSPKSlidingRatioParameters, VSPKSmallClusterSpreadIncreaserParameters, VSPKSpeedSpreadHandlerParameters, VSPKSplitPositionsParameters, VSPKTrolleySkipParameters, VSPKTSPPrioParameters, VSPKPointFCompanion, VSPKQPositionCompanion, VSPKAndroidRegularMLStepDetectorParameters, VSPKClusterBootParameters, VSPKFloorSensorParameters, VSPKQPSHandlerParameters, VSPKRegularMLStepDetectorParameters, VSPKSwingMLStepDetectorParameters, VSPKTrolleyStepDetectorParameters, VSPKVeddestaScrubberParameters, VSPKAndroidPocketMLStepDetectorParameters, VSPKAxisParameters, VSPKPocketMLStepDetectorParameters, VSPKSwingAntiSymMLStepDetectorParameters, VSPKSwingSymMLStepDetectorParameters, VSPKJulaQPSValues, VSPKPS20QPSValues, VSPKRetailQPSValues, VSPKWarehouseQPSValues, VSPKAnglePIDParametersCompanion, VSPKDirectionTrackerParametersCompanion, VSPKGetNewPositionsAmountParametersCompanion, VSPKMovementStateManagerParametersCompanion, VSPKQClusterParametersCompanion, VSPKQLayerParametersCompanion, VSPKQLayerQueueParametersCompanion, VSPKQPosParametersCompanion, VSPKSlidingRatioParametersCompanion, VSPKSpeedSpreadHandlerParametersCompanion, VSPKSplitPositionsParametersCompanion, VSPKKotlinThrowable, VSPKQCluster, VSPKQClusterQClusterResetDegree, VSPKQClusterClusterState, VSPKQClusterClusterType, VSPKAdditiveModifier, VSPKMoveEventData, VSPKContextManager, VSPKPolarPoint, VSPKMoveVectorMoveType, VSPKReferenceAngleState, VSPKReferenceAngle, VSPKReplayPositionCompanion, VSPKReplayPosition, VSPKTimedReplayPositionsCompanion, VSPKTimedReplayPositions, VSPKSensorBundleBundleType, VSPKSensorBundle, VSPKRotationBundleTurn, VSPKVectorTransformer, VSPKAndroidJacketPocketMLParameters, VSPKAndroidPantJacketDistinguishParameters, VSPKAndroidPocketLenientParameters, VSPKAndroidPocketMLParameters, VSPKAndroidPocketOrSwingNNParameters, VSPKAndroidRegularMLParameters, VSPKIOSJacketPocketNeuralNetworkParameters, VSPKIOSPantJacketDistinguishParameters, VSPKIOSPocketNeuralNetworkParameters, VSPKMLModelFactory, VSPKNNActivationFunctions, VSPKNNCoefficientReader, VSPKNNCoefficientReaderJsonNN, VSPKNNCoefficientReaderJsonNNCompanion, VSPKNeuralNetworkActivationFunctionType, VSPKPocketOrSwingNeuralNetworkParameters, VSPKRegularNeuralNetworkParameters, VSPKSwingAntiSymNeuralNetworkParameters, VSPKSwingNeuralNetworkParameters, VSPKSwingSymNeuralNetworkParameters, VSPKTrolleyNeuralNetworkParameters, VSPKLinearSVMSwingStepDetectorValues, VSPKRegularRBFSVMsupport, VSPKSVMHelpers, VSPKSpackRBFSVMsupport, VSPKSwingAntiSymLenientParameters, VSPKSwingSymLenientParameters, VSPKSymAntiSymParameters, VSPKWeakEvaluatorParameters, VSPKPositionEvent, VSPKSignalHandler, VSPKAverageVariance, VSPKAltitudeBasedFloorSensorFloorState, VSPKAltitudeBasedFloorSensor, VSPKNavMeshScrubber, VSPKSequentialScrubber, VSPKQLayerHandler, VSPKAltitudeOptions, VSPKAltitudeCompanion, VSPKSingleLinkedQueue<T>, VSPKAltitudeOptionsCompanion, VSPKNode<T>, VSPKBaseSignalDispatcher, VSPKPositionEventHandler, VSPKNavGraph, VSPKIPathfinderGoalType, VSPKDjikstrasOptimizedCompanion, VSPKDjikstrasOptimizedOldNodeGraph, VSPKNavGraphVertex, VSPKPriorityQueueUsingSinglyLinkedList<T>, VSPKNavGraphCompanion, VSPKNavGraphVertexCompanion, VSPKPathProcessor, VSPKPathProcessorBSpline, VSPKTSPThreeOptAlgorithmCompanion, VSPKKotlinRandom, VSPKDataCommunicatorRegressionVectors, VSPKStepEventBasedMLObservationType, VSPKKotlinFloatIterator, VSPKKotlinDoubleIterator, VSPKKotlinIntIterator, VSPKKotlinRandomDefault, VSPKKotlinByteArray, VSPKKotlinx_serialization_coreSerializersModule, VSPKKotlinx_serialization_coreSerialKind, VSPKKotlinNothing, VSPKKotlinByteIterator;
+@class VSPKGlobalQPSValues, VSPKIQPSDeviceMode, VSPKKotlinFloatArray, VSPKIQPSParameterPackageEnum, VSPKKotlinArray<T>, VSPKMoveVector, VSPKVector, VSPKKotlinEnumCompanion, VSPKKotlinEnum<E>, VSPKIQPSDeviceOrientation, UIImage, VSPKPointF, VSPKRawSensor, VSPKIQPSSystemType, VSPKIQPSReplayInteractorCompanion, VSPKStepData, VSPKKotlinUnit, VSPKQLayerHandlerMemeTrolle, VSPKReplayDataHandler, VSPKNavBundle, VSPKKotlinPair<__covariant A, __covariant B>, VSPKOutputSignalSignalType, VSPKDirectionBundle, VSPKPositionEventPosEventType, VSPKPrecisionCircle, VSPKRealWorldOffsetUpdate, VSPKNotificationType, VSPKNotificationSeverity, VSPKNotification, VSPKQLayerHealthData, VSPKLegacyStepDetectorFactory, VSPKExternalDataManager, VSPKStepStateEvaluator, VSPKLegacyStepDetectorManager, VSPKLegacyStepDetectorManagerCompanion, VSPKModularStepDetectorFactory, VSPKSpackListeningMLStepDetector, VSPKSpackExtractor, VSPKObservable, VSPKStepEventFilterSetLeniency, VSPKStepState, VSPKStepDetectorManagerCompanion, VSPKStateBasedStepFilter, VSPKRegularState, VSPKStepFillEvaluatorCompanion, VSPKSpack, VSPKStepEventDataCompanion, VSPKStepEventData, VSPKSensorListeningStepDetector, VSPKSensorListener, VSPKMLModel, VSPKMLStepDetectorBaseCompanion, VSPKSVM, VSPKTrolleySVMStepDetectorCompanion, VSPKTrolleyStepDetectorCompanion, VSPKMLStepDetectorBase, VSPKAndroidMLJacketPocketStepDetectorCompanion, VSPKAndroidMLPocketStepDetectorCompanion, VSPKNoPCAEllipseEvaluator, VSPKAndroidMLRegularStepDetectorCompanion, VSPKEllipseEvaluator, VSPKPCATransformer, VSPKStandardScaler, VSPKMLJacketPocketStepDetectorCompanion, VSPKMLPocketStepDetectorCompanion, VSPKMLRegularStepDetectorCompanion, VSPKMLSwingAntiSymStepDetectorCompanion, VSPKMLSwingStepDetectorCompanion, VSPKSwingPCAEvaluator, VSPKMLSwingSymStepDetectorCompanion, VSPKHyperbolaEvaluator, VSPKNeuralNetwork, VSPKAndroidJacketPocketDirectionNNParameters, VSPKAndroidPocketDirectionNNParameters, VSPKAxisParameters, VSPKDirectionNeuralNetworkParameters, VSPKJacketPocketDirectionNNParameters, VSPKKotlinDoubleArray, VSPKSpackStepData, VSPKHistoryHandler<T>, VSPKRotatorDirection, VSPKPocketDirectionNNParameters, VSPKSanityCheckDirectionNeuralNetworkParameters, VSPKSwingAntiSymDirectionNNParameters, VSPKSwingSymDirectionNNParameters, VSPKNDirectionsFilter, VSPKStepStateCompanion, VSPKFusionSensorManagerParameters, VSPKJacketPocketStateCompanion, VSPKRegularStateCompanion, VSPKSwingAntiSymStateCompanion, VSPKSwingSymStateCompanion, VSPKTrolleyStateCompanion, VSPKTrouserPocketStateCompanion, VSPKSpeedSensorHelper, VSPKTrolleySpeedBundle, VSPKMapCoordinate, VSPKAuxSensorHelper, VSPKMapData, VSPKRawSensorDataSensorDataType, VSPKRawSensorDataCompanion, VSPKRawSensorData, VSPKReplaySensorCompanion, VSPKReplaySensor, VSPKReplayDataCoordinator, VSPKReplayDataVersion, VSPKFrequencyUser, VSPKEmilsPocketSensorCompanion, VSPKMaxRetardNN, VSPKModularSpackUser, VSPKRotationSensorCompanion, VSPKIReplayDataHandlerSyncPositionData, VSPKQPosition, VSPKStartPosition, VSPKIReplayDataHandlerCompanion, VSPKIReplayDataHandlerIReplayConfig, VSPKPointWithOffset, VSPKIReplayDataHandlerLegacySyncPositionData, VSPKBuggedSyncReplayDataV5Companion, VSPKBuggedSyncReplayDataV5, VSPKReplayDataV2Companion, VSPKReplayDataV2, VSPKReplayDataV3Companion, VSPKReplayDataV3, VSPKReplayDataV4Companion, VSPKReplayDataV4, VSPKReplayDataV5Companion, VSPKReplayDataV5, VSPKReplayDataV6Companion, VSPKReplayDataV6, VSPKReplayDataV7Companion, VSPKReplayDataV7, VSPKLegacySyncPositionCompanion, VSPKLegacySyncPosition, VSPKPathUpdateCompanion, VSPKPathUpdate, VSPKReplaySensorDataCompanion, VSPKReplaySensorData, VSPKStartPositionCompanion, VSPKSyncPositionCompanion, VSPKSyncPosition, VSPKTickCompanion, VSPKTick, VSPKContinuousMoveVectorQueueCompanion, VSPKTimedMoveVector, VSPKIDNameGenerator, VSPKQuaternionUtils, VSPKVectorUtils, VSPKClockClockType, VSPKAverageVarianceDoublePack, VSPKAverageVarianceFloatPack, VSPKModifierManager<T>, VSPKNumericalModifier<T>, VSPKOffsetHelper, VSPKSpackFeaturisationHelpers, VSPKClusterSpawnAlgos, VSPKHistoryHandlerTimedData<T, T_>, VSPKPolynomial, VSPKComplex, VSPKRational, VSPKAnalogPrototypeCompanion, VSPKAnalogPrototype, VSPKPassbandType, VSPKSecondOrderSection, VSPKIIRFilter, VSPKComplexCompanion, VSPKLagrangePolynomialCompanion, VSPKKotlinIntArray, VSPKAllpass, VSPKTimedDebugPositions, VSPKTimedDebugRadius, VSPKDebugClusterCompanion, VSPKDebugCluster, VSPKDebugClusterAngleCompanion, VSPKDebugClusterAngle, VSPKDebugPositionCompanion, VSPKDebugPosition, VSPKDebugPrinter, VSPKDebugQPositionSpeedCompanion, VSPKDebugQPositionSpeed, VSPKTimedDebugClusterAnglesCompanion, VSPKTimedDebugClusterAngles, VSPKTimedDebugClustersCompanion, VSPKTimedDebugClusters, VSPKTimedDebugPositionCompanion, VSPKTimedDebugPosition, VSPKTimedDebugPositionsCompanion, VSPKTimedDebugRadiusCompanion, VSPKtt2EngineParameterManagerClassParameters, VSPKQLayerParameterManagerCompanion, VSPKDirectionPrioParameters, VSPKDirectionTrackerParameters, VSPKGetNewPositionsAmountParameters, VSPKMiscParameters, VSPKMovementStateManagerParameters, VSPKAnglePIDParameters, VSPKQClusterParameters, VSPKQLayerParameters, VSPKQLayerQueueParameters, VSPKQPosParameters, VSPKSlidingRatioParameters, VSPKSmallClusterSpreadIncreaserParameters, VSPKSpeedSpreadHandlerParameters, VSPKSplitPositionsParameters, VSPKTrolleySkipParameters, VSPKTSPPrioParameters, VSPKPointFCompanion, VSPKQPositionCompanion, VSPKAndroidRegularMLStepDetectorParameters, VSPKClusterBootParameters, VSPKFloorSensorParameters, VSPKQPSHandlerParameters, VSPKRegularMLStepDetectorParameters, VSPKSwingMLStepDetectorParameters, VSPKTrolleyStepDetectorParameters, VSPKVeddestaScrubberParameters, VSPKAndroidPocketMLStepDetectorParameters, VSPKPocketMLStepDetectorParameters, VSPKSwingAntiSymMLStepDetectorParameters, VSPKSwingSymMLStepDetectorParameters, VSPKIkeaQPSValues, VSPKJulaQPSValues, VSPKPS20QPSValues, VSPKRetailQPSValues, VSPKWarehouseQPSValues, VSPKAnglePIDParametersCompanion, VSPKDirectionPrioParametersCompanion, VSPKDirectionTrackerParametersCompanion, VSPKGetNewPositionsAmountParametersCompanion, VSPKMiscParametersCompanion, VSPKMovementStateManagerParametersCompanion, VSPKQClusterParametersCompanion, VSPKQLayerParametersCompanion, VSPKQLayerQueueParametersCompanion, VSPKQPosParametersCompanion, VSPKSlidingRatioParametersCompanion, VSPKSmallClusterSpreadIncreaserParametersCompanion, VSPKSpeedSpreadHandlerParametersCompanion, VSPKSplitPositionsParametersCompanion, VSPKTSPPrioParametersCompanion, VSPKTrolleySkipParametersCompanion, VSPKKotlinThrowable, VSPKQCluster, VSPKQClusterQClusterResetDegree, VSPKQClusterClusterState, VSPKQClusterClusterType, VSPKAdditiveModifier, VSPKPositionData, VSPKMoveEventData, VSPKContextManager, VSPKPolarPoint, VSPKMoveVectorMoveType, VSPKSensorBundleBundleType, VSPKSensorBundle, VSPKVectorTransformer, VSPKAndroidJacketPocketMLParameters, VSPKAndroidPantJacketDistinguishParameters, VSPKAndroidPocketLenientParameters, VSPKAndroidPocketMLParameters, VSPKAndroidPocketOrSwingNNParameters, VSPKAndroidRegularMLParameters, VSPKIOSJacketPocketNeuralNetworkParameters, VSPKIOSPantJacketDistinguishParameters, VSPKIOSPocketNeuralNetworkParameters, VSPKMLModelFactory, VSPKNNActivationFunctions, VSPKNNCoefficientReader, VSPKNNCoefficientReaderJsonNN, VSPKNNCoefficientReaderJsonNNCompanion, VSPKNeuralNetworkActivationFunctionType, VSPKPocketOrSwingNeuralNetworkParameters, VSPKRegularNeuralNetworkParameters, VSPKSwingAntiSymNeuralNetworkParameters, VSPKSwingNeuralNetworkParameters, VSPKSwingSymNeuralNetworkParameters, VSPKTrolleyNeuralNetworkParameters, VSPKLinearSVMSwingStepDetectorValues, VSPKRegularRBFSVMsupport, VSPKSVMHelpers, VSPKSpackRBFSVMsupport, VSPKSwingAntiSymLenientParameters, VSPKSwingSymLenientParameters, VSPKSymAntiSymParameters, VSPKWeakEvaluatorParameters, VSPKPositionEvent, VSPKSignalHandler, VSPKAverageVariance, VSPKAltitudeBasedFloorSensorFloorState, VSPKAltitudeBasedFloorSensor, VSPKNavMeshScrubber, VSPKSequentialScrubber, VSPKQLayerHandler, VSPKAltitudeOptions, VSPKAltitudeCompanion, VSPKSingleLinkedQueue<T>, VSPKAltitudeOptionsCompanion, VSPKNode<T>, VSPKBaseSignalDispatcher, VSPKPositionEventHandler, VSPKNavGraph, VSPKIPathfinderGoalType, VSPKDjikstrasOptimizedCompanion, VSPKDjikstrasOptimizedOldNodeGraph, VSPKNavGraphVertex, VSPKPriorityQueueUsingSinglyLinkedList<T>, VSPKNavGraphCompanion, VSPKNavGraphVertexCompanion, VSPKPathProcessor, VSPKPathProcessorBSpline, VSPKTSPThreeOptAlgorithmCompanion, VSPKKotlinRandom, VSPKDataCommunicatorRegressionVectors, VSPKStepEventBasedMLObservationType, VSPKKotlinFloatIterator, VSPKKotlinDoubleIterator, VSPKKotlinIntIterator, VSPKKotlinRandomDefault, VSPKKotlinByteArray, VSPKKotlinx_serialization_coreSerializersModule, VSPKKotlinx_serialization_coreSerialKind, VSPKKotlinNothing, VSPKKotlinByteIterator;
 
-@protocol VSPKKotlinComparable, VSPKOutputSignal, VSPKIQPSVPS, VSPKIQPSOffsetZone, VSPKIQPSSyncData, VSPKIQPSRawSensorManager, VSPKSDPerformanceTestObject, VSPKStepListener, VSPKSensorInterpreterStepListener, VSPKSDPerformanceTestObjectPerformanceTestObjectDelegate, VSPKtt2EngineTt2EngineDelegate, VSPKStepEventBasedMLStepEventBasedMLDelegate, VSPKPositioningHandler, VSPKClockListener, VSPKIQPSInteractor, VSPKIQPSReplayInteractor, VSPKIQPSMapInformation, VSPKIQPSUserSettings, VSPKSensorInterpreter, VSPKtt2Engine, VSPKDataCommunicator, VSPKtt2EngineParameterManager, VSPKStepDetector, VSPKIStepDetectorManager, VSPKObserver, VSPKStepEventFilter, VSPKKotlinx_serialization_coreKSerializer, VSPKSpackListener, VSPKSpackEvaluator, VSPKSpackFeaturisationModule, VSPKDirectionModel, VSPKDirectionFilter, VSPKDiscreteSpeedFunction, VSPKContinuousSpeedFunction, VSPKAuxiliarySensor, VSPKAuxiliarySensorManager, VSPKIReplayDataHandler, VSPKPocketSensor, VSPKIReplayData, VSPKOffsetManager, VSPKRollingFeaturiser, VSPKContextReturnData, VSPKKotlinIterator, VSPKKotlinIterable, VSPKKotlinCollection, VSPKKotlinMutableIterable, VSPKKotlinMutableCollection, VSPKKotlinx_coroutines_coreDisposableHandle, VSPKKotlinMutableIterator, VSPKContextListener, VSPKContextTracker, VSPKContextData, VSPKSignalDispatcher, VSPKLegacyInterface, VSPKSignalResponse, VSPKSignalListener, VSPKLegacyInterfacePlus, VSPKFloorSensor, VSPKScrubber, VSPKAltitudeDelegate, VSPKIPathfinderGoal, VSPKIPathfinderPath, VSPKIPathfinderListener, VSPKIPathfinder, VSPKStepEventBasedML, VSPKCorridorFinder, VSPKKotlinx_serialization_coreEncoder, VSPKKotlinx_serialization_coreSerialDescriptor, VSPKKotlinx_serialization_coreSerializationStrategy, VSPKKotlinx_serialization_coreDecoder, VSPKKotlinx_serialization_coreDeserializationStrategy, VSPKKotlinx_serialization_coreCompositeEncoder, VSPKKotlinAnnotation, VSPKKotlinx_serialization_coreCompositeDecoder, VSPKKotlinx_serialization_coreSerializersModuleCollector, VSPKKotlinKClass, VSPKKotlinKDeclarationContainer, VSPKKotlinKAnnotatedElement, VSPKKotlinKClassifier;
+@protocol VSPKKotlinComparable, VSPKOutputSignal, VSPKIQPSVPS, VSPKIQPSOffsetZone, VSPKIQPSSyncData, VSPKStepListener, VSPKtt2EngineTt2EngineDelegate, VSPKStepEventBasedMLStepEventBasedMLDelegate, VSPKPositioningHandler, VSPKClockListener, VSPKIQPSRawSensorManager, VSPKIQPSInteractor, VSPKIQPSReplayInteractor, VSPKIQPSMapInformation, VSPKIQPSUserSettings, VSPKSensorInterpreter, VSPKtt2Engine, VSPKDataCommunicator, VSPKtt2EngineParameterManager, VSPKStepDetector, VSPKSensorInterpreterStepListener, VSPKIStepDetectorManager, VSPKObserver, VSPKStepEventFilter, VSPKKotlinx_serialization_coreKSerializer, VSPKSpackListener, VSPKSpackEvaluator, VSPKSpackFeaturisationModule, VSPKDirectionModel, VSPKDirectionFilter, VSPKDiscreteSpeedFunction, VSPKContinuousSpeedFunction, VSPKAuxiliarySensor, VSPKAuxiliarySensorManager, VSPKIReplayDataHandler, VSPKPocketSensor, VSPKIReplayData, VSPKOffsetManager, VSPKRollingFeaturiser, VSPKContextReturnData, VSPKKotlinIterator, VSPKKotlinIterable, VSPKKotlinCollection, VSPKKotlinMutableIterable, VSPKKotlinMutableCollection, VSPKKotlinx_coroutines_coreDisposableHandle, VSPKKotlinMutableIterator, VSPKContextListener, VSPKContextTracker, VSPKContextData, VSPKSignalDispatcher, VSPKLegacyInterface, VSPKSignalResponse, VSPKSignalListener, VSPKLegacyInterfacePlus, VSPKFloorSensor, VSPKScrubber, VSPKAltitudeDelegate, VSPKIPathfinderGoal, VSPKIPathfinderPath, VSPKIPathfinderListener, VSPKIPathfinder, VSPKStepEventBasedML, VSPKCorridorFinder, VSPKKotlinx_serialization_coreEncoder, VSPKKotlinx_serialization_coreSerialDescriptor, VSPKKotlinx_serialization_coreSerializationStrategy, VSPKKotlinx_serialization_coreDecoder, VSPKKotlinx_serialization_coreDeserializationStrategy, VSPKKotlinx_serialization_coreCompositeEncoder, VSPKKotlinAnnotation, VSPKKotlinx_serialization_coreCompositeDecoder, VSPKKotlinx_serialization_coreSerializersModuleCollector, VSPKKotlinKClass, VSPKKotlinKDeclarationContainer, VSPKKotlinKAnnotatedElement, VSPKKotlinKClassifier;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -288,6 +288,7 @@ __attribute__((swift_name("IQPSParameterPackageEnum")))
 @property (class, readonly) VSPKIQPSParameterPackageEnum *ps20 __attribute__((swift_name("ps20")));
 @property (class, readonly) VSPKIQPSParameterPackageEnum *warehouse __attribute__((swift_name("warehouse")));
 @property (class, readonly) VSPKIQPSParameterPackageEnum *jula __attribute__((swift_name("jula")));
+@property (class, readonly) VSPKIQPSParameterPackageEnum *ikea __attribute__((swift_name("ikea")));
 + (VSPKKotlinArray<VSPKIQPSParameterPackageEnum *> *)values __attribute__((swift_name("values()")));
 @end;
 
@@ -376,43 +377,10 @@ __attribute__((swift_name("IQPSVPS")))
 - (BOOL)validPositionPointF:(VSPKPointF *)pointF __attribute__((swift_name("validPosition(pointF:)")));
 @end;
 
-__attribute__((swift_name("SDPerformanceTestObject")))
-@protocol VSPKSDPerformanceTestObject
-@required
-- (void)createObjectRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager __attribute__((swift_name("createObject(rawSensorManager:)")));
-- (void)disposeObject __attribute__((swift_name("disposeObject()")));
-@end;
-
 __attribute__((swift_name("StepListener")))
 @protocol VSPKStepListener
 @required
 - (id _Nullable)moveEventStep:(VSPKStepData *)step __attribute__((swift_name("moveEvent(step:)")));
-@end;
-
-__attribute__((swift_name("SensorInterpreterStepListener")))
-@protocol VSPKSensorInterpreterStepListener <VSPKStepListener>
-@required
-- (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ModularStepDetectorTestObject")))
-@interface VSPKModularStepDetectorTestObject : VSPKBase <VSPKSDPerformanceTestObject, VSPKSensorInterpreterStepListener>
-- (instancetype)initWithDelegate:(id<VSPKSDPerformanceTestObjectPerformanceTestObjectDelegate>)delegate __attribute__((swift_name("init(delegate:)"))) __attribute__((objc_designated_initializer));
-- (void)createObjectRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager __attribute__((swift_name("createObject(rawSensorManager:)")));
-- (void)disposeObject __attribute__((swift_name("disposeObject()")));
-- (id _Nullable)moveEventStep:(VSPKStepData *)step __attribute__((swift_name("moveEvent(step:)")));
-- (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("OldSchoolSDManagerTestObject")))
-@interface VSPKOldSchoolSDManagerTestObject : VSPKBase <VSPKSDPerformanceTestObject, VSPKSensorInterpreterStepListener>
-- (instancetype)initWithDelegate:(id<VSPKSDPerformanceTestObjectPerformanceTestObjectDelegate>)delegate __attribute__((swift_name("init(delegate:)"))) __attribute__((objc_designated_initializer));
-- (void)createObjectRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager __attribute__((swift_name("createObject(rawSensorManager:)")));
-- (void)disposeObject __attribute__((swift_name("disposeObject()")));
-- (id _Nullable)moveEventStep:(VSPKStepData *)step __attribute__((swift_name("moveEvent(step:)")));
-- (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
 @end;
 
 __attribute__((swift_name("tt2EngineTt2EngineDelegate")))
@@ -444,7 +412,6 @@ __attribute__((swift_name("ClockListener")))
 __attribute__((swift_name("QLayerHandler")))
 @interface VSPKQLayerHandler : VSPKBase <VSPKPositioningHandler, VSPKClockListener>
 - (instancetype)initWithRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager interactor:(id<VSPKIQPSInteractor>)interactor replayInteractor:(id<VSPKIQPSReplayInteractor> _Nullable)replayInteractor mapInformation:(id<VSPKIQPSMapInformation>)mapInformation userSettings:(id<VSPKIQPSUserSettings> _Nullable)userSettings parameterPackageEnum:(VSPKIQPSParameterPackageEnum *)parameterPackageEnum playback:(BOOL)playback sensorInterpreter:(id<VSPKSensorInterpreter> _Nullable)sensorInterpreter particleFilter:(id<VSPKtt2Engine> _Nullable)particleFilter mlDataCommunicator:(id<VSPKDataCommunicator> _Nullable)mlDataCommunicator tt2EngineParameterManager:(id<VSPKtt2EngineParameterManager> _Nullable)tt2EngineParameterManager enableTeoML:(BOOL)enableTeoML __attribute__((swift_name("init(rawSensorManager:interactor:replayInteractor:mapInformation:userSettings:parameterPackageEnum:playback:sensorInterpreter:particleFilter:mlDataCommunicator:tt2EngineParameterManager:enableTeoML:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKQLayerHandlerCompanion *companion __attribute__((swift_name("companion")));
 - (void)deviceModeMode:(VSPKIQPSDeviceMode *)mode offset:(VSPKDouble * _Nullable)offset __attribute__((swift_name("deviceMode(mode:offset:)")));
 - (VSPKKotlinFloatArray * _Nullable)getLastRotation __attribute__((swift_name("getLastRotation()")));
 - (void)doInitPositionSyncEvent __attribute__((swift_name("doInitPositionSyncEvent()")));
@@ -468,15 +435,6 @@ __attribute__((swift_name("QLayerHandler")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("QLayerHandler.Companion")))
-@interface VSPKQLayerHandlerCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKQLayerHandlerCompanion *shared __attribute__((swift_name("shared")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QLayerHandler.memeTrolle")))
 @interface VSPKQLayerHandlerMemeTrolle : VSPKKotlinEnum<VSPKQLayerHandlerMemeTrolle *>
 + (instancetype)alloc __attribute__((unavailable));
@@ -485,12 +443,6 @@ __attribute__((swift_name("QLayerHandler.memeTrolle")))
 @property (class, readonly) VSPKQLayerHandlerMemeTrolle *inTrolle __attribute__((swift_name("inTrolle")));
 @property (class, readonly) VSPKQLayerHandlerMemeTrolle *notTrolle __attribute__((swift_name("notTrolle")));
 + (VSPKKotlinArray<VSPKQLayerHandlerMemeTrolle *> *)values __attribute__((swift_name("values()")));
-@end;
-
-__attribute__((swift_name("SDPerformanceTestObjectPerformanceTestObjectDelegate")))
-@protocol VSPKSDPerformanceTestObjectPerformanceTestObjectDelegate
-@required
-- (void)onMessageMessage:(NSString *)message __attribute__((swift_name("onMessage(message:)")));
 @end;
 
 __attribute__((swift_name("SensorInterpreter")))
@@ -504,15 +456,7 @@ __attribute__((swift_name("SensorInterpreter")))
 - (void)startRecording __attribute__((swift_name("startRecording()")));
 - (void)stop __attribute__((swift_name("stop()")));
 - (void)stopRecording __attribute__((swift_name("stopRecording()")));
-- (void)updateAxisAxis:(VSPKKotlinFloatArray *)axis mode:(VSPKIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property (readonly) id<VSPKPositioningHandler> handler __attribute__((swift_name("handler")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TT2EngineWrapper")))
-@interface VSPKTT2EngineWrapper : VSPKBase
-- (instancetype)initWithTt2EngineParameterManager:(id<VSPKtt2EngineParameterManager>)tt2EngineParameterManager mapData:(VSPKMapData *)mapData __attribute__((swift_name("init(tt2EngineParameterManager:mapData:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) id<VSPKtt2Engine> engine __attribute__((swift_name("engine")));
 @end;
 
 __attribute__((swift_name("tt2Engine")))
@@ -700,7 +644,7 @@ __attribute__((swift_name("SyncNotification")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QLayerHealthData")))
 @interface VSPKQLayerHealthData : VSPKBase
-- (instancetype)initWithMultipleClusters:(BOOL)multipleClusters truePrecisionCircle:(VSPKPrecisionCircle *)truePrecisionCircle std:(double)std __attribute__((swift_name("init(multipleClusters:truePrecisionCircle:std:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMultipleClusters:(BOOL)multipleClusters truePrecisionCircle:(VSPKPrecisionCircle *)truePrecisionCircle std:(double)std __attribute__((swift_name("init(multipleClusters:truePrecisionCircle:std:)"))) __attribute__((objc_designated_initializer)) __attribute__((deprecated("In practice not used, should be replaced.")));
 - (BOOL)component1 __attribute__((swift_name("component1()")));
 - (VSPKPrecisionCircle *)component2 __attribute__((swift_name("component2()")));
 - (double)component3 __attribute__((swift_name("component3()")));
@@ -717,7 +661,6 @@ __attribute__((swift_name("IStepDetectorManager")))
 @protocol VSPKIStepDetectorManager
 @required
 - (void)changeStateStateType:(VSPKIQPSDeviceOrientation *)stateType timestamp:(int64_t)timestamp __attribute__((swift_name("changeState(stateType:timestamp:)")));
-- (void)updateAxisAxis:(VSPKKotlinFloatArray *)axis mode:(VSPKIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property (readonly) BOOL forcePocket __attribute__((swift_name("forcePocket")));
 @end;
 
@@ -731,6 +674,12 @@ __attribute__((swift_name("LegacyStepDetectorFactory")))
 - (NSMutableArray<id<VSPKStepDetector>> *)getStepDetectorListRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager stepListener:(id<VSPKSensorInterpreterStepListener>)stepListener externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("getStepDetectorList(rawSensorManager:stepListener:externalDataManager:)")));
 @end;
 
+__attribute__((swift_name("SensorInterpreterStepListener")))
+@protocol VSPKSensorInterpreterStepListener <VSPKStepListener>
+@required
+- (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("LegacyStepDetectorManager")))
 @interface VSPKLegacyStepDetectorManager : VSPKBase <VSPKSensorInterpreterStepListener, VSPKIStepDetectorManager>
@@ -740,7 +689,6 @@ __attribute__((swift_name("LegacyStepDetectorManager")))
 - (VSPKKotlinUnit *)moveEventStep:(VSPKStepData *)step __attribute__((swift_name("moveEvent(step:)")));
 - (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
 - (void)stop __attribute__((swift_name("stop()")));
-- (void)updateAxisAxis:(VSPKKotlinFloatArray *)axis mode:(VSPKIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property BOOL forcePocket __attribute__((swift_name("forcePocket")));
 @property (readonly) id<VSPKSensorInterpreterStepListener> stepListener __attribute__((swift_name("stepListener")));
 @end;
@@ -761,7 +709,7 @@ __attribute__((swift_name("ModularStepDetectorFactory")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)modularStepDetectorFactory __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKModularStepDetectorFactory *shared __attribute__((swift_name("shared")));
-- (VSPKSpackListeningMLStepDetector *)loadIOSModularStepDetectorOrientation:(VSPKIQPSDeviceOrientation *)orientation listener:(id<VSPKSensorInterpreterStepListener>)listener externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("loadIOSModularStepDetector(orientation:listener:externalDataManager:)")));
+- (VSPKSpackListeningMLStepDetector *)createIOSModularStepDetectorOrientation:(VSPKIQPSDeviceOrientation *)orientation listener:(id<VSPKSensorInterpreterStepListener>)listener externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("createIOSModularStepDetector(orientation:listener:externalDataManager:)")));
 - (VSPKKotlinPair<NSMutableArray<id<VSPKStepDetector>> *, NSMutableArray<VSPKSpackExtractor *> *> *)loadStepDetectorsRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager parameterPackageEnum:(VSPKIQPSParameterPackageEnum *)parameterPackageEnum deviceIsAndroid:(BOOL)deviceIsAndroid listener:(id<VSPKSensorInterpreterStepListener>)listener externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("loadStepDetectors(rawSensorManager:parameterPackageEnum:deviceIsAndroid:listener:externalDataManager:)")));
 @end;
 
@@ -786,7 +734,7 @@ __attribute__((swift_name("StepEventFilter")))
 @protocol VSPKStepEventFilter
 @required
 - (void)filterStepEventStep:(VSPKStepData *)step __attribute__((swift_name("filterStepEvent(step:)")));
-- (void)handleLeniencyStep:(VSPKStepData *)step callback:(void (^)(VSPKStepFillEvaluatorSetLeniency *))callback __attribute__((swift_name("handleLeniency(step:callback:)")));
+- (void)handleLeniencyStep:(VSPKStepData *)step callback:(void (^)(VSPKStepEventFilterSetLeniency *))callback __attribute__((swift_name("handleLeniency(step:callback:)")));
 @end;
 
 __attribute__((swift_name("StateBasedStepFilter")))
@@ -805,7 +753,6 @@ __attribute__((swift_name("StepDetectorManager")))
 - (VSPKKotlinUnit *)moveEventStep:(VSPKStepData *)step __attribute__((swift_name("moveEvent(step:)")));
 - (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
 - (void)stop __attribute__((swift_name("stop()")));
-- (void)updateAxisAxis:(VSPKKotlinFloatArray *)axis mode:(VSPKIQPSDeviceOrientation *)mode __attribute__((swift_name("updateAxis(axis:mode:)")));
 @property BOOL forcePocket __attribute__((swift_name("forcePocket")));
 @property (readonly) id<VSPKSensorInterpreterStepListener> stepListener __attribute__((swift_name("stepListener")));
 @end;
@@ -820,13 +767,24 @@ __attribute__((swift_name("StepDetectorManager.Companion")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StepEventFilterSetLeniency")))
+@interface VSPKStepEventFilterSetLeniency : VSPKKotlinEnum<VSPKStepEventFilterSetLeniency *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VSPKStepEventFilterSetLeniency *setLenient __attribute__((swift_name("setLenient")));
+@property (class, readonly) VSPKStepEventFilterSetLeniency *setStrict __attribute__((swift_name("setStrict")));
++ (VSPKKotlinArray<VSPKStepEventFilterSetLeniency *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("StepFillEvaluator")))
 @interface VSPKStepFillEvaluator : VSPKStateBasedStepFilter
-- (instancetype)initWithStepListener:(id<VSPKStepListener>)stepListener regstate:(VSPKRegularState *)regstate __attribute__((swift_name("init(stepListener:regstate:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithStepListener:(id<VSPKStepListener>)stepListener regularState:(VSPKRegularState *)regularState __attribute__((swift_name("init(stepListener:regularState:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithCurrentState:(id<VSPKStepListener>)currentState __attribute__((swift_name("init(currentState:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (class, readonly, getter=companion) VSPKStepFillEvaluatorCompanion *companion __attribute__((swift_name("companion")));
 - (void)filterStepEventStep:(VSPKStepData *)step __attribute__((swift_name("filterStepEvent(step:)")));
-- (void)handleLeniencyStep:(VSPKStepData *)step callback:(void (^)(VSPKStepFillEvaluatorSetLeniency *))callback __attribute__((swift_name("handleLeniency(step:callback:)")));
+- (void)handleLeniencyStep:(VSPKStepData *)step callback:(void (^)(VSPKStepEventFilterSetLeniency *))callback __attribute__((swift_name("handleLeniency(step:callback:)")));
 - (BOOL)validTimeStampStep:(VSPKStepData *)step __attribute__((swift_name("validTimeStamp(step:)")));
 @end;
 
@@ -839,26 +797,14 @@ __attribute__((swift_name("StepFillEvaluator.Companion")))
 @property (class, readonly, getter=shared) VSPKStepFillEvaluatorCompanion *shared __attribute__((swift_name("shared")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepFillEvaluator.SetLeniency")))
-@interface VSPKStepFillEvaluatorSetLeniency : VSPKKotlinEnum<VSPKStepFillEvaluatorSetLeniency *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VSPKStepFillEvaluatorSetLeniency *setLenient __attribute__((swift_name("setLenient")));
-@property (class, readonly) VSPKStepFillEvaluatorSetLeniency *setStrict __attribute__((swift_name("setStrict")));
-+ (VSPKKotlinArray<VSPKStepFillEvaluatorSetLeniency *> *)values __attribute__((swift_name("values()")));
-@end;
-
 __attribute__((swift_name("StepData")))
 @interface VSPKStepData : VSPKBase
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer));
 - (void)reEvaluate __attribute__((swift_name("reEvaluate()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property VSPKDouble * _Nullable direction __attribute__((swift_name("direction")));
 @property VSPKDouble * _Nullable directionCertainty __attribute__((swift_name("directionCertainty")));
 @property int64_t duration __attribute__((swift_name("duration")));
-@property (readonly) VSPKKeyValueData * _Nullable keyValues __attribute__((swift_name("keyValues")));
 @property (readonly) BOOL reEvaluateable __attribute__((swift_name("reEvaluateable")));
 @property VSPKDouble * _Nullable relativeDirection __attribute__((swift_name("relativeDirection")));
 @property VSPKFloat * _Nullable speed __attribute__((swift_name("speed")));
@@ -871,55 +817,10 @@ __attribute__((swift_name("StepData")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FrequencyStepData")))
-@interface VSPKFrequencyStepData : VSPKStepData
-- (instancetype)initWithConfidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector *)stepDetector duration:(int64_t)duration __attribute__((swift_name("init(confidence:timestamp:success:stepDetector:duration:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL reEvaluatable __attribute__((swift_name("reEvaluatable")));
-@end;
-
-__attribute__((swift_name("KeyValueData")))
-@interface VSPKKeyValueData : VSPKBase
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(type:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) VSPKIQPSDeviceOrientation *type __attribute__((swift_name("type")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("LinearSVMSwingStepData")))
-@interface VSPKLinearSVMSwingStepData : VSPKStepData
-- (instancetype)initWithKeyValues:(VSPKKeyValueData * _Nullable)keyValues confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector *)stepDetector duration:(int64_t)duration __attribute__((swift_name("init(keyValues:confidence:timestamp:success:stepDetector:duration:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL reEvaluatable __attribute__((swift_name("reEvaluatable")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RegularKeyValueData")))
-@interface VSPKRegularKeyValueData : VSPKKeyValueData
-- (instancetype)initWithPeak:(float)peak steepness:(float)steepness valley:(float)valley duration:(int64_t)duration gravityAlignment:(float)gravityAlignment __attribute__((swift_name("init(peak:steepness:valley:duration:gravityAlignment:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(type:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property int64_t duration __attribute__((swift_name("duration")));
-@property float gravityAlignment __attribute__((swift_name("gravityAlignment")));
-@property float peak __attribute__((swift_name("peak")));
-@property float steepness __attribute__((swift_name("steepness")));
-@property float valley __attribute__((swift_name("valley")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RegularStepData")))
-@interface VSPKRegularStepData : VSPKStepData
-- (instancetype)initWithKeyValues:(VSPKRegularKeyValueData *)keyValues confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector *)stepDetector duration:(int64_t)duration __attribute__((swift_name("init(keyValues:confidence:timestamp:success:stepDetector:duration:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SpackStepData")))
 @interface VSPKSpackStepData : VSPKStepData
 - (instancetype)initWithSpack:(VSPKSpack *)spack confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector>)stepDetector duration:(int64_t)duration type:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(spack:confidence:timestamp:success:stepDetector:duration:type:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VSPKSpack *spack __attribute__((swift_name("spack")));
 @end;
@@ -964,42 +865,10 @@ __attribute__((swift_name("StepEventData.Companion")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SwingAntiSymKeyValueData")))
-@interface VSPKSwingAntiSymKeyValueData : VSPKKeyValueData
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(type:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SwingAntiSymStepData")))
-@interface VSPKSwingAntiSymStepData : VSPKStepData
-- (instancetype)initWithKeyValues:(VSPKKeyValueData * _Nullable)keyValues confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector *)stepDetector duration:(int64_t)duration __attribute__((swift_name("init(keyValues:confidence:timestamp:success:stepDetector:duration:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SwingKeyValueData")))
-@interface VSPKSwingKeyValueData : VSPKKeyValueData
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(type:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SwingSymStepData")))
-@interface VSPKSwingSymStepData : VSPKStepData
-- (instancetype)initWithKeyValues:(VSPKKeyValueData * _Nullable)keyValues confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector *)stepDetector duration:(int64_t)duration __attribute__((swift_name("init(keyValues:confidence:timestamp:success:stepDetector:duration:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ToyStepData")))
 @interface VSPKToyStepData : VSPKStepData
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector * _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection length:(VSPKFloat * _Nullable)length stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:length:stepCertainty:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp keyValues:(VSPKKeyValueData * _Nullable)keyValues success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:keyValues:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector * _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection length:(VSPKFloat * _Nullable)length stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:length:stepCertainty:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @end;
 
 __attribute__((swift_name("StepDetector")))
@@ -1761,16 +1630,13 @@ __attribute__((swift_name("DirectionModel")))
 @protocol VSPKDirectionModel
 @required
 - (VSPKStepData *)getDirectionStepData:(VSPKStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
-- (void)setAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("AverageDirectionModel")))
 @interface VSPKAverageDirectionModel : VSPKBase <VSPKDirectionModel>
-- (instancetype)initWithExternalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("init(externalDataManager:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithAxisParameters:(VSPKAxisParameters *)axisParameters __attribute__((swift_name("init(axisParameters:)"))) __attribute__((objc_designated_initializer));
 - (VSPKStepData *)getDirectionStepData:(VSPKStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
-- (void)setAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
-@property (readonly) VSPKExternalDataManager *externalDataManager __attribute__((swift_name("externalDataManager")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -2055,7 +1921,6 @@ __attribute__((swift_name("RotatorDirection")))
 - (VSPKStepData *)getDirectionStepData:(VSPKStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
 - (double)getDirectionCertaintyScoreArray:(VSPKKotlinDoubleArray *)scoreArray angles:(VSPKKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionCertainty(scoreArray:angles:)")));
 - (double)getDirectionFromScoreArrayScoreArray:(VSPKKotlinDoubleArray *)scoreArray angles:(VSPKKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionFromScoreArray(scoreArray:angles:)")));
-- (void)setAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 - (double)targetFunctionDirectionalData:(NSMutableArray<VSPKFloat *> *)directionalData __attribute__((swift_name("targetFunction(directionalData:)")));
 @property int64_t currentTime __attribute__((swift_name("currentTime")));
 @property (readonly) VSPKHistoryHandler<VSPKSpackStepData *> *spackDataHistory __attribute__((swift_name("spackDataHistory")));
@@ -2070,7 +1935,6 @@ __attribute__((swift_name("JacketPocketRotatingNNDirection")))
 - (NSMutableArray<VSPKFloat *> *)fetchRotatedSpacksAngle:(double)angle __attribute__((swift_name("fetchRotatedSpacks(angle:)")));
 - (double)getDirectionCertaintyScoreArray:(VSPKKotlinDoubleArray *)scoreArray angles:(VSPKKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionCertainty(scoreArray:angles:)")));
 - (double)getDirectionFromScoreArrayScoreArray:(VSPKKotlinDoubleArray *)scoreArray angles:(VSPKKotlinDoubleArray *)angles __attribute__((swift_name("getDirectionFromScoreArray(scoreArray:angles:)")));
-- (void)setAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 - (double)targetFunctionDirectionalData:(NSMutableArray<VSPKFloat *> *)directionalData __attribute__((swift_name("targetFunction(directionalData:)")));
 @property (readonly) VSPKHistoryHandler<VSPKSpackStepData *> *spackDataHistory __attribute__((swift_name("spackDataHistory")));
 @end;
@@ -2703,18 +2567,7 @@ __attribute__((swift_name("TestModel")))
 @interface VSPKTestModel : VSPKBase <VSPKDirectionModel>
 - (instancetype)initWithDirection:(double)direction __attribute__((swift_name("init(direction:)"))) __attribute__((objc_designated_initializer));
 - (VSPKStepData *)getDirectionStepData:(VSPKStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
-- (void)setAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
 @property (readonly) double direction __attribute__((swift_name("direction")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TwoStepAverageDirectionModel")))
-@interface VSPKTwoStepAverageDirectionModel : VSPKBase <VSPKDirectionModel>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKStepData *)getDirectionStepData:(VSPKStepData *)stepData __attribute__((swift_name("getDirection(stepData:)")));
-- (void)setAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("setAxis(axis:)")));
-@property (readonly) VSPKHistoryHandler<VSPKSpackStepData *> *spackDataHistory __attribute__((swift_name("spackDataHistory")));
 @end;
 
 __attribute__((swift_name("DirectionFilter")))
@@ -2821,13 +2674,11 @@ __attribute__((swift_name("StepState")))
 - (void)setToLenient __attribute__((swift_name("setToLenient()")));
 - (void)setToStrict __attribute__((swift_name("setToStrict()")));
 - (void)stop __attribute__((swift_name("stop()")));
-- (void)update __attribute__((swift_name("update()")));
-- (void)updateAxisAxis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("updateAxis(axis:)")));
 @property (readonly) VSPKIQPSDeviceOrientation *deviceOrientation __attribute__((swift_name("deviceOrientation")));
 @property (readonly) id<VSPKDirectionFilter> _Nullable directionFilter __attribute__((swift_name("directionFilter")));
 @property (readonly) id<VSPKDirectionModel> _Nullable directionModel __attribute__((swift_name("directionModel")));
 @property (readonly) VSPKFusionSensorManagerParameters *parameters __attribute__((swift_name("parameters")));
-@property (readonly) VSPKStepDataDiscreteSpeedFunction * _Nullable speedModel __attribute__((swift_name("speedModel")));
+@property (readonly) id<VSPKDiscreteSpeedFunction> _Nullable speedModel __attribute__((swift_name("speedModel")));
 @property id<VSPKStepListener> _Nullable stepListener __attribute__((swift_name("stepListener")));
 @end;
 
@@ -2931,7 +2782,7 @@ __attribute__((swift_name("TrolleyState")))
 @property (class, readonly, getter=companion) VSPKTrolleyStateCompanion *companion __attribute__((swift_name("companion")));
 - (void)onSensorsInitiatedCurrentTime:(int64_t)currentTime __attribute__((swift_name("onSensorsInitiated(currentTime:)")));
 @property (readonly) VSPKIQPSDeviceOrientation *deviceOrientation __attribute__((swift_name("deviceOrientation")));
-@property (readonly) VSPKStepDataDiscreteSpeedFunction * _Nullable speedModel __attribute__((swift_name("speedModel")));
+@property (readonly) id<VSPKDiscreteSpeedFunction> _Nullable speedModel __attribute__((swift_name("speedModel")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -2980,6 +2831,14 @@ __attribute__((swift_name("AverageGravityFeaturiser")))
 - (VSPKKotlinArray<VSPKFloat *> *)featuriseSpackSpack:(VSPKSpack *)spack __attribute__((swift_name("featuriseSpack(spack:)")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IOSPocketOrSwingSpackFeaturiser")))
+@interface VSPKIOSPocketOrSwingSpackFeaturiser : VSPKBase <VSPKSpackFeaturisationModule>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKKotlinArray<VSPKFloat *> *)featuriseSpackSpack:(VSPKSpack *)spack __attribute__((swift_name("featuriseSpack(spack:)")));
+@end;
+
 __attribute__((swift_name("StepStateEvaluator")))
 @interface VSPKStepStateEvaluator : VSPKSensorListener
 - (instancetype)initWithRawSensorList:(NSArray<VSPKRawSensor *> *)rawSensorList stepDetectorManager:(id<VSPKIStepDetectorManager>)stepDetectorManager __attribute__((swift_name("init(rawSensorList:stepDetectorManager:)"))) __attribute__((objc_designated_initializer));
@@ -3010,16 +2869,8 @@ __attribute__((swift_name("PocketOrSwingEvaluator")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PocketOrSwingSpackFeaturiser")))
-@interface VSPKPocketOrSwingSpackFeaturiser : VSPKBase <VSPKSpackFeaturisationModule>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKKotlinArray<VSPKFloat *> *)featuriseSpackSpack:(VSPKSpack *)spack __attribute__((swift_name("featuriseSpack(spack:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RegularOrSwingSpackEvaluator")))
-@interface VSPKRegularOrSwingSpackEvaluator : VSPKBase <VSPKSpackEvaluator>
+__attribute__((swift_name("RegularModeSpackEvaluator")))
+@interface VSPKRegularModeSpackEvaluator : VSPKBase <VSPKSpackEvaluator>
 - (instancetype)initWithFeaturiser:(id<VSPKSpackFeaturisationModule>)featuriser __attribute__((swift_name("init(featuriser:)"))) __attribute__((objc_designated_initializer));
 - (BOOL)evaluateSpackSpack:(VSPKSpack *)spack __attribute__((swift_name("evaluateSpack(spack:)")));
 @property (readonly) id<VSPKSpackFeaturisationModule> featuriser __attribute__((swift_name("featuriser")));
@@ -3028,11 +2879,11 @@ __attribute__((swift_name("RegularOrSwingSpackEvaluator")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SpackBasedStateEvaluator")))
 @interface VSPKSpackBasedStateEvaluator : VSPKBase <VSPKSpackListener>
-- (instancetype)initWithExtractor:(VSPKSpackExtractor *)extractor regularSwingEvaluator:(id<VSPKSpackEvaluator>)regularSwingEvaluator pocketSwingEvaluator:(id<VSPKSpackEvaluator>)pocketSwingEvaluator __attribute__((swift_name("init(extractor:regularSwingEvaluator:pocketSwingEvaluator:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithExtractor:(VSPKSpackExtractor *)extractor regularModeEvaluator:(id<VSPKSpackEvaluator>)regularModeEvaluator pocketSwingEvaluator:(id<VSPKSpackEvaluator>)pocketSwingEvaluator __attribute__((swift_name("init(extractor:regularModeEvaluator:pocketSwingEvaluator:)"))) __attribute__((objc_designated_initializer));
 - (void)onNewSpackSpack:(VSPKSpack *)spack __attribute__((swift_name("onNewSpack(spack:)")));
 - (void)onSensorsInitiatedTimestamp:(int64_t)timestamp __attribute__((swift_name("onSensorsInitiated(timestamp:)")));
 @property (readonly) id<VSPKSpackEvaluator> pocketSwingEvaluator __attribute__((swift_name("pocketSwingEvaluator")));
-@property (readonly) id<VSPKSpackEvaluator> regularSwingEvaluator __attribute__((swift_name("regularSwingEvaluator")));
+@property (readonly) id<VSPKSpackEvaluator> regularModeEvaluator __attribute__((swift_name("regularModeEvaluator")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -3056,7 +2907,22 @@ __attribute__((swift_name("ContinuousSpeedFunction")))
 __attribute__((swift_name("DiscreteSpeedFunction")))
 @protocol VSPKDiscreteSpeedFunction
 @required
-- (VSPKFloat * _Nullable)calculateSpeedData:(id)data __attribute__((swift_name("calculateSpeed(data:)")));
+- (float)calculateSpeedStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeed(stepData:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RegressionDoubleSpeedFunction")))
+@interface VSPKRegressionDoubleSpeedFunction : VSPKBase <VSPKDiscreteSpeedFunction>
+- (instancetype)initWithCoefficient:(float)coefficient intercept:(float)intercept __attribute__((swift_name("init(coefficient:intercept:)"))) __attribute__((objc_designated_initializer));
+- (float)calculateSpeedStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeed(stepData:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RegressionSpeedFunction")))
+@interface VSPKRegressionSpeedFunction : VSPKBase <VSPKDiscreteSpeedFunction>
+- (instancetype)initWithCoefficient:(float)coefficient intercept:(float)intercept certaintylessScalar:(VSPKFloat * _Nullable)certaintylessScalar __attribute__((swift_name("init(coefficient:intercept:certaintylessScalar:)"))) __attribute__((objc_designated_initializer));
+- (float)calculateSpeedStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeed(stepData:)")));
+@property (readonly) VSPKFloat * _Nullable certaintylessScalar __attribute__((swift_name("certaintylessScalar")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -3066,34 +2932,7 @@ __attribute__((swift_name("SpeedSensorHelper")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)speedSensorHelper __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKSpeedSensorHelper *shared __attribute__((swift_name("shared")));
-- (VSPKStepDataDiscreteSpeedFunction *)loadSpeedFunctionMode:(VSPKIQPSDeviceOrientation *)mode userSettings:(id<VSPKIQPSUserSettings> _Nullable)userSettings externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("loadSpeedFunction(mode:userSettings:externalDataManager:)")));
-@end;
-
-__attribute__((swift_name("StepDataDiscreteSpeedFunction")))
-@interface VSPKStepDataDiscreteSpeedFunction : VSPKBase <VSPKDiscreteSpeedFunction>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKFloat * _Nullable)calculateSpeedData:(id)data __attribute__((swift_name("calculateSpeed(data:)")));
-- (float)calculateSpeedFromStepDataStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeedFromStepData(stepData:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepDataRegressionDoubleSpeedFunction")))
-@interface VSPKStepDataRegressionDoubleSpeedFunction : VSPKStepDataDiscreteSpeedFunction
-- (instancetype)initWithCoefficient:(float)coefficient intercept:(float)intercept __attribute__((swift_name("init(coefficient:intercept:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (float)calculateSpeedFromStepDataStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeedFromStepData(stepData:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepDataRegressionSpeedFunction")))
-@interface VSPKStepDataRegressionSpeedFunction : VSPKStepDataDiscreteSpeedFunction
-- (instancetype)initWithCoefficient:(float)coefficient intercept:(float)intercept certaintylessScalar:(VSPKFloat * _Nullable)certaintylessScalar __attribute__((swift_name("init(coefficient:intercept:certaintylessScalar:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (float)calculateSpeedFromStepDataStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeedFromStepData(stepData:)")));
-@property (readonly) VSPKFloat * _Nullable certaintylessScalar __attribute__((swift_name("certaintylessScalar")));
+- (id<VSPKDiscreteSpeedFunction>)loadSpeedFunctionMode:(VSPKIQPSDeviceOrientation *)mode userSettings:(id<VSPKIQPSUserSettings> _Nullable)userSettings externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("loadSpeedFunction(mode:userSettings:externalDataManager:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -3116,11 +2955,9 @@ __attribute__((swift_name("TrolleySpeedBundle")))
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("TrolleySpeedFunction")))
-@interface VSPKTrolleySpeedFunction : VSPKStepDataDiscreteSpeedFunction
+@interface VSPKTrolleySpeedFunction : VSPKBase <VSPKDiscreteSpeedFunction>
 - (instancetype)initWithCoefficient:(float)coefficient intercept:(float)intercept certaintylessScalar:(VSPKFloat * _Nullable)certaintylessScalar __attribute__((swift_name("init(coefficient:intercept:certaintylessScalar:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (float)calculateSpeedFromStepDataStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeedFromStepData(stepData:)")));
+- (float)calculateSpeedStepData:(VSPKStepData *)stepData __attribute__((swift_name("calculateSpeed(stepData:)")));
 @property (readonly) float ALPHA __attribute__((swift_name("ALPHA")));
 @property (readonly) VSPKFloat * _Nullable certaintylessScalar __attribute__((swift_name("certaintylessScalar")));
 @end;
@@ -3157,12 +2994,10 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("MapData")))
 @interface VSPKMapData : VSPKBase
 - (instancetype)initWithMapInformation:(id<VSPKIQPSMapInformation>)mapInformation debug:(BOOL)debug __attribute__((swift_name("init(mapInformation:debug:)"))) __attribute__((objc_designated_initializer));
+- (id<VSPKIQPSMapInformation>)fecthMapInformation __attribute__((swift_name("fecthMapInformation()")));
 - (VSPKMapCoordinate *)getPoint:(VSPKPointF *)point __attribute__((swift_name("get(point:)")));
-- (id<VSPKIQPSMapInformation>)getMapInformation __attribute__((swift_name("getMapInformation()")));
 - (BOOL)isValidPointPoint:(VSPKPointF *)point __attribute__((swift_name("isValidPoint(point:)")));
 - (double)offsetZoneRadiansPoint:(VSPKPointF *)point __attribute__((swift_name("offsetZoneRadians(point:)")));
-@property void * _Nullable mapFenceData __attribute__((swift_name("mapFenceData")));
-@property void * _Nullable offsetZoneData __attribute__((swift_name("offsetZoneData")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -3544,8 +3379,8 @@ __attribute__((swift_name("SpackBasedPocketModeClassifier")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CompassRotationSensor")))
-@interface VSPKCompassRotationSensor : VSPKObservable <VSPKObserver>
+__attribute__((swift_name("GeoMagneticOrientation")))
+@interface VSPKGeoMagneticOrientation : VSPKObservable <VSPKObserver>
 - (instancetype)initWithGeoMagneticRotation:(VSPKRawSensor *)geoMagneticRotation observer:(id<VSPKObserver> _Nullable)observer __attribute__((swift_name("init(geoMagneticRotation:observer:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
@@ -3616,7 +3451,7 @@ __attribute__((swift_name("IReplayDataHandlerIReplayConfig")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("IReplayDataHandlerLegacySyncPositionData")))
 @interface VSPKIReplayDataHandlerLegacySyncPositionData : VSPKBase
-- (instancetype)initWithPointWithOffset:(VSPKPointWithOffset *)pointWithOffset isValidSyncRotation:(BOOL)isValidSyncRotation delayedAngle:(float)delayedAngle __attribute__((swift_name("init(pointWithOffset:isValidSyncRotation:delayedAngle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPointWithOffset:(VSPKPointWithOffset *)pointWithOffset isValidSyncRotation:(BOOL)isValidSyncRotation delayedAngle:(float)delayedAngle __attribute__((swift_name("init(pointWithOffset:isValidSyncRotation:delayedAngle:)"))) __attribute__((objc_designated_initializer)) __attribute__((deprecated("USE SyncPosition")));
 - (VSPKPointWithOffset *)component1 __attribute__((swift_name("component1()")));
 - (BOOL)component2 __attribute__((swift_name("component2()")));
 - (float)component3 __attribute__((swift_name("component3()")));
@@ -3930,45 +3765,9 @@ __attribute__((swift_name("ReplayDataV7.Companion")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InteractorAction")))
-@interface VSPKInteractorAction : VSPKBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp type:(VSPKInteractorActionType *)type __attribute__((swift_name("init(timestamp:type:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKInteractorActionCompanion *companion __attribute__((swift_name("companion")));
-- (int64_t)component1 __attribute__((swift_name("component1()")));
-- (VSPKInteractorActionType *)component2 __attribute__((swift_name("component2()")));
-- (VSPKInteractorAction *)doCopyTimestamp:(int64_t)timestamp type:(VSPKInteractorActionType *)type __attribute__((swift_name("doCopy(timestamp:type:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@property (readonly) VSPKInteractorActionType *type __attribute__((swift_name("type")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InteractorAction.Companion")))
-@interface VSPKInteractorActionCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKInteractorActionCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InteractorAction.Type_")))
-@interface VSPKInteractorActionType : VSPKKotlinEnum<VSPKInteractorActionType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VSPKInteractorActionType *syncposition __attribute__((swift_name("syncposition")));
-@property (class, readonly) VSPKInteractorActionType *currentPathUpdate __attribute__((swift_name("currentPathUpdate")));
-+ (VSPKKotlinArray<VSPKInteractorActionType *> *)values __attribute__((swift_name("values()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("LegacySyncPosition")))
 @interface VSPKLegacySyncPosition : VSPKBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp position:(VSPKKotlinPair<VSPKPointF *, VSPKPointF *> *)position isValidSyncRotation:(BOOL)isValidSyncRotation delayAngle:(float)delayAngle __attribute__((swift_name("init(timestamp:position:isValidSyncRotation:delayAngle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTimestamp:(int64_t)timestamp position:(VSPKKotlinPair<VSPKPointF *, VSPKPointF *> *)position isValidSyncRotation:(BOOL)isValidSyncRotation delayAngle:(float)delayAngle __attribute__((swift_name("init(timestamp:position:isValidSyncRotation:delayAngle:)"))) __attribute__((objc_designated_initializer)) __attribute__((deprecated("USE SyncPosition")));
 @property (class, readonly, getter=companion) VSPKLegacySyncPositionCompanion *companion __attribute__((swift_name("companion")));
 - (int64_t)component1 __attribute__((swift_name("component1()")));
 - (VSPKKotlinPair<VSPKPointF *, VSPKPointF *> *)component2 __attribute__((swift_name("component2()")));
@@ -4162,8 +3961,8 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("AngularRate")))
 @interface VSPKAngularRate : VSPKBase
 - (instancetype)initWithFs:(double)fs __attribute__((swift_name("init(fs:)"))) __attribute__((objc_designated_initializer));
-- (VSPKKotlinFloatArray *)SecondOrderBackwardDerivationQ:(VSPKKotlinFloatArray *)q __attribute__((swift_name("SecondOrderBackwardDerivation(q:)")));
 - (VSPKKotlinFloatArray *)calcQ:(VSPKKotlinFloatArray *)q __attribute__((swift_name("calc(q:)")));
+- (VSPKKotlinFloatArray *)secondOrderBackwardDerivationQ:(VSPKKotlinFloatArray *)q __attribute__((swift_name("secondOrderBackwardDerivation(q:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4175,8 +3974,8 @@ __attribute__((swift_name("ContinuousMoveVectorQueue")))
 - (void)addVectorList:(NSMutableArray<VSPKTimedMoveVector *> *)vectorList __attribute__((swift_name("add(vectorList:)")));
 - (void)addVector:(VSPKTimedMoveVector *)vector __attribute__((swift_name("add(vector:)")));
 - (void)clear __attribute__((swift_name("clear()")));
-- (VSPKMoveVector *)getByMillisRatio:(double)ratio __attribute__((swift_name("getByMillis(ratio:)")));
 - (VSPKMoveVector *)getByMillisTimeMillis:(int32_t)timeMillis __attribute__((swift_name("getByMillis(timeMillis:)")));
+- (VSPKMoveVector *)getByRatioRatio:(double)ratio __attribute__((swift_name("getByRatio(ratio:)")));
 - (VSPKMoveVector *)getOne __attribute__((swift_name("getOne()")));
 - (VSPKMoveVector *)getTwo __attribute__((swift_name("getTwo()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -4210,9 +4009,6 @@ __attribute__((swift_name("MatrixF")))
 - (instancetype)initWithM:(NSMutableArray<NSMutableArray<VSPKFloat *> *> *)m __attribute__((swift_name("init(m:)"))) __attribute__((objc_designated_initializer));
 - (VSPKKotlinFloatArray *)fusedMatrixVecMultiplyAddXTimes:(VSPKKotlinFloatArray *)xTimes xAdd:(VSPKKotlinFloatArray *)xAdd __attribute__((swift_name("fusedMatrixVecMultiplyAdd(xTimes:xAdd:)")));
 - (VSPKKotlinFloatArray *)timesX:(VSPKKotlinFloatArray *)x __attribute__((swift_name("times(x:)")));
-@property (readonly) int32_t cols __attribute__((swift_name("cols")));
-@property (readonly) VSPKKotlinFloatArray *elements __attribute__((swift_name("elements")));
-@property (readonly) int32_t rows __attribute__((swift_name("rows")));
 @end;
 
 __attribute__((swift_name("OffsetManager")))
@@ -4253,8 +4049,8 @@ __attribute__((swift_name("QuaternionUtils")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepDataProvider")))
-@interface VSPKStepDataProvider : VSPKBase <VSPKIQPSReplayInteractor>
+__attribute__((swift_name("SensorDataProvider")))
+@interface VSPKSensorDataProvider : VSPKBase <VSPKIQPSReplayInteractor>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (NSString * _Nullable)getDataIdentifier:(NSString *)identifier printMissingFileException:(BOOL)printMissingFileException __attribute__((swift_name("getData(identifier:printMissingFileException:)")));
@@ -4271,7 +4067,7 @@ __attribute__((swift_name("VectorUtils")))
 - (float)angleBetweenVectorsV1:(VSPKKotlinFloatArray *)v1 v2:(VSPKKotlinFloatArray *)v2 __attribute__((swift_name("angleBetweenVectors(v1:v2:)")));
 - (float)calculateDifferenceRatioBetweenVectorsDifferenceVector:(VSPKKotlinFloatArray * _Nullable)differenceVector movementSumVector:(VSPKKotlinFloatArray *)movementSumVector __attribute__((swift_name("calculateDifferenceRatioBetweenVectors(differenceVector:movementSumVector:)")));
 - (VSPKKotlinFloatArray *)createFloatVectorFromVectorVector:(VSPKVector *)vector __attribute__((swift_name("createFloatVectorFromVector(vector:)")));
-- (VSPKKotlinFloatArray * _Nullable)createVectorFromPointsPointA:(VSPKPointF * _Nullable)pointA pointB:(VSPKPointF * _Nullable)pointB __attribute__((swift_name("createVectorFromPoints(pointA:pointB:)")));
+- (VSPKKotlinFloatArray * _Nullable)createVectorFromPointsPointTo:(VSPKPointF * _Nullable)pointTo pointFrom:(VSPKPointF * _Nullable)pointFrom __attribute__((swift_name("createVectorFromPoints(pointTo:pointFrom:)")));
 - (VSPKKotlinFloatArray *)crossProductV1:(VSPKKotlinFloatArray *)v1 v2:(VSPKKotlinFloatArray *)v2 normed:(BOOL)normed __attribute__((swift_name("crossProduct(v1:v2:normed:)")));
 - (double)degreesToRadiansAngDeg:(double)angDeg __attribute__((swift_name("degreesToRadians(angDeg:)")));
 - (float)degreesToRadiansAngDeg_:(float)angDeg __attribute__((swift_name("degreesToRadians(angDeg_:)")));
@@ -4297,16 +4093,6 @@ __attribute__((swift_name("VectorUtils")))
 - (NSMutableArray<VSPKFloat *> *)vectorSubtractionVector1:(VSPKKotlinArray<VSPKFloat *> *)vector1 vector2:(NSMutableArray<VSPKFloat *> *)vector2 __attribute__((swift_name("vectorSubtraction(vector1:vector2:)")));
 - (VSPKKotlinFloatArray *)vectorSubtractionVector1:(VSPKKotlinFloatArray *)vector1 vector2_:(VSPKKotlinFloatArray *)vector2 __attribute__((swift_name("vectorSubtraction(vector1:vector2_:)")));
 - (NSMutableArray<VSPKFloat *> *)vectorSubtractionVector1:(NSMutableArray<VSPKFloat *> *)vector1 vector2__:(NSMutableArray<VSPKFloat *> *)vector2 __attribute__((swift_name("vectorSubtraction(vector1:vector2__:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("printHelpers")))
-@interface VSPKprintHelpers : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)printHelpers __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKprintHelpers *shared __attribute__((swift_name("shared")));
-- (NSString *)excelStringFloat:(float)float_ __attribute__((swift_name("excelString(float:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4450,7 +4236,7 @@ __attribute__((swift_name("SpackFeaturisationHelpers")))
 + (instancetype)spackFeaturisationHelpers __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKSpackFeaturisationHelpers *shared __attribute__((swift_name("shared")));
 - (VSPKKotlinArray<VSPKKotlinFloatArray *> *)continuousDirectionDirection:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)direction __attribute__((swift_name("continuousDirection(direction:)")));
-- (VSPKKotlinArray<VSPKFloat *> *)continuousDirection_x_onlyDirection:(VSPKKotlinArray<VSPKFloat *> *)direction __attribute__((swift_name("continuousDirection_x_only(direction:)")));
+- (VSPKKotlinArray<VSPKFloat *> *)continuousDirectionXOnlyDirection:(VSPKKotlinArray<VSPKFloat *> *)direction __attribute__((swift_name("continuousDirectionXOnly(direction:)")));
 - (VSPKKotlinArray<VSPKFloat *> *)featuriseAndroidPocketOrSwingSpackSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("featuriseAndroidPocketOrSwingSpack(spack:freq:)")));
 - (VSPKKotlinArray<VSPKFloat *> *)featuriseAndroidRegularSpackSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("featuriseAndroidRegularSpack(spack:freq:)")));
 - (VSPKKotlinArray<VSPKFloat *> *)featurisePocketModeEvalSpackSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("featurisePocketModeEvalSpack(spack:freq:)")));
@@ -4462,13 +4248,12 @@ __attribute__((swift_name("SpackFeaturisationHelpers")))
 - (VSPKKotlinArray<VSPKFloat *> *)featuriseSwingSymSpackSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("featuriseSwingSymSpack(spack:freq:)")));
 - (NSMutableArray<VSPKKotlinFloatArray *> *)getAccelerationInRealWorldFrameAcceleration:(NSMutableArray<VSPKKotlinFloatArray *> *)acceleration rotation:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rotation __attribute__((swift_name("getAccelerationInRealWorldFrame(acceleration:rotation:)")));
 - (VSPKKotlinArray<VSPKKotlinFloatArray *> *)getDirectionRotation:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rotation __attribute__((swift_name("getDirection(rotation:)")));
-- (VSPKKotlinArray<VSPKFloat *> *)getDirection_x_onlyRotation:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rotation __attribute__((swift_name("getDirection_x_only(rotation:)")));
+- (VSPKKotlinArray<VSPKFloat *> *)getDirectionXOnlyRotation:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rotation __attribute__((swift_name("getDirectionXOnly(rotation:)")));
 - (VSPKKotlinFloatArray *)getDisplacementSpack:(VSPKSpack *)spack __attribute__((swift_name("getDisplacement(spack:)")));
 - (VSPKKotlinFloatArray *)getOlivebergAcc:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)acc rot:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rot __attribute__((swift_name("getOliveberg(acc:rot:)")));
 - (float)getStraightComponentAcc:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)acc rot:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rot __attribute__((swift_name("getStraightComponent(acc:rot:)")));
 - (float)getStraightComponentAcc:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)acc rot:(VSPKKotlinArray<VSPKKotlinFloatArray *> *)rot axis:(VSPKKotlinFloatArray *)axis __attribute__((swift_name("getStraightComponent(acc:rot:axis:)")));
 - (VSPKKotlinDoubleArray *)leastSquarePolynomialCoefficientsX:(VSPKKotlinDoubleArray *)x y:(VSPKKotlinDoubleArray *)y freq:(double)freq d:(int32_t)d __attribute__((swift_name("leastSquarePolynomialCoefficients(x:y:freq:d:)")));
-- (VSPKKotlinDoubleArray *)leastSquareSineCoefficientsX:(VSPKKotlinDoubleArray *)x y:(VSPKKotlinDoubleArray *)y freq:(double)freq __attribute__((swift_name("leastSquareSineCoefficients(x:y:freq:)")));
 - (void)printAndroidRegularSpackFeaturesSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("printAndroidRegularSpackFeatures(spack:freq:)")));
 - (void)printPocketSpackFeaturesSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("printPocketSpackFeatures(spack:freq:)")));
 - (void)printRegularSpackFeaturesSpack:(VSPKSpack *)spack freq:(double)freq __attribute__((swift_name("printRegularSpackFeatures(spack:freq:)")));
@@ -4705,8 +4490,6 @@ __attribute__((swift_name("DataFilterAndroid")))
 - (float)filterX:(float)x __attribute__((swift_name("filter(x:)")));
 @property (readonly) double cutoff __attribute__((swift_name("cutoff")));
 @property (readonly) double fs __attribute__((swift_name("fs")));
-@property (readonly) VSPKButterworth *lpFilter __attribute__((swift_name("lpFilter")));
-@property (readonly) VSPKMedFilter *medFilter __attribute__((swift_name("medFilter")));
 @property (readonly) int32_t medKernel __attribute__((swift_name("medKernel")));
 @property (readonly) int32_t order __attribute__((swift_name("order")));
 @end;
@@ -4940,8 +4723,6 @@ __attribute__((swift_name("DebugPrinter")))
 - (NSString *)floatArrayToPythonStringIterableOfFloats:(NSArray<VSPKFloat *> *)iterableOfFloats __attribute__((swift_name("floatArrayToPythonString(iterableOfFloats:)")));
 - (void)printDebugTAG:(NSString *)TAG output:(float)output shouldPrint:(BOOL)shouldPrint __attribute__((swift_name("printDebug(TAG:output:shouldPrint:)")));
 - (void)printDebugTAG:(NSString *)TAG output:(NSString *)output shouldPrint_:(BOOL)shouldPrint __attribute__((swift_name("printDebug(TAG:output:shouldPrint_:)")));
-- (void)prontString:(NSString *)string __attribute__((swift_name("pront(string:)")));
-- (void)prontlnString:(NSString *)string __attribute__((swift_name("prontln(string:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4974,29 +4755,6 @@ __attribute__((swift_name("DebugQPositionSpeed.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKDebugQPositionSpeedCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("DebugState")))
-@interface VSPKDebugState : VSPKBase
-- (instancetype)initWithState:(NSString *)state __attribute__((swift_name("init(state:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKDebugStateCompanion *companion __attribute__((swift_name("companion")));
-- (NSString *)component1 __attribute__((swift_name("component1()")));
-- (VSPKDebugState *)doCopyState:(NSString *)state __attribute__((swift_name("doCopy(state:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *state __attribute__((swift_name("state")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("DebugState.Companion")))
-@interface VSPKDebugStateCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKDebugStateCompanion *shared __attribute__((swift_name("shared")));
 - (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
@@ -5045,31 +4803,6 @@ __attribute__((swift_name("TimedDebugClusters.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKTimedDebugClustersCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimedDebugMessages")))
-@interface VSPKTimedDebugMessages : VSPKBase
-- (instancetype)initWithMessages:(NSArray<NSString *> *)messages timestamp:(int64_t)timestamp __attribute__((swift_name("init(messages:timestamp:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKTimedDebugMessagesCompanion *companion __attribute__((swift_name("companion")));
-- (NSArray<NSString *> *)component1 __attribute__((swift_name("component1()")));
-- (int64_t)component2 __attribute__((swift_name("component2()")));
-- (VSPKTimedDebugMessages *)doCopyMessages:(NSArray<NSString *> *)messages timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(messages:timestamp:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSArray<NSString *> *messages __attribute__((swift_name("messages")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimedDebugMessages.Companion")))
-@interface VSPKTimedDebugMessagesCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKTimedDebugMessagesCompanion *shared __attribute__((swift_name("shared")));
 - (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
@@ -5126,15 +4859,15 @@ __attribute__((swift_name("TimedDebugPositions.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("TimedDebugRadius")))
 @interface VSPKTimedDebugRadius : VSPKBase
-- (instancetype)initWithPositions:(double)positions timestamp:(int64_t)timestamp __attribute__((swift_name("init(positions:timestamp:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithRadius:(double)radius timestamp:(int64_t)timestamp __attribute__((swift_name("init(radius:timestamp:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VSPKTimedDebugRadiusCompanion *companion __attribute__((swift_name("companion")));
 - (double)component1 __attribute__((swift_name("component1()")));
 - (int64_t)component2 __attribute__((swift_name("component2()")));
-- (VSPKTimedDebugRadius *)doCopyPositions:(double)positions timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(positions:timestamp:)")));
+- (VSPKTimedDebugRadius *)doCopyRadius:(double)radius timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(radius:timestamp:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double positions __attribute__((swift_name("positions")));
+@property (readonly) double radius __attribute__((swift_name("radius")));
 @property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
 @end;
 
@@ -5148,35 +4881,10 @@ __attribute__((swift_name("TimedDebugRadius.Companion")))
 - (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimedDebugStates")))
-@interface VSPKTimedDebugStates : VSPKBase
-- (instancetype)initWithStates:(NSArray<VSPKDebugState *> *)states timestamp:(int64_t)timestamp __attribute__((swift_name("init(states:timestamp:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKTimedDebugStatesCompanion *companion __attribute__((swift_name("companion")));
-- (NSArray<VSPKDebugState *> *)component1 __attribute__((swift_name("component1()")));
-- (int64_t)component2 __attribute__((swift_name("component2()")));
-- (VSPKTimedDebugStates *)doCopyStates:(NSArray<VSPKDebugState *> *)states timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(states:timestamp:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSArray<VSPKDebugState *> *states __attribute__((swift_name("states")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimedDebugStates.Companion")))
-@interface VSPKTimedDebugStatesCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKTimedDebugStatesCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
 __attribute__((swift_name("tt2EngineParameterManager")))
 @protocol VSPKtt2EngineParameterManager
 @required
-- (NSDictionary<NSString *, id> * _Nullable)getParametersClassParameters:(VSPKtt2EngineParameterManagerClassParameters *)classParameters __attribute__((swift_name("getParameters(classParameters:)")));
+- (NSString * _Nullable)getParametersClassParameters:(VSPKtt2EngineParameterManagerClassParameters *)classParameters __attribute__((swift_name("getParameters(classParameters:)")));
 @property (readonly) VSPKIQPSParameterPackageEnum *parameterPackageEnum __attribute__((swift_name("parameterPackageEnum")));
 @end;
 
@@ -5184,7 +4892,7 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ExternalDataManagerPassThru")))
 @interface VSPKExternalDataManagerPassThru : VSPKBase <VSPKtt2EngineParameterManager>
 - (instancetype)initWithParameterPackageEnum:(VSPKIQPSParameterPackageEnum *)parameterPackageEnum isDebug:(BOOL)isDebug externalDataManager:(VSPKExternalDataManager *)externalDataManager __attribute__((swift_name("init(parameterPackageEnum:isDebug:externalDataManager:)"))) __attribute__((objc_designated_initializer));
-- (NSDictionary<NSString *, id> * _Nullable)getParametersClassParameters:(VSPKtt2EngineParameterManagerClassParameters *)classParameters __attribute__((swift_name("getParameters(classParameters:)")));
+- (NSString * _Nullable)getParametersClassParameters:(VSPKtt2EngineParameterManagerClassParameters *)classParameters __attribute__((swift_name("getParameters(classParameters:)")));
 @property (readonly) VSPKIQPSParameterPackageEnum *parameterPackageEnum __attribute__((swift_name("parameterPackageEnum")));
 @end;
 
@@ -5203,17 +4911,6 @@ __attribute__((swift_name("NaivePositionFilter")))
 - (void)tickCurrentTime:(int64_t)currentTime __attribute__((swift_name("tick(currentTime:)")));
 - (void)updateWayfindingPathPath:(NSArray<VSPKKotlinPair<VSPKFloat *, VSPKFloat *> *> *)path __attribute__((swift_name("updateWayfindingPath(path:)")));
 @property (readonly) id<VSPKtt2EngineTt2EngineDelegate> output __attribute__((swift_name("output")));
-@end;
-
-__attribute__((swift_name("ParticleFilter")))
-@protocol VSPKParticleFilter <VSPKStepListener>
-@required
-- (void)reset __attribute__((swift_name("reset()")));
-- (void)setPositionPositionData:(VSPKPositionData *)positionData __attribute__((swift_name("setPosition(positionData:)")));
-- (void)setRealWorldOrientationReferenceAngle:(double)referenceAngle __attribute__((swift_name("setRealWorldOrientation(referenceAngle:)")));
-- (void)start __attribute__((swift_name("start()")));
-- (void)stop __attribute__((swift_name("stop()")));
-- (void)updateWayfindingPathPath_:(NSArray<VSPKPointF *> *)path __attribute__((swift_name("updateWayfindingPath(path_:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -5309,7 +5006,7 @@ __attribute__((swift_name("PointF")))
 - (VSPKPointF *)doCopy __attribute__((swift_name("doCopy()")));
 - (double)distanceToPoint:(VSPKPointF *)point __attribute__((swift_name("distanceTo(point:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (BOOL)isInValid __attribute__((swift_name("isInValid()")));
+- (BOOL)isInvalid __attribute__((swift_name("isInvalid()")));
 - (BOOL)isPointWithinDistancePosition:(VSPKPointF *)position distance:(double)distance __attribute__((swift_name("isPointWithinDistance(position:distance:)")));
 - (BOOL)isValid __attribute__((swift_name("isValid()")));
 - (VSPKVector *)minusPoint:(VSPKPointF *)point __attribute__((swift_name("minus(point:)")));
@@ -5440,10 +5137,204 @@ __attribute__((swift_name("ExternalDataManager")))
 @property (readonly) VSPKVeddestaScrubberParameters *veddestaScrubberParameters __attribute__((swift_name("veddestaScrubberParameters")));
 @end;
 
-__attribute__((swift_name("ParameterUser")))
-@protocol VSPKParameterUser
-@required
-- (void)loadParametersExternalDataPackageEnum:(VSPKIQPSParameterPackageEnum *)externalDataPackageEnum __attribute__((swift_name("loadParameters(externalDataPackageEnum:)")));
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IkeaQPSValues")))
+@interface VSPKIkeaQPSValues : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)ikeaQPSValues __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKIkeaQPSValues *shared __attribute__((swift_name("shared")));
+@property (readonly) double ACCEPTANCE_SLIDING_RATIO __attribute__((swift_name("ACCEPTANCE_SLIDING_RATIO")));
+@property (readonly) float ANDROID_ELLIPSE_ALPHA __attribute__((swift_name("ANDROID_ELLIPSE_ALPHA")));
+@property (readonly) float ANDROID_ELLIPSE_CENTER_X __attribute__((swift_name("ANDROID_ELLIPSE_CENTER_X")));
+@property (readonly) float ANDROID_ELLIPSE_CENTER_Y __attribute__((swift_name("ANDROID_ELLIPSE_CENTER_Y")));
+@property (readonly) float ANDROID_ELLIPSE_RADIUS_A __attribute__((swift_name("ANDROID_ELLIPSE_RADIUS_A")));
+@property (readonly) float ANDROID_ELLIPSE_RADIUS_B __attribute__((swift_name("ANDROID_ELLIPSE_RADIUS_B")));
+@property (readonly) float ANDROID_POCKET_ELLIPSE_ALPHA __attribute__((swift_name("ANDROID_POCKET_ELLIPSE_ALPHA")));
+@property (readonly) float ANDROID_POCKET_ELLIPSE_CENTER_X __attribute__((swift_name("ANDROID_POCKET_ELLIPSE_CENTER_X")));
+@property (readonly) float ANDROID_POCKET_ELLIPSE_CENTER_Y __attribute__((swift_name("ANDROID_POCKET_ELLIPSE_CENTER_Y")));
+@property (readonly) float ANDROID_POCKET_ELLIPSE_RADIUS_A __attribute__((swift_name("ANDROID_POCKET_ELLIPSE_RADIUS_A")));
+@property (readonly) float ANDROID_POCKET_ELLIPSE_RADIUS_B __attribute__((swift_name("ANDROID_POCKET_ELLIPSE_RADIUS_B")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_POCKET_REEVALUATION_SCALER_MEANS __attribute__((swift_name("ANDROID_POCKET_REEVALUATION_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_POCKET_REEVALUATION_SCALER_SCALES __attribute__((swift_name("ANDROID_POCKET_REEVALUATION_SCALER_SCALES")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *ANDROID_REGULAR_NN_COEFFICIENTS __attribute__((swift_name("ANDROID_REGULAR_NN_COEFFICIENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *ANDROID_REGULAR_NN_INTERCEPTS __attribute__((swift_name("ANDROID_REGULAR_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *ANDROID_REGULAR_REEVALUATION_PCA_COMPONENTS __attribute__((swift_name("ANDROID_REGULAR_REEVALUATION_PCA_COMPONENTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_REGULAR_REEVALUATION_SCALER_MEANS __attribute__((swift_name("ANDROID_REGULAR_REEVALUATION_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_REGULAR_REEVALUATION_SCALER_SCALES __attribute__((swift_name("ANDROID_REGULAR_REEVALUATION_SCALER_SCALES")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_REGULAR_SCALER_MEANS __attribute__((swift_name("ANDROID_REGULAR_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_REGULAR_SCALER_SCALES __attribute__((swift_name("ANDROID_REGULAR_SCALER_SCALES")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *ANDROID_TROUSER_POCKET_NN_COEFFICIENTS __attribute__((swift_name("ANDROID_TROUSER_POCKET_NN_COEFFICIENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *ANDROID_TROUSER_POCKET_NN_INTERCEPTS __attribute__((swift_name("ANDROID_TROUSER_POCKET_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_TROUSER_POCKET_SCALER_MEANS __attribute__((swift_name("ANDROID_TROUSER_POCKET_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANDROID_TROUSER_POCKET_SCALER_SCALES __attribute__((swift_name("ANDROID_TROUSER_POCKET_SCALER_SCALES")));
+@property double ANGLE_OFFSET_MAGNITUDE __attribute__((swift_name("ANGLE_OFFSET_MAGNITUDE")));
+@property (readonly) double ANGLE_PID_DERIVATIVE_CONSTANT __attribute__((swift_name("ANGLE_PID_DERIVATIVE_CONSTANT")));
+@property (readonly) double ANGLE_PID_INTEGRATION_CONSTANT __attribute__((swift_name("ANGLE_PID_INTEGRATION_CONSTANT")));
+@property double ANGLE_PID_MAX_OFFSET __attribute__((swift_name("ANGLE_PID_MAX_OFFSET")));
+@property double ANGLE_PID_PROPORTIONAL_CONSTANT __attribute__((swift_name("ANGLE_PID_PROPORTIONAL_CONSTANT")));
+@property (readonly) int64_t ANGLE_RESOLUTION __attribute__((swift_name("ANGLE_RESOLUTION")));
+@property float ANTI_SYM_SPEED_REGRESSION_COEFFICIENT __attribute__((swift_name("ANTI_SYM_SPEED_REGRESSION_COEFFICIENT")));
+@property float ANTI_SYM_SPEED_REGRESSION_INTERCEPT __attribute__((swift_name("ANTI_SYM_SPEED_REGRESSION_INTERCEPT")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *ANTI_SYM_SWING_NN_COEF __attribute__((swift_name("ANTI_SYM_SWING_NN_COEF")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *ANTI_SYM_SWING_NN_INTERCEPTS __attribute__((swift_name("ANTI_SYM_SWING_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANTI_SYM_SWING_SCALER_MEANS __attribute__((swift_name("ANTI_SYM_SWING_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *ANTI_SYM_SWING_SCALER_SCALES __attribute__((swift_name("ANTI_SYM_SWING_SCALER_SCALES")));
+@property (readonly) double CHANGE_THRESHOLD_PERCENTAGE __attribute__((swift_name("CHANGE_THRESHOLD_PERCENTAGE")));
+@property double CLOSE_POSITION_THRESHOLD __attribute__((swift_name("CLOSE_POSITION_THRESHOLD")));
+@property (readonly) int32_t CLUSTER_DEATH_BOUND __attribute__((swift_name("CLUSTER_DEATH_BOUND")));
+@property (readonly) double CLUSTER_DISJOINT_TOLERANCE __attribute__((swift_name("CLUSTER_DISJOINT_TOLERANCE")));
+@property (readonly) int32_t CLUSTER_LOWER_BOUND __attribute__((swift_name("CLUSTER_LOWER_BOUND")));
+@property double COLLISION_ANGLE_MAX_DISTANCE_CHECKED __attribute__((swift_name("COLLISION_ANGLE_MAX_DISTANCE_CHECKED")));
+@property int32_t COLLISION_DEAD_SENSITIVITY __attribute__((swift_name("COLLISION_DEAD_SENSITIVITY")));
+@property int32_t COLLISION_TIMER __attribute__((swift_name("COLLISION_TIMER")));
+@property (readonly) int32_t CONVEX_TIMER __attribute__((swift_name("CONVEX_TIMER")));
+@property (readonly) int32_t DATA_COMPENSATION_HISTORY_SIZE __attribute__((swift_name("DATA_COMPENSATION_HISTORY_SIZE")));
+@property (readonly) int32_t DATA_HISTORY_SIZE __attribute__((swift_name("DATA_HISTORY_SIZE")));
+@property (readonly) int64_t DATA_PACK_SIZE __attribute__((swift_name("DATA_PACK_SIZE")));
+@property (readonly) double DISTANCE_FOR_MAX_SPEED __attribute__((swift_name("DISTANCE_FOR_MAX_SPEED")));
+@property (readonly) double DRIFT_COMPENSATION_ALTITUDE_LIMIT __attribute__((swift_name("DRIFT_COMPENSATION_ALTITUDE_LIMIT")));
+@property (readonly) int64_t DRIFT_COMPENSATION_INTERVAL __attribute__((swift_name("DRIFT_COMPENSATION_INTERVAL")));
+@property (readonly) double DRIFT_COMPENSATION_VARIANCE_THRESHOLD __attribute__((swift_name("DRIFT_COMPENSATION_VARIANCE_THRESHOLD")));
+@property (readonly) int32_t FORCE_SPAWN_POSITION_AMOUNT_TRESHOLD __attribute__((swift_name("FORCE_SPAWN_POSITION_AMOUNT_TRESHOLD")));
+@property int32_t GENERIC_EXIT_TOLERANCE __attribute__((swift_name("GENERIC_EXIT_TOLERANCE")));
+@property (readonly) double HEAD_ON_CHECK_DISTANCE_MODIFIER __attribute__((swift_name("HEAD_ON_CHECK_DISTANCE_MODIFIER")));
+@property double HEAD_ON_COLLISION_MAX_INCOMING_ANGLE __attribute__((swift_name("HEAD_ON_COLLISION_MAX_INCOMING_ANGLE")));
+@property (readonly) int32_t HEAD_ON_COLLISION_STABILITY_TOLERANCE __attribute__((swift_name("HEAD_ON_COLLISION_STABILITY_TOLERANCE")));
+@property int32_t HEALTHY_POSITION_AMOUNT __attribute__((swift_name("HEALTHY_POSITION_AMOUNT")));
+@property double HYPERBOLA_ANGLE __attribute__((swift_name("HYPERBOLA_ANGLE")));
+@property double HYPERBOLA_INNER_CONSTANT __attribute__((swift_name("HYPERBOLA_INNER_CONSTANT")));
+@property double HYPERBOLA_X_SHIFT __attribute__((swift_name("HYPERBOLA_X_SHIFT")));
+@property double HYPERBOLA_Y_SHIFT __attribute__((swift_name("HYPERBOLA_Y_SHIFT")));
+@property BOOL INHERITED_SPEED_FORCE_ENABLE __attribute__((swift_name("INHERITED_SPEED_FORCE_ENABLE")));
+@property double INHERITED_SPEED_INCREMENT __attribute__((swift_name("INHERITED_SPEED_INCREMENT")));
+@property double INHERITED_SPEED_MAX_ADJUST __attribute__((swift_name("INHERITED_SPEED_MAX_ADJUST")));
+@property double INHERITED_SPEED_START_STD __attribute__((swift_name("INHERITED_SPEED_START_STD")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *JACKET_POCKET_NN_COEFFICIENTS __attribute__((swift_name("JACKET_POCKET_NN_COEFFICIENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *JACKET_POCKET_NN_INTERCEPTS __attribute__((swift_name("JACKET_POCKET_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *JACKET_POCKET_SCALER_MEANS __attribute__((swift_name("JACKET_POCKET_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *JACKET_POCKET_SCALER_SCALES __attribute__((swift_name("JACKET_POCKET_SCALER_SCALES")));
+@property float MAGIC_CONSTANT __attribute__((swift_name("MAGIC_CONSTANT")));
+@property int32_t MAX_NUMBER_OF_POINTS __attribute__((swift_name("MAX_NUMBER_OF_POINTS")));
+@property double MAX_SPEED_OFFSET __attribute__((swift_name("MAX_SPEED_OFFSET")));
+@property (readonly) int32_t MAX_TRIES_BEFORE_FORCED_SPAWN __attribute__((swift_name("MAX_TRIES_BEFORE_FORCED_SPAWN")));
+@property double NARROW_ISLE_THRESHOLD __attribute__((swift_name("NARROW_ISLE_THRESHOLD")));
+@property (readonly) int32_t NUMBER_OF_FORCED_SPAWNS __attribute__((swift_name("NUMBER_OF_FORCED_SPAWNS")));
+@property double OPTIMAL_CLUSTER_RADIUS __attribute__((swift_name("OPTIMAL_CLUSTER_RADIUS")));
+@property (readonly) double PID_DISTANCE_RESOLUTION __attribute__((swift_name("PID_DISTANCE_RESOLUTION")));
+@property (readonly) double PID_DISTANCE_THRESHOLD __attribute__((swift_name("PID_DISTANCE_THRESHOLD")));
+@property (readonly) int32_t POCKET_GHETTO_OFFSET __attribute__((swift_name("POCKET_GHETTO_OFFSET")));
+@property (readonly) double POCKET_LP_CUTOFF __attribute__((swift_name("POCKET_LP_CUTOFF")));
+@property double PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("PRIO_CLUSTER_SIZE_PROP_THRESHOLD")));
+@property int32_t REBOOT_CLUSTER_SIZE __attribute__((swift_name("REBOOT_CLUSTER_SIZE")));
+@property (readonly) int32_t RECOVERY_MAP_SIZE_THRESHOLD __attribute__((swift_name("RECOVERY_MAP_SIZE_THRESHOLD")));
+@property double RECOVERY_SPREAD_DISTANCE __attribute__((swift_name("RECOVERY_SPREAD_DISTANCE")));
+@property double RECOVERY_SPREAD_RADIUS __attribute__((swift_name("RECOVERY_SPREAD_RADIUS")));
+@property (readonly) double RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE __attribute__((swift_name("RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE")));
+@property (readonly) float REGULAR_ELLIPSE_ALPHA __attribute__((swift_name("REGULAR_ELLIPSE_ALPHA")));
+@property (readonly) float REGULAR_ELLIPSE_CENTER_X __attribute__((swift_name("REGULAR_ELLIPSE_CENTER_X")));
+@property (readonly) float REGULAR_ELLIPSE_CENTER_Y __attribute__((swift_name("REGULAR_ELLIPSE_CENTER_Y")));
+@property (readonly) float REGULAR_ELLIPSE_RADIUS_A __attribute__((swift_name("REGULAR_ELLIPSE_RADIUS_A")));
+@property (readonly) float REGULAR_ELLIPSE_RADIUS_B __attribute__((swift_name("REGULAR_ELLIPSE_RADIUS_B")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *REGULAR_NN_COEFFICIENTS __attribute__((swift_name("REGULAR_NN_COEFFICIENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *REGULAR_NN_INTERCEPTS __attribute__((swift_name("REGULAR_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_NN_SCALER_MEANS __attribute__((swift_name("REGULAR_NN_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_NN_SCALER_SCALES __attribute__((swift_name("REGULAR_NN_SCALER_SCALES")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *REGULAR_PCA_COMPONENTS __attribute__((swift_name("REGULAR_PCA_COMPONENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *REGULAR_REEVALUATION_PCA_COMPONENTS __attribute__((swift_name("REGULAR_REEVALUATION_PCA_COMPONENTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_REEVALUATION_SCALER_MEANS __attribute__((swift_name("REGULAR_REEVALUATION_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_REEVALUATION_SCALER_SCALES __attribute__((swift_name("REGULAR_REEVALUATION_SCALER_SCALES")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_SCALER_MEANS __attribute__((swift_name("REGULAR_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_SCALER_SCALES __attribute__((swift_name("REGULAR_SCALER_SCALES")));
+@property float REGULAR_SPEED_REGRESSION_COEFFICIENT __attribute__((swift_name("REGULAR_SPEED_REGRESSION_COEFFICIENT")));
+@property float REGULAR_SPEED_REGRESSION_INTERCEPT __attribute__((swift_name("REGULAR_SPEED_REGRESSION_INTERCEPT")));
+@property (readonly) NSMutableArray<VSPKFloat *> *REGULAR_SVM_DUAL_COEF __attribute__((swift_name("REGULAR_SVM_DUAL_COEF")));
+@property (readonly) float REGULAR_SVM_INTERCEPT __attribute__((swift_name("REGULAR_SVM_INTERCEPT")));
+@property (readonly) VSPKFloat *(^REGULAR_SVM_KERNEL)(VSPKKotlinArray<VSPKFloat *> *, NSMutableArray<VSPKFloat *> *) __attribute__((swift_name("REGULAR_SVM_KERNEL")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *REGULAR_SVM_SUPPORT __attribute__((swift_name("REGULAR_SVM_SUPPORT")));
+@property (readonly) int32_t RESCUE_MODE_MAX_ALL_COLLIDED_TRIES __attribute__((swift_name("RESCUE_MODE_MAX_ALL_COLLIDED_TRIES")));
+@property (readonly) double RESCUE_SPREAD_DISTANCE __attribute__((swift_name("RESCUE_SPREAD_DISTANCE")));
+@property (readonly) double RESCUE_SPREAD_RADIUS __attribute__((swift_name("RESCUE_SPREAD_RADIUS")));
+@property (readonly) int32_t RETURN_FROM_COLLISION_SENSITIVITY __attribute__((swift_name("RETURN_FROM_COLLISION_SENSITIVITY")));
+@property (readonly) int32_t SIDE_COLLISION_MAX_AGE __attribute__((swift_name("SIDE_COLLISION_MAX_AGE")));
+@property int32_t SIDE_COLLISION_STABILITY_TOLERANCE __attribute__((swift_name("SIDE_COLLISION_STABILITY_TOLERANCE")));
+@property double SLIDING_ANGLE __attribute__((swift_name("SLIDING_ANGLE")));
+@property double SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER __attribute__((swift_name("SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER")));
+@property double SMALL_CLUSTER_DIRECTIONAL_RADIUS __attribute__((swift_name("SMALL_CLUSTER_DIRECTIONAL_RADIUS")));
+@property (readonly) int32_t SMALL_CLUSTER_SIZE __attribute__((swift_name("SMALL_CLUSTER_SIZE")));
+@property (readonly) double SPEED_PID_MAX_OFFSET __attribute__((swift_name("SPEED_PID_MAX_OFFSET")));
+@property double SPEED_PID_PROPORTIONAL_CONSTANT __attribute__((swift_name("SPEED_PID_PROPORTIONAL_CONSTANT")));
+@property double SPLIT_ANGLE __attribute__((swift_name("SPLIT_ANGLE")));
+@property float SPLIT_METERS __attribute__((swift_name("SPLIT_METERS")));
+@property int32_t STABLE_DIRECTION_TICK_THRESHOLD __attribute__((swift_name("STABLE_DIRECTION_TICK_THRESHOLD")));
+@property (readonly) double STABLE_VARIANCE_THRESHOLD __attribute__((swift_name("STABLE_VARIANCE_THRESHOLD")));
+@property (readonly) double START_SPREAD_DISTANCE __attribute__((swift_name("START_SPREAD_DISTANCE")));
+@property (readonly) double START_SPREAD_RADIUS __attribute__((swift_name("START_SPREAD_RADIUS")));
+@property (readonly) float SWING_ANTI_SYM_ELLIPSE_ALPHA __attribute__((swift_name("SWING_ANTI_SYM_ELLIPSE_ALPHA")));
+@property (readonly) float SWING_ANTI_SYM_ELLIPSE_CENTER_X __attribute__((swift_name("SWING_ANTI_SYM_ELLIPSE_CENTER_X")));
+@property (readonly) float SWING_ANTI_SYM_ELLIPSE_CENTER_Y __attribute__((swift_name("SWING_ANTI_SYM_ELLIPSE_CENTER_Y")));
+@property (readonly) float SWING_ANTI_SYM_ELLIPSE_RADIUS_A __attribute__((swift_name("SWING_ANTI_SYM_ELLIPSE_RADIUS_A")));
+@property (readonly) float SWING_ANTI_SYM_ELLIPSE_RADIUS_B __attribute__((swift_name("SWING_ANTI_SYM_ELLIPSE_RADIUS_B")));
+@property (readonly) int32_t SWING_ANTI_SYM_GHETTO_OFFSET __attribute__((swift_name("SWING_ANTI_SYM_GHETTO_OFFSET")));
+@property (readonly) double SWING_ANTI_SYM_LP_CUTOFF __attribute__((swift_name("SWING_ANTI_SYM_LP_CUTOFF")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_ANTI_SYM_REEVALUATION_SCALER_MEANS __attribute__((swift_name("SWING_ANTI_SYM_REEVALUATION_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_ANTI_SYM_REEVALUATION_SCALER_SCALES __attribute__((swift_name("SWING_ANTI_SYM_REEVALUATION_SCALER_SCALES")));
+@property (readonly) VSPKKotlinFloatArray *SWING_AXIS __attribute__((swift_name("SWING_AXIS")));
+@property (readonly) VSPKFloat *(^SWING_KERNEL)(VSPKKotlinArray<VSPKFloat *> *, NSMutableArray<VSPKFloat *> *) __attribute__((swift_name("SWING_KERNEL")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *SWING_PCA_COMPONENTS __attribute__((swift_name("SWING_PCA_COMPONENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *SWING_REEVALUATION_PCA_COMPONENTS __attribute__((swift_name("SWING_REEVALUATION_PCA_COMPONENTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_REEVALUATION_SCALER_MEANS __attribute__((swift_name("SWING_REEVALUATION_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_REEVALUATION_SCALER_SCALES __attribute__((swift_name("SWING_REEVALUATION_SCALER_SCALES")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_SCALER_MEANS __attribute__((swift_name("SWING_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_SCALER_SCALES __attribute__((swift_name("SWING_SCALER_SCALES")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_SVM_DUAL_COEF __attribute__((swift_name("SWING_SVM_DUAL_COEF")));
+@property (readonly) float SWING_SVM_INTERCEPT __attribute__((swift_name("SWING_SVM_INTERCEPT")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *SWING_SVM_SUPPORT __attribute__((swift_name("SWING_SVM_SUPPORT")));
+@property (readonly) int32_t SWING_SYM_GHETTO_OFFSET __attribute__((swift_name("SWING_SYM_GHETTO_OFFSET")));
+@property (readonly) double SWING_SYM_HYPERBOLA_ANGLE __attribute__((swift_name("SWING_SYM_HYPERBOLA_ANGLE")));
+@property (readonly) double SWING_SYM_HYPERBOLA_INNER_CONSTANT __attribute__((swift_name("SWING_SYM_HYPERBOLA_INNER_CONSTANT")));
+@property (readonly) double SWING_SYM_HYPERBOLA_X_SHIFT __attribute__((swift_name("SWING_SYM_HYPERBOLA_X_SHIFT")));
+@property (readonly) double SWING_SYM_HYPERBOLA_Y_SHIFT __attribute__((swift_name("SWING_SYM_HYPERBOLA_Y_SHIFT")));
+@property (readonly) double SWING_SYM_LP_CUTOFF __attribute__((swift_name("SWING_SYM_LP_CUTOFF")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *SWING_SYM_REEVALUATION_PCA_COMPONENTS __attribute__((swift_name("SWING_SYM_REEVALUATION_PCA_COMPONENTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_SYM_REEVALUATION_SCALER_MEANS __attribute__((swift_name("SWING_SYM_REEVALUATION_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SWING_SYM_REEVALUATION_SCALER_SCALES __attribute__((swift_name("SWING_SYM_REEVALUATION_SCALER_SCALES")));
+@property float SWING_WEAK_X0 __attribute__((swift_name("SWING_WEAK_X0")));
+@property float SWING_WEAK_Y0 __attribute__((swift_name("SWING_WEAK_Y0")));
+@property float SWING_WEAK_Y1 __attribute__((swift_name("SWING_WEAK_Y1")));
+@property float SYM_SPEED_REGRESSION_COEFFICIENT __attribute__((swift_name("SYM_SPEED_REGRESSION_COEFFICIENT")));
+@property float SYM_SPEED_REGRESSION_INTERCEPT __attribute__((swift_name("SYM_SPEED_REGRESSION_INTERCEPT")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *SYM_SWING_NN_COEF __attribute__((swift_name("SYM_SWING_NN_COEF")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *SYM_SWING_NN_INTERCEPTS __attribute__((swift_name("SYM_SWING_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SYM_SWING_SCALER_MEANS __attribute__((swift_name("SYM_SWING_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *SYM_SWING_SCALER_SCALES __attribute__((swift_name("SYM_SWING_SCALER_SCALES")));
+@property (readonly) NSString *TEST_NUMBER __attribute__((swift_name("TEST_NUMBER")));
+@property int64_t TIMED_DIRECTION_HISTORY_HANDLER_DEFAULT_TIMESPAN __attribute__((swift_name("TIMED_DIRECTION_HISTORY_HANDLER_DEFAULT_TIMESPAN")));
+@property float TROLLEY_INTEGRAL_SPEED_ALPHA __attribute__((swift_name("TROLLEY_INTEGRAL_SPEED_ALPHA")));
+@property float TROLLEY_INTEGRAL_SPEED_ALPHA_BETA_QUOTIENT __attribute__((swift_name("TROLLEY_INTEGRAL_SPEED_ALPHA_BETA_QUOTIENT")));
+@property float TROLLEY_INTEGRAL_SPEED_V0 __attribute__((swift_name("TROLLEY_INTEGRAL_SPEED_V0")));
+@property float TROLLEY_INTEGRAL_SPEED_V_MAX __attribute__((swift_name("TROLLEY_INTEGRAL_SPEED_V_MAX")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *TROLLEY_NN_COEF __attribute__((swift_name("TROLLEY_NN_COEF")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *TROLLEY_NN_INTERCEPTS __attribute__((swift_name("TROLLEY_NN_INTERCEPTS")));
+@property float TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR __attribute__((swift_name("TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR")));
+@property float TROLLEY_RESCUE_DISTANCE_RAYTRACE_DISTANCE __attribute__((swift_name("TROLLEY_RESCUE_DISTANCE_RAYTRACE_DISTANCE")));
+@property float TROLLEY_RESCUE_MAX_DISTANCE __attribute__((swift_name("TROLLEY_RESCUE_MAX_DISTANCE")));
+@property int32_t TROLLEY_RESCUE_RESOLUTION __attribute__((swift_name("TROLLEY_RESCUE_RESOLUTION")));
+@property int64_t TROLLEY_RESCUE_STABLE_CHANGE __attribute__((swift_name("TROLLEY_RESCUE_STABLE_CHANGE")));
+@property (readonly) NSMutableArray<VSPKFloat *> *TROLLEY_SCALER_MEANS __attribute__((swift_name("TROLLEY_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *TROLLEY_SCALER_SCALES __attribute__((swift_name("TROLLEY_SCALER_SCALES")));
+@property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *TROUSER_POCKET_NN_COEFFICIENTS __attribute__((swift_name("TROUSER_POCKET_NN_COEFFICIENTS")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *TROUSER_POCKET_NN_INTERCEPTS __attribute__((swift_name("TROUSER_POCKET_NN_INTERCEPTS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *TROUSER_POCKET_SCALER_MEANS __attribute__((swift_name("TROUSER_POCKET_SCALER_MEANS")));
+@property (readonly) NSMutableArray<VSPKFloat *> *TROUSER_POCKET_SCALER_SCALES __attribute__((swift_name("TROUSER_POCKET_SCALER_SCALES")));
+@property double TSP_PRIORITY_CLUSTER_SIZE_PROPORTION_THRESHOLD __attribute__((swift_name("TSP_PRIORITY_CLUSTER_SIZE_PROPORTION_THRESHOLD")));
+@property double TSP_PRIORITY_DISTANCE __attribute__((swift_name("TSP_PRIORITY_DISTANCE")));
+@property (readonly) int32_t USER_SETTINGS_UPDATE_TICKS __attribute__((swift_name("USER_SETTINGS_UPDATE_TICKS")));
+@property float WALKING_SPEED_REGRESSION_COEFFICIENT __attribute__((swift_name("WALKING_SPEED_REGRESSION_COEFFICIENT")));
+@property float WALKING_SPEED_REGRESSION_INTERCEPT __attribute__((swift_name("WALKING_SPEED_REGRESSION_INTERCEPT")));
+@property (readonly) int32_t WALKING_STABILITY_TOLERANCE __attribute__((swift_name("WALKING_STABILITY_TOLERANCE")));
+@property float WEAK_X __attribute__((swift_name("WEAK_X")));
+@property (readonly) float speed_bias __attribute__((swift_name("speed_bias")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -5537,6 +5428,7 @@ __attribute__((swift_name("JulaQPSValues")))
 @property double PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("PRIO_CLUSTER_SIZE_PROP_THRESHOLD")));
 @property int32_t REBOOT_CLUSTER_SIZE __attribute__((swift_name("REBOOT_CLUSTER_SIZE")));
 @property (readonly) int32_t RECOVERY_MAP_SIZE_THRESHOLD __attribute__((swift_name("RECOVERY_MAP_SIZE_THRESHOLD")));
+@property double RECOVERY_SPREAD_DISTANCE __attribute__((swift_name("RECOVERY_SPREAD_DISTANCE")));
 @property double RECOVERY_SPREAD_RADIUS __attribute__((swift_name("RECOVERY_SPREAD_RADIUS")));
 @property (readonly) double RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE __attribute__((swift_name("RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE")));
 @property (readonly) float REGULAR_ELLIPSE_ALPHA __attribute__((swift_name("REGULAR_ELLIPSE_ALPHA")));
@@ -5732,6 +5624,7 @@ __attribute__((swift_name("PS20QPSValues")))
 @property double PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("PRIO_CLUSTER_SIZE_PROP_THRESHOLD")));
 @property int32_t REBOOT_CLUSTER_SIZE __attribute__((swift_name("REBOOT_CLUSTER_SIZE")));
 @property (readonly) int32_t RECOVERY_MAP_SIZE_THRESHOLD __attribute__((swift_name("RECOVERY_MAP_SIZE_THRESHOLD")));
+@property double RECOVERY_SPREAD_DISTANCE __attribute__((swift_name("RECOVERY_SPREAD_DISTANCE")));
 @property double RECOVERY_SPREAD_RADIUS __attribute__((swift_name("RECOVERY_SPREAD_RADIUS")));
 @property (readonly) double RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE __attribute__((swift_name("RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE")));
 @property (readonly) float REGULAR_ELLIPSE_ALPHA __attribute__((swift_name("REGULAR_ELLIPSE_ALPHA")));
@@ -5921,6 +5814,7 @@ __attribute__((swift_name("RetailQPSValues")))
 @property double PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("PRIO_CLUSTER_SIZE_PROP_THRESHOLD")));
 @property int32_t REBOOT_CLUSTER_SIZE __attribute__((swift_name("REBOOT_CLUSTER_SIZE")));
 @property (readonly) int32_t RECOVERY_MAP_SIZE_THRESHOLD __attribute__((swift_name("RECOVERY_MAP_SIZE_THRESHOLD")));
+@property double RECOVERY_SPREAD_DISTANCE __attribute__((swift_name("RECOVERY_SPREAD_DISTANCE")));
 @property double RECOVERY_SPREAD_RADIUS __attribute__((swift_name("RECOVERY_SPREAD_RADIUS")));
 @property (readonly) double RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE __attribute__((swift_name("RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE")));
 @property (readonly) float REGULAR_ELLIPSE_ALPHA __attribute__((swift_name("REGULAR_ELLIPSE_ALPHA")));
@@ -6095,6 +5989,7 @@ __attribute__((swift_name("WarehouseQPSValues")))
 @property double PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("PRIO_CLUSTER_SIZE_PROP_THRESHOLD")));
 @property int32_t REBOOT_CLUSTER_SIZE __attribute__((swift_name("REBOOT_CLUSTER_SIZE")));
 @property (readonly) int32_t RECOVERY_MAP_SIZE_THRESHOLD __attribute__((swift_name("RECOVERY_MAP_SIZE_THRESHOLD")));
+@property double RECOVERY_SPREAD_DISTANCE __attribute__((swift_name("RECOVERY_SPREAD_DISTANCE")));
 @property double RECOVERY_SPREAD_RADIUS __attribute__((swift_name("RECOVERY_SPREAD_RADIUS")));
 @property (readonly) double RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE __attribute__((swift_name("RECOVERY_SPREAD_RADIUS_DEFAULT_VALUE")));
 @property (readonly) float REGULAR_ELLIPSE_ALPHA __attribute__((swift_name("REGULAR_ELLIPSE_ALPHA")));
@@ -6291,12 +6186,23 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DirectionPrioParameters")))
 @interface VSPKDirectionPrioParameters : VSPKBase
 - (instancetype)initWithPRIO_CLUSTER_SIZE_PROP_THRESHOLD:(double)PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("init(PRIO_CLUSTER_SIZE_PROP_THRESHOLD:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKDirectionPrioParametersCompanion *companion __attribute__((swift_name("companion")));
 - (double)component1 __attribute__((swift_name("component1()")));
 - (VSPKDirectionPrioParameters *)doCopyPRIO_CLUSTER_SIZE_PROP_THRESHOLD:(double)PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("doCopy(PRIO_CLUSTER_SIZE_PROP_THRESHOLD:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) double PRIO_CLUSTER_SIZE_PROP_THRESHOLD __attribute__((swift_name("PRIO_CLUSTER_SIZE_PROP_THRESHOLD")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DirectionPrioParameters.Companion")))
+@interface VSPKDirectionPrioParametersCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKDirectionPrioParametersCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -6427,6 +6333,7 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("MiscParameters")))
 @interface VSPKMiscParameters : VSPKBase
 - (instancetype)initWithParameterPackageEnum:(VSPKIQPSParameterPackageEnum *)parameterPackageEnum isDebug:(BOOL)isDebug __attribute__((swift_name("init(parameterPackageEnum:isDebug:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKMiscParametersCompanion *companion __attribute__((swift_name("companion")));
 - (VSPKIQPSParameterPackageEnum *)component1 __attribute__((swift_name("component1()")));
 - (BOOL)component2 __attribute__((swift_name("component2()")));
 - (VSPKMiscParameters *)doCopyParameterPackageEnum:(VSPKIQPSParameterPackageEnum *)parameterPackageEnum isDebug:(BOOL)isDebug __attribute__((swift_name("doCopy(parameterPackageEnum:isDebug:)")));
@@ -6435,6 +6342,16 @@ __attribute__((swift_name("MiscParameters")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) BOOL isDebug __attribute__((swift_name("isDebug")));
 @property (readonly) VSPKIQPSParameterPackageEnum *parameterPackageEnum __attribute__((swift_name("parameterPackageEnum")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MiscParameters.Companion")))
+@interface VSPKMiscParametersCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKMiscParametersCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -6542,21 +6459,23 @@ __attribute__((swift_name("QClusterParameters.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("QLayerParameters")))
 @interface VSPKQLayerParameters : VSPKBase
-- (instancetype)initWithRECOVERY_SPREAD_RADIUS:(double)RECOVERY_SPREAD_RADIUS RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:(int32_t)RESCUE_MODE_MAX_ALL_COLLIDED_TRIES RESCUE_SPREAD_DISTANCE:(double)RESCUE_SPREAD_DISTANCE RESCUE_SPREAD_RADIUS:(double)RESCUE_SPREAD_RADIUS SMALL_CLUSTER_SIZE:(int32_t)SMALL_CLUSTER_SIZE START_SPREAD_DISTANCE:(double)START_SPREAD_DISTANCE START_SPREAD_RADIUS:(double)START_SPREAD_RADIUS USER_SETTINGS_UPDATE_TICKS:(int32_t)USER_SETTINGS_UPDATE_TICKS UPDATE_TIME_MILLIS:(int64_t)UPDATE_TIME_MILLIS __attribute__((swift_name("init(RECOVERY_SPREAD_RADIUS:RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:RESCUE_SPREAD_DISTANCE:RESCUE_SPREAD_RADIUS:SMALL_CLUSTER_SIZE:START_SPREAD_DISTANCE:START_SPREAD_RADIUS:USER_SETTINGS_UPDATE_TICKS:UPDATE_TIME_MILLIS:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithRECOVERY_SPREAD_RADIUS:(double)RECOVERY_SPREAD_RADIUS RECOVERY_SPREAD_DISTANCE:(double)RECOVERY_SPREAD_DISTANCE RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:(int32_t)RESCUE_MODE_MAX_ALL_COLLIDED_TRIES RESCUE_SPREAD_DISTANCE:(double)RESCUE_SPREAD_DISTANCE RESCUE_SPREAD_RADIUS:(double)RESCUE_SPREAD_RADIUS SMALL_CLUSTER_SIZE:(int32_t)SMALL_CLUSTER_SIZE START_SPREAD_DISTANCE:(double)START_SPREAD_DISTANCE START_SPREAD_RADIUS:(double)START_SPREAD_RADIUS USER_SETTINGS_UPDATE_TICKS:(int32_t)USER_SETTINGS_UPDATE_TICKS UPDATE_TIME_MILLIS:(int64_t)UPDATE_TIME_MILLIS __attribute__((swift_name("init(RECOVERY_SPREAD_RADIUS:RECOVERY_SPREAD_DISTANCE:RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:RESCUE_SPREAD_DISTANCE:RESCUE_SPREAD_RADIUS:SMALL_CLUSTER_SIZE:START_SPREAD_DISTANCE:START_SPREAD_RADIUS:USER_SETTINGS_UPDATE_TICKS:UPDATE_TIME_MILLIS:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VSPKQLayerParametersCompanion *companion __attribute__((swift_name("companion")));
 - (double)component1 __attribute__((swift_name("component1()")));
-- (int32_t)component2 __attribute__((swift_name("component2()")));
-- (double)component3 __attribute__((swift_name("component3()")));
+- (int64_t)component10 __attribute__((swift_name("component10()")));
+- (double)component2 __attribute__((swift_name("component2()")));
+- (int32_t)component3 __attribute__((swift_name("component3()")));
 - (double)component4 __attribute__((swift_name("component4()")));
-- (int32_t)component5 __attribute__((swift_name("component5()")));
-- (double)component6 __attribute__((swift_name("component6()")));
+- (double)component5 __attribute__((swift_name("component5()")));
+- (int32_t)component6 __attribute__((swift_name("component6()")));
 - (double)component7 __attribute__((swift_name("component7()")));
-- (int32_t)component8 __attribute__((swift_name("component8()")));
-- (int64_t)component9 __attribute__((swift_name("component9()")));
-- (VSPKQLayerParameters *)doCopyRECOVERY_SPREAD_RADIUS:(double)RECOVERY_SPREAD_RADIUS RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:(int32_t)RESCUE_MODE_MAX_ALL_COLLIDED_TRIES RESCUE_SPREAD_DISTANCE:(double)RESCUE_SPREAD_DISTANCE RESCUE_SPREAD_RADIUS:(double)RESCUE_SPREAD_RADIUS SMALL_CLUSTER_SIZE:(int32_t)SMALL_CLUSTER_SIZE START_SPREAD_DISTANCE:(double)START_SPREAD_DISTANCE START_SPREAD_RADIUS:(double)START_SPREAD_RADIUS USER_SETTINGS_UPDATE_TICKS:(int32_t)USER_SETTINGS_UPDATE_TICKS UPDATE_TIME_MILLIS:(int64_t)UPDATE_TIME_MILLIS __attribute__((swift_name("doCopy(RECOVERY_SPREAD_RADIUS:RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:RESCUE_SPREAD_DISTANCE:RESCUE_SPREAD_RADIUS:SMALL_CLUSTER_SIZE:START_SPREAD_DISTANCE:START_SPREAD_RADIUS:USER_SETTINGS_UPDATE_TICKS:UPDATE_TIME_MILLIS:)")));
+- (double)component8 __attribute__((swift_name("component8()")));
+- (int32_t)component9 __attribute__((swift_name("component9()")));
+- (VSPKQLayerParameters *)doCopyRECOVERY_SPREAD_RADIUS:(double)RECOVERY_SPREAD_RADIUS RECOVERY_SPREAD_DISTANCE:(double)RECOVERY_SPREAD_DISTANCE RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:(int32_t)RESCUE_MODE_MAX_ALL_COLLIDED_TRIES RESCUE_SPREAD_DISTANCE:(double)RESCUE_SPREAD_DISTANCE RESCUE_SPREAD_RADIUS:(double)RESCUE_SPREAD_RADIUS SMALL_CLUSTER_SIZE:(int32_t)SMALL_CLUSTER_SIZE START_SPREAD_DISTANCE:(double)START_SPREAD_DISTANCE START_SPREAD_RADIUS:(double)START_SPREAD_RADIUS USER_SETTINGS_UPDATE_TICKS:(int32_t)USER_SETTINGS_UPDATE_TICKS UPDATE_TIME_MILLIS:(int64_t)UPDATE_TIME_MILLIS __attribute__((swift_name("doCopy(RECOVERY_SPREAD_RADIUS:RECOVERY_SPREAD_DISTANCE:RESCUE_MODE_MAX_ALL_COLLIDED_TRIES:RESCUE_SPREAD_DISTANCE:RESCUE_SPREAD_RADIUS:SMALL_CLUSTER_SIZE:START_SPREAD_DISTANCE:START_SPREAD_RADIUS:USER_SETTINGS_UPDATE_TICKS:UPDATE_TIME_MILLIS:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) double RECOVERY_SPREAD_DISTANCE __attribute__((swift_name("RECOVERY_SPREAD_DISTANCE")));
 @property (readonly) double RECOVERY_SPREAD_RADIUS __attribute__((swift_name("RECOVERY_SPREAD_RADIUS")));
 @property (readonly) int32_t RESCUE_MODE_MAX_ALL_COLLIDED_TRIES __attribute__((swift_name("RESCUE_MODE_MAX_ALL_COLLIDED_TRIES")));
 @property (readonly) double RESCUE_SPREAD_DISTANCE __attribute__((swift_name("RESCUE_SPREAD_DISTANCE")));
@@ -6709,6 +6628,7 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SmallClusterSpreadIncreaserParameters")))
 @interface VSPKSmallClusterSpreadIncreaserParameters : VSPKBase
 - (instancetype)initWithSMALL_CLUSTER_DIRECTIONAL_RADIUS:(double)SMALL_CLUSTER_DIRECTIONAL_RADIUS SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER:(double)SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER __attribute__((swift_name("init(SMALL_CLUSTER_DIRECTIONAL_RADIUS:SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKSmallClusterSpreadIncreaserParametersCompanion *companion __attribute__((swift_name("companion")));
 - (double)component1 __attribute__((swift_name("component1()")));
 - (double)component2 __attribute__((swift_name("component2()")));
 - (VSPKSmallClusterSpreadIncreaserParameters *)doCopySMALL_CLUSTER_DIRECTIONAL_RADIUS:(double)SMALL_CLUSTER_DIRECTIONAL_RADIUS SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER:(double)SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER __attribute__((swift_name("doCopy(SMALL_CLUSTER_DIRECTIONAL_RADIUS:SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER:)")));
@@ -6717,6 +6637,16 @@ __attribute__((swift_name("SmallClusterSpreadIncreaserParameters")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) double SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER __attribute__((swift_name("SMALL_CLUSTER_DIRECTIONAL_MULTIPLIER")));
 @property (readonly) double SMALL_CLUSTER_DIRECTIONAL_RADIUS __attribute__((swift_name("SMALL_CLUSTER_DIRECTIONAL_RADIUS")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SmallClusterSpreadIncreaserParameters.Companion")))
+@interface VSPKSmallClusterSpreadIncreaserParametersCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKSmallClusterSpreadIncreaserParametersCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -6849,6 +6779,7 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("TSPPrioParameters")))
 @interface VSPKTSPPrioParameters : VSPKBase
 - (instancetype)initWithREBOOT_CLUSTER_SIZE:(int32_t)REBOOT_CLUSTER_SIZE TSP_PRIORITY_DISTANCE:(double)TSP_PRIORITY_DISTANCE TSP_PRIORITY_CLUSTER_SIZE_PROPORTION_THRESHOLD:(double)TSP_PRIORITY_CLUSTER_SIZE_PROPORTION_THRESHOLD __attribute__((swift_name("init(REBOOT_CLUSTER_SIZE:TSP_PRIORITY_DISTANCE:TSP_PRIORITY_CLUSTER_SIZE_PROPORTION_THRESHOLD:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKTSPPrioParametersCompanion *companion __attribute__((swift_name("companion")));
 - (int32_t)component1 __attribute__((swift_name("component1()")));
 - (double)component2 __attribute__((swift_name("component2()")));
 - (double)component3 __attribute__((swift_name("component3()")));
@@ -6862,9 +6793,20 @@ __attribute__((swift_name("TSPPrioParameters")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TSPPrioParameters.Companion")))
+@interface VSPKTSPPrioParametersCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKTSPPrioParametersCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("TrolleySkipParameters")))
 @interface VSPKTrolleySkipParameters : VSPKBase
 - (instancetype)initWithNARROW_ISLE_THRESHOLD:(double)NARROW_ISLE_THRESHOLD START_SPREAD_DISTANCE:(double)START_SPREAD_DISTANCE START_SPREAD_RADIUS:(double)START_SPREAD_RADIUS TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR:(float)TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR TROLLEY_RESCUE_DISTANCE_RAYTRACE_DISTANCE:(float)TROLLEY_RESCUE_DISTANCE_RAYTRACE_DISTANCE TROLLEY_RESCUE_MAX_DISTANCE:(float)TROLLEY_RESCUE_MAX_DISTANCE TROLLEY_RESCUE_RESOLUTION:(int32_t)TROLLEY_RESCUE_RESOLUTION TROLLEY_RESCUE_STABLE_CHANGE:(int64_t)TROLLEY_RESCUE_STABLE_CHANGE __attribute__((swift_name("init(NARROW_ISLE_THRESHOLD:START_SPREAD_DISTANCE:START_SPREAD_RADIUS:TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR:TROLLEY_RESCUE_DISTANCE_RAYTRACE_DISTANCE:TROLLEY_RESCUE_MAX_DISTANCE:TROLLEY_RESCUE_RESOLUTION:TROLLEY_RESCUE_STABLE_CHANGE:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKTrolleySkipParametersCompanion *companion __attribute__((swift_name("companion")));
 - (double)component1 __attribute__((swift_name("component1()")));
 - (double)component2 __attribute__((swift_name("component2()")));
 - (double)component3 __attribute__((swift_name("component3()")));
@@ -6885,6 +6827,16 @@ __attribute__((swift_name("TrolleySkipParameters")))
 @property (readonly) float TROLLEY_RESCUE_MAX_DISTANCE __attribute__((swift_name("TROLLEY_RESCUE_MAX_DISTANCE")));
 @property (readonly) int32_t TROLLEY_RESCUE_RESOLUTION __attribute__((swift_name("TROLLEY_RESCUE_RESOLUTION")));
 @property (readonly) int64_t TROLLEY_RESCUE_STABLE_CHANGE __attribute__((swift_name("TROLLEY_RESCUE_STABLE_CHANGE")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TrolleySkipParameters.Companion")))
+@interface VSPKTrolleySkipParametersCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKTrolleySkipParametersCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -6909,13 +6861,6 @@ __attribute__((swift_name("VeddestaScrubberParameters")))
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) float TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR __attribute__((swift_name("TROLLEY_RESCUE_DISTANCE_OFFSET_FACTOR")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CustomParameterPackage")))
-@interface VSPKCustomParameterPackage : VSPKBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
 __attribute__((swift_name("KotlinThrowable")))
@@ -7106,7 +7051,7 @@ __attribute__((swift_name("ContextManager")))
 - (void)addTrackerTracker:(id<VSPKContextTracker>)tracker __attribute__((swift_name("addTracker(tracker:)")));
 - (id<VSPKContextReturnData>)feedContextContext:(id<VSPKContextData>)context __attribute__((swift_name("feedContext(context:)")));
 - (void)handleResponseAny:(id)any returnContext:(id<VSPKContextReturnData>)returnContext __attribute__((swift_name("handleResponse(any:returnContext:)")));
-- (id<VSPKContextReturnData>)instantiateContextReturnData __attribute__((swift_name("instantiateContextReturnData()")));
+- (id<VSPKContextReturnData>)instanceContextReturnData __attribute__((swift_name("instanceContextReturnData()")));
 - (void)processContextContext:(id<VSPKContextData>)context __attribute__((swift_name("processContext(context:)")));
 - (void)removeListenerListener:(id<VSPKContextListener>)listener __attribute__((swift_name("removeListener(listener:)")));
 - (void)removeTrackerTracker:(id<VSPKContextTracker>)tracker __attribute__((swift_name("removeTracker(tracker:)")));
@@ -7125,26 +7070,6 @@ __attribute__((swift_name("ContextTracker")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BadFrequencyException")))
 @interface VSPKBadFrequencyException : VSPKKotlinThrowable
-- (instancetype)initWithMessage:(NSString *)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(VSPKKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VSPKKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ExternalDataManagerNotFreshException")))
-@interface VSPKExternalDataManagerNotFreshException : VSPKKotlinThrowable
-- (instancetype)initWithMessage:(NSString *)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(VSPKKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VSPKKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ExternalDataManagerNotInitialisedException")))
-@interface VSPKExternalDataManagerNotInitialisedException : VSPKKotlinThrowable
 - (instancetype)initWithMessage:(NSString *)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithCause:(VSPKKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
@@ -7186,8 +7111,8 @@ __attribute__((swift_name("Vector")))
 @interface VSPKVector : VSPKBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithPoint1:(VSPKPointF *)Point1 Point2:(VSPKPointF *)Point2 __attribute__((swift_name("init(Point1:Point2:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithPoint:(VSPKPointF *)Point __attribute__((swift_name("init(Point:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFrom:(VSPKPointF *)from to:(VSPKPointF *)to __attribute__((swift_name("init(from:to:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPoint:(VSPKPointF *)point __attribute__((swift_name("init(point:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithPolarPoint:(VSPKPolarPoint *)polarPoint __attribute__((swift_name("init(polarPoint:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithX:(double)x y:(double)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
 - (BOOL)approxEqualsVector:(VSPKVector *)vector epsilon:(double)epsilon __attribute__((swift_name("approxEquals(vector:epsilon:)")));
@@ -7221,9 +7146,10 @@ __attribute__((swift_name("MoveVector")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (instancetype)initWithPoint1:(VSPKPointF *)Point1 Point2:(VSPKPointF *)Point2 __attribute__((swift_name("init(Point1:Point2:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithPoint:(VSPKPointF *)Point __attribute__((swift_name("init(Point:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithPolarPoint:(VSPKPolarPoint *)polarPoint type:(VSPKMoveVectorMoveType *)type __attribute__((swift_name("init(polarPoint:type:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithX:(double)x y:(double)y type:(VSPKMoveVectorMoveType *)type __attribute__((swift_name("init(x:y:type:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFrom:(VSPKPointF *)from to:(VSPKPointF *)to __attribute__((swift_name("init(from:to:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithPoint:(VSPKPointF *)point __attribute__((swift_name("init(point:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)initWithPolarPoint:(VSPKPolarPoint *)polarPoint __attribute__((swift_name("init(polarPoint:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)initWithX:(double)x y:(double)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (VSPKMoveVector *)doCopy __attribute__((swift_name("doCopy()")));
@@ -7319,59 +7245,6 @@ __attribute__((swift_name("RawSensorData.SensorDataType")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ReferenceAngle")))
-@interface VSPKReferenceAngle : VSPKBase
-- (instancetype)initWithAngle:(double)angle state:(VSPKReferenceAngleState *)state __attribute__((swift_name("init(angle:state:)"))) __attribute__((objc_designated_initializer));
-- (double)component1 __attribute__((swift_name("component1()")));
-- (VSPKReferenceAngleState *)component2 __attribute__((swift_name("component2()")));
-- (VSPKReferenceAngle *)doCopyAngle:(double)angle state:(VSPKReferenceAngleState *)state __attribute__((swift_name("doCopy(angle:state:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double angle __attribute__((swift_name("angle")));
-@property (readonly) BOOL badAngle __attribute__((swift_name("badAngle")));
-@property (readonly) BOOL isSet __attribute__((swift_name("isSet")));
-@property (readonly) VSPKDouble * _Nullable setAngle __attribute__((swift_name("setAngle")));
-@property (readonly) VSPKReferenceAngleState *state __attribute__((swift_name("state")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ReferenceAngle.State")))
-@interface VSPKReferenceAngleState : VSPKKotlinEnum<VSPKReferenceAngleState *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VSPKReferenceAngleState *set __attribute__((swift_name("set")));
-@property (class, readonly) VSPKReferenceAngleState *unset __attribute__((swift_name("unset")));
-+ (VSPKKotlinArray<VSPKReferenceAngleState *> *)values __attribute__((swift_name("values()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ReplayPosition")))
-@interface VSPKReplayPosition : VSPKBase
-- (instancetype)initWithX:(float)x y:(float)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKReplayPositionCompanion *companion __attribute__((swift_name("companion")));
-- (float)component1 __attribute__((swift_name("component1()")));
-- (float)component2 __attribute__((swift_name("component2()")));
-- (VSPKReplayPosition *)doCopyX:(float)x y:(float)y __attribute__((swift_name("doCopy(x:y:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float x __attribute__((swift_name("x")));
-@property (readonly) float y __attribute__((swift_name("y")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ReplayPosition.Companion")))
-@interface VSPKReplayPositionCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKReplayPositionCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("TimedMoveVector")))
 @interface VSPKTimedMoveVector : VSPKMoveVector
 - (instancetype)initWithMoveVector:(VSPKMoveVector *)moveVector duration:(double)duration timestamp:(int64_t)timestamp type:(VSPKMoveVectorMoveType *)type __attribute__((swift_name("init(moveVector:duration:timestamp:type:)"))) __attribute__((objc_designated_initializer));
@@ -7380,7 +7253,6 @@ __attribute__((swift_name("TimedMoveVector")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
 - (instancetype)initWithPoint1:(VSPKPointF *)Point1 Point2:(VSPKPointF *)Point2 __attribute__((swift_name("init(Point1:Point2:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (instancetype)initWithPoint:(VSPKPointF *)Point __attribute__((swift_name("init(Point:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)initWithPolarPoint:(VSPKPolarPoint *)polarPoint type:(VSPKMoveVectorMoveType *)type __attribute__((swift_name("init(polarPoint:type:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)initWithX:(double)x y:(double)y type:(VSPKMoveVectorMoveType *)type __attribute__((swift_name("init(x:y:type:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (VSPKTimedMoveVector *)divDivisor:(double)divisor __attribute__((swift_name("div(divisor:)")));
@@ -7390,31 +7262,6 @@ __attribute__((swift_name("TimedMoveVector")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) double duration __attribute__((swift_name("duration")));
 @property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimedReplayPositions")))
-@interface VSPKTimedReplayPositions : VSPKBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp positions:(NSArray<VSPKReplayPosition *> *)positions __attribute__((swift_name("init(timestamp:positions:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKTimedReplayPositionsCompanion *companion __attribute__((swift_name("companion")));
-- (int64_t)component1 __attribute__((swift_name("component1()")));
-- (NSArray<VSPKReplayPosition *> *)component2 __attribute__((swift_name("component2()")));
-- (VSPKTimedReplayPositions *)doCopyTimestamp:(int64_t)timestamp positions:(NSArray<VSPKReplayPosition *> *)positions __attribute__((swift_name("doCopy(timestamp:positions:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSArray<VSPKReplayPosition *> *positions __attribute__((swift_name("positions")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimedReplayPositions.Companion")))
-@interface VSPKTimedReplayPositionsCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKTimedReplayPositionsCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((swift_name("SensorBundle")))
@@ -7433,37 +7280,12 @@ __attribute__((swift_name("GeoMagneticRotationBundle")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RotationBundle")))
-@interface VSPKRotationBundle : VSPKSensorBundle
-- (instancetype)initWithYAxisRotation:(float)yAxisRotation regularRotation:(float)regularRotation swingRotation:(float)swingRotation trolleyRotation:(float)trolleyRotation pocketRotation:(float)pocketRotation turn:(VSPKRotationBundleTurn *)turn timeStamp:(int64_t)timeStamp confidence:(double)confidence __attribute__((swift_name("init(yAxisRotation:regularRotation:swingRotation:trolleyRotation:pocketRotation:turn:timeStamp:confidence:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) float pocketRotation __attribute__((swift_name("pocketRotation")));
-@property (readonly) float regularRotation __attribute__((swift_name("regularRotation")));
-@property (readonly) float swingRotation __attribute__((swift_name("swingRotation")));
-@property (readonly) float trolleyRotation __attribute__((swift_name("trolleyRotation")));
-@property (readonly) VSPKRotationBundleTurn *turn __attribute__((swift_name("turn")));
-@property (readonly) float yAxisRotation __attribute__((swift_name("yAxisRotation")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RotationBundle.Turn")))
-@interface VSPKRotationBundleTurn : VSPKKotlinEnum<VSPKRotationBundleTurn *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VSPKRotationBundleTurn *left __attribute__((swift_name("left")));
-@property (class, readonly) VSPKRotationBundleTurn *none __attribute__((swift_name("none")));
-@property (class, readonly) VSPKRotationBundleTurn *right __attribute__((swift_name("right")));
-+ (VSPKKotlinArray<VSPKRotationBundleTurn *> *)values __attribute__((swift_name("values()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SensorBundle.BundleType")))
 @interface VSPKSensorBundleBundleType : VSPKKotlinEnum<VSPKSensorBundleBundleType *>
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (class, readonly) VSPKSensorBundleBundleType *speed __attribute__((swift_name("speed")));
-@property (class, readonly) VSPKSensorBundleBundleType *fusionRotationSensor __attribute__((swift_name("fusionRotationSensor")));
 @property (class, readonly) VSPKSensorBundleBundleType *geomagneticRotationSensor __attribute__((swift_name("geomagneticRotationSensor")));
 + (VSPKKotlinArray<VSPKSensorBundleBundleType *> *)values __attribute__((swift_name("values()")));
 @end;
@@ -7494,6 +7316,35 @@ __attribute__((swift_name("TestModel_")))
 @property (readonly) BOOL result __attribute__((swift_name("result")));
 @end;
 
+__attribute__((swift_name("VectorTransformer")))
+@interface VSPKVectorTransformer : VSPKBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKKotlinArray<VSPKFloat *> *)transformData:(VSPKKotlinArray<VSPKFloat *> *)data __attribute__((swift_name("transform(data:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PCATransformer")))
+@interface VSPKPCATransformer : VSPKVectorTransformer
+- (instancetype)initWithComponents:(NSMutableArray<NSMutableArray<VSPKFloat *> *> *)components means:(NSMutableArray<VSPKFloat *> * _Nullable)means __attribute__((swift_name("init(components:means:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (VSPKKotlinArray<VSPKFloat *> *)transformData:(VSPKKotlinArray<VSPKFloat *> *)data __attribute__((swift_name("transform(data:)")));
+@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *components __attribute__((swift_name("components")));
+@property (readonly) NSMutableArray<VSPKFloat *> * _Nullable means __attribute__((swift_name("means")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StandardScaler")))
+@interface VSPKStandardScaler : VSPKVectorTransformer
+- (instancetype)initWithScales:(NSMutableArray<VSPKFloat *> *)scales means:(NSMutableArray<VSPKFloat *> *)means __attribute__((swift_name("init(scales:means:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (VSPKKotlinArray<VSPKFloat *> *)transformData:(VSPKKotlinArray<VSPKFloat *> *)data __attribute__((swift_name("transform(data:)")));
+@property (readonly) NSMutableArray<VSPKFloat *> *means __attribute__((swift_name("means")));
+@property (readonly) NSMutableArray<VSPKFloat *> *scales __attribute__((swift_name("scales")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("AndroidJacketPocketMLParameters")))
 @interface VSPKAndroidJacketPocketMLParameters : VSPKBase
@@ -7503,66 +7354,6 @@ __attribute__((swift_name("AndroidJacketPocketMLParameters")))
 @property (class, readonly, getter=shared) VSPKAndroidJacketPocketMLParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_jacket_pocket_nn __attribute__((swift_name("coeff_jacket_pocket_nn")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_jacket_pocket_nn __attribute__((swift_name("intercepts_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_0_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_10_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_11_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_12_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_13_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_1_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_2_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_3_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_4_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_5_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_6_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_7_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_8_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_9_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_jacket_pocket_nn __attribute__((swift_name("layer_0_intercepts_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_0_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_10_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_11_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_12_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_13_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_14_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_15_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_16_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_17_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_18_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_19_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_1_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_2_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_3_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_4_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_5_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_6_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_7_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_8_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_9_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_jacket_pocket_nn __attribute__((swift_name("layer_1_intercepts_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_0_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_10_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_11_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_12_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_13_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_14_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_15_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_16_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_17_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_18_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_19_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_1_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_2_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_3_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_4_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_5_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_6_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_7_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_8_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_9_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_jacket_pocket_nn __attribute__((swift_name("layer_2_intercepts_jacket_pocket_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_jacket_pocket_nn __attribute__((swift_name("means_jacket_pocket_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_jacket_pocket_nn __attribute__((swift_name("scales_jacket_pocket_nn")));
 @end;
@@ -7576,76 +7367,6 @@ __attribute__((swift_name("AndroidPantJacketDistinguishParameters")))
 @property (class, readonly, getter=shared) VSPKAndroidPantJacketDistinguishParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_distinguish_nn __attribute__((swift_name("coeff_distinguish_nn")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_distinguish_nn __attribute__((swift_name("intercepts_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_distinguish_nn __attribute__((swift_name("layer_0_coeff_0_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_distinguish_nn __attribute__((swift_name("layer_0_coeff_10_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_distinguish_nn __attribute__((swift_name("layer_0_coeff_11_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_distinguish_nn __attribute__((swift_name("layer_0_coeff_12_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_distinguish_nn __attribute__((swift_name("layer_0_coeff_13_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_distinguish_nn __attribute__((swift_name("layer_0_coeff_1_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_distinguish_nn __attribute__((swift_name("layer_0_coeff_2_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_distinguish_nn __attribute__((swift_name("layer_0_coeff_3_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_distinguish_nn __attribute__((swift_name("layer_0_coeff_4_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_distinguish_nn __attribute__((swift_name("layer_0_coeff_5_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_distinguish_nn __attribute__((swift_name("layer_0_coeff_6_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_distinguish_nn __attribute__((swift_name("layer_0_coeff_7_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_distinguish_nn __attribute__((swift_name("layer_0_coeff_8_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_distinguish_nn __attribute__((swift_name("layer_0_coeff_9_distinguish_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_distinguish_nn __attribute__((swift_name("layer_0_coeff_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_distinguish_nn __attribute__((swift_name("layer_0_intercepts_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_distinguish_nn __attribute__((swift_name("layer_1_coeff_0_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_distinguish_nn __attribute__((swift_name("layer_1_coeff_10_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_distinguish_nn __attribute__((swift_name("layer_1_coeff_11_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_distinguish_nn __attribute__((swift_name("layer_1_coeff_12_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_distinguish_nn __attribute__((swift_name("layer_1_coeff_13_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_distinguish_nn __attribute__((swift_name("layer_1_coeff_14_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_distinguish_nn __attribute__((swift_name("layer_1_coeff_15_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_distinguish_nn __attribute__((swift_name("layer_1_coeff_16_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_distinguish_nn __attribute__((swift_name("layer_1_coeff_17_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_distinguish_nn __attribute__((swift_name("layer_1_coeff_18_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_distinguish_nn __attribute__((swift_name("layer_1_coeff_19_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_distinguish_nn __attribute__((swift_name("layer_1_coeff_1_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_distinguish_nn __attribute__((swift_name("layer_1_coeff_20_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_distinguish_nn __attribute__((swift_name("layer_1_coeff_21_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_distinguish_nn __attribute__((swift_name("layer_1_coeff_22_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_distinguish_nn __attribute__((swift_name("layer_1_coeff_23_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_distinguish_nn __attribute__((swift_name("layer_1_coeff_24_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_distinguish_nn __attribute__((swift_name("layer_1_coeff_2_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_distinguish_nn __attribute__((swift_name("layer_1_coeff_3_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_distinguish_nn __attribute__((swift_name("layer_1_coeff_4_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_distinguish_nn __attribute__((swift_name("layer_1_coeff_5_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_distinguish_nn __attribute__((swift_name("layer_1_coeff_6_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_distinguish_nn __attribute__((swift_name("layer_1_coeff_7_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_distinguish_nn __attribute__((swift_name("layer_1_coeff_8_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_distinguish_nn __attribute__((swift_name("layer_1_coeff_9_distinguish_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_distinguish_nn __attribute__((swift_name("layer_1_coeff_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_distinguish_nn __attribute__((swift_name("layer_1_intercepts_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_distinguish_nn __attribute__((swift_name("layer_2_coeff_0_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_distinguish_nn __attribute__((swift_name("layer_2_coeff_10_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_distinguish_nn __attribute__((swift_name("layer_2_coeff_11_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_distinguish_nn __attribute__((swift_name("layer_2_coeff_12_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_distinguish_nn __attribute__((swift_name("layer_2_coeff_13_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_distinguish_nn __attribute__((swift_name("layer_2_coeff_14_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_distinguish_nn __attribute__((swift_name("layer_2_coeff_15_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_distinguish_nn __attribute__((swift_name("layer_2_coeff_16_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_distinguish_nn __attribute__((swift_name("layer_2_coeff_17_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_distinguish_nn __attribute__((swift_name("layer_2_coeff_18_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_distinguish_nn __attribute__((swift_name("layer_2_coeff_19_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_distinguish_nn __attribute__((swift_name("layer_2_coeff_1_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_20_distinguish_nn __attribute__((swift_name("layer_2_coeff_20_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_21_distinguish_nn __attribute__((swift_name("layer_2_coeff_21_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_22_distinguish_nn __attribute__((swift_name("layer_2_coeff_22_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_23_distinguish_nn __attribute__((swift_name("layer_2_coeff_23_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_24_distinguish_nn __attribute__((swift_name("layer_2_coeff_24_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_distinguish_nn __attribute__((swift_name("layer_2_coeff_2_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_distinguish_nn __attribute__((swift_name("layer_2_coeff_3_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_distinguish_nn __attribute__((swift_name("layer_2_coeff_4_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_distinguish_nn __attribute__((swift_name("layer_2_coeff_5_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_distinguish_nn __attribute__((swift_name("layer_2_coeff_6_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_distinguish_nn __attribute__((swift_name("layer_2_coeff_7_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_distinguish_nn __attribute__((swift_name("layer_2_coeff_8_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_distinguish_nn __attribute__((swift_name("layer_2_coeff_9_distinguish_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_distinguish_nn __attribute__((swift_name("layer_2_coeff_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_distinguish_nn __attribute__((swift_name("layer_2_intercepts_distinguish_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_distinguish_nn __attribute__((swift_name("means_distinguish_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_distinguish_nn __attribute__((swift_name("scales_distinguish_nn")));
 @end;
@@ -7658,16 +7379,6 @@ __attribute__((swift_name("AndroidPocketLenientParameters")))
 + (instancetype)androidPocketLenientParameters __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKAndroidPocketLenientParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_pocket_lenient_221021 __attribute__((swift_name("PCA_components_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_pocket_lenient_221021 __attribute__((swift_name("c0_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_pocket_lenient_221021 __attribute__((swift_name("c1_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c2_pocket_lenient_221021 __attribute__((swift_name("c2_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c3_pocket_lenient_221021 __attribute__((swift_name("c3_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c4_pocket_lenient_221021 __attribute__((swift_name("c4_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c5_pocket_lenient_221021 __attribute__((swift_name("c5_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c6_pocket_lenient_221021 __attribute__((swift_name("c6_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c7_pocket_lenient_221021 __attribute__((swift_name("c7_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c8_pocket_lenient_221021 __attribute__((swift_name("c8_pocket_lenient_221021")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c9_pocket_lenient_221021 __attribute__((swift_name("c9_pocket_lenient_221021")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_pocket_lenient_221021 __attribute__((swift_name("means_pocket_lenient_221021")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_pocket_lenient_221021 __attribute__((swift_name("scales_pocket_lenient_221021")));
 @end;
@@ -7681,66 +7392,6 @@ __attribute__((swift_name("AndroidPocketMLParameters")))
 @property (class, readonly, getter=shared) VSPKAndroidPocketMLParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_pocket_nn_android __attribute__((swift_name("coeff_pocket_nn_android")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_pocket_nn_android __attribute__((swift_name("intercepts_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_pocket_nn_android __attribute__((swift_name("layer_0_coeff_0_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_pocket_nn_android __attribute__((swift_name("layer_0_coeff_10_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_pocket_nn_android __attribute__((swift_name("layer_0_coeff_11_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_pocket_nn_android __attribute__((swift_name("layer_0_coeff_12_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_pocket_nn_android __attribute__((swift_name("layer_0_coeff_13_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_pocket_nn_android __attribute__((swift_name("layer_0_coeff_1_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_pocket_nn_android __attribute__((swift_name("layer_0_coeff_2_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_pocket_nn_android __attribute__((swift_name("layer_0_coeff_3_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_pocket_nn_android __attribute__((swift_name("layer_0_coeff_4_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_pocket_nn_android __attribute__((swift_name("layer_0_coeff_5_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_pocket_nn_android __attribute__((swift_name("layer_0_coeff_6_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_pocket_nn_android __attribute__((swift_name("layer_0_coeff_7_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_pocket_nn_android __attribute__((swift_name("layer_0_coeff_8_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_pocket_nn_android __attribute__((swift_name("layer_0_coeff_9_pocket_nn_android")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_pocket_nn_android __attribute__((swift_name("layer_0_coeff_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_pocket_nn_android __attribute__((swift_name("layer_0_intercepts_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_pocket_nn_android __attribute__((swift_name("layer_1_coeff_0_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_pocket_nn_android __attribute__((swift_name("layer_1_coeff_10_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_pocket_nn_android __attribute__((swift_name("layer_1_coeff_11_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_pocket_nn_android __attribute__((swift_name("layer_1_coeff_12_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_pocket_nn_android __attribute__((swift_name("layer_1_coeff_13_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_pocket_nn_android __attribute__((swift_name("layer_1_coeff_14_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_pocket_nn_android __attribute__((swift_name("layer_1_coeff_15_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_pocket_nn_android __attribute__((swift_name("layer_1_coeff_16_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_pocket_nn_android __attribute__((swift_name("layer_1_coeff_17_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_pocket_nn_android __attribute__((swift_name("layer_1_coeff_18_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_pocket_nn_android __attribute__((swift_name("layer_1_coeff_19_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_pocket_nn_android __attribute__((swift_name("layer_1_coeff_1_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_pocket_nn_android __attribute__((swift_name("layer_1_coeff_2_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_pocket_nn_android __attribute__((swift_name("layer_1_coeff_3_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_pocket_nn_android __attribute__((swift_name("layer_1_coeff_4_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_pocket_nn_android __attribute__((swift_name("layer_1_coeff_5_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_pocket_nn_android __attribute__((swift_name("layer_1_coeff_6_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_pocket_nn_android __attribute__((swift_name("layer_1_coeff_7_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_pocket_nn_android __attribute__((swift_name("layer_1_coeff_8_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_pocket_nn_android __attribute__((swift_name("layer_1_coeff_9_pocket_nn_android")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_pocket_nn_android __attribute__((swift_name("layer_1_coeff_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_pocket_nn_android __attribute__((swift_name("layer_1_intercepts_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_pocket_nn_android __attribute__((swift_name("layer_2_coeff_0_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_pocket_nn_android __attribute__((swift_name("layer_2_coeff_10_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_pocket_nn_android __attribute__((swift_name("layer_2_coeff_11_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_pocket_nn_android __attribute__((swift_name("layer_2_coeff_12_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_pocket_nn_android __attribute__((swift_name("layer_2_coeff_13_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_pocket_nn_android __attribute__((swift_name("layer_2_coeff_14_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_pocket_nn_android __attribute__((swift_name("layer_2_coeff_15_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_pocket_nn_android __attribute__((swift_name("layer_2_coeff_16_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_pocket_nn_android __attribute__((swift_name("layer_2_coeff_17_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_pocket_nn_android __attribute__((swift_name("layer_2_coeff_18_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_pocket_nn_android __attribute__((swift_name("layer_2_coeff_19_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_pocket_nn_android __attribute__((swift_name("layer_2_coeff_1_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_pocket_nn_android __attribute__((swift_name("layer_2_coeff_2_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_pocket_nn_android __attribute__((swift_name("layer_2_coeff_3_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_pocket_nn_android __attribute__((swift_name("layer_2_coeff_4_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_pocket_nn_android __attribute__((swift_name("layer_2_coeff_5_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_pocket_nn_android __attribute__((swift_name("layer_2_coeff_6_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_pocket_nn_android __attribute__((swift_name("layer_2_coeff_7_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_pocket_nn_android __attribute__((swift_name("layer_2_coeff_8_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_pocket_nn_android __attribute__((swift_name("layer_2_coeff_9_pocket_nn_android")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_pocket_nn_android __attribute__((swift_name("layer_2_coeff_pocket_nn_android")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_pocket_nn_android __attribute__((swift_name("layer_2_intercepts_pocket_nn_android")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_pocket_nn_android __attribute__((swift_name("means_pocket_nn_android")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_pocket_nn_android __attribute__((swift_name("scales_pocket_nn_android")));
 @end;
@@ -7754,86 +7405,6 @@ __attribute__((swift_name("AndroidPocketOrSwingNNParameters")))
 @property (class, readonly, getter=shared) VSPKAndroidPocketOrSwingNNParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("coeff_android_mode_classifier_nn_20220127_132622")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("intercepts_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_0_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_10_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_11_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_12_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_13_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_14_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_14_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_15_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_15_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_16_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_16_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_17_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_17_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_18_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_18_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_19_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_19_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_1_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_20_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_20_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_21_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_21_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_22_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_22_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_23_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_23_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_2_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_3_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_4_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_5_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_6_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_7_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_8_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_9_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_coeff_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_0_intercepts_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_0_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_10_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_11_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_12_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_13_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_14_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_15_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_16_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_17_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_18_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_19_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_1_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_20_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_21_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_22_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_23_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_24_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_2_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_3_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_4_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_5_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_6_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_7_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_8_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_9_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_coeff_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_1_intercepts_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_0_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_10_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_11_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_12_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_13_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_14_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_15_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_16_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_17_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_18_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_19_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_1_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_20_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_20_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_21_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_21_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_22_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_22_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_23_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_23_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_24_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_24_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_2_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_3_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_4_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_5_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_6_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_7_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_8_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_9_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_coeff_android_mode_classifier_nn_20220127_132622")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("layer_2_intercepts_android_mode_classifier_nn_20220127_132622")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("means_android_mode_classifier_nn_20220127_132622")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_android_mode_classifier_nn_20220127_132622 __attribute__((swift_name("scales_android_mode_classifier_nn_20220127_132622")));
 @end;
@@ -7846,61 +7417,8 @@ __attribute__((swift_name("AndroidRegularMLParameters")))
 + (instancetype)androidRegularMLParameters __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKAndroidRegularMLParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_android_lenient_v1 __attribute__((swift_name("PCA_components_android_lenient_v1")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_android_lenient_v1 __attribute__((swift_name("c0_android_lenient_v1")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_android_lenient_v1 __attribute__((swift_name("c1_android_lenient_v1")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_regular_NN_20210523_112436 __attribute__((swift_name("coeff_regular_NN_20210523_112436")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_regular_NN_20210523_112436 __attribute__((swift_name("intercepts_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_0_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_10_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_11_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_12_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_13_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_14_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_14_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_15_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_15_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_16_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_16_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_17_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_17_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_18_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_18_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_19_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_19_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_1_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_20_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_20_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_21_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_21_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_2_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_3_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_4_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_5_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_6_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_7_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_8_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_9_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_coeff_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_regular_NN_20210523_112436 __attribute__((swift_name("layer_0_intercepts_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_0_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_10_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_11_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_12_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_13_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_14_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_15_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_16_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_17_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_18_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_19_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_1_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_20_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_21_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_22_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_23_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_24_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_2_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_3_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_4_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_5_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_6_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_7_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_8_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_9_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_coeff_regular_NN_20210523_112436")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_regular_NN_20210523_112436 __attribute__((swift_name("layer_1_intercepts_regular_NN_20210523_112436")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_android_lenient_v1 __attribute__((swift_name("means_android_lenient_v1")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_regular_NN_20210523_112436 __attribute__((swift_name("means_regular_NN_20210523_112436")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_android_lenient_v1 __attribute__((swift_name("scales_android_lenient_v1")));
@@ -7916,56 +7434,6 @@ __attribute__((swift_name("IOSJacketPocketNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKIOSJacketPocketNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_jacket_pocket_nn __attribute__((swift_name("coeff_jacket_pocket_nn")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_jacket_pocket_nn __attribute__((swift_name("intercepts_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_0_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_10_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_11_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_12_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_13_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_1_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_2_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_3_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_4_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_5_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_6_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_7_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_8_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_9_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_jacket_pocket_nn __attribute__((swift_name("layer_0_coeff_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_jacket_pocket_nn __attribute__((swift_name("layer_0_intercepts_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_0_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_10_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_11_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_12_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_13_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_14_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_1_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_2_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_3_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_4_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_5_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_6_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_7_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_8_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_9_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_jacket_pocket_nn __attribute__((swift_name("layer_1_coeff_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_jacket_pocket_nn __attribute__((swift_name("layer_1_intercepts_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_0_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_10_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_11_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_12_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_13_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_14_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_1_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_2_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_3_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_4_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_5_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_6_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_7_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_8_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_9_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_jacket_pocket_nn __attribute__((swift_name("layer_2_coeff_jacket_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_jacket_pocket_nn __attribute__((swift_name("layer_2_intercepts_jacket_pocket_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_jacket_pocket_nn __attribute__((swift_name("means_jacket_pocket_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_jacket_pocket_nn __attribute__((swift_name("scales_jacket_pocket_nn")));
 @end;
@@ -7979,54 +7447,6 @@ __attribute__((swift_name("IOSPantJacketDistinguishParameters")))
 @property (class, readonly, getter=shared) VSPKIOSPantJacketDistinguishParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_distinguish_nn __attribute__((swift_name("coeff_distinguish_nn")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_distinguish_nn __attribute__((swift_name("intercepts_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_distinguish_nn __attribute__((swift_name("layer_0_coeff_0_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_distinguish_nn __attribute__((swift_name("layer_0_coeff_10_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_distinguish_nn __attribute__((swift_name("layer_0_coeff_11_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_distinguish_nn __attribute__((swift_name("layer_0_coeff_12_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_distinguish_nn __attribute__((swift_name("layer_0_coeff_13_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_distinguish_nn __attribute__((swift_name("layer_0_coeff_1_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_distinguish_nn __attribute__((swift_name("layer_0_coeff_2_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_distinguish_nn __attribute__((swift_name("layer_0_coeff_3_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_distinguish_nn __attribute__((swift_name("layer_0_coeff_4_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_distinguish_nn __attribute__((swift_name("layer_0_coeff_5_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_distinguish_nn __attribute__((swift_name("layer_0_coeff_6_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_distinguish_nn __attribute__((swift_name("layer_0_coeff_7_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_distinguish_nn __attribute__((swift_name("layer_0_coeff_8_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_distinguish_nn __attribute__((swift_name("layer_0_coeff_9_distinguish_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_distinguish_nn __attribute__((swift_name("layer_0_coeff_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_distinguish_nn __attribute__((swift_name("layer_0_intercepts_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_distinguish_nn __attribute__((swift_name("layer_1_coeff_0_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_distinguish_nn __attribute__((swift_name("layer_1_coeff_10_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_distinguish_nn __attribute__((swift_name("layer_1_coeff_11_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_distinguish_nn __attribute__((swift_name("layer_1_coeff_12_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_distinguish_nn __attribute__((swift_name("layer_1_coeff_13_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_distinguish_nn __attribute__((swift_name("layer_1_coeff_14_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_distinguish_nn __attribute__((swift_name("layer_1_coeff_15_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_distinguish_nn __attribute__((swift_name("layer_1_coeff_16_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_distinguish_nn __attribute__((swift_name("layer_1_coeff_17_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_distinguish_nn __attribute__((swift_name("layer_1_coeff_18_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_distinguish_nn __attribute__((swift_name("layer_1_coeff_19_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_distinguish_nn __attribute__((swift_name("layer_1_coeff_1_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_distinguish_nn __attribute__((swift_name("layer_1_coeff_20_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_distinguish_nn __attribute__((swift_name("layer_1_coeff_21_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_distinguish_nn __attribute__((swift_name("layer_1_coeff_22_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_distinguish_nn __attribute__((swift_name("layer_1_coeff_23_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_distinguish_nn __attribute__((swift_name("layer_1_coeff_24_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_25_distinguish_nn __attribute__((swift_name("layer_1_coeff_25_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_26_distinguish_nn __attribute__((swift_name("layer_1_coeff_26_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_27_distinguish_nn __attribute__((swift_name("layer_1_coeff_27_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_28_distinguish_nn __attribute__((swift_name("layer_1_coeff_28_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_29_distinguish_nn __attribute__((swift_name("layer_1_coeff_29_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_distinguish_nn __attribute__((swift_name("layer_1_coeff_2_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_distinguish_nn __attribute__((swift_name("layer_1_coeff_3_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_distinguish_nn __attribute__((swift_name("layer_1_coeff_4_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_distinguish_nn __attribute__((swift_name("layer_1_coeff_5_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_distinguish_nn __attribute__((swift_name("layer_1_coeff_6_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_distinguish_nn __attribute__((swift_name("layer_1_coeff_7_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_distinguish_nn __attribute__((swift_name("layer_1_coeff_8_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_distinguish_nn __attribute__((swift_name("layer_1_coeff_9_distinguish_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_distinguish_nn __attribute__((swift_name("layer_1_coeff_distinguish_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_distinguish_nn __attribute__((swift_name("layer_1_intercepts_distinguish_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_distinguish_nn __attribute__((swift_name("means_distinguish_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_distinguish_nn __attribute__((swift_name("scales_distinguish_nn")));
 @end;
@@ -8040,47 +7460,6 @@ __attribute__((swift_name("IOSPocketNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKIOSPocketNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_pocket_nn __attribute__((swift_name("coeff_pocket_nn")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_pocket_nn __attribute__((swift_name("intercepts_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_pocket_nn __attribute__((swift_name("layer_0_coeff_0_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_pocket_nn __attribute__((swift_name("layer_0_coeff_10_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_pocket_nn __attribute__((swift_name("layer_0_coeff_11_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_pocket_nn __attribute__((swift_name("layer_0_coeff_12_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_pocket_nn __attribute__((swift_name("layer_0_coeff_13_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_pocket_nn __attribute__((swift_name("layer_0_coeff_1_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_pocket_nn __attribute__((swift_name("layer_0_coeff_2_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_pocket_nn __attribute__((swift_name("layer_0_coeff_3_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_pocket_nn __attribute__((swift_name("layer_0_coeff_4_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_pocket_nn __attribute__((swift_name("layer_0_coeff_5_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_pocket_nn __attribute__((swift_name("layer_0_coeff_6_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_pocket_nn __attribute__((swift_name("layer_0_coeff_7_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_pocket_nn __attribute__((swift_name("layer_0_coeff_8_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_pocket_nn __attribute__((swift_name("layer_0_coeff_9_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_pocket_nn __attribute__((swift_name("layer_0_coeff_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_pocket_nn __attribute__((swift_name("layer_0_intercepts_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_pocket_nn __attribute__((swift_name("layer_1_coeff_0_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_pocket_nn __attribute__((swift_name("layer_1_coeff_10_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_pocket_nn __attribute__((swift_name("layer_1_coeff_11_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_pocket_nn __attribute__((swift_name("layer_1_coeff_12_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_pocket_nn __attribute__((swift_name("layer_1_coeff_13_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_pocket_nn __attribute__((swift_name("layer_1_coeff_14_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_pocket_nn __attribute__((swift_name("layer_1_coeff_15_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_pocket_nn __attribute__((swift_name("layer_1_coeff_16_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_pocket_nn __attribute__((swift_name("layer_1_coeff_17_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_pocket_nn __attribute__((swift_name("layer_1_coeff_18_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_pocket_nn __attribute__((swift_name("layer_1_coeff_19_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_pocket_nn __attribute__((swift_name("layer_1_coeff_1_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_pocket_nn __attribute__((swift_name("layer_1_coeff_20_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_pocket_nn __attribute__((swift_name("layer_1_coeff_21_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_pocket_nn __attribute__((swift_name("layer_1_coeff_22_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_pocket_nn __attribute__((swift_name("layer_1_coeff_2_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_pocket_nn __attribute__((swift_name("layer_1_coeff_3_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_pocket_nn __attribute__((swift_name("layer_1_coeff_4_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_pocket_nn __attribute__((swift_name("layer_1_coeff_5_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_pocket_nn __attribute__((swift_name("layer_1_coeff_6_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_pocket_nn __attribute__((swift_name("layer_1_coeff_7_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_pocket_nn __attribute__((swift_name("layer_1_coeff_8_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_pocket_nn __attribute__((swift_name("layer_1_coeff_9_pocket_nn")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_pocket_nn __attribute__((swift_name("layer_1_coeff_pocket_nn")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_pocket_nn __attribute__((swift_name("layer_1_intercepts_pocket_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_pocket_nn __attribute__((swift_name("means_pocket_nn")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_pocket_nn __attribute__((swift_name("scales_pocket_nn")));
 @end;
@@ -8180,7 +7559,7 @@ __attribute__((swift_name("NeuralNetwork")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("NeuralNetwork.activationFunctionType")))
+__attribute__((swift_name("NeuralNetwork.ActivationFunctionType")))
 @interface VSPKNeuralNetworkActivationFunctionType : VSPKKotlinEnum<VSPKNeuralNetworkActivationFunctionType *>
 + (instancetype)alloc __attribute__((unavailable));
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
@@ -8199,32 +7578,6 @@ __attribute__((swift_name("PocketOrSwingNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKPocketOrSwingNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_mode_classifier_nn_20220125_111955 __attribute__((swift_name("coeff_mode_classifier_nn_20220125_111955")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_mode_classifier_nn_20220125_111955 __attribute__((swift_name("intercepts_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_0_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_10_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_11_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_12_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_13_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_14_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_14_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_15_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_15_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_16_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_16_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_1_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_2_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_3_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_4_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_5_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_6_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_7_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_8_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_9_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_coeff_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_0_intercepts_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_coeff_0_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_coeff_1_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_coeff_2_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_coeff_3_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_coeff_4_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_coeff_mode_classifier_nn_20220125_111955")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_mode_classifier_nn_20220125_111955 __attribute__((swift_name("layer_1_intercepts_mode_classifier_nn_20220125_111955")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_mode_classifier_nn_20220125_111955 __attribute__((swift_name("means_mode_classifier_nn_20220125_111955")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_mode_classifier_nn_20220125_111955 __attribute__((swift_name("scales_mode_classifier_nn_20220125_111955")));
 @end;
@@ -8238,51 +7591,6 @@ __attribute__((swift_name("RegularNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKRegularNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_regular_NN_apollo20210925_142827 __attribute__((swift_name("coeff_regular_NN_apollo20210925_142827")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_regular_NN_apollo20210925_142827 __attribute__((swift_name("intercepts_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_0_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_10_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_11_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_12_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_13_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_14_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_14_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_15_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_15_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_1_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_2_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_3_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_4_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_5_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_6_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_7_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_8_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_9_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_coeff_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_0_intercepts_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_0_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_10_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_11_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_12_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_13_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_14_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_15_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_16_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_17_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_18_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_19_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_1_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_20_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_21_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_22_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_23_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_24_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_2_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_3_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_4_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_5_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_6_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_7_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_8_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_9_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_coeff_regular_NN_apollo20210925_142827")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_regular_NN_apollo20210925_142827 __attribute__((swift_name("layer_1_intercepts_regular_NN_apollo20210925_142827")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_regular_NN_apollo20210925_142827 __attribute__((swift_name("means_regular_NN_apollo20210925_142827")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_regular_NN_apollo20210925_142827 __attribute__((swift_name("scales_regular_NN_apollo20210925_142827")));
 @end;
@@ -8296,65 +7604,6 @@ __attribute__((swift_name("SwingAntiSymNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKSwingAntiSymNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_ANTI_SYM_SWING __attribute__((swift_name("coeff_ANTI_SYM_SWING")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_ANTI_SYM_SWING __attribute__((swift_name("intercepts_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_0_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_10_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_11_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_12_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_1_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_2_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_3_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_4_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_5_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_6_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_7_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_8_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_9_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_ANTI_SYM_SWING __attribute__((swift_name("layer_0_coeff_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_ANTI_SYM_SWING __attribute__((swift_name("layer_0_intercepts_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_0_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_10_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_11_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_12_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_13_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_14_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_15_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_16_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_17_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_18_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_19_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_1_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_2_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_3_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_4_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_5_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_6_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_7_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_8_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_9_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_ANTI_SYM_SWING __attribute__((swift_name("layer_1_coeff_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_ANTI_SYM_SWING __attribute__((swift_name("layer_1_intercepts_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_0_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_10_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_11_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_12_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_13_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_14_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_15_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_16_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_17_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_18_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_19_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_1_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_2_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_3_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_4_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_5_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_6_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_7_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_8_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_9_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_ANTI_SYM_SWING __attribute__((swift_name("layer_2_coeff_ANTI_SYM_SWING")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_ANTI_SYM_SWING __attribute__((swift_name("layer_2_intercepts_ANTI_SYM_SWING")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_ANTI_SYM_SWING __attribute__((swift_name("means_ANTI_SYM_SWING")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_ANTI_SYM_SWING __attribute__((swift_name("scales_ANTI_SYM_SWING")));
 @end;
@@ -8368,132 +7617,6 @@ __attribute__((swift_name("SwingNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKSwingNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_20210628_101331 __attribute__((swift_name("coeff_20210628_101331")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_20210628_101331 __attribute__((swift_name("intercepts_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_20210628_101331 __attribute__((swift_name("layer_0_coeff_0_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_20210628_101331 __attribute__((swift_name("layer_0_coeff_10_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_20210628_101331 __attribute__((swift_name("layer_0_coeff_11_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_20210628_101331 __attribute__((swift_name("layer_0_coeff_12_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_20210628_101331 __attribute__((swift_name("layer_0_coeff_13_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_14_20210628_101331 __attribute__((swift_name("layer_0_coeff_14_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_15_20210628_101331 __attribute__((swift_name("layer_0_coeff_15_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_16_20210628_101331 __attribute__((swift_name("layer_0_coeff_16_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_17_20210628_101331 __attribute__((swift_name("layer_0_coeff_17_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_18_20210628_101331 __attribute__((swift_name("layer_0_coeff_18_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_19_20210628_101331 __attribute__((swift_name("layer_0_coeff_19_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_20210628_101331 __attribute__((swift_name("layer_0_coeff_1_20210628_101331")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_20210628_101331 __attribute__((swift_name("layer_0_coeff_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_20210628_101331 __attribute__((swift_name("layer_0_coeff_2_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_20210628_101331 __attribute__((swift_name("layer_0_coeff_3_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_20210628_101331 __attribute__((swift_name("layer_0_coeff_4_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_20210628_101331 __attribute__((swift_name("layer_0_coeff_5_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_20210628_101331 __attribute__((swift_name("layer_0_coeff_6_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_20210628_101331 __attribute__((swift_name("layer_0_coeff_7_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_20210628_101331 __attribute__((swift_name("layer_0_coeff_8_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_20210628_101331 __attribute__((swift_name("layer_0_coeff_9_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_20210628_101331 __attribute__((swift_name("layer_0_intercepts_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_20210628_101331 __attribute__((swift_name("layer_1_coeff_0_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_20210628_101331 __attribute__((swift_name("layer_1_coeff_10_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_20210628_101331 __attribute__((swift_name("layer_1_coeff_11_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_20210628_101331 __attribute__((swift_name("layer_1_coeff_12_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_20210628_101331 __attribute__((swift_name("layer_1_coeff_13_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_20210628_101331 __attribute__((swift_name("layer_1_coeff_14_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_20210628_101331 __attribute__((swift_name("layer_1_coeff_15_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_20210628_101331 __attribute__((swift_name("layer_1_coeff_16_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_20210628_101331 __attribute__((swift_name("layer_1_coeff_17_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_20210628_101331 __attribute__((swift_name("layer_1_coeff_18_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_20210628_101331 __attribute__((swift_name("layer_1_coeff_19_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_20210628_101331 __attribute__((swift_name("layer_1_coeff_1_20210628_101331")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_20210628_101331 __attribute__((swift_name("layer_1_coeff_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_20210628_101331 __attribute__((swift_name("layer_1_coeff_20_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_20210628_101331 __attribute__((swift_name("layer_1_coeff_21_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_20210628_101331 __attribute__((swift_name("layer_1_coeff_22_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_20210628_101331 __attribute__((swift_name("layer_1_coeff_23_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_20210628_101331 __attribute__((swift_name("layer_1_coeff_24_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_25_20210628_101331 __attribute__((swift_name("layer_1_coeff_25_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_26_20210628_101331 __attribute__((swift_name("layer_1_coeff_26_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_27_20210628_101331 __attribute__((swift_name("layer_1_coeff_27_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_28_20210628_101331 __attribute__((swift_name("layer_1_coeff_28_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_29_20210628_101331 __attribute__((swift_name("layer_1_coeff_29_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_20210628_101331 __attribute__((swift_name("layer_1_coeff_2_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_30_20210628_101331 __attribute__((swift_name("layer_1_coeff_30_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_31_20210628_101331 __attribute__((swift_name("layer_1_coeff_31_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_32_20210628_101331 __attribute__((swift_name("layer_1_coeff_32_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_33_20210628_101331 __attribute__((swift_name("layer_1_coeff_33_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_34_20210628_101331 __attribute__((swift_name("layer_1_coeff_34_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_35_20210628_101331 __attribute__((swift_name("layer_1_coeff_35_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_36_20210628_101331 __attribute__((swift_name("layer_1_coeff_36_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_37_20210628_101331 __attribute__((swift_name("layer_1_coeff_37_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_38_20210628_101331 __attribute__((swift_name("layer_1_coeff_38_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_39_20210628_101331 __attribute__((swift_name("layer_1_coeff_39_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_20210628_101331 __attribute__((swift_name("layer_1_coeff_3_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_40_20210628_101331 __attribute__((swift_name("layer_1_coeff_40_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_41_20210628_101331 __attribute__((swift_name("layer_1_coeff_41_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_42_20210628_101331 __attribute__((swift_name("layer_1_coeff_42_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_43_20210628_101331 __attribute__((swift_name("layer_1_coeff_43_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_44_20210628_101331 __attribute__((swift_name("layer_1_coeff_44_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_45_20210628_101331 __attribute__((swift_name("layer_1_coeff_45_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_46_20210628_101331 __attribute__((swift_name("layer_1_coeff_46_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_47_20210628_101331 __attribute__((swift_name("layer_1_coeff_47_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_48_20210628_101331 __attribute__((swift_name("layer_1_coeff_48_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_49_20210628_101331 __attribute__((swift_name("layer_1_coeff_49_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_20210628_101331 __attribute__((swift_name("layer_1_coeff_4_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_20210628_101331 __attribute__((swift_name("layer_1_coeff_5_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_20210628_101331 __attribute__((swift_name("layer_1_coeff_6_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_20210628_101331 __attribute__((swift_name("layer_1_coeff_7_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_20210628_101331 __attribute__((swift_name("layer_1_coeff_8_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_20210628_101331 __attribute__((swift_name("layer_1_coeff_9_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_20210628_101331 __attribute__((swift_name("layer_1_intercepts_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_20210628_101331 __attribute__((swift_name("layer_2_coeff_0_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_20210628_101331 __attribute__((swift_name("layer_2_coeff_10_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_20210628_101331 __attribute__((swift_name("layer_2_coeff_11_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_20210628_101331 __attribute__((swift_name("layer_2_coeff_12_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_20210628_101331 __attribute__((swift_name("layer_2_coeff_13_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_20210628_101331 __attribute__((swift_name("layer_2_coeff_14_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_20210628_101331 __attribute__((swift_name("layer_2_coeff_15_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_20210628_101331 __attribute__((swift_name("layer_2_coeff_16_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_20210628_101331 __attribute__((swift_name("layer_2_coeff_17_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_20210628_101331 __attribute__((swift_name("layer_2_coeff_18_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_20210628_101331 __attribute__((swift_name("layer_2_coeff_19_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_20210628_101331 __attribute__((swift_name("layer_2_coeff_1_20210628_101331")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_20210628_101331 __attribute__((swift_name("layer_2_coeff_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_20_20210628_101331 __attribute__((swift_name("layer_2_coeff_20_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_21_20210628_101331 __attribute__((swift_name("layer_2_coeff_21_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_22_20210628_101331 __attribute__((swift_name("layer_2_coeff_22_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_23_20210628_101331 __attribute__((swift_name("layer_2_coeff_23_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_24_20210628_101331 __attribute__((swift_name("layer_2_coeff_24_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_25_20210628_101331 __attribute__((swift_name("layer_2_coeff_25_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_26_20210628_101331 __attribute__((swift_name("layer_2_coeff_26_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_27_20210628_101331 __attribute__((swift_name("layer_2_coeff_27_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_28_20210628_101331 __attribute__((swift_name("layer_2_coeff_28_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_29_20210628_101331 __attribute__((swift_name("layer_2_coeff_29_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_20210628_101331 __attribute__((swift_name("layer_2_coeff_2_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_30_20210628_101331 __attribute__((swift_name("layer_2_coeff_30_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_31_20210628_101331 __attribute__((swift_name("layer_2_coeff_31_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_32_20210628_101331 __attribute__((swift_name("layer_2_coeff_32_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_33_20210628_101331 __attribute__((swift_name("layer_2_coeff_33_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_34_20210628_101331 __attribute__((swift_name("layer_2_coeff_34_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_35_20210628_101331 __attribute__((swift_name("layer_2_coeff_35_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_36_20210628_101331 __attribute__((swift_name("layer_2_coeff_36_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_37_20210628_101331 __attribute__((swift_name("layer_2_coeff_37_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_38_20210628_101331 __attribute__((swift_name("layer_2_coeff_38_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_39_20210628_101331 __attribute__((swift_name("layer_2_coeff_39_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_20210628_101331 __attribute__((swift_name("layer_2_coeff_3_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_40_20210628_101331 __attribute__((swift_name("layer_2_coeff_40_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_41_20210628_101331 __attribute__((swift_name("layer_2_coeff_41_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_42_20210628_101331 __attribute__((swift_name("layer_2_coeff_42_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_43_20210628_101331 __attribute__((swift_name("layer_2_coeff_43_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_44_20210628_101331 __attribute__((swift_name("layer_2_coeff_44_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_45_20210628_101331 __attribute__((swift_name("layer_2_coeff_45_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_46_20210628_101331 __attribute__((swift_name("layer_2_coeff_46_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_47_20210628_101331 __attribute__((swift_name("layer_2_coeff_47_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_48_20210628_101331 __attribute__((swift_name("layer_2_coeff_48_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_49_20210628_101331 __attribute__((swift_name("layer_2_coeff_49_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_20210628_101331 __attribute__((swift_name("layer_2_coeff_4_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_20210628_101331 __attribute__((swift_name("layer_2_coeff_5_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_20210628_101331 __attribute__((swift_name("layer_2_coeff_6_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_20210628_101331 __attribute__((swift_name("layer_2_coeff_7_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_20210628_101331 __attribute__((swift_name("layer_2_coeff_8_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_20210628_101331 __attribute__((swift_name("layer_2_coeff_9_20210628_101331")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_20210628_101331 __attribute__((swift_name("layer_2_intercepts_20210628_101331")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_20210628_101331 __attribute__((swift_name("means_20210628_101331")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_20210628_101331 __attribute__((swift_name("scales_20210628_101331")));
 @end;
@@ -8507,85 +7630,6 @@ __attribute__((swift_name("SwingSymNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKSwingSymNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_swing_NN_SYM_20220114_135358 __attribute__((swift_name("coeff_swing_NN_SYM_20220114_135358")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_swing_NN_SYM_20220114_135358 __attribute__((swift_name("intercepts_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_0_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_10_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_11_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_12_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_1_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_2_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_3_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_4_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_5_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_6_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_7_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_8_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_9_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_coeff_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_0_intercepts_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_0_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_10_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_11_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_12_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_13_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_14_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_15_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_15_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_16_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_16_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_17_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_17_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_18_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_18_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_19_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_19_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_1_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_20_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_20_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_21_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_21_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_22_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_22_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_23_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_23_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_24_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_24_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_25_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_25_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_26_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_26_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_27_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_27_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_28_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_28_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_29_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_29_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_2_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_3_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_4_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_5_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_6_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_7_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_8_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_9_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_coeff_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_1_intercepts_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_0_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_10_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_11_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_12_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_13_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_14_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_15_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_15_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_16_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_16_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_17_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_17_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_18_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_18_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_19_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_19_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_1_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_20_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_20_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_21_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_21_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_22_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_22_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_23_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_23_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_24_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_24_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_25_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_25_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_26_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_26_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_27_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_27_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_28_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_28_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_29_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_29_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_2_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_3_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_4_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_5_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_6_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_7_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_8_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_9_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_coeff_swing_NN_SYM_20220114_135358")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_swing_NN_SYM_20220114_135358 __attribute__((swift_name("layer_2_intercepts_swing_NN_SYM_20220114_135358")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_swing_NN_SYM_20220114_135358 __attribute__((swift_name("means_swing_NN_SYM_20220114_135358")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_swing_NN_SYM_20220114_135358 __attribute__((swift_name("scales_swing_NN_SYM_20220114_135358")));
 @end;
@@ -8599,88 +7643,8 @@ __attribute__((swift_name("TrolleyNeuralNetworkParameters")))
 @property (class, readonly, getter=shared) VSPKTrolleyNeuralNetworkParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<NSMutableArray<VSPKFloat *> *> *> *coeff_trolley_NN_20210305_102105 __attribute__((swift_name("coeff_trolley_NN_20210305_102105")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *intercepts_trolley_NN_20210305_102105 __attribute__((swift_name("intercepts_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_0_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_0_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_10_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_10_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_11_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_11_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_12_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_12_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_13_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_13_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_1_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_1_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_2_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_2_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_3_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_3_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_4_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_4_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_5_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_5_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_6_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_6_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_7_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_7_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_8_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_8_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_coeff_9_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_9_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_0_coeff_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_coeff_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_0_intercepts_trolley_NN_20210305_102105 __attribute__((swift_name("layer_0_intercepts_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_0_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_0_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_10_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_10_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_11_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_11_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_12_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_12_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_13_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_13_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_14_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_14_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_1_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_1_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_2_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_2_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_3_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_3_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_4_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_4_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_5_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_5_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_6_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_6_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_7_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_7_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_8_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_8_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_coeff_9_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_9_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_1_coeff_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_coeff_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_1_intercepts_trolley_NN_20210305_102105 __attribute__((swift_name("layer_1_intercepts_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_0_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_0_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_10_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_10_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_11_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_11_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_12_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_12_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_13_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_13_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_14_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_14_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_1_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_1_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_2_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_2_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_3_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_3_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_4_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_4_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_5_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_5_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_6_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_6_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_7_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_7_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_8_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_8_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_coeff_9_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_9_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *layer_2_coeff_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_coeff_trolley_NN_20210305_102105")));
-@property (readonly) NSMutableArray<VSPKFloat *> *layer_2_intercepts_trolley_NN_20210305_102105 __attribute__((swift_name("layer_2_intercepts_trolley_NN_20210305_102105")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_trolley_NN_20210305_102105 __attribute__((swift_name("means_trolley_NN_20210305_102105")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_trolley_NN_20210305_102105 __attribute__((swift_name("scales_trolley_NN_20210305_102105")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("EllipseEvaluator")))
-@interface VSPKEllipseEvaluator : VSPKMLModel
-- (instancetype)initWithCenterX:(float)centerX centerY:(float)centerY alpha:(float)alpha radiusA:(float)radiusA radiusB:(float)radiusB scaler:(VSPKStandardScaler *)scaler PCA:(VSPKPCATransformer *)PCA __attribute__((swift_name("init(centerX:centerY:alpha:radiusA:radiusB:scaler:PCA:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
-@property (readonly) float alpha __attribute__((swift_name("alpha")));
-@property (readonly) float centerX __attribute__((swift_name("centerX")));
-@property (readonly) float centerY __attribute__((swift_name("centerY")));
-@property (readonly) float radiusA __attribute__((swift_name("radiusA")));
-@property (readonly) float radiusB __attribute__((swift_name("radiusB")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FirstPCAEvaluator")))
-@interface VSPKFirstPCAEvaluator : VSPKMLModel
-- (instancetype)initWithX0:(float)x0 scaler:(VSPKStandardScaler *)scaler PCA:(VSPKPCATransformer *)PCA __attribute__((swift_name("init(x0:scaler:PCA:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
-@property (readonly) float x0 __attribute__((swift_name("x0")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("HyperbolaEvaluator")))
-@interface VSPKHyperbolaEvaluator : VSPKMLModel
-- (instancetype)initWithScaler:(VSPKStandardScaler *)scaler PCA:(VSPKPCATransformer *)PCA hyperbolaAngle:(double)hyperbolaAngle hyperbolaInnerConstant:(double)hyperbolaInnerConstant hyperbolaXShift:(double)hyperbolaXShift hyperbolaYShift:(double)hyperbolaYShift __attribute__((swift_name("init(scaler:PCA:hyperbolaAngle:hyperbolaInnerConstant:hyperbolaXShift:hyperbolaYShift:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
 @end;
 
 __attribute__((swift_name("SVM")))
@@ -8710,45 +7674,10 @@ __attribute__((swift_name("LinearSVMSwingStepDetectorValues")))
 + (instancetype)linearSVMSwingStepDetectorValues __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKLinearSVMSwingStepDetectorValues *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_hugo_04_dec_2020 __attribute__((swift_name("PCA_components_hugo_04_dec_2020")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_hugo_04_dec_2020 __attribute__((swift_name("c0_hugo_04_dec_2020")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_hugo_04_dec_2020 __attribute__((swift_name("c1_hugo_04_dec_2020")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c2_hugo_04_dec_2020 __attribute__((swift_name("c2_hugo_04_dec_2020")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c3_hugo_04_dec_2020 __attribute__((swift_name("c3_hugo_04_dec_2020")));
 @property (readonly) NSMutableArray<VSPKFloat *> *coef_hugo_04_dec_2020 __attribute__((swift_name("coef_hugo_04_dec_2020")));
 @property (readonly) float intercept_hugo_04_dec_2020 __attribute__((swift_name("intercept_hugo_04_dec_2020")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_hugo_04_dec_2020 __attribute__((swift_name("means_hugo_04_dec_2020")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_hugo_04_dec_2020 __attribute__((swift_name("scales_hugo_04_dec_2020")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("NoPCAEllipseEvaluator")))
-@interface VSPKNoPCAEllipseEvaluator : VSPKMLModel
-- (instancetype)initWithCenterX:(float)centerX centerY:(float)centerY alpha:(float)alpha radiusA:(float)radiusA radiusB:(float)radiusB scaler:(VSPKStandardScaler *)scaler __attribute__((swift_name("init(centerX:centerY:alpha:radiusA:radiusB:scaler:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
-@property (readonly) float alpha __attribute__((swift_name("alpha")));
-@property (readonly) float centerX __attribute__((swift_name("centerX")));
-@property (readonly) float centerY __attribute__((swift_name("centerY")));
-@property (readonly) float radiusA __attribute__((swift_name("radiusA")));
-@property (readonly) float radiusB __attribute__((swift_name("radiusB")));
-@end;
-
-__attribute__((swift_name("VectorTransformer")))
-@interface VSPKVectorTransformer : VSPKBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKKotlinArray<VSPKFloat *> *)transformData:(VSPKKotlinArray<VSPKFloat *> *)data __attribute__((swift_name("transform(data:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PCATransformer")))
-@interface VSPKPCATransformer : VSPKVectorTransformer
-- (instancetype)initWithComponents:(NSMutableArray<NSMutableArray<VSPKFloat *> *> *)components means:(NSMutableArray<VSPKFloat *> * _Nullable)means __attribute__((swift_name("init(components:means:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (VSPKKotlinArray<VSPKFloat *> *)transformData:(VSPKKotlinArray<VSPKFloat *> *)data __attribute__((swift_name("transform(data:)")));
-@property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *components __attribute__((swift_name("components")));
-@property (readonly) NSMutableArray<VSPKFloat *> * _Nullable means __attribute__((swift_name("means")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -8761,154 +7690,11 @@ __attribute__((swift_name("RegularRBFSVMsupport")))
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_spack_rbf_v2 __attribute__((swift_name("PCA_components_spack_rbf_v2")));
 @property (readonly) float PCA_variance_spack_rbf __attribute__((swift_name("PCA_variance_spack_rbf")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *all_sv_spack_rbf_v2 __attribute__((swift_name("all_sv_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_spack_rbf_v2 __attribute__((swift_name("c0_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_spack_rbf_v2 __attribute__((swift_name("c1_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c2_spack_rbf_v2 __attribute__((swift_name("c2_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c3_spack_rbf_v2 __attribute__((swift_name("c3_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c4_spack_rbf_v2 __attribute__((swift_name("c4_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c5_spack_rbf_v2 __attribute__((swift_name("c5_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c6_spack_rbf_v2 __attribute__((swift_name("c6_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c7_spack_rbf_v2 __attribute__((swift_name("c7_spack_rbf_v2")));
 @property (readonly) NSMutableArray<VSPKFloat *> *dual_coef_spack_rbf_v2 __attribute__((swift_name("dual_coef_spack_rbf_v2")));
 @property (readonly) float intercept_spack_rbf_v2 __attribute__((swift_name("intercept_spack_rbf_v2")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_spack_rbf_v2 __attribute__((swift_name("means_spack_rbf_v2")));
 @property (readonly) NSMutableArray<VSPKInt *> *removed_vals_spack_rbf_v2 __attribute__((swift_name("removed_vals_spack_rbf_v2")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_spack_rbf_v2 __attribute__((swift_name("scales_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv0_spack_rbf_v2 __attribute__((swift_name("sv0_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv100_spack_rbf_v2 __attribute__((swift_name("sv100_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv101_spack_rbf_v2 __attribute__((swift_name("sv101_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv102_spack_rbf_v2 __attribute__((swift_name("sv102_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv103_spack_rbf_v2 __attribute__((swift_name("sv103_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv104_spack_rbf_v2 __attribute__((swift_name("sv104_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv105_spack_rbf_v2 __attribute__((swift_name("sv105_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv106_spack_rbf_v2 __attribute__((swift_name("sv106_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv107_spack_rbf_v2 __attribute__((swift_name("sv107_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv108_spack_rbf_v2 __attribute__((swift_name("sv108_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv109_spack_rbf_v2 __attribute__((swift_name("sv109_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv10_spack_rbf_v2 __attribute__((swift_name("sv10_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv110_spack_rbf_v2 __attribute__((swift_name("sv110_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv111_spack_rbf_v2 __attribute__((swift_name("sv111_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv112_spack_rbf_v2 __attribute__((swift_name("sv112_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv113_spack_rbf_v2 __attribute__((swift_name("sv113_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv114_spack_rbf_v2 __attribute__((swift_name("sv114_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv115_spack_rbf_v2 __attribute__((swift_name("sv115_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv116_spack_rbf_v2 __attribute__((swift_name("sv116_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv117_spack_rbf_v2 __attribute__((swift_name("sv117_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv118_spack_rbf_v2 __attribute__((swift_name("sv118_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv119_spack_rbf_v2 __attribute__((swift_name("sv119_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv11_spack_rbf_v2 __attribute__((swift_name("sv11_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv120_spack_rbf_v2 __attribute__((swift_name("sv120_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv121_spack_rbf_v2 __attribute__((swift_name("sv121_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv122_spack_rbf_v2 __attribute__((swift_name("sv122_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv123_spack_rbf_v2 __attribute__((swift_name("sv123_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv124_spack_rbf_v2 __attribute__((swift_name("sv124_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv125_spack_rbf_v2 __attribute__((swift_name("sv125_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv126_spack_rbf_v2 __attribute__((swift_name("sv126_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv127_spack_rbf_v2 __attribute__((swift_name("sv127_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv128_spack_rbf_v2 __attribute__((swift_name("sv128_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv129_spack_rbf_v2 __attribute__((swift_name("sv129_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv12_spack_rbf_v2 __attribute__((swift_name("sv12_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv130_spack_rbf_v2 __attribute__((swift_name("sv130_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv131_spack_rbf_v2 __attribute__((swift_name("sv131_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv132_spack_rbf_v2 __attribute__((swift_name("sv132_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv133_spack_rbf_v2 __attribute__((swift_name("sv133_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv134_spack_rbf_v2 __attribute__((swift_name("sv134_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv13_spack_rbf_v2 __attribute__((swift_name("sv13_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv14_spack_rbf_v2 __attribute__((swift_name("sv14_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv15_spack_rbf_v2 __attribute__((swift_name("sv15_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv16_spack_rbf_v2 __attribute__((swift_name("sv16_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv17_spack_rbf_v2 __attribute__((swift_name("sv17_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv18_spack_rbf_v2 __attribute__((swift_name("sv18_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv19_spack_rbf_v2 __attribute__((swift_name("sv19_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv1_spack_rbf_v2 __attribute__((swift_name("sv1_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv20_spack_rbf_v2 __attribute__((swift_name("sv20_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv21_spack_rbf_v2 __attribute__((swift_name("sv21_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv22_spack_rbf_v2 __attribute__((swift_name("sv22_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv23_spack_rbf_v2 __attribute__((swift_name("sv23_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv24_spack_rbf_v2 __attribute__((swift_name("sv24_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv25_spack_rbf_v2 __attribute__((swift_name("sv25_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv26_spack_rbf_v2 __attribute__((swift_name("sv26_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv27_spack_rbf_v2 __attribute__((swift_name("sv27_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv28_spack_rbf_v2 __attribute__((swift_name("sv28_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv29_spack_rbf_v2 __attribute__((swift_name("sv29_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv2_spack_rbf_v2 __attribute__((swift_name("sv2_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv30_spack_rbf_v2 __attribute__((swift_name("sv30_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv31_spack_rbf_v2 __attribute__((swift_name("sv31_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv32_spack_rbf_v2 __attribute__((swift_name("sv32_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv33_spack_rbf_v2 __attribute__((swift_name("sv33_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv34_spack_rbf_v2 __attribute__((swift_name("sv34_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv35_spack_rbf_v2 __attribute__((swift_name("sv35_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv36_spack_rbf_v2 __attribute__((swift_name("sv36_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv37_spack_rbf_v2 __attribute__((swift_name("sv37_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv38_spack_rbf_v2 __attribute__((swift_name("sv38_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv39_spack_rbf_v2 __attribute__((swift_name("sv39_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv3_spack_rbf_v2 __attribute__((swift_name("sv3_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv40_spack_rbf_v2 __attribute__((swift_name("sv40_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv41_spack_rbf_v2 __attribute__((swift_name("sv41_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv42_spack_rbf_v2 __attribute__((swift_name("sv42_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv43_spack_rbf_v2 __attribute__((swift_name("sv43_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv44_spack_rbf_v2 __attribute__((swift_name("sv44_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv45_spack_rbf_v2 __attribute__((swift_name("sv45_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv46_spack_rbf_v2 __attribute__((swift_name("sv46_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv47_spack_rbf_v2 __attribute__((swift_name("sv47_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv48_spack_rbf_v2 __attribute__((swift_name("sv48_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv49_spack_rbf_v2 __attribute__((swift_name("sv49_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv4_spack_rbf_v2 __attribute__((swift_name("sv4_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv50_spack_rbf_v2 __attribute__((swift_name("sv50_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv51_spack_rbf_v2 __attribute__((swift_name("sv51_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv52_spack_rbf_v2 __attribute__((swift_name("sv52_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv53_spack_rbf_v2 __attribute__((swift_name("sv53_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv54_spack_rbf_v2 __attribute__((swift_name("sv54_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv55_spack_rbf_v2 __attribute__((swift_name("sv55_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv56_spack_rbf_v2 __attribute__((swift_name("sv56_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv57_spack_rbf_v2 __attribute__((swift_name("sv57_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv58_spack_rbf_v2 __attribute__((swift_name("sv58_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv59_spack_rbf_v2 __attribute__((swift_name("sv59_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv5_spack_rbf_v2 __attribute__((swift_name("sv5_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv60_spack_rbf_v2 __attribute__((swift_name("sv60_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv61_spack_rbf_v2 __attribute__((swift_name("sv61_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv62_spack_rbf_v2 __attribute__((swift_name("sv62_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv63_spack_rbf_v2 __attribute__((swift_name("sv63_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv64_spack_rbf_v2 __attribute__((swift_name("sv64_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv65_spack_rbf_v2 __attribute__((swift_name("sv65_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv66_spack_rbf_v2 __attribute__((swift_name("sv66_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv67_spack_rbf_v2 __attribute__((swift_name("sv67_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv68_spack_rbf_v2 __attribute__((swift_name("sv68_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv69_spack_rbf_v2 __attribute__((swift_name("sv69_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv6_spack_rbf_v2 __attribute__((swift_name("sv6_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv70_spack_rbf_v2 __attribute__((swift_name("sv70_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv71_spack_rbf_v2 __attribute__((swift_name("sv71_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv72_spack_rbf_v2 __attribute__((swift_name("sv72_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv73_spack_rbf_v2 __attribute__((swift_name("sv73_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv74_spack_rbf_v2 __attribute__((swift_name("sv74_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv75_spack_rbf_v2 __attribute__((swift_name("sv75_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv76_spack_rbf_v2 __attribute__((swift_name("sv76_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv77_spack_rbf_v2 __attribute__((swift_name("sv77_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv78_spack_rbf_v2 __attribute__((swift_name("sv78_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv79_spack_rbf_v2 __attribute__((swift_name("sv79_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv7_spack_rbf_v2 __attribute__((swift_name("sv7_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv80_spack_rbf_v2 __attribute__((swift_name("sv80_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv81_spack_rbf_v2 __attribute__((swift_name("sv81_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv82_spack_rbf_v2 __attribute__((swift_name("sv82_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv83_spack_rbf_v2 __attribute__((swift_name("sv83_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv84_spack_rbf_v2 __attribute__((swift_name("sv84_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv85_spack_rbf_v2 __attribute__((swift_name("sv85_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv86_spack_rbf_v2 __attribute__((swift_name("sv86_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv87_spack_rbf_v2 __attribute__((swift_name("sv87_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv88_spack_rbf_v2 __attribute__((swift_name("sv88_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv89_spack_rbf_v2 __attribute__((swift_name("sv89_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv8_spack_rbf_v2 __attribute__((swift_name("sv8_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv90_spack_rbf_v2 __attribute__((swift_name("sv90_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv91_spack_rbf_v2 __attribute__((swift_name("sv91_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv92_spack_rbf_v2 __attribute__((swift_name("sv92_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv93_spack_rbf_v2 __attribute__((swift_name("sv93_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv94_spack_rbf_v2 __attribute__((swift_name("sv94_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv95_spack_rbf_v2 __attribute__((swift_name("sv95_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv96_spack_rbf_v2 __attribute__((swift_name("sv96_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv97_spack_rbf_v2 __attribute__((swift_name("sv97_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv98_spack_rbf_v2 __attribute__((swift_name("sv98_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv99_spack_rbf_v2 __attribute__((swift_name("sv99_spack_rbf_v2")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv9_spack_rbf_v2 __attribute__((swift_name("sv9_spack_rbf_v2")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -8936,26 +7722,6 @@ __attribute__((swift_name("SpackRBFSVMsupport")))
 @property (readonly) float PCA_variance_spack_swing_rbf __attribute__((swift_name("PCA_variance_spack_swing_rbf")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *all_sv_spack_swing_12_okt_rbf __attribute__((swift_name("all_sv_spack_swing_12_okt_rbf")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *all_sv_spack_swing_rbf __attribute__((swift_name("all_sv_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_spack_swing_12_okt_rbf __attribute__((swift_name("c0_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_spack_swing_rbf __attribute__((swift_name("c0_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_weak_eval_swing __attribute__((swift_name("c0_weak_eval_swing")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_weak_eval_swing_12_okt __attribute__((swift_name("c0_weak_eval_swing_12_okt")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_spack_swing_12_okt_rbf __attribute__((swift_name("c1_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_spack_swing_rbf __attribute__((swift_name("c1_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_weak_eval_swing __attribute__((swift_name("c1_weak_eval_swing")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_weak_eval_swing_12_okt __attribute__((swift_name("c1_weak_eval_swing_12_okt")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c2_spack_swing_12_okt_rbf __attribute__((swift_name("c2_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c2_spack_swing_rbf __attribute__((swift_name("c2_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c3_spack_swing_12_okt_rbf __attribute__((swift_name("c3_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c3_spack_swing_rbf __attribute__((swift_name("c3_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c4_spack_swing_12_okt_rbf __attribute__((swift_name("c4_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c4_spack_swing_rbf __attribute__((swift_name("c4_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c5_spack_swing_12_okt_rbf __attribute__((swift_name("c5_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c5_spack_swing_rbf __attribute__((swift_name("c5_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c6_spack_swing_12_okt_rbf __attribute__((swift_name("c6_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c6_spack_swing_rbf __attribute__((swift_name("c6_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c7_spack_swing_12_okt_rbf __attribute__((swift_name("c7_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c7_spack_swing_rbf __attribute__((swift_name("c7_spack_swing_rbf")));
 @property (readonly) NSMutableArray<VSPKFloat *> *dual_coef_spack_swing_12_okt_rbf __attribute__((swift_name("dual_coef_spack_swing_12_okt_rbf")));
 @property (readonly) NSMutableArray<VSPKFloat *> *dual_coef_spack_swing_rbf __attribute__((swift_name("dual_coef_spack_swing_rbf")));
 @property (readonly) float intercept_spack_swing_12_okt_rbf __attribute__((swift_name("intercept_spack_swing_12_okt_rbf")));
@@ -8964,245 +7730,6 @@ __attribute__((swift_name("SpackRBFSVMsupport")))
 @property (readonly) NSMutableArray<VSPKFloat *> *means_spack_swing_rbf __attribute__((swift_name("means_spack_swing_rbf")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_spack_swing_12_okt_rbf __attribute__((swift_name("scales_spack_swing_12_okt_rbf")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_spack_swing_rbf __attribute__((swift_name("scales_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv0_spack_swing_12_okt_rbf __attribute__((swift_name("sv0_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv0_spack_swing_rbf __attribute__((swift_name("sv0_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv100_spack_swing_12_okt_rbf __attribute__((swift_name("sv100_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv100_spack_swing_rbf __attribute__((swift_name("sv100_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv101_spack_swing_12_okt_rbf __attribute__((swift_name("sv101_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv101_spack_swing_rbf __attribute__((swift_name("sv101_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv102_spack_swing_12_okt_rbf __attribute__((swift_name("sv102_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv102_spack_swing_rbf __attribute__((swift_name("sv102_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv103_spack_swing_12_okt_rbf __attribute__((swift_name("sv103_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv103_spack_swing_rbf __attribute__((swift_name("sv103_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv104_spack_swing_12_okt_rbf __attribute__((swift_name("sv104_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv104_spack_swing_rbf __attribute__((swift_name("sv104_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv105_spack_swing_12_okt_rbf __attribute__((swift_name("sv105_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv105_spack_swing_rbf __attribute__((swift_name("sv105_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv106_spack_swing_12_okt_rbf __attribute__((swift_name("sv106_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv106_spack_swing_rbf __attribute__((swift_name("sv106_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv107_spack_swing_12_okt_rbf __attribute__((swift_name("sv107_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv107_spack_swing_rbf __attribute__((swift_name("sv107_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv108_spack_swing_12_okt_rbf __attribute__((swift_name("sv108_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv108_spack_swing_rbf __attribute__((swift_name("sv108_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv109_spack_swing_12_okt_rbf __attribute__((swift_name("sv109_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv10_spack_swing_12_okt_rbf __attribute__((swift_name("sv10_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv10_spack_swing_rbf __attribute__((swift_name("sv10_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv110_spack_swing_12_okt_rbf __attribute__((swift_name("sv110_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv111_spack_swing_12_okt_rbf __attribute__((swift_name("sv111_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv112_spack_swing_12_okt_rbf __attribute__((swift_name("sv112_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv113_spack_swing_12_okt_rbf __attribute__((swift_name("sv113_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv114_spack_swing_12_okt_rbf __attribute__((swift_name("sv114_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv115_spack_swing_12_okt_rbf __attribute__((swift_name("sv115_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv116_spack_swing_12_okt_rbf __attribute__((swift_name("sv116_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv117_spack_swing_12_okt_rbf __attribute__((swift_name("sv117_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv118_spack_swing_12_okt_rbf __attribute__((swift_name("sv118_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv11_spack_swing_12_okt_rbf __attribute__((swift_name("sv11_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv11_spack_swing_rbf __attribute__((swift_name("sv11_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv12_spack_swing_12_okt_rbf __attribute__((swift_name("sv12_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv12_spack_swing_rbf __attribute__((swift_name("sv12_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv13_spack_swing_12_okt_rbf __attribute__((swift_name("sv13_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv13_spack_swing_rbf __attribute__((swift_name("sv13_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv14_spack_swing_12_okt_rbf __attribute__((swift_name("sv14_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv14_spack_swing_rbf __attribute__((swift_name("sv14_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv15_spack_swing_12_okt_rbf __attribute__((swift_name("sv15_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv15_spack_swing_rbf __attribute__((swift_name("sv15_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv16_spack_swing_12_okt_rbf __attribute__((swift_name("sv16_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv16_spack_swing_rbf __attribute__((swift_name("sv16_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv17_spack_swing_12_okt_rbf __attribute__((swift_name("sv17_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv17_spack_swing_rbf __attribute__((swift_name("sv17_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv18_spack_swing_12_okt_rbf __attribute__((swift_name("sv18_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv18_spack_swing_rbf __attribute__((swift_name("sv18_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv19_spack_swing_12_okt_rbf __attribute__((swift_name("sv19_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv19_spack_swing_rbf __attribute__((swift_name("sv19_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv1_spack_swing_12_okt_rbf __attribute__((swift_name("sv1_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv1_spack_swing_rbf __attribute__((swift_name("sv1_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv20_spack_swing_12_okt_rbf __attribute__((swift_name("sv20_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv20_spack_swing_rbf __attribute__((swift_name("sv20_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv21_spack_swing_12_okt_rbf __attribute__((swift_name("sv21_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv21_spack_swing_rbf __attribute__((swift_name("sv21_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv22_spack_swing_12_okt_rbf __attribute__((swift_name("sv22_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv22_spack_swing_rbf __attribute__((swift_name("sv22_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv23_spack_swing_12_okt_rbf __attribute__((swift_name("sv23_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv23_spack_swing_rbf __attribute__((swift_name("sv23_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv24_spack_swing_12_okt_rbf __attribute__((swift_name("sv24_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv24_spack_swing_rbf __attribute__((swift_name("sv24_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv25_spack_swing_12_okt_rbf __attribute__((swift_name("sv25_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv25_spack_swing_rbf __attribute__((swift_name("sv25_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv26_spack_swing_12_okt_rbf __attribute__((swift_name("sv26_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv26_spack_swing_rbf __attribute__((swift_name("sv26_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv27_spack_swing_12_okt_rbf __attribute__((swift_name("sv27_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv27_spack_swing_rbf __attribute__((swift_name("sv27_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv28_spack_swing_12_okt_rbf __attribute__((swift_name("sv28_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv28_spack_swing_rbf __attribute__((swift_name("sv28_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv29_spack_swing_12_okt_rbf __attribute__((swift_name("sv29_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv29_spack_swing_rbf __attribute__((swift_name("sv29_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv2_spack_swing_12_okt_rbf __attribute__((swift_name("sv2_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv2_spack_swing_rbf __attribute__((swift_name("sv2_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv30_spack_swing_12_okt_rbf __attribute__((swift_name("sv30_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv30_spack_swing_rbf __attribute__((swift_name("sv30_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv31_spack_swing_12_okt_rbf __attribute__((swift_name("sv31_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv31_spack_swing_rbf __attribute__((swift_name("sv31_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv32_spack_swing_12_okt_rbf __attribute__((swift_name("sv32_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv32_spack_swing_rbf __attribute__((swift_name("sv32_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv33_spack_swing_12_okt_rbf __attribute__((swift_name("sv33_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv33_spack_swing_rbf __attribute__((swift_name("sv33_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv34_spack_swing_12_okt_rbf __attribute__((swift_name("sv34_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv34_spack_swing_rbf __attribute__((swift_name("sv34_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv35_spack_swing_12_okt_rbf __attribute__((swift_name("sv35_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv35_spack_swing_rbf __attribute__((swift_name("sv35_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv36_spack_swing_12_okt_rbf __attribute__((swift_name("sv36_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv36_spack_swing_rbf __attribute__((swift_name("sv36_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv37_spack_swing_12_okt_rbf __attribute__((swift_name("sv37_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv37_spack_swing_rbf __attribute__((swift_name("sv37_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv38_spack_swing_12_okt_rbf __attribute__((swift_name("sv38_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv38_spack_swing_rbf __attribute__((swift_name("sv38_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv39_spack_swing_12_okt_rbf __attribute__((swift_name("sv39_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv39_spack_swing_rbf __attribute__((swift_name("sv39_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv3_spack_swing_12_okt_rbf __attribute__((swift_name("sv3_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv3_spack_swing_rbf __attribute__((swift_name("sv3_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv40_spack_swing_12_okt_rbf __attribute__((swift_name("sv40_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv40_spack_swing_rbf __attribute__((swift_name("sv40_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv41_spack_swing_12_okt_rbf __attribute__((swift_name("sv41_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv41_spack_swing_rbf __attribute__((swift_name("sv41_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv42_spack_swing_12_okt_rbf __attribute__((swift_name("sv42_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv42_spack_swing_rbf __attribute__((swift_name("sv42_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv43_spack_swing_12_okt_rbf __attribute__((swift_name("sv43_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv43_spack_swing_rbf __attribute__((swift_name("sv43_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv44_spack_swing_12_okt_rbf __attribute__((swift_name("sv44_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv44_spack_swing_rbf __attribute__((swift_name("sv44_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv45_spack_swing_12_okt_rbf __attribute__((swift_name("sv45_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv45_spack_swing_rbf __attribute__((swift_name("sv45_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv46_spack_swing_12_okt_rbf __attribute__((swift_name("sv46_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv46_spack_swing_rbf __attribute__((swift_name("sv46_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv47_spack_swing_12_okt_rbf __attribute__((swift_name("sv47_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv47_spack_swing_rbf __attribute__((swift_name("sv47_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv48_spack_swing_12_okt_rbf __attribute__((swift_name("sv48_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv48_spack_swing_rbf __attribute__((swift_name("sv48_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv49_spack_swing_12_okt_rbf __attribute__((swift_name("sv49_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv49_spack_swing_rbf __attribute__((swift_name("sv49_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv4_spack_swing_12_okt_rbf __attribute__((swift_name("sv4_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv4_spack_swing_rbf __attribute__((swift_name("sv4_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv50_spack_swing_12_okt_rbf __attribute__((swift_name("sv50_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv50_spack_swing_rbf __attribute__((swift_name("sv50_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv51_spack_swing_12_okt_rbf __attribute__((swift_name("sv51_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv51_spack_swing_rbf __attribute__((swift_name("sv51_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv52_spack_swing_12_okt_rbf __attribute__((swift_name("sv52_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv52_spack_swing_rbf __attribute__((swift_name("sv52_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv53_spack_swing_12_okt_rbf __attribute__((swift_name("sv53_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv53_spack_swing_rbf __attribute__((swift_name("sv53_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv54_spack_swing_12_okt_rbf __attribute__((swift_name("sv54_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv54_spack_swing_rbf __attribute__((swift_name("sv54_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv55_spack_swing_12_okt_rbf __attribute__((swift_name("sv55_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv55_spack_swing_rbf __attribute__((swift_name("sv55_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv56_spack_swing_12_okt_rbf __attribute__((swift_name("sv56_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv56_spack_swing_rbf __attribute__((swift_name("sv56_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv57_spack_swing_12_okt_rbf __attribute__((swift_name("sv57_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv57_spack_swing_rbf __attribute__((swift_name("sv57_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv58_spack_swing_12_okt_rbf __attribute__((swift_name("sv58_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv58_spack_swing_rbf __attribute__((swift_name("sv58_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv59_spack_swing_12_okt_rbf __attribute__((swift_name("sv59_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv59_spack_swing_rbf __attribute__((swift_name("sv59_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv5_spack_swing_12_okt_rbf __attribute__((swift_name("sv5_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv5_spack_swing_rbf __attribute__((swift_name("sv5_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv60_spack_swing_12_okt_rbf __attribute__((swift_name("sv60_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv60_spack_swing_rbf __attribute__((swift_name("sv60_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv61_spack_swing_12_okt_rbf __attribute__((swift_name("sv61_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv61_spack_swing_rbf __attribute__((swift_name("sv61_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv62_spack_swing_12_okt_rbf __attribute__((swift_name("sv62_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv62_spack_swing_rbf __attribute__((swift_name("sv62_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv63_spack_swing_12_okt_rbf __attribute__((swift_name("sv63_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv63_spack_swing_rbf __attribute__((swift_name("sv63_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv64_spack_swing_12_okt_rbf __attribute__((swift_name("sv64_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv64_spack_swing_rbf __attribute__((swift_name("sv64_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv65_spack_swing_12_okt_rbf __attribute__((swift_name("sv65_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv65_spack_swing_rbf __attribute__((swift_name("sv65_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv66_spack_swing_12_okt_rbf __attribute__((swift_name("sv66_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv66_spack_swing_rbf __attribute__((swift_name("sv66_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv67_spack_swing_12_okt_rbf __attribute__((swift_name("sv67_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv67_spack_swing_rbf __attribute__((swift_name("sv67_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv68_spack_swing_12_okt_rbf __attribute__((swift_name("sv68_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv68_spack_swing_rbf __attribute__((swift_name("sv68_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv69_spack_swing_12_okt_rbf __attribute__((swift_name("sv69_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv69_spack_swing_rbf __attribute__((swift_name("sv69_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv6_spack_swing_12_okt_rbf __attribute__((swift_name("sv6_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv6_spack_swing_rbf __attribute__((swift_name("sv6_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv70_spack_swing_12_okt_rbf __attribute__((swift_name("sv70_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv70_spack_swing_rbf __attribute__((swift_name("sv70_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv71_spack_swing_12_okt_rbf __attribute__((swift_name("sv71_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv71_spack_swing_rbf __attribute__((swift_name("sv71_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv72_spack_swing_12_okt_rbf __attribute__((swift_name("sv72_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv72_spack_swing_rbf __attribute__((swift_name("sv72_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv73_spack_swing_12_okt_rbf __attribute__((swift_name("sv73_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv73_spack_swing_rbf __attribute__((swift_name("sv73_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv74_spack_swing_12_okt_rbf __attribute__((swift_name("sv74_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv74_spack_swing_rbf __attribute__((swift_name("sv74_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv75_spack_swing_12_okt_rbf __attribute__((swift_name("sv75_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv75_spack_swing_rbf __attribute__((swift_name("sv75_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv76_spack_swing_12_okt_rbf __attribute__((swift_name("sv76_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv76_spack_swing_rbf __attribute__((swift_name("sv76_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv77_spack_swing_12_okt_rbf __attribute__((swift_name("sv77_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv77_spack_swing_rbf __attribute__((swift_name("sv77_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv78_spack_swing_12_okt_rbf __attribute__((swift_name("sv78_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv78_spack_swing_rbf __attribute__((swift_name("sv78_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv79_spack_swing_12_okt_rbf __attribute__((swift_name("sv79_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv79_spack_swing_rbf __attribute__((swift_name("sv79_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv7_spack_swing_12_okt_rbf __attribute__((swift_name("sv7_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv7_spack_swing_rbf __attribute__((swift_name("sv7_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv80_spack_swing_12_okt_rbf __attribute__((swift_name("sv80_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv80_spack_swing_rbf __attribute__((swift_name("sv80_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv81_spack_swing_12_okt_rbf __attribute__((swift_name("sv81_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv81_spack_swing_rbf __attribute__((swift_name("sv81_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv82_spack_swing_12_okt_rbf __attribute__((swift_name("sv82_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv82_spack_swing_rbf __attribute__((swift_name("sv82_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv83_spack_swing_12_okt_rbf __attribute__((swift_name("sv83_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv83_spack_swing_rbf __attribute__((swift_name("sv83_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv84_spack_swing_12_okt_rbf __attribute__((swift_name("sv84_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv84_spack_swing_rbf __attribute__((swift_name("sv84_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv85_spack_swing_12_okt_rbf __attribute__((swift_name("sv85_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv85_spack_swing_rbf __attribute__((swift_name("sv85_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv86_spack_swing_12_okt_rbf __attribute__((swift_name("sv86_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv86_spack_swing_rbf __attribute__((swift_name("sv86_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv87_spack_swing_12_okt_rbf __attribute__((swift_name("sv87_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv87_spack_swing_rbf __attribute__((swift_name("sv87_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv88_spack_swing_12_okt_rbf __attribute__((swift_name("sv88_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv88_spack_swing_rbf __attribute__((swift_name("sv88_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv89_spack_swing_12_okt_rbf __attribute__((swift_name("sv89_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv89_spack_swing_rbf __attribute__((swift_name("sv89_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv8_spack_swing_12_okt_rbf __attribute__((swift_name("sv8_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv8_spack_swing_rbf __attribute__((swift_name("sv8_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv90_spack_swing_12_okt_rbf __attribute__((swift_name("sv90_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv90_spack_swing_rbf __attribute__((swift_name("sv90_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv91_spack_swing_12_okt_rbf __attribute__((swift_name("sv91_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv91_spack_swing_rbf __attribute__((swift_name("sv91_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv92_spack_swing_12_okt_rbf __attribute__((swift_name("sv92_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv92_spack_swing_rbf __attribute__((swift_name("sv92_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv93_spack_swing_12_okt_rbf __attribute__((swift_name("sv93_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv93_spack_swing_rbf __attribute__((swift_name("sv93_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv94_spack_swing_12_okt_rbf __attribute__((swift_name("sv94_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv94_spack_swing_rbf __attribute__((swift_name("sv94_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv95_spack_swing_12_okt_rbf __attribute__((swift_name("sv95_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv95_spack_swing_rbf __attribute__((swift_name("sv95_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv96_spack_swing_12_okt_rbf __attribute__((swift_name("sv96_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv96_spack_swing_rbf __attribute__((swift_name("sv96_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv97_spack_swing_12_okt_rbf __attribute__((swift_name("sv97_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv97_spack_swing_rbf __attribute__((swift_name("sv97_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv98_spack_swing_12_okt_rbf __attribute__((swift_name("sv98_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv98_spack_swing_rbf __attribute__((swift_name("sv98_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv99_spack_swing_12_okt_rbf __attribute__((swift_name("sv99_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv99_spack_swing_rbf __attribute__((swift_name("sv99_spack_swing_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv9_spack_swing_12_okt_rbf __attribute__((swift_name("sv9_spack_swing_12_okt_rbf")));
-@property (readonly) NSMutableArray<VSPKFloat *> *sv9_spack_swing_rbf __attribute__((swift_name("sv9_spack_swing_rbf")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StandardScaler")))
-@interface VSPKStandardScaler : VSPKVectorTransformer
-- (instancetype)initWithScales:(NSMutableArray<VSPKFloat *> *)scales means:(NSMutableArray<VSPKFloat *> *)means __attribute__((swift_name("init(scales:means:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (VSPKKotlinArray<VSPKFloat *> *)transformData:(VSPKKotlinArray<VSPKFloat *> *)data __attribute__((swift_name("transform(data:)")));
-@property (readonly) NSMutableArray<VSPKFloat *> *means __attribute__((swift_name("means")));
-@property (readonly) NSMutableArray<VSPKFloat *> *scales __attribute__((swift_name("scales")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -9232,8 +7759,6 @@ __attribute__((swift_name("SwingSymLenientParameters")))
 + (instancetype)swingSymLenientParameters __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKSwingSymLenientParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_swing_sym_lenient_200122 __attribute__((swift_name("PCA_components_swing_sym_lenient_200122")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_swing_sym_lenient_200122 __attribute__((swift_name("c0_swing_sym_lenient_200122")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_swing_sym_lenient_200122 __attribute__((swift_name("c1_swing_sym_lenient_200122")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_swing_sym_lenient_200122 __attribute__((swift_name("means_swing_sym_lenient_200122")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_swing_sym_lenient_200122 __attribute__((swift_name("scales_swing_sym_lenient_200122")));
 @end;
@@ -9246,8 +7771,6 @@ __attribute__((swift_name("SymAntiSymParameters")))
 + (instancetype)symAntiSymParameters __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKSymAntiSymParameters *shared __attribute__((swift_name("shared")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCAComponentsSymAntiSym __attribute__((swift_name("PCAComponentsSymAntiSym")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0SymAntiSym __attribute__((swift_name("c0SymAntiSym")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1SymAntiSym __attribute__((swift_name("c1SymAntiSym")));
 @property (readonly) NSMutableArray<VSPKFloat *> *meansSymAntiSym __attribute__((swift_name("meansSymAntiSym")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scalesSymAntiSym __attribute__((swift_name("scalesSymAntiSym")));
 @end;
@@ -9262,16 +7785,47 @@ __attribute__((swift_name("WeakEvaluatorParameters")))
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_regular_lenient_250921 __attribute__((swift_name("PCA_components_regular_lenient_250921")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_weak_eval __attribute__((swift_name("PCA_components_weak_eval")));
 @property (readonly) NSMutableArray<NSMutableArray<VSPKFloat *> *> *PCA_components_weak_eval_swing_jun30 __attribute__((swift_name("PCA_components_weak_eval_swing_jun30")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_regular_lenient_250921 __attribute__((swift_name("c0_regular_lenient_250921")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_weak_eval __attribute__((swift_name("c0_weak_eval")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c0_weak_eval_swing_jun30 __attribute__((swift_name("c0_weak_eval_swing_jun30")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_regular_lenient_250921 __attribute__((swift_name("c1_regular_lenient_250921")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_weak_eval __attribute__((swift_name("c1_weak_eval")));
-@property (readonly) NSMutableArray<VSPKFloat *> *c1_weak_eval_swing_jun30 __attribute__((swift_name("c1_weak_eval_swing_jun30")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_regular_lenient_250921 __attribute__((swift_name("means_regular_lenient_250921")));
 @property (readonly) NSMutableArray<VSPKFloat *> *means_weak_eval_swing_jun30 __attribute__((swift_name("means_weak_eval_swing_jun30")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_regular_lenient_250921 __attribute__((swift_name("scales_regular_lenient_250921")));
 @property (readonly) NSMutableArray<VSPKFloat *> *scales_weak_eval_swing_jun30 __attribute__((swift_name("scales_weak_eval_swing_jun30")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EllipseEvaluator")))
+@interface VSPKEllipseEvaluator : VSPKMLModel
+- (instancetype)initWithCenterX:(float)centerX centerY:(float)centerY alpha:(float)alpha radiusA:(float)radiusA radiusB:(float)radiusB scaler:(VSPKStandardScaler *)scaler PCA:(VSPKPCATransformer *)PCA __attribute__((swift_name("init(centerX:centerY:alpha:radiusA:radiusB:scaler:PCA:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FirstPCAEvaluator")))
+@interface VSPKFirstPCAEvaluator : VSPKMLModel
+- (instancetype)initWithX0:(float)x0 scaler:(VSPKStandardScaler *)scaler PCA:(VSPKPCATransformer *)PCA __attribute__((swift_name("init(x0:scaler:PCA:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("HyperbolaEvaluator")))
+@interface VSPKHyperbolaEvaluator : VSPKMLModel
+- (instancetype)initWithScaler:(VSPKStandardScaler *)scaler PCA:(VSPKPCATransformer *)PCA hyperbolaAngle:(double)hyperbolaAngle hyperbolaInnerConstant:(double)hyperbolaInnerConstant hyperbolaXShift:(double)hyperbolaXShift hyperbolaYShift:(double)hyperbolaYShift __attribute__((swift_name("init(scaler:PCA:hyperbolaAngle:hyperbolaInnerConstant:hyperbolaXShift:hyperbolaYShift:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NoPCAEllipseEvaluator")))
+@interface VSPKNoPCAEllipseEvaluator : VSPKMLModel
+- (instancetype)initWithCenterX:(float)centerX centerY:(float)centerY alpha:(float)alpha radiusA:(float)radiusA radiusB:(float)radiusB scaler:(VSPKStandardScaler *)scaler __attribute__((swift_name("init(centerX:centerY:alpha:radiusA:radiusB:scaler:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTransformers:(NSMutableArray<VSPKVectorTransformer *> *)transformers __attribute__((swift_name("init(transformers:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (BOOL)predictX:(VSPKKotlinArray<VSPKFloat *> *)x __attribute__((swift_name("predict(x:)")));
+@property (readonly) float alpha __attribute__((swift_name("alpha")));
+@property (readonly) float centerX __attribute__((swift_name("centerX")));
+@property (readonly) float centerY __attribute__((swift_name("centerY")));
+@property (readonly) float radiusA __attribute__((swift_name("radiusA")));
+@property (readonly) float radiusB __attribute__((swift_name("radiusB")));
 @end;
 
 __attribute__((swift_name("LegacyInterface")))
@@ -9996,7 +8550,7 @@ __attribute__((swift_name("StepEventAlgorithmNotInitializedException")))
 __attribute__((swift_name("CorridorFinder")))
 @protocol VSPKCorridorFinder
 @required
-- (VSPKDouble * _Nullable)findClearPathX:(float)x y:(float)y nonRelativePath:(NSMutableArray<VSPKKotlinPair<VSPKDouble *, VSPKDouble *> *> *)nonRelativePath pointOnNavMesh:(VSPKBoolean *(^ _Nullable)(VSPKFloat *, VSPKFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:nonRelativePath:pointOnNavMesh:)")));
+- (VSPKDouble * _Nullable)findClearPathX:(float)x y:(float)y pointOnNavMesh:(VSPKBoolean *(^ _Nullable)(VSPKFloat *, VSPKFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:pointOnNavMesh:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -10004,17 +8558,7 @@ __attribute__((swift_name("BasicYAxisGetter")))
 @interface VSPKBasicYAxisGetter : VSPKBase <VSPKCorridorFinder>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKDouble * _Nullable)findClearPathX:(float)x y:(float)y nonRelativePath:(NSMutableArray<VSPKKotlinPair<VSPKDouble *, VSPKDouble *> *> *)nonRelativePath pointOnNavMesh:(VSPKBoolean *(^ _Nullable)(VSPKFloat *, VSPKFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:nonRelativePath:pointOnNavMesh:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("OrientationHistory")))
-@interface VSPKOrientationHistory : VSPKBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (void)addElement:(VSPKIQPSDeviceOrientation * _Nullable)element __attribute__((swift_name("add(element:)")));
-- (void)clear __attribute__((swift_name("clear()")));
-- (VSPKIQPSDeviceOrientation * _Nullable)getMostCommonOrientation __attribute__((swift_name("getMostCommonOrientation()")));
+- (VSPKDouble * _Nullable)findClearPathX:(float)x y:(float)y pointOnNavMesh:(VSPKBoolean *(^ _Nullable)(VSPKFloat *, VSPKFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:pointOnNavMesh:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -10022,7 +8566,7 @@ __attribute__((swift_name("RayTracingCorridorFinder")))
 @interface VSPKRayTracingCorridorFinder : VSPKBase <VSPKCorridorFinder>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKDouble * _Nullable)findClearPathX:(float)x y:(float)y nonRelativePath:(NSMutableArray<VSPKKotlinPair<VSPKDouble *, VSPKDouble *> *> *)nonRelativePath pointOnNavMesh:(VSPKBoolean *(^ _Nullable)(VSPKFloat *, VSPKFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:nonRelativePath:pointOnNavMesh:)")));
+- (VSPKDouble * _Nullable)findClearPathX:(float)x y:(float)y pointOnNavMesh:(VSPKBoolean *(^ _Nullable)(VSPKFloat *, VSPKFloat *))pointOnNavMesh __attribute__((swift_name("findClearPath(x:y:pointOnNavMesh:)")));
 @end;
 
 __attribute__((swift_name("StepEventSolver")))
@@ -10031,12 +8575,6 @@ __attribute__((swift_name("StepEventSolver")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)dispose __attribute__((swift_name("dispose()")));
 - (VSPKKotlinPair<VSPKFloat *, VSPKFloat *> *)solveX:(NSMutableArray<NSMutableArray<VSPKFloat *> *> *)X y:(NSMutableArray<VSPKFloat *> *)y __attribute__((swift_name("solve(X:y:)")));
-@end;
-
-__attribute__((swift_name("UserData")))
-@interface VSPKUserData : VSPKBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -10092,15 +8630,8 @@ __attribute__((swift_name("UtilsKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MoveVectorKt")))
-@interface VSPKMoveVectorKt : VSPKBase
-+ (VSPKMoveVector *)sum:(id)receiver __attribute__((swift_name("sum(_:)")));
-+ (double)totalMagnitude:(id)receiver __attribute__((swift_name("totalMagnitude(_:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VectorKt")))
-@interface VSPKVectorKt : VSPKBase
+__attribute__((swift_name("ModelExtensionsKt")))
+@interface VSPKModelExtensionsKt : VSPKBase
 + (VSPKVector *)sum:(id)receiver __attribute__((swift_name("sum(_:)")));
 + (double)totalMagnitude:(id)receiver __attribute__((swift_name("totalMagnitude(_:)")));
 @end;
@@ -10109,6 +8640,12 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("PathfinderUtilsKt")))
 @interface VSPKPathfinderUtilsKt : VSPKBase
 + (VSPKPointF * _Nullable)getMinOrNull:(NSArray<VSPKPointF *> *)receiver selector:(VSPKDouble *(^)(VSPKPointF *))selector __attribute__((swift_name("getMinOrNull(_:selector:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticAngleCompensatorKt")))
+@interface VSPKStaticAngleCompensatorKt : VSPKBase
++ (VSPKIQPSDeviceOrientation * _Nullable)getMostCommonOrientation:(NSMutableArray<id> *)receiver __attribute__((swift_name("getMostCommonOrientation(_:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

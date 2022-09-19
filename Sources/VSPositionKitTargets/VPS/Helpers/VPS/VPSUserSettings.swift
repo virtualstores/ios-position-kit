@@ -8,12 +8,25 @@
 import Foundation
 import VSFoundation
 import VSPositionKit
+import Combine
 
 public final class VPSUserSettings: IQPSUserSettings {
     //@Inject var persistence: Persistence
+
+    var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
+
+    var vpsProfile: String? {
+        didSet {
+            modifiedUserPublisher.send(vpsProfile)
+        }
+    }
     
     public init() {
         saveUserData()
+    }
+
+    func set(vpsProfile: String) {
+        self.vpsProfile = vpsProfile
     }
     
     func saveUserData() {
