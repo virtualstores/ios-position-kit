@@ -21,6 +21,8 @@ public final class PositionManager: IPositionKit {
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
     
@@ -47,7 +49,7 @@ public final class PositionManager: IPositionKit {
     
     public func start() throws {
 //        rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
-//        
+//
 //        sensor.sensorPublisher
 //            .compactMap { $0 }
 //            .sink { _ in
@@ -131,6 +133,16 @@ public final class PositionManager: IPositionKit {
             .compactMap { $0 }
             .sink(receiveValue: { (identifier, data) in
                 self.recordingPublisher.send((identifier: identifier, data: data))
+            }).store(in: &cancellable)
+        vps?.recordingPublisherPartial
+            .compactMap { $0 }
+            .sink(receiveValue: { (identifier, data) in
+                self.recordingPublisherPartial.send((identifier: identifier, data: data))
+            }).store(in: &cancellable)
+        vps?.recordingPublisherEnd
+            .compactMap { $0 }
+            .sink(receiveValue: { (identifier, data) in
+                self.recordingPublisherEnd.send((identifier: identifier, data: data))
             }).store(in: &cancellable)
 
         vps?.deviceOrientationPublisher

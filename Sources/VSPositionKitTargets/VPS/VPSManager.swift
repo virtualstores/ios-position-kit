@@ -25,6 +25,8 @@ public final class VPSManager: VPSWrapper {
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
@@ -70,6 +72,15 @@ public final class VPSManager: VPSWrapper {
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisher.send($0) }
             .store(in: &cancellable)
+        qpsReplayInteractor.replayInteractorDataPublisherPartial
+            .compactMap { $0 }
+            .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
+            .store(in: &cancellable)
+        qpsReplayInteractor.replayInteractorDataPublisherEnd
+            .compactMap { $0 }
+            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
+            .store(in: &cancellable)
+
         DispatchQueue.main.async {
             self.dataCommunicator.dataCommunicatorSettings.modifiedUserPublisher
                 .compactMap { $0 }
