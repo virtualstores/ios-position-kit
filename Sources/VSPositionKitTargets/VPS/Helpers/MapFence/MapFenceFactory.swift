@@ -8,7 +8,7 @@
 import Foundation
 import VSFoundation
 
-internal class MapFenceFactory {
+public class MapFenceFactory {
     static func getMapFenceData(fromJson json: Data) -> MapFenceData? {
         return MapFenceParser.getMapFenceData(fromJsonData: json)
     }
@@ -17,7 +17,7 @@ internal class MapFenceFactory {
         return MapFenceParser.getMapFenceData(fromJsonFile: file)
     }
 
-    static func getMapFenceData(fromMapFence mapFence: MapFence) -> MapFenceData? {
+    public static func getMapFenceData(fromMapFence mapFence: MapFence) -> MapFenceData? {
         return MapFenceParser.getMapFenceData(fromMapFence: mapFence)
     }
 }

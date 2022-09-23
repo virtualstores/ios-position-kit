@@ -46,15 +46,15 @@ public final class PositionManager: IPositionKit {
     }
     
     public func start() throws {
-        rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
-        
-        sensor.sensorPublisher
-            .compactMap { $0 }
-            .sink { _ in
-            } receiveValue: { data in
-                self.rotationSensor?.input(motionSensorData: data)
-            }
-            .store(in: &cancellable)
+//        rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
+//        
+//        sensor.sensorPublisher
+//            .compactMap { $0 }
+//            .sink { _ in
+//            } receiveValue: { data in
+//                self.rotationSensor?.input(motionSensorData: data)
+//            }
+//            .store(in: &cancellable)
         
         try sensor.start()
     }
