@@ -11,6 +11,10 @@ import VSPositionKit
 import Combine
 
 public final class VPSUserSettings: IQPSUserSettings {
+    public var headingCorrection: KotlinDouble?
+
+    public var speedScaling: KotlinFloat?
+
     //@Inject var persistence: Persistence
 
     var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)

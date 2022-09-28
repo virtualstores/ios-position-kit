@@ -8,17 +8,17 @@
 import Foundation
 import VSPositionKit
 
-class VPSDataCommunicator: DataCommunicator {
+class VPSDataCommunicator/*: DataCommunicator*/ {
     let dataCommunicatorSettings = VPSUserSettings()
     
-    public func getRegressionVectors() -> DataCommunicatorRegressionVectors? {
-        let data = DataCommunicatorRegressionVectors(
-            alpha: dataCommunicatorSettings.alpha,
-            beta: dataCommunicatorSettings.beta,
-            y: dataCommunicatorSettings.y
-        )
-        return data
-    }
+    //public func getRegressionVectors() -> DataCommunicatorRegressionVectors? {
+    //    let data = DataCommunicatorRegressionVectors(
+    //        alpha: dataCommunicatorSettings.alpha,
+    //        beta: dataCommunicatorSettings.beta,
+    //        y: dataCommunicatorSettings.y
+    //    )
+    //    return data
+    //}
     
     public func onNewCoefficients(slope: Float, intercept: Float) {
         dataCommunicatorSettings.speedRegressionSlope = KotlinFloat(float: slope)

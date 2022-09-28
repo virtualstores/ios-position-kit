@@ -11,7 +11,7 @@ import VSFoundation
 import CoreGraphics
 import Combine
 
-public protocol VPSWrapper {
+protocol VPSWrapper {
     /// Publishes the position data or error
     var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> { get }
 

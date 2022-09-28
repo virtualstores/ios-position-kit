@@ -24,6 +24,7 @@ public final class PositionManager: IPositionKit {
     public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
+    public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
     
     public var rtlsOption: RtlsOptions?
@@ -40,9 +41,9 @@ public final class PositionManager: IPositionKit {
     
     public init() {}
     
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, shouldRecord: Bool) {
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage) {
         self.rtlsOption = rtlsOption
-        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), shouldRecord: shouldRecord, floorHeightDiffInMeters: floorheight, mapData: mapData, pixelsPerMeter: rtlsOption.pixelsPerMeter)
+        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), floorHeightDiffInMeters: floorheight, mapData: mapData, pixelsPerMeter: rtlsOption.pixelsPerMeter, parameterPackage: parameterPackage)
         
         bindEnginePublishers()
     }
@@ -89,6 +90,13 @@ public final class PositionManager: IPositionKit {
     }
     
     func bindEnginePublishers() {
+        backgroundAccess.locationHeadingPublisher
+            .compactMap { $0 }
+            .sink { error in
+                Logger.init().log(message: "locationHeadingPublisher error")
+            } receiveValue: { [weak self] data in
+                self?.locationHeadingPublisher.send(data)
+            }.store(in: &cancellable)
         vps?.positionPublisher
             .compactMap { $0 }
             .sink { [weak self] _ in
@@ -113,14 +121,6 @@ public final class PositionManager: IPositionKit {
                 self.realWorldOffsetPublisher.send(data)
             }).store(in: &cancellable)
         
-        backgroundAccess.locationHeadingPublisher
-            .compactMap { $0 }
-            .sink { error in
-                Logger.init().log(message: "locationHeadingPublisher error")
-            } receiveValue: { [weak self] data in
-                self?.locationHeadingPublisher.send(data)
-            }.store(in: &cancellable)
-        
         vps?.changedFloorPublisher
             .compactMap { $0 }
             .sink { error in
@@ -131,19 +131,16 @@ public final class PositionManager: IPositionKit {
         
         vps?.recordingPublisher
             .compactMap { $0 }
-            .sink(receiveValue: { (identifier, data) in
-                self.recordingPublisher.send((identifier: identifier, data: data))
-            }).store(in: &cancellable)
+            .sink(receiveValue: { [weak self] in self?.recordingPublisherEnd.send($0) })
+            .store(in: &cancellable)
         vps?.recordingPublisherPartial
             .compactMap { $0 }
-            .sink(receiveValue: { (identifier, data) in
-                self.recordingPublisherPartial.send((identifier: identifier, data: data))
-            }).store(in: &cancellable)
+            .sink(receiveValue: { [weak self] in self?.recordingPublisherEnd.send($0) })
+            .store(in: &cancellable)
         vps?.recordingPublisherEnd
             .compactMap { $0 }
-            .sink(receiveValue: { (identifier, data) in
-                self.recordingPublisherEnd.send((identifier: identifier, data: data))
-            }).store(in: &cancellable)
+            .sink(receiveValue: { [weak self] in self?.recordingPublisherEnd.send($0) })
+            .store(in: &cancellable)
 
         vps?.deviceOrientationPublisher
             .compactMap { $0 }
@@ -152,6 +149,11 @@ public final class PositionManager: IPositionKit {
             }, receiveValue: { (orientation) in
                 self.deviceOrientationPublisher.send(orientation)
             }).store(in: &cancellable)
+
+        vps?.rescueModePublisher
+          .compactMap { $0 }
+          .sink(receiveValue: { [weak self] in self?.rescueModePublisher.send($0) })
+          .store(in: &cancellable)
 
         vps?.modifiedUserPublisher
             .compactMap { $0 }

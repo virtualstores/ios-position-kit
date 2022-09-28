@@ -12,22 +12,22 @@ import Combine
 import VSPositionKit
 import VSSensorFusion
 
-public final class VPSManager: VPSWrapper {
-    public var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
-    public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
-    public var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
-    public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
-    public var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    public var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    public var sensorsInitiatedPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    public var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    public var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    public var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
-    public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
+final class VPSManager: VPSWrapper {
+    var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
+    var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
+    var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
+    var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
+    var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+    var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+    var sensorsInitiatedPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+    var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+    var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
+    var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
+    var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
+    var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
 
@@ -41,18 +41,18 @@ public final class VPSManager: VPSWrapper {
     private var vps: IQPSVPS? { baseVPSHandler?.vps }
     private var mapInformation: VPSMapInformation?
 
-    private let shouldRecord: Bool
     private var isRecording = false
     private var floorHeightDiffInMeters: Double?
+    private var parameterPackage: ParameterPackage
     
     private var dataCommunicator = VPSDataCommunicator()
 
     private var cancellable = Set<AnyCancellable>()
 
-    public init(size: CGSize, shouldRecord: Bool, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double) {
-        self.shouldRecord = shouldRecord
+    init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage) {
         self.qpsReplayInteractor = VPSReplayInteractor()
         self.floorHeightDiffInMeters = floorHeightDiffInMeters
+        self.parameterPackage = parameterPackage
         self.createMapInformation(with: mapData, pixelsPerMeter: pixelsPerMeter)
         self.bindPublishers()
     }
@@ -62,12 +62,6 @@ public final class VPSManager: VPSWrapper {
     }
 
     func bindPublishers() {
-//        qpsReplayInteractor.replayInteractorDataPublisher
-//            .compactMap { $0 }
-//            .sink { (identifier, data) in
-//                self.recordingPublisher.send((identifier: identifier, data: data))
-//            }.store(in: &cancellable)
-
         qpsReplayInteractor.replayInteractorDataPublisher
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisher.send($0) }
@@ -89,29 +83,38 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-    public func start() {
-        sensor.serialDispatch.async {
+    func start() {
+        sensor.serialDispatch.async { [self] in
             self.createBaseVPSHandler()
 
             guard let mapInfo = self.mapInformation, let handler = self.baseVPSHandler, !self.qpsRunning else { return }
             self.qpsRunning = true
 
-            self.qpsHandler = LegacyQPSHandlerEmulator(rawSensorManager: self.sensor, interactor: handler, replayInteractor: self.qpsReplayInteractor, mapInformation: mapInfo, userSettings: self.dataCommunicator.dataCommunicatorSettings, parameterPackageEnum: .ikea, mlCommunicator: self.dataCommunicator, enableTeoML: false)
+            self.qpsHandler = LegacyQPSHandlerEmulator(
+              rawSensorManager: sensor,
+              interactor: handler,
+              replayInteractor: qpsReplayInteractor,
+              mapInformation: mapInfo,
+              userSettings: dataCommunicator.dataCommunicatorSettings,
+              parameterPackageEnum: parameterPackage.asParameterPackageEnum,
+              mlAlgorithm: nil,
+              mlData: nil
+            )
 
             self.sensor.startAllSensors()
         }
     }
 
-    public func startRecording() {
+    func startRecording() {
         sensor.serialDispatch.async {
-              if self.qpsRunning /*&& self.shouldRecord*/ {
+              if self.qpsRunning {
                 self.vps?.startRecording()
                 self.isRecording = true
             }
         }
     }
 
-    public func stop() {
+    func stop() {
         sensor.serialDispatch.async {
             if self.qpsRunning {
                 self.stopRecording()
@@ -123,7 +126,7 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-    public func stopRecording() {
+    func stopRecording() {
         sensor.serialDispatch.async {
               if self.isRecording {
                 self.vps?.stopRecording()
@@ -132,7 +135,7 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-    public func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool) {
+    func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool) {
         start()
         sensor.serialDispatch.async {
             self.vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
@@ -140,7 +143,7 @@ public final class VPSManager: VPSWrapper {
         }
     }
     
-    public func syncPosition(position: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
+    func syncPosition(position: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
         sensor.serialDispatch.async {
             let syncData = VPSSyncData()
 
@@ -156,18 +159,18 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-    public func initPositionSync() {
+    func initPositionSync() {
         if qpsRunning {
             vps?.doInitPositionSyncEvent()
         }
     }
 
-    public func setPathfinder(pathfinder: BasePathfinder) {
+    func setPathfinder(pathfinder: BasePathfinder) {
         self.pathfinder = pathfinder
     }
 
     // why does this exist? is this not the same as sync?
-    public func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
+    func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
         sensor.serialDispatch.async {
             if self.qpsRunning {
                 let data = VPSSyncData()
@@ -185,11 +188,11 @@ public final class VPSManager: VPSWrapper {
         }
     }
 
-    public func prepareAngle() { }
+    func prepareAngle() { }
 
     private func createBaseVPSHandler() {
         self.baseVPSHandler = BaseVPSHandler(
-            parameterPackageEnum: .retail,
+            parameterPackageEnum: parameterPackage.asParameterPackageEnum,
             onNewNavigationBundle: { [weak self] (x, y, std, _) in
               if let x = x, let y = y, let std = std {
                 let position =  PositionBundle(x: Float(truncating: x), y: Float(truncating: y), std: Float(truncating: std))
@@ -221,6 +224,9 @@ public final class VPSManager: VPSWrapper {
             },
             onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
               DispatchQueue.main.async { self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction)) }
+            },
+            onNewStepEvent: { [weak self] (stepEventData) in
+              DispatchQueue.main.async {  }
             }
         )
     }
@@ -235,5 +241,15 @@ public final class VPSManager: VPSWrapper {
         //TODO: create offsetZones
         //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
         mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: pixelsPerMeter, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
+    }
+}
+
+extension ParameterPackage {
+    var asParameterPackageEnum: IQPSParameterPackageEnum {
+        switch self {
+        case .retail: return .retail
+        case .client_1: return .jula
+        case .client_2: return .ikea
+        }
     }
 }

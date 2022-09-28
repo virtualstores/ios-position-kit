@@ -26,6 +26,10 @@ public protocol IPositionKit {
     var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
 
     var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
+
+    var rescueModePublisher: CurrentValueSubject<Int64?, Never> { get }
+
+    var modifiedUserPublisher: CurrentValueSubject<String?, Never> { get }
     
     /// Starts position managers. Will produce results to positionPublisher.
     func start() throws
@@ -37,7 +41,7 @@ public protocol IPositionKit {
     func setBackgroundAccess(isActive: Bool)
     
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, shouldRecord: Bool)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage)
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)
