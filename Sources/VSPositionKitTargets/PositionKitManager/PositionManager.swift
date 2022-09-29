@@ -26,6 +26,7 @@ public final class PositionManager: IPositionKit {
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
+    public var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
     
     public var rtlsOption: RtlsOptions?
     
@@ -158,6 +159,11 @@ public final class PositionManager: IPositionKit {
         vps?.modifiedUserPublisher
             .compactMap { $0 }
             .sink { [weak self] in self?.modifiedUserPublisher.send($0) }
+            .store(in: &cancellable)
+
+        vps?.stepEventDataPublisher
+            .compactMap { $0 }
+            .sink(receiveValue: { [weak self] in self?.stepEventDataPublisher.send($0) })
             .store(in: &cancellable)
     }
     

@@ -45,6 +45,8 @@ protocol VPSWrapper {
     /// Publishes the floor change
     var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
 
+  var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> { get }
+
     /// Starts the vps
     func start()
 

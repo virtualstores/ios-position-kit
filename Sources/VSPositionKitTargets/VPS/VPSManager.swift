@@ -28,6 +28,7 @@ final class VPSManager: VPSWrapper {
     var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
+    var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
 
@@ -226,7 +227,7 @@ final class VPSManager: VPSWrapper {
               DispatchQueue.main.async { self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction)) }
             },
             onNewStepEvent: { [weak self] (stepEventData) in
-              DispatchQueue.main.async {  }
+              DispatchQueue.main.async { self?.stepEventDataPublisher.send(stepEventData.asStepEventData) }
             }
         )
     }
@@ -252,4 +253,20 @@ extension ParameterPackage {
         case .client_2: return .ikea
         }
     }
+}
+
+extension VSPositionKit.StepEventData {
+  var asStepEventData: VSFoundation.StepEventData {
+    VSFoundation.StepEventData(
+      direction: direction as? Double,
+      directionCertainty: directionCertainty as? Double,
+      duration: duration,
+      relativeDirection: relativeDirection as? Double,
+      speed: speed as? Double,
+      stepCertainty: stepCertainty,
+      success: success,
+      timestamp: timestamp,
+      type: type.asDeviceOrientation
+    )
+  }
 }

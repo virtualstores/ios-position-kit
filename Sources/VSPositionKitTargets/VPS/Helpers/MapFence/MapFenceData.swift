@@ -19,12 +19,8 @@ public struct MapFenceData {
     private var _polygons: [[PointF]]
 
     var polygons: [[PointF]] {
-        get {
-            return flippedYAxis ? _polygons.map { $0.map { PointF(x: Double($0.x), y: self.heightInPixels - Double($0.y)) }} : _polygons
-        }
-        set {
-            self._polygons = newValue
-        }
+        get { return flippedYAxis ? _polygons.map { $0.map { PointF(x: Double($0.x), y: self.heightInPixels - Double($0.y)) }} : _polygons }
+        set { self._polygons = newValue }
     }
 
     init(width: Int, height: Int, widthInPixels: Double, heightInPixels: Double, polygons: [[PointF]], flippedYAxis: Bool = true) {
@@ -39,16 +35,13 @@ public struct MapFenceData {
     public func isRightAisle(p1: CGPoint, p2: CGPoint) -> Bool {
         var points: [CGPoint] = []
         polygons.forEach { polygon in
-//          print("polygon", polygon.count, polygon)
           for i in 0..<polygon.count - 1 {
             if let point = linesCross(start1: p1, end1: p2, start2: polygon[i].asCGPoint, end2: polygon[i + 1].asCGPoint) {
-              print(p1, p2, polygon[i].asCGPoint, polygon[i + 1].asCGPoint)
               points.append(point)
               break
             }
           }
         }
-        print("rightAisle", points.count < 2, points)
         return points.count < 2
     }
 
