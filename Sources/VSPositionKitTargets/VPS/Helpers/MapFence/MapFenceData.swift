@@ -42,7 +42,7 @@ public struct MapFenceData {
             }
           }
         }
-        return points.count < 2
+        return points.count < 1
     }
 
     func linesCross(start1: CGPoint, end1: CGPoint, start2: CGPoint, end2: CGPoint) -> CGPoint? {
