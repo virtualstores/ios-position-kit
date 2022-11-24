@@ -97,9 +97,10 @@ final class VPSManager: VPSWrapper {
               replayInteractor: qpsReplayInteractor,
               mapInformation: mapInfo,
               userSettings: dataCommunicator.dataCommunicatorSettings,
-              parameterPackageEnum: parameterPackage.asParameterPackageEnum,
-              mlAlgorithm: nil,
-              mlData: nil
+              parameterPackageEnum: parameterPackage.asParameterPackageEnum, mlCommunicator: nil,
+              enableTeoML: false
+//              mlAlgorithm: nil,
+//              mlData: nil
             )
 
             self.sensor.startAllSensors()
@@ -225,9 +226,6 @@ final class VPSManager: VPSWrapper {
             },
             onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
               DispatchQueue.main.async { self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction)) }
-            },
-            onNewStepEvent: { [weak self] (stepEventData) in
-              DispatchQueue.main.async { self?.stepEventDataPublisher.send(stepEventData.asStepEventData) }
             }
         )
     }
