@@ -257,7 +257,7 @@ final class VPSManager: VPSWrapper {
 
   var mapFenceBitmap: UIImage? {
     didSet {
-      let points = [
+      var points = [
         CGPoint(x: 37.262688, y: 56.00981),
         CGPoint(x: 56.203773, y: 104.69043),
         CGPoint(x: 65.47658, y: 31.241346),
@@ -265,6 +265,18 @@ final class VPSManager: VPSWrapper {
         CGPoint(x: 64.946724, y: 58.820156),
         CGPoint(x: 93.39165, y: 21.598818)
       ]
+
+      let icaH = CGPoint(x: 14.343776, y: 16.475367)
+      let icaSE113 = CGPoint(x: 13.863465, y: 9.386356)
+      let icaSE117 = CGPoint(x: 68.89559, y: 53.152657)
+      let icaSE118 = CGPoint(x: 69.9245, y: 34.08943)
+
+      var yPos = icaSE113.y
+      points.removeAll()
+      while yPos < icaH.y {
+        points.append(CGPoint(x: icaSE113.x, y: yPos))
+        yPos += 0.1
+      }
 
       points.forEach { print(isValid(point: $0)) }
     }
@@ -292,6 +304,9 @@ final class VPSManager: VPSWrapper {
     UIColor.red.setFill()
     fencePath.forEach { $0.fill() }
     mapFenceBitmap = UIGraphicsGetImageFromCurrentImageContext()
+    if let pngData = mapFenceBitmap?.pngData(), let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mapfence.png") {
+        try? pngData.write(to: path, options: .atomic)
+    }
     UIGraphicsEndImageContext()
   }
 
@@ -306,7 +321,7 @@ final class VPSManager: VPSWrapper {
       let data = createDataPointer(image: mapFenceBitmap!)
     else { return false }
     if point.x.isNaN || point.y.isNaN { return false }
-    let convertedPoint = point * 50.0//meterToPixel
+    let convertedPoint = point * info.mapFenceScale
     if (
       convertedPoint.x < 0 ||
       convertedPoint.y < 0 ||
@@ -314,7 +329,7 @@ final class VPSManager: VPSWrapper {
       Int32(convertedPoint.y) >= info.height
     ) { return false }
 
-    print(getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)).asHex)
+//    print(getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)).asHex)
     return getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)) != .blue
   }
 
