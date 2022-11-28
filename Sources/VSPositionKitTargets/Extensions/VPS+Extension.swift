@@ -12,15 +12,11 @@ import VSPositionKit
 
 // MARK: - Extensions for VPS
 extension CGPoint {
-    var asPointF: PointF {
-        PointF(x: Double(x), y: Double(y))
-    }
+    var asPointF: PointF { PointF(x: Double(x), y: Double(y)) }
 }
 
 extension PointF {
-    var asCGPoint: CGPoint {
-        CGPoint(x: Double(x), y: Double(y))
-    }
+    var asCGPoint: CGPoint { CGPoint(x: Double(x), y: Double(y)) }
 }
 
 extension Goal {

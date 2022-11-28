@@ -11,6 +11,7 @@ import CoreGraphics
 import Combine
 import VSPositionKit
 import VSSensorFusion
+import UIKit
 
 final class VPSManager: VPSWrapper {
     var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
@@ -228,6 +229,15 @@ final class VPSManager: VPSWrapper {
             },
             onNewStepEvent: { [weak self] (stepEventData) in
               DispatchQueue.main.async { self?.stepEventDataPublisher.send(stepEventData.asStepEventData) }
+            },
+            onNewMlUpdate: { [weak self] (mlUpdate) in
+              mlUpdate.job?.calculate(isPointOnNavMesh: { (x, y) in
+                guard let isValid = self?.isValid(point: CGPoint(x: Double(truncating: x), y: Double(truncating: y))) else { return false }
+                return KotlinBoolean(bool: isValid)
+              })
+            },
+            onNewMlCalibration: { [weak self] (userAdjustments, mlAlgorithm) in
+
             }
         )
     }
@@ -242,7 +252,103 @@ final class VPSManager: VPSWrapper {
         //TODO: create offsetZones
         //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
         mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: pixelsPerMeter, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
+        createMapFenceImage()
     }
+
+  var mapFenceBitmap: UIImage? {
+    didSet {
+      let points = [
+        CGPoint(x: 37.262688, y: 56.00981),
+        CGPoint(x: 56.203773, y: 104.69043),
+        CGPoint(x: 65.47658, y: 31.241346),
+        CGPoint(x: 15.374447, y: 13.501157),
+        CGPoint(x: 64.946724, y: 58.820156),
+        CGPoint(x: 93.39165, y: 21.598818)
+      ]
+
+      points.forEach { print(isValid(point: $0)) }
+    }
+  }
+  func image(image: UIImage?) { }
+  var mapFenceData: CFData?
+  private func createMapFenceImage() {
+    guard let info = mapInformation else { return }
+
+    let width = Double(info.width)
+    let height = Double(info.height)
+    let polygons = info.mapFencePolygons.asCGpoints
+
+    UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 1.0)
+
+    var fencePath: [UIBezierPath] = []
+    polygons.forEach { (polygon) in
+      let path = UIBezierPath()
+      path.move(to: polygon.first!)
+      polygon.forEach { path.addLine(to: $0) }
+      path.close()
+      fencePath.append(path)
+    }
+
+    UIColor.red.setFill()
+    fencePath.forEach { $0.fill() }
+    mapFenceBitmap = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+  }
+
+  private func createDataPointer(image: UIImage) -> CFData? {
+    let dataProvider = mapFenceBitmap?.cgImage?.dataProvider
+    return dataProvider?.data
+  }
+
+  func isValid(point: CGPoint) -> Bool {
+    guard
+      let info = mapInformation,
+      let data = createDataPointer(image: mapFenceBitmap!)
+    else { return false }
+    if point.x.isNaN || point.y.isNaN { return false }
+    let convertedPoint = point * 50.0//meterToPixel
+    if (
+      convertedPoint.x < 0 ||
+      convertedPoint.y < 0 ||
+      Int32(convertedPoint.x) >= info.width ||
+      Int32(convertedPoint.y) >= info.height
+    ) { return false }
+
+    print(getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)).asHex)
+    return getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)) != .blue
+  }
+
+  private func getPixelColor(point: CGPoint, pixelData: UnsafePointer<UInt8>) -> UIColor {
+    guard let info = mapInformation else { return .clear }
+    let width = info.width
+    let height = info.height
+    var index = Int(width) * Int(point.y) + Int(point.x)
+    if index <= 0 || index >= (width * height * 4) { return .clear }
+
+    return UIColor(
+      red: (Double(pixelData[4 * index]) / 255.0),
+      green: (Double(pixelData[4 * index + 1]) / 255.0),
+      blue: (Double(pixelData[4 * index + 2]) / 255.0),
+      alpha: (Double(pixelData[4 * index + 3]) / 255.0)
+    )
+  }
+}
+
+extension CGPoint {
+  static func * (lhs: CGPoint, rhs: Double) -> CGPoint {
+    CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+  }
+}
+extension Array<Array<PointF>> {
+  var asCGpoints: [[CGPoint]] {
+    var polygons = [[CGPoint]]()
+    self.forEach {
+      var polygon = [CGPoint]()
+      $0.forEach { polygon.append($0.asCGPoint) }
+      polygons.append(polygon)
+    }
+    return polygons
+  }
 }
 
 extension ParameterPackage {
