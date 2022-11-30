@@ -237,7 +237,9 @@ final class VPSManager: VPSWrapper {
               })
             },
             onNewMlCalibration: { [weak self] (userAdjustments, mlAlgorithm) in
-
+              let speedModifier = userAdjustments.speedModifier
+              let directionModifier = userAdjustments.directionModifier
+              let mlAlgorithm = mlAlgorithm.asPersonalMLAlgorithm
             }
         )
     }
@@ -255,7 +257,7 @@ final class VPSManager: VPSWrapper {
         createMapFenceImage()
     }
 
-  var mapFenceBitmap: UIImage? {
+  var mapFenceBitmap: UIImage? /*{
     didSet {
       var points = [
         CGPoint(x: 37.262688, y: 56.00981),
@@ -280,9 +282,8 @@ final class VPSManager: VPSWrapper {
 
       points.forEach { print(isValid(point: $0)) }
     }
-  }
-  func image(image: UIImage?) { }
-  var mapFenceData: CFData?
+  }*/
+
   private func createMapFenceImage() {
     guard let info = mapInformation else { return }
 
@@ -304,10 +305,16 @@ final class VPSManager: VPSWrapper {
     UIColor.red.setFill()
     fencePath.forEach { $0.fill() }
     mapFenceBitmap = UIGraphicsGetImageFromCurrentImageContext()
-    if let pngData = mapFenceBitmap?.pngData(), let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mapfence.png") {
-        try? pngData.write(to: path, options: .atomic)
-    }
+    //save(image: mapFenceBitmap)
     UIGraphicsEndImageContext()
+  }
+
+  func save(image: UIImage?) {
+    guard
+      let pngData = mapFenceBitmap?.pngData(),
+      let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mapfence.png")
+    else { return }
+    try? pngData.write(to: path, options: .atomic)
   }
 
   private func createDataPointer(image: UIImage) -> CFData? {
@@ -321,7 +328,7 @@ final class VPSManager: VPSWrapper {
       let data = createDataPointer(image: mapFenceBitmap!)
     else { return false }
     if point.x.isNaN || point.y.isNaN { return false }
-    let convertedPoint = point * info.mapFenceScale
+    let convertedPoint = point * info.mapFenceScale // meterToPixelConversion
     if (
       convertedPoint.x < 0 ||
       convertedPoint.y < 0 ||
@@ -329,15 +336,16 @@ final class VPSManager: VPSWrapper {
       Int32(convertedPoint.y) >= info.height
     ) { return false }
 
-//    print(getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)).asHex)
-    return getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data)) != .blue
+    let pixelColor = getPixelColor(point: convertedPoint, pixelData: CFDataGetBytePtr(data))
+    //print(pixelColor.asHex)
+    return pixelColor != .blue
   }
 
   private func getPixelColor(point: CGPoint, pixelData: UnsafePointer<UInt8>) -> UIColor {
     guard let info = mapInformation else { return .clear }
     let width = info.width
     let height = info.height
-    var index = Int(width) * Int(point.y) + Int(point.x)
+    let index = Int(width) * Int(point.y) + Int(point.x)
     if index <= 0 || index >= (width * height * 4) { return .clear }
 
     return UIColor(

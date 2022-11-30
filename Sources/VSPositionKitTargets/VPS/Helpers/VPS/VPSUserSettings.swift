@@ -55,9 +55,9 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     var alpha: [KotlinFloat] {
         set {
-            for obj in newValue {
+//            for obj in newValue {
 //                userObject?.alpha?.append(obj.kotlinFloatAsFloat)
-            }
+//            }
             save(editableObject: userObject)
         }
         get {
@@ -73,7 +73,7 @@ public final class VPSUserSettings: IQPSUserSettings {
     }
     
     func save(editableObject: User?) {
-        guard var object = editableObject else { return }
+//        guard var object = editableObject else { return }
         
 //        do {
 //            try persistence.save(&object)
@@ -85,9 +85,9 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     var beta: [KotlinFloat] {
         set {
-            for obj in newValue {
+//            for obj in newValue {
 //                userObject?.beta?.append(obj.kotlinFloatAsFloat)
-            }
+//            }
             
             save(editableObject: userObject)
         }
@@ -104,9 +104,9 @@ public final class VPSUserSettings: IQPSUserSettings {
     }
     var y: [KotlinFloat] {
         set {
-            for obj in newValue {
+//            for obj in newValue {
 //                userObject?.y?.append(obj.kotlinFloatAsFloat)
-            }
+//            }
             save(editableObject: userObject)
         }
         get {
