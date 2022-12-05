@@ -25,7 +25,7 @@ public final class PositionManager: IPositionKit {
     public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    public var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
+    public var modifiedUserPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
     public var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
     
     public var rtlsOption: RtlsOptions?

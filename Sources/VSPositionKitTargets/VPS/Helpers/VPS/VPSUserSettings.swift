@@ -17,13 +17,7 @@ public final class VPSUserSettings: IQPSUserSettings {
 
     //@Inject var persistence: Persistence
 
-    var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
-
-    var vpsProfile: String? {
-        didSet {
-            modifiedUserPublisher.send(vpsProfile)
-        }
-    }
+    var vpsProfile: String?
     
     public init() {
         saveUserData()
@@ -123,7 +117,7 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     public var userHeight: KotlinFloat? {
         set {
-            userObject?.height = newValue?.kotlinFloatAsFloat
+            userObject?.height = newValue?.asFloat
             save(editableObject: userObject)
         }
         get {

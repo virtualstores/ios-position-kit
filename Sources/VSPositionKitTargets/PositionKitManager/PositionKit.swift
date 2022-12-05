@@ -29,7 +29,7 @@ public protocol IPositionKit {
 
     var rescueModePublisher: CurrentValueSubject<Int64?, Never> { get }
 
-    var modifiedUserPublisher: CurrentValueSubject<String?, Never> { get }
+    var modifiedUserPublisher: CurrentValueSubject<MlUser?, Never> { get }
     
     /// Starts position managers. Will produce results to positionPublisher.
     func start() throws

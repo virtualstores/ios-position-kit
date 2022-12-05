@@ -28,7 +28,7 @@ final class VPSManager: VPSWrapper {
     var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    var modifiedUserPublisher: CurrentValueSubject<String?, Never> = .init(nil)
+    var modifiedUserPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
     var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
@@ -76,13 +76,6 @@ final class VPSManager: VPSWrapper {
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
             .store(in: &cancellable)
-
-        DispatchQueue.main.async {
-            self.dataCommunicator.dataCommunicatorSettings.modifiedUserPublisher
-                .compactMap { $0 }
-                .sink { [weak self] in self?.modifiedUserPublisher.send($0) }
-                .store(in: &self.cancellable)
-        }
     }
 
     func start() {
@@ -237,9 +230,7 @@ final class VPSManager: VPSWrapper {
               })
             },
             onNewMlCalibration: { [weak self] (userAdjustments, mlAlgorithm) in
-              let speedModifier = userAdjustments.speedModifier
-              let directionModifier = userAdjustments.directionModifier
-              let mlAlgorithm = mlAlgorithm.asPersonalMLAlgorithm
+              self?.modifiedUserPublisher.send(userAdjustments.asMlUser(mlAlgorithm: mlAlgorithm))
             }
         )
     }
@@ -357,11 +348,6 @@ final class VPSManager: VPSWrapper {
   }
 }
 
-extension CGPoint {
-  static func * (lhs: CGPoint, rhs: Double) -> CGPoint {
-    CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
-  }
-}
 extension Array<Array<PointF>> {
   var asCGpoints: [[CGPoint]] {
     var polygons = [[CGPoint]]()
@@ -397,5 +383,22 @@ extension VSPositionKit.StepEventData {
       timestamp: timestamp,
       type: type.asDeviceOrientation
     )
+  }
+}
+
+extension UserAdjustments {
+  func asMlUser(mlAlgorithm: IQPSPersonalMLAlgorithm) -> MlUser? {
+    var speed: [DeviceOrientation: Double] = [:]
+    speedModifier.forEach {
+      guard let key = $0.key.asDeviceOrientation else { return }
+      speed[key] = $0.value.asDouble
+    }
+    var direction: [DeviceOrientation: Double] = [:]
+    directionModifier.forEach {
+      guard let key = $0.key.asDeviceOrientation else { return }
+      direction[key] = $0.value.asDouble
+    }
+    guard let mlAlgorithm = mlAlgorithm.asPersonalMLAlgorithm else { return nil }
+    return MlUser(speedModifier: speed, directionModifier: direction, mlAlgorithm: mlAlgorithm)
   }
 }

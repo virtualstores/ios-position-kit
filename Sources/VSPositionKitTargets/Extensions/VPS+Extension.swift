@@ -13,6 +13,10 @@ import VSPositionKit
 // MARK: - Extensions for VPS
 extension CGPoint {
     var asPointF: PointF { PointF(x: Double(x), y: Double(y)) }
+
+    static func * (lhs: CGPoint, rhs: Double) -> CGPoint {
+        CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+    }
 }
 
 extension PointF {
@@ -66,7 +70,11 @@ extension PositionBundle {
 }
 
 extension KotlinFloat {
-    var kotlinFloatAsFloat: Float {
-        return Float(truncating: self)
+    var asDouble: Double {
+        Double(truncating: self)
+    }
+  
+    var asFloat: Float {
+        Float(truncating: self)
     }
 }
