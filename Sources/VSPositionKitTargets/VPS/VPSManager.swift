@@ -28,7 +28,8 @@ final class VPSManager: VPSWrapper {
     var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    var modifiedUserPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
+    var mlDataPublisher: CurrentValueSubject<VSFoundation.PersonalMLData?, Never> = .init(nil)
+    var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
     var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
 
     @Inject var sensor: VPSSensorManager
@@ -85,6 +86,8 @@ final class VPSManager: VPSWrapper {
             guard let mapInfo = self.mapInformation, let handler = self.baseVPSHandler, !self.qpsRunning else { return }
             self.qpsRunning = true
 
+            let mlData: [VSFoundation.PersonalMLData] = []
+            let convertedMLData = mlData.map { $0.asPersonalMLData }.compactMap { $0 }
             self.qpsHandler = LegacyQPSHandlerEmulator(
               rawSensorManager: sensor,
               interactor: handler,
@@ -92,9 +95,19 @@ final class VPSManager: VPSWrapper {
               mapInformation: mapInfo,
               userSettings: dataCommunicator.dataCommunicatorSettings,
               parameterPackageEnum: parameterPackage.asParameterPackageEnum,
-              mlAlgorithm: nil,
-              mlData: nil
+              mlAlgorithm: [IQPSPersonalMLAlgorithm.coefficientOptimizer],
+              mlData: nil//KotlinPair(first: IQPSPersonalMLAlgorithm.coefficientOptimizer, second: convertedMLData)
             )
+//          LegacyQPSHandlerEmulator(
+//            rawSensorManager: <#T##IQPSRawSensorManager#>,
+//            interactor: <#T##IQPSInteractor#>,
+//            replayInteractor: <#T##IQPSReplayInteractor#>,
+//            mapInformation: <#T##IQPSMapInformation#>,
+//            userSettings: <#T##IQPSUserSettings#>,
+//            parameterPackageEnum: <#T##IQPSParameterPackageEnum#>,
+//            mlAlgorithm: <#T##NSMutableArray?#>,
+//            mlData: <#T##KotlinPair<IQPSPersonalMLAlgorithm, NSMutableArray>?#>
+//          )
 
             self.sensor.startAllSensors()
         }
@@ -224,13 +237,22 @@ final class VPSManager: VPSWrapper {
               DispatchQueue.main.async { self?.stepEventDataPublisher.send(stepEventData.asStepEventData) }
             },
             onNewMlUpdate: { [weak self] (mlUpdate) in
-              mlUpdate.job?.calculate(isPointOnNavMesh: { (x, y) in
-                guard let isValid = self?.isValid(point: CGPoint(x: Double(truncating: x), y: Double(truncating: y))) else { return false }
-                return KotlinBoolean(bool: isValid)
-              })
+              DispatchQueue.global(qos: .background).async {
+                var personalMlData: VSPositionKit.PersonalMLData?
+                if let data = mlUpdate.data {
+                  personalMlData = data
+                } else {
+                  guard let data = mlUpdate.job?.calculate(isPointOnNavMesh: { (x, y) in
+                    guard let isValid = self?.isValid(point: CGPoint(x: Double(truncating: x), y: Double(truncating: y))) else { return false }
+                    return KotlinBoolean(bool: isValid)
+                  }) else { return }
+                  personalMlData = data
+                }
+                self?.mlDataPublisher.send(personalMlData?.asPersonalMLData)
+              }
             },
             onNewMlCalibration: { [weak self] (userAdjustments, mlAlgorithm) in
-              self?.modifiedUserPublisher.send(userAdjustments.asMlUser(mlAlgorithm: mlAlgorithm))
+              self?.onMlCalibrationPublisher.send(userAdjustments.asMlUser(mlAlgorithm: mlAlgorithm))
             }
         )
     }
@@ -400,5 +422,56 @@ extension UserAdjustments {
     }
     guard let mlAlgorithm = mlAlgorithm.asPersonalMLAlgorithm else { return nil }
     return MlUser(speedModifier: speed, directionModifier: direction, mlAlgorithm: mlAlgorithm)
+  }
+}
+
+extension VSPositionKit.PersonalMLData {
+  var asPersonalMLData: VSFoundation.PersonalMLData? {
+    guard
+      let mlAlgoTag = mlAlgoTag.asPersonalMLAlgorithm,
+      let deviceOrientation = deviceOrientation.asDeviceOrientation
+    else { return nil }
+    var properties: [String: Double] = [:]
+    self.properties.forEach {
+      guard let key = $0.key as? String, let value = $0.value as? Double else { return }
+      properties[key] = value
+    }
+    guard properties.count == self.properties.count else { return nil }
+    return VSFoundation.PersonalMLData(
+      version: version,
+      timestamp: Date().timeIntervalSince1970,
+      mlAlgoTag: mlAlgoTag,
+      deviceOrientation: deviceOrientation,
+      speedModifier: speedModifier,
+      angleModifier: angleModifier,
+      driftModifier: driftModifier,
+      properties: properties
+    )
+  }
+}
+
+extension VSFoundation.PersonalMLData {
+  var asPersonalMLData: VSPositionKit.PersonalMLData? {
+    guard let properties = properties.asKotlinDictionary else { return nil }
+    return VSPositionKit.PersonalMLData(
+      version: version,
+      mlAlgoTag: mlAlgoTag.asPersonalMLAlgorithm,
+      deviceOrientation: deviceOrientation.asDeviceOrientation,
+      speedModifier: speedModifier,
+      angleModifier: angleModifier,
+      driftModifier: driftModifier,
+      properties: properties
+    )
+  }
+}
+
+extension Dictionary {
+  var asKotlinDictionary: KotlinMutableDictionary<NSString, KotlinDouble>? {
+    var dict: KotlinMutableDictionary<NSString, KotlinDouble> = [:]
+    forEach {
+      guard let key = $0.key as? String, let value = $0.value as? Double else { return }
+      dict[key] = value
+    }
+    return dict
   }
 }

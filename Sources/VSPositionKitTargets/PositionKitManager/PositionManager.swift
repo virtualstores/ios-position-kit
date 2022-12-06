@@ -25,8 +25,9 @@ public final class PositionManager: IPositionKit {
     public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    public var modifiedUserPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
-    public var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
+    public var mlDataPublisher: CurrentValueSubject<PersonalMLData?, Never> = .init(nil)
+    public var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
+    public var stepEventDataPublisher: CurrentValueSubject<StepEventData?, Never> = .init(nil)
     
     public var rtlsOption: RtlsOptions?
     
@@ -132,15 +133,15 @@ public final class PositionManager: IPositionKit {
         
         vps?.recordingPublisher
             .compactMap { $0 }
-            .sink(receiveValue: { [weak self] in self?.recordingPublisherEnd.send($0) })
+            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
             .store(in: &cancellable)
         vps?.recordingPublisherPartial
             .compactMap { $0 }
-            .sink(receiveValue: { [weak self] in self?.recordingPublisherEnd.send($0) })
+            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
             .store(in: &cancellable)
         vps?.recordingPublisherEnd
             .compactMap { $0 }
-            .sink(receiveValue: { [weak self] in self?.recordingPublisherEnd.send($0) })
+            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
             .store(in: &cancellable)
 
         vps?.deviceOrientationPublisher
@@ -153,17 +154,21 @@ public final class PositionManager: IPositionKit {
 
         vps?.rescueModePublisher
           .compactMap { $0 }
-          .sink(receiveValue: { [weak self] in self?.rescueModePublisher.send($0) })
+          .sink { [weak self] in self?.rescueModePublisher.send($0) }
           .store(in: &cancellable)
 
-        vps?.modifiedUserPublisher
+        vps?.mlDataPublisher
             .compactMap { $0 }
-            .sink { [weak self] in self?.modifiedUserPublisher.send($0) }
+            .sink { [weak self] in self?.mlDataPublisher.send($0) }
+            .store(in: &cancellable)
+        vps?.onMlCalibrationPublisher
+            .compactMap { $0 }
+            .sink { [weak self] in self?.onMlCalibrationPublisher.send($0) }
             .store(in: &cancellable)
 
         vps?.stepEventDataPublisher
             .compactMap { $0 }
-            .sink(receiveValue: { [weak self] in self?.stepEventDataPublisher.send($0) })
+            .sink { [weak self] in self?.stepEventDataPublisher.send($0) }
             .store(in: &cancellable)
     }
     

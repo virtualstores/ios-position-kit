@@ -23,6 +23,19 @@ extension IQPSDeviceOrientation {
     }
 }
 
+extension DeviceOrientation {
+  var asDeviceOrientation: IQPSDeviceOrientation {
+      switch self {
+      case .regular: return .regular
+      case .swingSym: return .swingSym
+      case .swingAntiSym: return .swingAntiSym
+      case .trolley: return .trolley
+      case .trouserPocket: return .trouserPocket
+      case .jacketPocket: return .jacketPocket
+      }
+  }
+}
+
 extension IQPSPersonalMLAlgorithm {
   var asPersonalMLAlgorithm: PersonalMLAlgorithm? {
     switch self {
@@ -35,6 +48,21 @@ extension IQPSPersonalMLAlgorithm {
     case .compassAngleRectifier: return .compassAngleRectifier
     case .none: return PersonalMLAlgorithm.none
     default: return nil
+    }
+  }
+}
+
+extension PersonalMLAlgorithm {
+  var asPersonalMLAlgorithm: IQPSPersonalMLAlgorithm {
+    switch self {
+    case .coefficientOptimizer: return .coefficientOptimizer
+    case .sac: return .sac
+    case .heuristicNoScan: return .heuristicNoScan
+    case .regresionMediator: return .regresionMediator
+    case .teoScanMl: return .teoScanMl
+    case .driftCompensator: return .driftCompensator
+    case .compassAngleRectifier: return .compassAngleRectifier
+    case .none: return .none
     }
   }
 }
