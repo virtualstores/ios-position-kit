@@ -28,7 +28,7 @@ final class VPSManager: VPSWrapper {
     var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    var mlDataPublisher: CurrentValueSubject<VSFoundation.PersonalMLData?, Never> = .init(nil)
+    var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
     var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
     var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
 
@@ -47,15 +47,17 @@ final class VPSManager: VPSWrapper {
     private var isRecording = false
     private var floorHeightDiffInMeters: Double?
     private var parameterPackage: ParameterPackage
+    private var userController: IUserController
     
     private var dataCommunicator = VPSDataCommunicator()
 
     private var cancellable = Set<AnyCancellable>()
 
-    init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage) {
+    init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController) {
         self.qpsReplayInteractor = VPSReplayInteractor()
         self.floorHeightDiffInMeters = floorHeightDiffInMeters
         self.parameterPackage = parameterPackage
+        self.userController = userController
         self.createMapInformation(with: mapData, pixelsPerMeter: pixelsPerMeter)
         self.bindPublishers()
     }
@@ -86,8 +88,14 @@ final class VPSManager: VPSWrapper {
             guard let mapInfo = self.mapInformation, let handler = self.baseVPSHandler, !self.qpsRunning else { return }
             self.qpsRunning = true
 
-            let mlData: [VSFoundation.PersonalMLData] = []
-            let convertedMLData = mlData.map { $0.asPersonalMLData }.compactMap { $0 }
+            let settings = userController.getVPSSettings()
+            let mlAlgos = settings.mlAlgos?.map { $0.asPersonalMLAlgorithm }
+            let arr = mlAlgos != nil ? NSMutableArray(array: mlAlgos!) : nil
+            let convertedMLData = userController.getVPSMLParamPackage(mlAlgorithm: settings.mlAlgo).map { $0.asPersonalMLData }.compactMap { $0 }
+            let pair = KotlinPair(first: settings.mlAlgo.asPersonalMLAlgorithm, second: NSMutableArray(array: convertedMLData))
+            print("Settings", settings)
+            print("Arr", arr)
+            print("Pair", settings.mlAlgo, convertedMLData)
             self.qpsHandler = LegacyQPSHandlerEmulator(
               rawSensorManager: sensor,
               interactor: handler,
@@ -95,22 +103,13 @@ final class VPSManager: VPSWrapper {
               mapInformation: mapInfo,
               userSettings: dataCommunicator.dataCommunicatorSettings,
               parameterPackageEnum: parameterPackage.asParameterPackageEnum,
-              mlAlgorithm: [IQPSPersonalMLAlgorithm.coefficientOptimizer],
-              mlData: nil//KotlinPair(first: IQPSPersonalMLAlgorithm.coefficientOptimizer, second: convertedMLData)
+              mlAlgorithm: nil,//arr,
+              mlData: nil//settings.useML ? pair : nil
             )
-//          LegacyQPSHandlerEmulator(
-//            rawSensorManager: <#T##IQPSRawSensorManager#>,
-//            interactor: <#T##IQPSInteractor#>,
-//            replayInteractor: <#T##IQPSReplayInteractor#>,
-//            mapInformation: <#T##IQPSMapInformation#>,
-//            userSettings: <#T##IQPSUserSettings#>,
-//            parameterPackageEnum: <#T##IQPSParameterPackageEnum#>,
-//            mlAlgorithm: <#T##NSMutableArray?#>,
-//            mlData: <#T##KotlinPair<IQPSPersonalMLAlgorithm, NSMutableArray>?#>
-//          )
 
             self.sensor.startAllSensors()
         }
+
     }
 
     func startRecording() {
@@ -425,8 +424,8 @@ extension UserAdjustments {
   }
 }
 
-extension VSPositionKit.PersonalMLData {
-  var asPersonalMLData: VSFoundation.PersonalMLData? {
+extension PersonalMLData {
+  var asPersonalMLData: PersonalMLDataDTO? {
     guard
       let mlAlgoTag = mlAlgoTag.asPersonalMLAlgorithm,
       let deviceOrientation = deviceOrientation.asDeviceOrientation
@@ -437,7 +436,7 @@ extension VSPositionKit.PersonalMLData {
       properties[key] = value
     }
     guard properties.count == self.properties.count else { return nil }
-    return VSFoundation.PersonalMLData(
+    return PersonalMLDataDTO(
       version: version,
       timestamp: Date().timeIntervalSince1970,
       mlAlgoTag: mlAlgoTag,
@@ -450,10 +449,10 @@ extension VSPositionKit.PersonalMLData {
   }
 }
 
-extension VSFoundation.PersonalMLData {
-  var asPersonalMLData: VSPositionKit.PersonalMLData? {
+extension PersonalMLDataDTO {
+  var asPersonalMLData: PersonalMLData? {
     guard let properties = properties.asKotlinDictionary else { return nil }
-    return VSPositionKit.PersonalMLData(
+    return PersonalMLData(
       version: version,
       mlAlgoTag: mlAlgoTag.asPersonalMLAlgorithm,
       deviceOrientation: deviceOrientation.asDeviceOrientation,

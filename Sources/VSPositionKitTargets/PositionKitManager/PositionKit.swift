@@ -29,7 +29,7 @@ public protocol IPositionKit {
 
     var rescueModePublisher: CurrentValueSubject<Int64?, Never> { get }
 
-    var mlDataPublisher: CurrentValueSubject<PersonalMLData?, Never> { get }
+    var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> { get }
   
     var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> { get }
     
@@ -43,7 +43,7 @@ public protocol IPositionKit {
     func setBackgroundAccess(isActive: Bool)
     
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, userController: IUserController)
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)

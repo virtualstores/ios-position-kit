@@ -25,7 +25,7 @@ public final class PositionManager: IPositionKit {
     public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    public var mlDataPublisher: CurrentValueSubject<PersonalMLData?, Never> = .init(nil)
+    public var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
     public var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
     public var stepEventDataPublisher: CurrentValueSubject<StepEventData?, Never> = .init(nil)
     
@@ -43,9 +43,16 @@ public final class PositionManager: IPositionKit {
     
     public init() {}
     
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage) {
+  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController) {
         self.rtlsOption = rtlsOption
-        vps = VPSManager(size: CGSize(width: mapData.properties.width, height: mapData.properties.height), floorHeightDiffInMeters: floorheight, mapData: mapData, pixelsPerMeter: rtlsOption.pixelsPerMeter, parameterPackage: parameterPackage)
+        vps = VPSManager(
+            size: CGSize(width: mapData.properties.width, height: mapData.properties.height),
+            floorHeightDiffInMeters: floorheight,
+            mapData: mapData,
+            pixelsPerMeter: rtlsOption.pixelsPerMeter,
+            parameterPackage: parameterPackage,
+            userController: userController
+        )
         
         bindEnginePublishers()
     }
