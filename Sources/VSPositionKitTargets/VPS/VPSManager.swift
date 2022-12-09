@@ -90,12 +90,9 @@ final class VPSManager: VPSWrapper {
 
             let settings = userController.getVPSSettings()
             let mlAlgos = settings.mlAlgos?.map { $0.asPersonalMLAlgorithm }
-            let arr = mlAlgos != nil ? NSMutableArray(array: mlAlgos!) : nil
             let convertedMLData = userController.getVPSMLParamPackage(mlAlgorithm: settings.mlAlgo).map { $0.asPersonalMLData }.compactMap { $0 }
-            let pair = KotlinPair(first: settings.mlAlgo.asPersonalMLAlgorithm, second: NSMutableArray(array: convertedMLData))
-            print("Settings", settings)
-            print("Arr", arr)
-            print("Pair", settings.mlAlgo, convertedMLData)
+            let personalMLParameters = PersonalMLParameters(personalMLAlgorithm: settings.mlAlgo.asPersonalMLAlgorithm, personalMLData: convertedMLData)
+            let parameters = MLParameters(mlAlgorithms: mlAlgos, personalMLParameters: personalMLParameters)
             self.qpsHandler = LegacyQPSHandlerEmulator(
               rawSensorManager: sensor,
               interactor: handler,
@@ -103,8 +100,7 @@ final class VPSManager: VPSWrapper {
               mapInformation: mapInfo,
               userSettings: dataCommunicator.dataCommunicatorSettings,
               parameterPackageEnum: parameterPackage.asParameterPackageEnum,
-              mlAlgorithm: nil,//arr,
-              mlData: nil//settings.useML ? pair : nil
+              mlParameters: parameters
             )
 
             self.sensor.startAllSensors()
@@ -295,6 +291,7 @@ final class VPSManager: VPSWrapper {
       points.forEach { print(isValid(point: $0)) }
     }
   }*/
+  var mapFenceDataPointer: CFData?
 
   private func createMapFenceImage() {
     guard let info = mapInformation else { return }
@@ -317,6 +314,9 @@ final class VPSManager: VPSWrapper {
     UIColor.red.setFill()
     fencePath.forEach { $0.fill() }
     mapFenceBitmap = UIGraphicsGetImageFromCurrentImageContext()
+    if let bitmap = mapFenceBitmap {
+      mapFenceDataPointer = createDataPointer(image: bitmap)
+    }
     //save(image: mapFenceBitmap)
     UIGraphicsEndImageContext()
   }
@@ -335,10 +335,7 @@ final class VPSManager: VPSWrapper {
   }
 
   func isValid(point: CGPoint) -> Bool {
-    guard
-      let info = mapInformation,
-      let data = createDataPointer(image: mapFenceBitmap!)
-    else { return false }
+    guard let info = mapInformation, let data = mapFenceDataPointer else { return false }
     if point.x.isNaN || point.y.isNaN { return false }
     let convertedPoint = point * info.mapFenceScale // meterToPixelConversion
     if (
@@ -465,12 +462,32 @@ extension PersonalMLDataDTO {
 }
 
 extension Dictionary {
-  var asKotlinDictionary: KotlinMutableDictionary<NSString, KotlinDouble>? {
-    var dict: KotlinMutableDictionary<NSString, KotlinDouble> = [:]
+  var asKotlinDictionary: [String: KotlinDouble]? {
+    var dict: [String: KotlinDouble] = [:]
     forEach {
       guard let key = $0.key as? String, let value = $0.value as? Double else { return }
-      dict[key] = value
+      dict[key] = KotlinDouble(value: value)
     }
     return dict
+  }
+}
+
+class MLParameters: IQPSMLParameters {
+  var mlAlgorithms: [IQPSPersonalMLAlgorithm]?
+  var personalMLParameters: IQPSPersonalMLParameters?
+
+  init(mlAlgorithms: [IQPSPersonalMLAlgorithm]? = nil, personalMLParameters: IQPSPersonalMLParameters? = nil) {
+    self.mlAlgorithms = mlAlgorithms
+    self.personalMLParameters = personalMLParameters
+  }
+}
+
+class PersonalMLParameters: IQPSPersonalMLParameters {
+  var personalMLAlgorithm: IQPSPersonalMLAlgorithm
+  var personalMLData: [PersonalMLData]
+
+  init(personalMLAlgorithm: IQPSPersonalMLAlgorithm, personalMLData: [PersonalMLData]) {
+    self.personalMLAlgorithm = personalMLAlgorithm
+    self.personalMLData = personalMLData
   }
 }
