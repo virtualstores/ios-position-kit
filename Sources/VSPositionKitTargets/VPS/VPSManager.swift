@@ -399,7 +399,9 @@ extension VSPositionKit.StepEventData {
       stepCertainty: stepCertainty,
       success: success,
       timestamp: timestamp,
-      type: type.asDeviceOrientation
+      type: type.asDeviceOrientation,
+      mlAdjustment: mlAdjustment.asMLAdjustment,
+      quaternion: quaternion.asDouble
     )
   }
 }
@@ -469,6 +471,25 @@ extension Dictionary {
       dict[key] = KotlinDouble(value: value)
     }
     return dict
+  }
+}
+
+extension KotlinFloatArray {
+  var asDouble: [Double] {
+    var arr: [Double] = []
+    for i in 0...size - 1 { arr.append(Double(get(index: i))) }
+    return arr
+  }
+}
+
+extension MLAdjustment {
+  var asMLAdjustment: VSFoundation.StepEventData.MLAdjustment {
+    VSFoundation.StepEventData.MLAdjustment(
+      speedModelFactor: speedModelFactor,
+      speedAdjuster: speedAdjuster,
+      driftInRadians: driftInRadians,
+      rotationInRadians: rotationInRadians
+    )
   }
 }
 
