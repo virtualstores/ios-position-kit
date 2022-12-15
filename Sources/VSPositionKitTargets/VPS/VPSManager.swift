@@ -83,17 +83,17 @@ final class VPSManager: VPSWrapper {
 
     func start() {
         sensor.serialDispatch.async { [self] in
-            self.createBaseVPSHandler()
+            createBaseVPSHandler()
 
-            guard let mapInfo = self.mapInformation, let handler = self.baseVPSHandler, !self.qpsRunning else { return }
-            self.qpsRunning = true
+            guard let mapInfo = mapInformation, let handler = baseVPSHandler, !qpsRunning else { return }
+            qpsRunning = true
 
             let settings = userController.getVPSSettings()
             let mlAlgos = settings.mlAlgos?.map { $0.asPersonalMLAlgorithm }
             let convertedMLData = userController.getVPSMLParamPackage(mlAlgorithm: settings.mlAlgo).map { $0.asPersonalMLData }.compactMap { $0 }
             let personalMLParameters = PersonalMLParameters(personalMLAlgorithm: settings.mlAlgo.asPersonalMLAlgorithm, personalMLData: convertedMLData)
             let parameters = MLParameters(mlAlgorithms: mlAlgos, personalMLParameters: personalMLParameters)
-            self.qpsHandler = LegacyQPSHandlerEmulator(
+            qpsHandler = LegacyQPSHandlerEmulator(
               rawSensorManager: sensor,
               interactor: handler,
               replayInteractor: qpsReplayInteractor,
@@ -103,37 +103,36 @@ final class VPSManager: VPSWrapper {
               mlParameters: parameters
             )
 
-            self.sensor.startAllSensors()
+            sensor.startAllSensors()
         }
-
     }
 
     func startRecording() {
-        sensor.serialDispatch.async {
-              if self.qpsRunning {
-                self.vps?.startRecording()
-                self.isRecording = true
+        sensor.serialDispatch.async { [self] in
+              if qpsRunning {
+                vps?.startRecording()
+                isRecording = true
             }
         }
     }
 
     func stop() {
-        sensor.serialDispatch.async {
-            if self.qpsRunning {
-                self.stopRecording()
-                self.qpsRunning = false
-                self.vps?.stopNavigation()
-                self.qpsHandler = nil
-                self.sensor.shutDown()
+        sensor.serialDispatch.async { [self] in
+            if qpsRunning {
+                stopRecording()
+                qpsRunning = false
+                vps?.stopNavigation()
+                qpsHandler = nil
+                sensor.shutDown()
             }
         }
     }
 
     func stopRecording() {
-        sensor.serialDispatch.async {
-              if self.isRecording {
-                self.vps?.stopRecording()
-                self.isRecording = false
+        sensor.serialDispatch.async { [self] in
+              if isRecording {
+                vps?.stopRecording()
+                isRecording = false
             }
         }
     }

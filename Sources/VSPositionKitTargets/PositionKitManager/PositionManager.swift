@@ -43,7 +43,7 @@ public final class PositionManager: IPositionKit {
     
     public init() {}
     
-  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController) {
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController) {
         self.rtlsOption = rtlsOption
         vps = VPSManager(
             size: CGSize(width: mapData.properties.width, height: mapData.properties.height),
