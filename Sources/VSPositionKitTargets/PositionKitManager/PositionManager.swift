@@ -97,6 +97,10 @@ public final class PositionManager: IPositionKit {
     public func setBackgroundAccess(isActive: Bool) {
         isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
     }
+
+    public func prepareAngle() {
+        vps?.prepareAngle()
+    }
     
     func bindEnginePublishers() {
         backgroundAccess.locationHeadingPublisher

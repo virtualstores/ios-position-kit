@@ -190,7 +190,34 @@ final class VPSManager: VPSWrapper {
         }
     }
 
-    func prepareAngle() { }
+    private var startAngleCached: Double?
+    func prepareAngle() {
+        guard let lastQuat = vps?.getLastRotation() else { return }
+
+        let quatUtils = QuaternionUtils()
+        let newQuat = quatUtils.multiplyQuaternion(q: lastQuat, p: quatUtils.quaternionInverse(q: quatUtils.quaternionExtractPitch(q: lastQuat)))
+
+        let array: KotlinFloatArray = KotlinFloatArray(size: 3)
+        array.set(index: 0, value: 0)
+        array.set(index: 1, value: 1)
+        array.set(index: 2, value: 0)
+
+        startAngleCached = VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array)))
+    }
+
+    func delayedAngle() -> Double {
+        guard let lastQuat = vps?.getLastRotation(), let cachedAngle = startAngleCached else { return 0.0 }
+
+        let quatUtils = QuaternionUtils()
+        let newQuat = quatUtils.multiplyQuaternion(q: lastQuat, p: quatUtils.quaternionInverse(q: quatUtils.quaternionExtractPitch(q: lastQuat)))
+
+        let array: KotlinFloatArray = KotlinFloatArray(size: 3)
+        array.set(index: 0, value: 0)
+        array.set(index: 1, value: 1)
+        array.set(index: 2, value: 0)
+
+        return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
+    }
 
     private func createBaseVPSHandler() {
         self.baseVPSHandler = BaseVPSHandler(
@@ -430,8 +457,8 @@ extension PersonalMLData {
     else { return nil }
     var properties: [String: Double] = [:]
     self.properties.forEach {
-      guard let key = $0.key as? String, let value = $0.value as? Double else { return }
-      properties[key] = value
+      guard let value = $0.value as? Double else { return }
+      properties[$0.key] = value
     }
     guard properties.count == self.properties.count else { return nil }
     return PersonalMLDataDTO(

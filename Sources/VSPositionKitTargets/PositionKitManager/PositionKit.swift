@@ -41,6 +41,8 @@ public protocol IPositionKit {
     
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)
+
+    func prepareAngle()
     
     /// MapFence setup methode
     func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, userController: IUserController)
