@@ -22,17 +22,14 @@ public final class VPSReplayInteractor: IQPSReplayInteractor {
     }
 
     public func postData(data: String, identifier: String) {
-        Logger(verbosity: .debug).log(message: "RecordingData: \(identifier)")
         replayInteractorDataPublisher.send((identifier, data))
     }
 
     public func postPartialData(data: String, identifier: String) {
-      Logger(verbosity: .debug).log(message: "RecordingDataPartial: \(identifier)")
       replayInteractorDataPublisherPartial.send((identifier, data))
     }
 
     public func postEndData(data: String, identifier: String) {
-      Logger(verbosity: .debug).log(message: "RecordingDataEnd: \(identifier)")
       replayInteractorDataPublisherEnd.send((identifier, data))
     }
 }
