@@ -202,8 +202,8 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         }
         
         let accData = RawSensorData(values: accelerationArr, sensorDataType: .acceleration, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
-        let gravData = RawSensorData(values: gravityArr, sensorDataType: self.gravitySensor.sensorDataType, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
-        let rotData = RawSensorData(values: rotationArr, sensorDataType: self.rotationSensor.sensorDataType, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let gravData = RawSensorData(values: gravityArr, sensorDataType: .gravity, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let rotData = RawSensorData(values: rotationArr, sensorDataType: .rotation, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
         
         self.reportData(data: accData)
         self.reportData(data: gravData)

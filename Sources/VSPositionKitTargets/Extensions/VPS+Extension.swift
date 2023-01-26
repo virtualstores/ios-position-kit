@@ -64,7 +64,7 @@ extension IPathfinderPath {
 
 extension PositionBundle {
     var asNavBundle: NavBundle {
-        let timestampLocal = Int64(Date().timeIntervalSince1970 * 1000)
+        let timestampLocal = Int64(Date().currentTimeMillis)
         return NavBundle(position: self.position.asPointF, timestamp: timestampLocal, std: KotlinFloat(float: Float(self.std!)))
     }
 }

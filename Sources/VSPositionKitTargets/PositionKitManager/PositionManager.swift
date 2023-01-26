@@ -144,11 +144,11 @@ public final class PositionManager: IPositionKit {
         
         vps?.recordingPublisher
             .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
+            .sink { [weak self] in self?.recordingPublisher.send($0) }
             .store(in: &cancellable)
         vps?.recordingPublisherPartial
             .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
+            .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
             .store(in: &cancellable)
         vps?.recordingPublisherEnd
             .compactMap { $0 }

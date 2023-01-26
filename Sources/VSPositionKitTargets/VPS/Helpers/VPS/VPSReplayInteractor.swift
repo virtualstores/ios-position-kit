@@ -11,7 +11,7 @@ import Combine
 import VSFoundation
 
 public final class VPSReplayInteractor: IQPSReplayInteractor {
-    public var maxRecordingTimePerPartInMillis: Int64 { 2 * 60 * 1000 }
+    public var maxRecordingTimePerPartInMillis: Int64 { 1 * 60 * 1000 }
 
     public var replayInteractorDataPublisher: CurrentValueSubject<(String, String)?, Never> = .init(nil)
     public var replayInteractorDataPublisherPartial: CurrentValueSubject<(String, String)?, Never> = .init(nil)

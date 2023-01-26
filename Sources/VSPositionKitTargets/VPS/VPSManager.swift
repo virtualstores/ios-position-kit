@@ -151,7 +151,7 @@ final class VPSManager: VPSWrapper {
 
             syncData.position = position.asPointF
             syncData.angle = Float(startAngle)
-            syncData.timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+            syncData.timestamp = Int64(Date().currentTimeMillis)
             syncData.syncPosition = syncPosition
             syncData.syncAngle = syncAngle
             syncData.uncertainAngle = uncertainAngle
@@ -178,7 +178,7 @@ final class VPSManager: VPSWrapper {
                 let data = VPSSyncData()
                 data.position = point.asPointF
                 data.angle = Float(startAngle)
-                data.timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+                data.timestamp = Int64(Date().currentTimeMillis)
                 data.syncPosition = syncPosition
                 data.syncAngle = syncAngle
                 data.uncertainAngle = uncertainAngle
@@ -324,7 +324,7 @@ final class VPSManager: VPSWrapper {
 
     let width = Double(info.width)
     let height = Double(info.height)
-    let polygons = info.mapFencePolygons.asCGpoints
+    let polygons = convertPointFsAsCGPoints(array: info.mapFencePolygons)
 
     UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 1.0)
 
@@ -392,6 +392,18 @@ final class VPSManager: VPSWrapper {
   }
 }
 
+extension VPSManager {
+  func convertPointFsAsCGPoints(array: [[PointF]]) -> [[CGPoint]] {
+    var polygons = [[CGPoint]]()
+    array.forEach {
+      var polygon = [CGPoint]()
+      $0.forEach { polygon.append($0.asCGPoint) }
+      polygons.append(polygon)
+    }
+    return polygons
+  }
+}
+
 extension Array<Array<PointF>> {
   var asCGpoints: [[CGPoint]] {
     var polygons = [[CGPoint]]()
@@ -424,7 +436,8 @@ extension VSPositionKit.StepEventData {
       speed: speed as? Double,
       stepCertainty: stepCertainty,
       success: success,
-      timestamp: timestamp,
+      timestamp: Int64(Date().currentTimeMillis),
+      sensorTimestamp: timestamp,
       type: type.asDeviceOrientation,
       mlAdjustment: mlAdjustment.asMLAdjustment,
       quaternion: quaternion.asDouble
