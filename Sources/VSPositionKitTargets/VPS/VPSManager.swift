@@ -404,18 +404,6 @@ extension VPSManager {
   }
 }
 
-extension Array<Array<PointF>> {
-  var asCGpoints: [[CGPoint]] {
-    var polygons = [[CGPoint]]()
-    self.forEach {
-      var polygon = [CGPoint]()
-      $0.forEach { polygon.append($0.asCGPoint) }
-      polygons.append(polygon)
-    }
-    return polygons
-  }
-}
-
 extension ParameterPackage {
     var asParameterPackageEnum: IQPSParameterPackageEnum {
         switch self {
