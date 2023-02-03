@@ -33,33 +33,13 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     
     private var sensorManager: SensorManager
 
-    public var accelerationSensor: RawSensor {
-        qpsAccelerationSensor
-    }
-    
-    public var accelerationSensorUncalibrated: RawSensor? {
-        qpsAccelerationSensorUncalibrated
-    }
-    
-    public var altitudeSensor: RawSensor? {
-        qpsAltitudeSensor
-    }
-    
-    public var gravitySensor: RawSensor {
-        qpsGravitySensor
-    }
-    
-    public var orientationSensor: RawSensor? {
-        qpsOrientationSensor
-    }
-    
-    public var rotationSensor: RawSensor {
-        qpsRotationSensor
-    }
-    
-    public var gyroscopeSensorUncalibrated: RawSensor? {
-        qpsGyroscopeSensorUncalibrated
-    }
+    public var accelerationSensor: RawSensor { qpsAccelerationSensor }
+    public var accelerationSensorUncalibrated: RawSensor? { qpsAccelerationSensorUncalibrated }
+    public var altitudeSensor: RawSensor? { qpsAltitudeSensor }
+    public var gravitySensor: RawSensor { qpsGravitySensor }
+    public var orientationSensor: RawSensor? { qpsOrientationSensor }
+    public var rotationSensor: RawSensor { qpsRotationSensor }
+    public var gyroscopeSensorUncalibrated: RawSensor? { qpsGyroscopeSensorUncalibrated }
     
     public var barometerSensor: RawSensor?
     public var lockedSensor: RawSensor?
@@ -69,14 +49,14 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     public init(sensorManager: SensorManager) {
         self.sensorManager = sensorManager
         
-        self.qpsAccelerationSensor = QPSAccelerationSensor()
-        self.qpsGravitySensor = QPSGravitySensor()
-        self.qpsRotationSensor = QPSRotationSensor()
-        self.qpsAltitudeSensor = QPSAltitudeSensor()
+        qpsAccelerationSensor = QPSAccelerationSensor()
+        qpsGravitySensor = QPSGravitySensor()
+        qpsRotationSensor = QPSRotationSensor()
+        qpsAltitudeSensor = QPSAltitudeSensor()
         
-        self.qpsAccelerationSensor.delegate = self
-        self.qpsGravitySensor.delegate = self
-        self.qpsOrientationSensor?.delegate = self
+        //qpsAccelerationSensor.delegate = self
+        //qpsGravitySensor.delegate = self
+        //qpsOrientationSensor?.delegate = self
         
         bindPublishers()
     }

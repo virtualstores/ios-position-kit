@@ -38,14 +38,18 @@ public final class PositionManager: IPositionKit {
     
     @Inject var backgroundAccess: IBackgroundAccessManager
     @Inject var sensor: ISensorManager
-    
-    private var vps: VPSManager?
+
+    private var _vps: VPSManager?
+    private var vps: VPSManager {
+        guard let vps = _vps else { fatalError("PositionKit not setup") }
+        return vps
+    }
     
     public init() {}
     
     public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController) {
         self.rtlsOption = rtlsOption
-        vps = VPSManager(
+        _vps = VPSManager(
             size: CGSize(width: mapData.properties.width, height: mapData.properties.height),
             floorHeightDiffInMeters: floorheight,
             mapData: mapData,
@@ -58,40 +62,32 @@ public final class PositionManager: IPositionKit {
     }
     
     public func start() throws {
-//        rotationSensor = AuxSensorFactory().createRotationSensor(delegate: self)
-//
-//        sensor.sensorPublisher
-//            .compactMap { $0 }
-//            .sink { _ in
-//            } receiveValue: { data in
-//                self.rotationSensor?.input(motionSensorData: data)
-//            }
-//            .store(in: &cancellable)
-        
         try sensor.start()
     }
     
     public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool) {
-        vps?.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
+        vps.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
+        backgroundAccess.vpsRunning(isRunning: true)
     }
     
     public func syncPosition(xPosition: Double, yPosition: Double, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
-        vps?.syncPosition(position: CGPoint(x: xPosition, y: yPosition), startAngle: startAngle, syncPosition: syncPosition, syncAngle: syncAngle, uncertainAngle: uncertainAngle)
+        vps.syncPosition(position: CGPoint(x: xPosition, y: yPosition), startAngle: startAngle, syncPosition: syncPosition, syncAngle: syncAngle, uncertainAngle: uncertainAngle)
     }
 
     public func startRecording() {
-        vps?.startRecording()
+        vps.startRecording()
     }
     
     public func stop(stopSensors: Bool = true) {
         if stopSensors {
             self.sensor.stop()
+            backgroundAccess.vpsRunning(isRunning: false)
         }
-        self.vps?.stop()
+        self.vps.stop()
     }
 
     public func stopRecording() {
-        vps?.stopRecording()
+        vps.stopRecording()
     }
     
     public func setBackgroundAccess(isActive: Bool) {
@@ -99,7 +95,7 @@ public final class PositionManager: IPositionKit {
     }
 
     public func prepareAngle() {
-        vps?.prepareAngle()
+        vps.prepareAngle()
     }
     
     func bindEnginePublishers() {
@@ -110,7 +106,7 @@ public final class PositionManager: IPositionKit {
             } receiveValue: { [weak self] data in
                 self?.locationHeadingPublisher.send(data)
             }.store(in: &cancellable)
-        vps?.positionPublisher
+        vps.positionPublisher
             .compactMap { $0 }
             .sink { [weak self] _ in
                 self?.positionPublisher.send(completion: .failure(PositionKitError.noPositions))
@@ -118,7 +114,7 @@ public final class PositionManager: IPositionKit {
                 self?.positionPublisher.send(positionBundle)
             }.store(in: &cancellable)
         
-        vps?.directionPublisher
+        vps.directionPublisher
             .compactMap { $0 }
             .sink(receiveCompletion: { [weak self] (_) in
                 self?.directionPublisher.send(completion: .failure(PositionKitError.noDirection))
@@ -126,7 +122,7 @@ public final class PositionManager: IPositionKit {
                 self.directionPublisher.send(data)
             }).store(in: &cancellable)
         
-        vps?.realWorldOffsetPublisher
+        vps.realWorldOffsetPublisher
             .compactMap { $0 }
             .sink(receiveCompletion: { [weak self] (_) in
                 self?.realWorldOffsetPublisher.send(completion: .failure(PositionKitError.noRealWorldOffset))
@@ -134,7 +130,7 @@ public final class PositionManager: IPositionKit {
                 self.realWorldOffsetPublisher.send(data)
             }).store(in: &cancellable)
         
-        vps?.changedFloorPublisher
+        vps.changedFloorPublisher
             .compactMap { $0 }
             .sink { error in
                 Logger.init().log(message: "changeFloorCancellable error")
@@ -142,20 +138,20 @@ public final class PositionManager: IPositionKit {
                 self?.changedFloorPublisher.send(data)
             }.store(in: &cancellable)
         
-        vps?.recordingPublisher
+        vps.recordingPublisher
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisher.send($0) }
             .store(in: &cancellable)
-        vps?.recordingPublisherPartial
+        vps.recordingPublisherPartial
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
             .store(in: &cancellable)
-        vps?.recordingPublisherEnd
+        vps.recordingPublisherEnd
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
             .store(in: &cancellable)
 
-        vps?.deviceOrientationPublisher
+        vps.deviceOrientationPublisher
             .compactMap { $0 }
             .sink(receiveCompletion: { (_) in
                 self.deviceOrientationPublisher.send(completion: .failure(.noData))
@@ -163,21 +159,21 @@ public final class PositionManager: IPositionKit {
                 self.deviceOrientationPublisher.send(orientation)
             }).store(in: &cancellable)
 
-        vps?.rescueModePublisher
+        vps.rescueModePublisher
           .compactMap { $0 }
           .sink { [weak self] in self?.rescueModePublisher.send($0) }
           .store(in: &cancellable)
 
-        vps?.mlDataPublisher
+        vps.mlDataPublisher
             .compactMap { $0 }
             .sink { [weak self] in self?.mlDataPublisher.send($0) }
             .store(in: &cancellable)
-        vps?.onMlCalibrationPublisher
+        vps.onMlCalibrationPublisher
             .compactMap { $0 }
             .sink { [weak self] in self?.onMlCalibrationPublisher.send($0) }
             .store(in: &cancellable)
 
-        vps?.stepEventDataPublisher
+        vps.stepEventDataPublisher
             .compactMap { $0 }
             .sink { [weak self] in self?.stepEventDataPublisher.send($0) }
             .store(in: &cancellable)

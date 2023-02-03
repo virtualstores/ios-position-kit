@@ -109,7 +109,7 @@ final class VPSManager: VPSWrapper {
 
     func startRecording() {
         sensor.serialDispatch.async { [self] in
-              if qpsRunning {
+            if qpsRunning {
                 vps?.startRecording()
                 isRecording = true
             }
@@ -150,13 +150,12 @@ final class VPSManager: VPSWrapper {
             let syncData = VPSSyncData()
 
             syncData.position = position.asPointF
-            syncData.angle = Float(startAngle)
+            syncData.angle = Float(startAngle + self.delayedAngle())
             syncData.timestamp = Int64(Date().currentTimeMillis)
             syncData.syncPosition = syncPosition
             syncData.syncAngle = syncAngle
             syncData.uncertainAngle = uncertainAngle
 
-            //TODO: calculate delayed angel
             self.vps?.onPositionSyncEvent(data: syncData)
         }
     }
