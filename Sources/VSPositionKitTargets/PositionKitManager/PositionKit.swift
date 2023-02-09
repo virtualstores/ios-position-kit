@@ -45,7 +45,7 @@ public protocol IPositionKit {
     func prepareAngle()
     
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, userController: IUserController)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?)
     
     /// Start navigation setup methode
     func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool)

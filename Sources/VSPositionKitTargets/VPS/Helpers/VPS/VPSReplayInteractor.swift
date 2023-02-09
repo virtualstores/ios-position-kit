@@ -11,11 +11,17 @@ import Combine
 import VSFoundation
 
 public final class VPSReplayInteractor: IQPSReplayInteractor {
-    public var maxRecordingTimePerPartInMillis: Int64 { 1 * 60 * 1000 }
+    public var maxRecordingTimePerPartInMillis: Int64 { _maxRecordingTimePerPartInMillis ?? 1 * 60 * 1000 }
 
     public var replayInteractorDataPublisher: CurrentValueSubject<(String, String)?, Never> = .init(nil)
     public var replayInteractorDataPublisherPartial: CurrentValueSubject<(String, String)?, Never> = .init(nil)
     public var replayInteractorDataPublisherEnd: CurrentValueSubject<(String, String)?, Never> = .init(nil)
+
+    private var _maxRecordingTimePerPartInMillis: Int64?
+
+    init(maxRecordingTimePerPartInMillis: Int64?) {
+        _maxRecordingTimePerPartInMillis = maxRecordingTimePerPartInMillis
+    }
 
     public func getData(identifier: String, printMissingFileException: Bool) -> String? {
         return ""

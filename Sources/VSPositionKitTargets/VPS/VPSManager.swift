@@ -53,8 +53,8 @@ final class VPSManager: VPSWrapper {
 
     private var cancellable = Set<AnyCancellable>()
 
-    init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController) {
-        self.qpsReplayInteractor = VPSReplayInteractor()
+    init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?) {
+        self.qpsReplayInteractor = VPSReplayInteractor(maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis)
         self.floorHeightDiffInMeters = floorHeightDiffInMeters
         self.parameterPackage = parameterPackage
         self.userController = userController
