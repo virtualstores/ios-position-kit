@@ -20,8 +20,7 @@ public final class VPSSensorManager: IQPSRawSensorManager {
 
     private var replayHandler = ReplayHandler()
     private var motion: MotionSensorData?
-    private var motionCancellable: AnyCancellable?
-    private var altimeterCancellable: AnyCancellable?
+    private var cancellable = Set<AnyCancellable>()
     
     private let qpsAccelerationSensor: QPSAccelerationSensor
     private let qpsGravitySensor: QPSGravitySensor
@@ -29,7 +28,10 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     private let qpsAltitudeSensor: QPSAltitudeSensor
     private var qpsOrientationSensor: QPSOrientationSensor?
     private let qpsAccelerationSensorUncalibrated: QPSAccelerationUncalibratedSensor? = nil
-    private let qpsGyroscopeSensorUncalibrated: QPSGyroscopeUncalibratedSensor? = nil
+    private var qpsGyroscopeSensorUncalibrated: QPSGyroscopeUncalibratedSensor?
+    private var qpsAccelerometerSensor: QPSAccelerometerSensor?
+    private let qpsAccelerometerSensorUncalibrated: QPSAccelerometerSensorUncalibrated? = nil
+    private var qpsGeomagneticSensor: QPSGeomagneticSensor?
     
     private var sensorManager: SensorManager
 
@@ -40,6 +42,9 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     public var orientationSensor: RawSensor? { qpsOrientationSensor }
     public var rotationSensor: RawSensor { qpsRotationSensor }
     public var gyroscopeSensorUncalibrated: RawSensor? { qpsGyroscopeSensorUncalibrated }
+    public var accelerometerSensor: RawSensor? { qpsAccelerometerSensor }
+    public var accelerometerSensorUncalibrated: RawSensor? { qpsAccelerometerSensorUncalibrated }
+    public var geomagneticSensor: RawSensor? { qpsGeomagneticSensor }
     
     public var barometerSensor: RawSensor?
     public var lockedSensor: RawSensor?
@@ -53,6 +58,10 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         qpsGravitySensor = QPSGravitySensor()
         qpsRotationSensor = QPSRotationSensor()
         qpsAltitudeSensor = QPSAltitudeSensor()
+
+        qpsGyroscopeSensorUncalibrated = QPSGyroscopeUncalibratedSensor()
+        qpsAccelerometerSensor = QPSAccelerometerSensor()
+        qpsGeomagneticSensor = QPSGeomagneticSensor()
         
         //qpsAccelerationSensor.delegate = self
         //qpsGravitySensor.delegate = self
@@ -143,31 +152,35 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     }
     
     func bindPublishers() {
-        motionCancellable = sensorManager.sensorPublisher
+        sensorManager.sensorPublisher
             .compactMap { $0 }
             .sink { _ in
                 Logger.init().log(message: "sensorPublisher error")
             } receiveValue: { [weak self] data in
                 self?.serialDispatch.async {
-                    self?.reportSensorData(for: data)
+                  self?.reportSensorData(for: data)
                 }
-            }
+            }.store(in: &cancellable)
 
-      altimeterCancellable = sensorManager.altimeterPublisher
-        .compactMap { $0 }
-        .sink { _ in
-            Logger().log(message: "altimeterPublisher error")
-        } receiveValue: { [weak self] data in
-            self?.serialDispatch.async {
-                self?.reportAltimeterData(data: data)
-            }
-        }
+        sensorManager.altimeterPublisher
+            .compactMap { $0 }
+            .sink { _ in
+                Logger().log(message: "altimeterPublisher error")
+            } receiveValue: { [weak self] data in
+                self?.serialDispatch.async {
+                    self?.reportAltimeterData(data: data)
+                }
+            }.store(in: &cancellable)
     }
     
     private func reportSensorData(for data: MotionSensorData) {
         let accelerationArr = KotlinFloatArray(size: Int32(data.acceleration.data.count))
         let gravityArr = KotlinFloatArray(size: Int32(data.gravity.data.count))
         let rotationArr = KotlinFloatArray(size: Int32(data.rotation.data.count))
+        let geomagneticArr = KotlinFloatArray(size: Int32(data.magnetometer.data.count))
+        let accelerometerArr = KotlinFloatArray(size: Int32(data.accelerometer.data.count))
+        let gyroscopeArr = KotlinFloatArray(size: Int32(data.gyroscope.data.count))
+
         
         for (index, value) in data.acceleration.data.enumerated() {
             accelerationArr.set(index: Int32(index), value: value.asFloat)
@@ -180,14 +193,32 @@ public final class VPSSensorManager: IQPSRawSensorManager {
         for (index, value) in data.rotation.data.enumerated() {
             rotationArr.set(index: Int32(index), value: value.asFloat)
         }
+
+        data.magnetometer.data.enumerated().forEach { (index, value) in
+            geomagneticArr.set(index: Int32(index), value: value.asFloat)
+        }
+
+        data.accelerometer.data.enumerated().forEach { (index, value) in
+            accelerometerArr.set(index: Int32(index), value: value.asFloat)
+        }
+
+        data.gyroscope.data.enumerated().forEach { (index, value) in
+            gyroscopeArr.set(index: Int32(index), value: value.asFloat)
+        }
         
         let accData = RawSensorData(values: accelerationArr, sensorDataType: .acceleration, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
         let gravData = RawSensorData(values: gravityArr, sensorDataType: .gravity, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
         let rotData = RawSensorData(values: rotationArr, sensorDataType: .rotation, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let geoData = RawSensorData(values: geomagneticArr, sensorDataType: .geomagnetic, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let accelerometerData = RawSensorData(values: accelerometerArr, sensorDataType: .accelerometer, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
+        let gyroData = RawSensorData(values: gyroscopeArr, sensorDataType: .gyroscopeUncalibrated, timestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal), sensorAccuracy: 0.0)
         
         self.reportData(data: accData)
         self.reportData(data: gravData)
         self.reportData(data: rotData)
+        self.reportData(data: geoData)
+        self.reportData(data: accelerometerData)
+        self.reportData(data: gyroData)
     }
 
     private func reportAltimeterData(data: AltitudeSensorData) {
@@ -202,11 +233,13 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     
     private func reportData(data: RawSensorData) {
         switch data.sensorDataType {
-        case .acceleration: self.qpsAccelerationSensor.onNewData(data: data)
-        case .gravity: self.qpsGravitySensor.onNewData(data: data)
-        case .rotation: self.qpsRotationSensor.onNewData(data: data)
-        case .geomagnetic: self.qpsOrientationSensor?.onNewData(data: data)
-        case .altitude: self.qpsAltitudeSensor.onNewData(data: data)
+        case .acceleration: qpsAccelerationSensor.onNewData(data: data)
+        case .gravity: qpsGravitySensor.onNewData(data: data)
+        case .rotation: qpsRotationSensor.onNewData(data: data)
+        case .geomagnetic: qpsGeomagneticSensor?.onNewData(data: data)
+        case .altitude: qpsAltitudeSensor.onNewData(data: data)
+        case .accelerometer: qpsAccelerometerSensor?.onNewData(data: data)
+        case .gyroscopeUncalibrated: qpsGyroscopeSensorUncalibrated?.onNewData(data: data)
         default: break
         }
     }
@@ -216,8 +249,7 @@ public final class VPSSensorManager: IQPSRawSensorManager {
     }
     
     deinit {
-        motionCancellable?.cancel()
-        altimeterCancellable?.cancel()
+        cancellable.removeAll()
     }
 }
 

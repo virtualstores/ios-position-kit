@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VSPKBuildConfig, VSPKGlobalQPSValues, VSPKIQPSDeviceMode, VSPKKotlinFloatArray, VSPKIQPSParameterPackageEnum, VSPKKotlinArray<T>, VSPKMoveVector, VSPKVector, VSPKKotlinEnumCompanion, VSPKKotlinEnum<E>, VSPKIQPSDeviceOrientation, VSPKIQPSPersonalMLAlgorithm, UIImage, VSPKPointF, VSPKPersonalMLData, VSPKRawSensor, VSPKIQPSSystemType, VSPKIQPSReplayInteractorCompanion, VSPKStepData, VSPKKotlinUnit, VSPKReplayDataHandler, VSPKNavBundle, VSPKKotlinPair<__covariant A, __covariant B>, VSPKOutputSignalSignalType, VSPKDirectionBundle, VSPKMLUpdate, VSPKPositionEventPosEventType, VSPKPrecisionCircle, VSPKRealWorldOffsetUpdate, VSPKStepEventData, VSPKNotificationType, VSPKNotificationSeverity, VSPKNotification, VSPKUserAdjustments, VSPKQLayerHealthData, VSPKLegacyStepDetectorFactory, VSPKExternalDataManager, VSPKStepStateEvaluator, VSPKLegacyStepDetectorManager, VSPKLegacyStepDetectorManagerCompanion, VSPKModularStepDetectorFactory, VSPKSpackListeningMLStepDetector, VSPKSpackExtractor, VSPKObservable, VSPKStepEventFilterSetLeniency, VSPKStepState, VSPKStepDetectorManagerCompanion, VSPKStateBasedStepFilter, VSPKRegularState, VSPKStepFillEvaluatorCompanion, VSPKMLAdjustmentCompanion, VSPKMLAdjustment, VSPKSpack, VSPKStepEventDataCompanion, VSPKSensorListeningStepDetector, VSPKSensorListener, VSPKMLModel, VSPKMLStepDetectorBaseCompanion, VSPKSVM, VSPKTrolleySVMStepDetectorCompanion, VSPKTrolleyStepDetectorCompanion, VSPKMLStepDetectorBase, VSPKAndroidMLJacketPocketStepDetectorCompanion, VSPKAndroidMLPocketStepDetectorCompanion, VSPKNoPCAEllipseEvaluator, VSPKAndroidMLRegularStepDetectorCompanion, VSPKEllipseEvaluator, VSPKPCATransformer, VSPKStandardScaler, VSPKMLJacketPocketStepDetectorCompanion, VSPKMLPocketStepDetectorCompanion, VSPKMLRegularStepDetectorCompanion, VSPKMLSwingAntiSymStepDetectorCompanion, VSPKMLSwingStepDetectorCompanion, VSPKSwingPCAEvaluator, VSPKMLSwingSymStepDetectorCompanion, VSPKNeuralNetwork, VSPKAndroidJacketPocketDirectionNNParameters, VSPKAndroidPocketDirectionNNParameters, VSPKAxisParameters, VSPKDirectionNeuralNetworkParameters, VSPKJacketPocketDirectionNNParameters, VSPKKotlinDoubleArray, VSPKSpackStepData, VSPKHistoryHandler<T>, VSPKRotatorDirection, VSPKPocketDirectionNNParameters, VSPKSanityCheckDirectionNeuralNetworkParameters, VSPKSwingAntiSymDirectionNNParameters, VSPKSwingSymDirectionNNParameters, VSPKNDirectionsFilter, VSPKStepStateCompanion, VSPKFusionSensorManagerParameters, VSPKJacketPocketStateCompanion, VSPKRegularStateCompanion, VSPKSwingAntiSymStateCompanion, VSPKSwingStateCompanion, VSPKSwingSymStateCompanion, VSPKTrolleyStateCompanion, VSPKTrouserPocketStateCompanion, VSPKSpeedSensorHelper, VSPKTrolleySpeedBundle, VSPKMapCoordinate, VSPKAuxSensorHelper, VSPKMapData, VSPKRawSensorDataSensorDataType, VSPKRawSensorDataCompanion, VSPKRawSensorData, VSPKReplaySensorCompanion, VSPKReplaySensor, VSPKReplayDataCoordinator, VSPKReplayDataVersion, VSPKFrequencyUser, VSPKEmilsPocketSensorCompanion, VSPKMaxRetardNN, VSPKModularSpackUser, VSPKRotationSensorCompanion, VSPKIReplayDataHandlerRadiusSyncPositionData, VSPKIReplayDataHandlerSyncPositionData, VSPKQPosition, VSPKStartPosition, VSPKIReplayDataHandlerCompanion, VSPKIReplayDataHandlerIReplayConfig, VSPKPointWithOffset, VSPKIReplayDataHandlerLegacySyncPositionData, VSPKBuggedSyncReplayDataV5Companion, VSPKBuggedSyncReplayDataV5, VSPKReplayDataV2Companion, VSPKReplayDataV2, VSPKReplayDataV3Companion, VSPKReplayDataV3, VSPKReplayDataV4Companion, VSPKReplayDataV4, VSPKReplayDataV5Companion, VSPKReplayDataV5, VSPKReplayDataV6Companion, VSPKReplayDataV6, VSPKReplayDataV7Companion, VSPKReplayDataV7, VSPKReplayDataV8Companion, VSPKReplayDataV8, VSPKLegacySyncPositionCompanion, VSPKLegacySyncPosition, VSPKPathUpdateCompanion, VSPKPathUpdate, VSPKRadiusSyncPositionCompanion, VSPKRadiusSyncPosition, VSPKReplaySensorDataCompanion, VSPKReplaySensorData, VSPKStartPositionCompanion, VSPKSyncPositionCompanion, VSPKSyncPosition, VSPKTickCompanion, VSPKTick, VSPKContinuousMoveVectorQueueCompanion, VSPKTimedMoveVector, VSPKIDNameGenerator, VSPKMLParametersFactory, VSPKOptimizationUtils, VSPKOptimizationUtilsExperimental, VSPKQuaternionUtils, VSPKVectorUtils, VSPKClockClockType, VSPKAverageVarianceDoublePack, VSPKAverageVarianceFloatPack, VSPKModifierManager<T>, VSPKNumericalModifier<T>, VSPKOffsetHelper, VSPKSpackFeaturisationHelpers, VSPKClusterSpawnAlgos, VSPKHistoryHandlerTimedData<T, T_>, VSPKPolynomial, VSPKComplex, VSPKRational, VSPKAnalogPrototypeCompanion, VSPKAnalogPrototype, VSPKPassbandType, VSPKSecondOrderSection, VSPKIIRFilter, VSPKComplexCompanion, VSPKLagrangePolynomialCompanion, VSPKKotlinIntArray, VSPKAllpass, VSPKTimedDebugPositions, VSPKTimedDebugRadius, VSPKDebugClusterCompanion, VSPKDebugCluster, VSPKDebugClusterAngleCompanion, VSPKDebugClusterAngle, VSPKDebugPositionCompanion, VSPKDebugPosition, VSPKDebugPrinter, VSPKDebugQPositionSpeedCompanion, VSPKDebugQPositionSpeed, VSPKTimedDebugClusterAnglesCompanion, VSPKTimedDebugClusterAngles, VSPKTimedDebugClustersCompanion, VSPKTimedDebugClusters, VSPKTimedDebugPositionCompanion, VSPKTimedDebugPosition, VSPKTimedDebugPositionsCompanion, VSPKTimedDebugRadiusCompanion, VSPKtt2EngineParameterManagerClassParameters, VSPKQLayerParameterManagerCompanion, VSPKDirectionPrioParameters, VSPKDirectionTrackerParameters, VSPKGetNewPositionsAmountParameters, VSPKMiscParameters, VSPKMovementStateManagerParameters, VSPKAnglePIDParameters, VSPKQClusterParameters, VSPKQLayerParameters, VSPKQLayerQueueParameters, VSPKQPosParameters, VSPKSlidingRatioParameters, VSPKSmallClusterSpreadIncreaserParameters, VSPKSpeedSpreadHandlerParameters, VSPKSplitPositionsParameters, VSPKTrolleySkipParameters, VSPKTSPPrioParameters, VSPKPointFCompanion, VSPKQPositionCompanion, VSPKAndroidRegularMLStepDetectorParameters, VSPKClusterBootParameters, VSPKFloorSensorParameters, VSPKQPSHandlerParameters, VSPKRegularMLStepDetectorParameters, VSPKSwingMLStepDetectorParameters, VSPKTrolleyStepDetectorParameters, VSPKVeddestaScrubberParameters, VSPKAndroidPocketMLStepDetectorParameters, VSPKPocketMLStepDetectorParameters, VSPKSwingAntiSymMLStepDetectorParameters, VSPKSwingSymMLStepDetectorParameters, VSPKIkeaQPSValues, VSPKJulaQPSValues, VSPKPS20QPSValues, VSPKRetailQPSValues, VSPKWarehouseQPSValues, VSPKAnglePIDParametersCompanion, VSPKDirectionPrioParametersCompanion, VSPKDirectionTrackerParametersCompanion, VSPKGetNewPositionsAmountParametersCompanion, VSPKMiscParametersCompanion, VSPKMovementStateManagerParametersCompanion, VSPKQClusterParametersCompanion, VSPKQLayerParametersCompanion, VSPKQLayerQueueParametersCompanion, VSPKQPosParametersCompanion, VSPKSlidingRatioParametersCompanion, VSPKSmallClusterSpreadIncreaserParametersCompanion, VSPKSpeedSpreadHandlerParametersCompanion, VSPKSplitPositionsParametersCompanion, VSPKTSPPrioParametersCompanion, VSPKTrolleySkipParametersCompanion, VSPKKotlinThrowable, VSPKQCluster, VSPKQClusterQClusterResetDegree, VSPKQClusterClusterState, VSPKQClusterClusterType, VSPKAdditiveModifier, VSPKPositionData, VSPKMoveEventData, VSPKContextManager, VSPKPolarPoint, VSPKMoveVectorMoveType, VSPKSensorBundleBundleType, VSPKSensorBundle, VSPKVectorTransformer, VSPKAndroidJacketPocketMLParameters, VSPKAndroidPantJacketDistinguishParameters, VSPKAndroidPocketLenientParameters, VSPKAndroidPocketMLParameters, VSPKAndroidPocketOrSwingNNParameters, VSPKAndroidRegularMLParameters, VSPKAndroidSwingAntiSymNeuralNetworkParameters, VSPKAndroidSwingSymNeuralNetworkParameters, VSPKIOSJacketPocketNeuralNetworkParameters, VSPKIOSPantJacketDistinguishParameters, VSPKIOSPocketNeuralNetworkParameters, VSPKMLModelFactory, VSPKNNActivationFunctions, VSPKNNCoefficientReader, VSPKNNCoefficientReaderJsonNN, VSPKNNCoefficientReaderJsonNNCompanion, VSPKNeuralNetworkActivationFunctionType, VSPKPS20SwingAntiSymNeuralNetworkParameters, VSPKPS20SwingSymNeuralNetworkParameters, VSPKPocketOrSwingNeuralNetworkParameters, VSPKRegularNeuralNetworkParameters, VSPKSwingAntiSymNeuralNetworkParameters, VSPKSwingNeuralNetworkParameters, VSPKSwingSymNeuralNetworkParameters, VSPKTrolleyNeuralNetworkParameters, VSPKAndroidSymAntiSymParameters, VSPKLinearSVMSwingStepDetectorValues, VSPKPS20SwingAntiSymLenientParameters, VSPKPS20SwingSymLenientParameters, VSPKRegularRBFSVMsupport, VSPKSVMHelpers, VSPKSpackRBFSVMsupport, VSPKSwingAntiSymLenientParameters, VSPKSwingSymLenientParameters, VSPKSymAntiSymParameters, VSPKWeakEvaluatorParameters, VSPKPositionEvent, VSPKSignalHandler, VSPKAverageVariance, VSPKAltitudeBasedFloorSensorFloorState, VSPKAltitudeBasedFloorSensor, VSPKNavMeshScrubber, VSPKSequentialScrubber, VSPKQLayerHandler, VSPKAltitudeOptions, VSPKAltitudeCompanion, VSPKSingleLinkedQueue<T>, VSPKAltitudeOptionsCompanion, VSPKNode<T>, VSPKBaseSignalDispatcher, VSPKPositionEventHandler, VSPKNavGraph, VSPKIPathfinderGoalType, VSPKDjikstrasOptimizedCompanion, VSPKDjikstrasOptimizedOldNodeGraph, VSPKNavGraphVertex, VSPKPriorityQueueUsingSinglyLinkedList<T>, VSPKNavGraphCompanion, VSPKNavGraphVertexCompanion, VSPKPathProcessor, VSPKPathProcessorBSpline, VSPKTSPThreeOptAlgorithmCompanion, VSPKKotlinRandom, VSPKStepEventBasedMLObservationType, VSPKStepEventBasedMLMLParameters, VSPKPersonalMLDataCompanion, VSPKReiterationData, VSPKCoefficientOptimizerJobCompanion, VSPKCoefficientOptimizerJobAxlExperimentalCompanion, VSPKCoefficientOptimizerJobLegacyCompanion, VSPKCoefficientOptimizerJobPaulExperimentalCompanion, VSPKWeightCalculatorNNParameters, VSPKKotlinFloatIterator, VSPKKotlinDoubleIterator, VSPKKotlinIntIterator, VSPKKotlinRandomDefault, VSPKKotlinByteArray, VSPKKotlinx_serialization_coreSerializersModule, VSPKKotlinx_serialization_coreSerialKind, VSPKKotlinNothing, VSPKKotlinByteIterator;
+@class VSPKBuildConfig, VSPKGlobalQPSValues, VSPKIQPSDeviceMode, VSPKKotlinFloatArray, VSPKIQPSParameterPackageEnum, VSPKKotlinArray<T>, VSPKMoveVector, VSPKVector, VSPKKotlinEnumCompanion, VSPKKotlinEnum<E>, VSPKIQPSDeviceOrientation, VSPKIQPSPersonalMLAlgorithm, UIImage, VSPKPointF, VSPKPersonalMLData, VSPKRawSensor, VSPKIQPSSystemType, VSPKIQPSReplayInteractorCompanion, VSPKAccessPoint, VSPKWiFiObservation, VSPKStepData, VSPKKotlinUnit, VSPKReplayDataHandler, VSPKNavBundle, VSPKKotlinPair<__covariant A, __covariant B>, VSPKOutputSignalSignalType, VSPKDirectionBundle, VSPKMLUpdate, VSPKPositionEventPosEventType, VSPKPrecisionCircle, VSPKRealWorldOffsetUpdate, VSPKStepEventData, VSPKNotificationType, VSPKNotificationSeverity, VSPKNotification, VSPKUserAdjustments, VSPKQLayerHealthData, VSPKLegacyStepDetectorFactory, VSPKExternalDataManager, VSPKStepStateEvaluator, VSPKLegacyStepDetectorManager, VSPKLegacyStepDetectorManagerCompanion, VSPKModularStepDetectorFactory, VSPKSpackListeningMLStepDetector, VSPKSpackExtractor, VSPKObservable, VSPKStepEventFilterSetLeniency, VSPKStepState, VSPKStepDetectorManagerCompanion, VSPKStateBasedStepFilter, VSPKRegularState, VSPKStepFillEvaluatorCompanion, VSPKSensorListener, VSPKSensorListeningStepDetector, VSPKMLModel, VSPKMLStepDetectorBaseCompanion, VSPKSpack, VSPKSVM, VSPKTrolleySVMStepDetectorCompanion, VSPKTrolleyStepDetectorCompanion, VSPKMLStepDetectorBase, VSPKAndroidMLJacketPocketStepDetectorCompanion, VSPKAndroidMLPocketStepDetectorCompanion, VSPKNoPCAEllipseEvaluator, VSPKAndroidMLRegularStepDetectorCompanion, VSPKEllipseEvaluator, VSPKPCATransformer, VSPKStandardScaler, VSPKMLJacketPocketStepDetectorCompanion, VSPKMLPocketStepDetectorCompanion, VSPKMLRegularStepDetectorCompanion, VSPKMLSwingAntiSymStepDetectorCompanion, VSPKMLSwingStepDetectorCompanion, VSPKSwingPCAEvaluator, VSPKMLSwingSymStepDetectorCompanion, VSPKMLAdjustmentCompanion, VSPKMLAdjustment, VSPKStepEventDataCompanion, VSPKNeuralNetwork, VSPKAndroidJacketPocketDirectionNNParameters, VSPKAndroidPocketDirectionNNParameters, VSPKAxisParameters, VSPKDirectionNeuralNetworkParameters, VSPKJacketPocketDirectionNNParameters, VSPKKotlinDoubleArray, VSPKSpackStepData, VSPKHistoryHandler<T>, VSPKRotatorDirection, VSPKPocketDirectionNNParameters, VSPKSanityCheckDirectionNeuralNetworkParameters, VSPKSwingAntiSymDirectionNNParameters, VSPKSwingSymDirectionNNParameters, VSPKNDirectionsFilter, VSPKStepStateCompanion, VSPKFusionSensorManagerParameters, VSPKJacketPocketStateCompanion, VSPKRegularStateCompanion, VSPKSwingAntiSymStateCompanion, VSPKSwingStateCompanion, VSPKSwingSymStateCompanion, VSPKTrolleyStateCompanion, VSPKTrouserPocketStateCompanion, VSPKSpeedSensorHelper, VSPKTrolleySpeedBundle, VSPKMapCoordinate, VSPKAuxSensorHelper, VSPKMapData, VSPKRawSensorDataSensorDataType, VSPKRawSensorDataCompanion, VSPKRawSensorData, VSPKReplaySensorCompanion, VSPKReplaySensor, VSPKReplayDataCoordinator, VSPKReplayDataVersion, VSPKFrequencyUser, VSPKEmilsPocketSensorCompanion, VSPKMaxRetardNN, VSPKModularSpackUser, VSPKRotationSensorCompanion, VSPKIReplayDataHandlerRadiusSyncPositionData, VSPKIReplayDataHandlerSyncPositionData, VSPKQPosition, VSPKStartPosition, VSPKIReplayDataHandlerCompanion, VSPKIReplayDataHandlerIReplayConfig, VSPKPointWithOffset, VSPKIReplayDataHandlerLegacySyncPositionData, VSPKBuggedSyncReplayDataV5Companion, VSPKBuggedSyncReplayDataV5, VSPKReplayDataV2Companion, VSPKReplayDataV2, VSPKReplayDataV3Companion, VSPKReplayDataV3, VSPKReplayDataV4Companion, VSPKReplayDataV4, VSPKReplayDataV5Companion, VSPKReplayDataV5, VSPKReplayDataV6Companion, VSPKReplayDataV6, VSPKReplayDataV7Companion, VSPKReplayDataV7, VSPKReplayDataV8Companion, VSPKReplayDataV8, VSPKVisitScanData, VSPKWhitelist, VSPKWiFiRecording, VSPKReplayDataV9Companion, VSPKReplayDataV9, VSPKLegacySyncPositionCompanion, VSPKLegacySyncPosition, VSPKPathUpdateCompanion, VSPKPathUpdate, VSPKRadiusSyncPositionCompanion, VSPKRadiusSyncPosition, VSPKReplaySensorDataCompanion, VSPKReplaySensorData, VSPKStartPositionCompanion, VSPKSyncPositionCompanion, VSPKSyncPosition, VSPKTickCompanion, VSPKTick, VSPKWiFiRecordingWifiStatusUpdate, VSPKWiFiRecordingWifiScan, VSPKWiFiRecordingCompanion, VSPKIncorrectPointF, VSPKWiFiRecordingWifiScanWifiScanResult, VSPKWiFiRecordingWifiScanCompanion, VSPKWiFiRecordingWifiScanWifiScanResultCompanion, VSPKWiFiRecordingWifiStatusUpdateCompanion, VSPKContinuousMoveVectorQueueCompanion, VSPKTimedMoveVector, VSPKIDNameGenerator, VSPKMLParametersFactory, VSPKOptimizationUtils, VSPKOptimizationUtilsExperimental, VSPKQuaternionUtils, VSPKVectorUtils, VSPKVisitScanDataProductScan, VSPKVisitScanDataCompanion, VSPKVisitScanDataProductScanCompanion, VSPKWhitelistProduct, VSPKWhitelistCompanion, VSPKWhitelistProductCompanion, VSPKClockClockType, VSPKModifierManager<T>, VSPKNumericalModifier<T>, VSPKAverageVarianceDoublePack, VSPKAverageVarianceFloatPack, VSPKOffsetHelper, VSPKSpackFeaturisationHelpers, VSPKClusterSpawnAlgos, VSPKHistoryHandlerTimedData<T, T_>, VSPKPolynomial, VSPKComplex, VSPKRational, VSPKAnalogPrototypeCompanion, VSPKAnalogPrototype, VSPKPassbandType, VSPKSecondOrderSection, VSPKIIRFilter, VSPKComplexCompanion, VSPKLagrangePolynomialCompanion, VSPKKotlinIntArray, VSPKAllpass, VSPKTimedDebugPositions, VSPKTimedDebugRadius, VSPKDebugClusterCompanion, VSPKDebugCluster, VSPKDebugClusterAngleCompanion, VSPKDebugClusterAngle, VSPKDebugPositionCompanion, VSPKDebugPosition, VSPKDebugPrinter, VSPKDebugQPositionSpeedCompanion, VSPKDebugQPositionSpeed, VSPKTimedDebugClusterAnglesCompanion, VSPKTimedDebugClusterAngles, VSPKTimedDebugClustersCompanion, VSPKTimedDebugClusters, VSPKTimedDebugPositionCompanion, VSPKTimedDebugPosition, VSPKTimedDebugPositionsCompanion, VSPKTimedDebugRadiusCompanion, VSPKTimedSyncPositionCompanion, VSPKTimedSyncPosition, VSPKTimedWifiStatusCompanion, VSPKTimedWifiStatus, VSPKtt2EngineParameterManagerClassParameters, VSPKKalman, VSPKQLayer, VSPKQLayerCompanion, VSPKQCluster, VSPKQLayerParameterManagerCompanion, VSPKDirectionPrioParameters, VSPKDirectionTrackerParameters, VSPKGetNewPositionsAmountParameters, VSPKMiscParameters, VSPKMovementStateManagerParameters, VSPKAnglePIDParameters, VSPKQClusterParameters, VSPKQLayerParameters, VSPKQLayerQueueParameters, VSPKQPosParameters, VSPKSlidingRatioParameters, VSPKSmallClusterSpreadIncreaserParameters, VSPKSpeedSpreadHandlerParameters, VSPKSplitPositionsParameters, VSPKTrolleySkipParameters, VSPKTSPPrioParameters, VSPKPointFCompanion, VSPKQPositionCompanion, VSPKAndroidRegularMLStepDetectorParameters, VSPKClusterBootParameters, VSPKFloorSensorParameters, VSPKQPSHandlerParameters, VSPKRegularMLStepDetectorParameters, VSPKSwingMLStepDetectorParameters, VSPKTrolleyStepDetectorParameters, VSPKVeddestaScrubberParameters, VSPKAndroidPocketMLStepDetectorParameters, VSPKPocketMLStepDetectorParameters, VSPKSwingAntiSymMLStepDetectorParameters, VSPKSwingSymMLStepDetectorParameters, VSPKIkeaQPSValues, VSPKJulaQPSValues, VSPKPS20QPSValues, VSPKRetailQPSValues, VSPKWarehouseQPSValues, VSPKAnglePIDParametersCompanion, VSPKDirectionPrioParametersCompanion, VSPKDirectionTrackerParametersCompanion, VSPKGetNewPositionsAmountParametersCompanion, VSPKMiscParametersCompanion, VSPKMovementStateManagerParametersCompanion, VSPKQClusterParametersCompanion, VSPKQLayerParametersCompanion, VSPKQLayerQueueParametersCompanion, VSPKQPosParametersCompanion, VSPKSlidingRatioParametersCompanion, VSPKSmallClusterSpreadIncreaserParametersCompanion, VSPKSpeedSpreadHandlerParametersCompanion, VSPKSplitPositionsParametersCompanion, VSPKTSPPrioParametersCompanion, VSPKTrolleySkipParametersCompanion, VSPKKotlinThrowable, VSPKQClusterQClusterResetDegree, VSPKQClusterClusterState, VSPKQClusterClusterType, VSPKAdditiveModifier, VSPKPositionData, VSPKMoveEventData, VSPKContextManager, VSPKIncorrectPointFCompanion, VSPKIncorrectPointFAsStringSerializer, VSPKPolarPoint, VSPKMoveVectorMoveType, VSPKSensorBundleBundleType, VSPKSensorBundle, VSPKVectorTransformer, VSPKAndroidJacketPocketMLParameters, VSPKAndroidPantJacketDistinguishParameters, VSPKAndroidPocketLenientParameters, VSPKAndroidPocketMLParameters, VSPKAndroidPocketOrSwingNNParameters, VSPKAndroidRegularMLParameters, VSPKAndroidSwingAntiSymNeuralNetworkParameters, VSPKAndroidSwingSymNeuralNetworkParameters, VSPKIOSJacketPocketNeuralNetworkParameters, VSPKIOSPantJacketDistinguishParameters, VSPKIOSPocketNeuralNetworkParameters, VSPKMLModelFactory, VSPKNNActivationFunctions, VSPKNNCoefficientReader, VSPKNNCoefficientReaderJsonNN, VSPKNNCoefficientReaderJsonNNCompanion, VSPKNeuralNetworkActivationFunctionType, VSPKPS20SwingAntiSymNeuralNetworkParameters, VSPKPS20SwingSymNeuralNetworkParameters, VSPKPocketOrSwingNeuralNetworkParameters, VSPKRegularNeuralNetworkParameters, VSPKSwingAntiSymNeuralNetworkParameters, VSPKSwingNeuralNetworkParameters, VSPKSwingSymNeuralNetworkParameters, VSPKTrolleyNeuralNetworkParameters, VSPKAndroidSymAntiSymParameters, VSPKLinearSVMSwingStepDetectorValues, VSPKPS20SwingAntiSymLenientParameters, VSPKPS20SwingSymLenientParameters, VSPKRegularRBFSVMsupport, VSPKSVMHelpers, VSPKSpackRBFSVMsupport, VSPKSwingAntiSymLenientParameters, VSPKSwingSymLenientParameters, VSPKSymAntiSymParameters, VSPKWeakEvaluatorParameters, VSPKPositionEvent, VSPKSignalHandler, VSPKAverageVariance, VSPKAltitudeBasedFloorSensorFloorState, VSPKAltitudeBasedFloorSensor, VSPKNavMeshScrubber, VSPKSequentialScrubber, VSPKQLayerHandler, VSPKAltitudeOptions, VSPKAltitudeCompanion, VSPKSingleLinkedQueue<T>, VSPKAltitudeOptionsCompanion, VSPKNode<T>, VSPKBaseSignalDispatcher, VSPKPositionEventHandler, VSPKNavGraph, VSPKIPathfinderGoalType, VSPKDjikstrasOptimizedCompanion, VSPKDjikstrasOptimizedOldNodeGraph, VSPKNavGraphVertex, VSPKPriorityQueueUsingSinglyLinkedList<T>, VSPKNavGraphCompanion, VSPKNavGraphVertexCompanion, VSPKPathProcessor, VSPKPathProcessorBSpline, VSPKTSPThreeOptAlgorithmCompanion, VSPKKotlinRandom, VSPKStepEventBasedMLObservationType, VSPKStepEventBasedMLMLParameters, VSPKPersonalMLDataCompanion, VSPKReiterationData, VSPKCoefficientOptimizerJobCompanion, VSPKCoefficientOptimizerJobAxlExperimentalCompanion, VSPKCoefficientOptimizerJobLegacyCompanion, VSPKCoefficientOptimizerJobPaulExperimentalCompanion, VSPKWeightCalculatorNNParameters, VSPKKotlinFloatIterator, VSPKKotlinDoubleIterator, VSPKKotlinIntIterator, VSPKKotlinx_serialization_coreSerializersModule, VSPKKotlinx_serialization_coreSerialKind, VSPKKotlinNothing, VSPKKotlinRandomDefault, VSPKKotlinByteArray, VSPKKotlinByteIterator;
 
-@protocol VSPKKotlinComparable, VSPKOutputSignal, VSPKIQPSVPS, VSPKIQPSPersonalMLParameters, VSPKIQPSOffsetZone, VSPKIQPSSyncData, VSPKStepListener, VSPKtt2EngineTt2EngineDelegate, VSPKMLJob, VSPKStepEventBasedMLStepEventBasedMLDelegate, VSPKPositioningHandler, VSPKClockListener, VSPKIQPSRawSensorManager, VSPKIQPSInteractor, VSPKIQPSReplayInteractor, VSPKIQPSMapInformation, VSPKIQPSUserSettings, VSPKSensorInterpreter, VSPKtt2Engine, VSPKtt2EngineParameterManager, VSPKIQPSMLParameters, VSPKStepDetector, VSPKSensorInterpreterStepListener, VSPKIStepDetectorManager, VSPKObserver, VSPKStepEventFilter, VSPKKotlinx_serialization_coreKSerializer, VSPKSpackListener, VSPKSpackEvaluator, VSPKSpackFeaturisationModule, VSPKDirectionModel, VSPKDirectionFilter, VSPKDiscreteSpeedFunction, VSPKContinuousSpeedFunction, VSPKAuxiliarySensor, VSPKAuxiliarySensorManager, VSPKIReplayDataHandler, VSPKPocketSensor, VSPKIReplayData, VSPKAdjustmentManager, VSPKRollingFeaturiser, VSPKContextReturnData, VSPKKotlinIterator, VSPKKotlinIterable, VSPKKotlinCollection, VSPKKotlinMutableIterable, VSPKKotlinMutableCollection, VSPKKotlinx_coroutines_coreDisposableHandle, VSPKKotlinMutableIterator, VSPKContextListener, VSPKContextTracker, VSPKContextData, VSPKSignalDispatcher, VSPKLegacyInterface, VSPKSignalResponse, VSPKSignalListener, VSPKLegacyInterfacePlus, VSPKFloorSensor, VSPKScrubber, VSPKAltitudeDelegate, VSPKIPathfinderGoal, VSPKIPathfinderPath, VSPKIPathfinderListener, VSPKIPathfinder, VSPKStepEventBasedML, VSPKMLParamSetter, VSPKCorridorFinder, VSPKKotlinx_serialization_coreEncoder, VSPKKotlinx_serialization_coreSerialDescriptor, VSPKKotlinx_serialization_coreSerializationStrategy, VSPKKotlinx_serialization_coreDecoder, VSPKKotlinx_serialization_coreDeserializationStrategy, VSPKKotlinx_serialization_coreCompositeEncoder, VSPKKotlinAnnotation, VSPKKotlinx_serialization_coreCompositeDecoder, VSPKKotlinx_serialization_coreSerializersModuleCollector, VSPKKotlinKClass, VSPKKotlinKDeclarationContainer, VSPKKotlinKAnnotatedElement, VSPKKotlinKClassifier;
+@protocol VSPKKotlinComparable, VSPKOutputSignal, VSPKIQPSVPS, VSPKIQPSPersonalMLParameters, VSPKIQPSOffsetZone, VSPKIQPSSyncData, VSPKStepListener, VSPKtt2EngineTt2EngineDelegate, VSPKMLJob, VSPKStepEventBasedMLStepEventBasedMLDelegate, VSPKPositioningHandler, VSPKClockListener, VSPKIQPSRawSensorManager, VSPKIQPSInteractor, VSPKIQPSReplayInteractor, VSPKIQPSMapInformation, VSPKIQPSUserSettings, VSPKSensorInterpreter, VSPKtt2Engine, VSPKtt2EngineParameterManager, VSPKIQPSMLParameters, VSPKStepDetector, VSPKSensorInterpreterStepListener, VSPKIStepDetectorManager, VSPKObserver, VSPKStepEventFilter, VSPKKotlinx_serialization_coreKSerializer, VSPKSpackListener, VSPKSpackEvaluator, VSPKSpackFeaturisationModule, VSPKDirectionModel, VSPKDirectionFilter, VSPKDiscreteSpeedFunction, VSPKContinuousSpeedFunction, VSPKAuxiliarySensor, VSPKAuxiliarySensorManager, VSPKIReplayDataHandler, VSPKPocketSensor, VSPKIReplayData, VSPKAdjustmentManager, VSPKRollingFeaturiser, VSPKIQPSWiFi, VSPKContextReturnData, VSPKKotlinIterator, VSPKKotlinIterable, VSPKKotlinCollection, VSPKKotlinMutableIterable, VSPKKotlinMutableCollection, VSPKKotlinx_coroutines_coreDisposableHandle, VSPKKotlinMutableIterator, VSPKContextListener, VSPKContextTracker, VSPKContextData, VSPKKotlinx_serialization_coreEncoder, VSPKKotlinx_serialization_coreSerialDescriptor, VSPKKotlinx_serialization_coreSerializationStrategy, VSPKKotlinx_serialization_coreDecoder, VSPKKotlinx_serialization_coreDeserializationStrategy, VSPKSignalDispatcher, VSPKLegacyInterface, VSPKSignalResponse, VSPKSignalListener, VSPKLegacyInterfacePlus, VSPKFloorSensor, VSPKScrubber, VSPKAltitudeDelegate, VSPKIPathfinderGoal, VSPKIPathfinderPath, VSPKIPathfinderListener, VSPKIPathfinder, VSPKStepEventBasedML, VSPKMLParamSetter, VSPKCorridorFinder, VSPKKotlinx_serialization_coreCompositeEncoder, VSPKKotlinAnnotation, VSPKKotlinx_serialization_coreCompositeDecoder, VSPKKotlinx_serialization_coreSerializersModuleCollector, VSPKKotlinKClass, VSPKKotlinKDeclarationContainer, VSPKKotlinKAnnotatedElement, VSPKKotlinKClassifier;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -343,8 +343,11 @@ __attribute__((swift_name("IQPSRawSensorManager")))
 - (void)stopAllSensors __attribute__((swift_name("stopAllSensors()")));
 @property (readonly) VSPKRawSensor *accelerationSensor __attribute__((swift_name("accelerationSensor")));
 @property (readonly) VSPKRawSensor * _Nullable accelerationSensorUncalibrated __attribute__((swift_name("accelerationSensorUncalibrated")));
+@property (readonly) VSPKRawSensor * _Nullable accelerometerSensor __attribute__((swift_name("accelerometerSensor")));
+@property (readonly) VSPKRawSensor * _Nullable accelerometerSensorUncalibrated __attribute__((swift_name("accelerometerSensorUncalibrated")));
 @property (readonly) VSPKRawSensor * _Nullable altitudeSensor __attribute__((swift_name("altitudeSensor")));
 @property (readonly) VSPKRawSensor * _Nullable barometerSensor __attribute__((swift_name("barometerSensor")));
+@property (readonly) VSPKRawSensor * _Nullable geomagneticSensor __attribute__((swift_name("geomagneticSensor")));
 @property (readonly) VSPKRawSensor *gravitySensor __attribute__((swift_name("gravitySensor")));
 @property (readonly) VSPKRawSensor * _Nullable gyroscopeSensorUncalibrated __attribute__((swift_name("gyroscopeSensorUncalibrated")));
 @property (readonly) VSPKRawSensor * _Nullable lockedSensor __attribute__((swift_name("lockedSensor")));
@@ -424,6 +427,14 @@ __attribute__((swift_name("IQPSVPS")))
 - (BOOL)validPositionPointF:(VSPKPointF *)pointF __attribute__((swift_name("validPosition(pointF:)")));
 @end;
 
+__attribute__((swift_name("IQPSWiFi")))
+@protocol VSPKIQPSWiFi
+@required
+- (void)initiateWifiAccessPoints:(NSArray<VSPKAccessPoint *> *)accessPoints __attribute__((swift_name("initiateWifi(accessPoints:)")));
+- (void)sendWiFiScanScans:(NSArray<VSPKWiFiObservation *> *)scans __attribute__((swift_name("sendWiFiScan(scans:)")));
+- (void)sendWiFiStatusStatus:(VSPKWiFiObservation *)status __attribute__((swift_name("sendWiFiStatus(status:)")));
+@end;
+
 __attribute__((swift_name("StepListener")))
 @protocol VSPKStepListener
 @required
@@ -467,7 +478,9 @@ __attribute__((swift_name("QLayerHandler")))
 - (instancetype)initWithRawSensorManager:(id<VSPKIQPSRawSensorManager>)rawSensorManager interactor:(id<VSPKIQPSInteractor>)interactor replayInteractor:(id<VSPKIQPSReplayInteractor> _Nullable)replayInteractor mapInformation:(id<VSPKIQPSMapInformation>)mapInformation userSettings:(id<VSPKIQPSUserSettings> _Nullable)userSettings parameterPackageEnum:(VSPKIQPSParameterPackageEnum *)parameterPackageEnum playback:(BOOL)playback sensorInterpreter:(id<VSPKSensorInterpreter> _Nullable)sensorInterpreter particleFilter:(id<VSPKtt2Engine> _Nullable)particleFilter tt2EngineParameterManager:(id<VSPKtt2EngineParameterManager> _Nullable)tt2EngineParameterManager mlParameters:(id<VSPKIQPSMLParameters> _Nullable)mlParameters __attribute__((swift_name("init(rawSensorManager:interactor:replayInteractor:mapInformation:userSettings:parameterPackageEnum:playback:sensorInterpreter:particleFilter:tt2EngineParameterManager:mlParameters:)"))) __attribute__((objc_designated_initializer));
 - (void)deviceModeMode:(VSPKIQPSDeviceMode *)mode offset:(VSPKDouble * _Nullable)offset __attribute__((swift_name("deviceMode(mode:offset:)")));
 - (VSPKKotlinFloatArray * _Nullable)getLastRotation __attribute__((swift_name("getLastRotation()")));
+- (VSPKWiFiObservation * _Nullable)getLastWifiStatus __attribute__((swift_name("getLastWifiStatus()")));
 - (void)doInitPositionSyncEvent __attribute__((swift_name("doInitPositionSyncEvent()")));
+- (void)initiateWifiWifiAccessPoints:(NSArray<VSPKAccessPoint *> *)wifiAccessPoints __attribute__((swift_name("initiateWifi(wifiAccessPoints:)")));
 - (void)onHeadingCorrectionSuggestionOffset:(VSPKDouble * _Nullable)offset deviceOrientation:(VSPKIQPSDeviceOrientation *)deviceOrientation __attribute__((swift_name("onHeadingCorrectionSuggestion(offset:deviceOrientation:)")));
 - (void)onNewPositionX:(VSPKFloat * _Nullable)x y:(VSPKFloat * _Nullable)y std:(VSPKFloat * _Nullable)std timestamp:(int64_t)timestamp __attribute__((swift_name("onNewPosition(x:y:std:timestamp:)")));
 - (void)onPathUpdateEventPath:(NSArray<VSPKPointF *> *)path __attribute__((swift_name("onPathUpdateEvent(path:)")));
@@ -482,6 +495,8 @@ __attribute__((swift_name("QLayerHandler")))
 - (void)sendRotationAdditionFloat:(float)float_ override:(BOOL)override __attribute__((swift_name("sendRotationAddition(float:override:)")));
 - (void)sendSpeedFactorFloat:(float)float_ override:(BOOL)override __attribute__((swift_name("sendSpeedFactor(float:override:)")));
 - (void)setCurrentDirectionAngle:(float)angle __attribute__((swift_name("setCurrentDirection(angle:)")));
+- (void)setIsNextSyncWhitelistBool:(BOOL)bool_ __attribute__((swift_name("setIsNextSyncWhitelist(bool:)")));
+- (void)setTimestampDifferenceDifference:(int64_t)difference __attribute__((swift_name("setTimestampDifference(difference:)")));
 - (void)startDebugStartPos:(VSPKPointF * _Nullable)startPos startAngle:(VSPKDouble * _Nullable)startAngle uncertainAngle:(BOOL)uncertainAngle startSensors:(BOOL)startSensors __attribute__((swift_name("startDebug(startPos:startAngle:uncertainAngle:startSensors:)")));
 - (void)startNavigationStartPos:(VSPKPointF *)startPos startAngle:(double)startAngle startSensors:(BOOL)startSensors uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("startNavigation(startPos:startAngle:startSensors:uncertainAngle:)")));
 - (void)startRecording __attribute__((swift_name("startRecording()")));
@@ -492,6 +507,8 @@ __attribute__((swift_name("QLayerHandler")))
 - (void)updateDirectionAngle:(double)direction timestamp:(int64_t)timestamp __attribute__((swift_name("updateDirection(angle:timestamp:)")));
 - (BOOL)validPositionX:(float)x y:(float)y __attribute__((swift_name("validPosition(x:y:)")));
 - (BOOL)validPositionPointF:(VSPKPointF *)pointF __attribute__((swift_name("validPosition(pointF:)")));
+- (void)wifiScanWifiObservations:(NSArray<VSPKWiFiObservation *> *)wifiObservations __attribute__((swift_name("wifiScan(wifiObservations:)")));
+- (void)wifiStatusWifiObservation:(VSPKWiFiObservation *)wifiObservation __attribute__((swift_name("wifiStatus(wifiObservation:)")));
 @end;
 
 __attribute__((swift_name("SensorInterpreter")))
@@ -891,116 +908,6 @@ __attribute__((swift_name("SwingFilter")))
 - (VSPKStepData * _Nullable)filterSwingStepStep:(VSPKStepData *)step __attribute__((swift_name("filterSwingStep(step:)")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MLAdjustment")))
-@interface VSPKMLAdjustment : VSPKBase
-- (instancetype)initWithSpeedModelFactor:(double)speedModelFactor speedAdjuster:(double)speedAdjuster driftInRadians:(double)driftInRadians rotationInRadians:(double)rotationInRadians __attribute__((swift_name("init(speedModelFactor:speedAdjuster:driftInRadians:rotationInRadians:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKMLAdjustmentCompanion *companion __attribute__((swift_name("companion")));
-- (double)component1 __attribute__((swift_name("component1()")));
-- (double)component2 __attribute__((swift_name("component2()")));
-- (double)component3 __attribute__((swift_name("component3()")));
-- (double)component4 __attribute__((swift_name("component4()")));
-- (VSPKMLAdjustment *)doCopySpeedModelFactor:(double)speedModelFactor speedAdjuster:(double)speedAdjuster driftInRadians:(double)driftInRadians rotationInRadians:(double)rotationInRadians __attribute__((swift_name("doCopy(speedModelFactor:speedAdjuster:driftInRadians:rotationInRadians:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double driftInRadians __attribute__((swift_name("driftInRadians")));
-@property (readonly) double rotationInRadians __attribute__((swift_name("rotationInRadians")));
-@property (readonly) double speedAdjuster __attribute__((swift_name("speedAdjuster")));
-@property (readonly) double speedModelFactor __attribute__((swift_name("speedModelFactor")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MLAdjustment.Companion")))
-@interface VSPKMLAdjustmentCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKMLAdjustmentCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((swift_name("StepData")))
-@interface VSPKStepData : VSPKBase
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:)"))) __attribute__((objc_designated_initializer));
-- (void)reEvaluate __attribute__((swift_name("reEvaluate()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property VSPKDouble * _Nullable direction __attribute__((swift_name("direction")));
-@property VSPKDouble * _Nullable directionCertainty __attribute__((swift_name("directionCertainty")));
-@property int64_t duration __attribute__((swift_name("duration")));
-@property VSPKKotlinFloatArray *quaternion __attribute__((swift_name("quaternion")));
-@property (readonly) BOOL reEvaluateable __attribute__((swift_name("reEvaluateable")));
-@property VSPKDouble * _Nullable relativeDirection __attribute__((swift_name("relativeDirection")));
-@property VSPKFloat * _Nullable speed __attribute__((swift_name("speed")));
-@property double stepCertainty __attribute__((swift_name("stepCertainty")));
-@property id<VSPKStepDetector> _Nullable stepDetector __attribute__((swift_name("stepDetector")));
-@property NSString *stringTag __attribute__((swift_name("stringTag")));
-@property BOOL success __attribute__((swift_name("success")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@property (readonly) VSPKIQPSDeviceOrientation *type __attribute__((swift_name("type")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SpackStepData")))
-@interface VSPKSpackStepData : VSPKStepData
-- (instancetype)initWithSpack:(VSPKSpack *)spack confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector>)stepDetector duration:(int64_t)duration type:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(spack:confidence:timestamp:success:stepDetector:duration:type:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VSPKSpack *spack __attribute__((swift_name("spack")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepEventData")))
-@interface VSPKStepEventData : VSPKBase
-- (instancetype)initWithStepData:(VSPKStepData *)stepData mlAdjustment:(VSPKMLAdjustment *)mlAdjustment __attribute__((swift_name("init(stepData:mlAdjustment:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithStepData:(VSPKStepData *)stepData mlAdjustment:(VSPKMLAdjustment *)mlAdjustment speed:(VSPKFloat * _Nullable)speed __attribute__((swift_name("init(stepData:mlAdjustment:speed:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion mlAdjustment:(VSPKMLAdjustment *)mlAdjustment __attribute__((swift_name("init(type:timestamp:success:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:mlAdjustment:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VSPKStepEventDataCompanion *companion __attribute__((swift_name("companion")));
-- (VSPKIQPSDeviceOrientation *)component1 __attribute__((swift_name("component1()")));
-- (VSPKKotlinFloatArray *)component10 __attribute__((swift_name("component10()")));
-- (VSPKMLAdjustment *)component11 __attribute__((swift_name("component11()")));
-- (int64_t)component2 __attribute__((swift_name("component2()")));
-- (BOOL)component3 __attribute__((swift_name("component3()")));
-- (int64_t)component4 __attribute__((swift_name("component4()")));
-- (VSPKDouble * _Nullable)component5 __attribute__((swift_name("component5()")));
-- (VSPKDouble * _Nullable)component6 __attribute__((swift_name("component6()")));
-- (VSPKDouble * _Nullable)component7 __attribute__((swift_name("component7()")));
-- (VSPKFloat * _Nullable)component8 __attribute__((swift_name("component8()")));
-- (double)component9 __attribute__((swift_name("component9()")));
-- (VSPKStepEventData *)doCopyType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion mlAdjustment:(VSPKMLAdjustment *)mlAdjustment __attribute__((swift_name("doCopy(type:timestamp:success:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:mlAdjustment:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property VSPKDouble * _Nullable direction __attribute__((swift_name("direction")));
-@property VSPKDouble * _Nullable directionCertainty __attribute__((swift_name("directionCertainty")));
-@property int64_t duration __attribute__((swift_name("duration")));
-@property VSPKMLAdjustment *mlAdjustment __attribute__((swift_name("mlAdjustment")));
-@property VSPKKotlinFloatArray *quaternion __attribute__((swift_name("quaternion")));
-@property VSPKDouble * _Nullable relativeDirection __attribute__((swift_name("relativeDirection")));
-@property VSPKFloat * _Nullable speed __attribute__((swift_name("speed")));
-@property double stepCertainty __attribute__((swift_name("stepCertainty")));
-@property BOOL success __attribute__((swift_name("success")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@property (readonly) VSPKIQPSDeviceOrientation *type __attribute__((swift_name("type")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepEventData.Companion")))
-@interface VSPKStepEventDataCompanion : VSPKBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKStepEventDataCompanion *shared __attribute__((swift_name("shared")));
-- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ToyStepData")))
-@interface VSPKToyStepData : VSPKStepData
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector * _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection length:(VSPKFloat * _Nullable)length stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:length:stepCertainty:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@end;
-
 __attribute__((swift_name("StepDetector")))
 @protocol VSPKStepDetector
 @required
@@ -1380,6 +1287,116 @@ __attribute__((swift_name("MLSwingSymStepDetector.Companion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKMLSwingSymStepDetectorCompanion *shared __attribute__((swift_name("shared")));
 @property (readonly) NSString *TAG __attribute__((swift_name("TAG")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MLAdjustment")))
+@interface VSPKMLAdjustment : VSPKBase
+- (instancetype)initWithSpeedModelFactor:(double)speedModelFactor speedAdjuster:(double)speedAdjuster driftInRadians:(double)driftInRadians rotationInRadians:(double)rotationInRadians __attribute__((swift_name("init(speedModelFactor:speedAdjuster:driftInRadians:rotationInRadians:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKMLAdjustmentCompanion *companion __attribute__((swift_name("companion")));
+- (double)component1 __attribute__((swift_name("component1()")));
+- (double)component2 __attribute__((swift_name("component2()")));
+- (double)component3 __attribute__((swift_name("component3()")));
+- (double)component4 __attribute__((swift_name("component4()")));
+- (VSPKMLAdjustment *)doCopySpeedModelFactor:(double)speedModelFactor speedAdjuster:(double)speedAdjuster driftInRadians:(double)driftInRadians rotationInRadians:(double)rotationInRadians __attribute__((swift_name("doCopy(speedModelFactor:speedAdjuster:driftInRadians:rotationInRadians:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) double driftInRadians __attribute__((swift_name("driftInRadians")));
+@property (readonly) double rotationInRadians __attribute__((swift_name("rotationInRadians")));
+@property (readonly) double speedAdjuster __attribute__((swift_name("speedAdjuster")));
+@property (readonly) double speedModelFactor __attribute__((swift_name("speedModelFactor")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MLAdjustment.Companion")))
+@interface VSPKMLAdjustmentCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKMLAdjustmentCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((swift_name("StepData")))
+@interface VSPKStepData : VSPKBase
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:)"))) __attribute__((objc_designated_initializer));
+- (void)reEvaluate __attribute__((swift_name("reEvaluate()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property VSPKDouble * _Nullable direction __attribute__((swift_name("direction")));
+@property VSPKDouble * _Nullable directionCertainty __attribute__((swift_name("directionCertainty")));
+@property int64_t duration __attribute__((swift_name("duration")));
+@property VSPKKotlinFloatArray *quaternion __attribute__((swift_name("quaternion")));
+@property (readonly) BOOL reEvaluateable __attribute__((swift_name("reEvaluateable")));
+@property VSPKDouble * _Nullable relativeDirection __attribute__((swift_name("relativeDirection")));
+@property VSPKFloat * _Nullable speed __attribute__((swift_name("speed")));
+@property double stepCertainty __attribute__((swift_name("stepCertainty")));
+@property id<VSPKStepDetector> _Nullable stepDetector __attribute__((swift_name("stepDetector")));
+@property NSString *stringTag __attribute__((swift_name("stringTag")));
+@property BOOL success __attribute__((swift_name("success")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) VSPKIQPSDeviceOrientation *type __attribute__((swift_name("type")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SpackStepData")))
+@interface VSPKSpackStepData : VSPKStepData
+- (instancetype)initWithSpack:(VSPKSpack *)spack confidence:(double)confidence timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector>)stepDetector duration:(int64_t)duration type:(VSPKIQPSDeviceOrientation *)type __attribute__((swift_name("init(spack:confidence:timestamp:success:stepDetector:duration:type:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VSPKSpack *spack __attribute__((swift_name("spack")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StepEventData")))
+@interface VSPKStepEventData : VSPKBase
+- (instancetype)initWithStepData:(VSPKStepData *)stepData mlAdjustment:(VSPKMLAdjustment *)mlAdjustment __attribute__((swift_name("init(stepData:mlAdjustment:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithStepData:(VSPKStepData *)stepData mlAdjustment:(VSPKMLAdjustment *)mlAdjustment speed:(VSPKFloat * _Nullable)speed __attribute__((swift_name("init(stepData:mlAdjustment:speed:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion mlAdjustment:(VSPKMLAdjustment *)mlAdjustment __attribute__((swift_name("init(type:timestamp:success:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:mlAdjustment:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKStepEventDataCompanion *companion __attribute__((swift_name("companion")));
+- (VSPKIQPSDeviceOrientation *)component1 __attribute__((swift_name("component1()")));
+- (VSPKKotlinFloatArray *)component10 __attribute__((swift_name("component10()")));
+- (VSPKMLAdjustment *)component11 __attribute__((swift_name("component11()")));
+- (int64_t)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (int64_t)component4 __attribute__((swift_name("component4()")));
+- (VSPKDouble * _Nullable)component5 __attribute__((swift_name("component5()")));
+- (VSPKDouble * _Nullable)component6 __attribute__((swift_name("component6()")));
+- (VSPKDouble * _Nullable)component7 __attribute__((swift_name("component7()")));
+- (VSPKFloat * _Nullable)component8 __attribute__((swift_name("component8()")));
+- (double)component9 __attribute__((swift_name("component9()")));
+- (VSPKStepEventData *)doCopyType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion mlAdjustment:(VSPKMLAdjustment *)mlAdjustment __attribute__((swift_name("doCopy(type:timestamp:success:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:mlAdjustment:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property VSPKDouble * _Nullable direction __attribute__((swift_name("direction")));
+@property VSPKDouble * _Nullable directionCertainty __attribute__((swift_name("directionCertainty")));
+@property int64_t duration __attribute__((swift_name("duration")));
+@property VSPKMLAdjustment *mlAdjustment __attribute__((swift_name("mlAdjustment")));
+@property VSPKKotlinFloatArray *quaternion __attribute__((swift_name("quaternion")));
+@property VSPKDouble * _Nullable relativeDirection __attribute__((swift_name("relativeDirection")));
+@property VSPKFloat * _Nullable speed __attribute__((swift_name("speed")));
+@property double stepCertainty __attribute__((swift_name("stepCertainty")));
+@property BOOL success __attribute__((swift_name("success")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) VSPKIQPSDeviceOrientation *type __attribute__((swift_name("type")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StepEventData.Companion")))
+@interface VSPKStepEventDataCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKStepEventDataCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ToyStepData")))
+@interface VSPKToyStepData : VSPKStepData
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(VSPKSensorListeningStepDetector * _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection length:(VSPKFloat * _Nullable)length stepCertainty:(double)stepCertainty __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:length:stepCertainty:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithType:(VSPKIQPSDeviceOrientation *)type timestamp:(int64_t)timestamp success:(BOOL)success stepDetector:(id<VSPKStepDetector> _Nullable)stepDetector duration:(int64_t)duration direction:(VSPKDouble * _Nullable)direction directionCertainty:(VSPKDouble * _Nullable)directionCertainty relativeDirection:(VSPKDouble * _Nullable)relativeDirection speed:(VSPKFloat * _Nullable)speed stepCertainty:(double)stepCertainty quaternion:(VSPKKotlinFloatArray *)quaternion __attribute__((swift_name("init(type:timestamp:success:stepDetector:duration:direction:directionCertainty:relativeDirection:speed:stepCertainty:quaternion:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @end;
 
 __attribute__((swift_name("SpackExtractor")))
@@ -3250,8 +3267,11 @@ __attribute__((swift_name("RawSensorManagerAdapter")))
 - (void)stopAllSensors __attribute__((swift_name("stopAllSensors()")));
 @property (readonly) VSPKRawSensor *accelerationSensor __attribute__((swift_name("accelerationSensor")));
 @property (readonly) VSPKRawSensor * _Nullable accelerationSensorUncalibrated __attribute__((swift_name("accelerationSensorUncalibrated")));
+@property (readonly) VSPKRawSensor * _Nullable accelerometerSensor __attribute__((swift_name("accelerometerSensor")));
+@property (readonly) VSPKRawSensor * _Nullable accelerometerSensorUncalibrated __attribute__((swift_name("accelerometerSensorUncalibrated")));
 @property (readonly) VSPKRawSensor * _Nullable altitudeSensor __attribute__((swift_name("altitudeSensor")));
 @property (readonly) VSPKRawSensor * _Nullable barometerSensor __attribute__((swift_name("barometerSensor")));
+@property (readonly) VSPKRawSensor * _Nullable geomagneticSensor __attribute__((swift_name("geomagneticSensor")));
 @property (readonly) VSPKRawSensor *gravitySensor __attribute__((swift_name("gravitySensor")));
 @property (readonly) VSPKRawSensor * _Nullable gyroscopeSensorUncalibrated __attribute__((swift_name("gyroscopeSensorUncalibrated")));
 @property (readonly) VSPKRawSensor * _Nullable lockedSensor __attribute__((swift_name("lockedSensor")));
@@ -3288,13 +3308,14 @@ __attribute__((swift_name("RadiusSyncTrigger")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SyncTrigger")))
 @interface VSPKSyncTrigger : VSPKRawSensorData <VSPKIQPSSyncData>
-- (instancetype)initWithCurrentTime:(int64_t)currentTime angle:(float)angle position:(VSPKPointF *)position syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle __attribute__((swift_name("init(currentTime:angle:position:syncPosition:syncAngle:uncertainAngle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCurrentTime:(int64_t)currentTime angle:(float)angle position:(VSPKPointF *)position syncPosition:(BOOL)syncPosition syncAngle:(BOOL)syncAngle uncertainAngle:(BOOL)uncertainAngle whitelist:(VSPKBoolean * _Nullable)whitelist __attribute__((swift_name("init(currentTime:angle:position:syncPosition:syncAngle:uncertainAngle:whitelist:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)initWithValues:(VSPKKotlinFloatArray *)values sensorDataType:(VSPKRawSensorDataSensorDataType *)sensorDataType timestamp:(int64_t)timestamp systemTimestamp:(int64_t)systemTimestamp sensorAccuracy:(VSPKFloat * _Nullable)sensorAccuracy __attribute__((swift_name("init(values:sensorDataType:timestamp:systemTimestamp:sensorAccuracy:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (readonly) float angle __attribute__((swift_name("angle")));
 @property (readonly) VSPKPointF *position __attribute__((swift_name("position")));
 @property BOOL syncAngle __attribute__((swift_name("syncAngle")));
-@property (readonly) BOOL syncPosition __attribute__((swift_name("syncPosition")));
+@property BOOL syncPosition __attribute__((swift_name("syncPosition")));
 @property (readonly) BOOL uncertainAngle __attribute__((swift_name("uncertainAngle")));
+@property (readonly) VSPKBoolean * _Nullable whitelist __attribute__((swift_name("whitelist")));
 @end;
 
 __attribute__((swift_name("Observable")))
@@ -4009,12 +4030,19 @@ __attribute__((swift_name("ReplayDataV8")))
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSArray<VSPKRawSensorData *> *)loadReplayJsonData:(NSMutableArray<id> *)jsonData dataTypes:(NSArray<VSPKRawSensorDataSensorDataType *> *)dataTypes __attribute__((swift_name("loadReplay(jsonData:dataTypes:)")));
+- (void)loadSyncMetadataJsonData:(NSString * _Nullable)jsonData __attribute__((swift_name("loadSyncMetadata(jsonData:)")));
+- (void)loadWhitelistJsonData:(NSString * _Nullable)jsonData __attribute__((swift_name("loadWhitelist(jsonData:)")));
+- (void)loadWifiDataJsonData:(NSString * _Nullable)jsonData __attribute__((swift_name("loadWifiData(jsonData:)")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VSPKDouble * _Nullable ecsuValue __attribute__((swift_name("ecsuValue")));
 @property (readonly) NSString *qpsValues __attribute__((swift_name("qpsValues")));
+@property VSPKLong * _Nullable sensorSystemTimeDiff __attribute__((swift_name("sensorSystemTimeDiff")));
 @property VSPKStartPosition *startPosition __attribute__((swift_name("startPosition")));
+@property VSPKVisitScanData * _Nullable syncMetadata __attribute__((swift_name("syncMetadata")));
 @property (readonly) NSString *systemType __attribute__((swift_name("systemType")));
 @property (readonly) NSString *versionOfVPS __attribute__((swift_name("versionOfVPS")));
+@property VSPKWhitelist * _Nullable whitelist __attribute__((swift_name("whitelist")));
+@property VSPKWiFiRecording * _Nullable wifiData __attribute__((swift_name("wifiData")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4024,6 +4052,49 @@ __attribute__((swift_name("ReplayDataV8.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKReplayDataV8Companion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ReplayDataV9")))
+@interface VSPKReplayDataV9 : VSPKBase <VSPKIReplayData>
+- (instancetype)initWithQpsValues:(NSString *)qpsValues versionOfVPS:(NSString *)versionOfVPS systemType:(NSString *)systemType ecsuValue:(VSPKDouble * _Nullable)ecsuValue __attribute__((swift_name("init(qpsValues:versionOfVPS:systemType:ecsuValue:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKReplayDataV9Companion *companion __attribute__((swift_name("companion")));
+- (void)addPathUpdateTimestamp:(int64_t)timestamp path:(NSArray<VSPKPointF *> *)path __attribute__((swift_name("addPathUpdate(timestamp:path:)")));
+- (void)addRadiusSyncPositionTimestamp:(int64_t)timestamp radiusSyncPositionData:(VSPKIReplayDataHandlerRadiusSyncPositionData *)radiusSyncPositionData __attribute__((swift_name("addRadiusSyncPosition(timestamp:radiusSyncPositionData:)")));
+- (void)addSensorDataData:(VSPKRawSensorData *)data __attribute__((swift_name("addSensorData(data:)")));
+- (void)addSyncPositionTimestamp:(int64_t)timestamp syncPositionData:(VSPKIReplayDataHandlerSyncPositionData *)syncPositionData __attribute__((swift_name("addSyncPosition(timestamp:syncPositionData:)")));
+- (void)addTickDataNavBundle:(VSPKNavBundle *)navBundle currentTime:(int64_t)currentTime azimuth:(double)azimuth magnitude:(double)magnitude qPositions:(NSArray<VSPKQPosition *> *)qPositions __attribute__((swift_name("addTickData(navBundle:currentTime:azimuth:magnitude:qPositions:)")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
+- (VSPKDouble * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (VSPKReplayDataV9 *)doCopyQpsValues:(NSString *)qpsValues versionOfVPS:(NSString *)versionOfVPS systemType:(NSString *)systemType ecsuValue:(VSPKDouble * _Nullable)ecsuValue __attribute__((swift_name("doCopy(qpsValues:versionOfVPS:systemType:ecsuValue:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSArray<VSPKRawSensorData *> *)loadReplayJsonData:(NSMutableArray<id> *)jsonData dataTypes:(NSArray<VSPKRawSensorDataSensorDataType *> *)dataTypes __attribute__((swift_name("loadReplay(jsonData:dataTypes:)")));
+- (void)loadSyncMetadataJsonData:(NSString * _Nullable)jsonData __attribute__((swift_name("loadSyncMetadata(jsonData:)")));
+- (void)loadWhitelistJsonData:(NSString * _Nullable)jsonData __attribute__((swift_name("loadWhitelist(jsonData:)")));
+- (void)loadWifiDataJsonData:(NSString * _Nullable)jsonData __attribute__((swift_name("loadWifiData(jsonData:)")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VSPKDouble * _Nullable ecsuValue __attribute__((swift_name("ecsuValue")));
+@property (readonly) NSString *qpsValues __attribute__((swift_name("qpsValues")));
+@property VSPKLong * _Nullable sensorSystemTimeDiff __attribute__((swift_name("sensorSystemTimeDiff")));
+@property VSPKStartPosition *startPosition __attribute__((swift_name("startPosition")));
+@property VSPKVisitScanData * _Nullable syncMetadata __attribute__((swift_name("syncMetadata")));
+@property (readonly) NSString *systemType __attribute__((swift_name("systemType")));
+@property (readonly) NSString *versionOfVPS __attribute__((swift_name("versionOfVPS")));
+@property VSPKWhitelist * _Nullable whitelist __attribute__((swift_name("whitelist")));
+@property VSPKWiFiRecording * _Nullable wifiData __attribute__((swift_name("wifiData")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ReplayDataV9.Companion")))
+@interface VSPKReplayDataV9Companion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKReplayDataV9Companion *shared __attribute__((swift_name("shared")));
 - (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
@@ -4123,6 +4194,7 @@ __attribute__((swift_name("ReplayDataVersion")))
 @property (class, readonly) VSPKReplayDataVersion *v5bug __attribute__((swift_name("v5bug")));
 @property (class, readonly) VSPKReplayDataVersion *v7 __attribute__((swift_name("v7")));
 @property (class, readonly) VSPKReplayDataVersion *v8 __attribute__((swift_name("v8")));
+@property (class, readonly) VSPKReplayDataVersion *v9 __attribute__((swift_name("v9")));
 + (VSPKKotlinArray<VSPKReplayDataVersion *> *)values __attribute__((swift_name("values()")));
 @end;
 
@@ -4246,6 +4318,147 @@ __attribute__((swift_name("Tick.Companion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKTickCompanion *shared __attribute__((swift_name("shared")));
 - (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording")))
+@interface VSPKWiFiRecording : VSPKBase
+- (instancetype)initWithTimestamp:(int64_t)timestamp wifiStatusUpdates:(NSArray<VSPKWiFiRecordingWifiStatusUpdate *> *)wifiStatusUpdates wifiScans:(NSArray<VSPKWiFiRecordingWifiScan *> *)wifiScans __attribute__((swift_name("init(timestamp:wifiStatusUpdates:wifiScans:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKWiFiRecordingCompanion *companion __attribute__((swift_name("companion")));
+- (int64_t)component1 __attribute__((swift_name("component1()")));
+- (NSArray<VSPKWiFiRecordingWifiStatusUpdate *> *)component2 __attribute__((swift_name("component2()")));
+- (NSArray<VSPKWiFiRecordingWifiScan *> *)component3 __attribute__((swift_name("component3()")));
+- (VSPKWiFiRecording *)doCopyTimestamp:(int64_t)timestamp wifiStatusUpdates:(NSArray<VSPKWiFiRecordingWifiStatusUpdate *> *)wifiStatusUpdates wifiScans:(NSArray<VSPKWiFiRecordingWifiScan *> *)wifiScans __attribute__((swift_name("doCopy(timestamp:wifiStatusUpdates:wifiScans:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) NSArray<VSPKWiFiRecordingWifiScan *> *wifiScans __attribute__((swift_name("wifiScans")));
+@property (readonly) NSArray<VSPKWiFiRecordingWifiStatusUpdate *> *wifiStatusUpdates __attribute__((swift_name("wifiStatusUpdates")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.Companion")))
+@interface VSPKWiFiRecordingCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKWiFiRecordingCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.WifiScan")))
+@interface VSPKWiFiRecordingWifiScan : VSPKBase
+- (instancetype)initWithTimestamp:(int64_t)timestamp realLifePosition:(VSPKIncorrectPointF *)realLifePosition data:(NSArray<VSPKWiFiRecordingWifiScanWifiScanResult *> *)data __attribute__((swift_name("init(timestamp:realLifePosition:data:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKWiFiRecordingWifiScanCompanion *companion __attribute__((swift_name("companion")));
+- (int64_t)component1 __attribute__((swift_name("component1()")));
+- (VSPKIncorrectPointF *)component2 __attribute__((swift_name("component2()")));
+- (NSArray<VSPKWiFiRecordingWifiScanWifiScanResult *> *)component3 __attribute__((swift_name("component3()")));
+- (VSPKWiFiRecordingWifiScan *)doCopyTimestamp:(int64_t)timestamp realLifePosition:(VSPKIncorrectPointF *)realLifePosition data:(NSArray<VSPKWiFiRecordingWifiScanWifiScanResult *> *)data __attribute__((swift_name("doCopy(timestamp:realLifePosition:data:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property NSArray<VSPKWiFiRecordingWifiScanWifiScanResult *> *data __attribute__((swift_name("data")));
+@property VSPKIncorrectPointF *realLifePosition __attribute__((swift_name("realLifePosition")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.WifiScanCompanion")))
+@interface VSPKWiFiRecordingWifiScanCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKWiFiRecordingWifiScanCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.WifiScanWifiScanResult")))
+@interface VSPKWiFiRecordingWifiScanWifiScanResult : VSPKBase
+- (instancetype)initWithSsid:(NSString *)ssid bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(int32_t)frequency centerFreq0:(int32_t)centerFreq0 _80211mcResponder:(BOOL)_80211mcResponder __attribute__((swift_name("init(ssid:bssid:rssi:frequency:centerFreq0:_80211mcResponder:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKWiFiRecordingWifiScanWifiScanResultCompanion *companion __attribute__((swift_name("companion")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (int32_t)component3 __attribute__((swift_name("component3()")));
+- (int32_t)component4 __attribute__((swift_name("component4()")));
+- (int32_t)component5 __attribute__((swift_name("component5()")));
+- (BOOL)component6 __attribute__((swift_name("component6()")));
+- (VSPKWiFiRecordingWifiScanWifiScanResult *)doCopySsid:(NSString *)ssid bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(int32_t)frequency centerFreq0:(int32_t)centerFreq0 _80211mcResponder:(BOOL)_80211mcResponder __attribute__((swift_name("doCopy(ssid:bssid:rssi:frequency:centerFreq0:_80211mcResponder:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL _80211mcResponder __attribute__((swift_name("_80211mcResponder")));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property (readonly) int32_t centerFreq0 __attribute__((swift_name("centerFreq0")));
+@property (readonly) int32_t frequency __attribute__((swift_name("frequency")));
+@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
+@property (readonly) NSString *ssid __attribute__((swift_name("ssid")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.WifiScanWifiScanResultCompanion")))
+@interface VSPKWiFiRecordingWifiScanWifiScanResultCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKWiFiRecordingWifiScanWifiScanResultCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.WifiStatusUpdate")))
+@interface VSPKWiFiRecordingWifiStatusUpdate : VSPKBase
+- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid identifier:(NSString * _Nullable)identifier rtlsOptionsId:(VSPKLong * _Nullable)rtlsOptionsId position:(VSPKIncorrectPointF * _Nullable)position rssi:(VSPKInt * _Nullable)rssi frequency:(VSPKInt * _Nullable)frequency __attribute__((swift_name("init(timestamp:bssid:identifier:rtlsOptionsId:position:rssi:frequency:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKWiFiRecordingWifiStatusUpdateCompanion *companion __attribute__((swift_name("companion")));
+- (int64_t)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString * _Nullable)component3 __attribute__((swift_name("component3()")));
+- (VSPKLong * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (VSPKIncorrectPointF * _Nullable)component5 __attribute__((swift_name("component5()")));
+- (VSPKInt * _Nullable)component6 __attribute__((swift_name("component6()")));
+- (VSPKInt * _Nullable)component7 __attribute__((swift_name("component7()")));
+- (VSPKWiFiRecordingWifiStatusUpdate *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid identifier:(NSString * _Nullable)identifier rtlsOptionsId:(VSPKLong * _Nullable)rtlsOptionsId position:(VSPKIncorrectPointF * _Nullable)position rssi:(VSPKInt * _Nullable)rssi frequency:(VSPKInt * _Nullable)frequency __attribute__((swift_name("doCopy(timestamp:bssid:identifier:rtlsOptionsId:position:rssi:frequency:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property VSPKInt * _Nullable frequency __attribute__((swift_name("frequency")));
+@property (readonly) NSString * _Nullable identifier __attribute__((swift_name("identifier")));
+@property VSPKIncorrectPointF * _Nullable position __attribute__((swift_name("position")));
+@property VSPKInt * _Nullable rssi __attribute__((swift_name("rssi")));
+@property (readonly) VSPKLong * _Nullable rtlsOptionsId __attribute__((swift_name("rtlsOptionsId")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiRecording.WifiStatusUpdateCompanion")))
+@interface VSPKWiFiRecordingWifiStatusUpdateCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKWiFiRecordingWifiStatusUpdateCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiScans")))
+@interface VSPKWiFiScans : VSPKRawSensorData
+- (instancetype)initWithCurrentTime:(int64_t)currentTime data:(NSArray<VSPKWiFiRecordingWifiScanWifiScanResult *> *)data __attribute__((swift_name("init(currentTime:data:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithValues:(VSPKKotlinFloatArray *)values sensorDataType:(VSPKRawSensorDataSensorDataType *)sensorDataType timestamp:(int64_t)timestamp systemTimestamp:(int64_t)systemTimestamp sensorAccuracy:(VSPKFloat * _Nullable)sensorAccuracy __attribute__((swift_name("init(values:sensorDataType:timestamp:systemTimestamp:sensorAccuracy:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property NSArray<VSPKWiFiRecordingWifiScanWifiScanResult *> *data __attribute__((swift_name("data")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiStatus")))
+@interface VSPKWiFiStatus : VSPKRawSensorData
+- (instancetype)initWithCurrentTime:(int64_t)currentTime bssid:(NSString *)bssid rssi:(VSPKInt * _Nullable)rssi identifier:(NSString * _Nullable)identifier position:(VSPKPointF * _Nullable)position __attribute__((swift_name("init(currentTime:bssid:rssi:identifier:position:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithValues:(VSPKKotlinFloatArray *)values sensorDataType:(VSPKRawSensorDataSensorDataType *)sensorDataType timestamp:(int64_t)timestamp systemTimestamp:(int64_t)systemTimestamp sensorAccuracy:(VSPKFloat * _Nullable)sensorAccuracy __attribute__((swift_name("init(values:sensorDataType:timestamp:systemTimestamp:sensorAccuracy:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property (readonly) NSString * _Nullable identifier __attribute__((swift_name("identifier")));
+@property VSPKPointF * _Nullable position __attribute__((swift_name("position")));
+@property (readonly) VSPKInt * _Nullable rssi __attribute__((swift_name("rssi")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4421,6 +4634,115 @@ __attribute__((swift_name("VectorUtils")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VisitScanData")))
+@interface VSPKVisitScanData : VSPKBase
+- (instancetype)initWithVisitId:(int32_t)visitId scans:(NSArray<VSPKVisitScanDataProductScan *> *)scans dataServer:(NSString *)dataServer __attribute__((swift_name("init(visitId:scans:dataServer:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKVisitScanDataCompanion *companion __attribute__((swift_name("companion")));
+- (int32_t)component1 __attribute__((swift_name("component1()")));
+- (NSArray<VSPKVisitScanDataProductScan *> *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
+- (VSPKVisitScanData *)doCopyVisitId:(int32_t)visitId scans:(NSArray<VSPKVisitScanDataProductScan *> *)scans dataServer:(NSString *)dataServer __attribute__((swift_name("doCopy(visitId:scans:dataServer:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *dataServer __attribute__((swift_name("dataServer")));
+@property (readonly) NSArray<VSPKVisitScanDataProductScan *> *scans __attribute__((swift_name("scans")));
+@property (readonly) int32_t visitId __attribute__((swift_name("visitId")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VisitScanData.Companion")))
+@interface VSPKVisitScanDataCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKVisitScanDataCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VisitScanData.ProductScan")))
+@interface VSPKVisitScanDataProductScan : VSPKBase
+- (instancetype)initWithProductId:(NSString *)productId timestamp:(int64_t)timestamp xPos:(float)xPos yPos:(float)yPos __attribute__((swift_name("init(productId:timestamp:xPos:yPos:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKVisitScanDataProductScanCompanion *companion __attribute__((swift_name("companion")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (int64_t)component2 __attribute__((swift_name("component2()")));
+- (float)component3 __attribute__((swift_name("component3()")));
+- (float)component4 __attribute__((swift_name("component4()")));
+- (VSPKVisitScanDataProductScan *)doCopyProductId:(NSString *)productId timestamp:(int64_t)timestamp xPos:(float)xPos yPos:(float)yPos __attribute__((swift_name("doCopy(productId:timestamp:xPos:yPos:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *productId __attribute__((swift_name("productId")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) float xPos __attribute__((swift_name("xPos")));
+@property (readonly) float yPos __attribute__((swift_name("yPos")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VisitScanData.ProductScanCompanion")))
+@interface VSPKVisitScanDataProductScanCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKVisitScanDataProductScanCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Whitelist")))
+@interface VSPKWhitelist : VSPKBase
+- (instancetype)initWithProducts:(NSArray<VSPKWhitelistProduct *> *)products revision_date:(NSString * _Nullable)revision_date __attribute__((swift_name("init(products:revision_date:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKWhitelistCompanion *companion __attribute__((swift_name("companion")));
+- (NSArray<VSPKWhitelistProduct *> *)component1 __attribute__((swift_name("component1()")));
+- (NSString * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (BOOL)containsEanEan:(NSString *)ean __attribute__((swift_name("containsEan(ean:)")));
+- (VSPKWhitelist *)doCopyProducts:(NSArray<VSPKWhitelistProduct *> *)products revision_date:(NSString * _Nullable)revision_date __attribute__((swift_name("doCopy(products:revision_date:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSArray<VSPKWhitelistProduct *> *products __attribute__((swift_name("products")));
+@property (readonly) NSString * _Nullable revision_date __attribute__((swift_name("revision_date")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Whitelist.Companion")))
+@interface VSPKWhitelistCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKWhitelistCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Whitelist.Product")))
+@interface VSPKWhitelistProduct : VSPKBase
+- (instancetype)initWithEan:(NSString *)ean product_name:(NSString *)product_name product_category:(NSString *)product_category __attribute__((swift_name("init(ean:product_name:product_category:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKWhitelistProductCompanion *companion __attribute__((swift_name("companion")));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (NSString *)component3 __attribute__((swift_name("component3()")));
+- (VSPKWhitelistProduct *)doCopyEan:(NSString *)ean product_name:(NSString *)product_name product_category:(NSString *)product_category __attribute__((swift_name("doCopy(ean:product_name:product_category:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *ean __attribute__((swift_name("ean")));
+@property (readonly) NSString *product_category __attribute__((swift_name("product_category")));
+@property (readonly) NSString *product_name __attribute__((swift_name("product_name")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Whitelist.ProductCompanion")))
+@interface VSPKWhitelistProductCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKWhitelistProductCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Clock")))
 @interface VSPKClock : VSPKBase <VSPKObserver>
 - (instancetype)initWithRotationSensor:(VSPKRawSensor *)rotationSensor listeners:(id _Nullable)listeners mode:(VSPKClockClockType *)mode __attribute__((swift_name("init(rotationSensor:listeners:mode:)"))) __attribute__((objc_designated_initializer));
@@ -4441,6 +4763,39 @@ __attribute__((swift_name("Clock.ClockType")))
 @property (class, readonly) VSPKClockClockType *internalClock __attribute__((swift_name("internalClock")));
 @property (class, readonly) VSPKClockClockType *sensorClock __attribute__((swift_name("sensorClock")));
 + (VSPKKotlinArray<VSPKClockClockType *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((swift_name("ModifierManager")))
+@interface VSPKModifierManager<T> : VSPKBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)addModifierData:(T _Nullable)data identifier:(id)identifier __attribute__((swift_name("addModifier(data:identifier:)")));
+@property (readonly) T _Nullable modifier __attribute__((swift_name("modifier")));
+@property (readonly) NSMutableArray<VSPKKotlinPair<T, id> *> *pairList __attribute__((swift_name("pairList")));
+@end;
+
+__attribute__((swift_name("NumericalModifier")))
+@interface VSPKNumericalModifier<T> : VSPKModifierManager<T>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (T _Nullable)calcModifier __attribute__((swift_name("calcModifier()")));
+@property (readonly) T _Nullable modifier __attribute__((swift_name("modifier")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("AdditiveModifier")))
+@interface VSPKAdditiveModifier : VSPKNumericalModifier<VSPKDouble *>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKDouble *)calcModifier __attribute__((swift_name("calcModifier()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MultiplicativeModifier")))
+@interface VSPKMultiplicativeModifier : VSPKNumericalModifier<VSPKDouble *>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKDouble *)calcModifier __attribute__((swift_name("calcModifier()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4491,39 +4846,6 @@ __attribute__((swift_name("RollingAverage")))
 - (instancetype)initWithN:(int32_t)N __attribute__((swift_name("init(N:)"))) __attribute__((objc_designated_initializer));
 - (double)calculateData:(double)data __attribute__((swift_name("calculate(data:)")));
 - (float)calculateData_:(float)data __attribute__((swift_name("calculate(data_:)")));
-@end;
-
-__attribute__((swift_name("ModifierManager")))
-@interface VSPKModifierManager<T> : VSPKBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (void)addModifierData:(T _Nullable)data identifier:(id)identifier __attribute__((swift_name("addModifier(data:identifier:)")));
-@property (readonly) T _Nullable modifier __attribute__((swift_name("modifier")));
-@property (readonly) NSMutableArray<VSPKKotlinPair<T, id> *> *pairList __attribute__((swift_name("pairList")));
-@end;
-
-__attribute__((swift_name("NumericalModifier")))
-@interface VSPKNumericalModifier<T> : VSPKModifierManager<T>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (T _Nullable)calcModifier __attribute__((swift_name("calcModifier()")));
-@property (readonly) T _Nullable modifier __attribute__((swift_name("modifier")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("AdditiveModifier")))
-@interface VSPKAdditiveModifier : VSPKNumericalModifier<VSPKDouble *>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKDouble *)calcModifier __attribute__((swift_name("calcModifier()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MultiplicativeModifier")))
-@interface VSPKMultiplicativeModifier : VSPKNumericalModifier<VSPKDouble *>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKDouble *)calcModifier __attribute__((swift_name("calcModifier()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -4623,6 +4945,40 @@ __attribute__((swift_name("ClusterSpawnAlgos")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)clusterSpawnAlgos __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VSPKClusterSpawnAlgos *shared __attribute__((swift_name("shared")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("AccessPoint")))
+@interface VSPKAccessPoint : VSPKBase
+- (instancetype)initWithBssids:(NSArray<NSString *> *)bssids position:(VSPKPointF *)position height:(float)height __attribute__((swift_name("init(bssids:position:height:)"))) __attribute__((objc_designated_initializer));
+- (NSArray<NSString *> *)component1 __attribute__((swift_name("component1()")));
+- (VSPKPointF *)component2 __attribute__((swift_name("component2()")));
+- (float)component3 __attribute__((swift_name("component3()")));
+- (VSPKAccessPoint *)doCopyBssids:(NSArray<NSString *> *)bssids position:(VSPKPointF *)position height:(float)height __attribute__((swift_name("doCopy(bssids:position:height:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSArray<NSString *> *bssids __attribute__((swift_name("bssids")));
+@property (readonly) float height __attribute__((swift_name("height")));
+@property (readonly) VSPKPointF *position __attribute__((swift_name("position")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiObservation")))
+@interface VSPKWiFiObservation : VSPKBase
+- (instancetype)initWithBssid:(NSString *)bssid rssi:(VSPKInt * _Nullable)rssi frequency:(VSPKInt * _Nullable)frequency position:(VSPKPointF * _Nullable)position __attribute__((swift_name("init(bssid:rssi:frequency:position:)"))) __attribute__((objc_designated_initializer));
+- (NSString *)component1 __attribute__((swift_name("component1()")));
+- (VSPKInt * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (VSPKInt * _Nullable)component3 __attribute__((swift_name("component3()")));
+- (VSPKPointF * _Nullable)component4 __attribute__((swift_name("component4()")));
+- (VSPKWiFiObservation *)doCopyBssid:(NSString *)bssid rssi:(VSPKInt * _Nullable)rssi frequency:(VSPKInt * _Nullable)frequency position:(VSPKPointF * _Nullable)position __attribute__((swift_name("doCopy(bssid:rssi:frequency:position:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property (readonly) VSPKInt * _Nullable frequency __attribute__((swift_name("frequency")));
+@property (readonly) VSPKPointF * _Nullable position __attribute__((swift_name("position")));
+@property (readonly) VSPKInt * _Nullable rssi __attribute__((swift_name("rssi")));
 @end;
 
 __attribute__((swift_name("HistoryHandler")))
@@ -5235,6 +5591,62 @@ __attribute__((swift_name("TimedDebugRadius.Companion")))
 - (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TimedSyncPosition")))
+@interface VSPKTimedSyncPosition : VSPKBase
+- (instancetype)initWithPosition:(VSPKPointF * _Nullable)position didSync:(BOOL)didSync whitelist:(BOOL)whitelist timestamp:(int64_t)timestamp __attribute__((swift_name("init(position:didSync:whitelist:timestamp:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKTimedSyncPositionCompanion *companion __attribute__((swift_name("companion")));
+- (VSPKPointF * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (BOOL)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (int64_t)component4 __attribute__((swift_name("component4()")));
+- (VSPKTimedSyncPosition *)doCopyPosition:(VSPKPointF * _Nullable)position didSync:(BOOL)didSync whitelist:(BOOL)whitelist timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(position:didSync:whitelist:timestamp:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL didSync __attribute__((swift_name("didSync")));
+@property (readonly) VSPKPointF * _Nullable position __attribute__((swift_name("position")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) BOOL whitelist __attribute__((swift_name("whitelist")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TimedSyncPosition.Companion")))
+@interface VSPKTimedSyncPositionCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKTimedSyncPositionCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TimedWifiStatus")))
+@interface VSPKTimedWifiStatus : VSPKBase
+- (instancetype)initWithPosition:(VSPKPointF * _Nullable)position rssi:(VSPKInt * _Nullable)rssi timestamp:(int64_t)timestamp __attribute__((swift_name("init(position:rssi:timestamp:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKTimedWifiStatusCompanion *companion __attribute__((swift_name("companion")));
+- (VSPKPointF * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (VSPKInt * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (int64_t)component3 __attribute__((swift_name("component3()")));
+- (VSPKTimedWifiStatus *)doCopyPosition:(VSPKPointF * _Nullable)position rssi:(VSPKInt * _Nullable)rssi timestamp:(int64_t)timestamp __attribute__((swift_name("doCopy(position:rssi:timestamp:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VSPKPointF * _Nullable position __attribute__((swift_name("position")));
+@property (readonly) VSPKInt * _Nullable rssi __attribute__((swift_name("rssi")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TimedWifiStatus.Companion")))
+@interface VSPKTimedWifiStatusCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKTimedWifiStatusCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
 __attribute__((swift_name("tt2EngineParameterManager")))
 @protocol VSPKtt2EngineParameterManager
 @required
@@ -5290,6 +5702,95 @@ __attribute__((swift_name("tt2EngineParameterManagerClassParameters")))
 @property (class, readonly) VSPKtt2EngineParameterManagerClassParameters *getNewPositions __attribute__((swift_name("getNewPositions")));
 @property (class, readonly) VSPKtt2EngineParameterManagerClassParameters *split __attribute__((swift_name("split")));
 + (VSPKKotlinArray<VSPKtt2EngineParameterManagerClassParameters *> *)values __attribute__((swift_name("values()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Fusion")))
+@interface VSPKFusion : VSPKBase
+- (instancetype)initWithKalman:(VSPKKalman *)kalman __attribute__((swift_name("init(kalman:)"))) __attribute__((objc_designated_initializer));
+- (VSPKNavBundle * _Nullable)moveEventLength:(float)length direction:(double)direction duration:(int64_t)duration currentTime:(int64_t)currentTime orientation:(VSPKIQPSDeviceOrientation *)orientation __attribute__((swift_name("moveEvent(length:direction:duration:currentTime:orientation:)")));
+- (void)startEvent __attribute__((swift_name("startEvent()")));
+- (void)syncEventX:(float)x y:(float)y angleStd:(VSPKDouble * _Nullable)angleStd numClusters:(VSPKInt * _Nullable)numClusters radius:(VSPKDouble * _Nullable)radius __attribute__((swift_name("syncEvent(x:y:angleStd:numClusters:radius:)")));
+- (void)wifiScanScans:(NSArray<VSPKWiFiObservation *> *)scans __attribute__((swift_name("wifiScan(scans:)")));
+- (void)wifiStatusStatus:(VSPKWiFiObservation *)status __attribute__((swift_name("wifiStatus(status:)")));
+@property VSPKKalman *kalman __attribute__((swift_name("kalman")));
+@property (readonly) BOOL wifiStatusSync __attribute__((swift_name("wifiStatusSync")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Kalman")))
+@interface VSPKKalman : VSPKBase
+- (VSPKNavBundle * _Nullable)moveEventLength:(float)length direction:(double)direction duration:(int64_t)duration currentTime:(int64_t)currentTime orientation:(VSPKIQPSDeviceOrientation *)orientation __attribute__((swift_name("moveEvent(length:direction:duration:currentTime:orientation:)")));
+- (void)syncEventX:(float)x y:(float)y angleStd:(VSPKDouble * _Nullable)angleStd numClusters:(VSPKInt * _Nullable)numClusters radius:(VSPKDouble * _Nullable)radius __attribute__((swift_name("syncEvent(x:y:angleStd:numClusters:radius:)")));
+@property VSPKQLayer *qLayer __attribute__((swift_name("qLayer")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SensorFusion")))
+@interface VSPKSensorFusion : VSPKBase <VSPKtt2Engine, VSPKIQPSWiFi>
+- (instancetype)initWithTt2EngineParameterManager:(id<VSPKtt2EngineParameterManager>)tt2EngineParameterManager mapData:(VSPKMapData *)mapData onOutputSignal:(void (^ _Nullable)(id<VSPKOutputSignal>))onOutputSignal saveHandlerData:(void (^ _Nullable)(VSPKMoveVector *, VSPKLong *, VSPKQLayer *))saveHandlerData __attribute__((swift_name("init(tt2EngineParameterManager:mapData:onOutputSignal:saveHandlerData:)"))) __attribute__((objc_designated_initializer));
+- (void)configureOutput:(id<VSPKtt2EngineTt2EngineDelegate> _Nullable)output replayDataHandler:(VSPKReplayDataHandler * _Nullable)replayDataHandler __attribute__((swift_name("configure(output:replayDataHandler:)")));
+- (void)dispose __attribute__((swift_name("dispose()")));
+- (VSPKWiFiObservation * _Nullable)getLastWifiStatusPosition __attribute__((swift_name("getLastWifiStatusPosition()")));
+- (double)getRealWorldOrientation __attribute__((swift_name("getRealWorldOrientation()")));
+- (void)initiateWifiAccessPoints:(NSArray<VSPKAccessPoint *> *)accessPoints __attribute__((swift_name("initiateWifi(accessPoints:)")));
+- (VSPKNavBundle * _Nullable)moveEventLength:(float)length direction:(double)direction duration:(int64_t)duration currentTime:(int64_t)currentTime orientation:(VSPKIQPSDeviceOrientation *)orientation __attribute__((swift_name("moveEvent(length:direction:duration:currentTime:orientation:)")));
+- (void)sendWiFiScanScans:(NSArray<VSPKWiFiObservation *> *)scans __attribute__((swift_name("sendWiFiScan(scans:)")));
+- (void)sendWiFiStatusStatus:(VSPKWiFiObservation *)status __attribute__((swift_name("sendWiFiStatus(status:)")));
+- (void)setPositionX:(float)x y:(float)y angleStd:(VSPKDouble * _Nullable)angleStd numClusters:(VSPKInt * _Nullable)numClusters radius:(VSPKDouble * _Nullable)radius __attribute__((swift_name("setPosition(x:y:angleStd:numClusters:radius:)")));
+- (void)setRealWorldOrientationAngle:(double)angle __attribute__((swift_name("setRealWorldOrientation(angle:)")));
+- (void)start __attribute__((swift_name("start()")));
+- (void)tickCurrentTime:(int64_t)currentTime __attribute__((swift_name("tick(currentTime:)")));
+- (void)updateWayfindingPathPath:(NSArray<VSPKKotlinPair<VSPKFloat *, VSPKFloat *> *> *)path __attribute__((swift_name("updateWayfindingPath(path:)")));
+@property (readonly) id<VSPKtt2EngineTt2EngineDelegate> output __attribute__((swift_name("output")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("QLayer")))
+@interface VSPKQLayer : VSPKBase <VSPKtt2Engine>
+- (instancetype)initWithTt2EngineParameterManager:(id<VSPKtt2EngineParameterManager>)tt2EngineParameterManager mapData:(VSPKMapData *)mapData onOutputSignal:(void (^ _Nullable)(id<VSPKOutputSignal>))onOutputSignal saveHandlerData:(void (^ _Nullable)(VSPKMoveVector *, VSPKLong *, VSPKQLayer *))saveHandlerData __attribute__((swift_name("init(tt2EngineParameterManager:mapData:onOutputSignal:saveHandlerData:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VSPKQLayerCompanion *companion __attribute__((swift_name("companion")));
+- (void)configureOutput:(id<VSPKtt2EngineTt2EngineDelegate> _Nullable)output replayDataHandler:(VSPKReplayDataHandler * _Nullable)replayDataHandler __attribute__((swift_name("configure(output:replayDataHandler:)")));
+- (void)dispose __attribute__((swift_name("dispose()")));
+- (void)dumpTicks __attribute__((swift_name("dumpTicks()")));
+- (NSMutableArray<VSPKQPosition *> *)getClusterCenters __attribute__((swift_name("getClusterCenters()")));
+- (NSMutableArray<VSPKQCluster *> *)getClusters __attribute__((swift_name("getClusters()")));
+- (NSMutableArray<VSPKDebugPosition *> *)getDebugCurrentDirections __attribute__((swift_name("getDebugCurrentDirections()")));
+- (NSMutableArray<VSPKDebugPosition *> *)getDebugDirectionHistory __attribute__((swift_name("getDebugDirectionHistory()")));
+- (NSMutableArray<VSPKDebugPosition *> *)getDebugIntersections __attribute__((swift_name("getDebugIntersections()")));
+- (NSMutableArray<VSPKDebugPosition *> *)getDebugPIDIntersections __attribute__((swift_name("getDebugPIDIntersections()")));
+- (NSArray<VSPKDouble *> *)getDebugPIDSpeedMultipliers __attribute__((swift_name("getDebugPIDSpeedMultipliers()")));
+- (NSMutableArray<VSPKDebugPosition *> *)getDebugStableDirections __attribute__((swift_name("getDebugStableDirections()")));
+- (NSString *)getMoveVectorString __attribute__((swift_name("getMoveVectorString()")));
+- (double)getRealWorldOrientation __attribute__((swift_name("getRealWorldOrientation()")));
+- (VSPKNavBundle * _Nullable)moveEventLength:(float)length direction:(double)direction duration:(int64_t)duration currentTime:(int64_t)currentTime orientation:(VSPKIQPSDeviceOrientation *)orientation __attribute__((swift_name("moveEvent(length:direction:duration:currentTime:orientation:)")));
+- (void)setPositionX:(float)x y:(float)y angleStd:(VSPKDouble * _Nullable)angleStd numClusters:(VSPKInt * _Nullable)numClusters radius:(VSPKDouble * _Nullable)radius __attribute__((swift_name("setPosition(x:y:angleStd:numClusters:radius:)")));
+- (void)setRealWorldOrientationAngle:(double)angle __attribute__((swift_name("setRealWorldOrientation(angle:)")));
+- (void)setUnclearPositionPosition:(VSPKPointF *)position __attribute__((swift_name("setUnclearPosition(position:)")));
+- (void)softResetClusters __attribute__((swift_name("softResetClusters()")));
+- (void)start __attribute__((swift_name("start()")));
+- (void)tickCurrentTime:(int64_t)currentTime __attribute__((swift_name("tick(currentTime:)")));
+- (void)updateWayfindingPathPath:(NSArray<VSPKKotlinPair<VSPKFloat *, VSPKFloat *> *> *)path __attribute__((swift_name("updateWayfindingPath(path:)")));
+@property (readonly) VSPKPointF * _Nullable centrePointOfClusters __attribute__((swift_name("centrePointOfClusters")));
+@property (readonly) NSArray<VSPKPointF *> *currentPath __attribute__((swift_name("currentPath")));
+@property (readonly) int64_t currentTime __attribute__((swift_name("currentTime")));
+@property (readonly) VSPKDouble * _Nullable mainClusterRadius __attribute__((swift_name("mainClusterRadius")));
+@property (readonly) BOOL onlyOneMain __attribute__((swift_name("onlyOneMain")));
+@property (readonly) id<VSPKtt2EngineTt2EngineDelegate> output __attribute__((swift_name("output")));
+@property (readonly) NSMutableArray<VSPKQPosition *> *positions __attribute__((swift_name("positions")));
+@property int64_t timeLastUpdate __attribute__((swift_name("timeLastUpdate")));
+@property (readonly) VSPKPointF * _Nullable trueCentre __attribute__((swift_name("trueCentre")));
+@property (readonly) VSPKDouble * _Nullable trueRadius __attribute__((swift_name("trueRadius")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("QLayer.Companion")))
+@interface VSPKQLayerCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKQLayerCompanion *shared __attribute__((swift_name("shared")));
+@property (readonly) NSString *TAG __attribute__((swift_name("TAG")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -5360,6 +5861,7 @@ __attribute__((swift_name("PointF")))
 - (VSPKPointF *)doCopy __attribute__((swift_name("doCopy()")));
 - (double)distanceToPoint:(VSPKPointF *)point __attribute__((swift_name("distanceTo(point:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (BOOL)isInvalid __attribute__((swift_name("isInvalid()")));
 - (BOOL)isPointWithinDistancePosition:(VSPKPointF *)position distance:(double)distance __attribute__((swift_name("isPointWithinDistance(position:distance:)")));
 - (BOOL)isValid __attribute__((swift_name("isValid()")));
@@ -7484,6 +7986,55 @@ __attribute__((swift_name("VPSHasBeenDisposedException")))
 - (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VSPKKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @end;
 
+__attribute__((swift_name("IncorrectPointF")))
+@interface VSPKIncorrectPointF : VSPKPointF
+- (instancetype)initWithX:(float)x y:(float)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPoint:(VSPKPointF *)point vector:(VSPKVector *)vector __attribute__((swift_name("init(point:vector:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithX:(float)x y_:(float)y __attribute__((swift_name("init(x:y_:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly, getter=companion) VSPKIncorrectPointFCompanion *companion __attribute__((swift_name("companion")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IncorrectPointF.Companion")))
+@interface VSPKIncorrectPointFCompanion : VSPKBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKIncorrectPointFCompanion *shared __attribute__((swift_name("shared")));
+- (id<VSPKKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((swift_name("Kotlinx_serialization_coreSerializationStrategy")))
+@protocol VSPKKotlinx_serialization_coreSerializationStrategy
+@required
+- (void)serializeEncoder:(id<VSPKKotlinx_serialization_coreEncoder>)encoder value:(id _Nullable)value __attribute__((swift_name("serialize(encoder:value:)")));
+@property (readonly) id<VSPKKotlinx_serialization_coreSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
+@end;
+
+__attribute__((swift_name("Kotlinx_serialization_coreDeserializationStrategy")))
+@protocol VSPKKotlinx_serialization_coreDeserializationStrategy
+@required
+- (id _Nullable)deserializeDecoder:(id<VSPKKotlinx_serialization_coreDecoder>)decoder __attribute__((swift_name("deserialize(decoder:)")));
+@property (readonly) id<VSPKKotlinx_serialization_coreSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
+@end;
+
+__attribute__((swift_name("Kotlinx_serialization_coreKSerializer")))
+@protocol VSPKKotlinx_serialization_coreKSerializer <VSPKKotlinx_serialization_coreSerializationStrategy, VSPKKotlinx_serialization_coreDeserializationStrategy>
+@required
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("IncorrectPointFAsStringSerializer")))
+@interface VSPKIncorrectPointFAsStringSerializer : VSPKBase <VSPKKotlinx_serialization_coreKSerializer>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)incorrectPointFAsStringSerializer __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKIncorrectPointFAsStringSerializer *shared __attribute__((swift_name("shared")));
+- (VSPKIncorrectPointF *)deserializeDecoder:(id<VSPKKotlinx_serialization_coreDecoder>)decoder __attribute__((swift_name("deserialize(decoder:)")));
+- (void)serializeEncoder:(id<VSPKKotlinx_serialization_coreEncoder>)encoder value:(VSPKIncorrectPointF *)value __attribute__((swift_name("serialize(encoder:value:)")));
+@property (readonly) id<VSPKKotlinx_serialization_coreSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
+@end;
+
 __attribute__((swift_name("Vector")))
 @interface VSPKVector : VSPKBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
@@ -7611,6 +8162,8 @@ __attribute__((swift_name("RawSensorData.SensorDataType")))
 @property (class, readonly) VSPKRawSensorDataSensorDataType *proximity __attribute__((swift_name("proximity")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *geomagnetic __attribute__((swift_name("geomagnetic")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *accelerationUncalibrated __attribute__((swift_name("accelerationUncalibrated")));
+@property (class, readonly) VSPKRawSensorDataSensorDataType *accelerometer __attribute__((swift_name("accelerometer")));
+@property (class, readonly) VSPKRawSensorDataSensorDataType *accelerometerUncalibrated __attribute__((swift_name("accelerometerUncalibrated")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *gyroscopeUncalibrated __attribute__((swift_name("gyroscopeUncalibrated")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *sync __attribute__((swift_name("sync")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *radiusSync __attribute__((swift_name("radiusSync")));
@@ -7619,6 +8172,9 @@ __attribute__((swift_name("RawSensorData.SensorDataType")))
 @property (class, readonly) VSPKRawSensorDataSensorDataType *screenBrightness __attribute__((swift_name("screenBrightness")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *barometer __attribute__((swift_name("barometer")));
 @property (class, readonly) VSPKRawSensorDataSensorDataType *altitude __attribute__((swift_name("altitude")));
+@property (class, readonly) VSPKRawSensorDataSensorDataType *wifiStatus __attribute__((swift_name("wifiStatus")));
+@property (class, readonly) VSPKRawSensorDataSensorDataType *wifiScan __attribute__((swift_name("wifiScan")));
+@property (class, readonly) VSPKRawSensorDataSensorDataType *timestampDiff __attribute__((swift_name("timestampDiff")));
 + (VSPKKotlinArray<VSPKRawSensorDataSensorDataType *> *)values __attribute__((swift_name("values()")));
 @end;
 
@@ -9628,6 +10184,12 @@ __attribute__((swift_name("UtilsKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ScanValidationKt")))
+@interface VSPKScanValidationKt : VSPKBase
++ (VSPKVisitScanDataProductScan * _Nullable)matchScanMetadataSyncTimestamp:(int64_t)syncTimestamp syncMetadata:(VSPKVisitScanData *)syncMetadata __attribute__((swift_name("matchScanMetadata(syncTimestamp:syncMetadata:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelExtensionsKt")))
 @interface VSPKModelExtensionsKt : VSPKBase
 + (VSPKVector *)sum:(id)receiver __attribute__((swift_name("sum(_:)")));
@@ -9685,25 +10247,6 @@ __attribute__((swift_name("KotlinPair")))
 @property (readonly) B _Nullable second __attribute__((swift_name("second")));
 @end;
 
-__attribute__((swift_name("Kotlinx_serialization_coreSerializationStrategy")))
-@protocol VSPKKotlinx_serialization_coreSerializationStrategy
-@required
-- (void)serializeEncoder:(id<VSPKKotlinx_serialization_coreEncoder>)encoder value:(id _Nullable)value __attribute__((swift_name("serialize(encoder:value:)")));
-@property (readonly) id<VSPKKotlinx_serialization_coreSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
-@end;
-
-__attribute__((swift_name("Kotlinx_serialization_coreDeserializationStrategy")))
-@protocol VSPKKotlinx_serialization_coreDeserializationStrategy
-@required
-- (id _Nullable)deserializeDecoder:(id<VSPKKotlinx_serialization_coreDecoder>)decoder __attribute__((swift_name("deserialize(decoder:)")));
-@property (readonly) id<VSPKKotlinx_serialization_coreSerialDescriptor> descriptor __attribute__((swift_name("descriptor")));
-@end;
-
-__attribute__((swift_name("Kotlinx_serialization_coreKSerializer")))
-@protocol VSPKKotlinx_serialization_coreKSerializer <VSPKKotlinx_serialization_coreSerializationStrategy, VSPKKotlinx_serialization_coreDeserializationStrategy>
-@required
-@end;
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("KotlinIntArray")))
 @interface VSPKKotlinIntArray : VSPKBase
@@ -9728,44 +10271,6 @@ __attribute__((swift_name("KotlinMutableIterator")))
 @protocol VSPKKotlinMutableIterator <VSPKKotlinIterator>
 @required
 - (void)remove __attribute__((swift_name("remove()")));
-@end;
-
-__attribute__((swift_name("KotlinRandom")))
-@interface VSPKKotlinRandom : VSPKBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-@property (class, readonly, getter=companion) VSPKKotlinRandomDefault *companion __attribute__((swift_name("companion")));
-- (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
-- (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
-- (VSPKKotlinByteArray *)nextBytesArray:(VSPKKotlinByteArray *)array __attribute__((swift_name("nextBytes(array:)")));
-- (VSPKKotlinByteArray *)nextBytesArray:(VSPKKotlinByteArray *)array fromIndex:(int32_t)fromIndex toIndex:(int32_t)toIndex __attribute__((swift_name("nextBytes(array:fromIndex:toIndex:)")));
-- (VSPKKotlinByteArray *)nextBytesSize:(int32_t)size __attribute__((swift_name("nextBytes(size:)")));
-- (double)nextDouble __attribute__((swift_name("nextDouble()")));
-- (double)nextDoubleUntil:(double)until __attribute__((swift_name("nextDouble(until:)")));
-- (double)nextDoubleFrom:(double)from until:(double)until __attribute__((swift_name("nextDouble(from:until:)")));
-- (float)nextFloat __attribute__((swift_name("nextFloat()")));
-- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
-- (int32_t)nextIntUntil:(int32_t)until __attribute__((swift_name("nextInt(until:)")));
-- (int32_t)nextIntFrom:(int32_t)from until:(int32_t)until __attribute__((swift_name("nextInt(from:until:)")));
-- (int64_t)nextLong __attribute__((swift_name("nextLong()")));
-- (int64_t)nextLongUntil:(int64_t)until __attribute__((swift_name("nextLong(until:)")));
-- (int64_t)nextLongFrom:(int64_t)from until:(int64_t)until __attribute__((swift_name("nextLong(from:until:)")));
-@end;
-
-__attribute__((swift_name("KotlinFloatIterator")))
-@interface VSPKKotlinFloatIterator : VSPKBase <VSPKKotlinIterator>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKFloat *)next __attribute__((swift_name("next()")));
-- (float)nextFloat __attribute__((swift_name("nextFloat()")));
-@end;
-
-__attribute__((swift_name("KotlinDoubleIterator")))
-@interface VSPKKotlinDoubleIterator : VSPKBase <VSPKKotlinIterator>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKDouble *)next __attribute__((swift_name("next()")));
-- (double)nextDouble __attribute__((swift_name("nextDouble()")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_coreEncoder")))
@@ -9829,23 +10334,11 @@ __attribute__((swift_name("Kotlinx_serialization_coreDecoder")))
 @property (readonly) VSPKKotlinx_serialization_coreSerializersModule *serializersModule __attribute__((swift_name("serializersModule")));
 @end;
 
-__attribute__((swift_name("KotlinIntIterator")))
-@interface VSPKKotlinIntIterator : VSPKBase <VSPKKotlinIterator>
+__attribute__((swift_name("KotlinRandom")))
+@interface VSPKKotlinRandom : VSPKBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKInt *)next __attribute__((swift_name("next()")));
-- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("KotlinRandom.Default")))
-@interface VSPKKotlinRandomDefault : VSPKKotlinRandom
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-+ (instancetype)default_ __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VSPKKotlinRandomDefault *shared __attribute__((swift_name("shared")));
+@property (class, readonly, getter=companion) VSPKKotlinRandomDefault *companion __attribute__((swift_name("companion")));
 - (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
 - (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
 - (VSPKKotlinByteArray *)nextBytesArray:(VSPKKotlinByteArray *)array __attribute__((swift_name("nextBytes(array:)")));
@@ -9863,17 +10356,28 @@ __attribute__((swift_name("KotlinRandom.Default")))
 - (int64_t)nextLongFrom:(int64_t)from until:(int64_t)until __attribute__((swift_name("nextLong(from:until:)")));
 @end;
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("KotlinByteArray")))
-@interface VSPKKotlinByteArray : VSPKBase
-+ (instancetype)arrayWithSize:(int32_t)size __attribute__((swift_name("init(size:)")));
-+ (instancetype)arrayWithSize:(int32_t)size init:(VSPKByte *(^)(VSPKInt *))init __attribute__((swift_name("init(size:init:)")));
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (int8_t)getIndex:(int32_t)index __attribute__((swift_name("get(index:)")));
-- (VSPKKotlinByteIterator *)iterator __attribute__((swift_name("iterator()")));
-- (void)setIndex:(int32_t)index value:(int8_t)value __attribute__((swift_name("set(index:value:)")));
-@property (readonly) int32_t size __attribute__((swift_name("size")));
+__attribute__((swift_name("KotlinFloatIterator")))
+@interface VSPKKotlinFloatIterator : VSPKBase <VSPKKotlinIterator>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKFloat *)next __attribute__((swift_name("next()")));
+- (float)nextFloat __attribute__((swift_name("nextFloat()")));
+@end;
+
+__attribute__((swift_name("KotlinDoubleIterator")))
+@interface VSPKKotlinDoubleIterator : VSPKBase <VSPKKotlinIterator>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKDouble *)next __attribute__((swift_name("next()")));
+- (double)nextDouble __attribute__((swift_name("nextDouble()")));
+@end;
+
+__attribute__((swift_name("KotlinIntIterator")))
+@interface VSPKKotlinIntIterator : VSPKBase <VSPKKotlinIterator>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKInt *)next __attribute__((swift_name("next()")));
+- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_coreCompositeEncoder")))
@@ -9946,12 +10450,43 @@ __attribute__((swift_name("KotlinNothing")))
 @interface VSPKKotlinNothing : VSPKBase
 @end;
 
-__attribute__((swift_name("KotlinByteIterator")))
-@interface VSPKKotlinByteIterator : VSPKBase <VSPKKotlinIterator>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VSPKByte *)next __attribute__((swift_name("next()")));
-- (int8_t)nextByte __attribute__((swift_name("nextByte()")));
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinRandom.Default")))
+@interface VSPKKotlinRandomDefault : VSPKKotlinRandom
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
++ (instancetype)default_ __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VSPKKotlinRandomDefault *shared __attribute__((swift_name("shared")));
+- (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
+- (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
+- (VSPKKotlinByteArray *)nextBytesArray:(VSPKKotlinByteArray *)array __attribute__((swift_name("nextBytes(array:)")));
+- (VSPKKotlinByteArray *)nextBytesArray:(VSPKKotlinByteArray *)array fromIndex:(int32_t)fromIndex toIndex:(int32_t)toIndex __attribute__((swift_name("nextBytes(array:fromIndex:toIndex:)")));
+- (VSPKKotlinByteArray *)nextBytesSize:(int32_t)size __attribute__((swift_name("nextBytes(size:)")));
+- (double)nextDouble __attribute__((swift_name("nextDouble()")));
+- (double)nextDoubleUntil:(double)until __attribute__((swift_name("nextDouble(until:)")));
+- (double)nextDoubleFrom:(double)from until:(double)until __attribute__((swift_name("nextDouble(from:until:)")));
+- (float)nextFloat __attribute__((swift_name("nextFloat()")));
+- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
+- (int32_t)nextIntUntil:(int32_t)until __attribute__((swift_name("nextInt(until:)")));
+- (int32_t)nextIntFrom:(int32_t)from until:(int32_t)until __attribute__((swift_name("nextInt(from:until:)")));
+- (int64_t)nextLong __attribute__((swift_name("nextLong()")));
+- (int64_t)nextLongUntil:(int64_t)until __attribute__((swift_name("nextLong(until:)")));
+- (int64_t)nextLongFrom:(int64_t)from until:(int64_t)until __attribute__((swift_name("nextLong(from:until:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinByteArray")))
+@interface VSPKKotlinByteArray : VSPKBase
++ (instancetype)arrayWithSize:(int32_t)size __attribute__((swift_name("init(size:)")));
++ (instancetype)arrayWithSize:(int32_t)size init:(VSPKByte *(^)(VSPKInt *))init __attribute__((swift_name("init(size:init:)")));
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (int8_t)getIndex:(int32_t)index __attribute__((swift_name("get(index:)")));
+- (VSPKKotlinByteIterator *)iterator __attribute__((swift_name("iterator()")));
+- (void)setIndex:(int32_t)index value:(int8_t)value __attribute__((swift_name("set(index:value:)")));
+@property (readonly) int32_t size __attribute__((swift_name("size")));
 @end;
 
 __attribute__((swift_name("Kotlinx_serialization_coreSerializersModuleCollector")))
@@ -9984,6 +10519,14 @@ __attribute__((swift_name("KotlinKClass")))
 - (BOOL)isInstanceValue:(id _Nullable)value __attribute__((swift_name("isInstance(value:)")));
 @property (readonly) NSString * _Nullable qualifiedName __attribute__((swift_name("qualifiedName")));
 @property (readonly) NSString * _Nullable simpleName __attribute__((swift_name("simpleName")));
+@end;
+
+__attribute__((swift_name("KotlinByteIterator")))
+@interface VSPKKotlinByteIterator : VSPKBase <VSPKKotlinIterator>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VSPKByte *)next __attribute__((swift_name("next()")));
+- (int8_t)nextByte __attribute__((swift_name("nextByte()")));
 @end;
 
 #pragma pop_macro("_Nullable_result")
