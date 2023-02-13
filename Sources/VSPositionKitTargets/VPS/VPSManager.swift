@@ -148,9 +148,9 @@ final class VPSManager: VPSWrapper {
     func syncPosition(position: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
         sensor.serialDispatch.async {
             let syncData = VPSSyncData()
-
+            let delayedAngle = syncAngle && !uncertainAngle ? self.delayedAngle() : 0.0
             syncData.position = position.asPointF
-            syncData.angle = Float(startAngle + self.delayedAngle())
+            syncData.angle = Float(startAngle + delayedAngle)
             syncData.timestamp = Int64(Date().currentTimeMillis)
             syncData.syncPosition = syncPosition
             syncData.syncAngle = syncAngle
@@ -215,6 +215,7 @@ final class VPSManager: VPSWrapper {
         array.set(index: 1, value: 1)
         array.set(index: 2, value: 0)
 
+        startAngleCached = nil
         return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
     }
 
