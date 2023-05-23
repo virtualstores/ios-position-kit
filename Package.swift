@@ -25,6 +25,7 @@ let package = Package(
             name: "VSPositionKitTargets",
             dependencies: [
                 .target(name: "VSPositionKit"),
+                .target(name: "VPS"),
                 .product(name: "VSFoundation", package: "ios-foundation"),
                 .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
             ]),
@@ -38,5 +39,8 @@ let package = Package(
         .binaryTarget(
             name: "VSPositionKit",
             path: "VSPositionKit.xcframework"),
+        .binaryTarget(
+            name: "VPS",
+            path: "vps.xcframework"),
     ]
 )

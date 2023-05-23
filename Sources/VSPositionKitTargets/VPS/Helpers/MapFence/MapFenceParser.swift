@@ -27,12 +27,12 @@ internal class MapFenceParser: NSObject {
                 return nil
             }
 
-            var output: [[PointF]] = []
+            var output: [[CGPoint]] = []
 
             for object in polygons {
                 let polygonPoints = object[0] as! [[CGFloat]]
-                let points: [PointF] = polygonPoints.map { (coords) -> PointF in
-                    return PointF(x: Double(coords[0]), y: Double(coords[1]))
+                let points: [CGPoint] = polygonPoints.map { (coords) -> CGPoint in
+                    return CGPoint(x: Double(coords[0]), y: Double(coords[1]))
                 }
                 output.append(points)
             }
@@ -43,13 +43,13 @@ internal class MapFenceParser: NSObject {
         }
     }
 
-    static func getMapFenceData(fromMapFence mapFence: MapFence) -> MapFenceData? {
-        var output: [[PointF]] = []
+    static func getMapFenceData(fromMapFence mapFence: MapFence) -> MapFenceData {
+        var output: [[CGPoint]] = []
 
         for object in mapFence.coordinates {
             let polygonPoints = object[0]
-            let points: [PointF] = polygonPoints.map { (coords) -> PointF in
-                return PointF(x: coords[0], y: coords[1])
+            let points: [CGPoint] = polygonPoints.map { (coords) -> CGPoint in
+                return CGPoint(x: coords[0], y: coords[1])
             }
             output.append(points)
         }

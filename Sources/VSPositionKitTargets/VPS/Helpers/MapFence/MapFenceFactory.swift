@@ -17,7 +17,7 @@ public class MapFenceFactory {
         return MapFenceParser.getMapFenceData(fromJsonFile: file)
     }
 
-    public static func getMapFenceData(fromMapFence mapFence: MapFence) -> MapFenceData? {
+    public static func getMapFenceData(fromMapFence mapFence: MapFence) -> MapFenceData {
         return MapFenceParser.getMapFenceData(fromMapFence: mapFence)
     }
 }

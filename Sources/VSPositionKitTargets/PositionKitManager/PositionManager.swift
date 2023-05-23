@@ -20,9 +20,8 @@ public final class PositionManager: IPositionKit {
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
     public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
-    public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
+    public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
+    public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
     public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
     public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
     public var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
@@ -47,16 +46,18 @@ public final class PositionManager: IPositionKit {
     
     public init() {}
     
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?) {
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter) {
         self.rtlsOption = rtlsOption
         _vps = VPSManager(
             size: CGSize(width: mapData.properties.width, height: mapData.properties.height),
             floorHeightDiffInMeters: floorheight,
+            rtls: rtlsOption,
             mapData: mapData,
             pixelsPerMeter: rtlsOption.pixelsPerMeter,
             parameterPackage: parameterPackage,
             userController: userController,
-            maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis
+            maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis,
+            converter: converter
         )
         
         bindEnginePublishers()
@@ -66,17 +67,17 @@ public final class PositionManager: IPositionKit {
         try sensor.start()
     }
     
-    public func startNavigation(with direction: Double, xPosition: Double, yPosition: Double, uncertainAngle: Bool) {
-        vps.startNavigation(startPosition: CGPoint(x: xPosition, y: yPosition), startAngle: direction, uncertainAngle: uncertainAngle)
+    public func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+        vps.startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
         backgroundAccess.vpsRunning(isRunning: true)
     }
     
-    public func syncPosition(xPosition: Double, yPosition: Double, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
-        vps.syncPosition(position: CGPoint(x: xPosition, y: yPosition), startAngle: startAngle, syncPosition: syncPosition, syncAngle: syncAngle, uncertainAngle: uncertainAngle)
+    public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+        vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
     }
 
     public func startRecording() {
-        vps.startRecording()
+        vps.startRecording(sessionId: nil)
     }
     
     public func stop(stopSensors: Bool = true) {
@@ -138,11 +139,7 @@ public final class PositionManager: IPositionKit {
             } receiveValue: { [weak self] data in
                 self?.changedFloorPublisher.send(data)
             }.store(in: &cancellable)
-        
-        vps.recordingPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisher.send($0) }
-            .store(in: &cancellable)
+
         vps.recordingPublisherPartial
             .compactMap { $0 }
             .sink { [weak self] in self?.recordingPublisherPartial.send($0) }

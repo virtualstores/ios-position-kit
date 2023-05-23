@@ -117,7 +117,7 @@ public final class VPSUserSettings: IQPSUserSettings {
     
     public var userHeight: KotlinFloat? {
         set {
-            userObject?.height = newValue?.asFloat
+            //userObject?.height = newValue?.asFloat
             save(editableObject: userObject)
         }
         get {

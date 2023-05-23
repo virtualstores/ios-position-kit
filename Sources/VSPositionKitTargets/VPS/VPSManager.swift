@@ -9,287 +9,184 @@ import Foundation
 import VSFoundation
 import CoreGraphics
 import Combine
-import VSPositionKit
+import vps
 import VSSensorFusion
 import UIKit
 
 final class VPSManager: VPSWrapper {
-    var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
-    var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
-    var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
-    var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
-    var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    var sensorsInitiatedPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-    var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
-    var recordingPublisher: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String)?, Never> = .init(nil)
-    var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
-    var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
-    var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
+  var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
+  var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
+  var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
+  var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
+  var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+  var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+  var sensorsInitiatedPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+  var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
+  var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
+  var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
+  var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
+  var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
+  var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
+  var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
+  var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
+  var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
 
-    @Inject var sensor: VPSSensorManager
+  @Inject var sensor: VPSSensorManager
 
-    public private (set) var pathfinder: BasePathfinder?
-    public private(set) var qpsRunning = false
+  public private (set) var pathfinder: BasePathfinder?
+  public private(set) var qpsRunning = false
 
-    /// vps properties
-    private var qpsHandler: IQPSVPS?
-    private var baseVPSHandler: BaseVPSHandler?
-    private let qpsReplayInteractor: VPSReplayInteractor
-    private var vps: IQPSVPS? { baseVPSHandler?.vps }
-    private var mapInformation: VPSMapInformation?
+  /// vps properties
+  private let recorder: VPSRecorder
+  private var vps: VPS?
+  private var floorLevelHandler: FloorLevelHandler
+  private var mapInformation: VPSMapInformation?
 
-    private var isRecording = false
-    private var floorHeightDiffInMeters: Double?
-    private var parameterPackage: ParameterPackage
-    private var userController: IUserController
-    
-    private var dataCommunicator = VPSDataCommunicator()
+  private var isRecording: Bool { recorder.isRecording }
+  private var floorHeightDiffInMeters: Double?
+  private var parameterPackage: ParameterPackage
+  private var userController: IUserController
 
-    private var cancellable = Set<AnyCancellable>()
+  private var dataCommunicator = VPSDataCommunicator()
 
-    init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?) {
-        self.qpsReplayInteractor = VPSReplayInteractor(maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis)
-        self.floorHeightDiffInMeters = floorHeightDiffInMeters
-        self.parameterPackage = parameterPackage
-        self.userController = userController
-        self.createMapInformation(with: mapData, pixelsPerMeter: pixelsPerMeter)
-        self.bindPublishers()
+  private var cancellable = Set<AnyCancellable>()
+
+  init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter) {
+    self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis)
+    self.floorLevelHandler = FloorLevelHandler(floorLevels: [1:FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, converter: converter))], initialFloorLevelId: nil, debug: false)
+    self.floorHeightDiffInMeters = floorHeightDiffInMeters
+    self.parameterPackage = parameterPackage
+    self.userController = userController
+    self.createMapInformation(with: mapData, pixelsPerMeter: pixelsPerMeter)
+    self.bindPublishers()
+  }
+
+  deinit {
+    cancellable.removeAll()
+  }
+
+  func bindPublishers() {
+    recorder.dataPublisherPartial
+      .compactMap { $0 }
+      .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
+      .store(in: &cancellable)
+    recorder.dataPublisherEnd
+      .compactMap { $0 }
+      .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
+      .store(in: &cancellable)
+  }
+
+  func start() {
+    recorder.startRecording(sessionId: nil)
+    sensor.serialDispatch.async { [self] in
+      vps = VPS(
+        smoothing: false,
+        flipAcc: false,
+        velocityModel: VPSVelocityModel(model: nil),
+        floorLevelHandler: floorLevelHandler,
+        outputHandler: self,
+        debugMode: true,
+        enableSensorInterpreter: true,
+        enableRotationHandler: true
+      )
+      sensor.startAllSensors()
     }
+  }
 
-    deinit {
-        cancellable.removeAll()
+  func startRecording(sessionId: String?) {
+    sensor.serialDispatch.async { [self] in
+      recorder.startRecording(sessionId: sessionId)
     }
+  }
 
-    func bindPublishers() {
-        qpsReplayInteractor.replayInteractorDataPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisher.send($0) }
-            .store(in: &cancellable)
-        qpsReplayInteractor.replayInteractorDataPublisherPartial
-            .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
-            .store(in: &cancellable)
-        qpsReplayInteractor.replayInteractorDataPublisherEnd
-            .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
-            .store(in: &cancellable)
+  func stop() {
+    let signal = InputSignal.Exit(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis)
+    recorder.record(inputSignal: signal)
+    sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    recorder.stopRecording()
+    sensor.stopAllSensors()
+  }
+
+  func stopRecording() {
+    sensor.serialDispatch.async { [self] in
+      if isRecording {
+        recorder.stopRecording()
+      }
     }
+  }
 
-    func start() {
-        sensor.serialDispatch.async { [self] in
-            createBaseVPSHandler()
+  func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+    start()
+    let signal = InputSignal.Start(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
+    recorder.record(inputSignal: signal)
+    sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+  }
 
-            guard let mapInfo = mapInformation, let handler = baseVPSHandler, !qpsRunning else { return }
-            qpsRunning = true
+  func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+    let signal = InputSignal.SyncPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
+    recorder.record(inputSignal: signal)
+    sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+  }
 
-            let settings = userController.getVPSSettings()
-            let mlAlgos = settings.mlAlgos?.map { $0.asPersonalMLAlgorithm }
-            let convertedMLData = userController.getVPSMLParamPackage(mlAlgorithm: settings.mlAlgo).map { $0.asPersonalMLData }.compactMap { $0 }
-            let personalMLParameters = PersonalMLParameters(personalMLAlgorithm: settings.mlAlgo.asPersonalMLAlgorithm, personalMLData: convertedMLData)
-            let parameters = MLParameters(mlAlgorithms: mlAlgos, personalMLParameters: personalMLParameters)
-            qpsHandler = LegacyQPSHandlerEmulator(
-              rawSensorManager: sensor,
-              interactor: handler,
-              replayInteractor: qpsReplayInteractor,
-              mapInformation: mapInfo,
-              userSettings: dataCommunicator.dataCommunicatorSettings,
-              parameterPackageEnum: parameterPackage.asParameterPackageEnum,
-              mlParameters: parameters
-            )
+  func setPathfinder(pathfinder: BasePathfinder) {
+    self.pathfinder = pathfinder
+  }
 
-            sensor.startAllSensors()
-        }
-    }
-
-    func startRecording() {
-        sensor.serialDispatch.async { [self] in
-            if qpsRunning {
-                vps?.startRecording()
-                isRecording = true
-            }
-        }
-    }
-
-    func stop() {
-        sensor.serialDispatch.async { [self] in
-            if qpsRunning {
-                stopRecording()
-                qpsRunning = false
-                vps?.stopNavigation()
-                qpsHandler = nil
-                sensor.shutDown()
-            }
-        }
-    }
-
-    func stopRecording() {
-        sensor.serialDispatch.async { [self] in
-              if isRecording {
-                vps?.stopRecording()
-                isRecording = false
-            }
-        }
-    }
-
-    func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool) {
+  // why does this exist? is this not the same as sync?
+  func setPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+    sensor.serialDispatch.async { [self] in
+      if qpsRunning {
+        self.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
+      } else {
         start()
-        sensor.serialDispatch.async {
-            self.vps?.startNavigation(startPos: startPosition.asPointF, startAngle: startAngle, startSensors: true, uncertainAngle: uncertainAngle)
-            //self.startRecording()
-        }
+        startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
+      }
     }
-    
-    func syncPosition(position: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
-        sensor.serialDispatch.async {
-            let syncData = VPSSyncData()
-            let delayedAngle = syncAngle && !uncertainAngle ? self.delayedAngle() : 0.0
-            syncData.position = position.asPointF
-            syncData.angle = Float(startAngle + delayedAngle)
-            syncData.timestamp = Int64(Date().currentTimeMillis)
-            syncData.syncPosition = syncPosition
-            syncData.syncAngle = syncAngle
-            syncData.uncertainAngle = uncertainAngle
+  }
 
-            self.vps?.onPositionSyncEvent(data: syncData)
-        }
-    }
+  private var startAngleCached: Double?
+  func prepareAngle() {
+    //guard let lastQuat = vps?.getLastRotation() else { return }
 
-    func initPositionSync() {
-        if qpsRunning {
-            vps?.doInitPositionSyncEvent()
-        }
-    }
+    //let quatUtils = QuaternionUtils()
+    //let newQuat = quatUtils.multiplyQuaternion(q: lastQuat, p: quatUtils.quaternionInverse(q: quatUtils.quaternionExtractPitch(q: lastQuat)))
 
-    func setPathfinder(pathfinder: BasePathfinder) {
-        self.pathfinder = pathfinder
-    }
+    //let array: VSPositionKit.KotlinFloatArray = KotlinFloatArray(size: 3)
+    //array.set(index: 0, value: 0)
+    //array.set(index: 1, value: 1)
+    //array.set(index: 2, value: 0)
 
-    // why does this exist? is this not the same as sync?
-    func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool) {
-        sensor.serialDispatch.async {
-            if self.qpsRunning {
-                let data = VPSSyncData()
-                data.position = point.asPointF
-                data.angle = Float(startAngle)
-                data.timestamp = Int64(Date().currentTimeMillis)
-                data.syncPosition = syncPosition
-                data.syncAngle = syncAngle
-                data.uncertainAngle = uncertainAngle
-                self.vps?.onPositionSyncEvent(data: data)
-            } else {
-                self.start()
-                self.startNavigation(startPosition: point, startAngle: startAngle, uncertainAngle: uncertainAngle)
-            }
-        }
-    }
+    //startAngleCached = VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array)))
+  }
 
-    private var startAngleCached: Double?
-    func prepareAngle() {
-        guard let lastQuat = vps?.getLastRotation() else { return }
+  func delayedAngle() -> Double {
+    //guard let lastQuat = vps?.getLastRotation(), let cachedAngle = startAngleCached else { return 0.0 }
 
-        let quatUtils = QuaternionUtils()
-        let newQuat = quatUtils.multiplyQuaternion(q: lastQuat, p: quatUtils.quaternionInverse(q: quatUtils.quaternionExtractPitch(q: lastQuat)))
+    //let quatUtils = QuaternionUtils()
+    //let newQuat = quatUtils.multiplyQuaternion(q: lastQuat, p: quatUtils.quaternionInverse(q: quatUtils.quaternionExtractPitch(q: lastQuat)))
 
-        let array: KotlinFloatArray = KotlinFloatArray(size: 3)
-        array.set(index: 0, value: 0)
-        array.set(index: 1, value: 1)
-        array.set(index: 2, value: 0)
+    //let array: VSPositionKit.KotlinFloatArray = KotlinFloatArray(size: 3)
+    //array.set(index: 0, value: 0)
+    //array.set(index: 1, value: 1)
+    //array.set(index: 2, value: 0)
 
-        startAngleCached = VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array)))
-    }
+    //startAngleCached = nil
+    //return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
+    return 0.0
+  }
 
-    func delayedAngle() -> Double {
-        guard let lastQuat = vps?.getLastRotation(), let cachedAngle = startAngleCached else { return 0.0 }
+  private func createMapInformation(with data: MapFence, pixelsPerMeter: Double) {
+    let mapFenceData = MapFenceFactory.getMapFenceData(fromMapFence: data)
 
-        let quatUtils = QuaternionUtils()
-        let newQuat = quatUtils.multiplyQuaternion(q: lastQuat, p: quatUtils.quaternionInverse(q: quatUtils.quaternionExtractPitch(q: lastQuat)))
+    let fencePolygons = mapFenceData.polygons
+    let height = mapFenceData.height
+    let width = Int32(mapFenceData.width - (mapFenceData.width % 16))
 
-        let array: KotlinFloatArray = KotlinFloatArray(size: 3)
-        array.set(index: 0, value: 0)
-        array.set(index: 1, value: 1)
-        array.set(index: 2, value: 0)
-
-        startAngleCached = nil
-        return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
-    }
-
-    private func createBaseVPSHandler() {
-        self.baseVPSHandler = BaseVPSHandler(
-            parameterPackageEnum: parameterPackage.asParameterPackageEnum,
-            onNewNavigationBundle: { [weak self] (x, y, std, _) in
-              if let x = x, let y = y, let std = std {
-                let position =  PositionBundle(x: Float(truncating: x), y: Float(truncating: y), std: Float(truncating: std))
-                DispatchQueue.main.async { self?.positionPublisher.send(position) }
-              }
-            },
-            onPositionEvent: { (_) in },
-            onIllegalBehaviour: { [weak self] () in
-              DispatchQueue.main.async { self?.illegalBehaviourPublisher.send(()) }
-            },
-            onTrolleyDetection: { [weak self] (currentTime) in
-              DispatchQueue.main.async { self?.trolleyModePublisher.send(Int64(truncating: currentTime)) }
-            },
-            onRescueMode: { [weak self] (currentTime) in
-              DispatchQueue.main.async { self?.rescueModePublisher.send(Int64(truncating: currentTime)) }
-            },
-            onSensorsInitiated: { [weak self] () in
-              DispatchQueue.main.async { self?.sensorsInitiatedPublisher.send(()) }
-            },
-            onNewDeviceOrientation: { [weak self] (orientation) in
-              DispatchQueue.main.async { self?.deviceOrientationPublisher.send(orientation.asDeviceOrientation) }
-            },
-            onFloorChange: { [weak self] (floorDifferential, _) in
-              DispatchQueue.main.async { self?.changedFloorPublisher.send(Int(truncating: floorDifferential)) }
-            },
-            onNewDebugMessage: nil,
-            onNewDirectionBundle: { [weak self] (directionBundle) in
-              DispatchQueue.main.async { self?.directionPublisher.send(VPSDirectionBundle(angle: directionBundle.direction)) }
-            },
-            onNewRealWorldOffsetUpdate: { [weak self] (realWorldOffset) in
-              DispatchQueue.main.async { self?.realWorldOffsetPublisher.send(VPSRealWorldOffsetUpdate(angle: realWorldOffset.direction)) }
-            },
-            onNewStepEvent: { [weak self] (stepEventData) in
-              DispatchQueue.main.async { self?.stepEventDataPublisher.send(stepEventData.asStepEventData) }
-            },
-            onNewMlUpdate: { [weak self] (mlUpdate) in
-              DispatchQueue.global(qos: .background).async {
-                var personalMlData: VSPositionKit.PersonalMLData?
-                if let data = mlUpdate.data {
-                  personalMlData = data
-                } else {
-                  guard let data = mlUpdate.job?.calculate(isPointOnNavMesh: { (x, y) in
-                    guard let isValid = self?.isValid(point: CGPoint(x: Double(truncating: x), y: Double(truncating: y))) else { return false }
-                    return KotlinBoolean(bool: isValid)
-                  }) else { return }
-                  personalMlData = data
-                }
-                self?.mlDataPublisher.send(personalMlData?.asPersonalMLData)
-              }
-            },
-            onNewMlCalibration: { [weak self] (userAdjustments, mlAlgorithm) in
-              self?.onMlCalibrationPublisher.send(userAdjustments.asMlUser(mlAlgorithm: mlAlgorithm))
-            }
-        )
-    }
-
-    private func createMapInformation(with data: MapFence, pixelsPerMeter: Double) {
-        guard let mapFenceData = MapFenceFactory.getMapFenceData(fromMapFence: data) else { return }
-        
-        let fencePolygons = mapFenceData.polygons
-        let height = mapFenceData.height
-        let width = Int32(mapFenceData.width - (mapFenceData.width % 16))
-        
-        //TODO: create offsetZones
-        //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
-        mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: pixelsPerMeter, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
-        createMapFenceImage()
-    }
+    //TODO: create offsetZones
+    //let offsetZones = [OffsetZone(offsetRadians: 1.1, polygons: mapFenceData.polygons.first ?? [])]
+    //mapInformation = VPSMapInformation(width: width, height: Int32(height), mapFenceImage: nil, mapFencePolygons: fencePolygons, mapFenceScale: pixelsPerMeter, offsetZones: [], realWorldOffset: 0.0, floorHeight: KotlinDouble(double: floorHeightDiffInMeters ?? 3.0))
+    createMapFenceImage()
+  }
 
   var mapFenceBitmap: UIImage? /*{
     didSet {
@@ -324,7 +221,7 @@ final class VPSManager: VPSWrapper {
 
     let width = Double(info.width)
     let height = Double(info.height)
-    let polygons = convertPointFsAsCGPoints(array: info.mapFencePolygons)
+    let polygons = convertPointFsAsCGPoints(array: [])
 
     UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 1.0)
 
@@ -393,7 +290,7 @@ final class VPSManager: VPSWrapper {
 }
 
 extension VPSManager {
-  func convertPointFsAsCGPoints(array: [[PointF]]) -> [[CGPoint]] {
+  func convertPointFsAsCGPoints(array: [[CoordinateF]]) -> [[CGPoint]] {
     var polygons = [[CGPoint]]()
     array.forEach {
       var polygon = [CGPoint]()
@@ -404,89 +301,9 @@ extension VPSManager {
   }
 }
 
-extension ParameterPackage {
-    var asParameterPackageEnum: IQPSParameterPackageEnum {
-        switch self {
-        case .retail: return .retail
-        case .client_1: return .jula
-        case .client_2: return .ikea
-        }
-    }
-}
+extension VPSManager: VPSOutputHandler {
+  func onOutputSignal(outputSignal: OutputSignal) {
 
-extension VSPositionKit.StepEventData {
-  var asStepEventData: VSFoundation.StepEventData {
-    VSFoundation.StepEventData(
-      direction: direction as? Double,
-      directionCertainty: directionCertainty as? Double,
-      duration: duration,
-      relativeDirection: relativeDirection as? Double,
-      speed: speed as? Double,
-      stepCertainty: stepCertainty,
-      success: success,
-      timestamp: Int64(Date().currentTimeMillis),
-      sensorTimestamp: timestamp,
-      type: type.asDeviceOrientation,
-      mlAdjustment: mlAdjustment.asMLAdjustment,
-      quaternion: quaternion.asDouble
-    )
-  }
-}
-
-extension UserAdjustments {
-  func asMlUser(mlAlgorithm: IQPSPersonalMLAlgorithm) -> MlUser? {
-    var speed: [DeviceOrientation: Double] = [:]
-    speedModifier.forEach {
-      guard let key = $0.key.asDeviceOrientation else { return }
-      speed[key] = $0.value.asDouble
-    }
-    var direction: [DeviceOrientation: Double] = [:]
-    directionModifier.forEach {
-      guard let key = $0.key.asDeviceOrientation else { return }
-      direction[key] = $0.value.asDouble
-    }
-    guard let mlAlgorithm = mlAlgorithm.asPersonalMLAlgorithm else { return nil }
-    return MlUser(speedModifier: speed, directionModifier: direction, mlAlgorithm: mlAlgorithm)
-  }
-}
-
-extension PersonalMLData {
-  var asPersonalMLData: PersonalMLDataDTO? {
-    guard
-      let mlAlgoTag = mlAlgoTag.asPersonalMLAlgorithm,
-      let deviceOrientation = deviceOrientation.asDeviceOrientation
-    else { return nil }
-    var properties: [String: Double] = [:]
-    self.properties.forEach {
-      guard let value = $0.value as? Double else { return }
-      properties[$0.key] = value
-    }
-    guard properties.count == self.properties.count else { return nil }
-    return PersonalMLDataDTO(
-      version: version,
-      timestamp: Date().timeIntervalSince1970,
-      mlAlgoTag: mlAlgoTag,
-      deviceOrientation: deviceOrientation,
-      speedModifier: speedModifier,
-      angleModifier: angleModifier,
-      driftModifier: driftModifier,
-      properties: properties
-    )
-  }
-}
-
-extension PersonalMLDataDTO {
-  var asPersonalMLData: PersonalMLData? {
-    guard let properties = properties.asKotlinDictionary else { return nil }
-    return PersonalMLData(
-      version: version,
-      mlAlgoTag: mlAlgoTag.asPersonalMLAlgorithm,
-      deviceOrientation: deviceOrientation.asDeviceOrientation,
-      speedModifier: speedModifier,
-      angleModifier: angleModifier,
-      driftModifier: driftModifier,
-      properties: properties
-    )
   }
 }
 
@@ -506,36 +323,5 @@ extension KotlinFloatArray {
     var arr: [Double] = []
     for i in 0...size - 1 { arr.append(Double(get(index: i))) }
     return arr
-  }
-}
-
-extension MLAdjustment {
-  var asMLAdjustment: VSFoundation.StepEventData.MLAdjustment {
-    VSFoundation.StepEventData.MLAdjustment(
-      speedModelFactor: speedModelFactor,
-      speedAdjuster: speedAdjuster,
-      driftInRadians: driftInRadians,
-      rotationInRadians: rotationInRadians
-    )
-  }
-}
-
-class MLParameters: IQPSMLParameters {
-  var mlAlgorithms: [IQPSPersonalMLAlgorithm]?
-  var personalMLParameters: IQPSPersonalMLParameters?
-
-  init(mlAlgorithms: [IQPSPersonalMLAlgorithm]? = nil, personalMLParameters: IQPSPersonalMLParameters? = nil) {
-    self.mlAlgorithms = mlAlgorithms
-    self.personalMLParameters = personalMLParameters
-  }
-}
-
-class PersonalMLParameters: IQPSPersonalMLParameters {
-  var personalMLAlgorithm: IQPSPersonalMLAlgorithm
-  var personalMLData: [PersonalMLData]
-
-  init(personalMLAlgorithm: IQPSPersonalMLAlgorithm, personalMLData: [PersonalMLData]) {
-    self.personalMLAlgorithm = personalMLAlgorithm
-    self.personalMLData = personalMLData
   }
 }

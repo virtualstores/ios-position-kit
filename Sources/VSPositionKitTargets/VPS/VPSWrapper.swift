@@ -45,7 +45,7 @@ protocol VPSWrapper {
     /// Publishes the floor change
     var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
 
-  var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> { get }
+    var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> { get }
 
     /// Starts the vps
     func start()
@@ -54,16 +54,13 @@ protocol VPSWrapper {
     func stop()
 
     /// Start navigation setup methode
-    func startNavigation(startPosition: CGPoint, startAngle: Double, uncertainAngle: Bool)
-
-    /// Position Sync methode
-    func initPositionSync()
+    func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     /// Set position change  methode
-    func setPosition(point: CGPoint, startAngle: Double, syncPosition: Bool, syncAngle: Bool, uncertainAngle: Bool)
+    func setPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     /// Start recording for vps
-    func startRecording()
+    func startRecording(sessionId: String?)
 
     /// Stop recording for vps
     func stopRecording()

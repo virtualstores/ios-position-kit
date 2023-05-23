@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-import VSPositionKit
+import CoreGraphics
+import vps
 
 public struct MapFenceData {
     private let flippedYAxis: Bool
@@ -16,14 +17,17 @@ public struct MapFenceData {
     let height: Int
     let widthInPixels: Double
     let heightInPixels: Double
-    private var _polygons: [[PointF]]
+    private var _polygons: [[CGPoint]]
 
-    var polygons: [[PointF]] {
-        get { return flippedYAxis ? _polygons.map { $0.map { PointF(x: Double($0.x), y: self.heightInPixels - Double($0.y)) }} : _polygons }
+  var context: CGContext?
+  var pointer: UnsafeMutablePointer<UInt32>?
+
+    var polygons: [[CGPoint]] {
+        get { return flippedYAxis ? _polygons.map { $0.map { CGPoint(x: Double($0.x), y: heightInPixels - Double($0.y)) }} : _polygons }
         set { self._polygons = newValue }
     }
 
-    init(width: Int, height: Int, widthInPixels: Double, heightInPixels: Double, polygons: [[PointF]], flippedYAxis: Bool = true) {
+    init(width: Int, height: Int, widthInPixels: Double, heightInPixels: Double, polygons: [[CGPoint]], flippedYAxis: Bool = false) {
         self.width = width
         self.height = height
         self.widthInPixels = widthInPixels
@@ -36,7 +40,7 @@ public struct MapFenceData {
         var points: [CGPoint] = []
         polygons.forEach { polygon in
           for i in 0..<polygon.count - 1 {
-            if let point = linesCross(start1: p1, end1: p2, start2: polygon[i].asCGPoint, end2: polygon[i + 1].asCGPoint) {
+            if let point = linesCross(start1: p1, end1: p2, start2: polygon[i], end2: polygon[i + 1]) {
               points.append(point)
               break
             }
@@ -77,4 +81,70 @@ public struct MapFenceData {
         // lines don't cross
         return nil
     }
+
+  mutating func createImage() -> UIImage {
+    guard
+      let context = CGContext(
+        data: nil,
+        width: Int(widthInPixels),
+        height: Int(heightInPixels),
+        bitsPerComponent: 8,
+        bytesPerRow: Int(widthInPixels) * 4,
+        space: CGColorSpaceCreateDeviceRGB(),
+        bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
+      )
+    else { fatalError("Failed to create context") }
+    context.setFillColor(UIColor.red.cgColor)
+    context.setStrokeColor(UIColor.red.cgColor)
+    polygons.forEach { (polygon) in
+      context.move(to: polygon.first!)
+      polygon.enumerated().forEach { if $0.offset == 0 { return }; context.addLine(to: $0.element) }
+      context.closePath()
+      context.drawPath(using: .fillStroke)
+    }
+    createPixelBuffer(context: context)
+    guard let image = context.makeImage().flatMap({ UIImage(cgImage: $0) }) else { fatalError("Failed to create image") }
+    return image
+  }
+
+  mutating func createPixelBuffer(context: CGContext) {
+    guard let pixelBuffer = context.data else { fatalError() }
+    self.context = context // Pointer gets garbage collected if this is not saved in memory
+    pointer = pixelBuffer.bindMemory(to: UInt32.self, capacity: Int(widthInPixels * heightInPixels))
+  }
+
+  func isValidCoordinate(x: Double, y: Double) -> Bool {
+    if (x < 0 ||
+        y < 0 ||
+        Int32(x) >= Int32(widthInPixels) ||
+        Int32(y) >= Int32(heightInPixels)
+    ) { print("Out of bounds"); return false }
+    guard context != nil, let pixel = pointer?[Int(y) * Int(widthInPixels) + Int(x)] else { return false }
+    return getColor(pixel: pixel) != .red//UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+  }
+
+  func getColor(pixel: UInt32) -> UIColor {
+    UIColor(
+      red: CGFloat(red(for: pixel)) / 255,
+      green: CGFloat(green(for: pixel)) / 255,
+      blue: CGFloat(blue(for: pixel)) / 255,
+      alpha: CGFloat(alpha(for: pixel)) / 255
+    )
+  }
+
+  private func alpha(for pixelData: UInt32) -> UInt8 {
+    UInt8((pixelData >> 24) & 255)
+  }
+
+  private func red(for pixelData: UInt32) -> UInt8 {
+    UInt8((pixelData >> 16) & 255)
+  }
+
+  private func green(for pixelData: UInt32) -> UInt8 {
+    UInt8((pixelData >> 8) & 255)
+  }
+
+  private func blue(for pixelData: UInt32) -> UInt8 {
+    UInt8((pixelData >> 0) & 255)
+  }
 }
