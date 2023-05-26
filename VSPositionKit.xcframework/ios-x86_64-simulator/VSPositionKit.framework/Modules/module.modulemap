@@ -1,6 +1,0 @@
-framework module VSPositionKit {
-    umbrella header "VSPositionKit.h"
-
-    export *
-    module * { export * }
-}

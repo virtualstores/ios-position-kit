@@ -13,7 +13,7 @@ let package = Package(
     products: [
         .library(
             name: "VSPositionKit",
-            targets: ["VSPositionKitTargets"]),
+            targets: ["VSPositionKit"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,23 +22,19 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "VSPositionKitTargets",
+            name: "VSPositionKit",
             dependencies: [
-                .target(name: "VSPositionKit"),
                 .target(name: "VPS"),
                 .product(name: "VSFoundation", package: "ios-foundation"),
                 .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
             ]),
         .testTarget(
             name: "VSPositionKitTests",
-            dependencies: ["VSPositionKitTargets"],
+            dependencies: ["VSPositionKit"],
             resources: [
               .copy("TestResources/MapFence/"),
               .copy("TestResources/SensorData/")
             ]),
-        .binaryTarget(
-            name: "VSPositionKit",
-            path: "VSPositionKit.xcframework"),
         .binaryTarget(
             name: "VPS",
             path: "vps.xcframework"),
