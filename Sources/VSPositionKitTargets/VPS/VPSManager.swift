@@ -14,22 +14,8 @@ import VSSensorFusion
 import UIKit
 
 final class VPSManager: VPSWrapper {
-  var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> = .init(nil)
-  var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> = .init(nil)
-  var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> = .init(nil)
-  var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
-  var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-  var badStepLengthPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-  var sensorsInitiatedPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-  var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> = .init(nil)
-  var trolleyModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-  var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-  var changedFloorPublisher: CurrentValueSubject<Int?, Never> = .init(nil)
-  var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
-  var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
-  var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
-  var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
-  var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> = .init(nil)
+  var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
+  var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
 
   @Inject var sensor: VPSSensorManager
 
@@ -43,7 +29,6 @@ final class VPSManager: VPSWrapper {
   private var mapInformation: VPSMapInformation?
 
   private var isRecording: Bool { recorder.isRecording }
-  private var floorHeightDiffInMeters: Double?
   private var parameterPackage: ParameterPackage
   private var userController: IUserController
 
@@ -53,8 +38,7 @@ final class VPSManager: VPSWrapper {
 
   init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter) {
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis)
-    self.floorLevelHandler = FloorLevelHandler(floorLevels: [1:FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, converter: converter))], initialFloorLevelId: nil, debug: false)
-    self.floorHeightDiffInMeters = floorHeightDiffInMeters
+    self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.parameterPackage = parameterPackage
     self.userController = userController
     self.createMapInformation(with: mapData, pixelsPerMeter: pixelsPerMeter)
@@ -66,13 +50,17 @@ final class VPSManager: VPSWrapper {
   }
 
   func bindPublishers() {
-    recorder.dataPublisherPartial
+    sensor.dataPublisher
       .compactMap { $0 }
-      .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
-      .store(in: &cancellable)
-    recorder.dataPublisherEnd
+      .sink { [weak self] (data) in
+        let signal = InputSignal.SensorData(rawSensorData: data)
+        self?.recorder.record(inputSignal: signal)
+        self?.vps?.onInputSignal(signal: signal)
+      }.store(in: &cancellable)
+
+    recorder.dataPublisher
       .compactMap { $0 }
-      .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
+      .sink { [weak self] in self?.recordingPublisher.send($0) }
       .store(in: &cancellable)
   }
 
@@ -82,14 +70,18 @@ final class VPSManager: VPSWrapper {
       vps = VPS(
         smoothing: false,
         flipAcc: false,
+        useMagnetometer: true,
+        frequency: 100,
+        frameSize: 200,
         velocityModel: VPSVelocityModel(model: nil),
         floorLevelHandler: floorLevelHandler,
+        particleFilterParams: IosParticleFilterParams().default_,
         outputHandler: self,
         debugMode: true,
         enableSensorInterpreter: true,
-        enableRotationHandler: true
+        enableRotationHandler: true,
+        useNaiveParticleFilter: false
       )
-      sensor.startAllSensors()
     }
   }
 
@@ -104,7 +96,6 @@ final class VPSManager: VPSWrapper {
     recorder.record(inputSignal: signal)
     sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
     recorder.stopRecording()
-    sensor.stopAllSensors()
   }
 
   func stopRecording() {
@@ -303,7 +294,28 @@ extension VPSManager {
 
 extension VPSManager: VPSOutputHandler {
   func onOutputSignal(outputSignal: OutputSignal) {
+    if let signal = outputSignal as? OutputSignal.Position {
+      let position = VPSOutputSignal.Position(
+        position: signal.position.asCGPoint,
+        std: Double(signal.std),
+        status: signal.status.asStatus
+      )
+      outputSignalPublisher.send(.position(position: position))
+    } else if let signal = outputSignal as? OutputSignal.Rotation {
+      let heading = DoubleExtKt.radiansToDegrees(Double(signal.heading))
+      //print("Rotation", heading)
+      outputSignalPublisher.send(.rotation(heading: Double(heading - 65)))
+    }
+  }
+}
 
+extension OutputSignal.PositionStatus {
+  var asStatus: VPSOutputSignal.Position.Status {
+    switch self {
+    case .confident: return .confident
+    case .uncertain: return .uncertain
+    default: return .uncertain
+    }
   }
 }
 

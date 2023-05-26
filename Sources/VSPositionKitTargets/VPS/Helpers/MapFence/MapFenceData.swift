@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import CoreGraphics
+import VSFoundation
 import vps
 
-public struct MapFenceData {
+public class MapFenceData {
     private let flippedYAxis: Bool
     let width: Int
     let height: Int
@@ -82,7 +83,12 @@ public struct MapFenceData {
         return nil
     }
 
-  mutating func createImage() -> UIImage {
+  func reset() {
+    context = nil
+    pointer = nil
+  }
+
+  func createImage() -> UIImage? {
     guard
       let context = CGContext(
         data: nil,
@@ -93,33 +99,57 @@ public struct MapFenceData {
         space: CGColorSpaceCreateDeviceRGB(),
         bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
       )
-    else { fatalError("Failed to create context") }
+    else { return nil }
     context.setFillColor(UIColor.red.cgColor)
     context.setStrokeColor(UIColor.red.cgColor)
     polygons.forEach { (polygon) in
+
       context.move(to: polygon.first!)
       polygon.enumerated().forEach { if $0.offset == 0 { return }; context.addLine(to: $0.element) }
       context.closePath()
       context.drawPath(using: .fillStroke)
     }
     createPixelBuffer(context: context)
-    guard let image = context.makeImage().flatMap({ UIImage(cgImage: $0) }) else { fatalError("Failed to create image") }
+    guard let image = context.makeImage().flatMap({ UIImage(cgImage: $0) }) else { return nil }
     return image
   }
 
-  mutating func createPixelBuffer(context: CGContext) {
+  func createImageCoordinates(points: [CGPoint], color: UIColor) -> UIImage? {
+    guard
+      let context = CGContext(
+        data: nil,
+        width: Int(widthInPixels),
+        height: Int(heightInPixels),
+        bitsPerComponent: 8,
+        bytesPerRow: Int(widthInPixels) * 4,
+        space: CGColorSpaceCreateDeviceRGB(),
+        bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
+      ),
+      let point = points.first
+    else { return nil }
+    context.setLineWidth(20)
+    context.setStrokeColor(color.cgColor)
+    context.move(to: point)
+    points.enumerated().forEach { if $0.offset == 0 { return }; context.addLine(to: $0.element) }
+    context.closePath()
+    context.drawPath(using: .stroke)
+    guard let image = context.makeImage().flatMap({ UIImage(cgImage: $0) }) else { return nil }
+    return image
+  }
+
+  func createPixelBuffer(context: CGContext) {
     guard let pixelBuffer = context.data else { fatalError() }
     self.context = context // Pointer gets garbage collected if this is not saved in memory
     pointer = pixelBuffer.bindMemory(to: UInt32.self, capacity: Int(widthInPixels * heightInPixels))
   }
 
-  func isValidCoordinate(x: Double, y: Double) -> Bool {
-    if (x < 0 ||
-        y < 0 ||
-        Int32(x) >= Int32(widthInPixels) ||
-        Int32(y) >= Int32(heightInPixels)
+  func isValidCoordinate(point: CGPoint) -> Bool {
+    if (point.x < 0 ||
+        point.y < 0 ||
+        Int32(point.x) >= Int32(widthInPixels) ||
+        Int32(point.y) >= Int32(heightInPixels)
     ) { print("Out of bounds"); return false }
-    guard context != nil, let pixel = pointer?[Int(y) * Int(widthInPixels) + Int(x)] else { return false }
+    guard context != nil, let pixel = pointer?[Int(point.y) * Int(widthInPixels) + Int(point.x)] else { return false }
     return getColor(pixel: pixel) != .red//UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
   }
 
@@ -146,5 +176,33 @@ public struct MapFenceData {
 
   private func blue(for pixelData: UInt32) -> UInt8 {
     UInt8((pixelData >> 0) & 255)
+  }
+}
+
+extension MapFenceData {
+  enum ValidCoordinates {
+    static let icaBromma = [CGPoint(x: 37.262688, y: 56.00981), CGPoint(x: 56.203773, y: 104.69043), CGPoint(x: 65.47658, y: 31.241346)]
+  }
+
+  enum InvalidCoordinates {
+    static let icaBromma = [CGPoint(x: 15.374447, y: 13.501157), CGPoint(x: 64.946724, y: 58.820156), CGPoint(x: 93.39165, y: 21.598818)]
+  }
+
+  enum Venue {
+    case icaBromma
+  }
+
+  func testMapFence(venue: Venue, converter: ICoordinateConverter) {
+    switch venue {
+    case .icaBromma:
+      ValidCoordinates
+        .icaBromma
+        .map { $0.fromMeterToPixel(converter: converter) }
+        .forEach { print("ValidCoordinate", isValidCoordinate(point: $0)) }
+      InvalidCoordinates
+        .icaBromma
+        .map { $0.fromMeterToPixel(converter: converter) }
+        .forEach { print("ValidCoordinate", isValidCoordinate(point: $0)) }
+    }
   }
 }

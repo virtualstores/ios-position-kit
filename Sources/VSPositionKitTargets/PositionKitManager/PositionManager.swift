@@ -14,19 +14,9 @@ import CoreGraphics
 import CoreLocation
 
 public final class PositionManager: IPositionKit {
-    public var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError>  = .init(nil)
-    public var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, Error> = .init(nil)
-    public var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, Error> = .init(nil)
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
-    public var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> = .init(nil)
-    public var changedFloorPublisher: CurrentValueSubject<Int?, Never>  = .init(nil)
-    public var recordingPublisherPartial: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
-    public var recordingPublisherEnd: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
-    public var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> = .init(nil)
-    public var rescueModePublisher: CurrentValueSubject<Int64?, Never> = .init(nil)
-    public var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> = .init(nil)
-    public var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> = .init(nil)
-    public var stepEventDataPublisher: CurrentValueSubject<StepEventData?, Never> = .init(nil)
+    public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
+    public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
     
     public var rtlsOption: RtlsOptions?
     
@@ -36,7 +26,7 @@ public final class PositionManager: IPositionKit {
     private var rotationSensor: RotationSensor?
     
     @Inject var backgroundAccess: IBackgroundAccessManager
-    @Inject var sensor: ISensorManager
+    @Inject var sensor: VPSSensorManager
 
     private var _vps: VPSManager?
     private var vps: VPSManager {
@@ -104,76 +94,19 @@ public final class PositionManager: IPositionKit {
         backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
             .sink { error in
-                Logger.init().log(message: "locationHeadingPublisher error")
+                Logger().log(message: "locationHeadingPublisher error")
             } receiveValue: { [weak self] data in
                 self?.locationHeadingPublisher.send(data)
             }.store(in: &cancellable)
-        vps.positionPublisher
-            .compactMap { $0 }
-            .sink { [weak self] _ in
-                self?.positionPublisher.send(completion: .failure(PositionKitError.noPositions))
-            } receiveValue: { [weak self] positionBundle in
-                self?.positionPublisher.send(positionBundle)
-            }.store(in: &cancellable)
-        
-        vps.directionPublisher
-            .compactMap { $0 }
-            .sink(receiveCompletion: { [weak self] (_) in
-                self?.directionPublisher.send(completion: .failure(PositionKitError.noDirection))
-            }, receiveValue: { data in
-                self.directionPublisher.send(data)
-            }).store(in: &cancellable)
-        
-        vps.realWorldOffsetPublisher
-            .compactMap { $0 }
-            .sink(receiveCompletion: { [weak self] (_) in
-                self?.realWorldOffsetPublisher.send(completion: .failure(PositionKitError.noRealWorldOffset))
-            }, receiveValue: { data in
-                self.realWorldOffsetPublisher.send(data)
-            }).store(in: &cancellable)
-        
-        vps.changedFloorPublisher
-            .compactMap { $0 }
-            .sink { error in
-                Logger.init().log(message: "changeFloorCancellable error")
-            } receiveValue: { [weak self] data in
-                self?.changedFloorPublisher.send(data)
-            }.store(in: &cancellable)
 
-        vps.recordingPublisherPartial
+        vps.recordingPublisher
             .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisherPartial.send($0) }
-            .store(in: &cancellable)
-        vps.recordingPublisherEnd
-            .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisherEnd.send($0) }
+            .sink { [weak self] in self?.recordingPublisher.send($0) }
             .store(in: &cancellable)
 
-        vps.deviceOrientationPublisher
+        vps.outputSignalPublisher
             .compactMap { $0 }
-            .sink(receiveCompletion: { (_) in
-                self.deviceOrientationPublisher.send(completion: .failure(.noData))
-            }, receiveValue: { (orientation) in
-                self.deviceOrientationPublisher.send(orientation)
-            }).store(in: &cancellable)
-
-        vps.rescueModePublisher
-          .compactMap { $0 }
-          .sink { [weak self] in self?.rescueModePublisher.send($0) }
-          .store(in: &cancellable)
-
-        vps.mlDataPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.mlDataPublisher.send($0) }
-            .store(in: &cancellable)
-        vps.onMlCalibrationPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.onMlCalibrationPublisher.send($0) }
-            .store(in: &cancellable)
-
-        vps.stepEventDataPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.stepEventDataPublisher.send($0) }
+            .sink { [weak self] in self?.outputSignalPublisher.send($0) }
             .store(in: &cancellable)
     }
     

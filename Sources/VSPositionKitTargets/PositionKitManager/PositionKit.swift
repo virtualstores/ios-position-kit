@@ -13,25 +13,13 @@ import CoreLocation
 
 /// Manager for PositionKit data. Will give positions
 public protocol IPositionKit {
-    /// Publishes the position data or error
-    var positionPublisher: CurrentValueSubject<PositionBundle?, PositionKitError> { get }
-
     /// Publishes the current heading from CLLocationManager
     var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> { get }
-    
-    /// Publishes if all packages are ready to start  or error
-    var allPackagesAreInitiated: CurrentValueSubject<Bool?, PositionKitError> { get }
-    
-    /// Publishes the floor change
-    var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
+    /// Publishes all recorded data
+    var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
 
-    var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
-
-    var rescueModePublisher: CurrentValueSubject<Int64?, Never> { get }
-
-    var mlDataPublisher: CurrentValueSubject<PersonalMLDataDTO?, Never> { get }
-  
-    var onMlCalibrationPublisher: CurrentValueSubject<MlUser?, Never> { get }
+    /// Publishes output signals from VPS
+    var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> { get }
     
     /// Starts position managers. Will produce results to positionPublisher.
     func start() throws

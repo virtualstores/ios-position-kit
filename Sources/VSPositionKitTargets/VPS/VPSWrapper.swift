@@ -12,40 +12,11 @@ import CoreGraphics
 import Combine
 
 protocol VPSWrapper {
-    /// Publishes the position data or error
-    var positionPublisher: CurrentValueSubject<PositionBundle?, VPSWrapperError> { get }
+    /// Publishes all recorded data
+    var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
 
-    /// Publishes the direction data or error
-     var directionPublisher: CurrentValueSubject<VPSDirectionBundle?, VPSWrapperError> { get }
-
-    /// Publishes the offset of unit quaternion (start angle) and the map
-    var realWorldOffsetPublisher: CurrentValueSubject<VPSRealWorldOffsetUpdate?, VPSWrapperError> { get }
-
-    /// Publishes the device orientation or error
-    var deviceOrientationPublisher: CurrentValueSubject<DeviceOrientation?, VPSWrapperError> { get }
-
-    /// Publishes the illegal behaviour from vps
-    var illegalBehaviourPublisher: CurrentValueSubject<Void?, Never> { get }
-
-    /// Publishes the bad Step Length from vps
-    var badStepLengthPublisher: CurrentValueSubject<Void?, Never> { get }
-
-    /// Publishes  when  the sensors are Initiated  from vps
-    var sensorsInitiatedPublisher: CurrentValueSubject<Void?, Never> { get }
-
-    /// Publishes  when recording  the sensors data from vps
-    var reducingSensorDataPublisher: CurrentValueSubject<Void?, Never> { get }
-
-    /// Publishes  trolley Mode from vps
-    var trolleyModePublisher: CurrentValueSubject<Int64?, Never> { get }
-
-    /// Publishes  rescue Mode from vps
-    var rescueModePublisher: CurrentValueSubject<Int64?, Never> { get }
-
-    /// Publishes the floor change
-    var changedFloorPublisher: CurrentValueSubject<Int?, Never> { get }
-
-    var stepEventDataPublisher: CurrentValueSubject<VSFoundation.StepEventData?, Never> { get }
+    /// Publishes output signals from VPS
+    var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> { get }
 
     /// Starts the vps
     func start()

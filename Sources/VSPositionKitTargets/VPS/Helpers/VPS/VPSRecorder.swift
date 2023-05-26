@@ -11,8 +11,7 @@ import Combine
 import VSFoundation
 
 public final class VPSRecorder {
-  public var dataPublisherPartial: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
-  public var dataPublisherEnd: CurrentValueSubject<(identifier: String, data: String, sessionId: String)?, Never> = .init(nil)
+  public var dataPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
 
   private var replayRecorder: ReplayV1Recorder!
   let defaultSessionId = "Undefined"
@@ -52,12 +51,12 @@ public final class VPSRecorder {
 }
 
 extension VPSRecorder: Uploader {
-  public func onEndUpload(dataPackage: PartitionRecorderDataPackage) {
-    dataPublisherPartial.send((dataPackage.identifier, dataPackage.data, sessionId))
+  public func onPartialUpload(dataPackage: PartitionRecorderDataPackage) {
+    dataPublisher.send((dataPackage.identifier, dataPackage.data, sessionId, false))
   }
 
-  public func onPartialUpload(dataPackage: PartitionRecorderDataPackage) {
-    dataPublisherEnd.send((dataPackage.identifier, dataPackage.data, sessionId))
+  public func onEndUpload(dataPackage: PartitionRecorderDataPackage) {
+    dataPublisher.send((dataPackage.identifier, dataPackage.data, sessionId, true))
     reset()
   }
 }
