@@ -36,18 +36,15 @@ public final class PositionManager: IPositionKit {
     
     public init() {}
     
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.0, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter) {
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
         self.rtlsOption = rtlsOption
         _vps = VPSManager(
-            size: CGSize(width: mapData.properties.width, height: mapData.properties.height),
             floorHeightDiffInMeters: floorheight,
             rtls: rtlsOption,
             mapData: mapData,
-            pixelsPerMeter: rtlsOption.pixelsPerMeter,
-            parameterPackage: parameterPackage,
-            userController: userController,
             maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis,
-            converter: converter
+            converter: converter,
+            modelManager: modelManger
         )
         
         bindEnginePublishers()

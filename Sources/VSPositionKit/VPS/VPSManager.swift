@@ -28,17 +28,16 @@ final class VPSManager: VPSWrapper {
   private var floorLevelHandler: FloorLevelHandler
 
   private var isRecording: Bool { recorder.isRecording }
-  private var parameterPackage: ParameterPackage
-  private var userController: IUserController
+  private var modelManager: VPSModelManager
 
   private var cancellable = Set<AnyCancellable>()
 
-  init(size: CGSize, floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, pixelsPerMeter: Double, parameterPackage: ParameterPackage, userController: IUserController, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter) {
+  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
-    self.parameterPackage = parameterPackage
-    self.userController = userController
+    self.modelManager = modelManager
     self.bindPublishers()
+    //Log.shared.outputHandler = self
   }
 
   deinit {
@@ -49,6 +48,7 @@ final class VPSManager: VPSWrapper {
     sensor.dataPublisher
       .compactMap { $0 }
       .sink { [weak self] (data) in
+        guard self?.vpsRunning ?? false else { return }
         let signal = InputSignal.SensorData(rawSensorData: data)
         self?.recorder.record(inputSignal: signal)
         self?.vps?.onInputSignal(signal: signal)
@@ -64,19 +64,18 @@ final class VPSManager: VPSWrapper {
     recorder.startRecording(sessionId: nil)
     sensor.serialDispatch.async { [self] in
       vps = VPS(
-        smoothing: false,
-        flipAcc: false,
-        useMagnetometer: true,
+        useMagnetometer: false,
         frequency: 100,
         frameSize: 200,
-        velocityModel: VPSVelocityModel(model: nil),
+        packageFrequency: 30,
+        velocityModel: VPSVelocityModel(manager: modelManager),
         floorLevelHandler: floorLevelHandler,
         particleFilterParams: IosParticleFilterParams.shared.default_,
         outputHandler: self,
         debugMode: true,
-        enableSensorInterpreter: true,
-        enableRotationHandler: true,
-        useNaiveParticleFilter: false
+        extendedDebugMode: false,
+        naiveOutputFilter: true,
+        system: .ios
       )
     }
   }
@@ -174,11 +173,31 @@ extension VPSManager: VPSOutputHandler {
         status: signal.status.asStatus
       )
       outputSignalPublisher.send(.position(position: position))
+    } else if let signal = outputSignal as? OutputSignal.UXPosition {
+      let position = VPSOutputSignal.Position(
+        position: signal.position.asCGPoint,
+        std: Double(signal.std),
+        status: signal.status.asStatus
+      )
+      outputSignalPublisher.send(.ux(position: position))
+    } else if let signal = outputSignal as? OutputSignal.MLOutputPosition {
+      let position = VPSOutputSignal.Position(
+        position: signal.position.asCGPoint,
+        std: Double(signal.std),
+        status: .none
+      )
+      outputSignalPublisher.send(.ml(position: position))
     } else if let signal = outputSignal as? OutputSignal.Rotation {
       let heading = DoubleExtKt.radiansToDegrees(Double(signal.heading))
       //print("Rotation", heading)
-      outputSignalPublisher.send(.rotation(heading: Double(heading - 65)))
+      outputSignalPublisher.send(.rotation(heading: Double(heading)))
     }
+  }
+}
+
+extension VPSManager: LogOutputHandler {
+  func onLog(text: String, id: String?) {
+    //print("Logger", text)
   }
 }
 
@@ -187,7 +206,17 @@ extension OutputSignal.PositionStatus {
     switch self {
     case .confident: return .confident
     case .uncertain: return .uncertain
-    default: return .uncertain
+    default: return .none
+    }
+  }
+}
+
+extension OutputSignal.UXPositionStatus {
+  var asStatus: VPSOutputSignal.Position.Status {
+    switch self {
+    case .confident: return .confident
+    case .uncertain: return .uncertain
+    default: return .none
     }
   }
 }
