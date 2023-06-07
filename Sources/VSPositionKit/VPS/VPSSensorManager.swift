@@ -98,18 +98,12 @@ public final class VPSSensorManager {
     data.gyroscope.data.enumerated().forEach { gyroscopeArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
 
     // Rows below use timestamplocalnano
-    //let accData = RawSensorData(values: accelerationArr, sensorType: .acceleration, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    //let gravData = RawSensorData(values: gravityArr, sensorType: .gravity, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    //let rotData = RawSensorData(values: rotationArr, sensorType: .rotation, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    //let geoData = RawSensorData(values: geomagneticArr, sensorType: .geomagnetic, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    //let accelerometerData = RawSensorData(values: accelerometerArr, sensorType: .accelerometer, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    //let gyroData = RawSensorData(values: gyroscopeArr, sensorType: .gyroscopeUncalibrated, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    let accData = RawSensorData(values: accelerationArr, sensorType: .acceleration, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    let gravData = RawSensorData(values: gravityArr, sensorType: .gravity, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    let rotData = RawSensorData(values: rotationArr, sensorType: .rotation, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    let geoData = RawSensorData(values: geomagneticArr, sensorType: .geomagnetic, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    let accelerometerData = RawSensorData(values: accelerometerArr, sensorType: .accelerometer, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
-    let gyroData = RawSensorData(values: gyroscopeArr, sensorType: .gyroscopeUncalibrated, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
+    let accData = RawSensorData(values: accelerationArr, sensorType: .acceleration, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
+    let gravData = RawSensorData(values: gravityArr, sensorType: .gravity, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
+    let rotData = RawSensorData(values: rotationArr, sensorType: .rotation, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
+    let geoData = RawSensorData(values: geomagneticArr, sensorType: .geomagnetic, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
+    let accelerometerData = RawSensorData(values: accelerometerArr, sensorType: .accelerometer, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
+    let gyroData = RawSensorData(values: gyroscopeArr, sensorType: .gyroscopeUncalibrated, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal))
 
     dataPublisher.send(accData)
     dataPublisher.send(gravData)

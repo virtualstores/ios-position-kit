@@ -1232,9 +1232,9 @@ __attribute__((swift_name("Log")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)log __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsLog *shared __attribute__((swift_name("shared")));
-- (void)dTag:(NSString *)tag message:(NSString *)message __attribute__((swift_name("d(tag:message:)")));
-- (void)eTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause __attribute__((swift_name("e(tag:message:cause:)")));
 - (void)edTag:(NSString *)tag message:(NSString *)message __attribute__((swift_name("ed(tag:message:)")));
+- (void)eeTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause __attribute__((swift_name("ee(tag:message:cause:)")));
+- (void)eelTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause id:(NSString * _Nullable)id __attribute__((swift_name("eel(tag:message:cause:id:)")));
 - (void)elTag:(NSString *)tag message:(NSString *)message id:(NSString * _Nullable)id __attribute__((swift_name("el(tag:message:id:)")));
 - (void)lTag:(NSString *)tag message:(NSString *)message id:(NSString * _Nullable)id __attribute__((swift_name("l(tag:message:id:)")));
 @property id<VpsLogOutputHandler> _Nullable outputHandler __attribute__((swift_name("outputHandler")));
