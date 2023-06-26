@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct RotationBundle {
+struct RotationBundle {
   let direction: Double
   let timestamp: Int
 }

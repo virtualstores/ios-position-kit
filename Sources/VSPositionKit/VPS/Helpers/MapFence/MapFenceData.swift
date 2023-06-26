@@ -148,7 +148,7 @@ public class MapFenceData {
         point.y < 0 ||
         Int32(point.x) >= Int32(widthInPixels) ||
         Int32(point.y) >= Int32(heightInPixels)
-    ) { print("Out of bounds"); return false }
+    ) { /*print("Out of bounds");*/ return false }
     guard context != nil, let pixel = pointer?[Int(point.y) * Int(widthInPixels) + Int(point.x)] else { return false }
     return getColor(pixel: pixel) != .red//UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
   }

@@ -18,6 +18,8 @@ class VPSVelocityModel {
 
   init(manager: VPSModelManager) {
     self.manager = manager
+    guard let model = manager.model else { return }
+    self.model = Resnet(model: model)
   }
 
   func structure(data: [[Double]]) -> [Double] {
@@ -58,14 +60,16 @@ extension VPSVelocityModel: VelocityModel {
   }
 
   func onInput(data_ data: Tensor) {
-    if model == nil { model = Resnet(model: manager.model) }
+    if model == nil, let model = manager.model { self.model = Resnet(model: model) }
     batchedData.append(data.data.map({ $0.map({ Double(truncating: $0) }) }).flatMap { $0 })
     guard batchedData.count > 0, let input = createMlArray(data: batchedData) else { return }
     batchedData.removeAll()
-    let output = try! model?.prediction(input: ResnetInput(input: input))
+    let output = try? model?.prediction(input: ResnetInput(input: input))
     //print("OUTPUT", output?.output)
     guard let modelOutput = output?.output.asModelOutput(timestamp: data.timestamp) else { return }
-    handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
+    //DispatchQueue.main.async {
+      self.handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
+    //}
   }
 
   func setHandler(handler: VelocityModelHandler) {

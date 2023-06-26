@@ -54,7 +54,7 @@ extension FloorLevelData: VPSFloorLevel {
     if id_ == 74 {
       save(identifier: validIdentifier, image: mapFenceData.createImageCoordinates(points: MapFenceData.ValidCoordinates.icaBromma.map({ $0.fromMeterToPixel(converter: converter).flipY(converter: converter) }), color: .purple))
       save(identifier: invalidIdentifier, image: mapFenceData.createImageCoordinates(points: MapFenceData.InvalidCoordinates.icaBromma.map({ $0.fromMeterToPixel(converter: converter).flipY(converter: converter) }), color: .green))
-      mapFenceData.testMapFence(venue: .icaBromma, converter: converter)
+      //mapFenceData.testMapFence(venue: .icaBromma, converter: converter)
     } else {
       delete(identifier: validIdentifier)
       delete(identifier: invalidIdentifier)

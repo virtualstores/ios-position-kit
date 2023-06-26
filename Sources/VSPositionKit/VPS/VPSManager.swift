@@ -13,16 +13,20 @@ import vps
 import VSSensorFusion
 import UIKit
 
+public let vpsVersion = VPSConfig.shared.VPS_VERSION
+public let velocityModelInterfaceVersion = VPSConfig.shared.VELOCITY_MODEL_INTERFACE_VERSION
+
 final class VPSManager: VPSWrapper {
+  @Inject var sensor: VPSSensorManager
+
   var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
 
-  @Inject var sensor: VPSSensorManager
-
-  public private (set) var pathfinder: BasePathfinder?
-  public var vpsRunning: Bool = false
+  private (set) var pathfinder: BasePathfinder?
+  var vpsRunning: Bool = false
 
   /// vps properties
+  private let serialDispatch = DispatchQueue(label: "TT2VPSMANAGERSERIAL")
   private let recorder: VPSRecorder
   private var vps: VPS?
   private var floorLevelHandler: FloorLevelHandler
@@ -51,7 +55,7 @@ final class VPSManager: VPSWrapper {
         guard self?.vpsRunning ?? false else { return }
         let signal = InputSignal.SensorData(rawSensorData: data)
         self?.recorder.record(inputSignal: signal)
-        self?.vps?.onInputSignal(signal: signal)
+        self?.serialDispatch.async { self?.vps?.onInputSignal(signal: signal) }
       }.store(in: &cancellable)
 
     recorder.dataPublisher
@@ -62,7 +66,26 @@ final class VPSManager: VPSWrapper {
 
   func start() {
     recorder.startRecording(sessionId: nil)
-    sensor.serialDispatch.async { [self] in
+    serialDispatch.async { [self] in
+      let params = ParticleFilterParams(
+        maxNumParticles: IosParticleFilterParams.shared.default_.maxNumParticles * 5,
+        stepLengthStd: IosParticleFilterParams.shared.default_.stepLengthStd,
+        stepDirectionStd: IosParticleFilterParams.shared.default_.stepDirectionStd,
+        biasStd: IosParticleFilterParams.shared.default_.biasStd,
+        startMethod: IosParticleFilterParams.shared.default_.startMethod,
+        startPositionStd: 7.5,
+        startDirectionStd: 0.5,
+        syncMethod: IosParticleFilterParams.shared.default_.syncMethod,
+        syncPositionStd: IosParticleFilterParams.shared.default_.syncPositionStd,
+        syncDirectionStd: IosParticleFilterParams.shared.default_.syncDirectionStd,
+        rescuePositionStd: IosParticleFilterParams.shared.default_.rescuePositionStd,
+        rescueDirectionStd: IosParticleFilterParams.shared.default_.rescueDirectionStd,
+        kldEpsilon: IosParticleFilterParams.shared.default_.kldEpsilon,
+        kldDelta: IosParticleFilterParams.shared.default_.kldDelta,
+        kldZ: IosParticleFilterParams.shared.default_.kldZ,
+        binSize: IosParticleFilterParams.shared.default_.binSize,
+        uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
+      )
       vps = VPS(
         useMagnetometer: false,
         frequency: 100,
@@ -70,9 +93,9 @@ final class VPSManager: VPSWrapper {
         packageFrequency: 30,
         velocityModel: VPSVelocityModel(manager: modelManager),
         floorLevelHandler: floorLevelHandler,
-        particleFilterParams: IosParticleFilterParams.shared.default_,
+        particleFilterParams: params,
         outputHandler: self,
-        debugMode: true,
+        debugMode: false,
         extendedDebugMode: false,
         naiveOutputFilter: true,
         system: .ios
@@ -81,25 +104,21 @@ final class VPSManager: VPSWrapper {
   }
 
   func startRecording(sessionId: String?) {
-    sensor.serialDispatch.async { [self] in
-      recorder.startRecording(sessionId: sessionId)
-    }
+    guard !isRecording else { return }
+    recorder.startRecording(sessionId: sessionId)
   }
 
   func stop() {
     let signal = InputSignal.Exit(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis)
     recorder.record(inputSignal: signal)
-    sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
     recorder.stopRecording()
     vpsRunning = false
   }
 
   func stopRecording() {
-    sensor.serialDispatch.async { [self] in
-      if isRecording {
-        recorder.stopRecording()
-      }
-    }
+    guard isRecording else { return }
+    recorder.stopRecording()
   }
 
   func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
@@ -107,13 +126,13 @@ final class VPSManager: VPSWrapper {
     vpsRunning = true
     let signal = InputSignal.Start(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(inputSignal: signal)
-    sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
   }
 
   func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     let signal = InputSignal.SyncPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(inputSignal: signal)
-    sensor.serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
   }
 
   func setPathfinder(pathfinder: BasePathfinder) {
@@ -122,11 +141,10 @@ final class VPSManager: VPSWrapper {
 
   // why does this exist? is this not the same as sync?
   func setPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
-    sensor.serialDispatch.async { [self] in
+    serialDispatch.async { [self] in
       if vpsRunning {
         self.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
       } else {
-        start()
         startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
       }
     }

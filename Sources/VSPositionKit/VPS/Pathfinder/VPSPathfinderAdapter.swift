@@ -11,16 +11,14 @@ import CoreGraphics
 import VSFoundation
 import vps
 
-public final class VPSPathfinderAdapter: IFoundationPathfinder {
+public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
   public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> = .init(nil)
   public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
   public var pathUpdatedPublisher: CurrentValueSubject<Path?, Never> = .init(nil)
 
-  public var hasGoal: CurrentValueSubject<Bool, Never> {
-    .init(self.vpsPathfinder.hasGoal)
-  }
+  public var hasGoal: CurrentValueSubject<Bool, Never> { .init(self.vpsPathfinder.hasGoal) }
 
-  private let vpsPathfinder: IPathfinder
+  private let vpsPathfinder: vps.IPathfinder
   let serialDispatch: DispatchQueue = DispatchQueue(label: "se.tt2.pathfinder")
   private let converter: ICoordinateConverter
   private let height: Double
@@ -51,12 +49,12 @@ public final class VPSPathfinderAdapter: IFoundationPathfinder {
     serialDispatch.async { self.vpsPathfinder.setGoals(goals: goals.map { $0.asVPSGoal }, callback: completion) }
   }
 
-  public func remove(goal: Goal, completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.removeGoal(id: goal.id, callback: completion) }
+  public func remove(id: String, completion: @escaping () -> Void) {
+    serialDispatch.async { self.vpsPathfinder.removeGoal(id: id, callback: completion) }
   }
 
-  public func remove(goals: [Goal], completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.removeGoals(ids: goals.map { $0.id }, callback: completion) }
+  public func remove(ids: [String], completion: @escaping () -> Void) {
+    serialDispatch.async { self.vpsPathfinder.removeGoals(ids: ids, callback: completion) }
   }
 
   public func popGoal() {

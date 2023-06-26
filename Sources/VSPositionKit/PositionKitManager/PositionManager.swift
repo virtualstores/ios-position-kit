@@ -47,7 +47,7 @@ public final class PositionManager: IPositionKit {
             modelManager: modelManger
         )
         
-        bindEnginePublishers()
+        bindPublishers()
     }
     
     public func start() throws {
@@ -87,7 +87,7 @@ public final class PositionManager: IPositionKit {
         vps.prepareAngle()
     }
     
-    func bindEnginePublishers() {
+    func bindPublishers() {
         backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
             .sink { error in
@@ -110,11 +110,5 @@ public final class PositionManager: IPositionKit {
     deinit {
         stop()
         cancellable.removeAll()
-    }
-}
-
-extension PositionManager: IRotationSensorDelegate {
-    func onNew(rotation: RotationBundle) {
-        // what to do ?? ?
     }
 }
