@@ -34,7 +34,7 @@ public final class VPSRecorder {
   }
 
   func startRecording(sessionId: String?) {
-    print("VPSRECORDERIOS", "START RECORDING")
+    //print("VPSRECORDERIOS", "START RECORDING")
     serialDispatch.async {
       self.replayRecorder.startRecording(
         sessionId: sessionId ?? self.defaultSessionId,
@@ -45,7 +45,7 @@ public final class VPSRecorder {
   }
 
   func stopRecording() {
-    print("VPSRECORDERIOS", "STOP RECORDING")
+    //print("VPSRECORDERIOS", "STOP RECORDING")
     serialDispatch.async {
       self.replayRecorder.stopRecording(
         stopNanoTimestamp: .nanoTime,
@@ -55,18 +55,18 @@ public final class VPSRecorder {
   }
 
   func record(inputSignal: InputSignal) {
-    switch inputSignal.type {
-    case .start: print("VPSRECORDERIOS", "RECORD INPUTSIGNAL", "START")
-    case .exit: print("VPSRECORDERIOS", "RECORD INPUTSIGNAL", "EXIT")
-    default: break
-    }
+    //switch inputSignal.type {
+    //case .start: print("VPSRECORDERIOS", "RECORD INPUTSIGNAL", "START")
+    //case .exit: print("VPSRECORDERIOS", "RECORD INPUTSIGNAL", "EXIT")
+    //default: break
+    //}
     serialDispatch.async {
       self.replayRecorder.onInputSignal(signal: inputSignal)
     }
   }
 
   func reset() {
-    print("VPSRECORDERIOS", "RESET")
+    //print("VPSRECORDERIOS", "RESET")
     serialDispatch.async {
       self.replayRecorder.dispose()
     }
