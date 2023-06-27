@@ -83,8 +83,8 @@ final class VPSManager: VPSWrapper {
         kldEpsilon: IosParticleFilterParams.shared.default_.kldEpsilon,
         kldDelta: IosParticleFilterParams.shared.default_.kldDelta,
         kldZ: IosParticleFilterParams.shared.default_.kldZ,
-        binSize: IosParticleFilterParams.shared.default_.binSize,
-        uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
+        binSize: IosParticleFilterParams.shared.default_.binSize//,
+        //uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
       )
       vps = VPS(
         useMagnetometer: false,
@@ -93,7 +93,7 @@ final class VPSManager: VPSWrapper {
         packageFrequency: 30,
         velocityModel: VPSVelocityModel(manager: modelManager),
         floorLevelHandler: floorLevelHandler,
-        particleFilterParams: params,
+        particleFilterParams: IosParticleFilterParams.shared.default_,
         outputHandler: self,
         debugMode: false,
         extendedDebugMode: false,

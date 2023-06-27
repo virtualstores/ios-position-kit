@@ -67,9 +67,9 @@ extension VPSVelocityModel: VelocityModel {
     let output = try? model?.prediction(input: ResnetInput(input: input))
     //print("OUTPUT", output?.output)
     guard let modelOutput = output?.output.asModelOutput(timestamp: data.timestamp) else { return }
-    //DispatchQueue.main.async {
+    DispatchQueue.main.async {
       self.handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
-    //}
+    }
   }
 
   func setHandler(handler: VelocityModelHandler) {
