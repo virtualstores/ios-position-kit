@@ -28,18 +28,37 @@ final class VPSManager: VPSWrapper {
   /// vps properties
   private let serialDispatch = DispatchQueue(label: "TT2VPSMANAGERSERIAL")
   private let recorder: VPSRecorder
+  private let floorLevelHandler: FloorLevelHandler
+  private let modelManager: VPSModelManager
+  private let params: ParticleFilterParams
   private var vps: VPS?
-  private var floorLevelHandler: FloorLevelHandler
 
   private var isRecording: Bool { recorder.isRecording }
-  private var modelManager: VPSModelManager
 
   private var cancellable = Set<AnyCancellable>()
 
-  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, maxRecordingTimePerPartInMillis: Int64?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
-    self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: maxRecordingTimePerPartInMillis)
+  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
+    self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
+    self.params = ParticleFilterParams(
+      maxNumParticles: positionServiceSettings?.intValues?["particleFilter_maxNumParticles"]?.asInt32 ?? IosParticleFilterParams.shared.default_.maxNumParticles,
+      stepLengthStd: positionServiceSettings?.floatValues?["particleFilter_stepLengthStd"] ?? IosParticleFilterParams.shared.default_.stepLengthStd,
+      stepDirectionStd: positionServiceSettings?.floatValues?["particleFilter_stepDirectionStd"] ?? IosParticleFilterParams.shared.default_.stepDirectionStd,
+      biasStd: positionServiceSettings?.floatValues?["particleFilter_biasStd"] ?? IosParticleFilterParams.shared.default_.biasStd,
+      startMethod: IosParticleFilterParams.shared.default_.startMethod,
+      startPositionStd: positionServiceSettings?.floatValues?["particleFilter_startPositionStd"] ?? IosParticleFilterParams.shared.default_.startPositionStd,
+      startDirectionStd: positionServiceSettings?.floatValues?["particleFilter_startDirectionStd"] ?? IosParticleFilterParams.shared.default_.startDirectionStd,
+      syncMethod: IosParticleFilterParams.shared.default_.syncMethod,
+      syncPositionStd: positionServiceSettings?.floatValues?["particleFilter_syncPositionStd"] ?? IosParticleFilterParams.shared.default_.syncPositionStd,
+      syncDirectionStd: positionServiceSettings?.floatValues?["particleFilter_syncDirectionStd"] ?? IosParticleFilterParams.shared.default_.syncDirectionStd,
+      rescuePositionStd: positionServiceSettings?.floatValues?["particleFilter_rescuePositionStd"] ?? IosParticleFilterParams.shared.default_.rescuePositionStd,
+      rescueDirectionStd: positionServiceSettings?.floatValues?["particleFilter_rescueDirectionStd"] ?? IosParticleFilterParams.shared.default_.rescueDirectionStd,
+      kldEpsilon: positionServiceSettings?.floatValues?["particleFilter_kldEpsilon"] ?? IosParticleFilterParams.shared.default_.kldEpsilon,
+      kldDelta: positionServiceSettings?.floatValues?["particleFilter_kldDelta"] ?? IosParticleFilterParams.shared.default_.kldDelta,
+      kldZ: positionServiceSettings?.floatValues?["particleFilter_kldZ"] ?? IosParticleFilterParams.shared.default_.kldZ,
+      binSize: IosParticleFilterParams.shared.default_.binSize
+    )
     self.bindPublishers()
     //Log.shared.outputHandler = self
   }
@@ -67,38 +86,38 @@ final class VPSManager: VPSWrapper {
   func start() {
     recorder.startRecording(sessionId: nil)
     serialDispatch.async { [self] in
-      let params = ParticleFilterParams(
-        maxNumParticles: IosParticleFilterParams.shared.default_.maxNumParticles * 5,
-        stepLengthStd: IosParticleFilterParams.shared.default_.stepLengthStd,
-        stepDirectionStd: IosParticleFilterParams.shared.default_.stepDirectionStd,
-        biasStd: IosParticleFilterParams.shared.default_.biasStd,
-        startMethod: IosParticleFilterParams.shared.default_.startMethod,
-        startPositionStd: 7.5,
-        startDirectionStd: 0.5,
-        syncMethod: IosParticleFilterParams.shared.default_.syncMethod,
-        syncPositionStd: IosParticleFilterParams.shared.default_.syncPositionStd,
-        syncDirectionStd: IosParticleFilterParams.shared.default_.syncDirectionStd,
-        rescuePositionStd: IosParticleFilterParams.shared.default_.rescuePositionStd,
-        rescueDirectionStd: IosParticleFilterParams.shared.default_.rescueDirectionStd,
-        kldEpsilon: IosParticleFilterParams.shared.default_.kldEpsilon,
-        kldDelta: IosParticleFilterParams.shared.default_.kldDelta,
-        kldZ: IosParticleFilterParams.shared.default_.kldZ,
-        binSize: IosParticleFilterParams.shared.default_.binSize//,
-        //uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
-      )
+      //let params = ParticleFilterParams(
+      //  maxNumParticles: IosParticleFilterParams.shared.default_.maxNumParticles * 5,
+      //  stepLengthStd: IosParticleFilterParams.shared.default_.stepLengthStd,
+      //  stepDirectionStd: IosParticleFilterParams.shared.default_.stepDirectionStd,
+      //  biasStd: IosParticleFilterParams.shared.default_.biasStd,
+      //  startMethod: IosParticleFilterParams.shared.default_.startMethod,
+      //  startPositionStd: 7.5,
+      //  startDirectionStd: 0.5,
+      //  syncMethod: IosParticleFilterParams.shared.default_.syncMethod,
+      //  syncPositionStd: IosParticleFilterParams.shared.default_.syncPositionStd,
+      //  syncDirectionStd: IosParticleFilterParams.shared.default_.syncDirectionStd,
+      //  rescuePositionStd: IosParticleFilterParams.shared.default_.rescuePositionStd,
+      //  rescueDirectionStd: IosParticleFilterParams.shared.default_.rescueDirectionStd,
+      //  kldEpsilon: IosParticleFilterParams.shared.default_.kldEpsilon,
+      //  kldDelta: IosParticleFilterParams.shared.default_.kldDelta,
+      //  kldZ: IosParticleFilterParams.shared.default_.kldZ,
+      //  binSize: IosParticleFilterParams.shared.default_.binSize//,
+      //  //uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
+      //)
+      //print("PARAMS", params)
       vps = VPS(
-        useMagnetometer: false,
-        frequency: 100,
-        frameSize: 200,
-        packageFrequency: 30,
         velocityModel: VPSVelocityModel(manager: modelManager),
         floorLevelHandler: floorLevelHandler,
-        particleFilterParams: IosParticleFilterParams.shared.default_,
         outputHandler: self,
+        system: .ios,
+        featureToTensorValueParams: FeatureToTensorValueParams(frameSize: modelManager.params?.frameSize ?? 200, packageFrequency: 30),
+        interpolationParams: IosInterpolationModuleParams.shared.default_,
+        featurePackerParams: FeaturePackerParams(useSmoothing: modelManager.params?.useSmooting ?? false, flipAcc: false),
+        particleFilterParams: params,
         debugMode: false,
         extendedDebugMode: false,
-        naiveOutputFilter: true,
-        system: .ios
+        naiveOutputFilter: true
       )
     }
   }
