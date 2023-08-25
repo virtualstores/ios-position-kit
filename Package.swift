@@ -13,6 +13,7 @@ let package = Package(
     products: [
         .library(
             name: "VSPositionKit",
+            
             targets: ["VSPositionKit"]),
     ],
     dependencies: [
@@ -35,8 +36,6 @@ let package = Package(
               .copy("TestResources/MapFence/"),
               .copy("TestResources/SensorData/")
             ]),
-        .binaryTarget(
-            name: "VPS",
-            path: "vps.xcframework"),
+        .binaryTarget(name: "VPS", path: "vps.xcframework"),
     ]
 )

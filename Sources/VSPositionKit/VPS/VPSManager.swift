@@ -57,7 +57,9 @@ final class VPSManager: VPSWrapper {
       kldEpsilon: positionServiceSettings?.floatValues?["particleFilter_kldEpsilon"] ?? IosParticleFilterParams.shared.default_.kldEpsilon,
       kldDelta: positionServiceSettings?.floatValues?["particleFilter_kldDelta"] ?? IosParticleFilterParams.shared.default_.kldDelta,
       kldZ: positionServiceSettings?.floatValues?["particleFilter_kldZ"] ?? IosParticleFilterParams.shared.default_.kldZ,
-      binSize: IosParticleFilterParams.shared.default_.binSize
+      binSize: IosParticleFilterParams.shared.default_.binSize,
+      uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence,
+      angleOffsetGainDegPerMin: IosParticleFilterParams.shared.default_.angleOffsetGainDegPerMin
     )
     self.bindPublishers()
     //Log.shared.outputHandler = self
@@ -117,7 +119,9 @@ final class VPSManager: VPSWrapper {
         particleFilterParams: params,
         debugMode: false,
         extendedDebugMode: false,
-        naiveOutputFilter: true
+        naiveOutputFilter: true,
+        uxPositionActivated: false,
+        mlPositionActivated: false
       )
     }
   }

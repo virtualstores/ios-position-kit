@@ -30,7 +30,7 @@ extension PathfinderCoordinateF {
 
 extension Goal {
   var asVPSGoal: IPathfinderGoal {
-    BasePathfinderGoal<AnyObject>.init(id: id, position: position.asPathfinderCoordinateF, data: data as AnyObject?, type: type.asVPSGoalType)
+    BasePathfinderGoal<AnyObject>(id: id, position: position.asPathfinderCoordinateF, data: data as AnyObject?, type: type.asVPSGoalType)
   }
 }
 
@@ -66,11 +66,6 @@ extension IPathfinderPath {
 }
 
 extension KotlinFloat {
-  var asDouble: Double {
-    Double(truncating: self)
-  }
-  
-  var asFloat: Float {
-    Float(truncating: self)
-  }
+  var asDouble: Double { Double(truncating: self) }
+  var asFloat: Float { Float(truncating: self) }
 }
