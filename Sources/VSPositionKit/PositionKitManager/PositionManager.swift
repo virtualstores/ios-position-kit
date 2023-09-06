@@ -17,6 +17,7 @@ public final class PositionManager: IPositionKit {
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
     public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
+    public var vpsParams: [String:String] { vps.vpsParams }
     
     public var rtlsOption: RtlsOptions?
     
