@@ -21,6 +21,7 @@ final class VPSManager: VPSWrapper {
 
   var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
+  var vpsParams: [String:String] { params.map() }
 
   private (set) var pathfinder: BasePathfinder?
   var vpsRunning: Bool = false
@@ -41,25 +42,28 @@ final class VPSManager: VPSWrapper {
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
+    let defaultParams: ParticleFilterParams = VPSManager.getDefaultParams(positionServiceSettings: positionServiceSettings)
     self.params = ParticleFilterParams(
-      maxNumParticles: positionServiceSettings?.intValues?["particleFilter_maxNumParticles"]?.asInt32 ?? IosParticleFilterParams.shared.default_.maxNumParticles,
-      stepLengthStd: positionServiceSettings?.floatValues?["particleFilter_stepLengthStd"] ?? IosParticleFilterParams.shared.default_.stepLengthStd,
-      stepDirectionStd: positionServiceSettings?.floatValues?["particleFilter_stepDirectionStd"] ?? IosParticleFilterParams.shared.default_.stepDirectionStd,
-      biasStd: positionServiceSettings?.floatValues?["particleFilter_biasStd"] ?? IosParticleFilterParams.shared.default_.biasStd,
-      startMethod: IosParticleFilterParams.shared.default_.startMethod,
-      startPositionStd: positionServiceSettings?.floatValues?["particleFilter_startPositionStd"] ?? IosParticleFilterParams.shared.default_.startPositionStd,
-      startDirectionStd: positionServiceSettings?.floatValues?["particleFilter_startDirectionStd"] ?? IosParticleFilterParams.shared.default_.startDirectionStd,
-      syncMethod: IosParticleFilterParams.shared.default_.syncMethod,
-      syncPositionStd: positionServiceSettings?.floatValues?["particleFilter_syncPositionStd"] ?? IosParticleFilterParams.shared.default_.syncPositionStd,
-      syncDirectionStd: positionServiceSettings?.floatValues?["particleFilter_syncDirectionStd"] ?? IosParticleFilterParams.shared.default_.syncDirectionStd,
-      rescuePositionStd: positionServiceSettings?.floatValues?["particleFilter_rescuePositionStd"] ?? IosParticleFilterParams.shared.default_.rescuePositionStd,
-      rescueDirectionStd: positionServiceSettings?.floatValues?["particleFilter_rescueDirectionStd"] ?? IosParticleFilterParams.shared.default_.rescueDirectionStd,
-      kldEpsilon: positionServiceSettings?.floatValues?["particleFilter_kldEpsilon"] ?? IosParticleFilterParams.shared.default_.kldEpsilon,
-      kldDelta: positionServiceSettings?.floatValues?["particleFilter_kldDelta"] ?? IosParticleFilterParams.shared.default_.kldDelta,
-      kldZ: positionServiceSettings?.floatValues?["particleFilter_kldZ"] ?? IosParticleFilterParams.shared.default_.kldZ,
-      binSize: IosParticleFilterParams.shared.default_.binSize,
-      uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence,
-      angleOffsetGainDegPerMin: IosParticleFilterParams.shared.default_.angleOffsetGainDegPerMin
+      maxNumParticles: positionServiceSettings?.maxNumParticles ?? defaultParams.maxNumParticles,
+      stepLengthStd: positionServiceSettings?.stepLengthStd ?? defaultParams.stepLengthStd,
+      stepDirectionStd: positionServiceSettings?.stepDirectionStd ?? defaultParams.stepDirectionStd,
+      biasStd: positionServiceSettings?.biasStd ?? defaultParams.biasStd,
+      startMethod: positionServiceSettings?.startMethod ?? defaultParams.startMethod,
+      startPositionStd: positionServiceSettings?.startPositionStd ?? defaultParams.startPositionStd,
+      startDirectionStd: positionServiceSettings?.startDirectionStd ?? defaultParams.startDirectionStd,
+      syncMethod: positionServiceSettings?.syncMethod ?? defaultParams.syncMethod,
+      syncPositionStd: positionServiceSettings?.syncPositionStd ?? defaultParams.syncPositionStd,
+      syncDirectionStd: positionServiceSettings?.syncDirectionStd ?? defaultParams.syncDirectionStd,
+      rescuePositionStd: positionServiceSettings?.rescuePositionStd ?? defaultParams.rescuePositionStd,
+      rescueDirectionStd: positionServiceSettings?.rescueDirectionStd ?? defaultParams.rescueDirectionStd,
+      kldEpsilon: positionServiceSettings?.kldEpsilon ?? defaultParams.kldEpsilon,
+      kldDelta: positionServiceSettings?.kldDelta ?? defaultParams.kldDelta,
+      kldZ: positionServiceSettings?.kldZ ?? defaultParams.kldZ,
+      binSize: defaultParams.binSize,
+      uxPositionConfidence: positionServiceSettings?.uxPositionConfidence ?? defaultParams.uxPositionConfidence,
+      angleOffsetGainDegPerMin: positionServiceSettings?.angleOffsetGainDegPerMin ?? defaultParams.angleOffsetGainDegPerMin,
+      speedFactor: positionServiceSettings?.speedFactor ?? defaultParams.speedFactor,
+      naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParams.naiveOutputSyncMovement
     )
     self.bindPublishers()
     //Log.shared.outputHandler = self
@@ -203,6 +207,22 @@ final class VPSManager: VPSWrapper {
     //return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
     return 0.0
   }
+
+  static func getDefaultParams(positionServiceSettings: PositionServiceSettings?) -> ParticleFilterParams {
+    guard
+      let option = positionServiceSettings?.stringValues?[.PARTICLE_FILTER_DEFAULT_PARAMS],
+      let defaultEnum = VPSParticleFilterDefaultEnum(rawValue: option)
+    else { return VPSParticleFilterParams.shared.default_ }
+    switch defaultEnum {
+    case .´default´: return VPSParticleFilterParams.shared.default_
+    case .compass: return VPSParticleFilterParams.shared.compass
+    }
+  }
+
+  enum VPSParticleFilterDefaultEnum: String {
+    case ´default´ = "DEFAULT"
+    case compass = "COMPASS"
+  }
 }
 
 extension VPSManager: VPSOutputHandler {
@@ -260,4 +280,89 @@ extension OutputSignal.UXPositionStatus {
     default: return .none
     }
   }
+}
+
+private extension PositionServiceSettings.VPSStartMethod {
+  var asStartMethod: StartMethod {
+    switch self {
+    case .gauss: return .gauss
+    case .global: return .global
+    case .standard: return .standard
+    }
+  }
+}
+
+private extension PositionServiceSettings.VPSSyncMethod {
+  var asSyncMethod : SyncMethod {
+    switch self {
+    case .gauss: return .gauss
+    case .compassGauss: return .compassGauss
+    case .standard: return .standard
+    }
+  }
+}
+
+private extension PositionServiceSettings {
+  var maxNumParticles: Int32? { intValues?[.PARTICLE_FILTER_MAX_NUM_PARTICLES]?.asInt32 }
+  var stepLengthStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_LENGTH_STD] }
+  var stepDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_DIRECTION_STD] }
+  var biasStd: Float? { floatValues?[.PARTICLE_FILTER_BIAS_STD] }
+  var startMethod: StartMethod? {
+    guard let value = stringValues?[.PARTICLE_FILTER_START_METHOD] else { return nil }
+    return VPSStartMethod(rawValue: value)?.asStartMethod
+  }
+  var startPositionStd: Float? { floatValues?[.PARTICLE_FILTER_START_POSITION_STD] }
+  var startDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_START_DIRECTION_STD] }
+  var syncMethod: SyncMethod? {
+    guard let value = stringValues?[.PARTICLE_FILTER_SYNC_METHOD] else { return nil }
+    return VPSSyncMethod(rawValue: value)?.asSyncMethod
+  }
+  var syncPositionStd: Float? { floatValues?[.PARTICLE_FILTER_SYNC_POSITION_STD] }
+  var syncDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_SYNC_DIRECTION_STD] }
+  var rescuePositionStd: Float? { floatValues?[.PARTICLE_FILTER_RESCUE_POSITION_STD] }
+  var rescueDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_RESCUE_DIRECTION_STD] }
+  var kldEpsilon: Float? { floatValues?[.PARTICLE_FILTER_KLD_EPSILON] }
+  var kldDelta: Float? { floatValues?[.PARTICLE_FILTER_KLD_DELTA] }
+  var kldZ: Float? { floatValues?[.PARTICLE_FILTER_KLD_Z] }
+  var uxPositionConfidence: Float? { floatValues?[.PARTICLE_FILTER_UX_POSITION_CONFIDENCE] }
+  var angleOffsetGainDegPerMin: Float? { floatValues?[.PARTICLE_FILTER_ANGLE_OFFSET_GAIN_DEG_PER_MIN] }
+  var speedFactor: Float? { floatValues?[.PARTICLE_FILTER_SPEED_FACTOR] }
+  var naiveOutputSyncMovement: Bool? { boolValues?[.PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT] }
+
+  enum VPSStartMethod: String {
+    case gauss = "GAUSS"
+    case global = "GLOBAL"
+    case standard = "STANDARD"
+  }
+
+  enum VPSSyncMethod: String {
+    case gauss = "GAUSS"
+    case compassGauss = "COMPASSGAUSS"
+    case standard = "STANDARD"
+  }
+}
+
+private extension String {
+  static let PARTICLE_FILTER_DEFAULT_PARAMS: String = "particleFilter_defaultParams"
+  static let PARTICLE_FILTER_PARAMS_DEFAULT: String = "DEFAULT"
+  static let PARTICLE_FILTER_PARAMS_COMPASS: String = "COMPASS"
+  static let PARTICLE_FILTER_MAX_NUM_PARTICLES: String = "particleFilter_maxNumParticles"
+  static let PARTICLE_FILTER_STEP_LENGTH_STD: String = "particleFilter_stepLengthStd"
+  static let PARTICLE_FILTER_STEP_DIRECTION_STD: String = "particleFilter_stepDirectionStd"
+  static let PARTICLE_FILTER_BIAS_STD: String = "particleFilter_biasStd"
+  static let PARTICLE_FILTER_START_METHOD: String = "particleFilter_startMethod"
+  static let PARTICLE_FILTER_START_POSITION_STD: String = "particleFilter_startPositionStd"
+  static let PARTICLE_FILTER_START_DIRECTION_STD: String = "particleFilter_startDirectionStd"
+  static let PARTICLE_FILTER_SYNC_METHOD: String = "particleFilter_syncMethod"
+  static let PARTICLE_FILTER_SYNC_POSITION_STD: String = "particleFilter_syncPositionStd"
+  static let PARTICLE_FILTER_SYNC_DIRECTION_STD: String = "particleFilter_syncDirectionStd"
+  static let PARTICLE_FILTER_RESCUE_POSITION_STD: String = "particleFilter_rescuePositionStd"
+  static let PARTICLE_FILTER_RESCUE_DIRECTION_STD: String = "particleFilter_rescueDirectionStd"
+  static let PARTICLE_FILTER_KLD_EPSILON: String = "particleFilter_kldEpsilon"
+  static let PARTICLE_FILTER_KLD_DELTA: String = "particleFilter_kldDelta"
+  static let PARTICLE_FILTER_KLD_Z: String = "particleFilter_kldZ"
+  static let PARTICLE_FILTER_UX_POSITION_CONFIDENCE: String = "particleFilter_uxPositionConfidence"
+  static let PARTICLE_FILTER_ANGLE_OFFSET_GAIN_DEG_PER_MIN: String = "particleFilter_angleOffsetGainDegPerMin"
+  static let PARTICLE_FILTER_SPEED_FACTOR: String = "particleFilter_speedFactor"
+  static let PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT: String = "particleFilter_naiveOutputSyncMovement"
 }
