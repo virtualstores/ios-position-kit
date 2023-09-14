@@ -135,7 +135,7 @@ final class VPSManager: VPSWrapper {
         extendedDebugMode: false,
         naiveOutputFilter: true,
         uxPositionActivated: false,
-        mlPositionActivated: false
+        mlPositionActivated: true
       )
     }
   }
@@ -251,21 +251,24 @@ extension VPSManager: VPSOutputHandler {
       let position = VPSOutputSignal.Position(
         position: signal.position.asCGPoint,
         std: Double(signal.std),
-        status: signal.status.asStatus
+        status: signal.status.asStatus,
+        timestamp: Date()
       )
       outputSignalPublisher.send(.position(position: position))
     } else if let signal = outputSignal as? OutputSignal.UXPosition {
       let position = VPSOutputSignal.Position(
         position: signal.position.asCGPoint,
         std: Double(signal.std),
-        status: signal.status.asStatus
+        status: signal.status.asStatus,
+        timestamp: Date()
       )
       outputSignalPublisher.send(.ux(position: position))
     } else if let signal = outputSignal as? OutputSignal.MLOutputPosition {
       let position = VPSOutputSignal.Position(
         position: signal.position.asCGPoint,
         std: Double(signal.std),
-        status: .none
+        status: .none,
+        timestamp: Date()
       )
       outputSignalPublisher.send(.ml(position: position))
     } else if let signal = outputSignal as? OutputSignal.Rotation {
