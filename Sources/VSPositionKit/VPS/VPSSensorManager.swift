@@ -66,6 +66,7 @@ public final class VPSSensorManager {
         Logger.init().log(message: "sensorPublisher error")
       } receiveValue: { [weak self] data in
         self?.serialDispatch.async {
+          //pthread_setname_np("VPSSensorManager")
           self?.reportSensorData(for: data)
         }
       }.store(in: &cancellable)
@@ -76,6 +77,7 @@ public final class VPSSensorManager {
         Logger().log(message: "altimeterPublisher error")
       } receiveValue: { [weak self] data in
         self?.serialDispatch.async {
+          //pthread_setname_np("VPSSensorManager")
           self?.reportAltimeterData(data: data)
         }
       }.store(in: &cancellable)

@@ -18,6 +18,7 @@ public final class PositionManager: IPositionKit {
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
     public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
     public var vpsParams: [String:String] { vps.vpsParams }
+    public var isRecording: Bool { vps.isRecording }
     
     public var rtlsOption: RtlsOptions?
     
@@ -37,11 +38,12 @@ public final class PositionManager: IPositionKit {
     
     public init() {}
     
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, userController: IUserController, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
+    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
         self.rtlsOption = rtlsOption
         _vps = VPSManager(
             floorHeightDiffInMeters: floorheight,
             rtls: rtlsOption,
+            automaticSensorRecording: automaticSensorRecording,
             mapData: mapData,
             positionServiceSettings: positionServiceSettings,
             converter: converter,

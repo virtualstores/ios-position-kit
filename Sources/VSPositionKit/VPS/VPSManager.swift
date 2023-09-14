@@ -12,6 +12,7 @@ import Combine
 import vps
 import VSSensorFusion
 import UIKit
+import os.log
 
 public let vpsVersion = VPSConfig.shared.VPS_VERSION
 public let velocityModelInterfaceVersion = VPSConfig.shared.VELOCITY_MODEL_INTERFACE_VERSION
@@ -28,17 +29,19 @@ final class VPSManager: VPSWrapper {
 
   /// vps properties
   private let serialDispatch = DispatchQueue(label: "TT2VPSMANAGERSERIAL")
+  private let automaticSensorRecording: Bool
   private let recorder: VPSRecorder
   private let floorLevelHandler: FloorLevelHandler
   private let modelManager: VPSModelManager
   private let params: ParticleFilterParams
   private var vps: VPS?
 
-  private var isRecording: Bool { recorder.isRecording }
+  var isRecording: Bool { recorder.isRecording }
 
   private var cancellable = Set<AnyCancellable>()
 
-  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
+  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
+    self.automaticSensorRecording = automaticSensorRecording
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
@@ -67,6 +70,7 @@ final class VPSManager: VPSWrapper {
     )
     self.bindPublishers()
     //Log.shared.outputHandler = self
+
   }
 
   deinit {
@@ -80,7 +84,10 @@ final class VPSManager: VPSWrapper {
         guard self?.vpsRunning ?? false else { return }
         let signal = InputSignal.SensorData(rawSensorData: data)
         self?.recorder.record(inputSignal: signal)
-        self?.serialDispatch.async { self?.vps?.onInputSignal(signal: signal) }
+        self?.serialDispatch.async {
+          pthread_setname_np("VPSManager")
+          self?.vps?.onInputSignal(signal: signal)
+        }
       }.store(in: &cancellable)
 
     recorder.dataPublisher
@@ -90,7 +97,9 @@ final class VPSManager: VPSWrapper {
   }
 
   func start() {
-    recorder.startRecording(sessionId: nil)
+    if automaticSensorRecording {
+      recorder.startRecording(sessionId: nil)
+    }
     serialDispatch.async { [self] in
       //let params = ParticleFilterParams(
       //  maxNumParticles: IosParticleFilterParams.shared.default_.maxNumParticles * 5,
@@ -112,6 +121,7 @@ final class VPSManager: VPSWrapper {
       //  //uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
       //)
       //print("PARAMS", params)
+      pthread_setname_np("VPSManager")
       vps = VPS(
         velocityModel: VPSVelocityModel(manager: modelManager),
         floorLevelHandler: floorLevelHandler,
@@ -138,7 +148,10 @@ final class VPSManager: VPSWrapper {
   func stop() {
     let signal = InputSignal.Exit(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis)
     recorder.record(inputSignal: signal)
-    serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    serialDispatch.async {
+      //pthread_setname_np("VPSManager")
+      self.vps?.onInputSignal(signal: signal)
+    }
     recorder.stopRecording()
     vpsRunning = false
   }
@@ -153,13 +166,19 @@ final class VPSManager: VPSWrapper {
     vpsRunning = true
     let signal = InputSignal.Start(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(inputSignal: signal)
-    serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    serialDispatch.async {
+      //pthread_setname_np("VPSManager")
+      self.vps?.onInputSignal(signal: signal)
+    }
   }
 
   func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     let signal = InputSignal.SyncPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(inputSignal: signal)
-    serialDispatch.async { self.vps?.onInputSignal(signal: signal) }
+    serialDispatch.async {
+      //pthread_setname_np("VPSManager")
+      self.vps?.onInputSignal(signal: signal)
+    }
   }
 
   func setPathfinder(pathfinder: BasePathfinder) {
@@ -169,6 +188,7 @@ final class VPSManager: VPSWrapper {
   // why does this exist? is this not the same as sync?
   func setPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     serialDispatch.async { [self] in
+      //pthread_setname_np("VPSManager")
       if vpsRunning {
         self.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
       } else {
