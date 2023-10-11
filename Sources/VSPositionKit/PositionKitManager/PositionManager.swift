@@ -94,7 +94,7 @@ public final class PositionManager: IPositionKit {
         backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
             .sink { error in Logger().log(message: "locationHeadingPublisher error") } 
-            receiveValue: { [weak self] in /*self?.locationHeadingPublisher.send($0)*/}
+            receiveValue: { [weak self] in self?.locationHeadingPublisher.send($0)}
             .store(in: &cancellable)
 
         vps.recordingPublisher
