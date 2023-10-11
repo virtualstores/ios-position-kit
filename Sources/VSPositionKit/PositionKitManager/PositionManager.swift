@@ -14,7 +14,7 @@ import CoreGraphics
 import CoreLocation
 
 public final class PositionManager: IPositionKit {
-    public var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> = .init(CLHeading())
+    public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
     public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
     public var vpsParams: [String:String] { vps.vpsParams }
@@ -93,11 +93,9 @@ public final class PositionManager: IPositionKit {
     func bindPublishers() {
         backgroundAccess.locationHeadingPublisher
             .compactMap { $0 }
-            .sink { error in
-                Logger().log(message: "locationHeadingPublisher error")
-            } receiveValue: { [weak self] data in
-                self?.locationHeadingPublisher.send(data)
-            }.store(in: &cancellable)
+            .sink { error in Logger().log(message: "locationHeadingPublisher error") } 
+            receiveValue: { [weak self] in /*self?.locationHeadingPublisher.send($0)*/}
+            .store(in: &cancellable)
 
         vps.recordingPublisher
             .compactMap { $0 }

@@ -14,7 +14,7 @@ import CoreLocation
 /// Manager for PositionKit data. Will give positions
 public protocol IPositionKit {
     /// Publishes the current heading from CLLocationManager
-    var locationHeadingPublisher: CurrentValueSubject<CLHeading, Error> { get }
+    var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { get }
     /// Publishes all recorded data
     var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
 
