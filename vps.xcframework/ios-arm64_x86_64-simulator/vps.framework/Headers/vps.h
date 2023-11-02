@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsIPathfinderGoalType, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinArray<T>, VpsNavGraphVertex, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsNavGraph, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsVPSParams, VpsVPSParamsPackage, VpsVPSParamsSystem, VpsPose, VpsCoordinateF, VpsAccessPoint, VpsFloorLevelHandlerMapInformation, VpsFloorLevelHandler, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams, VpsFeaturePackerParams, VpsParticleFilterParams, VpsInputSignalStart, VpsOutputSignal, VpsInputSignal, VpsBaseEventStartEvent, VpsBaseEvent, VpsFlowConverter<T, S>, VpsFlowConverterBuilder<T, S>, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilter, VpsParticleFilterBuilder, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsKotlinFloatArray, VpsOutputSignalUXPosition, VpsStartMethod, VpsSyncMethod, VpsSyncCritera, VpsBaseEventStepEvent, VpsBaseEventWiFiObservation, VpsMCL, VpsBaseEventSyncEvent, VpsBaseEventWifiScan, VpsAbstractParticleFilter, VpsPoseCompanion, VpsKotlinThrowable, VpsKotlinException, VpsRawSensorData, VpsModelOutput, VpsSensorInterpreter, VpsSensorInterpreterBuilder, VpsRawSensorPack, VpsAverageAccelerationSmoother, VpsFeatures, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams_, VpsMathUtil, VpsNode<T>, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsFlowConverterSensorDataFrameToTensorValueCompanion, VpsTimeoutQueue<T>, VpsFlowConverterSensorDataFrameToTensorValue, VpsModelToEvent, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsLog, VpsFlow<T>, VpsFlowBuilder<T>, VpsAccessPointCoordinate, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdate, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsWifiStatusUpdate, VpsCoordinateDCompanion, VpsCoordinateD, VpsCoordinateFCompanion, VpsIosInterpolationModuleParams, VpsVPSParticleFilterParams, VpsReplayStart, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplaySensorDataCompanion, VpsReplayStartCompanion, VpsReplaySyncPositionCompanion, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsFeaturesCompanion, VpsModelOutputCompanion, VpsSensorDataType, VpsRawSensorDataCompanion, VpsRawSensorPackCompanion, VpsTensorCompanion, VpsInputSignalType, VpsOutputSignalType, VpsOutputSignalPositionStatus, VpsOutputSignalUXPositionStatus, VpsBaseEventCompanion, VpsEventType, VpsBaseEventStartEventCompanion, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventSyncEventCompanion, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWifiScanCompanion, VpsBaseEventWifiStatusUpdateCompanion, VpsBaseEventWifiStatusUpdate, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsWifiScanDataCompanion, VpsWifiScanData, VpsInputSignalExit, VpsInputSignalSensorData, VpsInputSignalSyncPosition, VpsKotlinFloatIterator, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinDoubleIterator, VpsKotlinIntIterator, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing, VpsKotlinByteIterator;
+@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsIPathfinderGoalType, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinArray<T>, VpsNavGraphVertex, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsNavGraph, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsVPSParams, VpsVPSParamsPackage, VpsVPSParamsSystem, VpsPose, VpsCoordinateF, VpsAccessPoint, VpsFloorLevelHandlerMapInformation, VpsFloorLevelHandler, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams, VpsModelToEventParameters, VpsParticleFilterParams, VpsInputSignalStart, VpsOutputSignal, VpsInputSignal, VpsBaseEventStartEvent, VpsBaseEvent, VpsFlowConverter<T, S>, VpsFlowConverterBuilder<T, S>, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilter, VpsParticleFilterBuilder, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsKotlinFloatArray, VpsOutputSignalUXPosition, VpsStartMethod, VpsSyncMethod, VpsSyncCritera, VpsBaseEventStepEvent, VpsBaseEventWiFiObservation, VpsMCL, VpsBaseEventSyncEvent, VpsBaseEventWifiScan, VpsAbstractParticleFilter, VpsOutputSignalSyncSignal, VpsPoseCompanion, VpsKotlinThrowable, VpsKotlinException, VpsRawSensorData, VpsRawSensorPack, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams_, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeatures, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsNode<T>, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsFlowConverterSensorDataFrameToTensorValueCompanion, VpsTimeoutQueue<T>, VpsFlowConverterSensorDataFrameToTensorValue, VpsModelOutput, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsLog, VpsFlow<T>, VpsFlowBuilder<T>, VpsVelocityModelParams, VpsAccessPointCoordinate, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdate, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsWifiStatusUpdate, VpsCoordinateDCompanion, VpsCoordinateD, VpsCoordinateFCompanion, VpsIosInterpolationModuleParams, VpsVPSModelToEventParameters, VpsVPSParticleFilterParams, VpsReplayStart, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplaySensorDataCompanion, VpsReplayStartCompanion, VpsReplaySyncPositionCompanion, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsFeaturesCompanion, VpsModelOutputCompanion, VpsSensorDataType, VpsRawSensorDataCompanion, VpsRawSensorPackCompanion, VpsTensorCompanion, VpsInputSignalType, VpsOutputSignalType, VpsOutputSignalPositionStatus, VpsOutputSignalUXPositionStatus, VpsBaseEventCompanion, VpsEventType, VpsBaseEventStartEventCompanion, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventSyncEventCompanion, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWifiScanCompanion, VpsBaseEventWifiStatusUpdateCompanion, VpsBaseEventWifiStatusUpdate, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsWifiScanDataCompanion, VpsWifiScanData, VpsInputSignalExit, VpsInputSignalSensorData, VpsInputSignalSyncPosition, VpsKotlinFloatIterator, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinDoubleIterator, VpsKotlinIntIterator, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing, VpsKotlinByteIterator;
 
 @protocol VpsIPathfinderGoal, VpsIPathfinderListener, VpsKotlinComparable, VpsIPathfinderPath, VpsKotlinx_serialization_coreKSerializer, VpsIPathfinder, VpsVPSFloorLevel, VpsFlowConnection, VpsVelocityModel, VpsVPSOutputHandler, VpsNodeHandler, VpsVelocityModelHandler, VpsLogOutputHandler, VpsUploader, VpsRandomNumberGenerator, VpsKotlinIterator, VpsKotlinx_serialization_coreEncoder, VpsKotlinx_serialization_coreSerialDescriptor, VpsKotlinx_serialization_coreSerializationStrategy, VpsKotlinx_serialization_coreDecoder, VpsKotlinx_serialization_coreDeserializationStrategy, VpsKotlinx_serialization_coreCompositeEncoder, VpsKotlinAnnotation, VpsKotlinx_serialization_coreCompositeDecoder, VpsKotlinx_serialization_coreSerializersModuleCollector, VpsKotlinKClass, VpsKotlinKDeclarationContainer, VpsKotlinKAnnotatedElement, VpsKotlinKClassifier;
 
@@ -464,8 +464,10 @@ __attribute__((swift_name("VPSParams")))
 + (instancetype)vPSParams __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsVPSParams *shared __attribute__((swift_name("shared")));
 @property BOOL debugMode __attribute__((swift_name("debugMode")));
+@property (readonly) NSString *description_ __attribute__((swift_name("description_")));
 @property BOOL extendedDebugMode __attribute__((swift_name("extendedDebugMode")));
 @property BOOL mlPositionActivated __attribute__((swift_name("mlPositionActivated")));
+@property BOOL sendSyncSignals __attribute__((swift_name("sendSyncSignals")));
 @property BOOL uxPositionActivated __attribute__((swift_name("uxPositionActivated")));
 @end
 
@@ -538,7 +540,7 @@ __attribute__((swift_name("FlowConnection")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VPS")))
 @interface VpsVPS : VpsBase <VpsFlowConnection>
-- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler outputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system featureToTensorValueParams:(VpsFeatureToTensorValueParams *)featureToTensorValueParams interpolationParams:(VpsInterpolationModuleParams *)interpolationParams featurePackerParams:(VpsFeaturePackerParams * _Nullable)featurePackerParams particleFilterParams:(VpsParticleFilterParams *)particleFilterParams debugMode:(BOOL)debugMode extendedDebugMode:(BOOL)extendedDebugMode naiveOutputFilter:(BOOL)naiveOutputFilter uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated __attribute__((swift_name("init(velocityModel:floorLevelHandler:outputHandler:system:featureToTensorValueParams:interpolationParams:featurePackerParams:particleFilterParams:debugMode:extendedDebugMode:naiveOutputFilter:uxPositionActivated:mlPositionActivated:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler outputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system featureToTensorValueParams:(VpsFeatureToTensorValueParams *)featureToTensorValueParams interpolationParams:(VpsInterpolationModuleParams *)interpolationParams modelToEventParameters:(VpsModelToEventParameters *)modelToEventParameters particleFilterParams:(VpsParticleFilterParams *)particleFilterParams debugMode:(BOOL)debugMode extendedDebugMode:(BOOL)extendedDebugMode naiveOutputFilter:(BOOL)naiveOutputFilter uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated __attribute__((swift_name("init(velocityModel:floorLevelHandler:outputHandler:system:featureToTensorValueParams:interpolationParams:modelToEventParameters:particleFilterParams:debugMode:extendedDebugMode:naiveOutputFilter:uxPositionActivated:mlPositionActivated:)"))) __attribute__((objc_designated_initializer));
 - (void)doInitSignal:(VpsInputSignalStart *)signal __attribute__((swift_name("doInit(signal:)")));
 - (void)onExit __attribute__((swift_name("onExit()")));
 - (void)onInputData:(VpsOutputSignal *)data __attribute__((swift_name("onInput(data:)")));
@@ -558,7 +560,7 @@ __attribute__((swift_name("AbstractParticleFilter")))
 - (void)setStartStart:(VpsBaseEventStartEvent *)start __attribute__((swift_name("setStart(start:)")));
 - (VpsCoordinateF *)updateEvent:(VpsBaseEvent *)event __attribute__((swift_name("update(event:)")));
 @property (readonly) VpsFloorLevelHandler *mapData __attribute__((swift_name("mapData")));
-@property (readonly) VpsParticleFilterParams *params __attribute__((swift_name("params")));
+@property VpsParticleFilterParams *params __attribute__((swift_name("params")));
 @end
 
 __attribute__((swift_name("FlowConverter")))
@@ -743,11 +745,14 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticleFilterKLD")))
 @interface VpsParticleFilterKLD : VpsAbstractParticleFilter
 - (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData params:(VpsParticleFilterParams *)params __attribute__((swift_name("init(mapData:params:)"))) __attribute__((objc_designated_initializer));
+- (VpsOutputSignalSyncSignal *)createSyncSignalPositionAfterSync:(VpsCoordinateF *)positionAfterSync __attribute__((swift_name("createSyncSignal(positionAfterSync:)")));
 - (void)end __attribute__((swift_name("end()")));
+- (BOOL)isRightAislePos1:(VpsCoordinateF *)pos1 pos2:(VpsCoordinateF *)pos2 resolution:(float)resolution __attribute__((swift_name("isRightAisle(pos1:pos2:resolution:)")));
 - (int32_t)randomChoicesIndexWeights:(VpsKotlinFloatArray *)weights __attribute__((swift_name("randomChoicesIndex(weights:)")));
 - (void)setStartStart:(VpsBaseEventStartEvent *)start __attribute__((swift_name("setStart(start:)")));
 - (VpsCoordinateF *)updateEvent:(VpsBaseEvent *)event __attribute__((swift_name("update(event:)")));
 @property (readonly) VpsOutputSignalUXPosition *currentUxPosition __attribute__((swift_name("currentUxPosition")));
+@property VpsCoordinateF *lastKnownPosition __attribute__((swift_name("lastKnownPosition")));
 @property float rotationDeviationAngle __attribute__((swift_name("rotationDeviationAngle")));
 @end
 
@@ -793,6 +798,15 @@ __attribute__((swift_name("Pose.Companion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsPoseCompanion *shared __attribute__((swift_name("shared")));
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SquareDriftFilter")))
+@interface VpsSquareDriftFilter : VpsBase
+- (instancetype)initWithGain:(float)gain __attribute__((swift_name("init(gain:)"))) __attribute__((objc_designated_initializer));
+- (float)callInput_angle:(float)input_angle __attribute__((swift_name("call(input_angle:)")));
+- (void)reset __attribute__((swift_name("reset()")));
+@property double threshold __attribute__((swift_name("threshold")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -866,59 +880,6 @@ __attribute__((swift_name("ValueErrorException")))
 @end
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SensorInterpreter")))
-@interface VpsSensorInterpreter : VpsFlowConverter<VpsRawSensorData *, VpsModelOutput *>
-- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel outputSignalConnection:(id<VpsFlowConnection>)outputSignalConnection frequency:(float)frequency useMagnetometer:(BOOL)useMagnetometer smoothing:(BOOL)smoothing flipAcc:(BOOL)flipAcc frameSize:(int32_t)frameSize packageFrequency:(int32_t)packageFrequency __attribute__((swift_name("init(velocityModel:outputSignalConnection:frequency:useMagnetometer:smoothing:flipAcc:frameSize:packageFrequency:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (void)doInitStartAngle:(float)startAngle __attribute__((swift_name("doInit(startAngle:)")));
-- (void)onExit __attribute__((swift_name("onExit()")));
-- (void)onInputData:(VpsRawSensorData *)data __attribute__((swift_name("onInput(data:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SensorInterpreter.Builder")))
-@interface VpsSensorInterpreterBuilder : VpsFlowConverterBuilder<VpsSensorInterpreter *, VpsModelOutput *>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VpsSensorInterpreter *)build __attribute__((swift_name("build()")));
-- (VpsSensorInterpreterBuilder *)setFlipAccFlip_acc:(BOOL)flip_acc __attribute__((swift_name("setFlipAcc(flip_acc:)")));
-- (VpsSensorInterpreterBuilder *)setFrameSizeFrameSize:(int32_t)frameSize __attribute__((swift_name("setFrameSize(frameSize:)")));
-- (VpsSensorInterpreterBuilder *)setFrequencyFrequency:(float)frequency __attribute__((swift_name("setFrequency(frequency:)")));
-- (VpsSensorInterpreterBuilder *)setOutputSignalConnectionOutputSignalConnection:(id<VpsFlowConnection>)outputSignalConnection __attribute__((swift_name("setOutputSignalConnection(outputSignalConnection:)")));
-- (VpsSensorInterpreterBuilder *)setPackageFrequencyPackageFrequency:(int32_t)packageFrequency __attribute__((swift_name("setPackageFrequency(packageFrequency:)")));
-- (VpsSensorInterpreterBuilder *)setSmoothingSmoothing:(BOOL)smoothing __attribute__((swift_name("setSmoothing(smoothing:)")));
-- (VpsSensorInterpreterBuilder *)setUseMagnetometerUseMagnetometer:(BOOL)useMagnetometer __attribute__((swift_name("setUseMagnetometer(useMagnetometer:)")));
-- (VpsSensorInterpreterBuilder *)setVelocityModelVelocityModel:(id<VpsVelocityModel>)velocityModel __attribute__((swift_name("setVelocityModel(velocityModel:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FeaturePacker")))
-@interface VpsFeaturePacker : VpsFlowConverter<VpsRawSensorPack *, VpsFeatures *>
-- (instancetype)initWithStart_angle:(float)start_angle smoothing:(BOOL)smoothing flip_acc:(BOOL)flip_acc __attribute__((swift_name("init(start_angle:smoothing:flip_acc:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (void)onExit __attribute__((swift_name("onExit()")));
-- (void)onInputData:(VpsRawSensorPack *)data __attribute__((swift_name("onInput(data:)")));
-@property (readonly) BOOL flip_acc __attribute__((swift_name("flip_acc")));
-@property (readonly) VpsAverageAccelerationSmoother *smoother __attribute__((swift_name("smoother")));
-@property BOOL smoothing __attribute__((swift_name("smoothing")));
-@property (readonly) float start_angle __attribute__((swift_name("start_angle")));
-@property VpsKotlinFloatArray * _Nullable start_quaternion __attribute__((swift_name("start_quaternion")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FeaturePacker.Builder")))
-@interface VpsFeaturePackerBuilder : VpsFlowConverterBuilder<VpsFeaturePacker *, VpsFeatures *>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VpsFeaturePacker *)build __attribute__((swift_name("build()")));
-- (VpsFeaturePackerBuilder *)setFlipAccFlip_acc:(BOOL)flip_acc __attribute__((swift_name("setFlipAcc(flip_acc:)")));
-- (VpsFeaturePackerBuilder *)setSmoothingSmoothing:(BOOL)smoothing __attribute__((swift_name("setSmoothing(smoothing:)")));
-- (VpsFeaturePackerBuilder *)setStartAngleStart_angle:(float)start_angle __attribute__((swift_name("setStartAngle(start_angle:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("InterpolationModule")))
 @interface VpsInterpolationModule : VpsFlowConverter<VpsRawSensorData *, VpsRawSensorPack *>
 - (instancetype)initWithF:(float)f use_magnetometer:(BOOL)use_magnetometer __attribute__((swift_name("init(f:use_magnetometer:)"))) __attribute__((objc_designated_initializer));
@@ -966,6 +927,7 @@ __attribute__((swift_name("MathUtil")))
 @property (class, readonly, getter=shared) VpsMathUtil *shared __attribute__((swift_name("shared")));
 - (double)getGaussianDistibutionMean:(double)mean std:(double)std __attribute__((swift_name("getGaussianDistibution(mean:std:)")));
 - (float)getGaussianDistibutionMean:(float)mean std_:(float)std __attribute__((swift_name("getGaussianDistibution(mean:std_:)")));
+- (VpsKotlinArray<VpsKotlinFloatArray *> *)getRotationMatrixFromQuaternionQuaternion:(VpsKotlinFloatArray *)quaternion __attribute__((swift_name("getRotationMatrixFromQuaternion(quaternion:)")));
 - (VpsKotlinFloatArray *)get_start_quaternionQ:(VpsKotlinFloatArray *)q __attribute__((swift_name("get_start_quaternion(q:)")));
 - (VpsKotlinFloatArray *)linear_interpolateD0:(VpsKotlinPair<VpsLong *, VpsKotlinFloatArray *> *)d0 d1:(VpsKotlinPair<VpsLong *, VpsKotlinFloatArray *> *)d1 t:(int64_t)t __attribute__((swift_name("linear_interpolate(d0:d1:t:)")));
 - (VpsKotlinFloatArray *)q_expQ:(VpsKotlinFloatArray *)q __attribute__((swift_name("q_exp(q:)")));
@@ -980,6 +942,36 @@ __attribute__((swift_name("MathUtil")))
 - (VpsKotlinFloatArray *)slerpD0:(VpsKotlinPair<VpsLong *, VpsKotlinFloatArray *> *)d0 d1:(VpsKotlinPair<VpsLong *, VpsKotlinFloatArray *> *)d1 t:(int64_t)t __attribute__((swift_name("slerp(d0:d1:t:)")));
 - (VpsKotlinArray<VpsKotlinFloatArray *> *)unflip_rotorsQ0:(VpsKotlinFloatArray *)q0 q1:(VpsKotlinFloatArray *)q1 __attribute__((swift_name("unflip_rotors(q0:q1:)")));
 - (VpsKotlinFloatArray *)cumulativeSum:(VpsKotlinFloatArray *)receiver __attribute__((swift_name("cumulativeSum(_:)")));
+@end
+
+__attribute__((swift_name("FeaturePacker")))
+@interface VpsFeaturePacker : VpsFlowConverter<VpsRawSensorPack *, VpsFeatures *>
+- (instancetype)initWithStart_angle:(float)start_angle smoothing:(BOOL)smoothing flip_acc:(BOOL)flip_acc featureSequence:(NSArray<VpsVelocityModelParamsFeaturesEntries *> *)featureSequence __attribute__((swift_name("init(start_angle:smoothing:flip_acc:featureSequence:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (VpsKotlinFloatArray *)generateFeaturesGyroscope:(VpsKotlinFloatArray *)gyroscope acceleration:(VpsKotlinFloatArray *)acceleration rotation:(VpsKotlinFloatArray *)rotation __attribute__((swift_name("generateFeatures(gyroscope:acceleration:rotation:)")));
+- (void)onExit __attribute__((swift_name("onExit()")));
+- (void)onInputData:(VpsRawSensorPack *)data __attribute__((swift_name("onInput(data:)")));
+- (void)updateData:(VpsRawSensorPack *)data __attribute__((swift_name("update(data:)")));
+@property VpsKotlinFloatArray * _Nullable bufferedAccelerometer __attribute__((swift_name("bufferedAccelerometer")));
+@property VpsRawSensorPack * _Nullable bufferedRawSensorPack __attribute__((swift_name("bufferedRawSensorPack")));
+@property (readonly) BOOL flip_acc __attribute__((swift_name("flip_acc")));
+@property (readonly) VpsAverageAccelerationSmoother *smoother __attribute__((swift_name("smoother")));
+@property BOOL smoothing __attribute__((swift_name("smoothing")));
+@property (readonly) float start_angle __attribute__((swift_name("start_angle")));
+@property VpsKotlinFloatArray * _Nullable start_quaternion __attribute__((swift_name("start_quaternion")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FeaturePacker.Builder")))
+@interface VpsFeaturePackerBuilder : VpsFlowConverterBuilder<VpsFeaturePacker *, VpsFeatures *>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VpsFeaturePacker *)build __attribute__((swift_name("build()")));
+- (VpsFeaturePackerBuilder *)setFeatureSequenceFeatureSequence:(NSArray<VpsVelocityModelParamsFeaturesEntries *> *)featureSequence __attribute__((swift_name("setFeatureSequence(featureSequence:)")));
+- (VpsFeaturePackerBuilder *)setFlipAccFlipAcc:(BOOL)flipAcc __attribute__((swift_name("setFlipAcc(flipAcc:)")));
+- (VpsFeaturePackerBuilder *)setSmoothingUseSmoothing:(BOOL)useSmoothing __attribute__((swift_name("setSmoothing(useSmoothing:)")));
+- (VpsFeaturePackerBuilder *)setStartAngleStartAngle:(float)startAngle __attribute__((swift_name("setStartAngle(startAngle:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -1059,14 +1051,15 @@ __attribute__((swift_name("NodeRotationStartQuaternion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("FeatureToTensorValue")))
 @interface VpsFeatureToTensorValue : VpsFlowConverter<VpsFeatures *, VpsTensor *>
-- (instancetype)initWithFrameSize:(int32_t)frameSize packageFrequency:(int32_t)packageFrequency __attribute__((swift_name("init(frameSize:packageFrequency:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithWindowSize:(int32_t)windowSize packageFrequency:(int32_t)packageFrequency __attribute__((swift_name("init(windowSize:packageFrequency:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
 - (void)onInputData:(VpsFeatures *)data __attribute__((swift_name("onInput(data:)")));
 @property int32_t counter __attribute__((swift_name("counter")));
-@property (readonly) int32_t frameSize __attribute__((swift_name("frameSize")));
+@property VpsKotlinArray<VpsKotlinFloatArray *> *features __attribute__((swift_name("features")));
 @property int32_t globCounter __attribute__((swift_name("globCounter")));
 @property (readonly) int32_t packageFrequency __attribute__((swift_name("packageFrequency")));
+@property (readonly) int32_t windowSize __attribute__((swift_name("windowSize")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -1075,8 +1068,8 @@ __attribute__((swift_name("FeatureToTensorValue.Builder")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (VpsFeatureToTensorValue *)build __attribute__((swift_name("build()")));
-- (VpsFeatureToTensorValueBuilder *)setFrameSizeFrameSize:(int32_t)frameSize __attribute__((swift_name("setFrameSize(frameSize:)")));
 - (VpsFeatureToTensorValueBuilder *)setPackageFrequencyPackageFrequency:(int32_t)packageFrequency __attribute__((swift_name("setPackageFrequency(packageFrequency:)")));
+- (VpsFeatureToTensorValueBuilder *)setWindowSizeWindowSize:(int32_t)windowSize __attribute__((swift_name("setWindowSize(windowSize:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -1165,8 +1158,9 @@ __attribute__((swift_name("FlowConverterSensorDataFrameToTensorValue.Companion")
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ModelToEvent")))
 @interface VpsModelToEvent : VpsFlowConverter<VpsModelOutput *, VpsBaseEvent *>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithParams:(VpsModelToEventParameters *)params __attribute__((swift_name("init(params:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
 - (void)onInputData:(VpsModelOutput *)data __attribute__((swift_name("onInput(data:)")));
 @end
 
@@ -1176,6 +1170,7 @@ __attribute__((swift_name("ModelToEvent.Builder")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (VpsModelToEvent *)build __attribute__((swift_name("build()")));
+- (VpsModelToEventBuilder *)setParamsParams:(VpsModelToEventParameters *)params __attribute__((swift_name("setParams(params:)")));
 @end
 
 __attribute__((swift_name("VelocityModelHandler")))
@@ -1333,6 +1328,51 @@ __attribute__((swift_name("VelocityModel")))
 - (void)onExit __attribute__((swift_name("onExit()")));
 - (void)onInputData_:(VpsTensor *)data __attribute__((swift_name("onInput(data_:)")));
 - (void)setHandlerHandler:(id<VpsVelocityModelHandler>)handler __attribute__((swift_name("setHandler(handler:)")));
+@property (readonly) VpsVelocityModelParams *params __attribute__((swift_name("params")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VelocityModelParams")))
+@interface VpsVelocityModelParams : VpsBase
+- (instancetype)initWithBatchComputeSize:(int32_t)batchComputeSize windowSize:(int32_t)windowSize smoothing:(BOOL)smoothing featureSequence:(NSArray<VpsVelocityModelParamsFeaturesEntries *> *)featureSequence __attribute__((swift_name("init(batchComputeSize:windowSize:smoothing:featureSequence:)"))) __attribute__((objc_designated_initializer));
+- (VpsVelocityModelParams *)doCopyBatchComputeSize:(int32_t)batchComputeSize windowSize:(int32_t)windowSize smoothing:(BOOL)smoothing featureSequence:(NSArray<VpsVelocityModelParamsFeaturesEntries *> *)featureSequence __attribute__((swift_name("doCopy(batchComputeSize:windowSize:smoothing:featureSequence:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t batchComputeSize __attribute__((swift_name("batchComputeSize")));
+@property (readonly) NSArray<VpsVelocityModelParamsFeaturesEntries *> *featureSequence __attribute__((swift_name("featureSequence")));
+@property (readonly) BOOL smoothing __attribute__((swift_name("smoothing")));
+@property (readonly) int32_t windowSize __attribute__((swift_name("windowSize")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VelocityModelParams.FeaturesEntries")))
+@interface VpsVelocityModelParamsFeaturesEntries : VpsKotlinEnum<VpsVelocityModelParamsFeaturesEntries *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *gx __attribute__((swift_name("gx")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *gy __attribute__((swift_name("gy")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *gz __attribute__((swift_name("gz")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *ax __attribute__((swift_name("ax")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *ay __attribute__((swift_name("ay")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *az __attribute__((swift_name("az")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *gxd __attribute__((swift_name("gxd")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *gyd __attribute__((swift_name("gyd")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *gzd __attribute__((swift_name("gzd")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *axd __attribute__((swift_name("axd")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *ayd __attribute__((swift_name("ayd")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *azd __attribute__((swift_name("azd")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r00 __attribute__((swift_name("r00")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r01 __attribute__((swift_name("r01")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r02 __attribute__((swift_name("r02")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r10 __attribute__((swift_name("r10")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r11 __attribute__((swift_name("r11")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r12 __attribute__((swift_name("r12")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r20 __attribute__((swift_name("r20")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r21 __attribute__((swift_name("r21")));
+@property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r22 __attribute__((swift_name("r22")));
++ (VpsKotlinArray<VpsVelocityModelParamsFeaturesEntries *> *)values __attribute__((swift_name("values()")));
 @end
 
 
@@ -1547,26 +1587,13 @@ __attribute__((swift_name("CoordinateF.Companion")))
 @end
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FeaturePackerParams")))
-@interface VpsFeaturePackerParams : VpsBase
-- (instancetype)initWithUseSmoothing:(BOOL)useSmoothing flipAcc:(BOOL)flipAcc __attribute__((swift_name("init(useSmoothing:flipAcc:)"))) __attribute__((objc_designated_initializer));
-- (VpsFeaturePackerParams *)doCopyUseSmoothing:(BOOL)useSmoothing flipAcc:(BOOL)flipAcc __attribute__((swift_name("doCopy(useSmoothing:flipAcc:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL flipAcc __attribute__((swift_name("flipAcc")));
-@property (readonly) BOOL useSmoothing __attribute__((swift_name("useSmoothing")));
-@end
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("FeatureToTensorValueParams")))
 @interface VpsFeatureToTensorValueParams : VpsBase
-- (instancetype)initWithFrameSize:(int32_t)frameSize packageFrequency:(int32_t)packageFrequency __attribute__((swift_name("init(frameSize:packageFrequency:)"))) __attribute__((objc_designated_initializer));
-- (VpsFeatureToTensorValueParams *)doCopyFrameSize:(int32_t)frameSize packageFrequency:(int32_t)packageFrequency __attribute__((swift_name("doCopy(frameSize:packageFrequency:)")));
+- (instancetype)initWithPackageFrequency:(int32_t)packageFrequency __attribute__((swift_name("init(packageFrequency:)"))) __attribute__((objc_designated_initializer));
+- (VpsFeatureToTensorValueParams *)doCopyPackageFrequency:(int32_t)packageFrequency __attribute__((swift_name("doCopy(packageFrequency:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t frameSize __attribute__((swift_name("frameSize")));
 @property (readonly) int32_t packageFrequency __attribute__((swift_name("packageFrequency")));
 @end
 
@@ -1607,10 +1634,32 @@ __attribute__((swift_name("VPSFloorLevel")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ModelToEventParameters")))
+@interface VpsModelToEventParameters : VpsBase
+- (instancetype)initWithUseSquareDriftFilter:(BOOL)useSquareDriftFilter squareDriftFilterGain:(float)squareDriftFilterGain __attribute__((swift_name("init(useSquareDriftFilter:squareDriftFilterGain:)"))) __attribute__((objc_designated_initializer));
+- (VpsModelToEventParameters *)doCopyUseSquareDriftFilter:(BOOL)useSquareDriftFilter squareDriftFilterGain:(float)squareDriftFilterGain __attribute__((swift_name("doCopy(useSquareDriftFilter:squareDriftFilterGain:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float squareDriftFilterGain __attribute__((swift_name("squareDriftFilterGain")));
+@property (readonly) BOOL useSquareDriftFilter __attribute__((swift_name("useSquareDriftFilter")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSModelToEventParameters")))
+@interface VpsVPSModelToEventParameters : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSModelToEventParameters __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSModelToEventParameters *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsModelToEventParameters *default_ __attribute__((swift_name("default_")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticleFilterParams")))
 @interface VpsParticleFilterParams : VpsBase
-- (instancetype)initWithMaxNumParticles:(int32_t)maxNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement __attribute__((swift_name("init(maxNumParticles:stepLengthStd:stepDirectionStd:biasStd:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:)"))) __attribute__((objc_designated_initializer));
-- (VpsParticleFilterParams *)doCopyMaxNumParticles:(int32_t)maxNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement __attribute__((swift_name("doCopy(maxNumParticles:stepLengthStd:stepDirectionStd:biasStd:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:)")));
+- (instancetype)initWithMaxNumParticles:(int32_t)maxNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter __attribute__((swift_name("init(maxNumParticles:stepLengthStd:stepDirectionStd:biasStd:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:)"))) __attribute__((objc_designated_initializer));
+- (VpsParticleFilterParams *)doCopyMaxNumParticles:(int32_t)maxNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter __attribute__((swift_name("doCopy(maxNumParticles:stepLengthStd:stepDirectionStd:biasStd:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
@@ -1634,6 +1683,7 @@ __attribute__((swift_name("ParticleFilterParams")))
 @property (readonly) float syncDirectionStd __attribute__((swift_name("syncDirectionStd")));
 @property (readonly) VpsSyncMethod *syncMethod __attribute__((swift_name("syncMethod")));
 @property (readonly) float syncPositionStd __attribute__((swift_name("syncPositionStd")));
+@property (readonly) BOOL useMLSyncSpeedFilter __attribute__((swift_name("useMLSyncSpeedFilter")));
 @property (readonly) float uxPositionConfidence __attribute__((swift_name("uxPositionConfidence")));
 @end
 
@@ -2425,6 +2475,15 @@ __attribute__((swift_name("OutputSignal.RotationDeviationAngle")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.SyncSignal")))
+@interface VpsOutputSignalSyncSignal : VpsOutputSignal
+- (instancetype)initWithFrom_position:(VpsCoordinateF *)from_position to_position:(VpsCoordinateF *)to_position correct_aisle:(VpsBoolean * _Nullable)correct_aisle __attribute__((swift_name("init(from_position:to_position:correct_aisle:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) VpsBoolean * _Nullable correct_aisle __attribute__((swift_name("correct_aisle")));
+@property (readonly) VpsCoordinateF *from_position __attribute__((swift_name("from_position")));
+@property (readonly) VpsCoordinateF *to_position __attribute__((swift_name("to_position")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("OutputSignal.Type_")))
 @interface VpsOutputSignalType : VpsKotlinEnum<VpsOutputSignalType *>
 + (instancetype)alloc __attribute__((unavailable));
@@ -2435,6 +2494,7 @@ __attribute__((swift_name("OutputSignal.Type_")))
 @property (class, readonly) VpsOutputSignalType *mlOutputPosition __attribute__((swift_name("mlOutputPosition")));
 @property (class, readonly) VpsOutputSignalType *uxPosition __attribute__((swift_name("uxPosition")));
 @property (class, readonly) VpsOutputSignalType *rotationDeviationAngle __attribute__((swift_name("rotationDeviationAngle")));
+@property (class, readonly) VpsOutputSignalType *sync __attribute__((swift_name("sync")));
 + (VpsKotlinArray<VpsOutputSignalType *> *)values __attribute__((swift_name("values()")));
 @end
 
@@ -2814,10 +2874,6 @@ __attribute__((swift_name("WifiScanData.Companion")))
 @interface VpsFlowConverterBuilder (Extensions)
 - (VpsFlowConverterBuilder<id, id> *)connectToBlock:(id<VpsFlowConnection> _Nullable (^)(void))block __attribute__((swift_name("connectTo(block:)")));
 - (VpsFlowConverterBuilder<id, id> *)connectToAllBlock:(NSArray<id<VpsFlowConnection>> *(^)(void))block __attribute__((swift_name("connectToAll(block:)")));
-@end
-
-@interface VpsVPSParamsSystem (Extensions)
-- (VpsFeaturePackerParams *)featurePackerParams __attribute__((swift_name("featurePackerParams()")));
 @end
 
 __attribute__((objc_subclassing_restricted))

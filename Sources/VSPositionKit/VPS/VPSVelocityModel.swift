@@ -22,6 +22,11 @@ class VPSVelocityModel {
     self.model = Resnet(model: model)
   }
 
+  deinit {
+    model = nil
+    handler = nil
+  }
+
   func structure(data: [[Double]]) -> [Double] {
     var arr1: [Double] = []
     var arr2: [Double] = []
@@ -55,6 +60,15 @@ class VPSVelocityModel {
 }
 
 extension VPSVelocityModel: VelocityModel {
+  var params: VelocityModelParams {
+    VelocityModelParams(
+      batchComputeSize: 1,
+      windowSize: manager.params!.frameSize,
+      smoothing: manager.params!.useSmooting,
+      featureSequence: manager.params!.featureSequence.map({ $0.asVPSFeature })
+    )
+  }
+  
   func onExit() {
 
   }
@@ -84,5 +98,33 @@ extension MLMultiArray {
       arr[i] = KotlinFloat(value: Float(truncating: self[i]))
     }
     return ModelOutput(timestamp: timestamp, data: arr)
+  }
+}
+
+private extension VPSFeaturesEntriesEnum {
+  var asVPSFeature: VelocityModelParams.FeaturesEntries {
+    switch self {
+    case .gx: return .gx
+    case .gy: return .gy
+    case .gz: return .gz
+    case .ax: return .ax
+    case .ay: return .ay
+    case .az: return .az
+    case .gxd: return .gxd
+    case .gyd: return .gyd
+    case .gzd: return .gzd
+    case .axd: return .axd
+    case .ayd: return .ayd
+    case .azd: return .azd
+    case .r00: return .r00
+    case .r01: return .r01
+    case .r02: return .r02
+    case .r10: return .r10
+    case .r11: return .r11
+    case .r12: return .r12
+    case .r20: return .r20
+    case .r21: return .r21
+    case .r22: return .r22
+    }
   }
 }

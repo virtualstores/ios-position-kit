@@ -22,7 +22,7 @@ final class VPSManager: VPSWrapper {
 
   var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
-  var vpsParams: [String:String] { params.map() }
+  var vpsParams: [String:String] { particleFilterParams.map() }
 
   private (set) var pathfinder: BasePathfinder?
   var vpsRunning: Bool = false
@@ -33,7 +33,8 @@ final class VPSManager: VPSWrapper {
   private let recorder: VPSRecorder
   private let floorLevelHandler: FloorLevelHandler
   private let modelManager: VPSModelManager
-  private let params: ParticleFilterParams
+  private let modelToEventParameters: ModelToEventParameters
+  private let particleFilterParams: ParticleFilterParams
   private var vps: VPS?
 
   var isRecording: Bool { recorder.isRecording }
@@ -45,32 +46,36 @@ final class VPSManager: VPSWrapper {
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
-    let defaultParams: ParticleFilterParams = VPSManager.getDefaultParams(positionServiceSettings: positionServiceSettings)
-    self.params = ParticleFilterParams(
-      maxNumParticles: positionServiceSettings?.maxNumParticles ?? defaultParams.maxNumParticles,
-      stepLengthStd: positionServiceSettings?.stepLengthStd ?? defaultParams.stepLengthStd,
-      stepDirectionStd: positionServiceSettings?.stepDirectionStd ?? defaultParams.stepDirectionStd,
-      biasStd: positionServiceSettings?.biasStd ?? defaultParams.biasStd,
-      startMethod: positionServiceSettings?.startMethod ?? defaultParams.startMethod,
-      startPositionStd: positionServiceSettings?.startPositionStd ?? defaultParams.startPositionStd,
-      startDirectionStd: positionServiceSettings?.startDirectionStd ?? defaultParams.startDirectionStd,
-      syncMethod: positionServiceSettings?.syncMethod ?? defaultParams.syncMethod,
-      syncPositionStd: positionServiceSettings?.syncPositionStd ?? defaultParams.syncPositionStd,
-      syncDirectionStd: positionServiceSettings?.syncDirectionStd ?? defaultParams.syncDirectionStd,
-      rescuePositionStd: positionServiceSettings?.rescuePositionStd ?? defaultParams.rescuePositionStd,
-      rescueDirectionStd: positionServiceSettings?.rescueDirectionStd ?? defaultParams.rescueDirectionStd,
-      kldEpsilon: positionServiceSettings?.kldEpsilon ?? defaultParams.kldEpsilon,
-      kldDelta: positionServiceSettings?.kldDelta ?? defaultParams.kldDelta,
-      kldZ: positionServiceSettings?.kldZ ?? defaultParams.kldZ,
-      binSize: defaultParams.binSize,
-      uxPositionConfidence: positionServiceSettings?.uxPositionConfidence ?? defaultParams.uxPositionConfidence,
-      angleOffsetGainDegPerMin: positionServiceSettings?.angleOffsetGainDegPerMin ?? defaultParams.angleOffsetGainDegPerMin,
-      speedFactor: positionServiceSettings?.speedFactor ?? defaultParams.speedFactor,
-      naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParams.naiveOutputSyncMovement
+    let defaultParticleFilterParams: ParticleFilterParams = VPSManager.getDefaultParams(positionServiceSettings: positionServiceSettings)
+    self.modelToEventParameters = ModelToEventParameters(
+      useSquareDriftFilter: positionServiceSettings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
+      squareDriftFilterGain: positionServiceSettings?.squareDriftFilterGain ?? VPSModelToEventParameters.shared.default_.squareDriftFilterGain
+    )
+    self.particleFilterParams = ParticleFilterParams(
+      maxNumParticles: positionServiceSettings?.maxNumParticles ?? defaultParticleFilterParams.maxNumParticles,
+      stepLengthStd: positionServiceSettings?.stepLengthStd ?? defaultParticleFilterParams.stepLengthStd,
+      stepDirectionStd: positionServiceSettings?.stepDirectionStd ?? defaultParticleFilterParams.stepDirectionStd,
+      biasStd: positionServiceSettings?.biasStd ?? defaultParticleFilterParams.biasStd,
+      startMethod: positionServiceSettings?.startMethod ?? defaultParticleFilterParams.startMethod,
+      startPositionStd: positionServiceSettings?.startPositionStd ?? defaultParticleFilterParams.startPositionStd,
+      startDirectionStd: positionServiceSettings?.startDirectionStd ?? defaultParticleFilterParams.startDirectionStd,
+      syncMethod: positionServiceSettings?.syncMethod ?? defaultParticleFilterParams.syncMethod,
+      syncPositionStd: positionServiceSettings?.syncPositionStd ?? defaultParticleFilterParams.syncPositionStd,
+      syncDirectionStd: positionServiceSettings?.syncDirectionStd ?? defaultParticleFilterParams.syncDirectionStd,
+      rescuePositionStd: positionServiceSettings?.rescuePositionStd ?? defaultParticleFilterParams.rescuePositionStd,
+      rescueDirectionStd: positionServiceSettings?.rescueDirectionStd ?? defaultParticleFilterParams.rescueDirectionStd,
+      kldEpsilon: positionServiceSettings?.kldEpsilon ?? defaultParticleFilterParams.kldEpsilon,
+      kldDelta: positionServiceSettings?.kldDelta ?? defaultParticleFilterParams.kldDelta,
+      kldZ: positionServiceSettings?.kldZ ?? defaultParticleFilterParams.kldZ,
+      binSize: defaultParticleFilterParams.binSize,
+      uxPositionConfidence: positionServiceSettings?.uxPositionConfidence ?? defaultParticleFilterParams.uxPositionConfidence,
+      angleOffsetGainDegPerMin: positionServiceSettings?.angleOffsetGainDegPerMin ?? defaultParticleFilterParams.angleOffsetGainDegPerMin,
+      speedFactor: positionServiceSettings?.speedFactor ?? defaultParticleFilterParams.speedFactor,
+      naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
+      useMLSyncSpeedFilter: positionServiceSettings?.useMLSyncSpeedFilter ?? defaultParticleFilterParams.useMLSyncSpeedFilter
     )
     self.bindPublishers()
     //Log.shared.outputHandler = self
-
   }
 
   deinit {
@@ -127,16 +132,17 @@ final class VPSManager: VPSWrapper {
         floorLevelHandler: floorLevelHandler,
         outputHandler: self,
         system: .ios,
-        featureToTensorValueParams: FeatureToTensorValueParams(frameSize: modelManager.params?.frameSize ?? 200, packageFrequency: 30),
+        featureToTensorValueParams: FeatureToTensorValueParams(packageFrequency: 30),
         interpolationParams: IosInterpolationModuleParams.shared.default_,
-        featurePackerParams: FeaturePackerParams(useSmoothing: modelManager.params?.useSmooting ?? false, flipAcc: false),
-        particleFilterParams: params,
+        modelToEventParameters: modelToEventParameters,
+        particleFilterParams: particleFilterParams,
         debugMode: false,
         extendedDebugMode: false,
         naiveOutputFilter: true,
         uxPositionActivated: false,
         mlPositionActivated: true
       )
+      //FeaturePackerParams(useSmoothing: modelManager.params?.useSmooting ?? false, flipAcc: false)
     }
   }
 
@@ -326,6 +332,9 @@ private extension PositionServiceSettings.VPSSyncMethod {
 }
 
 private extension PositionServiceSettings {
+  var useSquareDriftFilter: Bool? { boolValues?[.MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_ACTIVE] }
+  var squareDriftFilterGain: Float? { floatValues?[.MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_GAIN] }
+
   var maxNumParticles: Int32? { intValues?[.PARTICLE_FILTER_MAX_NUM_PARTICLES]?.asInt32 }
   var stepLengthStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_LENGTH_STD] }
   var stepDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_DIRECTION_STD] }
@@ -351,6 +360,7 @@ private extension PositionServiceSettings {
   var angleOffsetGainDegPerMin: Float? { floatValues?[.PARTICLE_FILTER_ANGLE_OFFSET_GAIN_DEG_PER_MIN] }
   var speedFactor: Float? { floatValues?[.PARTICLE_FILTER_SPEED_FACTOR] }
   var naiveOutputSyncMovement: Bool? { boolValues?[.PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT] }
+  var useMLSyncSpeedFilter: Bool? { boolValues?[.PARTICLE_FILTER_ML_SYNC_SPEED_FILTER] }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -366,6 +376,9 @@ private extension PositionServiceSettings {
 }
 
 private extension String {
+  static let MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_ACTIVE: String = "modelToEvent_squareFilterActive"
+  static let MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_GAIN: String = "modelToEvent_squareFilterGain"
+
   static let PARTICLE_FILTER_DEFAULT_PARAMS: String = "particleFilter_defaultParams"
   static let PARTICLE_FILTER_PARAMS_DEFAULT: String = "DEFAULT"
   static let PARTICLE_FILTER_PARAMS_COMPASS: String = "COMPASS"
@@ -388,4 +401,5 @@ private extension String {
   static let PARTICLE_FILTER_ANGLE_OFFSET_GAIN_DEG_PER_MIN: String = "particleFilter_angleOffsetGainDegPerMin"
   static let PARTICLE_FILTER_SPEED_FACTOR: String = "particleFilter_speedFactor"
   static let PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT: String = "particleFilter_naiveOutputSyncMovement"
+  static let PARTICLE_FILTER_ML_SYNC_SPEED_FILTER: String = "particleFilter_useMLSyncSpeedFilter"
 }
