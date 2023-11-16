@@ -20,15 +20,19 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
 
   private let vpsPathfinder: vps.IPathfinder
   let serialDispatch: DispatchQueue = DispatchQueue(label: "se.tt2.pathfinder")
-  private let converter: ICoordinateConverter
-  private let height: Double
 
   public init(converter: ICoordinateConverter, height: Double, width: Double, pixelsPerMeter: Float, navGraph: TT2NavGraph, startPosition: CGPoint, stopPosition: CGPoint, pathRefreshDistance: Float = 100.0) {
-    self.converter = converter
-    self.height = height
-    let heightInPixels = converter.convertFromMetersToPixels(input: height)
-    let widthInPixels = converter.convertFromMetersToPixels(input: width)
-    self.vpsPathfinder = BasePathfinder(heightInPixels: Float(heightInPixels), widthInPixels: Float(widthInPixels), pixelsPerMeter: pixelsPerMeter, navGraph: navGraph.asNavGraph, pathRefreshDistance: pathRefreshDistance, startPosition: startPosition.asPathfinderCoordinateF, stopPosition: stopPosition.asPathfinderCoordinateF)
+    self.vpsPathfinder = BasePathfinder(
+      heightInPixels: Float(converter.convertFromMetersToPixels(input: height)),
+      widthInPixels: Float(converter.convertFromMetersToPixels(input: width)),
+      pixelsPerMeter: pixelsPerMeter,
+      navGraph: navGraph.asNavGraph,
+      pathRefreshDistance: pathRefreshDistance,
+      pathProcess: .masmoothing, 
+      windowSize: 3,
+      startPosition: startPosition.asPathfinderCoordinateF,
+      stopPosition: stopPosition.asPathfinderCoordinateF
+    )
 
     self.vpsPathfinder.addListener(listener: self)
   }

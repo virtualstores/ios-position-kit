@@ -90,7 +90,7 @@ final class VPSManager: VPSWrapper {
         let signal = InputSignal.SensorData(rawSensorData: data)
         self?.recorder.record(inputSignal: signal)
         self?.serialDispatch.async {
-          pthread_setname_np("VPSManager")
+          //pthread_setname_np("VPSManager")
           self?.vps?.onInputSignal(signal: signal)
         }
       }.store(in: &cancellable)
@@ -138,7 +138,6 @@ final class VPSManager: VPSWrapper {
         particleFilterParams: particleFilterParams,
         debugMode: false,
         extendedDebugMode: false,
-        naiveOutputFilter: true,
         uxPositionActivated: false,
         mlPositionActivated: true
       )
