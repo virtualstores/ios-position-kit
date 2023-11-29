@@ -326,6 +326,7 @@ private extension PositionServiceSettings.VPSSyncMethod {
     case .gauss: return .gauss
     case .compassGauss: return .compassGauss
     case .standard: return .standard
+    case .sprinkle: return .sprinkle
     }
   }
 }
@@ -371,6 +372,7 @@ private extension PositionServiceSettings {
     case gauss = "GAUSS"
     case compassGauss = "COMPASSGAUSS"
     case standard = "STANDARD"
+    case sprinkle = "SPRINKLE"
   }
 }
 

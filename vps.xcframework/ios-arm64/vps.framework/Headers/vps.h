@@ -864,6 +864,7 @@ __attribute__((swift_name("SyncMethod")))
 @property (class, readonly) VpsSyncMethod *standard __attribute__((swift_name("standard")));
 @property (class, readonly) VpsSyncMethod *gauss __attribute__((swift_name("gauss")));
 @property (class, readonly) VpsSyncMethod *compassGauss __attribute__((swift_name("compassGauss")));
+@property (class, readonly) VpsSyncMethod *sprinkle __attribute__((swift_name("sprinkle")));
 + (VpsKotlinArray<VpsSyncMethod *> *)values __attribute__((swift_name("values()")));
 @end
 
@@ -1718,6 +1719,7 @@ __attribute__((swift_name("VPSParticleFilterParams")))
 @property (class, readonly, getter=shared) VpsVPSParticleFilterParams *shared __attribute__((swift_name("shared")));
 @property (readonly) VpsParticleFilterParams *compass __attribute__((swift_name("compass")));
 @property (readonly, getter=default) VpsParticleFilterParams *default_ __attribute__((swift_name("default_")));
+@property (readonly) VpsParticleFilterParams *sprinkleFilter __attribute__((swift_name("sprinkleFilter")));
 @end
 
 __attribute__((swift_name("ReplayHandler")))
@@ -2522,7 +2524,6 @@ __attribute__((swift_name("OutputSignal.Type_")))
 @property (class, readonly) VpsOutputSignalType *uxPosition __attribute__((swift_name("uxPosition")));
 @property (class, readonly) VpsOutputSignalType *rotationDeviationAngle __attribute__((swift_name("rotationDeviationAngle")));
 @property (class, readonly) VpsOutputSignalType *sync __attribute__((swift_name("sync")));
-@property (class, readonly) VpsOutputSignalType *collection __attribute__((swift_name("collection")));
 + (VpsKotlinArray<VpsOutputSignalType *> *)values __attribute__((swift_name("values()")));
 @end
 
