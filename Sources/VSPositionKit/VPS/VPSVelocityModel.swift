@@ -48,11 +48,13 @@ class VPSVelocityModel {
   }
 
   func createMlArray(data: [[Double]]) -> MLMultiArray? {
+    let count = manager.params!.featureSequence.count
+    let frameSize = Int(manager.params!.frameSize)
     var input: MLMultiArray?
     if #available(iOS 15.0, *) {
-      input = MLMultiArray(MLShapedArray<Double>(scalars: data.flatMap({ $0 }), shape: [data.count,6,200]))
+      input = MLMultiArray(MLShapedArray<Double>(scalars: data.flatMap({ $0 }), shape: [data.count,count,frameSize]))
     } else {
-      input = try? MLMultiArray(shape: [NSNumber(integerLiteral: data.count),6,200], dataType: .double)
+      input = try? MLMultiArray(shape: [NSNumber(integerLiteral: data.count),NSNumber(integerLiteral: count),NSNumber(integerLiteral: frameSize)], dataType: .double)
       data.flatMap({ $0 }).enumerated().forEach { input?[$0.offset] = NSNumber(value: $0.element) }
     }
     return input
@@ -81,9 +83,9 @@ extension VPSVelocityModel: VelocityModel {
     let output = try? model?.prediction(input: ResnetInput(input: input))
     //print("OUTPUT", output?.output)
     guard let modelOutput = output?.output.asModelOutput(timestamp: data.timestamp) else { return }
-//    DispatchQueue.main.async {
-      self.handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
-//    }
+    //DispatchQueue.main.async {
+    self.handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
+    //}
   }
 
   func setHandler(handler: VelocityModelHandler) {
