@@ -72,7 +72,8 @@ final class VPSManager: VPSWrapper {
       angleOffsetGainDegPerMin: positionServiceSettings?.angleOffsetGainDegPerMin ?? defaultParticleFilterParams.angleOffsetGainDegPerMin,
       speedFactor: positionServiceSettings?.speedFactor ?? defaultParticleFilterParams.speedFactor,
       naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
-      useMLSyncSpeedFilter: positionServiceSettings?.useMLSyncSpeedFilter ?? defaultParticleFilterParams.useMLSyncSpeedFilter
+      useMLSyncSpeedFilter: positionServiceSettings?.useMLSyncSpeedFilter ?? defaultParticleFilterParams.useMLSyncSpeedFilter,
+      sprinkleSyncThreshold: positionServiceSettings?.sprinkleSyncThreshold ?? defaultParticleFilterParams.sprinkleSyncThreshold
     )
     self.bindPublishers()
     //Log.shared.outputHandler = self
@@ -361,6 +362,7 @@ private extension PositionServiceSettings {
   var speedFactor: Float? { floatValues?[.PARTICLE_FILTER_SPEED_FACTOR] }
   var naiveOutputSyncMovement: Bool? { boolValues?[.PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT] }
   var useMLSyncSpeedFilter: Bool? { boolValues?[.PARTICLE_FILTER_ML_SYNC_SPEED_FILTER] }
+  var sprinkleSyncThreshold: Float? { floatValues?[.PARTICLE_FILTER_SPRINLE_SYNC_THRESHOLD] }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -403,4 +405,5 @@ private extension String {
   static let PARTICLE_FILTER_SPEED_FACTOR: String = "particleFilter_speedFactor"
   static let PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT: String = "particleFilter_naiveOutputSyncMovement"
   static let PARTICLE_FILTER_ML_SYNC_SPEED_FILTER: String = "particleFilter_useMLSyncSpeedFilter"
+  static let PARTICLE_FILTER_SPRINLE_SYNC_THRESHOLD = "particleFilter_sprinkleSyncThreshold"
 }
