@@ -30,6 +30,8 @@ public protocol IPositionKit {
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)
 
+    func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> MLProcessedPath
+
     func prepareAngle()
     
     /// MapFence setup methode

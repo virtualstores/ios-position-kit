@@ -14,6 +14,12 @@ import vps
 extension CGPoint {
   var asCoordinateF: CoordinateF { CoordinateF(x: Double(x), y: Double(y)) }
   var asPathfinderCoordinateF: PathfinderCoordinateF { PathfinderCoordinateF(x: x, y: y) }
+  var asKotlinDoubleArray: KotlinDoubleArray {
+    let arr = KotlinDoubleArray(size: 2)
+    arr.set(index: 0, value: x)
+    arr.set(index: 1, value: y)
+    return arr
+  }
 
   static func * (lhs: CGPoint, rhs: Double) -> CGPoint {
     CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
@@ -68,4 +74,8 @@ extension IPathfinderPath {
 extension KotlinFloat {
   var asDouble: Double { Double(truncating: self) }
   var asFloat: Float { Float(truncating: self) }
+}
+
+extension KotlinDoubleArray {
+  var asCGPoint: CGPoint { CGPoint(x: get(index: 0), y: get(index: 1)) }
 }

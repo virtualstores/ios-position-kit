@@ -26,11 +26,7 @@ public struct PositionKitConfig: Config {
       }
       
       injector.map(VPSSensorManager.self) {
-          VPSSensorManager(sensorManager: SensorManager())
-      }
-      
-      injector.map(SensorManager.self) {
-          SensorManager()
+          VPSSensorManager()
       }
   }
 }

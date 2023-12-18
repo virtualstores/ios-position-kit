@@ -85,9 +85,9 @@ final class VPSManager: VPSWrapper {
 
   func bindPublishers() {
     sensor.dataPublisher
-      .compactMap { $0 }
+      //.compactMap { $0 }
       .sink { [weak self] (data) in
-        guard self?.vpsRunning ?? false else { return }
+        guard let data = data, self?.vpsRunning ?? false else { return }
         let signal = InputSignal.SensorData(rawSensorData: data)
         self?.recorder.record(inputSignal: signal)
         self?.serialDispatch.async {
@@ -140,7 +140,8 @@ final class VPSManager: VPSWrapper {
         debugMode: false,
         extendedDebugMode: false,
         uxPositionActivated: false,
-        mlPositionActivated: true
+        mlPositionActivated: true,
+        particlePositionActivated: false
       )
       //FeaturePackerParams(useSmoothing: modelManager.params?.useSmooting ?? false, flipAcc: false)
     }
@@ -201,6 +202,13 @@ final class VPSManager: VPSWrapper {
         startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
       }
     }
+  }
+
+  func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> VSFoundation.MLProcessedPath {
+    MLPathProcessor().processPath(
+      path: path.map({ $0.asKotlinDoubleArray }),
+      pathEndPoint: pathEndPoint.asKotlinDoubleArray
+    ).asMLProcessedPath
   }
 
   private var startAngleCached: Double?
@@ -406,4 +414,10 @@ private extension String {
   static let PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT: String = "particleFilter_naiveOutputSyncMovement"
   static let PARTICLE_FILTER_ML_SYNC_SPEED_FILTER: String = "particleFilter_useMLSyncSpeedFilter"
   static let PARTICLE_FILTER_SPRINLE_SYNC_THRESHOLD = "particleFilter_sprinkleSyncThreshold"
+}
+
+extension vps.MLProcessedPath {
+  var asMLProcessedPath: VSFoundation.MLProcessedPath {
+    .init(path: path.map({ $0.asCGPoint }), angleCorrection: angleCorrection, speedAdjustment: speedAdjustment)
+  }
 }

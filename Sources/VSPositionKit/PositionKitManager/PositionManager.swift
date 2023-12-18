@@ -17,6 +17,7 @@ public final class PositionManager: IPositionKit {
     public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> = .init(nil)
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
     public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
+    public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> {  sensor.altimeterPublisher }
     public var vpsParams: [String:String] { vps.vpsParams }
     public var isRecording: Bool { vps.isRecording }
     
@@ -84,6 +85,10 @@ public final class PositionManager: IPositionKit {
     
     public func setBackgroundAccess(isActive: Bool) {
         isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
+    }
+
+    public func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> MLProcessedPath {
+      vps.processMLPath(path: path, pathEndPoint: pathEndPoint)
     }
 
     public func prepareAngle() {

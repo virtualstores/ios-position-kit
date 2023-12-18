@@ -13,18 +13,17 @@ import VSFoundation
 import VSSensorFusion
 import vps
 
-public final class VPSSensorManager {
+final class VPSSensorManager {
+  @Inject var sensorManager: ISensorManager
   var serialDispatch = DispatchQueue(label: "VPSSensorManagerSerial")
 
   var dataPublisher: CurrentValueSubject<RawSensorData?, Never> = .init(nil)
+  var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> { sensorManager.altimeterPublisher }
   private var replayHandler = ReplayHandler()
   private var motion: MotionSensorData?
   private var cancellable = Set<AnyCancellable>()
-  private var sensorManager: SensorManager
 
-  public init(sensorManager: SensorManager) {
-    self.sensorManager = sensorManager
-
+  init() {
     bindPublishers()
   }
 
@@ -32,33 +31,34 @@ public final class VPSSensorManager {
     cancellable.removeAll()
   }
 
-  public func start() throws {
+  func start() throws {
     try startMotion()
     try startAltimeter()
   }
 
-  public func startMotion() throws {
+  func startMotion() throws {
     try sensorManager.startMotion()
     Logger().log(message: "sensorManager startMotion error")
   }
 
-  public func startAltimeter() throws {
+  func startAltimeter() throws {
     try sensorManager.startAltimeter()
   }
 
-  public func stop() {
+  func stop() {
     stopMotion()
     stopAltimeter()
   }
 
-  public func stopMotion() {
+  func stopMotion() {
     sensorManager.stopMotion()
   }
 
-  public func stopAltimeter() {
+  func stopAltimeter() {
     sensorManager.stopAltimeter()
   }
 
+  let compassSensorManager = VPSCompassHeadingController()
   func bindPublishers() {
     sensorManager.sensorPublisher
       .compactMap { $0 }
@@ -68,6 +68,7 @@ public final class VPSSensorManager {
         self?.serialDispatch.async {
           //pthread_setname_np("VPSSensorManager")
           self?.reportSensorData(for: data)
+          //self?.compassSensorManager.onSensorChanged(data: data)
         }
       }.store(in: &cancellable)
 
