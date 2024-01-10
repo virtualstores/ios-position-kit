@@ -16,21 +16,22 @@ public class VPSCompassHeadingController {
   private var magnetometerReading: [Double]?
 
   private let sensorOperation = OperationQueue()
+  let serialDispatch = DispatchQueue(label: "VPSCompassHeadingControllerSerial")
   private let motion = CMMotionManager()
 
   init() {
-    if motion.isDeviceMotionAvailable {
-      motion.deviceMotionUpdateInterval = .interval100Hz
-      motion.startDeviceMotionUpdates(to: sensorOperation) { (data, error) in
-        guard let data = data else {
-          if error != nil {
-            //self.sensorPublisher.send(completion: .failure(.noData))
-          }
-          return
-        }
-        self.onSensorChanged(data: MotionSensorData(data: data, accelerometerData: nil, magnetometerData: nil))
-      }
-    }
+    //if motion.isDeviceMotionAvailable {
+    //  motion.deviceMotionUpdateInterval = .interval100Hz
+    //  motion.startDeviceMotionUpdates(to: sensorOperation) { (data, error) in
+    //    guard let data = data else {
+    //      if error != nil {
+    //        //self.sensorPublisher.send(completion: .failure(.noData))
+    //      }
+    //      return
+    //    }
+    //    self.onSensorChanged(data: MotionSensorData(data: data, accelerometerData: nil, magnetometerData: nil))
+    //  }
+    //}
   }
 
   func onSensorChanged(data: MotionSensorData) {
@@ -41,14 +42,16 @@ public class VPSCompassHeadingController {
     else { return }
     //print("DATA", "GRAVITY", data.gravity.data)
     //print("DATA", "MAGNETOMETER", data.magnetometer.data)
-    gravityReading = CompassMath.lowPassFilter(input: data.gravity.data, output: gravityReading)
-    //magnetometerReading = CompassMath.lowPassFilter(input: data.magnetometer.data, output: magnetometerReading)
-    magnetometerReading = CompassMath.lowPassFilter(input: [heading.x, heading.y, heading.z], output: magnetometerReading)
+    serialDispatch.async {
+      self.gravityReading = CompassMath.lowPassFilter(input: data.gravity.data, output: self.gravityReading)
+      //magnetometerReading = CompassMath.lowPassFilter(input: data.magnetometer.data, output: magnetometerReading)
+      self.magnetometerReading = CompassMath.lowPassFilter(input: [heading.x, heading.y, heading.z], output: self.magnetometerReading)
 
-    updateHeading()
+      self.updateHeading()
 
-    updateCompass(trueHeading: VPSCompassHeadingController.trueHeading.value)
-    //print("MAGNETIC AVERAGE HEADING", getAverageCompassDirection())
+      self.updateCompass(trueHeading: VPSCompassHeadingController.trueHeading.value)
+      //print("MAGNETIC AVERAGE HEADING", getAverageCompassDirection())
+    }
   }
 
   var currentHeadingRadians: Double = 0.0

@@ -71,7 +71,7 @@ final class VPSManager: VPSWrapper {
       uxPositionConfidence: positionServiceSettings?.uxPositionConfidence ?? defaultParticleFilterParams.uxPositionConfidence,
       angleOffsetGainDegPerMin: positionServiceSettings?.angleOffsetGainDegPerMin ?? defaultParticleFilterParams.angleOffsetGainDegPerMin,
       speedFactor: positionServiceSettings?.speedFactor ?? defaultParticleFilterParams.speedFactor,
-      naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
+      naiveOutputSyncMovement: true, //positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
       useMLSyncSpeedFilter: positionServiceSettings?.useMLSyncSpeedFilter ?? defaultParticleFilterParams.useMLSyncSpeedFilter,
       sprinkleSyncThreshold: positionServiceSettings?.sprinkleSyncThreshold ?? defaultParticleFilterParams.sprinkleSyncThreshold
     )
@@ -185,6 +185,18 @@ final class VPSManager: VPSWrapper {
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
+    }
+  }
+
+  func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
+    let syncPosition = InputSignal.SyncPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: true, syncAngle: false, angle: 0.0, uncertainAngle: false)
+    let angleCorrection = InputSignal.AngleCorrection(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, angle: Float(angle))
+
+    recorder.record(inputSignal: syncPosition)
+    recorder.record(inputSignal: angleCorrection)
+    serialDispatch.async {
+      self.vps?.onInputSignal(signal: syncPosition)
+      self.vps?.onInputSignal(signal: angleCorrection)
     }
   }
 

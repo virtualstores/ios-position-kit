@@ -67,6 +67,10 @@ public final class PositionManager: IPositionKit {
         vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
     }
 
+    public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
+        vps.syncAngleCorrection(angle: angle, positions: positions)
+    }
+
     public func startRecording() {
         vps.startRecording(sessionId: nil)
     }

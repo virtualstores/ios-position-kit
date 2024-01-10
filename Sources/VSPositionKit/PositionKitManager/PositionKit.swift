@@ -41,6 +41,8 @@ public protocol IPositionKit {
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
     
     func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
+
+    func syncAngleCorrection(angle: Double, positions: [CGPoint])
 }
 
 public enum PositionKitError: Error {
