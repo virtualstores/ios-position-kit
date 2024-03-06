@@ -109,7 +109,10 @@ final class VPSSensorManager {
 
   private func reportAltimeterData(data: AltitudeSensorData) {
     let altitudeArr = KotlinFloatArray(size: 1)
-    data.altitude.data.enumerated().forEach { altitudeArr.set(index: Int32($0.offset), value: Float($0.element)) }
-    dataPublisher.send(RawSensorData(values: altitudeArr, sensorType: .altitude, nanoTimestamp: Int64(data.timestampSensor), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
+    let barometerArr = KotlinFloatArray(size: 1)
+    data.altitude.data.enumerated().forEach { altitudeArr.set(index: $0.offset.asInt32, value: $0.element.asFloat) }
+    data.barometer.data.enumerated().forEach { barometerArr.set(index: $0.offset.asInt32, value: $0.element.asFloat) }
+    dataPublisher.send(RawSensorData(values: altitudeArr, sensorType: .altitude, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
+    dataPublisher.send(RawSensorData(values: barometerArr, sensorType: .barometer, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
   }
 }

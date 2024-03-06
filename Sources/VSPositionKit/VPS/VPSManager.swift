@@ -71,7 +71,7 @@ final class VPSManager: VPSWrapper {
       uxPositionConfidence: positionServiceSettings?.uxPositionConfidence ?? defaultParticleFilterParams.uxPositionConfidence,
       angleOffsetGainDegPerMin: positionServiceSettings?.angleOffsetGainDegPerMin ?? defaultParticleFilterParams.angleOffsetGainDegPerMin,
       speedFactor: positionServiceSettings?.speedFactor ?? defaultParticleFilterParams.speedFactor,
-      naiveOutputSyncMovement: true, //positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
+      naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
       useMLSyncSpeedFilter: positionServiceSettings?.useMLSyncSpeedFilter ?? defaultParticleFilterParams.useMLSyncSpeedFilter,
       sprinkleSyncThreshold: positionServiceSettings?.sprinkleSyncThreshold ?? defaultParticleFilterParams.sprinkleSyncThreshold
     )
@@ -141,7 +141,8 @@ final class VPSManager: VPSWrapper {
         extendedDebugMode: false,
         uxPositionActivated: false,
         mlPositionActivated: true,
-        particlePositionActivated: false
+        particlePositionActivated: true,
+        modelOutputHandler: nil
       )
       //FeaturePackerParams(useSmoothing: modelManager.params?.useSmooting ?? false, flipAcc: false)
     }
