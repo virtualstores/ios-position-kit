@@ -17,11 +17,7 @@ public final class VPSRecorder {
   let defaultSessionId = "Undefined"
   let serialDispatch = DispatchQueue(label: "TT2VPSRECORDERSERIAL")
   var sessionId: String { replayRecorder.sessionId }
-  var isRecording: Bool {
-    //serialDispatch.async {
-      replayRecorder.isRecording
-    //}
-  }
+  var isRecording: Bool { replayRecorder.isRecording }
   private var hasRecorded = false
 
   init(maxRecordingTimePerPartInMillis: Int64?) {
@@ -65,9 +61,9 @@ public final class VPSRecorder {
     //case .exit: print("VPSRECORDERIOS", "RECORD INPUTSIGNAL", "EXIT")
     //default: break
     //}
-    guard isRecording else { return }
     serialDispatch.async {
       //pthread_setname_np("VPSRecorder")
+      guard self.isRecording else { return }
       self.replayRecorder.onInputSignal(signal: inputSignal)
     }
   }

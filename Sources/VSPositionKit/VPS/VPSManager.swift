@@ -107,26 +107,6 @@ final class VPSManager: VPSWrapper {
       recorder.startRecording(sessionId: nil)
     }
     serialDispatch.async { [self] in
-      //let params = ParticleFilterParams(
-      //  maxNumParticles: IosParticleFilterParams.shared.default_.maxNumParticles * 5,
-      //  stepLengthStd: IosParticleFilterParams.shared.default_.stepLengthStd,
-      //  stepDirectionStd: IosParticleFilterParams.shared.default_.stepDirectionStd,
-      //  biasStd: IosParticleFilterParams.shared.default_.biasStd,
-      //  startMethod: IosParticleFilterParams.shared.default_.startMethod,
-      //  startPositionStd: 7.5,
-      //  startDirectionStd: 0.5,
-      //  syncMethod: IosParticleFilterParams.shared.default_.syncMethod,
-      //  syncPositionStd: IosParticleFilterParams.shared.default_.syncPositionStd,
-      //  syncDirectionStd: IosParticleFilterParams.shared.default_.syncDirectionStd,
-      //  rescuePositionStd: IosParticleFilterParams.shared.default_.rescuePositionStd,
-      //  rescueDirectionStd: IosParticleFilterParams.shared.default_.rescueDirectionStd,
-      //  kldEpsilon: IosParticleFilterParams.shared.default_.kldEpsilon,
-      //  kldDelta: IosParticleFilterParams.shared.default_.kldDelta,
-      //  kldZ: IosParticleFilterParams.shared.default_.kldZ,
-      //  binSize: IosParticleFilterParams.shared.default_.binSize//,
-      //  //uxPositionConfidence: IosParticleFilterParams.shared.default_.uxPositionConfidence
-      //)
-      //print("PARAMS", params)
       pthread_setname_np("VPSManager")
       vps = VPS(
         velocityModel: VPSVelocityModel(manager: modelManager),
@@ -144,7 +124,6 @@ final class VPSManager: VPSWrapper {
         particlePositionActivated: true,
         modelOutputHandler: nil
       )
-      //FeaturePackerParams(useSmoothing: modelManager.params?.useSmooting ?? false, flipAcc: false)
     }
   }
 
