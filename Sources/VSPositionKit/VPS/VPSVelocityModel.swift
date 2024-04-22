@@ -12,19 +12,19 @@ import vps
 
 class VPSVelocityModel {
   let manager: VPSModelManager
-  var model: Resnet?
+  lazy var model: Resnet? = {
+    guard let model = manager.model else { return nil }
+    return Resnet(model: model)
+  }()
   var handler: VelocityModelHandler?
   var batchedData: [[Double]] = []
 
   init(manager: VPSModelManager) {
     self.manager = manager
-    guard let model = manager.model else { return }
-    self.model = Resnet(model: model)
   }
 
   deinit {
-    model = nil
-    handler = nil
+    onExit()
   }
 
   func structure(data: [[Double]]) -> [Double] {
@@ -54,7 +54,7 @@ class VPSVelocityModel {
     if #available(iOS 15.0, *) {
       input = MLMultiArray(MLShapedArray<Double>(scalars: data.flatMap({ $0 }), shape: [data.count,count,frameSize]))
     } else {
-      input = try? MLMultiArray(shape: [NSNumber(integerLiteral: data.count),NSNumber(integerLiteral: count),NSNumber(integerLiteral: frameSize)], dataType: .double)
+      input = try? MLMultiArray(shape: [NSNumber(integerLiteral: data.count), NSNumber(integerLiteral: count), NSNumber(integerLiteral: frameSize)], dataType: .double)
       data.flatMap({ $0 }).enumerated().forEach { input?[$0.offset] = NSNumber(value: $0.element) }
     }
     return input
@@ -72,20 +72,19 @@ extension VPSVelocityModel: VelocityModel {
   }
   
   func onExit() {
-
+    model = nil
+    handler = nil
+    batchedData.removeAll()
   }
 
   func onInput(data_ data: Tensor) {
-    if model == nil, let model = manager.model { self.model = Resnet(model: model) }
     batchedData.append(data.data.map({ $0.map({ Double(truncating: $0) }) }).flatMap { $0 })
     guard batchedData.count > 0, let input = createMlArray(data: batchedData) else { return }
     batchedData.removeAll()
     let output = try? model?.prediction(input: ResnetInput(input: input))
     //print("OUTPUT", output?.output)
     guard let modelOutput = output?.output.asModelOutput(timestamp: data.timestamp) else { return }
-    //DispatchQueue.main.async {
-    self.handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
-    //}
+    handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
   }
 
   func setHandler(handler: VelocityModelHandler) {

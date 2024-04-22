@@ -253,34 +253,39 @@ final class VPSManager: VPSWrapper {
 
 extension VPSManager: VPSOutputHandler {
   func onOutputSignal(outputSignal: OutputSignal) {
-    if let signal = outputSignal as? OutputSignal.Position {
+    switch outputSignal {
+    case let signal as OutputSignal.Position:
       let position = VPSOutputSignal.Position(
         position: signal.position.asCGPoint,
-        std: Double(signal.std),
+        std: signal.std.asDouble,
         status: signal.status.asStatus,
         timestamp: Date()
       )
       outputSignalPublisher.send(.position(position: position))
-    } else if let signal = outputSignal as? OutputSignal.UXPosition {
+    case let signal as OutputSignal.UXPosition:
       let position = VPSOutputSignal.Position(
         position: signal.position.asCGPoint,
-        std: Double(signal.std),
+        std: signal.std.asDouble,
         status: signal.status.asStatus,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ux(position: position))
-    } else if let signal = outputSignal as? OutputSignal.MLOutputPosition {
+    case let signal as OutputSignal.MLOutputPosition:
       let position = VPSOutputSignal.Position(
         position: signal.position.asCGPoint,
-        std: Double(signal.std),
+        std: signal.std.asDouble,
         status: .none,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ml(position: position))
-    } else if let signal = outputSignal as? OutputSignal.Rotation {
+    case let signal as OutputSignal.Rotation:
       let heading = DoubleExtKt.radiansToDegrees(Double(signal.heading))
       //print("Rotation", heading)
       outputSignalPublisher.send(.rotation(heading: Double(heading)))
+    case _ as OutputSignal.RotationDeviationAngle: break
+    case _ as OutputSignal.RescueModeSignal:
+      outputSignalPublisher.send(.rescueMode)
+    default: break//Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
 }

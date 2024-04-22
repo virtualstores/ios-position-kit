@@ -103,7 +103,6 @@ public class MapFenceData {
     context.setFillColor(UIColor.red.cgColor)
     context.setStrokeColor(UIColor.red.cgColor)
     polygons.forEach { (polygon) in
-
       context.move(to: polygon.first!)
       polygon.enumerated().forEach { if $0.offset == 0 { return }; context.addLine(to: $0.element) }
       context.closePath()
