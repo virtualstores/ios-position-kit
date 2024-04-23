@@ -22,7 +22,8 @@ final class VPSManager: VPSWrapper {
 
   var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
-  var vpsParams: [String:String] { particleFilterParams.map() }
+  var vpsParticleFilterParams: [String:String] { particleFilterParams.map() }
+  var vpsParticleFilterSettings: [String:String] { particleFilterSettings.map() }
 
   private (set) var pathfinder: BasePathfinder?
   var vpsRunning: Bool = false
@@ -35,6 +36,7 @@ final class VPSManager: VPSWrapper {
   private let modelManager: VPSModelManager
   private let modelToEventParameters: ModelToEventParameters
   private let particleFilterParams: ParticleFilterParams
+  private let particleFilterSettings: ParticleFilterSettings
   private var vps: VPS?
 
   var isRecording: Bool { recorder.isRecording }
@@ -73,8 +75,10 @@ final class VPSManager: VPSWrapper {
       speedFactor: positionServiceSettings?.speedFactor ?? defaultParticleFilterParams.speedFactor,
       naiveOutputSyncMovement: positionServiceSettings?.naiveOutputSyncMovement ?? defaultParticleFilterParams.naiveOutputSyncMovement,
       useMLSyncSpeedFilter: positionServiceSettings?.useMLSyncSpeedFilter ?? defaultParticleFilterParams.useMLSyncSpeedFilter,
-      sprinkleSyncThreshold: positionServiceSettings?.sprinkleSyncThreshold ?? defaultParticleFilterParams.sprinkleSyncThreshold
+      sprinkleSyncThreshold: positionServiceSettings?.sprinkleSyncThreshold ?? defaultParticleFilterParams.sprinkleSyncThreshold,
+      sprinklePercentage: positionServiceSettings?.sprinklePercentage ?? defaultParticleFilterParams.sprinklePercentage
     )
+    self.particleFilterSettings = VPSManager.getDefaultSettings(positionServiceSettings: positionServiceSettings)
     self.bindPublishers()
     //Log.shared.outputHandler = self
   }
@@ -85,9 +89,9 @@ final class VPSManager: VPSWrapper {
 
   func bindPublishers() {
     sensor.dataPublisher
-      //.compactMap { $0 }
+      .compactMap { $0 }
       .sink { [weak self] (data) in
-        guard let data = data, self?.vpsRunning ?? false else { return }
+        guard self?.vpsRunning ?? false else { return }
         let signal = InputSignal.SensorData(rawSensorData: data)
         self?.recorder.record(inputSignal: signal)
         self?.serialDispatch.async {
@@ -117,11 +121,9 @@ final class VPSManager: VPSWrapper {
         interpolationParams: IosInterpolationModuleParams.shared.default_,
         modelToEventParameters: modelToEventParameters,
         particleFilterParams: particleFilterParams,
+        particleFilterSettings: particleFilterSettings,
         debugMode: false,
         extendedDebugMode: false,
-        uxPositionActivated: false,
-        mlPositionActivated: true,
-        particlePositionActivated: true,
         modelOutputHandler: nil
       )
     }
@@ -242,12 +244,32 @@ final class VPSManager: VPSWrapper {
     switch defaultEnum {
     case .´default´: return VPSParticleFilterParams.shared.default_
     case .compass: return VPSParticleFilterParams.shared.compass
+    case .nl: return VPSParticleFilterParams.shared.NLParticleFilter
+    }
+  }
+
+  static func getDefaultSettings(positionServiceSettings: PositionServiceSettings?) -> ParticleFilterSettings {
+    guard
+      let option = positionServiceSettings?.stringValues?[.PARTICLE_FILTER_DEFAULT_SETTINGS],
+      let defaultEnum = VPSParticleFilterSettingsEnum(rawValue: option)
+    else { return VPSParticleFilterSettings.shared.default_ }
+    switch defaultEnum {
+    case .´default´: return VPSParticleFilterSettings.shared.default_
+    case .nl: return VPSParticleFilterSettings.shared.nl
+    case .v1: return VPSParticleFilterSettings.shared.v1
     }
   }
 
   enum VPSParticleFilterDefaultEnum: String {
     case ´default´ = "DEFAULT"
     case compass = "COMPASS"
+    case nl = "NL"
+  }
+
+  enum VPSParticleFilterSettingsEnum: String {
+    case ´default´ = "DEFAULT"
+    case nl = "NL"
+    case v1 = "V1"
   }
 }
 
@@ -368,6 +390,7 @@ private extension PositionServiceSettings {
   var naiveOutputSyncMovement: Bool? { boolValues?[.PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT] }
   var useMLSyncSpeedFilter: Bool? { boolValues?[.PARTICLE_FILTER_ML_SYNC_SPEED_FILTER] }
   var sprinkleSyncThreshold: Float? { floatValues?[.PARTICLE_FILTER_SPRINLE_SYNC_THRESHOLD] }
+  var sprinklePercentage: Float? { floatValues?[.PARTICLE_FILTER_SPRINLE_PERCENTAGE] }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -411,6 +434,18 @@ private extension String {
   static let PARTICLE_FILTER_NAIVE_OUTPUT_SYNC_MOVEMENT: String = "particleFilter_naiveOutputSyncMovement"
   static let PARTICLE_FILTER_ML_SYNC_SPEED_FILTER: String = "particleFilter_useMLSyncSpeedFilter"
   static let PARTICLE_FILTER_SPRINLE_SYNC_THRESHOLD = "particleFilter_sprinkleSyncThreshold"
+  static let PARTICLE_FILTER_SPRINLE_PERCENTAGE = "particleFilter_sprinklePercentage"
+
+  static let PARTICLE_FILTER_DEFAULT_SETTINGS: String = "particleFilter_defaultSettings"
+  static let PARTICLE_FILTER_SETTINGS_DEFAULT: String = "DEFAULT"
+  static let PARTICLE_FILTER_SETTINGS_NL: String = "NL"
+  static let PARTICLE_FILTER_SETTINGS_V1: String = "V1"
+
+  static let PARTICLE_FILTER_SETTINGS_UX_ACTIVATED: String = "particleFilterSettings_uxPositionActivated"
+  static let PARTICLE_FILTER_SETTINGS_ML_ACTIVATED: String = "particleFilterSettings_mlPositionActivated"
+  static let PARTICLE_FILTER_SETTINGS_POS_ACTIVATED: String = "particleFilterSettings_particlePositionActivated"
+  static let PARTICLE_FILTER_SETTINGS_PARTICLES_OUTPUT_ACTIVATED: String = "particleFilterSettings_particlesOutputActivated"
+  static let PARTICLE_FILTER_SETTINGS_VERSION: String = "particleFilterSettings_particleFilterVersion"
 }
 
 extension vps.MLProcessedPath {

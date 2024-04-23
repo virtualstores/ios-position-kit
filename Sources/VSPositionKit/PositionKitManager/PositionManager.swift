@@ -18,7 +18,8 @@ public final class PositionManager: IPositionKit {
     public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
     public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
     public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> {  sensor.altimeterPublisher }
-    public var vpsParams: [String:String] { vps.vpsParams }
+    public var vpsParticleFilterParams: [String:String] { vps.vpsParticleFilterParams }
+    public var vpsParticleFilterSettings: [String:String] { vps.vpsParticleFilterSettings}
     public var isRecording: Bool { vps.isRecording }
     
     public var rtlsOption: RtlsOptions?
