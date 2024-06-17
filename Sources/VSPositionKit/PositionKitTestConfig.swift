@@ -8,9 +8,9 @@ import Foundation
 import VSFoundation
 import VSSensorFusion
 
-public struct PositionKitTestConfig: Config {
-  public init() {}
-  public func configure(_ injector: Injector) {
+struct PositionKitTestConfig: Config {
+  init() {}
+  func configure(_ injector: Injector) {
     injectManagers(injector)
   }
 
