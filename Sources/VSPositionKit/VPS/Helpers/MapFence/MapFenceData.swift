@@ -142,13 +142,13 @@ public class MapFenceData {
     pointer = pixelBuffer.bindMemory(to: UInt32.self, capacity: Int(widthInPixels * heightInPixels))
   }
 
-  func isValidCoordinate(point: CGPoint) -> Bool {
-    if (point.x < 0 ||
-        point.y < 0 ||
-        Int32(point.x) >= Int32(widthInPixels) ||
-        Int32(point.y) >= Int32(heightInPixels)
+  func isValidCoordinate(x: Int, y: Int) -> Bool {
+    if (x < 0 ||
+        y < 0 ||
+        Int32(x) >= Int32(widthInPixels) ||
+        Int32(y) >= Int32(heightInPixels)
     ) { /*print("Out of bounds");*/ return false }
-    guard context != nil, let pixel = pointer?[Int(point.y) * Int(widthInPixels) + Int(point.x)] else { return false }
+    guard context != nil, let pixel = pointer?[y * Int(widthInPixels) + x] else { return false }
     return getColor(pixel: pixel) != .red//UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
   }
 
@@ -181,27 +181,56 @@ public class MapFenceData {
 extension MapFenceData {
   enum ValidCoordinates {
     static let icaBromma = [CGPoint(x: 37.262688, y: 56.00981), CGPoint(x: 56.203773, y: 104.69043), CGPoint(x: 65.47658, y: 31.241346)]
+    static let tt2Office = [CGPoint(x: 10.386048, y: 6.860525), CGPoint(x: 28.502922, y: 12.376588), CGPoint(x: 16.598196, y: 3.9569442)]
   }
 
   enum InvalidCoordinates {
     static let icaBromma = [CGPoint(x: 15.374447, y: 13.501157), CGPoint(x: 64.946724, y: 58.820156), CGPoint(x: 93.39165, y: 21.598818)]
+    static let tt2Office = [CGPoint(x: 16.431114, y: 11.586783), CGPoint(x: 24.590233, y: 6.3795924), CGPoint(x: 14.843845, y: 6.5188246)]
   }
 
-  enum Venue {
-    case icaBromma
+  enum Venue: Int64 {
+    case client1Store1 = 74
+    case tt2Office = 66
+  }
+
+  func createImageCoordinates(venue: Venue, converter: ICoordinateConverter) -> (valid: UIImage?, invalid: UIImage?) {
+    let validCoordinates: [CGPoint]
+    let invalidCoordinates: [CGPoint]
+    switch venue {
+    case .client1Store1:
+      validCoordinates = ValidCoordinates.icaBromma
+      invalidCoordinates = InvalidCoordinates.icaBromma
+    case .tt2Office:
+      validCoordinates = ValidCoordinates.tt2Office
+      invalidCoordinates = InvalidCoordinates.tt2Office
+    }
+    return (
+      createImageCoordinates(points: validCoordinates.map({ $0.fromMeterToPixel(converter: converter).flipY(converter: converter) }), color: .purple),
+      createImageCoordinates(points: invalidCoordinates.map({ $0.fromMeterToPixel(converter: converter).flipY(converter: converter) }), color: .green)
+    )
   }
 
   func testMapFence(venue: Venue, converter: ICoordinateConverter) {
     switch venue {
-    case .icaBromma:
+    case .client1Store1:
       ValidCoordinates
         .icaBromma
         .map { $0.fromMeterToPixel(converter: converter) }
-        .forEach { print("ValidCoordinate", isValidCoordinate(point: $0)) }
+        .forEach { print("ValidCoordinate", isValidCoordinate(x: Int($0.x), y: Int($0.y))) }
       InvalidCoordinates
         .icaBromma
         .map { $0.fromMeterToPixel(converter: converter) }
-        .forEach { print("ValidCoordinate", isValidCoordinate(point: $0)) }
+        .forEach { print("ValidCoordinate", isValidCoordinate(x: Int($0.x), y: Int($0.y))) }
+    case .tt2Office:
+      ValidCoordinates
+        .tt2Office
+        .map { $0.fromMeterToPixel(converter: converter) }
+        .forEach { print("ValidCoordinate", isValidCoordinate(x: Int($0.x), y: Int($0.y))) }
+      InvalidCoordinates
+        .tt2Office
+        .map { $0.fromMeterToPixel(converter: converter) }
+        .forEach { print("ValidCoordinate", isValidCoordinate(x: Int($0.x), y: Int($0.y))) }
     }
   }
 }

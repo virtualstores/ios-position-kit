@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  VPSVelocityModel.swift
+//
 //
 //  Created by Théodore Roos on 2023-05-22.
 //
@@ -13,18 +13,23 @@ import vps
 class VPSVelocityModel {
   let manager: VPSModelManager
   lazy var model: Resnet? = {
-    guard let model = manager.model else { return nil }
+    guard let model = manager.mlModel else { return nil }
     return Resnet(model: model)
+  }()
+  lazy var modelV2: ResnetV2? = {
+    guard let model = manager.mlModel else { return nil }
+    return ResnetV2(model: model)
   }()
   var handler: VelocityModelHandler?
   var batchedData: [[Double]] = []
+  var stepNumber = 0
 
   init(manager: VPSModelManager) {
     self.manager = manager
   }
 
   deinit {
-    onExit()
+    onDestroy()
   }
 
   func structure(data: [[Double]]) -> [Double] {
@@ -48,8 +53,8 @@ class VPSVelocityModel {
   }
 
   func createMlArray(data: [[Double]]) -> MLMultiArray? {
-    let count = manager.params!.featureSequence.count
-    let frameSize = Int(manager.params!.frameSize)
+    let count = manager.mlParams!.featureSequence.count
+    let frameSize = Int(manager.mlParams!.frameSize)
     var input: MLMultiArray?
     if #available(iOS 15.0, *) {
       input = MLMultiArray(MLShapedArray<Double>(scalars: data.flatMap({ $0 }), shape: [data.count,count,frameSize]))
@@ -59,31 +64,68 @@ class VPSVelocityModel {
     }
     return input
   }
+
+  func createMlArray(stepNumber: Int) -> MLMultiArray? {
+    let input = try? MLMultiArray(shape: [1], dataType: .int32)
+    input?[0] = NSNumber(value: stepNumber)
+    return input
+  }
 }
 
 extension VPSVelocityModel: VelocityModel {
   var params: VelocityModelParams {
     VelocityModelParams(
       batchComputeSize: 1,
-      windowSize: manager.params!.frameSize,
-      smoothing: manager.params!.useSmooting,
-      featureSequence: manager.params!.featureSequence.map({ $0.asVPSFeature })
+      windowSize: manager.mlParams!.frameSize,
+      smoothing: manager.mlParams!.useSmooting,
+      featureSequence: manager.mlParams!.featureSequence.map({ $0.asVPSFeature }),
+      stepNumberInput: manager.mlParams!.stepNumberInput
     )
   }
-  
-  func onExit() {
+
+  func onDestroy() {
     model = nil
     handler = nil
+    onExit()
+  }
+
+  func onExit() {
     batchedData.removeAll()
   }
 
-  func onInput(data_ data: Tensor) {
-    batchedData.append(data.data.map({ $0.map({ Double(truncating: $0) }) }).flatMap { $0 })
+  func onFlush() {
+
+  }
+
+  func reset() {
+    stepNumber = 0
+  }
+
+  func onInput(data__ data: Tensor) {
+    guard let convertedData = data.data.convertToDouble else { return }
+    batchedData.append(convertedData.flatMap({ $0 }))
+    //batchedData.append(data.data.map({ $0.map({ Double(truncating: $0) }) }).flatMap { $0 })
     guard batchedData.count > 0, let input = createMlArray(data: batchedData) else { return }
     batchedData.removeAll()
+    if manager.mlParams!.stepNumberInput, let stepNumber = createMlArray(stepNumber: stepNumber) {
+      doPrediction(input: input, timestamp: data.timestamp, stepNumber: stepNumber)
+    } else {
+      doPrediction(input: input, timestamp: data.timestamp)
+    }
+    stepNumber += 1
+  }
+
+  func doPrediction(input: MLMultiArray, timestamp: Int64) {
     let output = try? model?.prediction(input: ResnetInput(input: input))
     //print("OUTPUT", output?.output)
-    guard let modelOutput = output?.output.asModelOutput(timestamp: data.timestamp) else { return }
+    guard let modelOutput = output?.output.asModelOutput(timestamp: timestamp) else { return }
+    handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
+  }
+
+  func doPrediction(input: MLMultiArray, timestamp: Int64, stepNumber: MLMultiArray) {
+    let output = try? modelV2?.prediction(input: ResnetV2Input(input: input, step_numbers: stepNumber))
+    //print("OUTPUT V2", output?.output)
+    guard let modelOutput = output?.output.asModelOutput(timestamp: timestamp) else { return }
     handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
   }
 
@@ -92,13 +134,26 @@ extension VPSVelocityModel: VelocityModel {
   }
 }
 
-extension MLMultiArray {
-  func asModelOutput(timestamp: Int64) -> ModelOutput {
+private extension MLMultiArray {
+  func asModelOutput(timestamp: Int64) -> VelocityModelOutput {
     var arr = [KotlinFloat](repeating: 0, count: count)
     for i in 0..<count {
       arr[i] = KotlinFloat(value: Float(truncating: self[i]))
     }
-    return ModelOutput(timestamp: timestamp, data: arr)
+    return VelocityModelOutput(timestamp: timestamp, data: arr)
+  }
+}
+
+extension KotlinArray<KotlinFloatArray> {
+  var convertToDouble: [[Double]]? {
+    var convertedData = [[Double]](repeating: [], count: Int(size))
+    for i in 0..<size {
+      guard let arr = get(index: i) else { return nil }
+      for j in 0..<arr.size {
+        convertedData[Int(i)].append(arr.get(index: j).asDouble)
+      }
+    }
+    return convertedData
   }
 }
 

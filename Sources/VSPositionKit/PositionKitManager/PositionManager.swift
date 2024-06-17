@@ -13,113 +13,105 @@ import VSFoundation
 import CoreGraphics
 import CoreLocation
 
-public final class PositionManager: IPositionKit {
-    public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> = .init(nil)
-    public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
-    public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
-    public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> {  sensor.altimeterPublisher }
-    public var vpsParticleFilterParams: [String:String] { vps.vpsParticleFilterParams }
-    public var vpsParticleFilterSettings: [String:String] { vps.vpsParticleFilterSettings}
-    public var isRecording: Bool { vps.isRecording }
-    
-    public var rtlsOption: RtlsOptions?
-    
-    private let context = Context(PositionKitConfig())
-    private var cancellable = Set<AnyCancellable>()
-    
-    private var rotationSensor: RotationSensor?
-    
-    @Inject var backgroundAccess: IBackgroundAccessManager
-    @Inject var sensor: VPSSensorManager
+public final class PositionManager {
+  public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { backgroundAccess.locationHeadingPublisher }
+  public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
+  public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
+  public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> { sensor.altimeterPublisher }
+  public var vpsParticleFilterSettings: [String:String] { vps.vpsParticleFilterSettings }
+  public var isRecording: Bool { vps.isRecording }
 
-    private var _vps: VPSManager?
-    private var vps: VPSManager {
-        guard let vps = _vps else { fatalError("PositionKit not setup") }
-        return vps
-    }
-    
-    public init() {}
-    
-    public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
-        self.rtlsOption = rtlsOption
-        _vps = VPSManager(
-            floorHeightDiffInMeters: floorheight,
-            rtls: rtlsOption,
-            automaticSensorRecording: automaticSensorRecording,
-            mapData: mapData,
-            positionServiceSettings: positionServiceSettings,
-            converter: converter,
-            modelManager: modelManger
-        )
-        
-        bindPublishers()
-    }
-    
-    public func start() throws {
-        try sensor.start()
-    }
-    
-    public func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
-        vps.startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
-        backgroundAccess.vpsRunning(isRunning: true)
-    }
-    
-    public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
-        vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
-    }
+  public var rtlsOption: RtlsOptions?
 
-    public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
-        vps.syncAngleCorrection(angle: angle, positions: positions)
-    }
+  private let context = Context(PositionKitConfig())
+  private var cancellable = Set<AnyCancellable>()
 
-    public func startRecording() {
-        vps.startRecording(sessionId: nil)
-    }
-    
-    public func stop(stopSensors: Bool = true) {
-        if stopSensors {
-            self.sensor.stop()
-            backgroundAccess.vpsRunning(isRunning: false)
-        }
-        self.vps.stop()
-    }
+  @Inject var backgroundAccess: IBackgroundAccessManager
+  @Inject var sensor: VPSSensorManager
 
-    public func stopRecording() {
-        vps.stopRecording()
-    }
-    
-    public func setBackgroundAccess(isActive: Bool) {
-        isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
-    }
+  private var _vps: VPSManager?
+  private var vps: VPSManager {
+    guard let vps = _vps else { fatalError("PositionKit not setup") }
+    return vps
+  }
 
-    public func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> MLProcessedPath {
-      vps.processMLPath(path: path, pathEndPoint: pathEndPoint)
-    }
+  public init() {}
 
-    public func prepareAngle() {
-        vps.prepareAngle()
-    }
-    
-    func bindPublishers() {
-        backgroundAccess.locationHeadingPublisher
-            .compactMap { $0 }
-            .sink { error in Logger().log(message: "locationHeadingPublisher error") } 
-            receiveValue: { [weak self] in self?.locationHeadingPublisher.send($0)}
-            .store(in: &cancellable)
+  deinit {
+    stop()
+  }
 
-        vps.recordingPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.recordingPublisher.send($0) }
-            .store(in: &cancellable)
+  func bindPublishers() {
+    vps.recordingPublisher
+      .compactMap { $0 }
+      .sink { [weak self] in self?.recordingPublisher.send($0) }
+      .store(in: &cancellable)
 
-        vps.outputSignalPublisher
-            .compactMap { $0 }
-            .sink { [weak self] in self?.outputSignalPublisher.send($0) }
-            .store(in: &cancellable)
+    vps.outputSignalPublisher
+      .compactMap { $0 }
+      .sink { [weak self] in self?.outputSignalPublisher.send($0) }
+      .store(in: &cancellable)
+  }
+}
+
+extension PositionManager: IPositionKit {
+  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
+    self.rtlsOption = rtlsOption
+    _vps = VPSManager(
+      floorHeightDiffInMeters: floorheight,
+      rtls: rtlsOption,
+      automaticSensorRecording: automaticSensorRecording,
+      mapData: mapData,
+      positionServiceSettings: positionServiceSettings,
+      converter: converter,
+      modelManager: modelManger
+    )
+
+    bindPublishers()
+  }
+
+  public func start() throws {
+    try sensor.start()
+  }
+
+  public func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+    vps.startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
+    backgroundAccess.vpsRunning(isRunning: true)
+  }
+
+  public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
+    vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
+  }
+
+  public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
+    vps.syncAngleCorrection(angle: angle, positions: positions)
+  }
+
+  public func startRecording() {
+    vps.startRecording(sessionId: nil)
+  }
+
+  public func stop(stopSensors: Bool = true) {
+    if stopSensors {
+      sensor.stop()
+      backgroundAccess.vpsRunning(isRunning: false)
     }
-    
-    deinit {
-        stop()
-        cancellable.removeAll()
-    }
+    vps.stop()
+  }
+
+  public func stopRecording() {
+    vps.stopRecording()
+  }
+
+  public func setBackgroundAccess(isActive: Bool) {
+    isActive ? backgroundAccess.activate() : backgroundAccess.deactivate()
+  }
+
+  public func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> MLProcessedPath {
+    vps.processMLPath(path: path, pathEndPoint: pathEndPoint)
+  }
+
+  public func prepareAngle() {
+    vps.prepareAngle()
+  }
 }

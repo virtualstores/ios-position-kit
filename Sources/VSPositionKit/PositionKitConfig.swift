@@ -10,23 +10,23 @@ import Foundation
 import VSFoundation
 import VSSensorFusion
 
-public struct PositionKitConfig: Config {
-  public init() {}
-  public func configure(_ injector: Injector) {
+struct PositionKitConfig: Config {
+  init() {}
+  func configure(_ injector: Injector) {
     injectManagers(injector)
   }
 
   private func injectManagers(_ injector: Injector) {
-      injector.map(IBackgroundAccessManager.self) {
-          BackgroundAccessManager()
-      }
-      
-      injector.map(ISensorManager.self) {
-          SensorManager()
-      }
-      
-      injector.map(VPSSensorManager.self) {
-          VPSSensorManager()
-      }
+    injector.map(IBackgroundAccessManager.self) {
+      BackgroundAccessManager()
+    }
+
+    injector.map(ISensorManager.self) {
+      SensorManager()
+    }
+
+    injector.map(VPSSensorManager.self) {
+      VPSSensorManager()
+    }
   }
 }
