@@ -145,8 +145,8 @@ public class MapFenceData {
   func isValidCoordinate(x: Int, y: Int) -> Bool {
     if (x < 0 ||
         y < 0 ||
-        Int32(x) >= Int32(widthInPixels) ||
-        Int32(y) >= Int32(heightInPixels)
+        x >= Int(widthInPixels) ||
+        y >= Int(heightInPixels)
     ) { /*print("Out of bounds");*/ return false }
     guard context != nil, let pixel = pointer?[y * Int(widthInPixels) + x] else { return false }
     return getColor(pixel: pixel) != .red//UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)

@@ -82,8 +82,9 @@ extension FloorLevelData: VPSFloorLevel {
   }
 
   func initiate() {
+    let image = mapFenceData.createImage()
     guard let venue = MapFenceData.Venue(rawValue: id_) else { return }
-    save(identifier: "MapFence.png", image: mapFenceData.createImage())
+    save(identifier: "MapFence.png", image: image)
     let images = mapFenceData.createImageCoordinates(venue: venue, converter: data.converter)
     save(identifier: "ValidCoordinates.png", image: images.valid)
     save(identifier: "InvalidCoordinates.png", image: images.invalid)
