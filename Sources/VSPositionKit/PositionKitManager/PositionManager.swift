@@ -114,4 +114,8 @@ extension PositionManager: IPositionKit {
   public func prepareAngle() {
     vps.prepareAngle()
   }
+
+  public func set(sessionId: String?) {
+    vps.set(sessionId: sessionId)
+  }
 }

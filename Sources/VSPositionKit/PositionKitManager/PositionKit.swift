@@ -43,6 +43,8 @@ public protocol IPositionKit {
     func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     func syncAngleCorrection(angle: Double, positions: [CGPoint])
+
+    func set(sessionId: String?)
 }
 
 public enum PositionKitError: Error {

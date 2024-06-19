@@ -88,9 +88,14 @@ final class VPSManager: VPSWrapper {
       .store(in: &cancellable)
   }
 
+  var sessionId: String?
+  func set(sessionId: String?) {
+    self.sessionId = sessionId
+  }
+
   func start() {
     if automaticSensorRecording {
-      recorder.startRecording(sessionId: nil)
+      recorder.startRecording(sessionId: sessionId)
     }
     serialDispatch.async { [weak self] in
       guard let self = self else { return }
