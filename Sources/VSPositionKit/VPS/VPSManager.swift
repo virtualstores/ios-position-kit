@@ -366,6 +366,8 @@ extension VPSManager: VPSOutputHandler {
         ))
       }
       outputSignalPublisher.send(.particles(positions: positions))
+    case let output as OutputSignal.FloorChangeSignal:
+      outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
     default: break//Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }

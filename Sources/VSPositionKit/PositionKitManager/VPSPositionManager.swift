@@ -13,7 +13,7 @@ import VSFoundation
 import CoreGraphics
 import CoreLocation
 
-public final class PositionManager {
+public final class VPSPositionManager {
   public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { backgroundAccess.locationHeadingPublisher }
   public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
@@ -54,7 +54,7 @@ public final class PositionManager {
   }
 }
 
-extension PositionManager: IPositionKit {
+extension VPSPositionManager: IPositionKit {
   public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
