@@ -42,6 +42,7 @@ public final class VPSPositionManager {
   }
 
   func bindPublishers() {
+    cancellable.removeAll()
     vps.recordingPublisher
       .compactMap { $0 }
       .sink { [weak self] in self?.recordingPublisher.send($0) }
@@ -55,7 +56,7 @@ public final class VPSPositionManager {
 }
 
 extension VPSPositionManager: IPositionKit {
-  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
+  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: String) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
       floorHeightDiffInMeters: floorheight,
@@ -64,7 +65,8 @@ extension VPSPositionManager: IPositionKit {
       mapData: mapData,
       positionServiceSettings: positionServiceSettings,
       converter: converter,
-      modelManager: modelManger
+      modelManager: modelManger,
+      engine: engine
     )
 
     bindPublishers()
@@ -81,6 +83,10 @@ extension VPSPositionManager: IPositionKit {
 
   public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
+  }
+
+  public func syncPosition(location: CLLocation) {
+    vps.syncPosition(location: location)
   }
 
   public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
@@ -117,5 +123,13 @@ extension VPSPositionManager: IPositionKit {
 
   public func set(sessionId: String?) {
     vps.set(sessionId: sessionId)
+  }
+
+  public func startGPS() {
+    backgroundAccess.start()
+  }
+
+  public func stopGPS() {
+    backgroundAccess.stop()
   }
 }
