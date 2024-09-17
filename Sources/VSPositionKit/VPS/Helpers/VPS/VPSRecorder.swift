@@ -21,7 +21,7 @@ public final class VPSRecorder {
   private var hasRecorded = false
 
   init(maxRecordingTimePerPartInMillis: Int64?) {
-    replayRecorder = ReplayV1Recorder(uploader: self, recordingPartInterval: maxRecordingTimePerPartInMillis?.asKotlinLong)
+    replayRecorder = ReplayV1Recorder(uploader: self, recordingPartInterval: maxRecordingTimePerPartInMillis?.asKotlinLong ?? KotlinLong(value: 30000))
   }
 
   func set(sessionId: String) {

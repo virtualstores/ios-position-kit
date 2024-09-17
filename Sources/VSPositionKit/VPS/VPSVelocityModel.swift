@@ -73,15 +73,7 @@ class VPSVelocityModel {
 }
 
 extension VPSVelocityModel: VelocityModel {
-  var params: VelocityModelParams {
-    VelocityModelParams(
-      batchComputeSize: 1,
-      windowSize: manager.mlParams!.frameSize,
-      smoothing: manager.mlParams!.useSmooting,
-      featureSequence: manager.mlParams!.featureSequence.map({ $0.asVPSFeature }),
-      stepNumberInput: manager.mlParams!.stepNumberInput
-    )
-  }
+  var params: VelocityModelParams { manager.mlParams!.asParams }
 
   func onDestroy() {
     model = nil
@@ -154,6 +146,18 @@ extension KotlinArray<KotlinFloatArray> {
       }
     }
     return convertedData
+  }
+}
+
+private extension VPSMLModelParams {
+  var asParams: VelocityModelParams {
+    .init(
+      batchComputeSize: 1,
+      windowSize: frameSize,
+      smoothing: useSmooting,
+      featureSequence: featureSequence.map { $0.asVPSFeature },
+      stepNumberInput: stepNumberInput
+    )
   }
 }
 
