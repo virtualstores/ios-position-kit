@@ -25,7 +25,7 @@ final class VPSManager: VPSWrapper {
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
   var vpsParticleFilterSettings: [String:String] { particleFilterSettings.map() }
 
-  private (set) var pathfinder: BasePathfinder?
+  private(set) var pathfinder: BasePathfinder?
   var vpsRunning: Bool = false
 
   /// vps properties
@@ -64,7 +64,7 @@ final class VPSManager: VPSWrapper {
     self.particleFilterSettings = VPSManager.getParticleFilterSettings(settings: positionServiceSettings)
     self.positionServiceSettings = positionServiceSettings
     switch engine {
-    case "GPS": self.engine = PositionEngineSettings.GPSFusion(mlAdjustmentActivated: true)
+    case "GPS_FUSION": self.engine = PositionEngineSettings.GPSFusion(mlAdjustmentActivated: true)
     case "OPEN_TERRAIN": self.engine = PositionEngineSettings.GPSFusion(mlAdjustmentActivated: false)
     default: self.engine = PositionEngineSettings.ParticleFilter(particleFilterSettings: particleFilterSettings)
     }

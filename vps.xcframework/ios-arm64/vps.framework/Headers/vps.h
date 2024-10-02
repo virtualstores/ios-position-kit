@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsIPathfinderGoalType, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinArray<T>, VpsNavGraphVertex, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsNavGraph, VpsPathProcessorPathProcess, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsConvolveMode, VpsVPSParams, VpsVPSParamsPackage, VpsVPSParamsSystem, VpsPose, VpsAccessPoint, VpsFloorLevelHandlerMapInformation, VpsFloorLevelHandler, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams, VpsModelToEventParameters, VpsPositionEngineSettings, VpsFloorChangeHandlerSettings, VpsVelocityModelOutput, VpsFlow<T>, VpsInputSignalStart, VpsOutputSignal, VpsInputSignal, VpsFlowConverter<T, S>, VpsBaseEventStart, VpsBaseEvent, VpsFlowConverterBuilder<T, S>, VpsPositioningEngine, VpsPositioningEngineBuilder, VpsLocation, VpsOutputSignalLngLatLocationSource, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsKotlinFloatArray, VpsCoordinateF, VpsParticleFilterParams, VpsParticleFilterEvent, VpsNLModelOutput, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilterSettings, VpsParticleFilter, VpsParticleFilterBuilder, VpsBaseEventCompanion, VpsEventType, VpsBaseEventAngleCorrectionEventCompanion, VpsBaseEventAngleCorrectionEvent, VpsBaseEventFloorChangeEventCompanion, VpsBaseEventFloorChangeEvent, VpsBaseEventLngLatEventCompanion, VpsBaseEventLngLatEvent, VpsBaseEventStartCompanion, VpsBaseEventStartStartType, VpsBaseEventStartLngLatEventCompanion, VpsBaseEventStartLngLatEvent, VpsBaseEventStartPositionEventCompanion, VpsBaseEventStartPositionEvent, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventStepEvent, VpsBaseEventSyncCompanion, VpsBaseEventSyncSyncType, VpsBaseEventSync, VpsBaseEventSyncLngLatEventCompanion, VpsBaseEventSyncLngLatEvent, VpsBaseEventSyncPositionEventCompanion, VpsBaseEventSyncPositionEvent, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWiFiObservation, VpsBaseEventWifiScanCompanion, VpsBaseEventWifiScan, VpsBaseEventWifiStatusUpdateCompanion, VpsBaseEventWifiStatusUpdate, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsOutputSignalUXPosition, VpsStartMethod, VpsSyncMethod, VpsSyncCritera, VpsMCL, VpsAbstractParticleFilter, VpsOutputSignalSyncSignal, VpsGaussianKDE, VpsParticleFilterKLD, VpsPoseCompanion, VpsKotlinThrowable, VpsKotlinException, VpsWifiScanDataCompanion, VpsWifiScanData, VpsRawSensorData, VpsFloorChangeHandler, VpsFloorChangeHandlerBuilder, VpsAverageVariance, VpsFloorSensorParameters, VpsAltitudeBasedFloorChangeInterpreter, VpsAltitudeBasedFloorChangeInterpreterBuilder, VpsAltitudeBasedFloorChangeInterpreterFloorState, VpsFloorSensorParametersCompanion, VpsAverageVarianceDoublePack, VpsAverageVarianceFloatPack, VpsOutputSignalWiFiFloorChangeSignal, VpsSensorDataType, VpsSensorFrequencyDetector, VpsRawSensorPack, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams_, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeatures, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsNode<T>, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsFlowBuilder<T>, VpsNLModelParams, VpsVelocityModelParams, VpsAccessPointCoordinate, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdate, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsWifiStatusUpdate, VpsVPSModelToEventParameters, VpsParticleFilterSettingsVersion, VpsVPSParticleFilterParams, VpsVPSParticleFilterSettings, VpsCoordinateD, VpsFeaturesCompanion, VpsRawSensorDataCompanion, VpsRawSensorPackCompanion, VpsTensorCompanion, VpsVelocityModelOutputCompanion, VpsInputSignalType, VpsInputSignalStartStartType, VpsInputSignalSyncSyncType, VpsInputSignalSync, VpsOutputSignalType, VpsOutputSignalLngLatLocationSourceCompanion, VpsOutputSignalPositionStatus, VpsOutputSignalUXPositionStatus, VpsPositionEngineType, VpsLog, VpsCoordinateDCompanion, VpsCoordinateFCompanion, VpsLocationCompanion, VpsIosInterpolationModuleParams, VpsReplayAngleCorrectionCompanion, VpsReplayAngleCorrection, VpsReplayStartPosition, VpsReplayStartLngLat, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySyncLngLat, VpsReplayFloorChange, VpsReplayLngLat, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplayFloorChangeCompanion, VpsReplayLngLatCompanion, VpsReplaySensorDataCompanion, VpsReplayStartLngLatCompanion, VpsReplayStartPositionCompanion, VpsReplaySyncLngLatCompanion, VpsReplaySyncPositionCompanion, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsVPSFloorChangeHandlerSettings, VpsMLProcessedPath, VpsInputSignalExit, VpsInputSignalLngLat, VpsInputSignalSensorData, VpsInputSignalSyncLngLat, VpsInputSignalSyncPosition, VpsKotlinFloatIterator, VpsInputSignalAngleCorrection, VpsInputSignalFloorChange, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinIntIterator, VpsInputSignalStartPosition, VpsInputSignalStartLngLat, VpsKotlinDoubleIterator, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing, VpsKotlinByteIterator;
+@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsIPathfinderGoalType, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinArray<T>, VpsNavGraphVertex, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsNavGraph, VpsPathProcessorPathProcess, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsConvolveMode, VpsVPSParams, VpsVPSParamsPackage, VpsVPSParamsSystem, VpsPose, VpsAccessPoint, VpsFloorLevelHandlerMapInformation, VpsFloorLevelHandler, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams, VpsModelToEventParameters, VpsPositionEngineSettings, VpsFloorChangeHandlerSettings, VpsVelocityModelOutput, VpsFlow<T>, VpsInputSignalStart, VpsOutputSignal, VpsInputSignal, VpsFlowConverter<T, S>, VpsBaseEventStart, VpsBaseEvent, VpsFlowConverterBuilder<T, S>, VpsPositioningEngine, VpsPositioningEngineBuilder, VpsLocation, VpsOutputSignalLngLatLocationSource, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsKotlinFloatArray, VpsParticleFilterParams, VpsCoordinateF, VpsParticleFilterEvent, VpsNLModelOutput, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilterSettings, VpsParticleFilter, VpsParticleFilterBuilder, VpsBaseEventCompanion, VpsEventType, VpsBaseEventAngleCorrectionEventCompanion, VpsBaseEventAngleCorrectionEvent, VpsBaseEventFloorChangeEventCompanion, VpsBaseEventFloorChangeEvent, VpsBaseEventLngLatEventCompanion, VpsBaseEventLngLatEvent, VpsBaseEventStairEventCompanion, VpsBaseEventStairEvent, VpsBaseEventStartCompanion, VpsBaseEventStartStartType, VpsBaseEventStartLngLatEventCompanion, VpsBaseEventStartLngLatEvent, VpsBaseEventStartPositionEventCompanion, VpsBaseEventStartPositionEvent, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventStepEvent, VpsBaseEventSyncCompanion, VpsBaseEventSyncSyncType, VpsBaseEventSync, VpsBaseEventSyncLngLatEventCompanion, VpsBaseEventSyncLngLatEvent, VpsBaseEventSyncPositionEventCompanion, VpsBaseEventSyncPositionEvent, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWiFiObservation, VpsBaseEventWifiScanCompanion, VpsBaseEventWifiScan, VpsBaseEventWifiStatusUpdateCompanion, VpsBaseEventWifiStatusUpdate, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsOutputSignalUXPosition, VpsStartMethod, VpsSyncMethod, VpsSyncCritera, VpsMCL, VpsAbstractParticleFilter, VpsOutputSignalSyncSignal, VpsGaussianKDE, VpsParticleFilterKLD, VpsPoseCompanion, VpsKotlinThrowable, VpsKotlinException, VpsWifiScanDataCompanion, VpsWifiScanData, VpsRawSensorData, VpsFloorChangeHandler, VpsFloorChangeHandlerBuilder, VpsAverageVariance, VpsFloorSensorParameters, VpsAltitudeBasedFloorChangeInterpreter, VpsAltitudeBasedFloorChangeInterpreterBuilder, VpsAltitudeBasedFloorChangeInterpreterFloorState, VpsFloorSensorParametersCompanion, VpsAverageVarianceDoublePack, VpsAverageVarianceFloatPack, VpsOutputSignalWiFiFloorChangeSignal, VpsSensorDataType, VpsSensorFrequencyDetector, VpsRawSensorPack, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams_, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeatures, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsNode<T>, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsStairsInterpreter, VpsStairsInterpreterBuilder, VpsFlowBuilder<T>, VpsNLModelParams, VpsVelocityModelParams, VpsAccessPointCoordinate, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdate, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsWifiStatusUpdate, VpsVPSModelToEventParameters, VpsParticleFilterSettingsVersion, VpsVPSParticleFilterParams, VpsVPSParticleFilterSettings, VpsCoordinateD, VpsFeaturesCompanion, VpsRawSensorDataCompanion, VpsRawSensorPackCompanion, VpsTensorCompanion, VpsVelocityModelOutputCompanion, VpsInputSignalType, VpsInputSignalStartStartType, VpsInputSignalSyncSyncType, VpsInputSignalSync, VpsOutputSignalType, VpsOutputSignalLngLatLocationSourceCompanion, VpsOutputSignalPositionStatus, VpsOutputSignalUXPositionStatus, VpsPositionEngineType, VpsLog, VpsCoordinateDCompanion, VpsCoordinateFCompanion, VpsLocationCompanion, VpsIosInterpolationModuleParams, VpsReplayAngleCorrectionCompanion, VpsReplayAngleCorrection, VpsReplayStartPosition, VpsReplayStartLngLat, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySyncLngLat, VpsReplayFloorChange, VpsReplayLngLat, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplayFloorChangeCompanion, VpsReplayLngLatCompanion, VpsReplaySensorDataCompanion, VpsReplayStartLngLatCompanion, VpsReplayStartPositionCompanion, VpsReplaySyncLngLatCompanion, VpsReplaySyncPositionCompanion, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsVPSFloorChangeHandlerSettings, VpsMLProcessedPath, VpsInputSignalExit, VpsInputSignalLngLat, VpsInputSignalSensorData, VpsInputSignalSyncLngLat, VpsInputSignalSyncPosition, VpsKotlinFloatIterator, VpsInputSignalAngleCorrection, VpsInputSignalFloorChange, VpsInputSignalStairInfo, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinIntIterator, VpsInputSignalStartPosition, VpsInputSignalStartLngLat, VpsKotlinDoubleIterator, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing, VpsKotlinByteIterator;
 
 @protocol VpsIPathfinderGoal, VpsIPathfinderListener, VpsKotlinComparable, VpsIPathfinderPath, VpsKotlinx_serialization_coreKSerializer, VpsIPathfinder, VpsVPSFloorLevel, VpsFlowConnection, VpsVelocityModel, VpsVPSOutputHandler, VpsNLModel, VpsFusionFilter, VpsRandomNumberGenerator, VpsAbstractParticleFilterRescueModeHelper, VpsNodeHandler, VpsVelocityModelHandler, VpsCoordinateConverter, VpsLogOutputHandler, VpsUploader, VpsKotlinIterator, VpsKotlinx_serialization_coreEncoder, VpsKotlinx_serialization_coreSerialDescriptor, VpsKotlinx_serialization_coreSerializationStrategy, VpsKotlinx_serialization_coreDecoder, VpsKotlinx_serialization_coreDeserializationStrategy, VpsKotlinx_serialization_coreCompositeEncoder, VpsKotlinAnnotation, VpsKotlinx_serialization_coreCompositeDecoder, VpsKotlinx_serialization_coreSerializersModuleCollector, VpsKotlinKClass, VpsKotlinKDeclarationContainer, VpsKotlinKAnnotatedElement, VpsKotlinKClassifier;
 
@@ -642,23 +642,14 @@ __attribute__((swift_name("GPSFusionFilter")))
 @interface VpsGPSFusionFilter : VpsBase <VpsFusionFilter>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (float)calculateGPSCertaintyPositions:(VpsKotlinArray<VpsKotlinFloatArray *> *)positions __attribute__((swift_name("calculateGPSCertainty(positions:)")));
-- (double)computeErrorList1:(VpsKotlinArray<VpsKotlinFloatArray *> *)list1 list2:(VpsKotlinArray<VpsKotlinFloatArray *> *)list2 angle:(double)angle __attribute__((swift_name("computeError(list1:list2:angle:)")));
 - (void)end __attribute__((swift_name("end()")));
-- (double)findOptimalRotationList1:(VpsKotlinArray<VpsKotlinFloatArray *> *)list1 list2:(VpsKotlinArray<VpsKotlinFloatArray *> *)list2 __attribute__((swift_name("findOptimalRotation(list1:list2:)")));
-- (NSArray<VpsFloat *> *)getGPSAccuracy __attribute__((swift_name("getGPSAccuracy()")));
-- (NSArray<VpsLocation *> *)getGPSLocations __attribute__((swift_name("getGPSLocations()")));
-- (VpsKotlinPair<VpsKotlinArray<VpsKotlinFloatArray *> *, VpsFloat *> *)getGPSPositions __attribute__((swift_name("getGPSPositions()")));
-- (VpsKotlinPair<VpsKotlinArray<VpsKotlinFloatArray *> *, VpsFloat *> *)getMLPositions __attribute__((swift_name("getMLPositions()")));
-- (VpsKotlinFloatArray *)rotatePointPoint:(VpsKotlinFloatArray *)point angle:(double)angle __attribute__((swift_name("rotatePoint(point:angle:)")));
-- (VpsCoordinateF *)rotatePointPoint:(VpsCoordinateF *)point angle_:(double)angle __attribute__((swift_name("rotatePoint(point:angle_:)")));
 - (void)setStartStart:(VpsBaseEventStart *)start __attribute__((swift_name("setStart(start:)")));
 - (VpsKotlinTriple<VpsLocation *, VpsLocation *, VpsOutputSignalLngLatLocationSource *> * _Nullable)updateEvent:(VpsBaseEvent *)event __attribute__((swift_name("update(event:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("GPSFusionNoMLAdjustmentFilter")))
-@interface VpsGPSFusionNoMLAdjustmentFilter : VpsBase <VpsFusionFilter>
+__attribute__((swift_name("OpenTerrainFusionFilter")))
+@interface VpsOpenTerrainFusionFilter : VpsBase <VpsFusionFilter>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)end __attribute__((swift_name("end()")));
@@ -852,6 +843,34 @@ __attribute__((swift_name("BaseEvent.LngLatEventCompanion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsBaseEventLngLatEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StairEvent")))
+@interface VpsBaseEventStairEvent : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("init(timestamp:isInStair:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventStairEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventStairEvent *)doCopyTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("doCopy(timestamp:isInStair:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL isInStair __attribute__((swift_name("isInStair")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StairEventCompanion")))
+@interface VpsBaseEventStairEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventStairEventCompanion *shared __attribute__((swift_name("shared")));
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
@@ -1178,6 +1197,7 @@ __attribute__((swift_name("EventType")))
 @property (class, readonly) VpsEventType *angleCorrection __attribute__((swift_name("angleCorrection")));
 @property (class, readonly) VpsEventType *floorChange __attribute__((swift_name("floorChange")));
 @property (class, readonly) VpsEventType *lngLat __attribute__((swift_name("lngLat")));
+@property (class, readonly) VpsEventType *stair __attribute__((swift_name("stair")));
 @property (class, readonly) VpsEventType *undefined __attribute__((swift_name("undefined")));
 + (VpsKotlinArray<VpsEventType *> *)values __attribute__((swift_name("values()")));
 @end
@@ -2037,6 +2057,14 @@ __attribute__((swift_name("NodeRawSensorDataReduceGyroscopeValues")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NodeRawSensorDataRotationSensorFilter")))
+@interface VpsNodeRawSensorDataRotationSensorFilter : VpsNode<VpsRawSensorData *>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)onInputData:(VpsRawSensorData *)data __attribute__((swift_name("onInput(data:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("NodeRawSensorDataTimestampToMillis")))
 @interface VpsNodeRawSensorDataTimestampToMillis : VpsNode<VpsRawSensorData *>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
@@ -2219,6 +2247,28 @@ __attribute__((swift_name("RotationHandler.Builder")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (VpsRotationHandler *)build __attribute__((swift_name("build()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StairsInterpreter")))
+@interface VpsStairsInterpreter : VpsFlowConverter<VpsRawSensorData *, VpsOutputSignal *>
+- (instancetype)initWithSystem:(VpsVPSParamsSystem *)system listener:(void (^)(VpsInputSignal *))listener __attribute__((swift_name("init(system:listener:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (void)doInit __attribute__((swift_name("doInit()")));
+- (void)onExit __attribute__((swift_name("onExit()")));
+- (void)onInputData:(VpsRawSensorData *)data __attribute__((swift_name("onInput(data:)")));
+@property (readonly) VpsVPSParamsSystem *system __attribute__((swift_name("system")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StairsInterpreter.Builder")))
+@interface VpsStairsInterpreterBuilder : VpsFlowConverterBuilder<VpsStairsInterpreter *, VpsOutputSignal *>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VpsStairsInterpreter *)build __attribute__((swift_name("build()")));
+- (VpsStairsInterpreterBuilder *)setListenerListener:(void (^)(VpsInputSignal *))listener __attribute__((swift_name("setListener(listener:)")));
+- (VpsStairsInterpreterBuilder *)setSystemSystem:(VpsVPSParamsSystem *)system __attribute__((swift_name("setSystem(system:)")));
 @end
 
 __attribute__((swift_name("Flow")))
@@ -2705,7 +2755,7 @@ __attribute__((swift_name("RawSensorData")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) int64_t sensorTimestamp __attribute__((swift_name("sensorTimestamp")));
-@property (readonly) VpsSensorDataType *sensorType __attribute__((swift_name("sensorType")));
+@property VpsSensorDataType *sensorType __attribute__((swift_name("sensorType")));
 @property (readonly) int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @property (readonly) VpsKotlinFloatArray *values __attribute__((swift_name("values")));
 @end
@@ -2772,6 +2822,7 @@ __attribute__((swift_name("SensorDataType")))
 @property (class, readonly) VpsSensorDataType *proximity __attribute__((swift_name("proximity")));
 @property (class, readonly) VpsSensorDataType *radiusSync __attribute__((swift_name("radiusSync")));
 @property (class, readonly) VpsSensorDataType *rotation __attribute__((swift_name("rotation")));
+@property (class, readonly) VpsSensorDataType *rotationAlternative __attribute__((swift_name("rotationAlternative")));
 @property (class, readonly) VpsSensorDataType *screenBrightness __attribute__((swift_name("screenBrightness")));
 @property (class, readonly) VpsSensorDataType *sync __attribute__((swift_name("sync")));
 @property (class, readonly) VpsSensorDataType *timestampDiff __attribute__((swift_name("timestampDiff")));
@@ -2879,6 +2930,13 @@ __attribute__((swift_name("InputSignal.SensorData")))
 @property (readonly) VpsRawSensorData *rawSensorData __attribute__((swift_name("rawSensorData")));
 @end
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InputSignal.StairInfo")))
+@interface VpsInputSignalStairInfo : VpsInputSignal
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp isInStair:(BOOL)isInStair __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:isInStair:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) BOOL isInStair __attribute__((swift_name("isInStair")));
+@end
+
 __attribute__((swift_name("InputSignal.Start")))
 @interface VpsInputSignalStart : VpsInputSignal
 @property (readonly) VpsInputSignalStartStartType *startType __attribute__((swift_name("startType")));
@@ -2966,6 +3024,7 @@ __attribute__((swift_name("InputSignal.Type_")))
 @property (class, readonly) VpsInputSignalType *floorChange __attribute__((swift_name("floorChange")));
 @property (class, readonly) VpsInputSignalType *lngLat __attribute__((swift_name("lngLat")));
 @property (class, readonly) VpsInputSignalType *exit __attribute__((swift_name("exit")));
+@property (class, readonly) VpsInputSignalType *stairs __attribute__((swift_name("stairs")));
 + (VpsKotlinArray<VpsInputSignalType *> *)values __attribute__((swift_name("values()")));
 @end
 
@@ -4174,6 +4233,7 @@ __attribute__((swift_name("KotlinFloatArray")))
 - (float)quatDiffV:(VpsKotlinFloatArray *)v __attribute__((swift_name("quatDiff(v:)")));
 - (VpsKotlinFloatArray *)quaternionExtractPitch __attribute__((swift_name("quaternionExtractPitch()")));
 - (VpsKotlinFloatArray *)quaternionExtractYaw __attribute__((swift_name("quaternionExtractYaw()")));
+- (float)quaternionExtractYawAngle __attribute__((swift_name("quaternionExtractYawAngle()")));
 - (VpsKotlinFloatArray *)quaternionInverse __attribute__((swift_name("quaternionInverse()")));
 - (VpsKotlinFloatArray *)quaternionMultiplyWithQuaternion:(VpsKotlinFloatArray *)quaternion __attribute__((swift_name("quaternionMultiplyWith(quaternion:)")));
 - (VpsKotlinIntArray *)randomChoicesIndicesK:(int32_t)k random:(id<VpsRandomNumberGenerator>)random __attribute__((swift_name("randomChoicesIndices(k:random:)")));
@@ -4214,6 +4274,10 @@ __attribute__((swift_name("KotlinArray")))
 @interface VpsInputSignalLngLat (Extensions)
 - (VpsBaseEventLngLatEvent *)toBaseEvent __attribute__((swift_name("toBaseEvent()")));
 - (VpsReplayLngLat *)toReplayLngLat __attribute__((swift_name("toReplayLngLat()")));
+@end
+
+@interface VpsInputSignalStairInfo (Extensions)
+- (VpsBaseEventStairEvent *)toBaseEvent __attribute__((swift_name("toBaseEvent()")));
 @end
 
 @interface VpsInputSignalSync (Extensions)
@@ -4344,6 +4408,12 @@ __attribute__((swift_name("MCLKt")))
 + (VpsKotlinTriple<VpsKotlinFloatArray *, VpsFloat *, VpsFloat *> *)make_binArray:(VpsKotlinFloatArray *)array bin_size:(int32_t)bin_size __attribute__((swift_name("make_bin(array:bin_size:)")));
 + (VpsKotlinArray<id> *)random_choiceElements:(VpsKotlinArray<id> *)elements weights:(VpsKotlinFloatArray *)weights size:(int32_t)size __attribute__((swift_name("random_choice(elements:weights:size:)")));
 + (VpsCoordinateF *)weighted_mass_centerCenters:(NSMutableArray<VpsCoordinateF *> *)centers radii:(NSMutableArray<VpsFloat *> *)radii __attribute__((swift_name("weighted_mass_center(centers:radii:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NodeRawSensorDataRotationSensorFilterKt")))
+@interface VpsNodeRawSensorDataRotationSensorFilterKt : VpsBase
+@property (class, readonly) float pi __attribute__((swift_name("pi")));
 @end
 
 __attribute__((objc_subclassing_restricted))

@@ -72,6 +72,16 @@ final class VPSSensorManager {
         }
       }.store(in: &cancellable)
 
+    SensorManager.sensorPublisher2
+      .compactMap { $0 }
+      .sink { (_) in
+        Logger().log(message: "sensorPublisher2 error")
+      } receiveValue: { [weak self] (data) in
+        self?.serialDispatch.async {
+          self?.reportSensorData2(data: data)
+        }
+      }.store(in: &cancellable)
+
     sensorManager.altimeterPublisher
       .compactMap { $0 }
       .sink { _ in
@@ -105,6 +115,12 @@ final class VPSSensorManager {
     dataPublisher.send(RawSensorData(values: geomagneticArr, sensorType: .geomagnetic, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
     dataPublisher.send(RawSensorData(values: accelerometerArr, sensorType: .accelerometer, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
     dataPublisher.send(RawSensorData(values: gyroscopeArr, sensorType: .gyroscopeUncalibrated, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
+  }
+
+  private func reportSensorData2(data: MotionSensorData) {
+    let rotationArr = KotlinFloatArray(size: Int32(data.rotation.data.count))
+    data.rotation.data.enumerated().forEach { rotationArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
+    dataPublisher.send(RawSensorData(values: rotationArr, sensorType: .rotationAlternative, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
   }
 
   private func reportAltimeterData(data: AltitudeSensorData) {
