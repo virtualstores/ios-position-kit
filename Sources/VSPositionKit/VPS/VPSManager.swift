@@ -49,6 +49,7 @@ final class VPSManager: VPSWrapper {
   var isRecording: Bool { recorder.isRecording }
 
   private var cancellable = Set<AnyCancellable>()
+  private var particleFilterOffsetAngle: Float?
 
   init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
     self.automaticSensorRecording = automaticSensorRecording
@@ -110,10 +111,12 @@ final class VPSManager: VPSWrapper {
         interpolationParams: IosInterpolationModuleParams.shared.default_,
         modelToEventParameters: modelToEventParameters,
         particleFilterSettings: particleFilterSettings,
+        floorChangeHandlerSettings: .init(wifiFloorChangeActive: false),
         debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil,
-        nlModel: nlModel
+        nlModel: nlModel,
+        isRotationOutputActive: true
       )
     }
   }
@@ -132,6 +135,7 @@ final class VPSManager: VPSWrapper {
     }
     recorder.stopRecording()
     vpsRunning = false
+    particleFilterOffsetAngle = nil
   }
 
   func stopRecording() {
@@ -328,7 +332,7 @@ extension VPSManager: VPSOutputHandler {
     switch outputSignal {
     case let signal as OutputSignal.Position:
       let position = VPSOutputSignal.Position(
-        position: signal.position.asCGPoint,
+        point: signal.position.asCGPoint,
         std: signal.std.asDouble,
         status: signal.status.asStatus,
         timestamp: Date()
@@ -336,7 +340,7 @@ extension VPSManager: VPSOutputHandler {
       outputSignalPublisher.send(.position(position: position))
     case let signal as OutputSignal.UXPosition:
       let position = VPSOutputSignal.Position(
-        position: signal.position.asCGPoint,
+        point: signal.position.asCGPoint,
         std: signal.std.asDouble,
         status: signal.status.asStatus,
         timestamp: Date()
@@ -344,17 +348,20 @@ extension VPSManager: VPSOutputHandler {
       outputSignalPublisher.send(.ux(position: position))
     case let signal as OutputSignal.MLOutputPosition:
       let position = VPSOutputSignal.Position(
-        position: signal.position.asCGPoint,
+        point: signal.position.asCGPoint,
         std: signal.std.asDouble,
         status: .none,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ml(position: position))
     case let signal as OutputSignal.Rotation:
-      let heading = DoubleExtKt.radiansToDegrees(Double(signal.heading))
+      //let rawDirection = signal.heading.asDouble
+      let resultAngle = (signal.heading + (particleFilterOffsetAngle ?? 0.0)).asDouble
+      let heading = DoubleExtKt.radiansToDegrees(resultAngle)
       //print("Rotation", heading)
-      outputSignalPublisher.send(.rotation(heading: Double(heading)))
-    case _ as OutputSignal.RotationDeviationAngle: break
+      outputSignalPublisher.send(.rotation(heading: heading))
+    case let output as OutputSignal.RotationDeviationAngle:
+      particleFilterOffsetAngle = output.angle
     case _ as OutputSignal.RescueModeSignal:
       outputSignalPublisher.send(.rescueMode)
     case let output as OutputSignal.ParticleSignal:
@@ -368,7 +375,7 @@ extension VPSManager: VPSOutputHandler {
       outputSignalPublisher.send(.particles(positions: positions))
     case let output as OutputSignal.FloorChangeSignal:
       outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
-    default: break//Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
+    default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
 }
