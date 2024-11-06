@@ -24,7 +24,7 @@ final class VPSManager: VPSWrapper {
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
   var vpsParticleFilterSettings: [String:String] { particleFilterSettings.map() }
 
-  private (set) var pathfinder: BasePathfinder?
+  private(set) var pathfinder: BasePathfinder?
   var vpsRunning: Bool = false
 
   /// vps properties
@@ -112,6 +112,7 @@ final class VPSManager: VPSWrapper {
         modelToEventParameters: modelToEventParameters,
         particleFilterSettings: particleFilterSettings,
         floorChangeHandlerSettings: .init(wifiFloorChangeActive: false),
+        rotationHandlerSettings: .init(rotationOutputLimit: 3),
         debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil,
