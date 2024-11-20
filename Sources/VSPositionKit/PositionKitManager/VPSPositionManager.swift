@@ -70,8 +70,12 @@ extension VPSPositionManager: IPositionKit {
     bindPublishers()
   }
 
-  public func start() throws {
-    try sensor.start()
+  public func start(withoutAltimeter: Bool) throws {
+    if withoutAltimeter {
+      try sensor.startMotion()
+    } else {
+      try sensor.start()
+    }
   }
 
   public func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {

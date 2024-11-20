@@ -20,26 +20,26 @@ public protocol IPositionKit {
 
     /// Publishes output signals from VPS
     var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> { get }
-    
+
     /// Starts position managers. Will produce results to positionPublisher.
-    func start() throws
-    
+    func start(withoutAltimeter: Bool) throws
+
     /// Stops position managers.
     func stop(stopSensors: Bool)
-    
+
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)
 
     func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> MLProcessedPath
 
     func prepareAngle()
-    
+
     /// MapFence setup methode
     func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager)
 
     /// Start navigation setup methode
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
-    
+
     func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     func syncAngleCorrection(angle: Double, positions: [CGPoint])
