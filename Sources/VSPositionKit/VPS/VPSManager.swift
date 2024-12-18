@@ -110,8 +110,8 @@ final class VPSManager: VPSWrapper {
         featureToTensorValueParams: FeatureToTensorValueParams(packageFrequency: 30),
         interpolationParams: IosInterpolationModuleParams.shared.default_,
         modelToEventParameters: modelToEventParameters,
-        particleFilterSettings: particleFilterSettings,
-        floorChangeHandlerSettings: .init(wifiFloorChangeActive: false),
+        positionEngineSettings: PositionEngineSettings.ParticleFilter(particleFilterSettings: particleFilterSettings),
+        floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3),
         debugMode: false,
         extendedDebugMode: false,
@@ -119,6 +119,8 @@ final class VPSManager: VPSWrapper {
         nlModel: nlModel,
         isRotationOutputActive: true
       )
+
+
     }
   }
 
@@ -147,7 +149,7 @@ final class VPSManager: VPSWrapper {
   func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     start()
     vpsRunning = true
-    let signal = InputSignal.Start(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
+    let signal = InputSignal.StartPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(inputSignal: signal)
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
@@ -250,7 +252,10 @@ final class VPSManager: VPSWrapper {
       particlesOutputActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_PARTICLES_OUTPUT_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).particlesOutputActivated,
       particleFilterVersion: getParticleFilterVersion(settings: settings) ?? getDefaultParticleFilterSettings(settings: settings).particleFilterVersion,
       particleFilterParams: getParticleFilterParams(settings: settings, defaultParams: getDefaultParams(settings: settings)),
-      randomNumberGeneratorSeed: nil
+      randomNumberGeneratorSeed: nil,
+      saveOutputSignals: false,
+      saveWiFiStatusUpdate: false,
+      saveWiFiScans: false
     )
   }
 
@@ -262,6 +267,7 @@ final class VPSManager: VPSWrapper {
     switch defaultEnum {
     case .v1: return ParticleFilterSettings.Version.v1
     case .v2: return ParticleFilterSettings.Version.v2
+
     }
   }
 
@@ -275,16 +281,23 @@ final class VPSManager: VPSWrapper {
     case .compass: return VPSParticleFilterParams.shared.compass
     case .v1: return VPSParticleFilterParams.shared.particleFilterV1
     case .v2: return VPSParticleFilterParams.shared.particleFilterV2
+    case .v3: return VPSParticleFilterParams.shared.particleFilterV3
+    case .mixedGauss: return VPSParticleFilterParams.shared.particleFilterMixedGauss
+    case .sprinkle: return VPSParticleFilterParams.shared.sprinkleFilter
     }
   }
 
   static func getParticleFilterParams(settings: PositionServiceSettings?, defaultParams: ParticleFilterParams) -> ParticleFilterParams {
     ParticleFilterParams(
+      version: defaultParams.version,
       maxNumParticles: settings?.maxNumParticles ?? defaultParams.maxNumParticles,
       minNumParticles: settings?.minNumParticles ?? defaultParams.minNumParticles,
       stepLengthStd: settings?.stepLengthStd ?? defaultParams.stepLengthStd,
       stepDirectionStd: settings?.stepDirectionStd ?? defaultParams.stepDirectionStd,
       biasStd: settings?.biasStd ?? defaultParams.biasStd,
+      secondBiasStd: settings?.secondBiasStd ?? defaultParams.secondBiasStd,
+      secondBiasMean: settings?.secondBiasMean ?? defaultParams.secondBiasMean,
+      mixingFactor: settings?.mixingFactor ?? defaultParams.mixingFactor,
       startMethod: settings?.startMethod ?? defaultParams.startMethod,
       startPositionStd: settings?.startPositionStd ?? defaultParams.startPositionStd,
       startDirectionStd: settings?.startDirectionStd ?? defaultParams.startDirectionStd,
@@ -305,7 +318,16 @@ final class VPSManager: VPSWrapper {
       sprinkleSyncThreshold: settings?.sprinkleSyncThreshold ?? defaultParams.sprinkleSyncThreshold,
       sprinklePercentage: settings?.sprinklePercentage ?? defaultParams.sprinklePercentage,
       useRayTraceSensorModel: settings?.useRayTraceSensorModel ?? defaultParams.useRayTraceSensorModel,
-      nlThreshold: settings?.nlThreshold ?? defaultParams.nlThreshold
+      nlThreshold: settings?.nlThreshold ?? defaultParams.nlThreshold,
+      rescueOnNL: settings?.rescueOnNL ?? defaultParams.rescueOnNL,
+      idleWiFiDistanceSyncCriteria: settings?.idleWiFiDistanceSyncCriteria ?? defaultParams.idleWiFiDistanceSyncCriteria,
+      idleWiFiSecondsCriteria: settings?.idleWiFiSecondsCriteria ?? defaultParams.idleWiFiSecondsCriteria,
+      wiFiPathLossCoefficient: settings?.wiFiPathLossCoefficient ?? defaultParams.wiFiPathLossCoefficient,
+      wiFiMeasuredPower: settings?.wiFiMeasuredPower ?? defaultParams.wiFiMeasuredPower,
+      swapSprinkleInterval: settings?.swapSprinkleInterval ?? defaultParams.swapSprinkleInterval,
+      swapSprinkleEndCount: settings?.swapSprinkleEndCount ?? defaultParams.swapSprinkleEndCount,
+      swapSprinkleRatio: settings?.swapSprinkleRatio ?? defaultParams.swapSprinkleRatio,
+      mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize
     )
   }
 
@@ -314,6 +336,9 @@ final class VPSManager: VPSWrapper {
     case compass = "COMPASS"
     case v1 = "V1"
     case v2 = "V2"
+    case v3 = "V3"
+    case mixedGauss = "MIXED_GAUSS"
+    case sprinkle = "SPRINKLE"
   }
 
   enum VPSParticleFilterSettingsEnum: String {
@@ -374,8 +399,8 @@ extension VPSManager: VPSOutputHandler {
         ))
       }
       outputSignalPublisher.send(.particles(positions: positions))
-    case let output as OutputSignal.FloorChangeSignal:
-      outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
+    case let output as OutputSignal.FloorChangeSignal: break
+      //outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
@@ -438,6 +463,9 @@ private extension PositionServiceSettings {
   var stepLengthStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_LENGTH_STD] }
   var stepDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_DIRECTION_STD] }
   var biasStd: Float? { floatValues?[.PARTICLE_FILTER_BIAS_STD] }
+  var secondBiasStd: Float? { floatValues?[.PARTICLE_FILTER_SECOND_BIAS_STD] }
+  var secondBiasMean: Float? { floatValues?[.PARTICLE_FILTER_SECOND_BIAS_MEAN] }
+  var mixingFactor: Float? { floatValues?[.PARTICLE_FILTER_MIXING_FACTOR] }
   var startMethod: StartMethod? {
     guard let value = stringValues?[.PARTICLE_FILTER_START_METHOD] else { return nil }
     return VPSStartMethod(rawValue: value)?.asStartMethod
@@ -464,6 +492,15 @@ private extension PositionServiceSettings {
   var sprinklePercentage: Float? { floatValues?[.PARTICLE_FILTER_SPRINKLE_PERCENTAGE] }
   var useRayTraceSensorModel: Bool? { boolValues?[.PARTICLE_USE_RAY_TRACE_SENSOR_MODEL] }
   var nlThreshold: Float? { floatValues?[.PARTICLE_FILTER_NL_THRESHOLD] }
+  var rescueOnNL: Bool? { boolValues?[.PARTICLE_FILTER_RESCUE_ON_NL] }
+  var idleWiFiDistanceSyncCriteria: Float? { floatValues?[.PARTICLE_FILTER_IDLE_WIFI_DISTANCE_SYNC_CRITERIA] }
+  var idleWiFiSecondsCriteria: Float? { floatValues?[.PARTICLE_FILTER_IDLE_WIFI_SECONDS_SYNC_CRITERIA] }
+  var wiFiPathLossCoefficient: Float? { floatValues?[.PARTICLE_FILTER_WIFI_PATH_LOSS_COEFFICient] }
+  var wiFiMeasuredPower: Int32? { intValues?[.PARTICLE_FILTER_WIFI_MESURED_POWER]?.asInt32 }
+  var swapSprinkleInterval: Int32? { intValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_INTERVAL]?.asInt32 }
+  var swapSprinkleEndCount: Int32? { intValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_END_COUNT]?.asInt32 }
+  var swapSprinkleRatio: Float? { floatValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_RATIO] }
+  var mlStepHistorySize: Int32? { intValues?[.PARTICLE_FILTER_ML_STEP_HISTORY_SIZE]?.asInt32 }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -523,6 +560,9 @@ private extension String {
   static let PARTICLE_FILTER_STEP_LENGTH_STD: String = "ios_particleFilter_stepLengthStd"
   static let PARTICLE_FILTER_STEP_DIRECTION_STD: String = "ios_particleFilter_stepDirectionStd"
   static let PARTICLE_FILTER_BIAS_STD: String = "ios_particleFilter_biasStd"
+  static let PARTICLE_FILTER_SECOND_BIAS_STD: String = "ios_particleFilter_secondBiasStd"
+  static let PARTICLE_FILTER_SECOND_BIAS_MEAN: String = "ios_particleFilter_secondBiasMean"
+  static let PARTICLE_FILTER_MIXING_FACTOR: String = "ios_particleFilter_mixingFactor"
   static let PARTICLE_FILTER_START_METHOD: String = "ios_particleFilter_startMethod"
   static let PARTICLE_FILTER_START_POSITION_STD: String = "ios_particleFilter_startPositionStd"
   static let PARTICLE_FILTER_START_DIRECTION_STD: String = "ios_particleFilter_startDirectionStd"
@@ -543,6 +583,15 @@ private extension String {
   static let PARTICLE_FILTER_SPRINKLE_PERCENTAGE: String = "ios_particleFilter_sprinklePercentage"
   static let PARTICLE_FILTER_MIN_NUM_PARTICLES: String = "ios_particleFilter_minNumParticles"
   static let PARTICLE_FILTER_NL_THRESHOLD: String = "ios_particleFilter_nlThreshold"
+  static let PARTICLE_FILTER_RESCUE_ON_NL: String = "ios_particleFilter_rescueOnNL"
+  static let PARTICLE_FILTER_IDLE_WIFI_DISTANCE_SYNC_CRITERIA: String = "ios_particleFilter_idleWiFiDistanceSyncCriteria"
+  static let PARTICLE_FILTER_IDLE_WIFI_SECONDS_SYNC_CRITERIA: String = "ios_particleFilter_idleWiFiSecondsCriteria"
+  static let PARTICLE_FILTER_WIFI_PATH_LOSS_COEFFICient: String = "ios_particleFilter_wiFiPathLossCoefficient"
+  static let PARTICLE_FILTER_WIFI_MESURED_POWER: String = "ios_particleFilter_wiFiMeasuredPower"
+  static let PARTICLE_FILTER_SWAP_SPRINKLE_INTERVAL: String = "ios_particleFilter_swapSprinkleInterval"
+  static let PARTICLE_FILTER_SWAP_SPRINKLE_END_COUNT: String = "ios_particleFilter_swapSprinkleEndCount"
+  static let PARTICLE_FILTER_SWAP_SPRINKLE_RATIO: String = "ios_particleFilter_swapSprinkleRatio"
+  static let PARTICLE_FILTER_ML_STEP_HISTORY_SIZE: String = "ios_particleFilter_mlStepHistorySize"
   static let PARTICLE_USE_RAY_TRACE_SENSOR_MODEL: String = "ios_particleFilter_useRayTraceSensorModel"
 }
 

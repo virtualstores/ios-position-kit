@@ -101,7 +101,7 @@ extension VPSVelocityModel: VelocityModel {
     stepNumber = 0
   }
 
-  func onInput(data__ data: Tensor) {
+  func onInput(data___ data: Tensor) {
     guard let convertedData = data.data.convertToDouble else { return }
     batchedData.append(convertedData.flatMap({ $0 }))
     //batchedData.append(data.data.map({ $0.map({ Double(truncating: $0) }) }).flatMap { $0 })

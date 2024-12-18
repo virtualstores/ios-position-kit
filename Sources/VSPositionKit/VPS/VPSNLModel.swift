@@ -52,7 +52,7 @@ extension VPSNLModel: NLModel {
 
   func onExit() {}
 
-  func onInput(data_ data: Tensor) -> NLModelOutput? {
+  func onInput(data__ data: Tensor) -> NLModelOutput? {
     guard
       var convertedData = data.data.convertToDouble,
       let map2D = map2D?.convertToDouble

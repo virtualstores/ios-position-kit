@@ -70,6 +70,10 @@ class FloorLevelData {
 }
 
 extension FloorLevelData: VPSFloorLevel {
+  var swapLocations: [vps.SwapLocation] {
+    []
+  }
+  
   var ceilingHeightInMeters: KotlinDouble? { .init(double: data.metersToNextFloor) }
   var id_: Int64 { data.rtls.id }
   var pixelsPerMeter: Double { data.rtls.pixelsPerMeter }
