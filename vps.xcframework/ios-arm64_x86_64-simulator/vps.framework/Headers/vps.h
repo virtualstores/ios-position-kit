@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsNavGraph, VpsPathProcessorPathProcess, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsNavGraphVertex, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinArray<T>, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsIPathfinderGoalType, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsConvolveMode, VpsCoordinateF, VpsBaseEventWiFiObservation, VpsBaseEventWiFiScan, VpsFloorChangeInterpreterType, VpsPose, VpsAccessPoint, VpsSwapLocation, VpsFloorLevelHandlerMapInformation, VpsFloorLevelHandler, VpsVPSParamsSystem, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams, VpsModelToEventParameters, VpsPositionEngineSettings, VpsFloorChangeInterpreterSettings, VpsRotationHandlerSettings, VpsVelocityModelOutput, VpsFlow<T>, VpsInputSignalStart, VpsOutputSignal, VpsInputSignal, VpsFlowConverter<T, S>, VpsBaseEvent, VpsRawSensorData, VpsFloorChangeSignal, VpsFlowConverterBuilder<T, S>, VpsFloorChangeInterpreter, VpsFloorChangeInterpreterBuilder, VpsInAndOutTrigger, VpsFloorChangeControllerCompanion, VpsFloorChangeSignalWiFiFloorChangeSignal, VpsFloorChangeController, VpsFloorChangeControllerBuilder, VpsFloorChangeDetector, VpsBaseEventWifiStatusUpdate, VpsAltitudeClassifierParams, VpsClassifierState, VpsClassifierEvent, VpsKotlinFloatArray, VpsConvertAltitudeToClassifierEvent, VpsConvertAltitudeToClassifierEventBuilder, VpsNode<T>, VpsAltitudeBasedFloorChangeInterpreterFloorState, VpsAverageVariance, VpsFloorSensorParameters, VpsAltitudeBasedFloorChangeInterpreter, VpsAltitudeBasedFloorChangeInterpreterBuilder, VpsFloorSensorParametersCompanion, VpsSensorDataType, VpsSensorFrequencyDetector, VpsAverageVarianceDoublePack, VpsAverageVarianceFloatPack, VpsBaseEventStart, VpsPositioningEngine, VpsPositioningEngineBuilder, VpsLocation, VpsOutputSignalLngLatLocationSource, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsParticleFilterParams, VpsParticleFilterEvent, VpsNLModelOutput, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilterSettings, VpsParticleFilter, VpsParticleFilterBuilder, VpsBaseEventCompanion, VpsEventType, VpsBaseEventAngleCorrectionEventCompanion, VpsBaseEventAngleCorrectionEvent, VpsBaseEventFloorChangeEventCompanion, VpsBaseEventFloorChangeEvent, VpsBaseEventLngLatEventCompanion, VpsBaseEventLngLatEvent, VpsBaseEventStairEventCompanion, VpsBaseEventStairEvent, VpsBaseEventStartCompanion, VpsBaseEventStartStartType, VpsBaseEventStartLngLatEventCompanion, VpsBaseEventStartLngLatEvent, VpsBaseEventStartPositionEventCompanion, VpsBaseEventStartPositionEvent, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventStepEvent, VpsBaseEventSyncCompanion, VpsBaseEventSyncSyncType, VpsBaseEventSync, VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion, VpsBaseEventSyncAccessPointFloorSwapSyncEvent, VpsBaseEventSyncLngLatEventCompanion, VpsBaseEventSyncLngLatEvent, VpsBaseEventSyncPositionEventCompanion, VpsBaseEventSyncPositionEvent, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWiFiScanCompanion, VpsBaseEventWifiStatusUpdateCompanion, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsOutputSignalUXPosition, VpsAbstractParticleFilter, VpsOutputSignalSyncSignal, VpsGaussianKDE, VpsStartMethod, VpsSyncMethod, VpsParticleFilterKLD, VpsParticleFilterKLDV2, VpsPoseCompanion, VpsSyncCritera, VpsKotlinThrowable, VpsKotlinException, VpsWifiScanDataCompanion, VpsWifiScanData, VpsFeatures, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsRawSensorPack, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams_, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsStairsInterpreter, VpsStairsInterpreterBuilder, VpsCoordinateDCompanion, VpsCoordinateD, VpsAccessPointCoordinate, VpsCoordinateFCompanion, VpsLocationCompanion, VpsLFiltInitCond, VpsWiFiAltitudeFusionParams, VpsVPSFloorChangeHandlerSettings, VpsFlowBuilder<T>, VpsVPSModelToEventParameters, VpsParticleFilterParamsVersion, VpsParticleFilterSettingsVersion, VpsVPSParticleFilterParams, VpsVPSParticleFilterSettings, VpsPositionEngineType, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsReplayAngleCorrectionCompanion, VpsReplayAngleCorrection, VpsReplayStartPosition, VpsReplayStartLngLat, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySyncLngLat, VpsWifiStatusUpdate, VpsWifiScanUpdate, VpsReplayFloorChange, VpsReplayLngLat, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplayFloorChangeCompanion, VpsReplayLngLatCompanion, VpsReplaySensorDataCompanion, VpsReplayStartLngLatCompanion, VpsReplayStartPositionCompanion, VpsReplaySyncLngLatCompanion, VpsReplaySyncPositionCompanion, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsFeaturesCompanion, VpsRawSensorDataCompanion, VpsRawSensorPackCompanion, VpsTensorCompanion, VpsVelocityModelOutputCompanion, VpsIosInterpolationModuleParams, VpsInputSignalType, VpsInputSignalStartStartType, VpsInputSignalSyncSyncType, VpsInputSignalSync, VpsOutputSignalCompanion, VpsOutputSignalType, VpsOutputSignalFloorChangeSignalCompanion, VpsOutputSignalLngLatLocationCompanion, VpsOutputSignalLngLatLocationSourceCompanion, VpsOutputSignalMLOutputPositionCompanion, VpsOutputSignalParticleSignalCompanion, VpsOutputSignalPositionStatus, VpsOutputSignalPositionCompanion, VpsOutputSignalPositionStatusCompanion, VpsOutputSignalRescueModeSignalCompanion, VpsOutputSignalRotationCompanion, VpsOutputSignalRotationDeviationAngleCompanion, VpsOutputSignalSyncSignalCompanion, VpsOutputSignalTypeCompanion, VpsOutputSignalUXPositionStatus, VpsOutputSignalUXPositionCompanion, VpsOutputSignalWiFiFloorChangeSignalCompanion, VpsSwapLocationSwapLocationPoint, VpsSwapLocationSwapLocationPath, VpsSwapLocationCompanion, VpsSwapLocationSwapLocationPathCompanion, VpsSwapLocationSwapLocationPathDirection, VpsSwapLocationSwapLocationPointCompanion, VpsNLModelParams, VpsVelocityModelParams, VpsLog, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsVPSParams, VpsVPSParamsPackage, VpsMLProcessedPath, VpsKotlinDoubleIterator, VpsKotlinFloatIterator, VpsKotlinIntIterator, VpsInputSignalSensorData, VpsInputSignalStartPosition, VpsInputSignalSyncPosition, VpsInputSignalExit, VpsInputSignalLngLat, VpsInputSignalSyncLngLat, VpsInputSignalAngleCorrection, VpsInputSignalFloorChange, VpsInputSignalStairInfo, VpsInputSignalStartLngLat, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinByteIterator, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing;
+@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsNavGraph, VpsPathProcessorPathProcess, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsNavGraphVertex, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinArray<T>, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsIPathfinderGoalType, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsConvolveMode, VpsCoordinateF, VpsOutputSignalPositionActivityState, VpsBaseEventWiFiObservation, VpsBaseEventWiFiScan, VpsFloorChangeInterpreterType, VpsFlowConverter<T, S>, VpsVPSParamsSystem, VpsFloorLevelHandler, VpsFloorChangeInterpreterSettings, VpsRawSensorData, VpsBaseEvent, VpsFloorChangeSignal, VpsFlowConverterBuilder<T, S>, VpsFloorChangeInterpreter, VpsFloorChangeInterpreterBuilder, VpsInAndOutTrigger, VpsInputSignal, VpsFloorChangeControllerCompanion, VpsFloorChangeSignalWiFiFloorChangeSignal, VpsOutputSignal, VpsFloorChangeController, VpsFloorChangeControllerBuilder, VpsFloorChangeDetector, VpsBaseEventWifiStatusUpdate, VpsAltitudeClassifierParams, VpsClassifierState, VpsClassifierEvent, VpsKotlinFloatArray, VpsConvertAltitudeToClassifierEvent, VpsConvertAltitudeToClassifierEventBuilder, VpsNode<T>, VpsAltitudeBasedFloorChangeInterpreterFloorState, VpsAverageVariance, VpsFloorSensorParameters, VpsAltitudeBasedFloorChangeInterpreter, VpsAltitudeBasedFloorChangeInterpreterBuilder, VpsFloorSensorParametersCompanion, VpsSensorDataType, VpsSensorFrequencyDetector, VpsAverageVarianceDoublePack, VpsAverageVarianceFloatPack, VpsBaseEventStart, VpsPositioningEngine, VpsPositioningEngineBuilder, VpsPositionEngineSettings, VpsLocation, VpsOutputSignalLngLatLocationSource, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsParticleFilterParams, VpsParticleFilterEvent, VpsNLModelOutput, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilterSettings, VpsParticleFilter, VpsParticleFilterBuilder, VpsOutputSignalUXPosition, VpsAbstractParticleFilter, VpsPose, VpsOutputSignalSyncSignal, VpsBaseEventStepEvent, VpsGaussianKDE, VpsFloorLevelHandlerMapInformation, VpsStartMethod, VpsSyncMethod, VpsParticleFilterKLD, VpsParticleFilterKLDV2, VpsFeatures, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsRotationHandlerSettings, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsRawSensorPack, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsModelToEventParameters, VpsVelocityModelOutput, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsStairsInterpreter, VpsStairsInterpreterBuilder, VpsCoordinateD, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsReplayAngleCorrectionCompanion, VpsReplayAngleCorrection, VpsReplayStartPosition, VpsReplayStartLngLat, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySyncLngLat, VpsWifiStatusUpdate, VpsWifiScanUpdate, VpsReplayFloorChange, VpsReplayLngLat, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplayFloorChangeCompanion, VpsReplayLngLatCompanion, VpsReplaySensorDataCompanion, VpsReplayStartLngLatCompanion, VpsReplayStartPositionCompanion, VpsReplaySyncLngLatCompanion, VpsReplaySyncPositionCompanion, VpsFeaturesCompanion, VpsRawSensorPackCompanion, VpsEventType, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsPoseCompanion, VpsSyncCritera, VpsKotlinThrowable, VpsKotlinException, VpsWifiScanDataCompanion, VpsWifiScanData, VpsMLProcessedPath, VpsLFiltInitCond, VpsAccessPoint, VpsSwapLocation, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams_, VpsFlow<T>, VpsInputSignalStart, VpsVPSLog, VpsCoordinateDCompanion, VpsAccessPointCoordinate, VpsCoordinateFCompanion, VpsLocationCompanion, VpsWiFiAltitudeFusionParams, VpsVPSFloorChangeHandlerSettings, VpsFlowBuilder<T>, VpsVPSModelToEventParameters, VpsParticleFilterParamsVersion, VpsParticleFilterSettingsVersion, VpsParticleFilterSettingsParticleFilterVersion, VpsVPSParticleFilterParams, VpsVPSParticleFilterSettings, VpsPositionEngineType, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsRawSensorDataCompanion, VpsTensorCompanion, VpsVelocityModelOutputCompanion, VpsIosInterpolationModuleParams, VpsBaseEventCompanion, VpsBaseEventAngleCorrectionEventCompanion, VpsBaseEventAngleCorrectionEvent, VpsBaseEventFloorChangeEventCompanion, VpsBaseEventFloorChangeEvent, VpsBaseEventLngLatEventCompanion, VpsBaseEventLngLatEvent, VpsBaseEventStairEventCompanion, VpsBaseEventStairEvent, VpsBaseEventStartCompanion, VpsBaseEventStartStartType, VpsBaseEventStartLngLatEventCompanion, VpsBaseEventStartLngLatEvent, VpsBaseEventStartPositionEventCompanion, VpsBaseEventStartPositionEvent, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventSyncCompanion, VpsBaseEventSyncSyncType, VpsBaseEventSync, VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion, VpsBaseEventSyncAccessPointFloorSwapSyncEvent, VpsBaseEventSyncLngLatEventCompanion, VpsBaseEventSyncLngLatEvent, VpsBaseEventSyncPositionEventCompanion, VpsBaseEventSyncPositionEvent, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWiFiScanCompanion, VpsBaseEventWifiStatusUpdateCompanion, VpsInputSignalType, VpsInputSignalStartStartType, VpsInputSignalSyncSyncType, VpsInputSignalSync, VpsOutputSignalCompanion, VpsOutputSignalType, VpsOutputSignalFloorChangeSignalCompanion, VpsOutputSignalLngLatLocationCompanion, VpsOutputSignalLngLatLocationSourceCompanion, VpsOutputSignalMLOutputPositionCompanion, VpsOutputSignalParticleSignalCompanion, VpsOutputSignalPositionStatus, VpsOutputSignalPositionCompanion, VpsOutputSignalPositionActivityStateCompanion, VpsOutputSignalPositionStatusCompanion, VpsOutputSignalRescueModeSignalCompanion, VpsOutputSignalRotationCompanion, VpsOutputSignalRotationDeviationAngleCompanion, VpsOutputSignalSyncSignalCompanion, VpsOutputSignalTypeCompanion, VpsOutputSignalUXPositionStatus, VpsOutputSignalUXPositionCompanion, VpsOutputSignalWiFiFloorChangeSignalCompanion, VpsSwapLocationSwapLocationPoint, VpsSwapLocationSwapLocationPath, VpsSwapLocationCompanion, VpsSwapLocationSwapLocationPathCompanion, VpsSwapLocationSwapLocationPathDirection, VpsSwapLocationSwapLocationPointCompanion, VpsNLModelParams, VpsVelocityModelParams, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsVPSParams, VpsVPSParamsPackage, VpsKotlinDoubleIterator, VpsKotlinFloatIterator, VpsKotlinIntIterator, VpsInputSignalSensorData, VpsInputSignalStartPosition, VpsInputSignalSyncPosition, VpsInputSignalExit, VpsInputSignalLngLat, VpsInputSignalSyncLngLat, VpsInputSignalAngleCorrection, VpsInputSignalFloorChange, VpsInputSignalStairInfo, VpsInputSignalStartLngLat, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinByteIterator, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing;
 
-@protocol VpsIPathfinderGoal, VpsIPathfinderListener, VpsIPathfinder, VpsKotlinComparable, VpsIPathfinderPath, VpsKotlinx_serialization_coreKSerializer, VpsPositionEngineRepositoryRead, VpsPositionEngineRepositoryWrite, VpsPositionEngineRepository, VpsVPSFloorLevel, VpsFlowConnection, VpsVelocityModel, VpsVPSOutputHandler, VpsNLModel, VpsInAndOutListener, VpsNodeHandler, VpsFusionFilter, VpsRandomNumberGenerator, VpsAbstractParticleFilterRescueModeHelper, VpsVelocityModelHandler, VpsCoordinateConverter, VpsUploader, VpsLogOutputHandler, VpsKotlinIterator, VpsKotlinx_serialization_coreEncoder, VpsKotlinx_serialization_coreSerialDescriptor, VpsKotlinx_serialization_coreSerializationStrategy, VpsKotlinx_serialization_coreDecoder, VpsKotlinx_serialization_coreDeserializationStrategy, VpsKotlinx_serialization_coreCompositeEncoder, VpsKotlinAnnotation, VpsKotlinx_serialization_coreCompositeDecoder, VpsKotlinx_serialization_coreSerializersModuleCollector, VpsKotlinKClass, VpsKotlinKDeclarationContainer, VpsKotlinKAnnotatedElement, VpsKotlinKClassifier;
+@protocol VpsIPathfinderGoal, VpsIPathfinderListener, VpsIPathfinder, VpsKotlinComparable, VpsIPathfinderPath, VpsKotlinx_serialization_coreKSerializer, VpsPositionEngineRepositoryRead, VpsPositionEngineRepositoryWrite, VpsPositionEngineRepository, VpsFlowConnection, VpsInAndOutListener, VpsNodeHandler, VpsNLModel, VpsFusionFilter, VpsRandomNumberGenerator, VpsAbstractParticleFilterRescueModeHelper, VpsVelocityModelHandler, VpsVelocityModel, VpsCoordinateConverter, VpsKotlinIterator, VpsVPSFloorLevel, VpsVPSOutputHandler, VpsVPSLogOutputHandler, VpsUploader, VpsKotlinx_serialization_coreEncoder, VpsKotlinx_serialization_coreSerialDescriptor, VpsKotlinx_serialization_coreSerializationStrategy, VpsKotlinx_serialization_coreDecoder, VpsKotlinx_serialization_coreDeserializationStrategy, VpsKotlinx_serialization_coreCompositeEncoder, VpsKotlinAnnotation, VpsKotlinx_serialization_coreCompositeDecoder, VpsKotlinx_serialization_coreSerializersModuleCollector, VpsKotlinKClass, VpsKotlinKDeclarationContainer, VpsKotlinKAnnotatedElement, VpsKotlinKClassifier;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -476,18 +476,11 @@ __attribute__((swift_name("ConvolveMode")))
 @property (class, readonly) NSArray<VpsConvolveMode *> *entries __attribute__((swift_name("entries")));
 @end
 
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SayHelloFromNative")))
-@interface VpsSayHelloFromNative : VpsBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (NSString *)getHelloMessage __attribute__((swift_name("getHelloMessage()")));
-@end
-
 __attribute__((swift_name("PositionEngineRepositoryRead")))
 @protocol VpsPositionEngineRepositoryRead
 @required
 @property (readonly) VpsCoordinateF *currentPosition __attribute__((swift_name("currentPosition")));
+@property (readonly) VpsOutputSignalPositionActivityState *currentPositionActivityState __attribute__((swift_name("currentPositionActivityState")));
 @property (readonly) VpsBaseEventWiFiObservation * _Nullable currentWiFiObservation __attribute__((swift_name("currentWiFiObservation")));
 @property (readonly) VpsBaseEventWiFiScan * _Nullable currentWiFiScan __attribute__((swift_name("currentWiFiScan")));
 @property (readonly) VpsFloorChangeInterpreterType * _Nullable floorChangeInterpreterType __attribute__((swift_name("floorChangeInterpreterType")));
@@ -498,6 +491,7 @@ __attribute__((swift_name("PositionEngineRepositoryWrite")))
 @protocol VpsPositionEngineRepositoryWrite
 @required
 - (void)setCurrentPositionPosition:(VpsCoordinateF *)position __attribute__((swift_name("setCurrentPosition(position:)")));
+- (void)setCurrentPositionActivityStateState:(VpsOutputSignalPositionActivityState *)state __attribute__((swift_name("setCurrentPositionActivityState(state:)")));
 - (void)setCurrentWifiObservationWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)wiFiObservation __attribute__((swift_name("setCurrentWifiObservation(wiFiObservation:)")));
 - (void)setCurrentWifiScanWifiScan:(VpsBaseEventWiFiScan * _Nullable)wifiScan __attribute__((swift_name("setCurrentWifiScan(wifiScan:)")));
 - (void)setFloorChangeInterpreterTypeType:(VpsFloorChangeInterpreterType *)type __attribute__((swift_name("setFloorChangeInterpreterType(type:)")));
@@ -515,53 +509,17 @@ __attribute__((swift_name("PositionEngineRepositoryImpl")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)setCurrentPositionPosition:(VpsCoordinateF *)position __attribute__((swift_name("setCurrentPosition(position:)")));
+- (void)setCurrentPositionActivityStateState:(VpsOutputSignalPositionActivityState *)state __attribute__((swift_name("setCurrentPositionActivityState(state:)")));
 - (void)setCurrentWifiObservationWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)wiFiObservation __attribute__((swift_name("setCurrentWifiObservation(wiFiObservation:)")));
 - (void)setCurrentWifiScanWifiScan:(VpsBaseEventWiFiScan * _Nullable)wifiScan __attribute__((swift_name("setCurrentWifiScan(wifiScan:)")));
 - (void)setFloorChangeInterpreterTypeType:(VpsFloorChangeInterpreterType *)type __attribute__((swift_name("setFloorChangeInterpreterType(type:)")));
 - (void)setJustGotWiFiScanInput:(BOOL)input __attribute__((swift_name("setJustGotWiFiScan(input:)")));
 @property (readonly) VpsCoordinateF *currentPosition __attribute__((swift_name("currentPosition")));
+@property (readonly) VpsOutputSignalPositionActivityState *currentPositionActivityState __attribute__((swift_name("currentPositionActivityState")));
 @property (readonly) VpsBaseEventWiFiObservation * _Nullable currentWiFiObservation __attribute__((swift_name("currentWiFiObservation")));
 @property (readonly) VpsBaseEventWiFiScan * _Nullable currentWiFiScan __attribute__((swift_name("currentWiFiScan")));
 @property (readonly) VpsFloorChangeInterpreterType * _Nullable floorChangeInterpreterType __attribute__((swift_name("floorChangeInterpreterType")));
 @property (readonly) BOOL justGotWiFiScan __attribute__((swift_name("justGotWiFiScan")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FloorLevelHandler")))
-@interface VpsFloorLevelHandler : VpsBase
-- (instancetype)initWithFloorLevels:(NSDictionary<VpsLong *, id<VpsVPSFloorLevel>> *)floorLevels initialFloorLevelId:(VpsLong * _Nullable)initialFloorLevelId debug:(BOOL)debug __attribute__((swift_name("init(floorLevels:initialFloorLevelId:debug:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)isValidCoordinateX:(double)x y:(double)y __attribute__((swift_name("isValidCoordinate(x:y:)")));
-- (BOOL)isValidPointP:(VpsPose *)p __attribute__((swift_name("isValidPoint(p:)")));
-- (BOOL)isValidPointX:(double)x y:(double)y __attribute__((swift_name("isValidPoint(x:y:)")));
-- (BOOL)isValidPointX:(float)x y_:(float)y __attribute__((swift_name("isValidPoint(x:y_:)")));
-- (void)setFloorLevelFloorLevelId:(int64_t)floorLevelId __attribute__((swift_name("setFloorLevel(floorLevelId:)")));
-@property (readonly) NSArray<VpsAccessPoint *> *allAccessPoints __attribute__((swift_name("allAccessPoints")));
-@property (readonly) NSArray<VpsSwapLocation *> *allSwapLocations __attribute__((swift_name("allSwapLocations")));
-@property (readonly) NSArray<VpsAccessPoint *> *currentFloorAccessPoints __attribute__((swift_name("currentFloorAccessPoints")));
-@property (readonly) VpsDouble * _Nullable currentFloorCeilingHeightInMeters __attribute__((swift_name("currentFloorCeilingHeightInMeters")));
-@property (readonly) double currentFloorHeightInMeters __attribute__((swift_name("currentFloorHeightInMeters")));
-@property (readonly) id<VpsVPSFloorLevel> currentFloorLevel __attribute__((swift_name("currentFloorLevel")));
-@property (readonly) int64_t currentFloorLevelId __attribute__((swift_name("currentFloorLevelId")));
-@property (readonly) NSArray<VpsSwapLocation *> *currentFloorSwapLocations __attribute__((swift_name("currentFloorSwapLocations")));
-@property (readonly) double currentFloorWidthInMeters __attribute__((swift_name("currentFloorWidthInMeters")));
-@property (readonly) VpsFloorLevelHandlerMapInformation *currentMapInformation __attribute__((swift_name("currentMapInformation")));
-@property (readonly) double currentPixelsPerMeter __attribute__((swift_name("currentPixelsPerMeter")));
-@property (readonly) BOOL debug __attribute__((swift_name("debug")));
-@property (readonly) NSDictionary<VpsLong *, id<VpsVPSFloorLevel>> *floorLevels __attribute__((swift_name("floorLevels")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FloorLevelHandler.MapInformation")))
-@interface VpsFloorLevelHandlerMapInformation : VpsBase
-- (instancetype)initWithWidth:(int32_t)width height:(int32_t)height mapFenceScale:(double)mapFenceScale floorHeight:(VpsDouble * _Nullable)floorHeight __attribute__((swift_name("init(width:height:mapFenceScale:floorHeight:)"))) __attribute__((objc_designated_initializer));
-- (VpsFloorLevelHandlerMapInformation *)doCopyWidth:(int32_t)width height:(int32_t)height mapFenceScale:(double)mapFenceScale floorHeight:(VpsDouble * _Nullable)floorHeight __attribute__((swift_name("doCopy(width:height:mapFenceScale:floorHeight:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsDouble * _Nullable floorHeight __attribute__((swift_name("floorHeight")));
-@property (readonly) int32_t height __attribute__((swift_name("height")));
-@property (readonly) double mapFenceScale __attribute__((swift_name("mapFenceScale")));
-@property (readonly) int32_t width __attribute__((swift_name("width")));
 @end
 
 __attribute__((swift_name("FlowConnection")))
@@ -570,34 +528,6 @@ __attribute__((swift_name("FlowConnection")))
 - (void)flush __attribute__((swift_name("flush()")));
 - (void)onExit __attribute__((swift_name("onExit()")));
 - (void)onInputData:(id _Nullable)data __attribute__((swift_name("onInput(data:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VPS")))
-@interface VpsVPS : VpsBase <VpsFlowConnection>
-- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler outputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system featureToTensorValueParams:(VpsFeatureToTensorValueParams *)featureToTensorValueParams interpolationParams:(VpsInterpolationModuleParams *)interpolationParams modelToEventParameters:(VpsModelToEventParameters *)modelToEventParameters positionEngineSettings:(VpsPositionEngineSettings *)positionEngineSettings floorChangeInterpreterSettings:(VpsFloorChangeInterpreterSettings *)floorChangeInterpreterSettings rotationHandlerSettings:(VpsRotationHandlerSettings *)rotationHandlerSettings debugMode:(BOOL)debugMode extendedDebugMode:(BOOL)extendedDebugMode modelOutputHandler:(VpsFlow<VpsVelocityModelOutput *> * _Nullable)modelOutputHandler nlModel:(id<VpsNLModel> _Nullable)nlModel isRotationOutputActive:(BOOL)isRotationOutputActive __attribute__((swift_name("init(velocityModel:floorLevelHandler:outputHandler:system:featureToTensorValueParams:interpolationParams:modelToEventParameters:positionEngineSettings:floorChangeInterpreterSettings:rotationHandlerSettings:debugMode:extendedDebugMode:modelOutputHandler:nlModel:isRotationOutputActive:)"))) __attribute__((objc_designated_initializer));
-- (void)flush __attribute__((swift_name("flush()")));
-- (void)doInitSignal:(VpsInputSignalStart *)signal __attribute__((swift_name("doInit(signal:)")));
-- (void)onExit __attribute__((swift_name("onExit()")));
-- (void)onInputData:(VpsOutputSignal *)data __attribute__((swift_name("onInput(data:)")));
-- (void)onInputSignalSignal:(VpsInputSignal *)signal __attribute__((swift_name("onInputSignal(signal:)")));
-@end
-
-__attribute__((swift_name("VPSOutputHandler")))
-@protocol VpsVPSOutputHandler
-@required
-- (void)onOutputSignalOutputSignal:(VpsOutputSignal *)outputSignal __attribute__((swift_name("onOutputSignal(outputSignal:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VPSRotation")))
-@interface VpsVPSRotation : VpsBase <VpsFlowConnection>
-- (instancetype)initWithOutputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system rotationHandlerSettings:(VpsRotationHandlerSettings *)rotationHandlerSettings __attribute__((swift_name("init(outputHandler:system:rotationHandlerSettings:)"))) __attribute__((objc_designated_initializer));
-- (void)flush __attribute__((swift_name("flush()")));
-- (void)doInitSignal:(VpsInputSignalStart *)signal __attribute__((swift_name("doInit(signal:)")));
-- (void)onExit __attribute__((swift_name("onExit()")));
-- (void)onInputData:(VpsOutputSignal *)data __attribute__((swift_name("onInput(data:)")));
-- (void)onInputSignalSignal:(VpsInputSignal *)signal __attribute__((swift_name("onInputSignal(signal:)")));
 @end
 
 __attribute__((swift_name("FlowConverter")))
@@ -620,8 +550,8 @@ __attribute__((swift_name("FloorChangeInterpreter")))
 + (instancetype)new __attribute__((unavailable));
 - (void)doInit __attribute__((swift_name("doInit()")));
 - (void)onExit __attribute__((swift_name("onExit()")));
-- (void)onInputEvent:(VpsBaseEvent *)event __attribute__((swift_name("onInput(event:)")));
 - (void)onInputData:(VpsRawSensorData *)data __attribute__((swift_name("onInput(data:)")));
+- (void)onInputEvent:(VpsBaseEvent *)event __attribute__((swift_name("onInput(event:)")));
 @property (readonly) VpsFloorLevelHandler *floorLevelHandler __attribute__((swift_name("floorLevelHandler")));
 @property (readonly) VpsVPSParamsSystem *system __attribute__((swift_name("system")));
 @end
@@ -697,8 +627,8 @@ __attribute__((swift_name("FloorChangeDetector")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)onFloorChanged __attribute__((swift_name("onFloorChanged()")));
-- (void)onInputEvent:(VpsBaseEvent *)event __attribute__((swift_name("onInput(event:)")));
 - (void)onInputData_:(VpsRawSensorData *)data __attribute__((swift_name("onInput(data_:)")));
+- (void)onInputEvent:(VpsBaseEvent *)event __attribute__((swift_name("onInput(event:)")));
 - (void)setOutPutListenerListener:(void (^)(VpsFloorChangeSignal *))listener __attribute__((swift_name("setOutPutListener(listener:)")));
 @property void (^ _Nullable listener)(VpsFloorChangeSignal *) __attribute__((swift_name("listener")));
 @end
@@ -709,8 +639,8 @@ __attribute__((swift_name("AltitudeWifiFusionFloorChangeInterpreter")))
 - (instancetype)initWithFloorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler floorChangeInterpreterSettings:(VpsFloorChangeInterpreterSettings *)floorChangeInterpreterSettings __attribute__((swift_name("init(floorLevelHandler:floorChangeInterpreterSettings:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
-- (void)onInputEvent:(VpsBaseEvent *)event __attribute__((swift_name("onInput(event:)")));
 - (void)onInputData_:(VpsRawSensorData *)data __attribute__((swift_name("onInput(data_:)")));
+- (void)onInputEvent:(VpsBaseEvent *)event __attribute__((swift_name("onInput(event:)")));
 @property (readonly) VpsFloorLevelHandler *floorLevelHandler __attribute__((swift_name("floorLevelHandler")));
 @end
 
@@ -1154,531 +1084,6 @@ __attribute__((swift_name("ParticleFilter.Builder")))
 - (VpsParticleFilterBuilder *)setStartDataStartData:(VpsBaseEventStart *)startData __attribute__((swift_name("setStartData(startData:)")));
 @end
 
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((swift_name("BaseEvent")))
-@interface VpsBaseEvent : VpsBase
-@property (class, readonly, getter=companion) VpsBaseEventCompanion *companion __attribute__((swift_name("companion")));
-@property VpsEventType *event_type __attribute__((swift_name("event_type")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.AngleCorrectionEvent")))
-@interface VpsBaseEventAngleCorrectionEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp angle:(float)angle __attribute__((swift_name("init(timestamp:angle:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventAngleCorrectionEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventAngleCorrectionEvent *)doCopyTimestamp:(int64_t)timestamp angle:(float)angle __attribute__((swift_name("doCopy(timestamp:angle:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float angle __attribute__((swift_name("angle")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.AngleCorrectionEventCompanion")))
-@interface VpsBaseEventAngleCorrectionEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventAngleCorrectionEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.Companion")))
-@interface VpsBaseEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.FloorChangeEvent")))
-@interface VpsBaseEventFloorChangeEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("init(timestamp:floorLevelId:startPosition:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventFloorChangeEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventFloorChangeEvent *)doCopyTimestamp:(int64_t)timestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("doCopy(timestamp:floorLevelId:startPosition:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int64_t floorLevelId __attribute__((swift_name("floorLevelId")));
-@property (readonly) VpsCoordinateF *startPosition __attribute__((swift_name("startPosition")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.FloorChangeEventCompanion")))
-@interface VpsBaseEventFloorChangeEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventFloorChangeEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.LngLatEvent")))
-@interface VpsBaseEventLngLatEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventLngLatEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsLocation *location __attribute__((swift_name("location")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.LngLatEventCompanion")))
-@interface VpsBaseEventLngLatEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventLngLatEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StairEvent")))
-@interface VpsBaseEventStairEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("init(timestamp:isInStair:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventStairEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStairEvent *)doCopyTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("doCopy(timestamp:isInStair:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL isInStair __attribute__((swift_name("isInStair")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StairEventCompanion")))
-@interface VpsBaseEventStairEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventStairEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((swift_name("BaseEvent.Start")))
-@interface VpsBaseEventStart : VpsBaseEvent
-@property (class, readonly, getter=companion) VpsBaseEventStartCompanion *companion __attribute__((swift_name("companion")));
-@property VpsBaseEventStartStartType *startType __attribute__((swift_name("startType")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StartCompanion")))
-@interface VpsBaseEventStartCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventStartCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StartLngLatEvent")))
-@interface VpsBaseEventStartLngLatEvent : VpsBaseEventStart
-- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventStartLngLatEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStartLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsLocation *location __attribute__((swift_name("location")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StartLngLatEventCompanion")))
-@interface VpsBaseEventStartLngLatEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventStartLngLatEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StartPositionEvent")))
-@interface VpsBaseEventStartPositionEvent : VpsBaseEventStart
-- (instancetype)initWithTimestamp:(int64_t)timestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("init(timestamp:start_pos:start_angle:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventStartPositionEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStartPositionEvent *)doCopyTimestamp:(int64_t)timestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("doCopy(timestamp:start_pos:start_angle:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float start_angle __attribute__((swift_name("start_angle")));
-@property (readonly) VpsCoordinateF *start_pos __attribute__((swift_name("start_pos")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StartPositionEventCompanion")))
-@interface VpsBaseEventStartPositionEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventStartPositionEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StartStartType")))
-@interface VpsBaseEventStartStartType : VpsKotlinEnum<VpsBaseEventStartStartType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsBaseEventStartStartType *position __attribute__((swift_name("position")));
-@property (class, readonly) VpsBaseEventStartStartType *lngLat __attribute__((swift_name("lngLat")));
-+ (VpsKotlinArray<VpsBaseEventStartStartType *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsBaseEventStartStartType *> *entries __attribute__((swift_name("entries")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StepEvent")))
-@interface VpsBaseEventStepEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("init(timestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventStepEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStepEvent *)doCopyTimestamp:(int64_t)timestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("doCopy(timestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float direction __attribute__((swift_name("direction")));
-@property (readonly) VpsFloat * _Nullable direction_certainty __attribute__((swift_name("direction_certainty")));
-@property (readonly) int32_t duration __attribute__((swift_name("duration")));
-@property (readonly) VpsFloat * _Nullable relative_direction __attribute__((swift_name("relative_direction")));
-@property (readonly) float speed __attribute__((swift_name("speed")));
-@property (readonly) float step_certainty __attribute__((swift_name("step_certainty")));
-@property (readonly) VpsStepType *step_type __attribute__((swift_name("step_type")));
-@property (readonly) BOOL success __attribute__((swift_name("success")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.StepEventCompanion")))
-@interface VpsBaseEventStepEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventStepEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((swift_name("BaseEvent.Sync")))
-@interface VpsBaseEventSync : VpsBaseEvent
-@property (class, readonly, getter=companion) VpsBaseEventSyncCompanion *companion __attribute__((swift_name("companion")));
-@property VpsBaseEventSyncSyncType *syncType __attribute__((swift_name("syncType")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncAccessPointFloorSwapSyncEvent")))
-@interface VpsBaseEventSyncAccessPointFloorSwapSyncEvent : VpsBaseEventSync
-- (instancetype)initWithTimestamp:(int64_t)timestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("init(timestamp:wifiStatusUpdate:possibleEntries:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventSyncAccessPointFloorSwapSyncEvent *)doCopyTimestamp:(int64_t)timestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("doCopy(timestamp:wifiStatusUpdate:possibleEntries:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSArray<VpsCoordinateF *> *possibleEntries __attribute__((swift_name("possibleEntries")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@property (readonly) VpsBaseEventWifiStatusUpdate *wifiStatusUpdate __attribute__((swift_name("wifiStatusUpdate")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncAccessPointFloorSwapSyncEventCompanion")))
-@interface VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncCompanion")))
-@interface VpsBaseEventSyncCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventSyncCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncLngLatEvent")))
-@interface VpsBaseEventSyncLngLatEvent : VpsBaseEventSync
-- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventSyncLngLatEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventSyncLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property VpsLocation *location __attribute__((swift_name("location")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncLngLatEventCompanion")))
-@interface VpsBaseEventSyncLngLatEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventSyncLngLatEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncPositionEvent")))
-@interface VpsBaseEventSyncPositionEvent : VpsBaseEventSync
-- (instancetype)initWithTimestamp:(int64_t)timestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("init(timestamp:sync_position:ean:offset:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventSyncPositionEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventSyncPositionEvent *)doCopyTimestamp:(int64_t)timestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("doCopy(timestamp:sync_position:ean:offset:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property NSString *ean __attribute__((swift_name("ean")));
-@property VpsCoordinateF *offset __attribute__((swift_name("offset")));
-@property VpsCoordinateF *sync_position __attribute__((swift_name("sync_position")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncPositionEventCompanion")))
-@interface VpsBaseEventSyncPositionEventCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventSyncPositionEventCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.SyncSyncType")))
-@interface VpsBaseEventSyncSyncType : VpsKotlinEnum<VpsBaseEventSyncSyncType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsBaseEventSyncSyncType *position __attribute__((swift_name("position")));
-@property (class, readonly) VpsBaseEventSyncSyncType *lngLat __attribute__((swift_name("lngLat")));
-@property (class, readonly) VpsBaseEventSyncSyncType *floorSwap __attribute__((swift_name("floorSwap")));
-+ (VpsKotlinArray<VpsBaseEventSyncSyncType *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsBaseEventSyncSyncType *> *entries __attribute__((swift_name("entries")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.WiFiObservation")))
-@interface VpsBaseEventWiFiObservation : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(timestamp:bssid:rssi:frequency:rtl_id:accessPoint:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventWiFiObservationCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventWiFiObservation *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(timestamp:bssid:rssi:frequency:rtl_id:accessPoint:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property VpsAccessPoint * _Nullable accessPoint __attribute__((swift_name("accessPoint")));
-@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
-@property (readonly) VpsInt * _Nullable frequency __attribute__((swift_name("frequency")));
-@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
-@property (readonly) NSString * _Nullable rtl_id __attribute__((swift_name("rtl_id")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.WiFiObservationCompanion")))
-@interface VpsBaseEventWiFiObservationCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventWiFiObservationCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.WiFiScan")))
-@interface VpsBaseEventWiFiScan : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventWiFiScanCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventWiFiScan *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsKotlinArray<VpsBaseEventWiFiObservation *> *data __attribute__((swift_name("data")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.WiFiScanCompanion")))
-@interface VpsBaseEventWiFiScanCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventWiFiScanCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.WifiStatusUpdate")))
-@interface VpsBaseEventWifiStatusUpdate : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(timestamp:bssid:rtl_id:rssi:frequency:accessPoint:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsBaseEventWifiStatusUpdateCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventWifiStatusUpdate *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(timestamp:bssid:rtl_id:rssi:frequency:accessPoint:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property VpsAccessPoint * _Nullable accessPoint __attribute__((swift_name("accessPoint")));
-@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
-@property (readonly) VpsInt * _Nullable frequency __attribute__((swift_name("frequency")));
-@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
-@property (readonly) NSString *rtl_id __attribute__((swift_name("rtl_id")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("BaseEvent.WifiStatusUpdateCompanion")))
-@interface VpsBaseEventWifiStatusUpdateCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsBaseEventWifiStatusUpdateCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("EventType")))
-@interface VpsEventType : VpsKotlinEnum<VpsEventType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsEventType *stepEvent __attribute__((swift_name("stepEvent")));
-@property (class, readonly) VpsEventType *wifiScan __attribute__((swift_name("wifiScan")));
-@property (class, readonly) VpsEventType *sync __attribute__((swift_name("sync")));
-@property (class, readonly) VpsEventType *wifiStatusUpdate __attribute__((swift_name("wifiStatusUpdate")));
-@property (class, readonly) VpsEventType *startEvent __attribute__((swift_name("startEvent")));
-@property (class, readonly) VpsEventType *wifiObservation __attribute__((swift_name("wifiObservation")));
-@property (class, readonly) VpsEventType *angleCorrection __attribute__((swift_name("angleCorrection")));
-@property (class, readonly) VpsEventType *floorChange __attribute__((swift_name("floorChange")));
-@property (class, readonly) VpsEventType *lngLat __attribute__((swift_name("lngLat")));
-@property (class, readonly) VpsEventType *stair __attribute__((swift_name("stair")));
-@property (class, readonly) VpsEventType *undefined __attribute__((swift_name("undefined")));
-+ (VpsKotlinArray<VpsEventType *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsEventType *> *entries __attribute__((swift_name("entries")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("EventTypeHolder")))
-@interface VpsEventTypeHolder : VpsBase
-- (instancetype)initWithEvent_type:(VpsEventType *)event_type __attribute__((swift_name("init(event_type:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsEventTypeHolderCompanion *companion __attribute__((swift_name("companion")));
-- (VpsEventTypeHolder *)doCopyEvent_type:(VpsEventType *)event_type __attribute__((swift_name("doCopy(event_type:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsEventType *event_type __attribute__((swift_name("event_type")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("EventTypeHolder.Companion")))
-@interface VpsEventTypeHolderCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsEventTypeHolderCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("GaussianKDE")))
 @interface VpsGaussianKDE : VpsBase
@@ -1723,7 +1128,7 @@ __attribute__((swift_name("ParticleFilterKLD")))
 /**
  * @note This method has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
-- (VpsPose *)createGaussSampleLoc_positionX:(float)loc_positionX loc_positionY:(float)loc_positionY scale_position:(float)scale_position loc_angle:(float)loc_angle scale_angle:(float)scale_angle scale_bias:(float)scale_bias scale_bias_2:(float)scale_bias_2 loc_speed_2:(float)loc_speed_2 mixing_factor:(float)mixing_factor __attribute__((swift_name("createGaussSample(loc_positionX:loc_positionY:scale_position:loc_angle:scale_angle:scale_bias:scale_bias_2:loc_speed_2:mixing_factor:)")));
+- (VpsPose *)createGaussSampleLoc_positionX:(float)loc_positionX loc_positionY:(float)loc_positionY scale_position:(float)scale_position loc_angle:(float)loc_angle scale_angle:(float)scale_angle scale_bias:(float)scale_bias scale_bias_2:(float)scale_bias_2 loc_speed_2:(float)loc_speed_2 mixing_factor:(float)mixing_factor bias_limit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)bias_limit second_bias_limit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)second_bias_limit __attribute__((swift_name("createGaussSample(loc_positionX:loc_positionY:scale_position:loc_angle:scale_angle:scale_bias:scale_bias_2:loc_speed_2:mixing_factor:bias_limit:second_bias_limit:)")));
 - (VpsOutputSignalSyncSignal *)createSyncSignalPositionAfterSync:(VpsCoordinateF *)positionAfterSync __attribute__((swift_name("createSyncSignal(positionAfterSync:)")));
 - (void)end __attribute__((swift_name("end()")));
 
@@ -1755,6 +1160,11 @@ __attribute__((swift_name("ParticleFilterKLD")))
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
 @property VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> * _Nullable KDEX0 __attribute__((swift_name("KDEX0")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) VpsKotlinPair<VpsFloat *, VpsFloat *> *biasLimit __attribute__((swift_name("biasLimit")));
 
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
@@ -1829,6 +1239,11 @@ __attribute__((swift_name("ParticleFilterKLD")))
 */
 @property (readonly) float rescuePositionStd __attribute__((swift_name("rescuePositionStd")));
 @property float rotationDeviationAngle __attribute__((swift_name("rotationDeviationAngle")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) VpsKotlinPair<VpsFloat *, VpsFloat *> *secondBiasLimit __attribute__((swift_name("secondBiasLimit")));
 
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
@@ -1968,182 +1383,12 @@ __attribute__((swift_name("ParticleFilterKLDWiFi")))
 @end
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PaulDBSCAN")))
-@interface VpsPaulDBSCAN : VpsBase
-- (instancetype)initWithEps:(float)eps min_samples:(int32_t)min_samples dist_function:(VpsFloat *(^ _Nullable)(VpsKotlinFloatArray *, VpsKotlinFloatArray *))dist_function angle_to_meter_factor:(VpsFloat * _Nullable)angle_to_meter_factor __attribute__((swift_name("init(eps:min_samples:dist_function:angle_to_meter_factor:)"))) __attribute__((objc_designated_initializer));
-- (VpsKotlinArray<VpsInt *> *)fit_predictDB:(VpsKotlinArray<VpsPose *> *)DB __attribute__((swift_name("fit_predict(DB:)")));
-- (NSMutableArray<VpsKotlinPair<VpsInt *, VpsPose *> *> *)range_queryDB:(VpsKotlinArray<VpsPose *> *)DB Q:(VpsPose *)Q __attribute__((swift_name("range_query(DB:Q:)")));
-@property (readonly) VpsFloat *(^_dist_function)(VpsKotlinFloatArray *, VpsKotlinFloatArray *) __attribute__((swift_name("_dist_function")));
-@property (readonly) float eps __attribute__((swift_name("eps")));
-@property (readonly) int32_t min_samples __attribute__((swift_name("min_samples")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Pose")))
-@interface VpsPose : VpsBase
-- (instancetype)initWithX:(float)x y:(float)y heading:(float)heading speedBias:(float)speedBias __attribute__((swift_name("init(x:y:heading:speedBias:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsPoseCompanion *companion __attribute__((swift_name("companion")));
-- (VpsPose *)doCopyX:(float)x y:(float)y heading:(float)heading speedBias:(float)speedBias __attribute__((swift_name("doCopy(x:y:heading:speedBias:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (VpsCoordinateF *)toCoordinateF __attribute__((swift_name("toCoordinateF()")));
-- (VpsKotlinFloatArray *)toDebugFormat __attribute__((swift_name("toDebugFormat()")));
-- (VpsKotlinFloatArray *)toFloatArray __attribute__((swift_name("toFloatArray()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float heading __attribute__((swift_name("heading")));
-@property (readonly) float speedBias __attribute__((swift_name("speedBias")));
-@property (readonly) float x __attribute__((swift_name("x")));
-@property (readonly) float y __attribute__((swift_name("y")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Pose.Companion")))
-@interface VpsPoseCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsPoseCompanion *shared __attribute__((swift_name("shared")));
-- (VpsPose *)empty __attribute__((swift_name("empty()")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("SquareDriftFilter")))
 @interface VpsSquareDriftFilter : VpsBase
 - (instancetype)initWithGain:(float)gain __attribute__((swift_name("init(gain:)"))) __attribute__((objc_designated_initializer));
 - (float)callInput_angle:(float)input_angle __attribute__((swift_name("call(input_angle:)")));
 - (void)reset __attribute__((swift_name("reset()")));
 @property double threshold __attribute__((swift_name("threshold")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StartMethod")))
-@interface VpsStartMethod : VpsKotlinEnum<VpsStartMethod *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsStartMethod *standard __attribute__((swift_name("standard")));
-@property (class, readonly) VpsStartMethod *gauss __attribute__((swift_name("gauss")));
-@property (class, readonly) VpsStartMethod *global __attribute__((swift_name("global")));
-+ (VpsKotlinArray<VpsStartMethod *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsStartMethod *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StepType")))
-@interface VpsStepType : VpsKotlinEnum<VpsStepType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsStepType *regular __attribute__((swift_name("regular")));
-@property (class, readonly) VpsStepType *swingSym __attribute__((swift_name("swingSym")));
-@property (class, readonly) VpsStepType *swingAntiSym __attribute__((swift_name("swingAntiSym")));
-@property (class, readonly) VpsStepType *trolley __attribute__((swift_name("trolley")));
-@property (class, readonly) VpsStepType *trouserPocket __attribute__((swift_name("trouserPocket")));
-+ (VpsKotlinArray<VpsStepType *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsStepType *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SyncCritera")))
-@interface VpsSyncCritera : VpsKotlinEnum<VpsSyncCritera *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsSyncCritera *all __attribute__((swift_name("all")));
-@property (class, readonly) VpsSyncCritera *wifi __attribute__((swift_name("wifi")));
-@property (class, readonly) VpsSyncCritera *none __attribute__((swift_name("none")));
-+ (VpsKotlinArray<VpsSyncCritera *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsSyncCritera *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SyncMethod")))
-@interface VpsSyncMethod : VpsKotlinEnum<VpsSyncMethod *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsSyncMethod *standard __attribute__((swift_name("standard")));
-@property (class, readonly) VpsSyncMethod *gauss __attribute__((swift_name("gauss")));
-@property (class, readonly) VpsSyncMethod *compassGauss __attribute__((swift_name("compassGauss")));
-@property (class, readonly) VpsSyncMethod *sprinkle __attribute__((swift_name("sprinkle")));
-@property (class, readonly) VpsSyncMethod *noSync __attribute__((swift_name("noSync")));
-+ (VpsKotlinArray<VpsSyncMethod *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsSyncMethod *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((swift_name("KotlinThrowable")))
-@interface VpsKotlinThrowable : VpsBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-
-/**
- * @note annotations
- *   kotlin.experimental.ExperimentalNativeApi
-*/
-- (VpsKotlinArray<NSString *> *)getStackTrace __attribute__((swift_name("getStackTrace()")));
-- (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
-@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
-- (NSError *)asError __attribute__((swift_name("asError()")));
-@end
-
-__attribute__((swift_name("KotlinException")))
-@interface VpsKotlinException : VpsKotlinThrowable
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ValueErrorException")))
-@interface VpsValueErrorException : VpsKotlinException
-- (instancetype)initWithMessage:(NSString *)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-+ (instancetype)new __attribute__((unavailable));
-- (instancetype)initWithCause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("WifiScanData")))
-@interface VpsWifiScanData : VpsBase
-- (instancetype)initWithSsid:(NSString *)ssid bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(float)frequency __attribute__((swift_name("init(ssid:bssid:rssi:frequency:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsWifiScanDataCompanion *companion __attribute__((swift_name("companion")));
-- (VpsWifiScanData *)doCopySsid:(NSString *)ssid bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(float)frequency __attribute__((swift_name("doCopy(ssid:bssid:rssi:frequency:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
-@property (readonly) float frequency __attribute__((swift_name("frequency")));
-@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
-@property (readonly) NSString *ssid __attribute__((swift_name("ssid")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("WifiScanData.Companion")))
-@interface VpsWifiScanDataCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsWifiScanDataCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -2384,9 +1629,9 @@ __attribute__((swift_name("InterpolationModule.Builder")))
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("InterpolationModule.Params")))
-@interface VpsInterpolationModuleParams_ : VpsBase
+@interface VpsInterpolationModuleParams : VpsBase
 - (instancetype)initWithF:(float)f use_magnetometer:(BOOL)use_magnetometer __attribute__((swift_name("init(f:use_magnetometer:)"))) __attribute__((objc_designated_initializer));
-- (VpsInterpolationModuleParams_ *)doCopyF:(float)f use_magnetometer:(BOOL)use_magnetometer __attribute__((swift_name("doCopy(f:use_magnetometer:)")));
+- (VpsInterpolationModuleParams *)doCopyF:(float)f use_magnetometer:(BOOL)use_magnetometer __attribute__((swift_name("doCopy(f:use_magnetometer:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -2534,106 +1779,6 @@ __attribute__((swift_name("StairsInterpreter.Builder")))
 - (VpsStairsInterpreterBuilder *)setSystemSystem:(VpsVPSParamsSystem *)system __attribute__((swift_name("setSystem(system:)")));
 @end
 
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CoordinateD")))
-@interface VpsCoordinateD : VpsBase
-- (instancetype)initWithX:(double)x y:(double)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithX:(float)x y_:(float)y __attribute__((swift_name("init(x:y_:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsCoordinateDCompanion *companion __attribute__((swift_name("companion")));
-- (VpsCoordinateD *)doCopyX:(double)x y:(double)y __attribute__((swift_name("doCopy(x:y:)")));
-- (double)distanceToOther:(VpsCoordinateD *)other __attribute__((swift_name("distanceTo(other:)")));
-- (double)distanceToOther_:(VpsAccessPointCoordinate *)other __attribute__((swift_name("distanceTo(other_:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (VpsCoordinateF *)toCoordinateF __attribute__((swift_name("toCoordinateF()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double x __attribute__((swift_name("x")));
-@property (readonly) double y __attribute__((swift_name("y")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CoordinateD.Companion")))
-@interface VpsCoordinateDCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsCoordinateDCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CoordinateF")))
-@interface VpsCoordinateF : VpsBase
-- (instancetype)initWithX:(double)x y:(double)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithX:(float)x y_:(float)y __attribute__((swift_name("init(x:y_:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsCoordinateFCompanion *companion __attribute__((swift_name("companion")));
-- (VpsCoordinateF *)doCopyX:(float)x y:(float)y __attribute__((swift_name("doCopy(x:y:)")));
-- (float)distanceToOther:(VpsCoordinateF *)other __attribute__((swift_name("distanceTo(other:)")));
-- (float)distanceToOther_:(VpsAccessPointCoordinate *)other __attribute__((swift_name("distanceTo(other_:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (VpsCoordinateD *)toCoordinateD __attribute__((swift_name("toCoordinateD()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float x __attribute__((swift_name("x")));
-@property (readonly) float y __attribute__((swift_name("y")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("CoordinateF.Companion")))
-@interface VpsCoordinateFCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsCoordinateFCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Location")))
-@interface VpsLocation : VpsBase
-- (instancetype)initWithLongitude:(double)longitude latitude:(double)latitude accuracy:(VpsDouble * _Nullable)accuracy bearing:(VpsDouble * _Nullable)bearing bearingAccuracy:(VpsDouble * _Nullable)bearingAccuracy altitude:(VpsDouble * _Nullable)altitude verticalAccuracy:(VpsDouble * _Nullable)verticalAccuracy speed:(VpsDouble * _Nullable)speed speedAccuracy:(VpsDouble * _Nullable)speedAccuracy ellipsoidalAltitude:(VpsDouble * _Nullable)ellipsoidalAltitude __attribute__((swift_name("init(longitude:latitude:accuracy:bearing:bearingAccuracy:altitude:verticalAccuracy:speed:speedAccuracy:ellipsoidalAltitude:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsLocationCompanion *companion __attribute__((swift_name("companion")));
-- (VpsLocation *)doCopyLongitude:(double)longitude latitude:(double)latitude accuracy:(VpsDouble * _Nullable)accuracy bearing:(VpsDouble * _Nullable)bearing bearingAccuracy:(VpsDouble * _Nullable)bearingAccuracy altitude:(VpsDouble * _Nullable)altitude verticalAccuracy:(VpsDouble * _Nullable)verticalAccuracy speed:(VpsDouble * _Nullable)speed speedAccuracy:(VpsDouble * _Nullable)speedAccuracy ellipsoidalAltitude:(VpsDouble * _Nullable)ellipsoidalAltitude __attribute__((swift_name("doCopy(longitude:latitude:accuracy:bearing:bearingAccuracy:altitude:verticalAccuracy:speed:speedAccuracy:ellipsoidalAltitude:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsDouble * _Nullable accuracy __attribute__((swift_name("accuracy")));
-@property (readonly) VpsDouble * _Nullable altitude __attribute__((swift_name("altitude")));
-@property (readonly) VpsDouble * _Nullable bearing __attribute__((swift_name("bearing")));
-@property (readonly) VpsDouble * _Nullable bearingAccuracy __attribute__((swift_name("bearingAccuracy")));
-@property (readonly) VpsDouble * _Nullable ellipsoidalAltitude __attribute__((swift_name("ellipsoidalAltitude")));
-@property (readonly) double latitude __attribute__((swift_name("latitude")));
-@property (readonly) double longitude __attribute__((swift_name("longitude")));
-@property (readonly) VpsDouble * _Nullable speed __attribute__((swift_name("speed")));
-@property (readonly) VpsDouble * _Nullable speedAccuracy __attribute__((swift_name("speedAccuracy")));
-@property (readonly) VpsDouble * _Nullable verticalAccuracy __attribute__((swift_name("verticalAccuracy")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Location.Companion")))
-@interface VpsLocationCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsLocationCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
 __attribute__((swift_name("CoordinateConverter")))
 @protocol VpsCoordinateConverter
 @required
@@ -2651,74 +1796,6 @@ __attribute__((swift_name("RealWorldCoordinateConverter")))
 - (VpsCoordinateD *)metersToLngLatPoint:(VpsCoordinateD *)point __attribute__((swift_name("metersToLngLat(point:)")));
 - (VpsCoordinateD *)metersToPixelPoint:(VpsCoordinateD *)point __attribute__((swift_name("metersToPixel(point:)")));
 - (VpsCoordinateD *)pixelsToMeterPoint:(VpsCoordinateD *)point __attribute__((swift_name("pixelsToMeter(point:)")));
-@end
-
-__attribute__((swift_name("VPSFloorLevel")))
-@protocol VpsVPSFloorLevel
-@required
-- (void)dispose __attribute__((swift_name("dispose()")));
-- (VpsKotlinArray<VpsKotlinFloatArray *> *)get2DArrayMapResolution:(float)resolution __attribute__((swift_name("get2DArrayMap(resolution:)")));
-- (void)initiate __attribute__((swift_name("initiate()")));
-- (BOOL)isValidCoordinateX:(double)x y:(double)y __attribute__((swift_name("isValidCoordinate(x:y:)")));
-- (BOOL)isValidCoordinateX:(float)x y_:(float)y __attribute__((swift_name("isValidCoordinate(x:y_:)")));
-@property (readonly) NSArray<VpsAccessPoint *> *accessPoints __attribute__((swift_name("accessPoints")));
-@property (readonly) VpsDouble * _Nullable ceilingHeightInMeters __attribute__((swift_name("ceilingHeightInMeters")));
-@property (readonly) double heightInMeters __attribute__((swift_name("heightInMeters")));
-@property (readonly) int64_t id_ __attribute__((swift_name("id_")));
-@property (readonly) double pixelsPerMeter __attribute__((swift_name("pixelsPerMeter")));
-@property (readonly) NSArray<VpsSwapLocation *> *swapLocations __attribute__((swift_name("swapLocations")));
-@property (readonly) double widthInMeters __attribute__((swift_name("widthInMeters")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("AltitudeClassifierParams")))
-@interface VpsAltitudeClassifierParams : VpsBase
-- (instancetype)initWithFs:(float)fs fastFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)fastFilterParamsFlat slowFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)slowFilterParamsFlat fastFilterInitCond:(VpsLFiltInitCond *)fastFilterInitCond slowFilterInitCond:(VpsLFiltInitCond *)slowFilterInitCond floorSwapTimeThreshold:(int64_t)floorSwapTimeThreshold floorOffset1:(float)floorOffset1 floorOffset2:(float)floorOffset2 floorOffset3:(float)floorOffset3 derivativeClfLagSeconds:(float)derivativeClfLagSeconds ascentDescentTimeThreshold:(int64_t)ascentDescentTimeThreshold descentThreshold:(float)descentThreshold ascentThreshold:(float)ascentThreshold __attribute__((swift_name("init(fs:fastFilterParamsFlat:slowFilterParamsFlat:fastFilterInitCond:slowFilterInitCond:floorSwapTimeThreshold:floorOffset1:floorOffset2:floorOffset3:derivativeClfLagSeconds:ascentDescentTimeThreshold:descentThreshold:ascentThreshold:)"))) __attribute__((objc_designated_initializer));
-- (VpsAltitudeClassifierParams *)doCopyFs:(float)fs fastFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)fastFilterParamsFlat slowFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)slowFilterParamsFlat fastFilterInitCond:(VpsLFiltInitCond *)fastFilterInitCond slowFilterInitCond:(VpsLFiltInitCond *)slowFilterInitCond floorSwapTimeThreshold:(int64_t)floorSwapTimeThreshold floorOffset1:(float)floorOffset1 floorOffset2:(float)floorOffset2 floorOffset3:(float)floorOffset3 derivativeClfLagSeconds:(float)derivativeClfLagSeconds ascentDescentTimeThreshold:(int64_t)ascentDescentTimeThreshold descentThreshold:(float)descentThreshold ascentThreshold:(float)ascentThreshold __attribute__((swift_name("doCopy(fs:fastFilterParamsFlat:slowFilterParamsFlat:fastFilterInitCond:slowFilterInitCond:floorSwapTimeThreshold:floorOffset1:floorOffset2:floorOffset3:derivativeClfLagSeconds:ascentDescentTimeThreshold:descentThreshold:ascentThreshold:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int64_t ascentDescentTimeThreshold __attribute__((swift_name("ascentDescentTimeThreshold")));
-@property (readonly) float ascentThreshold __attribute__((swift_name("ascentThreshold")));
-@property (readonly) float derivativeClfLagSeconds __attribute__((swift_name("derivativeClfLagSeconds")));
-@property (readonly) float descentThreshold __attribute__((swift_name("descentThreshold")));
-@property (readonly) VpsLFiltInitCond *fastFilterInitCond __attribute__((swift_name("fastFilterInitCond")));
-@property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *fastFilterParams __attribute__((swift_name("fastFilterParams")));
-@property (readonly) VpsKotlinArray<VpsFloat *> *fastFilterParamsFlat __attribute__((swift_name("fastFilterParamsFlat")));
-@property (readonly) float floorOffset1 __attribute__((swift_name("floorOffset1")));
-@property (readonly) float floorOffset2 __attribute__((swift_name("floorOffset2")));
-@property (readonly) float floorOffset3 __attribute__((swift_name("floorOffset3")));
-@property (readonly) int64_t floorSwapTimeThreshold __attribute__((swift_name("floorSwapTimeThreshold")));
-@property (readonly) float fs __attribute__((swift_name("fs")));
-@property (readonly) VpsLFiltInitCond *slowFilterInitCond __attribute__((swift_name("slowFilterInitCond")));
-@property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *slowFilterParams __attribute__((swift_name("slowFilterParams")));
-@property (readonly) VpsKotlinArray<VpsFloat *> *slowFilterParamsFlat __attribute__((swift_name("slowFilterParamsFlat")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FloorChangeInterpreterSettings")))
-@interface VpsFloorChangeInterpreterSettings : VpsBase
-- (instancetype)initWithType:(VpsFloorChangeInterpreterType *)type altitudeClassifierParams:(VpsAltitudeClassifierParams *)altitudeClassifierParams wiFiAltitudeFusionParams:(VpsWiFiAltitudeFusionParams *)wiFiAltitudeFusionParams __attribute__((swift_name("init(type:altitudeClassifierParams:wiFiAltitudeFusionParams:)"))) __attribute__((objc_designated_initializer));
-- (VpsFloorChangeInterpreterSettings *)doCopyType:(VpsFloorChangeInterpreterType *)type altitudeClassifierParams:(VpsAltitudeClassifierParams *)altitudeClassifierParams wiFiAltitudeFusionParams:(VpsWiFiAltitudeFusionParams *)wiFiAltitudeFusionParams __attribute__((swift_name("doCopy(type:altitudeClassifierParams:wiFiAltitudeFusionParams:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsAltitudeClassifierParams *altitudeClassifierParams __attribute__((swift_name("altitudeClassifierParams")));
-@property (readonly) VpsFloorChangeInterpreterType *type __attribute__((swift_name("type")));
-@property (readonly) VpsWiFiAltitudeFusionParams *wiFiAltitudeFusionParams __attribute__((swift_name("wiFiAltitudeFusionParams")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FloorChangeInterpreterType")))
-@interface VpsFloorChangeInterpreterType : VpsKotlinEnum<VpsFloorChangeInterpreterType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsFloorChangeInterpreterType *barometer __attribute__((swift_name("barometer")));
-@property (class, readonly) VpsFloorChangeInterpreterType *wifi __attribute__((swift_name("wifi")));
-@property (class, readonly) VpsFloorChangeInterpreterType *fusion __attribute__((swift_name("fusion")));
-+ (VpsKotlinArray<VpsFloorChangeInterpreterType *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsFloorChangeInterpreterType *> *entries __attribute__((swift_name("entries")));
 @end
 
 __attribute__((swift_name("FloorChangeSignal")))
@@ -2759,85 +1836,6 @@ __attribute__((swift_name("FloorChangeSignal.WiFiFloorChangeSignal")))
 @end
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VPSFloorChangeHandlerSettings")))
-@interface VpsVPSFloorChangeHandlerSettings : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)vPSFloorChangeHandlerSettings __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsVPSFloorChangeHandlerSettings *shared __attribute__((swift_name("shared")));
-@property (readonly, getter=default) VpsFloorChangeInterpreterSettings *default_ __attribute__((swift_name("default_")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("WiFiAltitudeFusionParams")))
-@interface VpsWiFiAltitudeFusionParams : VpsBase
-- (instancetype)initWithWifiForceGoCriteria:(int32_t)wifiForceGoCriteria __attribute__((swift_name("init(wifiForceGoCriteria:)"))) __attribute__((objc_designated_initializer));
-- (VpsWiFiAltitudeFusionParams *)doCopyWifiForceGoCriteria:(int32_t)wifiForceGoCriteria __attribute__((swift_name("doCopy(wifiForceGoCriteria:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) int32_t wifiForceGoCriteria __attribute__((swift_name("wifiForceGoCriteria")));
-@end
-
-__attribute__((swift_name("Flow")))
-@interface VpsFlow<T> : VpsBase <VpsFlowConnection>
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (void)addNode:(VpsNode<T> *)node __attribute__((swift_name("add(node:)")));
-- (VpsFlow<T> *)connectToConnections:(NSArray<id<VpsFlowConnection>> *)connections __attribute__((swift_name("connectTo(connections:)")));
-- (VpsFlow<T> *)connectToConnection:(id<VpsFlowConnection>)connection __attribute__((swift_name("connectTo(connection:)")));
-- (void)flush __attribute__((swift_name("flush()")));
-- (void)onExit __attribute__((swift_name("onExit()")));
-- (void)onInputData:(T _Nullable)data __attribute__((swift_name("onInput(data:)")));
-- (void)onResultData:(T _Nullable)data __attribute__((swift_name("onResult(data:)")));
-- (void)onResultExit __attribute__((swift_name("onResultExit()")));
-- (void)onResultFlush __attribute__((swift_name("onResultFlush()")));
-@property (readonly) NSArray<id<VpsFlowConnection>> *connections __attribute__((swift_name("connections")));
-@property (readonly) BOOL isEmpty __attribute__((swift_name("isEmpty")));
-@property int32_t size __attribute__((swift_name("size")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("FlowBuilder")))
-@interface VpsFlowBuilder<T> : VpsBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VpsFlowBuilder<T> *)addNodeNode:(VpsNode<T> *)node __attribute__((swift_name("addNode(node:)")));
-- (VpsFlow<T> *)build __attribute__((swift_name("build()")));
-@property NSMutableArray<id<VpsFlowConnection>> *builderConnections __attribute__((swift_name("builderConnections")));
-@end
-
-__attribute__((swift_name("NodeHandler")))
-@protocol VpsNodeHandler
-@required
-- (void)onFlush __attribute__((swift_name("onFlush()")));
-- (void)onResultData_:(id _Nullable)data __attribute__((swift_name("onResult(data_:)")));
-- (void)onResultExit __attribute__((swift_name("onResultExit()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ModelToEventParameters")))
-@interface VpsModelToEventParameters : VpsBase
-- (instancetype)initWithUseSquareDriftFilter:(BOOL)useSquareDriftFilter squareDriftFilterGain:(float)squareDriftFilterGain __attribute__((swift_name("init(useSquareDriftFilter:squareDriftFilterGain:)"))) __attribute__((objc_designated_initializer));
-- (VpsModelToEventParameters *)doCopyUseSquareDriftFilter:(BOOL)useSquareDriftFilter squareDriftFilterGain:(float)squareDriftFilterGain __attribute__((swift_name("doCopy(useSquareDriftFilter:squareDriftFilterGain:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float squareDriftFilterGain __attribute__((swift_name("squareDriftFilterGain")));
-@property (readonly) BOOL useSquareDriftFilter __attribute__((swift_name("useSquareDriftFilter")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VPSModelToEventParameters")))
-@interface VpsVPSModelToEventParameters : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)vPSModelToEventParameters __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsVPSModelToEventParameters *shared __attribute__((swift_name("shared")));
-@property (readonly, getter=default) VpsModelToEventParameters *default_ __attribute__((swift_name("default_")));
-@end
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticleFilterEvent")))
 @interface VpsParticleFilterEvent : VpsKotlinEnum<VpsParticleFilterEvent *>
 + (instancetype)alloc __attribute__((unavailable));
@@ -2846,175 +1844,6 @@ __attribute__((swift_name("ParticleFilterEvent")))
 @property (class, readonly) VpsParticleFilterEvent *rescueMode __attribute__((swift_name("rescueMode")));
 + (VpsKotlinArray<VpsParticleFilterEvent *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsParticleFilterEvent *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ParticleFilterParams")))
-@interface VpsParticleFilterParams : VpsBase
-- (instancetype)initWithVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL idleWiFiDistanceSyncCriteria:(float)idleWiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize __attribute__((swift_name("init(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:secondBiasStd:secondBiasMean:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:idleWiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:)"))) __attribute__((objc_designated_initializer));
-- (VpsParticleFilterParams *)doCopyVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL idleWiFiDistanceSyncCriteria:(float)idleWiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize __attribute__((swift_name("doCopy(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:secondBiasStd:secondBiasMean:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:idleWiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) float angleOffsetGainDegPerMin __attribute__((swift_name("angleOffsetGainDegPerMin")));
-@property (readonly) float biasStd __attribute__((swift_name("biasStd")));
-@property (readonly) VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *binSize __attribute__((swift_name("binSize")));
-@property (readonly) float idleWiFiDistanceSyncCriteria __attribute__((swift_name("idleWiFiDistanceSyncCriteria")));
-@property (readonly) float idleWiFiSecondsCriteria __attribute__((swift_name("idleWiFiSecondsCriteria")));
-@property (readonly) float kldDelta __attribute__((swift_name("kldDelta")));
-@property (readonly) float kldEpsilon __attribute__((swift_name("kldEpsilon")));
-@property (readonly) float kldZ __attribute__((swift_name("kldZ")));
-@property (readonly) int32_t maxNumParticles __attribute__((swift_name("maxNumParticles")));
-@property (readonly) int32_t minNumParticles __attribute__((swift_name("minNumParticles")));
-@property (readonly) float mixingFactor __attribute__((swift_name("mixingFactor")));
-@property (readonly) int32_t mlStepHistorySize __attribute__((swift_name("mlStepHistorySize")));
-@property (readonly) BOOL naiveOutputSyncMovement __attribute__((swift_name("naiveOutputSyncMovement")));
-@property (readonly) float nlThreshold __attribute__((swift_name("nlThreshold")));
-@property (readonly) float rescueDirectionStd __attribute__((swift_name("rescueDirectionStd")));
-@property (readonly) BOOL rescueOnNL __attribute__((swift_name("rescueOnNL")));
-@property (readonly) float rescuePositionStd __attribute__((swift_name("rescuePositionStd")));
-@property (readonly) float secondBiasMean __attribute__((swift_name("secondBiasMean")));
-@property (readonly) float secondBiasStd __attribute__((swift_name("secondBiasStd")));
-@property (readonly) float speedFactor __attribute__((swift_name("speedFactor")));
-@property (readonly) float sprinklePercentage __attribute__((swift_name("sprinklePercentage")));
-@property (readonly) float sprinkleSyncThreshold __attribute__((swift_name("sprinkleSyncThreshold")));
-@property (readonly) float startDirectionStd __attribute__((swift_name("startDirectionStd")));
-@property (readonly) VpsStartMethod *startMethod __attribute__((swift_name("startMethod")));
-@property (readonly) float startPositionStd __attribute__((swift_name("startPositionStd")));
-@property (readonly) float stepDirectionStd __attribute__((swift_name("stepDirectionStd")));
-@property (readonly) float stepLengthStd __attribute__((swift_name("stepLengthStd")));
-@property (readonly) int32_t swapSprinkleEndCount __attribute__((swift_name("swapSprinkleEndCount")));
-@property (readonly) int32_t swapSprinkleInterval __attribute__((swift_name("swapSprinkleInterval")));
-@property (readonly) float swapSprinkleRatio __attribute__((swift_name("swapSprinkleRatio")));
-@property (readonly) float syncDirectionStd __attribute__((swift_name("syncDirectionStd")));
-@property (readonly) VpsSyncMethod *syncMethod __attribute__((swift_name("syncMethod")));
-@property (readonly) float syncPositionStd __attribute__((swift_name("syncPositionStd")));
-@property (readonly) BOOL useMLSyncSpeedFilter __attribute__((swift_name("useMLSyncSpeedFilter")));
-@property (readonly) BOOL useRayTraceSensorModel __attribute__((swift_name("useRayTraceSensorModel")));
-@property (readonly) float uxPositionConfidence __attribute__((swift_name("uxPositionConfidence")));
-@property (readonly) VpsParticleFilterParamsVersion *version __attribute__((swift_name("version")));
-@property (readonly) int32_t wiFiMeasuredPower __attribute__((swift_name("wiFiMeasuredPower")));
-@property (readonly) float wiFiPathLossCoefficient __attribute__((swift_name("wiFiPathLossCoefficient")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ParticleFilterParams.Version")))
-@interface VpsParticleFilterParamsVersion : VpsKotlinEnum<VpsParticleFilterParamsVersion *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsParticleFilterParamsVersion *default_ __attribute__((swift_name("default_")));
-@property (class, readonly) VpsParticleFilterParamsVersion *v1 __attribute__((swift_name("v1")));
-@property (class, readonly) VpsParticleFilterParamsVersion *v2 __attribute__((swift_name("v2")));
-@property (class, readonly) VpsParticleFilterParamsVersion *v3 __attribute__((swift_name("v3")));
-@property (class, readonly) VpsParticleFilterParamsVersion *mixedGauss __attribute__((swift_name("mixedGauss")));
-@property (class, readonly) VpsParticleFilterParamsVersion *compass __attribute__((swift_name("compass")));
-@property (class, readonly) VpsParticleFilterParamsVersion *sprinkle __attribute__((swift_name("sprinkle")));
-+ (VpsKotlinArray<VpsParticleFilterParamsVersion *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsParticleFilterParamsVersion *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ParticleFilterSettings")))
-@interface VpsParticleFilterSettings : VpsBase
-- (instancetype)initWithUxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans __attribute__((swift_name("init(uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:)"))) __attribute__((objc_designated_initializer));
-- (VpsParticleFilterSettings *)doCopyUxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans __attribute__((swift_name("doCopy(uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL mlPositionActivated __attribute__((swift_name("mlPositionActivated")));
-@property (readonly) VpsParticleFilterParams *particleFilterParams __attribute__((swift_name("particleFilterParams")));
-@property (readonly) VpsParticleFilterSettingsVersion *particleFilterVersion __attribute__((swift_name("particleFilterVersion")));
-@property (readonly) BOOL particlePositionActivated __attribute__((swift_name("particlePositionActivated")));
-@property (readonly) BOOL particlesOutputActivated __attribute__((swift_name("particlesOutputActivated")));
-@property (readonly) VpsLong * _Nullable randomNumberGeneratorSeed __attribute__((swift_name("randomNumberGeneratorSeed")));
-@property (readonly) BOOL saveOutputSignals __attribute__((swift_name("saveOutputSignals")));
-@property (readonly) BOOL saveWiFiScans __attribute__((swift_name("saveWiFiScans")));
-@property (readonly) BOOL saveWiFiStatusUpdate __attribute__((swift_name("saveWiFiStatusUpdate")));
-@property (readonly) BOOL uxPositionActivated __attribute__((swift_name("uxPositionActivated")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ParticleFilterSettings.Version")))
-@interface VpsParticleFilterSettingsVersion : VpsKotlinEnum<VpsParticleFilterSettingsVersion *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsParticleFilterSettingsVersion *v1 __attribute__((swift_name("v1")));
-@property (class, readonly) VpsParticleFilterSettingsVersion *v2 __attribute__((swift_name("v2")));
-@property (class, readonly) VpsParticleFilterSettingsVersion *wifi __attribute__((swift_name("wifi")));
-+ (VpsKotlinArray<VpsParticleFilterSettingsVersion *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsParticleFilterSettingsVersion *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VPSParticleFilterParams")))
-@interface VpsVPSParticleFilterParams : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)vPSParticleFilterParams __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsVPSParticleFilterParams *shared __attribute__((swift_name("shared")));
-@property (readonly) VpsParticleFilterParams *compass __attribute__((swift_name("compass")));
-@property (readonly, getter=default) VpsParticleFilterParams *default_ __attribute__((swift_name("default_")));
-@property (readonly) VpsParticleFilterParams *particleFilterMixedGauss __attribute__((swift_name("particleFilterMixedGauss")));
-@property (readonly) VpsParticleFilterParams *particleFilterV1 __attribute__((swift_name("particleFilterV1")));
-@property (readonly) VpsParticleFilterParams *particleFilterV2 __attribute__((swift_name("particleFilterV2")));
-@property (readonly) VpsParticleFilterParams *particleFilterV3 __attribute__((swift_name("particleFilterV3")));
-@property (readonly) VpsParticleFilterParams *sprinkleFilter __attribute__((swift_name("sprinkleFilter")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VPSParticleFilterSettings")))
-@interface VpsVPSParticleFilterSettings : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)vPSParticleFilterSettings __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsVPSParticleFilterSettings *shared __attribute__((swift_name("shared")));
-@property (readonly, getter=default) VpsParticleFilterSettings *default_ __attribute__((swift_name("default_")));
-@property (readonly) VpsParticleFilterSettings *mixedGauss __attribute__((swift_name("mixedGauss")));
-@property (readonly) VpsParticleFilterSettings *v1 __attribute__((swift_name("v1")));
-@property (readonly) VpsParticleFilterSettings *v2 __attribute__((swift_name("v2")));
-@property (readonly) VpsParticleFilterSettings *v3 __attribute__((swift_name("v3")));
-@property (readonly) VpsParticleFilterSettings *wifi __attribute__((swift_name("wifi")));
-@end
-
-__attribute__((swift_name("PositionEngineSettings")))
-@interface VpsPositionEngineSettings : VpsBase
-@property (readonly) VpsPositionEngineType *type __attribute__((swift_name("type")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PositionEngineSettings.GPSFusion")))
-@interface VpsPositionEngineSettingsGPSFusion : VpsPositionEngineSettings
-- (instancetype)initWithMlAdjustmentActivated:(BOOL)mlAdjustmentActivated __attribute__((swift_name("init(mlAdjustmentActivated:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) BOOL mlAdjustmentActivated __attribute__((swift_name("mlAdjustmentActivated")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PositionEngineSettings.ParticleFilter")))
-@interface VpsPositionEngineSettingsParticleFilter : VpsPositionEngineSettings
-- (instancetype)initWithParticleFilterSettings:(VpsParticleFilterSettings *)particleFilterSettings __attribute__((swift_name("init(particleFilterSettings:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) VpsParticleFilterSettings *particleFilterSettings __attribute__((swift_name("particleFilterSettings")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("PositionEngineType")))
-@interface VpsPositionEngineType : VpsKotlinEnum<VpsPositionEngineType *>
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-@property (class, readonly) VpsPositionEngineType *particleFilter __attribute__((swift_name("particleFilter")));
-@property (class, readonly) VpsPositionEngineType *gpsFusion __attribute__((swift_name("gpsFusion")));
-+ (VpsKotlinArray<VpsPositionEngineType *> *)values __attribute__((swift_name("values()")));
-@property (class, readonly) NSArray<VpsPositionEngineType *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((swift_name("ReplayHandler")))
-@protocol VpsReplayHandler
-@required
-@property (readonly) NSArray<VpsInputSignal *> *inputs __attribute__((swift_name("inputs")));
 @end
 
 
@@ -3584,6 +2413,1002 @@ __attribute__((swift_name("ReplaySyncPosition.Companion")))
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Features")))
+@interface VpsFeatures : VpsBase
+- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsFeaturesCompanion *companion __attribute__((swift_name("companion")));
+- (VpsFeatures *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsKotlinFloatArray *data __attribute__((swift_name("data")));
+@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Features.Companion")))
+@interface VpsFeaturesCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsFeaturesCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RawSensorPack")))
+@interface VpsRawSensorPack : VpsBase
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("init(nanoTimestamp:accelerometer:gyroscope:rotation:magnetometer:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsRawSensorPackCompanion *companion __attribute__((swift_name("companion")));
+- (VpsRawSensorPack *)doCopyNanoTimestamp:(int64_t)nanoTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("doCopy(nanoTimestamp:accelerometer:gyroscope:rotation:magnetometer:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsKotlinFloatArray *accelerometer __attribute__((swift_name("accelerometer")));
+@property (readonly) VpsKotlinFloatArray *gyroscope __attribute__((swift_name("gyroscope")));
+@property (readonly) VpsKotlinFloatArray * _Nullable magnetometer __attribute__((swift_name("magnetometer")));
+@property (readonly) int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property (readonly) VpsKotlinFloatArray *rotation __attribute__((swift_name("rotation")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RawSensorPack.Companion")))
+@interface VpsRawSensorPackCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsRawSensorPackCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EventTypeHolder")))
+@interface VpsEventTypeHolder : VpsBase
+- (instancetype)initWithEvent_type:(VpsEventType *)event_type __attribute__((swift_name("init(event_type:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsEventTypeHolderCompanion *companion __attribute__((swift_name("companion")));
+- (VpsEventTypeHolder *)doCopyEvent_type:(VpsEventType *)event_type __attribute__((swift_name("doCopy(event_type:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsEventType *event_type __attribute__((swift_name("event_type")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EventTypeHolder.Companion")))
+@interface VpsEventTypeHolderCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsEventTypeHolderCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PaulDBSCAN")))
+@interface VpsPaulDBSCAN : VpsBase
+- (instancetype)initWithEps:(float)eps min_samples:(int32_t)min_samples dist_function:(VpsFloat *(^ _Nullable)(VpsKotlinFloatArray *, VpsKotlinFloatArray *))dist_function angle_to_meter_factor:(VpsFloat * _Nullable)angle_to_meter_factor __attribute__((swift_name("init(eps:min_samples:dist_function:angle_to_meter_factor:)"))) __attribute__((objc_designated_initializer));
+- (VpsKotlinArray<VpsInt *> *)fit_predictDB:(VpsKotlinArray<VpsPose *> *)DB __attribute__((swift_name("fit_predict(DB:)")));
+- (NSMutableArray<VpsKotlinPair<VpsInt *, VpsPose *> *> *)range_queryDB:(VpsKotlinArray<VpsPose *> *)DB Q:(VpsPose *)Q __attribute__((swift_name("range_query(DB:Q:)")));
+@property (readonly) VpsFloat *(^_dist_function)(VpsKotlinFloatArray *, VpsKotlinFloatArray *) __attribute__((swift_name("_dist_function")));
+@property (readonly) float eps __attribute__((swift_name("eps")));
+@property (readonly) int32_t min_samples __attribute__((swift_name("min_samples")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Pose")))
+@interface VpsPose : VpsBase
+- (instancetype)initWithX:(float)x y:(float)y heading:(float)heading speedBias:(float)speedBias __attribute__((swift_name("init(x:y:heading:speedBias:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsPoseCompanion *companion __attribute__((swift_name("companion")));
+- (VpsPose *)doCopyX:(float)x y:(float)y heading:(float)heading speedBias:(float)speedBias __attribute__((swift_name("doCopy(x:y:heading:speedBias:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (VpsCoordinateF *)toCoordinateF __attribute__((swift_name("toCoordinateF()")));
+- (VpsKotlinFloatArray *)toDebugFormat __attribute__((swift_name("toDebugFormat()")));
+- (VpsKotlinFloatArray *)toFloatArray __attribute__((swift_name("toFloatArray()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float heading __attribute__((swift_name("heading")));
+@property (readonly) float speedBias __attribute__((swift_name("speedBias")));
+@property (readonly) float x __attribute__((swift_name("x")));
+@property (readonly) float y __attribute__((swift_name("y")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Pose.Companion")))
+@interface VpsPoseCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsPoseCompanion *shared __attribute__((swift_name("shared")));
+- (VpsPose *)empty __attribute__((swift_name("empty()")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SyncCritera")))
+@interface VpsSyncCritera : VpsKotlinEnum<VpsSyncCritera *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsSyncCritera *all __attribute__((swift_name("all")));
+@property (class, readonly) VpsSyncCritera *wifi __attribute__((swift_name("wifi")));
+@property (class, readonly) VpsSyncCritera *none __attribute__((swift_name("none")));
++ (VpsKotlinArray<VpsSyncCritera *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsSyncCritera *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((swift_name("KotlinThrowable")))
+@interface VpsKotlinThrowable : VpsBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
+
+/**
+ * @note annotations
+ *   kotlin.experimental.ExperimentalNativeApi
+*/
+- (VpsKotlinArray<NSString *> *)getStackTrace __attribute__((swift_name("getStackTrace()")));
+- (void)printStackTrace __attribute__((swift_name("printStackTrace()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsKotlinThrowable * _Nullable cause __attribute__((swift_name("cause")));
+@property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
+- (NSError *)asError __attribute__((swift_name("asError()")));
+@end
+
+__attribute__((swift_name("KotlinException")))
+@interface VpsKotlinException : VpsKotlinThrowable
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ValueErrorException")))
+@interface VpsValueErrorException : VpsKotlinException
+- (instancetype)initWithMessage:(NSString *)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (instancetype)initWithCause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VpsKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WifiScanData")))
+@interface VpsWifiScanData : VpsBase
+- (instancetype)initWithSsid:(NSString *)ssid bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(float)frequency __attribute__((swift_name("init(ssid:bssid:rssi:frequency:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsWifiScanDataCompanion *companion __attribute__((swift_name("companion")));
+- (VpsWifiScanData *)doCopySsid:(NSString *)ssid bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(float)frequency __attribute__((swift_name("doCopy(ssid:bssid:rssi:frequency:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property (readonly) float frequency __attribute__((swift_name("frequency")));
+@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
+@property (readonly) NSString *ssid __attribute__((swift_name("ssid")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WifiScanData.Companion")))
+@interface VpsWifiScanDataCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsWifiScanDataCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InAndOut")))
+@interface VpsInAndOut : VpsBase
+- (instancetype)initWithTriggers:(NSArray<VpsInAndOutTrigger *> *)triggers listener:(id<VpsInAndOutListener> _Nullable)listener positionCheckInterval:(VpsInt * _Nullable)positionCheckInterval __attribute__((swift_name("init(triggers:listener:positionCheckInterval:)"))) __attribute__((objc_designated_initializer));
+- (void)onDestroy __attribute__((swift_name("onDestroy()")));
+- (void)onNewPositionCurrentPosition:(VpsCoordinateF *)currentPosition __attribute__((swift_name("onNewPosition(currentPosition:)")));
+- (void)reset __attribute__((swift_name("reset()")));
+@property (readonly) id<VpsInAndOutListener> _Nullable listener __attribute__((swift_name("listener")));
+@property (readonly) VpsInt * _Nullable positionCheckInterval __attribute__((swift_name("positionCheckInterval")));
+@property (readonly) NSArray<VpsInAndOutTrigger *> *triggers __attribute__((swift_name("triggers")));
+@end
+
+__attribute__((swift_name("InAndOut.Trigger")))
+@interface VpsInAndOutTrigger : VpsBase
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InAndOut.TriggerRadius")))
+@interface VpsInAndOutTriggerRadius : VpsInAndOutTrigger
+- (instancetype)initWithId:(NSString *)id centerPoint:(VpsCoordinateF *)centerPoint radius:(double)radius __attribute__((swift_name("init(id:centerPoint:radius:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) VpsCoordinateF *centerPoint __attribute__((swift_name("centerPoint")));
+@property (readonly) double radius __attribute__((swift_name("radius")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("InAndOut.TriggerZone")))
+@interface VpsInAndOutTriggerZone : VpsInAndOutTrigger
+- (instancetype)initWithId:(NSString *)id zoneId:(NSString *)zoneId polygon:(NSArray<NSArray<VpsDouble *> *> *)polygon __attribute__((swift_name("init(id:zoneId:polygon:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) NSArray<NSArray<VpsDouble *> *> *polygon __attribute__((swift_name("polygon")));
+@property (readonly) NSString *zoneId __attribute__((swift_name("zoneId")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MaxQueue")))
+@interface VpsMaxQueue<T> : VpsBase
+- (instancetype)initWithMaxSize:(VpsInt * _Nullable)maxSize __attribute__((swift_name("init(maxSize:)"))) __attribute__((objc_designated_initializer));
+- (void)clear __attribute__((swift_name("clear()")));
+- (T _Nullable)dequeue __attribute__((swift_name("dequeue()")));
+- (void)enqueueValue:(T _Nullable)value __attribute__((swift_name("enqueue(value:)")));
+- (T _Nullable)peekEndN:(int32_t)n __attribute__((swift_name("peekEnd(n:)")));
+- (NSMutableArray<id> *)toArrayListFromTail:(BOOL)fromTail __attribute__((swift_name("toArrayList(fromTail:)")));
+- (NSArray<id> *)toListFromTail:(BOOL)fromTail __attribute__((swift_name("toList(fromTail:)")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL isEmpty __attribute__((swift_name("isEmpty")));
+@property (readonly) VpsInt * _Nullable maxSize __attribute__((swift_name("maxSize")));
+@property (readonly) T _Nullable peek __attribute__((swift_name("peek")));
+@property (readonly) T _Nullable peekLast __attribute__((swift_name("peekLast")));
+@property int32_t size __attribute__((swift_name("size")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MaxQueueCircularArray")))
+@interface VpsMaxQueueCircularArray<T> : VpsBase
+- (instancetype)initWithCapacity:(int32_t)capacity __attribute__((swift_name("init(capacity:)"))) __attribute__((objc_designated_initializer));
+- (void)enqueueElement:(T _Nullable)element __attribute__((swift_name("enqueue(element:)")));
+- (int32_t)getSize __attribute__((swift_name("getSize()")));
+- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
+- (BOOL)isFull __attribute__((swift_name("isFull()")));
+- (T _Nullable)peek __attribute__((swift_name("peek()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsKotlinArray<id> *array __attribute__((swift_name("array")));
+@property (readonly) int32_t capacity __attribute__((swift_name("capacity")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TimeoutQueue")))
+@interface VpsTimeoutQueue<T> : VpsBase
+- (instancetype)initWithMaxSize:(VpsInt * _Nullable)maxSize timeout:(int64_t)timeout __attribute__((swift_name("init(maxSize:timeout:)"))) __attribute__((objc_designated_initializer));
+- (void)clear __attribute__((swift_name("clear()")));
+- (T _Nullable)dequeue __attribute__((swift_name("dequeue()")));
+- (void)enqueueValue:(T _Nullable)value timestamp:(int64_t)timestamp __attribute__((swift_name("enqueue(value:timestamp:)")));
+- (NSArray<id> *)toListFromTail:(BOOL)fromTail __attribute__((swift_name("toList(fromTail:)")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL isEmpty __attribute__((swift_name("isEmpty")));
+@property (readonly) VpsInt * _Nullable maxSize __attribute__((swift_name("maxSize")));
+@property (readonly) T _Nullable peek __attribute__((swift_name("peek")));
+@property (readonly) T _Nullable peekLast __attribute__((swift_name("peekLast")));
+@property int32_t size __attribute__((swift_name("size")));
+@property (readonly) int64_t timeout __attribute__((swift_name("timeout")));
+@end
+
+__attribute__((swift_name("RandomNumberGenerator")))
+@protocol VpsRandomNumberGenerator
+@required
+- (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
+- (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
+- (double)nextDouble __attribute__((swift_name("nextDouble()")));
+- (float)nextFloat __attribute__((swift_name("nextFloat()")));
+- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
+- (int32_t)nextIntUntil:(int32_t)until __attribute__((swift_name("nextInt(until:)")));
+- (void)shuffleList:(NSMutableArray<id> *)list __attribute__((swift_name("shuffle(list:)")));
+@property (readonly) VpsKotlinRandom *generator __attribute__((swift_name("generator")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("DefaultRandom")))
+@interface VpsDefaultRandom : VpsBase <VpsRandomNumberGenerator>
+- (instancetype)initWithSeed:(VpsLong * _Nullable)seed __attribute__((swift_name("init(seed:)"))) __attribute__((objc_designated_initializer));
+- (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
+- (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
+- (double)nextDouble __attribute__((swift_name("nextDouble()")));
+- (float)nextFloat __attribute__((swift_name("nextFloat()")));
+- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
+- (int32_t)nextIntUntil:(int32_t)until __attribute__((swift_name("nextInt(until:)")));
+- (void)shuffleList:(NSMutableArray<id> *)list __attribute__((swift_name("shuffle(list:)")));
+@property (readonly) VpsKotlinRandom *generator __attribute__((swift_name("generator")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Gunnis")))
+@interface VpsGunnis : VpsBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (NSString *)gunnisInput:(NSString *)input __attribute__((swift_name("gunnis(input:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MLPathProcessor")))
+@interface VpsMLPathProcessor : VpsBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VpsMLProcessedPath *)processPathPath:(NSArray<VpsKotlinDoubleArray *> *)path pathEndPoint:(VpsKotlinDoubleArray *)pathEndPoint __attribute__((swift_name("processPath(path:pathEndPoint:)")));
+- (NSArray<VpsKotlinDoubleArray *> *)rotateAngle:(double)angle trajectory:(NSArray<VpsKotlinDoubleArray *> *)trajectory __attribute__((swift_name("rotate(angle:trajectory:)")));
+- (NSArray<VpsKotlinDoubleArray *> *)stretchSpeedFactor:(double)speedFactor trajectory:(NSArray<VpsKotlinDoubleArray *> *)trajectory __attribute__((swift_name("stretch(speedFactor:trajectory:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MLProcessedPath")))
+@interface VpsMLProcessedPath : VpsBase
+- (instancetype)initWithPath:(NSArray<VpsKotlinDoubleArray *> *)path angleCorrection:(double)angleCorrection speedAdjustment:(double)speedAdjustment __attribute__((swift_name("init(path:angleCorrection:speedAdjustment:)"))) __attribute__((objc_designated_initializer));
+- (VpsMLProcessedPath *)doCopyPath:(NSArray<VpsKotlinDoubleArray *> *)path angleCorrection:(double)angleCorrection speedAdjustment:(double)speedAdjustment __attribute__((swift_name("doCopy(path:angleCorrection:speedAdjustment:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) double angleCorrection __attribute__((swift_name("angleCorrection")));
+@property (readonly) NSArray<VpsKotlinDoubleArray *> *path __attribute__((swift_name("path")));
+@property (readonly) double speedAdjustment __attribute__((swift_name("speedAdjustment")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MaxDoubleArrayQueue")))
+@interface VpsMaxDoubleArrayQueue : VpsBase
+- (instancetype)initWithSize:(int32_t)size startValue:(double)startValue __attribute__((swift_name("init(size:startValue:)"))) __attribute__((objc_designated_initializer));
+- (void)appendValue:(double)value __attribute__((swift_name("append(value:)")));
+- (void)backwardAppendValue:(double)value __attribute__((swift_name("backwardAppend(value:)")));
+- (id<VpsKotlinIterator>)reversedIterator __attribute__((swift_name("reversedIterator()")));
+@property (readonly) int32_t size __attribute__((swift_name("size")));
+@property (readonly) double startValue __attribute__((swift_name("startValue")));
+@property (readonly) VpsKotlinDoubleArray *values __attribute__((swift_name("values")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MaxFloatArrayQueue")))
+@interface VpsMaxFloatArrayQueue : VpsBase
+- (instancetype)initWithSize:(int32_t)size startValue:(float)startValue __attribute__((swift_name("init(size:startValue:)"))) __attribute__((objc_designated_initializer));
+- (void)appendValue:(float)value __attribute__((swift_name("append(value:)")));
+- (void)backwardAppendValue:(float)value __attribute__((swift_name("backwardAppend(value:)")));
+- (id<VpsKotlinIterator>)reversedIterator __attribute__((swift_name("reversedIterator()")));
+@property (readonly) int32_t size __attribute__((swift_name("size")));
+@property (readonly) float startValue __attribute__((swift_name("startValue")));
+@property (readonly) VpsKotlinFloatArray *values __attribute__((swift_name("values")));
+@end
+
+__attribute__((swift_name("KotlinIterator")))
+@protocol VpsKotlinIterator
+@required
+- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
+- (id _Nullable)next __attribute__((swift_name("next()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ReverseArrayIterator")))
+@interface VpsReverseArrayIterator : VpsBase <VpsKotlinIterator>
+- (instancetype)initWithArray:(VpsKotlinDoubleArray *)array __attribute__((swift_name("init(array:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
+- (VpsDouble *)next __attribute__((swift_name("next()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ReverseFloatArrayIterator")))
+@interface VpsReverseFloatArrayIterator : VpsBase <VpsKotlinIterator>
+- (instancetype)initWithArray:(VpsKotlinFloatArray *)array __attribute__((swift_name("init(array:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
+- (VpsFloat *)next __attribute__((swift_name("next()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SOSFilt")))
+@interface VpsSOSFilt : VpsBase
+- (instancetype)initWithParams:(VpsKotlinArray<VpsKotlinFloatArray *> *)params initialCondition:(VpsLFiltInitCond *)initialCondition __attribute__((swift_name("init(params:initialCondition:)"))) __attribute__((objc_designated_initializer));
+- (void)reset __attribute__((swift_name("reset()")));
+- (float)updateX:(float)x __attribute__((swift_name("update(x:)")));
+@property (readonly) int32_t n_sections __attribute__((swift_name("n_sections")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SecondOrderLinearDigitalFilter")))
+@interface VpsSecondOrderLinearDigitalFilter : VpsBase
+- (instancetype)initWithParams:(VpsKotlinFloatArray *)params __attribute__((swift_name("init(params:)"))) __attribute__((objc_designated_initializer));
+- (VpsKotlinPair<VpsFloat *, VpsFloat *> *)doInitParamsFirstInput:(float)firstInput secondInput:(float)secondInput __attribute__((swift_name("doInitParams(firstInput:secondInput:)")));
+- (void)reset __attribute__((swift_name("reset()")));
+- (float)updateX:(float)x __attribute__((swift_name("update(x:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WindowedFiltFilt")))
+@interface VpsWindowedFiltFilt : VpsBase
+- (instancetype)initWithWindowSize:(int32_t)windowSize params:(VpsKotlinArray<VpsKotlinFloatArray *> *)params initialCondition:(VpsLFiltInitCond *)initialCondition __attribute__((swift_name("init(windowSize:params:initialCondition:)"))) __attribute__((objc_designated_initializer));
+- (void)reset __attribute__((swift_name("reset()")));
+- (VpsKotlinFloatArray *)updateX:(float)x __attribute__((swift_name("update(x:)")));
+@property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *params __attribute__((swift_name("params")));
+@property (readonly) int32_t windowSize __attribute__((swift_name("windowSize")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StartStep")))
+@interface VpsStartStep : VpsBase
+- (instancetype)initWithLen:(int32_t)len __attribute__((swift_name("init(len:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)addStepElement:(double)element __attribute__((swift_name("addStep(element:)")));
+- (double)getFrequency __attribute__((swift_name("getFrequency()")));
+- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
+- (int32_t)size __attribute__((swift_name("size()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSMutableArray<VpsDouble *> *x __attribute__((swift_name("x")));
+@property NSMutableArray<VpsDouble *> *y __attribute__((swift_name("y")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FloorLevelHandler")))
+@interface VpsFloorLevelHandler : VpsBase
+- (instancetype)initWithFloorLevels:(NSDictionary<VpsLong *, id<VpsVPSFloorLevel>> *)floorLevels initialFloorLevelId:(VpsLong * _Nullable)initialFloorLevelId debug:(BOOL)debug __attribute__((swift_name("init(floorLevels:initialFloorLevelId:debug:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)isValidCoordinateX:(double)x y:(double)y __attribute__((swift_name("isValidCoordinate(x:y:)")));
+- (BOOL)isValidPointP:(VpsPose *)p __attribute__((swift_name("isValidPoint(p:)")));
+- (BOOL)isValidPointX:(double)x y:(double)y __attribute__((swift_name("isValidPoint(x:y:)")));
+- (BOOL)isValidPointX:(float)x y_:(float)y __attribute__((swift_name("isValidPoint(x:y_:)")));
+- (void)setFloorLevelFloorLevelId:(int64_t)floorLevelId __attribute__((swift_name("setFloorLevel(floorLevelId:)")));
+@property (readonly) NSArray<VpsAccessPoint *> *allAccessPoints __attribute__((swift_name("allAccessPoints")));
+@property (readonly) NSArray<VpsSwapLocation *> *allSwapLocations __attribute__((swift_name("allSwapLocations")));
+@property (readonly) NSArray<VpsAccessPoint *> *currentFloorAccessPoints __attribute__((swift_name("currentFloorAccessPoints")));
+@property (readonly) VpsDouble * _Nullable currentFloorCeilingHeightInMeters __attribute__((swift_name("currentFloorCeilingHeightInMeters")));
+@property (readonly) double currentFloorHeightInMeters __attribute__((swift_name("currentFloorHeightInMeters")));
+@property (readonly) id<VpsVPSFloorLevel> currentFloorLevel __attribute__((swift_name("currentFloorLevel")));
+@property (readonly) int64_t currentFloorLevelId __attribute__((swift_name("currentFloorLevelId")));
+@property (readonly) NSArray<VpsSwapLocation *> *currentFloorSwapLocations __attribute__((swift_name("currentFloorSwapLocations")));
+@property (readonly) double currentFloorWidthInMeters __attribute__((swift_name("currentFloorWidthInMeters")));
+@property (readonly) VpsFloorLevelHandlerMapInformation *currentMapInformation __attribute__((swift_name("currentMapInformation")));
+@property (readonly) double currentPixelsPerMeter __attribute__((swift_name("currentPixelsPerMeter")));
+@property (readonly) BOOL debug __attribute__((swift_name("debug")));
+@property (readonly) NSDictionary<VpsLong *, id<VpsVPSFloorLevel>> *floorLevels __attribute__((swift_name("floorLevels")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FloorLevelHandler.MapInformation")))
+@interface VpsFloorLevelHandlerMapInformation : VpsBase
+- (instancetype)initWithWidth:(int32_t)width height:(int32_t)height mapFenceScale:(double)mapFenceScale floorHeight:(VpsDouble * _Nullable)floorHeight __attribute__((swift_name("init(width:height:mapFenceScale:floorHeight:)"))) __attribute__((objc_designated_initializer));
+- (VpsFloorLevelHandlerMapInformation *)doCopyWidth:(int32_t)width height:(int32_t)height mapFenceScale:(double)mapFenceScale floorHeight:(VpsDouble * _Nullable)floorHeight __attribute__((swift_name("doCopy(width:height:mapFenceScale:floorHeight:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsDouble * _Nullable floorHeight __attribute__((swift_name("floorHeight")));
+@property (readonly) int32_t height __attribute__((swift_name("height")));
+@property (readonly) double mapFenceScale __attribute__((swift_name("mapFenceScale")));
+@property (readonly) int32_t width __attribute__((swift_name("width")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPS")))
+@interface VpsVPS : VpsBase <VpsFlowConnection>
+- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler outputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system featureToTensorValueParams:(VpsFeatureToTensorValueParams *)featureToTensorValueParams interpolationParams:(VpsInterpolationModuleParams_ *)interpolationParams modelToEventParameters:(VpsModelToEventParameters *)modelToEventParameters positionEngineSettings:(VpsPositionEngineSettings *)positionEngineSettings floorChangeInterpreterSettings:(VpsFloorChangeInterpreterSettings *)floorChangeInterpreterSettings rotationHandlerSettings:(VpsRotationHandlerSettings *)rotationHandlerSettings debugMode:(BOOL)debugMode extendedDebugMode:(BOOL)extendedDebugMode modelOutputHandler:(VpsFlow<VpsVelocityModelOutput *> * _Nullable)modelOutputHandler nlModel:(id<VpsNLModel> _Nullable)nlModel isRotationOutputActive:(BOOL)isRotationOutputActive __attribute__((swift_name("init(velocityModel:floorLevelHandler:outputHandler:system:featureToTensorValueParams:interpolationParams:modelToEventParameters:positionEngineSettings:floorChangeInterpreterSettings:rotationHandlerSettings:debugMode:extendedDebugMode:modelOutputHandler:nlModel:isRotationOutputActive:)"))) __attribute__((objc_designated_initializer));
+- (void)flush __attribute__((swift_name("flush()")));
+- (void)doInitSignal:(VpsInputSignalStart *)signal __attribute__((swift_name("doInit(signal:)")));
+- (void)onExit __attribute__((swift_name("onExit()")));
+- (void)onInputData:(VpsOutputSignal *)data __attribute__((swift_name("onInput(data:)")));
+- (void)onInputSignalSignal:(VpsInputSignal *)signal __attribute__((swift_name("onInputSignal(signal:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSLog")))
+@interface VpsVPSLog : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSLog __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSLog *shared __attribute__((swift_name("shared")));
+- (void)edTag:(NSString *)tag message:(NSString *)message __attribute__((swift_name("ed(tag:message:)")));
+- (void)eeTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause __attribute__((swift_name("ee(tag:message:cause:)")));
+- (void)eelTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause id:(NSString * _Nullable)id __attribute__((swift_name("eel(tag:message:cause:id:)")));
+- (void)elTag:(NSString *)tag message:(NSString *)message id:(NSString * _Nullable)id __attribute__((swift_name("el(tag:message:id:)")));
+- (void)lTag:(NSString *)tag message:(NSString *)message id:(NSString * _Nullable)id __attribute__((swift_name("l(tag:message:id:)")));
+@property id<VpsVPSLogOutputHandler> _Nullable outputHandler __attribute__((swift_name("outputHandler")));
+@end
+
+__attribute__((swift_name("VPSLogOutputHandler")))
+@protocol VpsVPSLogOutputHandler
+@required
+- (void)onLogText:(NSString *)text id:(NSString * _Nullable)id __attribute__((swift_name("onLog(text:id:)")));
+@end
+
+__attribute__((swift_name("VPSOutputHandler")))
+@protocol VpsVPSOutputHandler
+@required
+- (void)onOutputSignalOutputSignal:(VpsOutputSignal *)outputSignal __attribute__((swift_name("onOutputSignal(outputSignal:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSRotation")))
+@interface VpsVPSRotation : VpsBase <VpsFlowConnection>
+- (instancetype)initWithOutputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system rotationHandlerSettings:(VpsRotationHandlerSettings *)rotationHandlerSettings __attribute__((swift_name("init(outputHandler:system:rotationHandlerSettings:)"))) __attribute__((objc_designated_initializer));
+- (void)flush __attribute__((swift_name("flush()")));
+- (void)doInitSignal:(VpsInputSignalStart *)signal __attribute__((swift_name("doInit(signal:)")));
+- (void)onExit __attribute__((swift_name("onExit()")));
+- (void)onInputData:(VpsOutputSignal *)data __attribute__((swift_name("onInput(data:)")));
+- (void)onInputSignalSignal:(VpsInputSignal *)signal __attribute__((swift_name("onInputSignal(signal:)")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CoordinateD")))
+@interface VpsCoordinateD : VpsBase
+- (instancetype)initWithX:(double)x y:(double)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithX:(float)x y_:(float)y __attribute__((swift_name("init(x:y_:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsCoordinateDCompanion *companion __attribute__((swift_name("companion")));
+- (VpsCoordinateD *)doCopyX:(double)x y:(double)y __attribute__((swift_name("doCopy(x:y:)")));
+- (double)distanceToOther:(VpsCoordinateD *)other __attribute__((swift_name("distanceTo(other:)")));
+- (double)distanceToOther_:(VpsAccessPointCoordinate *)other __attribute__((swift_name("distanceTo(other_:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (VpsCoordinateF *)toCoordinateF __attribute__((swift_name("toCoordinateF()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) double x __attribute__((swift_name("x")));
+@property (readonly) double y __attribute__((swift_name("y")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CoordinateD.Companion")))
+@interface VpsCoordinateDCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsCoordinateDCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CoordinateF")))
+@interface VpsCoordinateF : VpsBase
+- (instancetype)initWithX:(double)x y:(double)y __attribute__((swift_name("init(x:y:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithX:(float)x y_:(float)y __attribute__((swift_name("init(x:y_:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsCoordinateFCompanion *companion __attribute__((swift_name("companion")));
+- (VpsCoordinateF *)doCopyX:(float)x y:(float)y __attribute__((swift_name("doCopy(x:y:)")));
+- (float)distanceToOther:(VpsCoordinateF *)other __attribute__((swift_name("distanceTo(other:)")));
+- (float)distanceToOther_:(VpsAccessPointCoordinate *)other __attribute__((swift_name("distanceTo(other_:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (VpsCoordinateD *)toCoordinateD __attribute__((swift_name("toCoordinateD()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float x __attribute__((swift_name("x")));
+@property (readonly) float y __attribute__((swift_name("y")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CoordinateF.Companion")))
+@interface VpsCoordinateFCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsCoordinateFCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Location")))
+@interface VpsLocation : VpsBase
+- (instancetype)initWithLongitude:(double)longitude latitude:(double)latitude accuracy:(VpsDouble * _Nullable)accuracy bearing:(VpsDouble * _Nullable)bearing bearingAccuracy:(VpsDouble * _Nullable)bearingAccuracy altitude:(VpsDouble * _Nullable)altitude verticalAccuracy:(VpsDouble * _Nullable)verticalAccuracy speed:(VpsDouble * _Nullable)speed speedAccuracy:(VpsDouble * _Nullable)speedAccuracy ellipsoidalAltitude:(VpsDouble * _Nullable)ellipsoidalAltitude __attribute__((swift_name("init(longitude:latitude:accuracy:bearing:bearingAccuracy:altitude:verticalAccuracy:speed:speedAccuracy:ellipsoidalAltitude:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsLocationCompanion *companion __attribute__((swift_name("companion")));
+- (VpsLocation *)doCopyLongitude:(double)longitude latitude:(double)latitude accuracy:(VpsDouble * _Nullable)accuracy bearing:(VpsDouble * _Nullable)bearing bearingAccuracy:(VpsDouble * _Nullable)bearingAccuracy altitude:(VpsDouble * _Nullable)altitude verticalAccuracy:(VpsDouble * _Nullable)verticalAccuracy speed:(VpsDouble * _Nullable)speed speedAccuracy:(VpsDouble * _Nullable)speedAccuracy ellipsoidalAltitude:(VpsDouble * _Nullable)ellipsoidalAltitude __attribute__((swift_name("doCopy(longitude:latitude:accuracy:bearing:bearingAccuracy:altitude:verticalAccuracy:speed:speedAccuracy:ellipsoidalAltitude:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsDouble * _Nullable accuracy __attribute__((swift_name("accuracy")));
+@property (readonly) VpsDouble * _Nullable altitude __attribute__((swift_name("altitude")));
+@property (readonly) VpsDouble * _Nullable bearing __attribute__((swift_name("bearing")));
+@property (readonly) VpsDouble * _Nullable bearingAccuracy __attribute__((swift_name("bearingAccuracy")));
+@property (readonly) VpsDouble * _Nullable ellipsoidalAltitude __attribute__((swift_name("ellipsoidalAltitude")));
+@property (readonly) double latitude __attribute__((swift_name("latitude")));
+@property (readonly) double longitude __attribute__((swift_name("longitude")));
+@property (readonly) VpsDouble * _Nullable speed __attribute__((swift_name("speed")));
+@property (readonly) VpsDouble * _Nullable speedAccuracy __attribute__((swift_name("speedAccuracy")));
+@property (readonly) VpsDouble * _Nullable verticalAccuracy __attribute__((swift_name("verticalAccuracy")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Location.Companion")))
+@interface VpsLocationCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsLocationCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((swift_name("VPSFloorLevel")))
+@protocol VpsVPSFloorLevel
+@required
+- (void)dispose __attribute__((swift_name("dispose()")));
+- (VpsKotlinArray<VpsKotlinFloatArray *> *)get2DArrayMapResolution:(float)resolution __attribute__((swift_name("get2DArrayMap(resolution:)")));
+- (void)initiate __attribute__((swift_name("initiate()")));
+- (BOOL)isValidCoordinateX:(double)x y:(double)y __attribute__((swift_name("isValidCoordinate(x:y:)")));
+- (BOOL)isValidCoordinateX:(float)x y_:(float)y __attribute__((swift_name("isValidCoordinate(x:y_:)")));
+@property (readonly) NSArray<VpsAccessPoint *> *accessPoints __attribute__((swift_name("accessPoints")));
+@property (readonly) VpsDouble * _Nullable ceilingHeightInMeters __attribute__((swift_name("ceilingHeightInMeters")));
+@property (readonly) double heightInMeters __attribute__((swift_name("heightInMeters")));
+@property (readonly) int64_t id_ __attribute__((swift_name("id_")));
+@property (readonly) double pixelsPerMeter __attribute__((swift_name("pixelsPerMeter")));
+@property (readonly) NSArray<VpsSwapLocation *> *swapLocations __attribute__((swift_name("swapLocations")));
+@property (readonly) double widthInMeters __attribute__((swift_name("widthInMeters")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("AltitudeClassifierParams")))
+@interface VpsAltitudeClassifierParams : VpsBase
+- (instancetype)initWithFs:(float)fs fastFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)fastFilterParamsFlat slowFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)slowFilterParamsFlat fastFilterInitCond:(VpsLFiltInitCond *)fastFilterInitCond slowFilterInitCond:(VpsLFiltInitCond *)slowFilterInitCond floorSwapTimeThreshold:(int64_t)floorSwapTimeThreshold floorOffset1:(float)floorOffset1 floorOffset2:(float)floorOffset2 floorOffset3:(float)floorOffset3 derivativeClfLagSeconds:(float)derivativeClfLagSeconds ascentDescentTimeThreshold:(int64_t)ascentDescentTimeThreshold descentThreshold:(float)descentThreshold ascentThreshold:(float)ascentThreshold __attribute__((swift_name("init(fs:fastFilterParamsFlat:slowFilterParamsFlat:fastFilterInitCond:slowFilterInitCond:floorSwapTimeThreshold:floorOffset1:floorOffset2:floorOffset3:derivativeClfLagSeconds:ascentDescentTimeThreshold:descentThreshold:ascentThreshold:)"))) __attribute__((objc_designated_initializer));
+- (VpsAltitudeClassifierParams *)doCopyFs:(float)fs fastFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)fastFilterParamsFlat slowFilterParamsFlat:(VpsKotlinArray<VpsFloat *> *)slowFilterParamsFlat fastFilterInitCond:(VpsLFiltInitCond *)fastFilterInitCond slowFilterInitCond:(VpsLFiltInitCond *)slowFilterInitCond floorSwapTimeThreshold:(int64_t)floorSwapTimeThreshold floorOffset1:(float)floorOffset1 floorOffset2:(float)floorOffset2 floorOffset3:(float)floorOffset3 derivativeClfLagSeconds:(float)derivativeClfLagSeconds ascentDescentTimeThreshold:(int64_t)ascentDescentTimeThreshold descentThreshold:(float)descentThreshold ascentThreshold:(float)ascentThreshold __attribute__((swift_name("doCopy(fs:fastFilterParamsFlat:slowFilterParamsFlat:fastFilterInitCond:slowFilterInitCond:floorSwapTimeThreshold:floorOffset1:floorOffset2:floorOffset3:derivativeClfLagSeconds:ascentDescentTimeThreshold:descentThreshold:ascentThreshold:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int64_t ascentDescentTimeThreshold __attribute__((swift_name("ascentDescentTimeThreshold")));
+@property (readonly) float ascentThreshold __attribute__((swift_name("ascentThreshold")));
+@property (readonly) float derivativeClfLagSeconds __attribute__((swift_name("derivativeClfLagSeconds")));
+@property (readonly) float descentThreshold __attribute__((swift_name("descentThreshold")));
+@property (readonly) VpsLFiltInitCond *fastFilterInitCond __attribute__((swift_name("fastFilterInitCond")));
+@property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *fastFilterParams __attribute__((swift_name("fastFilterParams")));
+@property (readonly) VpsKotlinArray<VpsFloat *> *fastFilterParamsFlat __attribute__((swift_name("fastFilterParamsFlat")));
+@property (readonly) float floorOffset1 __attribute__((swift_name("floorOffset1")));
+@property (readonly) float floorOffset2 __attribute__((swift_name("floorOffset2")));
+@property (readonly) float floorOffset3 __attribute__((swift_name("floorOffset3")));
+@property (readonly) int64_t floorSwapTimeThreshold __attribute__((swift_name("floorSwapTimeThreshold")));
+@property (readonly) float fs __attribute__((swift_name("fs")));
+@property (readonly) VpsLFiltInitCond *slowFilterInitCond __attribute__((swift_name("slowFilterInitCond")));
+@property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *slowFilterParams __attribute__((swift_name("slowFilterParams")));
+@property (readonly) VpsKotlinArray<VpsFloat *> *slowFilterParamsFlat __attribute__((swift_name("slowFilterParamsFlat")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FloorChangeInterpreterSettings")))
+@interface VpsFloorChangeInterpreterSettings : VpsBase
+- (instancetype)initWithType:(VpsFloorChangeInterpreterType *)type altitudeClassifierParams:(VpsAltitudeClassifierParams *)altitudeClassifierParams wiFiAltitudeFusionParams:(VpsWiFiAltitudeFusionParams *)wiFiAltitudeFusionParams __attribute__((swift_name("init(type:altitudeClassifierParams:wiFiAltitudeFusionParams:)"))) __attribute__((objc_designated_initializer));
+- (VpsFloorChangeInterpreterSettings *)doCopyType:(VpsFloorChangeInterpreterType *)type altitudeClassifierParams:(VpsAltitudeClassifierParams *)altitudeClassifierParams wiFiAltitudeFusionParams:(VpsWiFiAltitudeFusionParams *)wiFiAltitudeFusionParams __attribute__((swift_name("doCopy(type:altitudeClassifierParams:wiFiAltitudeFusionParams:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsAltitudeClassifierParams *altitudeClassifierParams __attribute__((swift_name("altitudeClassifierParams")));
+@property (readonly) VpsFloorChangeInterpreterType *type __attribute__((swift_name("type")));
+@property (readonly) VpsWiFiAltitudeFusionParams *wiFiAltitudeFusionParams __attribute__((swift_name("wiFiAltitudeFusionParams")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FloorChangeInterpreterType")))
+@interface VpsFloorChangeInterpreterType : VpsKotlinEnum<VpsFloorChangeInterpreterType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsFloorChangeInterpreterType *barometer __attribute__((swift_name("barometer")));
+@property (class, readonly) VpsFloorChangeInterpreterType *wifi __attribute__((swift_name("wifi")));
+@property (class, readonly) VpsFloorChangeInterpreterType *fusion __attribute__((swift_name("fusion")));
++ (VpsKotlinArray<VpsFloorChangeInterpreterType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsFloorChangeInterpreterType *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSFloorChangeHandlerSettings")))
+@interface VpsVPSFloorChangeHandlerSettings : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSFloorChangeHandlerSettings __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSFloorChangeHandlerSettings *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsFloorChangeInterpreterSettings *default_ __attribute__((swift_name("default_")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("WiFiAltitudeFusionParams")))
+@interface VpsWiFiAltitudeFusionParams : VpsBase
+- (instancetype)initWithWifiForceGoCriteria:(int32_t)wifiForceGoCriteria __attribute__((swift_name("init(wifiForceGoCriteria:)"))) __attribute__((objc_designated_initializer));
+- (VpsWiFiAltitudeFusionParams *)doCopyWifiForceGoCriteria:(int32_t)wifiForceGoCriteria __attribute__((swift_name("doCopy(wifiForceGoCriteria:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t wifiForceGoCriteria __attribute__((swift_name("wifiForceGoCriteria")));
+@end
+
+__attribute__((swift_name("Flow")))
+@interface VpsFlow<T> : VpsBase <VpsFlowConnection>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)addNode:(VpsNode<T> *)node __attribute__((swift_name("add(node:)")));
+- (VpsFlow<T> *)connectToConnections:(NSArray<id<VpsFlowConnection>> *)connections __attribute__((swift_name("connectTo(connections:)")));
+- (VpsFlow<T> *)connectToConnection:(id<VpsFlowConnection>)connection __attribute__((swift_name("connectTo(connection:)")));
+- (void)flush __attribute__((swift_name("flush()")));
+- (void)onExit __attribute__((swift_name("onExit()")));
+- (void)onInputData:(T _Nullable)data __attribute__((swift_name("onInput(data:)")));
+- (void)onResultData:(T _Nullable)data __attribute__((swift_name("onResult(data:)")));
+- (void)onResultExit __attribute__((swift_name("onResultExit()")));
+- (void)onResultFlush __attribute__((swift_name("onResultFlush()")));
+@property (readonly) NSArray<id<VpsFlowConnection>> *connections __attribute__((swift_name("connections")));
+@property (readonly) BOOL isEmpty __attribute__((swift_name("isEmpty")));
+@property int32_t size __attribute__((swift_name("size")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FlowBuilder")))
+@interface VpsFlowBuilder<T> : VpsBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VpsFlowBuilder<T> *)addNodeNode:(VpsNode<T> *)node __attribute__((swift_name("addNode(node:)")));
+- (VpsFlow<T> *)build __attribute__((swift_name("build()")));
+@property NSMutableArray<id<VpsFlowConnection>> *builderConnections __attribute__((swift_name("builderConnections")));
+@end
+
+__attribute__((swift_name("NodeHandler")))
+@protocol VpsNodeHandler
+@required
+- (void)onFlush __attribute__((swift_name("onFlush()")));
+- (void)onResultData_:(id _Nullable)data __attribute__((swift_name("onResult(data_:)")));
+- (void)onResultExit __attribute__((swift_name("onResultExit()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ModelToEventParameters")))
+@interface VpsModelToEventParameters : VpsBase
+- (instancetype)initWithUseSquareDriftFilter:(BOOL)useSquareDriftFilter squareDriftFilterGain:(float)squareDriftFilterGain __attribute__((swift_name("init(useSquareDriftFilter:squareDriftFilterGain:)"))) __attribute__((objc_designated_initializer));
+- (VpsModelToEventParameters *)doCopyUseSquareDriftFilter:(BOOL)useSquareDriftFilter squareDriftFilterGain:(float)squareDriftFilterGain __attribute__((swift_name("doCopy(useSquareDriftFilter:squareDriftFilterGain:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float squareDriftFilterGain __attribute__((swift_name("squareDriftFilterGain")));
+@property (readonly) BOOL useSquareDriftFilter __attribute__((swift_name("useSquareDriftFilter")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSModelToEventParameters")))
+@interface VpsVPSModelToEventParameters : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSModelToEventParameters __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSModelToEventParameters *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsModelToEventParameters *default_ __attribute__((swift_name("default_")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ParticleFilterParams")))
+@interface VpsParticleFilterParams : VpsBase
+- (instancetype)initWithVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd biasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)biasLimit secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean secondBiasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)secondBiasLimit mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL idleWiFiDistanceSyncCriteria:(float)idleWiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize idlePositionTimeThreshold:(int64_t)idlePositionTimeThreshold __attribute__((swift_name("init(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:biasLimit:secondBiasStd:secondBiasMean:secondBiasLimit:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:idleWiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:idlePositionTimeThreshold:)"))) __attribute__((objc_designated_initializer));
+- (VpsParticleFilterParams *)doCopyVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd biasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)biasLimit secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean secondBiasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)secondBiasLimit mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL idleWiFiDistanceSyncCriteria:(float)idleWiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize idlePositionTimeThreshold:(int64_t)idlePositionTimeThreshold __attribute__((swift_name("doCopy(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:biasLimit:secondBiasStd:secondBiasMean:secondBiasLimit:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:idleWiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:idlePositionTimeThreshold:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float angleOffsetGainDegPerMin __attribute__((swift_name("angleOffsetGainDegPerMin")));
+@property (readonly) VpsKotlinPair<VpsFloat *, VpsFloat *> *biasLimit __attribute__((swift_name("biasLimit")));
+@property (readonly) float biasStd __attribute__((swift_name("biasStd")));
+@property (readonly) VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *binSize __attribute__((swift_name("binSize")));
+@property (readonly) int64_t idlePositionTimeThreshold __attribute__((swift_name("idlePositionTimeThreshold")));
+@property (readonly) float idleWiFiDistanceSyncCriteria __attribute__((swift_name("idleWiFiDistanceSyncCriteria")));
+@property (readonly) float idleWiFiSecondsCriteria __attribute__((swift_name("idleWiFiSecondsCriteria")));
+@property (readonly) float kldDelta __attribute__((swift_name("kldDelta")));
+@property (readonly) float kldEpsilon __attribute__((swift_name("kldEpsilon")));
+@property (readonly) float kldZ __attribute__((swift_name("kldZ")));
+@property (readonly) int32_t maxNumParticles __attribute__((swift_name("maxNumParticles")));
+@property (readonly) int32_t minNumParticles __attribute__((swift_name("minNumParticles")));
+@property (readonly) float mixingFactor __attribute__((swift_name("mixingFactor")));
+@property (readonly) int32_t mlStepHistorySize __attribute__((swift_name("mlStepHistorySize")));
+@property (readonly) BOOL naiveOutputSyncMovement __attribute__((swift_name("naiveOutputSyncMovement")));
+@property (readonly) float nlThreshold __attribute__((swift_name("nlThreshold")));
+@property (readonly) float rescueDirectionStd __attribute__((swift_name("rescueDirectionStd")));
+@property (readonly) BOOL rescueOnNL __attribute__((swift_name("rescueOnNL")));
+@property (readonly) float rescuePositionStd __attribute__((swift_name("rescuePositionStd")));
+@property (readonly) VpsKotlinPair<VpsFloat *, VpsFloat *> *secondBiasLimit __attribute__((swift_name("secondBiasLimit")));
+@property (readonly) float secondBiasMean __attribute__((swift_name("secondBiasMean")));
+@property (readonly) float secondBiasStd __attribute__((swift_name("secondBiasStd")));
+@property (readonly) float speedFactor __attribute__((swift_name("speedFactor")));
+@property (readonly) float sprinklePercentage __attribute__((swift_name("sprinklePercentage")));
+@property (readonly) float sprinkleSyncThreshold __attribute__((swift_name("sprinkleSyncThreshold")));
+@property (readonly) float startDirectionStd __attribute__((swift_name("startDirectionStd")));
+@property (readonly) VpsStartMethod *startMethod __attribute__((swift_name("startMethod")));
+@property (readonly) float startPositionStd __attribute__((swift_name("startPositionStd")));
+@property (readonly) float stepDirectionStd __attribute__((swift_name("stepDirectionStd")));
+@property (readonly) float stepLengthStd __attribute__((swift_name("stepLengthStd")));
+@property (readonly) int32_t swapSprinkleEndCount __attribute__((swift_name("swapSprinkleEndCount")));
+@property (readonly) int32_t swapSprinkleInterval __attribute__((swift_name("swapSprinkleInterval")));
+@property (readonly) float swapSprinkleRatio __attribute__((swift_name("swapSprinkleRatio")));
+@property (readonly) float syncDirectionStd __attribute__((swift_name("syncDirectionStd")));
+@property (readonly) VpsSyncMethod *syncMethod __attribute__((swift_name("syncMethod")));
+@property (readonly) float syncPositionStd __attribute__((swift_name("syncPositionStd")));
+@property (readonly) BOOL useMLSyncSpeedFilter __attribute__((swift_name("useMLSyncSpeedFilter")));
+@property (readonly) BOOL useRayTraceSensorModel __attribute__((swift_name("useRayTraceSensorModel")));
+@property (readonly) float uxPositionConfidence __attribute__((swift_name("uxPositionConfidence")));
+@property (readonly) VpsParticleFilterParamsVersion *version __attribute__((swift_name("version")));
+@property (readonly) int32_t wiFiMeasuredPower __attribute__((swift_name("wiFiMeasuredPower")));
+@property (readonly) float wiFiPathLossCoefficient __attribute__((swift_name("wiFiPathLossCoefficient")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ParticleFilterParams.Version")))
+@interface VpsParticleFilterParamsVersion : VpsKotlinEnum<VpsParticleFilterParamsVersion *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsParticleFilterParamsVersion *default_ __attribute__((swift_name("default_")));
+@property (class, readonly) VpsParticleFilterParamsVersion *v1 __attribute__((swift_name("v1")));
+@property (class, readonly) VpsParticleFilterParamsVersion *v2 __attribute__((swift_name("v2")));
+@property (class, readonly) VpsParticleFilterParamsVersion *v3 __attribute__((swift_name("v3")));
+@property (class, readonly) VpsParticleFilterParamsVersion *mixedGauss __attribute__((swift_name("mixedGauss")));
+@property (class, readonly) VpsParticleFilterParamsVersion *mixedGaussV2 __attribute__((swift_name("mixedGaussV2")));
+@property (class, readonly) VpsParticleFilterParamsVersion *compass __attribute__((swift_name("compass")));
+@property (class, readonly) VpsParticleFilterParamsVersion *sprinkle __attribute__((swift_name("sprinkle")));
++ (VpsKotlinArray<VpsParticleFilterParamsVersion *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsParticleFilterParamsVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ParticleFilterSettings")))
+@interface VpsParticleFilterSettings : VpsBase
+- (instancetype)initWithVersion:(VpsParticleFilterSettingsVersion *)version uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsParticleFilterVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans __attribute__((swift_name("init(version:uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:)"))) __attribute__((objc_designated_initializer));
+- (VpsParticleFilterSettings *)doCopyVersion:(VpsParticleFilterSettingsVersion *)version uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsParticleFilterVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans __attribute__((swift_name("doCopy(version:uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL mlPositionActivated __attribute__((swift_name("mlPositionActivated")));
+@property (readonly) VpsParticleFilterParams *particleFilterParams __attribute__((swift_name("particleFilterParams")));
+@property (readonly) VpsParticleFilterSettingsParticleFilterVersion *particleFilterVersion __attribute__((swift_name("particleFilterVersion")));
+@property (readonly) BOOL particlePositionActivated __attribute__((swift_name("particlePositionActivated")));
+@property (readonly) BOOL particlesOutputActivated __attribute__((swift_name("particlesOutputActivated")));
+@property (readonly) VpsLong * _Nullable randomNumberGeneratorSeed __attribute__((swift_name("randomNumberGeneratorSeed")));
+@property (readonly) BOOL saveOutputSignals __attribute__((swift_name("saveOutputSignals")));
+@property (readonly) BOOL saveWiFiScans __attribute__((swift_name("saveWiFiScans")));
+@property (readonly) BOOL saveWiFiStatusUpdate __attribute__((swift_name("saveWiFiStatusUpdate")));
+@property (readonly) BOOL uxPositionActivated __attribute__((swift_name("uxPositionActivated")));
+@property (readonly) VpsParticleFilterSettingsVersion *version __attribute__((swift_name("version")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ParticleFilterSettings.ParticleFilterVersion")))
+@interface VpsParticleFilterSettingsParticleFilterVersion : VpsKotlinEnum<VpsParticleFilterSettingsParticleFilterVersion *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsParticleFilterSettingsParticleFilterVersion *v1 __attribute__((swift_name("v1")));
+@property (class, readonly) VpsParticleFilterSettingsParticleFilterVersion *v2 __attribute__((swift_name("v2")));
+@property (class, readonly) VpsParticleFilterSettingsParticleFilterVersion *wifi __attribute__((swift_name("wifi")));
++ (VpsKotlinArray<VpsParticleFilterSettingsParticleFilterVersion *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsParticleFilterSettingsParticleFilterVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ParticleFilterSettings.Version")))
+@interface VpsParticleFilterSettingsVersion : VpsKotlinEnum<VpsParticleFilterSettingsVersion *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsParticleFilterSettingsVersion *default_ __attribute__((swift_name("default_")));
+@property (class, readonly) VpsParticleFilterSettingsVersion *v1 __attribute__((swift_name("v1")));
+@property (class, readonly) VpsParticleFilterSettingsVersion *v2 __attribute__((swift_name("v2")));
+@property (class, readonly) VpsParticleFilterSettingsVersion *v3 __attribute__((swift_name("v3")));
+@property (class, readonly) VpsParticleFilterSettingsVersion *mixedGauss __attribute__((swift_name("mixedGauss")));
+@property (class, readonly) VpsParticleFilterSettingsVersion *mixedGaussV2 __attribute__((swift_name("mixedGaussV2")));
+@property (class, readonly) VpsParticleFilterSettingsVersion *wifi __attribute__((swift_name("wifi")));
++ (VpsKotlinArray<VpsParticleFilterSettingsVersion *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsParticleFilterSettingsVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StartMethod")))
+@interface VpsStartMethod : VpsKotlinEnum<VpsStartMethod *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsStartMethod *standard __attribute__((swift_name("standard")));
+@property (class, readonly) VpsStartMethod *gauss __attribute__((swift_name("gauss")));
+@property (class, readonly) VpsStartMethod *global __attribute__((swift_name("global")));
++ (VpsKotlinArray<VpsStartMethod *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsStartMethod *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SyncMethod")))
+@interface VpsSyncMethod : VpsKotlinEnum<VpsSyncMethod *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsSyncMethod *standard __attribute__((swift_name("standard")));
+@property (class, readonly) VpsSyncMethod *gauss __attribute__((swift_name("gauss")));
+@property (class, readonly) VpsSyncMethod *compassGauss __attribute__((swift_name("compassGauss")));
+@property (class, readonly) VpsSyncMethod *sprinkle __attribute__((swift_name("sprinkle")));
+@property (class, readonly) VpsSyncMethod *noSync __attribute__((swift_name("noSync")));
++ (VpsKotlinArray<VpsSyncMethod *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsSyncMethod *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSParticleFilterParams")))
+@interface VpsVPSParticleFilterParams : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSParticleFilterParams __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSParticleFilterParams *shared __attribute__((swift_name("shared")));
+@property (readonly) VpsParticleFilterParams *compass __attribute__((swift_name("compass")));
+@property (readonly, getter=default) VpsParticleFilterParams *default_ __attribute__((swift_name("default_")));
+@property (readonly) VpsParticleFilterParams *particleFilterMixedGauss __attribute__((swift_name("particleFilterMixedGauss")));
+@property (readonly) VpsParticleFilterParams *particleFilterMixedGaussV2 __attribute__((swift_name("particleFilterMixedGaussV2")));
+@property (readonly) VpsParticleFilterParams *particleFilterV1 __attribute__((swift_name("particleFilterV1")));
+@property (readonly) VpsParticleFilterParams *particleFilterV2 __attribute__((swift_name("particleFilterV2")));
+@property (readonly) VpsParticleFilterParams *particleFilterV3 __attribute__((swift_name("particleFilterV3")));
+@property (readonly) VpsParticleFilterParams *sprinkleFilter __attribute__((swift_name("sprinkleFilter")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSParticleFilterSettings")))
+@interface VpsVPSParticleFilterSettings : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSParticleFilterSettings __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSParticleFilterSettings *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsParticleFilterSettings *default_ __attribute__((swift_name("default_")));
+@property (readonly) VpsParticleFilterSettings *mixedGauss __attribute__((swift_name("mixedGauss")));
+@property (readonly) VpsParticleFilterSettings *mixedGaussV2 __attribute__((swift_name("mixedGaussV2")));
+@property (readonly) VpsParticleFilterSettings *v1 __attribute__((swift_name("v1")));
+@property (readonly) VpsParticleFilterSettings *v2 __attribute__((swift_name("v2")));
+@property (readonly) VpsParticleFilterSettings *v3 __attribute__((swift_name("v3")));
+@property (readonly) VpsParticleFilterSettings *wifi __attribute__((swift_name("wifi")));
+@end
+
+__attribute__((swift_name("PositionEngineSettings")))
+@interface VpsPositionEngineSettings : VpsBase
+@property (readonly) VpsPositionEngineType *type __attribute__((swift_name("type")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PositionEngineSettings.GPSFusion")))
+@interface VpsPositionEngineSettingsGPSFusion : VpsPositionEngineSettings
+- (instancetype)initWithMlAdjustmentActivated:(BOOL)mlAdjustmentActivated __attribute__((swift_name("init(mlAdjustmentActivated:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) BOOL mlAdjustmentActivated __attribute__((swift_name("mlAdjustmentActivated")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PositionEngineSettings.ParticleFilter")))
+@interface VpsPositionEngineSettingsParticleFilter : VpsPositionEngineSettings
+- (instancetype)initWithParticleFilterSettings:(VpsParticleFilterSettings *)particleFilterSettings __attribute__((swift_name("init(particleFilterSettings:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) VpsParticleFilterSettings *particleFilterSettings __attribute__((swift_name("particleFilterSettings")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PositionEngineType")))
+@interface VpsPositionEngineType : VpsKotlinEnum<VpsPositionEngineType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsPositionEngineType *particleFilter __attribute__((swift_name("particleFilter")));
+@property (class, readonly) VpsPositionEngineType *gpsFusion __attribute__((swift_name("gpsFusion")));
++ (VpsKotlinArray<VpsPositionEngineType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsPositionEngineType *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((swift_name("ReplayHandler")))
+@protocol VpsReplayHandler
+@required
+@property (readonly) NSArray<VpsInputSignal *> *inputs __attribute__((swift_name("inputs")));
+@end
+
 __attribute__((swift_name("PartitionRecorder")))
 @interface VpsPartitionRecorder<T> : VpsBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
@@ -3661,34 +3486,6 @@ __attribute__((swift_name("RotationHandlerSettings")))
 @property (readonly) int32_t rotationOutputLimit __attribute__((swift_name("rotationOutputLimit")));
 @end
 
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Features")))
-@interface VpsFeatures : VpsBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsFeaturesCompanion *companion __attribute__((swift_name("companion")));
-- (VpsFeatures *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsKotlinFloatArray *data __attribute__((swift_name("data")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Features.Companion")))
-@interface VpsFeaturesCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsFeaturesCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("NLModelOutput")))
 @interface VpsNLModelOutput : VpsBase
@@ -3730,37 +3527,6 @@ __attribute__((swift_name("RawSensorData.Companion")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsRawSensorDataCompanion *shared __attribute__((swift_name("shared")));
-- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end
-
-
-/**
- * @note annotations
- *   kotlinx.serialization.Serializable
-*/
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RawSensorPack")))
-@interface VpsRawSensorPack : VpsBase
-- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("init(nanoTimestamp:accelerometer:gyroscope:rotation:magnetometer:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VpsRawSensorPackCompanion *companion __attribute__((swift_name("companion")));
-- (VpsRawSensorPack *)doCopyNanoTimestamp:(int64_t)nanoTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("doCopy(nanoTimestamp:accelerometer:gyroscope:rotation:magnetometer:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsKotlinFloatArray *accelerometer __attribute__((swift_name("accelerometer")));
-@property (readonly) VpsKotlinFloatArray *gyroscope __attribute__((swift_name("gyroscope")));
-@property (readonly) VpsKotlinFloatArray * _Nullable magnetometer __attribute__((swift_name("magnetometer")));
-@property (readonly) int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
-@property (readonly) VpsKotlinFloatArray *rotation __attribute__((swift_name("rotation")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("RawSensorPack.Companion")))
-@interface VpsRawSensorPackCompanion : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsRawSensorPackCompanion *shared __attribute__((swift_name("shared")));
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
@@ -3864,9 +3630,9 @@ __attribute__((swift_name("FeatureToTensorValueParams")))
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("InterpolationModuleParams")))
-@interface VpsInterpolationModuleParams : VpsBase
+@interface VpsInterpolationModuleParams_ : VpsBase
 - (instancetype)initWithFrequency:(float)frequency useMagnetometer:(BOOL)useMagnetometer __attribute__((swift_name("init(frequency:useMagnetometer:)"))) __attribute__((objc_designated_initializer));
-- (VpsInterpolationModuleParams *)doCopyFrequency:(float)frequency useMagnetometer:(BOOL)useMagnetometer __attribute__((swift_name("doCopy(frequency:useMagnetometer:)")));
+- (VpsInterpolationModuleParams_ *)doCopyFrequency:(float)frequency useMagnetometer:(BOOL)useMagnetometer __attribute__((swift_name("doCopy(frequency:useMagnetometer:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -3881,7 +3647,505 @@ __attribute__((swift_name("IosInterpolationModuleParams")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 + (instancetype)iosInterpolationModuleParams __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsIosInterpolationModuleParams *shared __attribute__((swift_name("shared")));
-@property (readonly, getter=default) VpsInterpolationModuleParams *default_ __attribute__((swift_name("default_")));
+@property (readonly, getter=default) VpsInterpolationModuleParams_ *default_ __attribute__((swift_name("default_")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((swift_name("BaseEvent")))
+@interface VpsBaseEvent : VpsBase
+@property (class, readonly, getter=companion) VpsBaseEventCompanion *companion __attribute__((swift_name("companion")));
+@property VpsEventType *event_type __attribute__((swift_name("event_type")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.AngleCorrectionEvent")))
+@interface VpsBaseEventAngleCorrectionEvent : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp angle:(float)angle __attribute__((swift_name("init(timestamp:angle:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventAngleCorrectionEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventAngleCorrectionEvent *)doCopyTimestamp:(int64_t)timestamp angle:(float)angle __attribute__((swift_name("doCopy(timestamp:angle:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float angle __attribute__((swift_name("angle")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.AngleCorrectionEventCompanion")))
+@interface VpsBaseEventAngleCorrectionEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventAngleCorrectionEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.Companion")))
+@interface VpsBaseEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.FloorChangeEvent")))
+@interface VpsBaseEventFloorChangeEvent : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("init(timestamp:floorLevelId:startPosition:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventFloorChangeEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventFloorChangeEvent *)doCopyTimestamp:(int64_t)timestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("doCopy(timestamp:floorLevelId:startPosition:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int64_t floorLevelId __attribute__((swift_name("floorLevelId")));
+@property (readonly) VpsCoordinateF *startPosition __attribute__((swift_name("startPosition")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.FloorChangeEventCompanion")))
+@interface VpsBaseEventFloorChangeEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventFloorChangeEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.LngLatEvent")))
+@interface VpsBaseEventLngLatEvent : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventLngLatEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsLocation *location __attribute__((swift_name("location")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.LngLatEventCompanion")))
+@interface VpsBaseEventLngLatEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventLngLatEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StairEvent")))
+@interface VpsBaseEventStairEvent : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("init(timestamp:isInStair:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventStairEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventStairEvent *)doCopyTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("doCopy(timestamp:isInStair:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL isInStair __attribute__((swift_name("isInStair")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StairEventCompanion")))
+@interface VpsBaseEventStairEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventStairEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((swift_name("BaseEvent.Start")))
+@interface VpsBaseEventStart : VpsBaseEvent
+@property (class, readonly, getter=companion) VpsBaseEventStartCompanion *companion __attribute__((swift_name("companion")));
+@property VpsBaseEventStartStartType *startType __attribute__((swift_name("startType")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StartCompanion")))
+@interface VpsBaseEventStartCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventStartCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StartLngLatEvent")))
+@interface VpsBaseEventStartLngLatEvent : VpsBaseEventStart
+- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventStartLngLatEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventStartLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsLocation *location __attribute__((swift_name("location")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StartLngLatEventCompanion")))
+@interface VpsBaseEventStartLngLatEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventStartLngLatEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StartPositionEvent")))
+@interface VpsBaseEventStartPositionEvent : VpsBaseEventStart
+- (instancetype)initWithTimestamp:(int64_t)timestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("init(timestamp:start_pos:start_angle:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventStartPositionEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventStartPositionEvent *)doCopyTimestamp:(int64_t)timestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("doCopy(timestamp:start_pos:start_angle:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float start_angle __attribute__((swift_name("start_angle")));
+@property (readonly) VpsCoordinateF *start_pos __attribute__((swift_name("start_pos")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StartPositionEventCompanion")))
+@interface VpsBaseEventStartPositionEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventStartPositionEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StartStartType")))
+@interface VpsBaseEventStartStartType : VpsKotlinEnum<VpsBaseEventStartStartType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsBaseEventStartStartType *position __attribute__((swift_name("position")));
+@property (class, readonly) VpsBaseEventStartStartType *lngLat __attribute__((swift_name("lngLat")));
++ (VpsKotlinArray<VpsBaseEventStartStartType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsBaseEventStartStartType *> *entries __attribute__((swift_name("entries")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StepEvent")))
+@interface VpsBaseEventStepEvent : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("init(timestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventStepEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventStepEvent *)doCopyTimestamp:(int64_t)timestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("doCopy(timestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float direction __attribute__((swift_name("direction")));
+@property (readonly) VpsFloat * _Nullable direction_certainty __attribute__((swift_name("direction_certainty")));
+@property (readonly) int32_t duration __attribute__((swift_name("duration")));
+@property (readonly) VpsFloat * _Nullable relative_direction __attribute__((swift_name("relative_direction")));
+@property (readonly) float speed __attribute__((swift_name("speed")));
+@property (readonly) float step_certainty __attribute__((swift_name("step_certainty")));
+@property (readonly) VpsStepType *step_type __attribute__((swift_name("step_type")));
+@property (readonly) BOOL success __attribute__((swift_name("success")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.StepEventCompanion")))
+@interface VpsBaseEventStepEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventStepEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((swift_name("BaseEvent.Sync")))
+@interface VpsBaseEventSync : VpsBaseEvent
+@property (class, readonly, getter=companion) VpsBaseEventSyncCompanion *companion __attribute__((swift_name("companion")));
+@property VpsBaseEventSyncSyncType *syncType __attribute__((swift_name("syncType")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncAccessPointFloorSwapSyncEvent")))
+@interface VpsBaseEventSyncAccessPointFloorSwapSyncEvent : VpsBaseEventSync
+- (instancetype)initWithTimestamp:(int64_t)timestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("init(timestamp:wifiStatusUpdate:possibleEntries:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventSyncAccessPointFloorSwapSyncEvent *)doCopyTimestamp:(int64_t)timestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("doCopy(timestamp:wifiStatusUpdate:possibleEntries:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSArray<VpsCoordinateF *> *possibleEntries __attribute__((swift_name("possibleEntries")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) VpsBaseEventWifiStatusUpdate *wifiStatusUpdate __attribute__((swift_name("wifiStatusUpdate")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncAccessPointFloorSwapSyncEventCompanion")))
+@interface VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncCompanion")))
+@interface VpsBaseEventSyncCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventSyncCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncLngLatEvent")))
+@interface VpsBaseEventSyncLngLatEvent : VpsBaseEventSync
+- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventSyncLngLatEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventSyncLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property VpsLocation *location __attribute__((swift_name("location")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncLngLatEventCompanion")))
+@interface VpsBaseEventSyncLngLatEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventSyncLngLatEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncPositionEvent")))
+@interface VpsBaseEventSyncPositionEvent : VpsBaseEventSync
+- (instancetype)initWithTimestamp:(int64_t)timestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("init(timestamp:sync_position:ean:offset:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventSyncPositionEventCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventSyncPositionEvent *)doCopyTimestamp:(int64_t)timestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("doCopy(timestamp:sync_position:ean:offset:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property NSString *ean __attribute__((swift_name("ean")));
+@property VpsCoordinateF *offset __attribute__((swift_name("offset")));
+@property VpsCoordinateF *sync_position __attribute__((swift_name("sync_position")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncPositionEventCompanion")))
+@interface VpsBaseEventSyncPositionEventCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventSyncPositionEventCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.SyncSyncType")))
+@interface VpsBaseEventSyncSyncType : VpsKotlinEnum<VpsBaseEventSyncSyncType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsBaseEventSyncSyncType *position __attribute__((swift_name("position")));
+@property (class, readonly) VpsBaseEventSyncSyncType *lngLat __attribute__((swift_name("lngLat")));
+@property (class, readonly) VpsBaseEventSyncSyncType *floorSwap __attribute__((swift_name("floorSwap")));
++ (VpsKotlinArray<VpsBaseEventSyncSyncType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsBaseEventSyncSyncType *> *entries __attribute__((swift_name("entries")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.WiFiObservation")))
+@interface VpsBaseEventWiFiObservation : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(timestamp:bssid:rssi:frequency:rtl_id:accessPoint:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventWiFiObservationCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventWiFiObservation *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(timestamp:bssid:rssi:frequency:rtl_id:accessPoint:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property VpsAccessPoint * _Nullable accessPoint __attribute__((swift_name("accessPoint")));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property (readonly) VpsInt * _Nullable frequency __attribute__((swift_name("frequency")));
+@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
+@property (readonly) NSString * _Nullable rtl_id __attribute__((swift_name("rtl_id")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.WiFiObservationCompanion")))
+@interface VpsBaseEventWiFiObservationCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventWiFiObservationCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.WiFiScan")))
+@interface VpsBaseEventWiFiScan : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventWiFiScanCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventWiFiScan *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsKotlinArray<VpsBaseEventWiFiObservation *> *data __attribute__((swift_name("data")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.WiFiScanCompanion")))
+@interface VpsBaseEventWiFiScanCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventWiFiScanCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.WifiStatusUpdate")))
+@interface VpsBaseEventWifiStatusUpdate : VpsBaseEvent
+- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(timestamp:bssid:rtl_id:rssi:frequency:accessPoint:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsBaseEventWifiStatusUpdateCompanion *companion __attribute__((swift_name("companion")));
+- (VpsBaseEventWifiStatusUpdate *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(timestamp:bssid:rtl_id:rssi:frequency:accessPoint:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property VpsAccessPoint * _Nullable accessPoint __attribute__((swift_name("accessPoint")));
+@property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
+@property (readonly) VpsInt * _Nullable frequency __attribute__((swift_name("frequency")));
+@property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
+@property (readonly) NSString *rtl_id __attribute__((swift_name("rtl_id")));
+@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("BaseEvent.WifiStatusUpdateCompanion")))
+@interface VpsBaseEventWifiStatusUpdateCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsBaseEventWifiStatusUpdateCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EventType")))
+@interface VpsEventType : VpsKotlinEnum<VpsEventType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsEventType *stepEvent __attribute__((swift_name("stepEvent")));
+@property (class, readonly) VpsEventType *wifiScan __attribute__((swift_name("wifiScan")));
+@property (class, readonly) VpsEventType *sync __attribute__((swift_name("sync")));
+@property (class, readonly) VpsEventType *wifiStatusUpdate __attribute__((swift_name("wifiStatusUpdate")));
+@property (class, readonly) VpsEventType *startEvent __attribute__((swift_name("startEvent")));
+@property (class, readonly) VpsEventType *wifiObservation __attribute__((swift_name("wifiObservation")));
+@property (class, readonly) VpsEventType *angleCorrection __attribute__((swift_name("angleCorrection")));
+@property (class, readonly) VpsEventType *floorChange __attribute__((swift_name("floorChange")));
+@property (class, readonly) VpsEventType *lngLat __attribute__((swift_name("lngLat")));
+@property (class, readonly) VpsEventType *stair __attribute__((swift_name("stair")));
+@property (class, readonly) VpsEventType *undefined __attribute__((swift_name("undefined")));
++ (VpsKotlinArray<VpsEventType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsEventType *> *entries __attribute__((swift_name("entries")));
 @end
 
 __attribute__((swift_name("InputSignal")))
@@ -4219,15 +4483,45 @@ __attribute__((swift_name("OutputSignal.ParticleSignalCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("OutputSignal.Position")))
 @interface VpsOutputSignalPosition : VpsOutputSignal
-- (instancetype)initWithPosition:(VpsCoordinateF *)position std:(float)std status:(VpsOutputSignalPositionStatus *)status currentFloorLevelId:(int64_t)currentFloorLevelId currentWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)currentWiFiObservation currentWiFiScan:(VpsBaseEventWiFiScan * _Nullable)currentWiFiScan __attribute__((swift_name("init(position:std:status:currentFloorLevelId:currentWiFiObservation:currentWiFiScan:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPosition:(VpsCoordinateF *)position std:(float)std status:(VpsOutputSignalPositionStatus *)status activityState:(VpsOutputSignalPositionActivityState *)activityState currentFloorLevelId:(int64_t)currentFloorLevelId currentWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)currentWiFiObservation currentWiFiScan:(VpsBaseEventWiFiScan * _Nullable)currentWiFiScan __attribute__((swift_name("init(position:std:status:activityState:currentFloorLevelId:currentWiFiObservation:currentWiFiScan:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsOutputSignalPositionCompanion *companion __attribute__((swift_name("companion")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) VpsOutputSignalPositionActivityState *activityState __attribute__((swift_name("activityState")));
 @property (readonly) int64_t currentFloorLevelId __attribute__((swift_name("currentFloorLevelId")));
 @property (readonly) VpsBaseEventWiFiObservation * _Nullable currentWiFiObservation __attribute__((swift_name("currentWiFiObservation")));
 @property (readonly) VpsBaseEventWiFiScan * _Nullable currentWiFiScan __attribute__((swift_name("currentWiFiScan")));
 @property (readonly) VpsCoordinateF *position __attribute__((swift_name("position")));
 @property (readonly) VpsOutputSignalPositionStatus *status __attribute__((swift_name("status")));
 @property (readonly) float std __attribute__((swift_name("std")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.PositionActivityState")))
+@interface VpsOutputSignalPositionActivityState : VpsKotlinEnum<VpsOutputSignalPositionActivityState *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly, getter=companion) VpsOutputSignalPositionActivityStateCompanion *companion __attribute__((swift_name("companion")));
+@property (class, readonly) VpsOutputSignalPositionActivityState *active __attribute__((swift_name("active")));
+@property (class, readonly) VpsOutputSignalPositionActivityState *idle __attribute__((swift_name("idle")));
++ (VpsKotlinArray<VpsOutputSignalPositionActivityState *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsOutputSignalPositionActivityState *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.PositionActivityStateCompanion")))
+@interface VpsOutputSignalPositionActivityStateCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsOutputSignalPositionActivityStateCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -4467,6 +4761,21 @@ __attribute__((swift_name("OutputSignal.WiFiFloorChangeSignalCompanion")))
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StepType")))
+@interface VpsStepType : VpsKotlinEnum<VpsStepType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsStepType *regular __attribute__((swift_name("regular")));
+@property (class, readonly) VpsStepType *swingSym __attribute__((swift_name("swingSym")));
+@property (class, readonly) VpsStepType *swingAntiSym __attribute__((swift_name("swingAntiSym")));
+@property (class, readonly) VpsStepType *trolley __attribute__((swift_name("trolley")));
+@property (class, readonly) VpsStepType *trouserPocket __attribute__((swift_name("trouserPocket")));
++ (VpsKotlinArray<VpsStepType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsStepType *> *entries __attribute__((swift_name("entries")));
+@end
+
 
 /**
  * @note annotations
@@ -4652,109 +4961,6 @@ __attribute__((swift_name("VelocityModelParams.FeaturesEntries")))
 @property (class, readonly) VpsVelocityModelParamsFeaturesEntries *r22 __attribute__((swift_name("r22")));
 + (VpsKotlinArray<VpsVelocityModelParamsFeaturesEntries *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsVelocityModelParamsFeaturesEntries *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InAndOut")))
-@interface VpsInAndOut : VpsBase
-- (instancetype)initWithTriggers:(NSArray<VpsInAndOutTrigger *> *)triggers listener:(id<VpsInAndOutListener> _Nullable)listener positionCheckInterval:(VpsInt * _Nullable)positionCheckInterval __attribute__((swift_name("init(triggers:listener:positionCheckInterval:)"))) __attribute__((objc_designated_initializer));
-- (void)onDestroy __attribute__((swift_name("onDestroy()")));
-- (void)onNewPositionCurrentPosition:(VpsCoordinateF *)currentPosition __attribute__((swift_name("onNewPosition(currentPosition:)")));
-- (void)reset __attribute__((swift_name("reset()")));
-@property (readonly) id<VpsInAndOutListener> _Nullable listener __attribute__((swift_name("listener")));
-@property (readonly) VpsInt * _Nullable positionCheckInterval __attribute__((swift_name("positionCheckInterval")));
-@property (readonly) NSArray<VpsInAndOutTrigger *> *triggers __attribute__((swift_name("triggers")));
-@end
-
-__attribute__((swift_name("InAndOut.Trigger")))
-@interface VpsInAndOutTrigger : VpsBase
-@property (readonly) NSString *id __attribute__((swift_name("id")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InAndOut.TriggerRadius")))
-@interface VpsInAndOutTriggerRadius : VpsInAndOutTrigger
-- (instancetype)initWithId:(NSString *)id centerPoint:(VpsCoordinateF *)centerPoint radius:(double)radius __attribute__((swift_name("init(id:centerPoint:radius:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) VpsCoordinateF *centerPoint __attribute__((swift_name("centerPoint")));
-@property (readonly) double radius __attribute__((swift_name("radius")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("InAndOut.TriggerZone")))
-@interface VpsInAndOutTriggerZone : VpsInAndOutTrigger
-- (instancetype)initWithId:(NSString *)id zoneId:(NSString *)zoneId polygon:(NSArray<NSArray<VpsDouble *> *> *)polygon __attribute__((swift_name("init(id:zoneId:polygon:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) NSArray<NSArray<VpsDouble *> *> *polygon __attribute__((swift_name("polygon")));
-@property (readonly) NSString *zoneId __attribute__((swift_name("zoneId")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Log")))
-@interface VpsLog : VpsBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)log __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VpsLog *shared __attribute__((swift_name("shared")));
-- (void)edTag:(NSString *)tag message:(NSString *)message __attribute__((swift_name("ed(tag:message:)")));
-- (void)eeTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause __attribute__((swift_name("ee(tag:message:cause:)")));
-- (void)eelTag:(NSString *)tag message:(NSString *)message cause:(VpsKotlinException * _Nullable)cause id:(NSString * _Nullable)id __attribute__((swift_name("eel(tag:message:cause:id:)")));
-- (void)elTag:(NSString *)tag message:(NSString *)message id:(NSString * _Nullable)id __attribute__((swift_name("el(tag:message:id:)")));
-- (void)lTag:(NSString *)tag message:(NSString *)message id:(NSString * _Nullable)id __attribute__((swift_name("l(tag:message:id:)")));
-@property id<VpsLogOutputHandler> _Nullable outputHandler __attribute__((swift_name("outputHandler")));
-@end
-
-__attribute__((swift_name("LogOutputHandler")))
-@protocol VpsLogOutputHandler
-@required
-- (void)onLogText:(NSString *)text id:(NSString * _Nullable)id __attribute__((swift_name("onLog(text:id:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MaxQueue")))
-@interface VpsMaxQueue<T> : VpsBase
-- (instancetype)initWithMaxSize:(VpsInt * _Nullable)maxSize __attribute__((swift_name("init(maxSize:)"))) __attribute__((objc_designated_initializer));
-- (void)clear __attribute__((swift_name("clear()")));
-- (T _Nullable)dequeue __attribute__((swift_name("dequeue()")));
-- (void)enqueueValue:(T _Nullable)value __attribute__((swift_name("enqueue(value:)")));
-- (T _Nullable)peekEndN:(int32_t)n __attribute__((swift_name("peekEnd(n:)")));
-- (NSMutableArray<id> *)toArrayListFromTail:(BOOL)fromTail __attribute__((swift_name("toArrayList(fromTail:)")));
-- (NSArray<id> *)toListFromTail:(BOOL)fromTail __attribute__((swift_name("toList(fromTail:)")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL isEmpty __attribute__((swift_name("isEmpty")));
-@property (readonly) VpsInt * _Nullable maxSize __attribute__((swift_name("maxSize")));
-@property (readonly) T _Nullable peek __attribute__((swift_name("peek")));
-@property (readonly) T _Nullable peekLast __attribute__((swift_name("peekLast")));
-@property int32_t size __attribute__((swift_name("size")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MaxQueueCircularArray")))
-@interface VpsMaxQueueCircularArray<T> : VpsBase
-- (instancetype)initWithCapacity:(int32_t)capacity __attribute__((swift_name("init(capacity:)"))) __attribute__((objc_designated_initializer));
-- (void)enqueueElement:(T _Nullable)element __attribute__((swift_name("enqueue(element:)")));
-- (int32_t)getSize __attribute__((swift_name("getSize()")));
-- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
-- (BOOL)isFull __attribute__((swift_name("isFull()")));
-- (T _Nullable)peek __attribute__((swift_name("peek()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) VpsKotlinArray<id> *array __attribute__((swift_name("array")));
-@property (readonly) int32_t capacity __attribute__((swift_name("capacity")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("TimeoutQueue")))
-@interface VpsTimeoutQueue<T> : VpsBase
-- (instancetype)initWithMaxSize:(VpsInt * _Nullable)maxSize timeout:(int64_t)timeout __attribute__((swift_name("init(maxSize:timeout:)"))) __attribute__((objc_designated_initializer));
-- (void)clear __attribute__((swift_name("clear()")));
-- (T _Nullable)dequeue __attribute__((swift_name("dequeue()")));
-- (void)enqueueValue:(T _Nullable)value timestamp:(int64_t)timestamp __attribute__((swift_name("enqueue(value:timestamp:)")));
-- (NSArray<id> *)toListFromTail:(BOOL)fromTail __attribute__((swift_name("toList(fromTail:)")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) BOOL isEmpty __attribute__((swift_name("isEmpty")));
-@property (readonly) VpsInt * _Nullable maxSize __attribute__((swift_name("maxSize")));
-@property (readonly) T _Nullable peek __attribute__((swift_name("peek")));
-@property (readonly) T _Nullable peekLast __attribute__((swift_name("peekLast")));
-@property int32_t size __attribute__((swift_name("size")));
-@property (readonly) int64_t timeout __attribute__((swift_name("timeout")));
 @end
 
 
@@ -4949,64 +5155,6 @@ __attribute__((swift_name("VPSParams.System")))
 @property (class, readonly) NSArray<VpsVPSParamsSystem *> *entries __attribute__((swift_name("entries")));
 @end
 
-__attribute__((swift_name("RandomNumberGenerator")))
-@protocol VpsRandomNumberGenerator
-@required
-- (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
-- (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
-- (double)nextDouble __attribute__((swift_name("nextDouble()")));
-- (float)nextFloat __attribute__((swift_name("nextFloat()")));
-- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
-- (int32_t)nextIntUntil:(int32_t)until __attribute__((swift_name("nextInt(until:)")));
-- (void)shuffleList:(NSMutableArray<id> *)list __attribute__((swift_name("shuffle(list:)")));
-@property (readonly) VpsKotlinRandom *generator __attribute__((swift_name("generator")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("DefaultRandom")))
-@interface VpsDefaultRandom : VpsBase <VpsRandomNumberGenerator>
-- (instancetype)initWithSeed:(VpsLong * _Nullable)seed __attribute__((swift_name("init(seed:)"))) __attribute__((objc_designated_initializer));
-- (int32_t)nextBitsBitCount:(int32_t)bitCount __attribute__((swift_name("nextBits(bitCount:)")));
-- (BOOL)nextBoolean __attribute__((swift_name("nextBoolean()")));
-- (double)nextDouble __attribute__((swift_name("nextDouble()")));
-- (float)nextFloat __attribute__((swift_name("nextFloat()")));
-- (int32_t)nextInt __attribute__((swift_name("nextInt()")));
-- (int32_t)nextIntUntil:(int32_t)until __attribute__((swift_name("nextInt(until:)")));
-- (void)shuffleList:(NSMutableArray<id> *)list __attribute__((swift_name("shuffle(list:)")));
-@property (readonly) VpsKotlinRandom *generator __attribute__((swift_name("generator")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Gunnis")))
-@interface VpsGunnis : VpsBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (NSString *)gunnisInput:(NSString *)input __attribute__((swift_name("gunnis(input:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MLPathProcessor")))
-@interface VpsMLPathProcessor : VpsBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (VpsMLProcessedPath *)processPathPath:(NSArray<VpsKotlinDoubleArray *> *)path pathEndPoint:(VpsKotlinDoubleArray *)pathEndPoint __attribute__((swift_name("processPath(path:pathEndPoint:)")));
-- (NSArray<VpsKotlinDoubleArray *> *)rotateAngle:(double)angle trajectory:(NSArray<VpsKotlinDoubleArray *> *)trajectory __attribute__((swift_name("rotate(angle:trajectory:)")));
-- (NSArray<VpsKotlinDoubleArray *> *)stretchSpeedFactor:(double)speedFactor trajectory:(NSArray<VpsKotlinDoubleArray *> *)trajectory __attribute__((swift_name("stretch(speedFactor:trajectory:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MLProcessedPath")))
-@interface VpsMLProcessedPath : VpsBase
-- (instancetype)initWithPath:(NSArray<VpsKotlinDoubleArray *> *)path angleCorrection:(double)angleCorrection speedAdjustment:(double)speedAdjustment __attribute__((swift_name("init(path:angleCorrection:speedAdjustment:)"))) __attribute__((objc_designated_initializer));
-- (VpsMLProcessedPath *)doCopyPath:(NSArray<VpsKotlinDoubleArray *> *)path angleCorrection:(double)angleCorrection speedAdjustment:(double)speedAdjustment __attribute__((swift_name("doCopy(path:angleCorrection:speedAdjustment:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) double angleCorrection __attribute__((swift_name("angleCorrection")));
-@property (readonly) NSArray<VpsKotlinDoubleArray *> *path __attribute__((swift_name("path")));
-@property (readonly) double speedAdjustment __attribute__((swift_name("speedAdjustment")));
-@end
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("LFiltInitCond")))
 @interface VpsLFiltInitCond : VpsKotlinEnum<VpsLFiltInitCond *>
@@ -5018,94 +5166,6 @@ __attribute__((swift_name("LFiltInitCond")))
 @property (class, readonly) VpsLFiltInitCond *zero __attribute__((swift_name("zero")));
 + (VpsKotlinArray<VpsLFiltInitCond *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsLFiltInitCond *> *entries __attribute__((swift_name("entries")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MaxDoubleArrayQueue")))
-@interface VpsMaxDoubleArrayQueue : VpsBase
-- (instancetype)initWithSize:(int32_t)size startValue:(double)startValue __attribute__((swift_name("init(size:startValue:)"))) __attribute__((objc_designated_initializer));
-- (void)appendValue:(double)value __attribute__((swift_name("append(value:)")));
-- (void)backwardAppendValue:(double)value __attribute__((swift_name("backwardAppend(value:)")));
-- (id<VpsKotlinIterator>)reversedIterator __attribute__((swift_name("reversedIterator()")));
-@property (readonly) int32_t size __attribute__((swift_name("size")));
-@property (readonly) double startValue __attribute__((swift_name("startValue")));
-@property (readonly) VpsKotlinDoubleArray *values __attribute__((swift_name("values")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("MaxFloatArrayQueue")))
-@interface VpsMaxFloatArrayQueue : VpsBase
-- (instancetype)initWithSize:(int32_t)size startValue:(float)startValue __attribute__((swift_name("init(size:startValue:)"))) __attribute__((objc_designated_initializer));
-- (void)appendValue:(float)value __attribute__((swift_name("append(value:)")));
-- (void)backwardAppendValue:(float)value __attribute__((swift_name("backwardAppend(value:)")));
-- (id<VpsKotlinIterator>)reversedIterator __attribute__((swift_name("reversedIterator()")));
-@property (readonly) int32_t size __attribute__((swift_name("size")));
-@property (readonly) float startValue __attribute__((swift_name("startValue")));
-@property (readonly) VpsKotlinFloatArray *values __attribute__((swift_name("values")));
-@end
-
-__attribute__((swift_name("KotlinIterator")))
-@protocol VpsKotlinIterator
-@required
-- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
-- (id _Nullable)next __attribute__((swift_name("next()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ReverseArrayIterator")))
-@interface VpsReverseArrayIterator : VpsBase <VpsKotlinIterator>
-- (instancetype)initWithArray:(VpsKotlinDoubleArray *)array __attribute__((swift_name("init(array:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
-- (VpsDouble *)next __attribute__((swift_name("next()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ReverseFloatArrayIterator")))
-@interface VpsReverseFloatArrayIterator : VpsBase <VpsKotlinIterator>
-- (instancetype)initWithArray:(VpsKotlinFloatArray *)array __attribute__((swift_name("init(array:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
-- (VpsFloat *)next __attribute__((swift_name("next()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SOSFilt")))
-@interface VpsSOSFilt : VpsBase
-- (instancetype)initWithParams:(VpsKotlinArray<VpsKotlinFloatArray *> *)params initialCondition:(VpsLFiltInitCond *)initialCondition __attribute__((swift_name("init(params:initialCondition:)"))) __attribute__((objc_designated_initializer));
-- (void)reset __attribute__((swift_name("reset()")));
-- (float)updateX:(float)x __attribute__((swift_name("update(x:)")));
-@property (readonly) int32_t n_sections __attribute__((swift_name("n_sections")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SecondOrderLinearDigitalFilter")))
-@interface VpsSecondOrderLinearDigitalFilter : VpsBase
-- (instancetype)initWithParams:(VpsKotlinFloatArray *)params __attribute__((swift_name("init(params:)"))) __attribute__((objc_designated_initializer));
-- (VpsKotlinPair<VpsFloat *, VpsFloat *> *)doInitParamsFirstInput:(float)firstInput secondInput:(float)secondInput __attribute__((swift_name("doInitParams(firstInput:secondInput:)")));
-- (void)reset __attribute__((swift_name("reset()")));
-- (float)updateX:(float)x __attribute__((swift_name("update(x:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("WindowedFiltFilt")))
-@interface VpsWindowedFiltFilt : VpsBase
-- (instancetype)initWithWindowSize:(int32_t)windowSize params:(VpsKotlinArray<VpsKotlinFloatArray *> *)params initialCondition:(VpsLFiltInitCond *)initialCondition __attribute__((swift_name("init(windowSize:params:initialCondition:)"))) __attribute__((objc_designated_initializer));
-- (void)reset __attribute__((swift_name("reset()")));
-- (VpsKotlinFloatArray *)updateX:(float)x __attribute__((swift_name("update(x:)")));
-@property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *params __attribute__((swift_name("params")));
-@property (readonly) int32_t windowSize __attribute__((swift_name("windowSize")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("StartStep")))
-@interface VpsStartStep : VpsBase
-- (instancetype)initWithLen:(int32_t)len __attribute__((swift_name("init(len:)"))) __attribute__((objc_designated_initializer));
-- (BOOL)addStepElement:(double)element __attribute__((swift_name("addStep(element:)")));
-- (double)getFrequency __attribute__((swift_name("getFrequency()")));
-- (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
-- (int32_t)size __attribute__((swift_name("size()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSMutableArray<VpsDouble *> *x __attribute__((swift_name("x")));
-@property NSMutableArray<VpsDouble *> *y __attribute__((swift_name("y")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -5197,29 +5257,6 @@ __attribute__((swift_name("KotlinIntArray")))
 - (VpsPathfinderCoordinateF *)meterToPixelsPixelsPerMeter:(float)pixelsPerMeter __attribute__((swift_name("meterToPixels(pixelsPerMeter:)")));
 @end
 
-@interface VpsBaseEventWiFiScan (Extensions)
-- (void)setAPCoordinatesAccessPoints:(NSArray<VpsAccessPoint *> *)accessPoints __attribute__((swift_name("setAPCoordinates(accessPoints:)")));
-@end
-
-@interface VpsBaseEventWifiStatusUpdate (Extensions)
-- (void)setAPCoordinateAccessPoints:(NSArray<VpsAccessPoint *> *)accessPoints __attribute__((swift_name("setAPCoordinate(accessPoints:)")));
-@end
-
-@interface VpsPose (Extensions)
-- (NSArray<VpsFloat *> *)toList __attribute__((swift_name("toList()")));
-@end
-
-@interface VpsFlowBuilder (Extensions)
-- (VpsFlowBuilder<id> *)addNodeBlock:(VpsNode<id> * _Nullable (^)(void))block __attribute__((swift_name("addNode(block:)")));
-- (VpsFlowBuilder<id> *)connectToBlock:(id<VpsFlowConnection> _Nullable (^)(void))block __attribute__((swift_name("connectTo(block:)")));
-- (VpsFlowBuilder<id> *)connectToAllBlock:(NSArray<id<VpsFlowConnection>> *(^)(void))block __attribute__((swift_name("connectToAll(block:)")));
-@end
-
-@interface VpsFlowConverterBuilder (Extensions)
-- (VpsFlowConverterBuilder<id, id> *)connectToBlock:(id<VpsFlowConnection> _Nullable (^)(void))block __attribute__((swift_name("connectTo(block:)")));
-- (VpsFlowConverterBuilder<id, id> *)connectToAllBlock:(NSArray<id<VpsFlowConnection>> *(^)(void))block __attribute__((swift_name("connectToAll(block:)")));
-@end
-
 @interface VpsLegacyReplaySensorData (Extensions)
 - (VpsInputSignalSensorData *)toInputSignalSensorTypeName:(NSString *)sensorTypeName __attribute__((swift_name("toInputSignal(sensorTypeName:)")));
 @end
@@ -5270,6 +5307,29 @@ __attribute__((swift_name("KotlinIntArray")))
 
 @interface VpsReplaySyncPosition (Extensions)
 - (VpsInputSignalSyncPosition *)toInputSignal __attribute__((swift_name("toInputSignal()")));
+@end
+
+@interface VpsPose (Extensions)
+- (NSArray<VpsFloat *> *)toList __attribute__((swift_name("toList()")));
+@end
+
+@interface VpsFlowBuilder (Extensions)
+- (VpsFlowBuilder<id> *)addNodeBlock:(VpsNode<id> * _Nullable (^)(void))block __attribute__((swift_name("addNode(block:)")));
+- (VpsFlowBuilder<id> *)connectToBlock:(id<VpsFlowConnection> _Nullable (^)(void))block __attribute__((swift_name("connectTo(block:)")));
+- (VpsFlowBuilder<id> *)connectToAllBlock:(NSArray<id<VpsFlowConnection>> *(^)(void))block __attribute__((swift_name("connectToAll(block:)")));
+@end
+
+@interface VpsFlowConverterBuilder (Extensions)
+- (VpsFlowConverterBuilder<id, id> *)connectToBlock:(id<VpsFlowConnection> _Nullable (^)(void))block __attribute__((swift_name("connectTo(block:)")));
+- (VpsFlowConverterBuilder<id, id> *)connectToAllBlock:(NSArray<id<VpsFlowConnection>> *(^)(void))block __attribute__((swift_name("connectToAll(block:)")));
+@end
+
+@interface VpsBaseEventWiFiScan (Extensions)
+- (void)setAPCoordinatesAccessPoints:(NSArray<VpsAccessPoint *> *)accessPoints __attribute__((swift_name("setAPCoordinates(accessPoints:)")));
+@end
+
+@interface VpsBaseEventWifiStatusUpdate (Extensions)
+- (void)setAPCoordinateAccessPoints:(NSArray<VpsAccessPoint *> *)accessPoints __attribute__((swift_name("setAPCoordinate(accessPoints:)")));
 @end
 
 @interface VpsInputSignalAngleCorrection (Extensions)

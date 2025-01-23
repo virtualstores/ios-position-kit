@@ -41,8 +41,8 @@ final class VPSManager: VPSWrapper {
     guard 
       #available(iOS 14.0, *),
       positionServiceSettings?.nlModelActivated ?? false,
-      modelManager.nlParams != nil else
-    { return nil }
+      modelManager.nlParams != nil
+    else { return nil }
     return VPSNLModel(manager: modelManager)
   }()
 
@@ -60,7 +60,7 @@ final class VPSManager: VPSWrapper {
       useSquareDriftFilter: positionServiceSettings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
       squareDriftFilterGain: positionServiceSettings?.squareDriftFilterGain ?? VPSModelToEventParameters.shared.default_.squareDriftFilterGain
     )
-    self.particleFilterSettings = VPSManager.getParticleFilterSettings(settings: positionServiceSettings)
+    self.particleFilterSettings = Self.getParticleFilterSettings(settings: positionServiceSettings)
     self.positionServiceSettings = positionServiceSettings
     self.bindPublishers()
     //Log.shared.outputHandler = self
@@ -246,6 +246,7 @@ final class VPSManager: VPSWrapper {
 
   static func getParticleFilterSettings(settings: PositionServiceSettings?) -> ParticleFilterSettings {
     ParticleFilterSettings(
+      version: getDefaultParticleFilterSettings(settings: settings).version,
       uxPositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_UX_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).uxPositionActivated,
       mlPositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_ML_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).mlPositionActivated,
       particlePositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_POS_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).particlePositionActivated,
@@ -259,15 +260,14 @@ final class VPSManager: VPSWrapper {
     )
   }
 
-  static func getParticleFilterVersion(settings: PositionServiceSettings?) -> ParticleFilterSettings.Version? {
+  static func getParticleFilterVersion(settings: PositionServiceSettings?) -> ParticleFilterSettings.ParticleFilterVersion? {
     guard
       let option = settings?.stringValues?[.PARTICLE_FILTER_SETTINGS_VERSION],
       let defaultEnum = VPSParticleFilterSettingsVersionEnum(rawValue: option)
     else { return nil }
     switch defaultEnum {
-    case .v1: return ParticleFilterSettings.Version.v1
-    case .v2: return ParticleFilterSettings.Version.v2
-
+    case .v1: return ParticleFilterSettings.ParticleFilterVersion.v1
+    case .v2: return ParticleFilterSettings.ParticleFilterVersion.v2
     }
   }
 
@@ -295,8 +295,10 @@ final class VPSManager: VPSWrapper {
       stepLengthStd: settings?.stepLengthStd ?? defaultParams.stepLengthStd,
       stepDirectionStd: settings?.stepDirectionStd ?? defaultParams.stepDirectionStd,
       biasStd: settings?.biasStd ?? defaultParams.biasStd,
+      biasLimit: settings?.biasLimit ?? defaultParams.biasLimit,
       secondBiasStd: settings?.secondBiasStd ?? defaultParams.secondBiasStd,
       secondBiasMean: settings?.secondBiasMean ?? defaultParams.secondBiasMean,
+      secondBiasLimit: settings?.secondBiasLimit ?? defaultParams.secondBiasLimit,
       mixingFactor: settings?.mixingFactor ?? defaultParams.mixingFactor,
       startMethod: settings?.startMethod ?? defaultParams.startMethod,
       startPositionStd: settings?.startPositionStd ?? defaultParams.startPositionStd,
@@ -309,7 +311,7 @@ final class VPSManager: VPSWrapper {
       kldEpsilon: settings?.kldEpsilon ?? defaultParams.kldEpsilon,
       kldDelta: settings?.kldDelta ?? defaultParams.kldDelta,
       kldZ: settings?.kldZ ?? defaultParams.kldZ,
-      binSize: defaultParams.binSize,
+      binSize: settings?.binSize ?? defaultParams.binSize,
       uxPositionConfidence: settings?.uxPositionConfidence ?? defaultParams.uxPositionConfidence,
       angleOffsetGainDegPerMin: settings?.angleOffsetGainDegPerMin ?? defaultParams.angleOffsetGainDegPerMin,
       speedFactor: settings?.speedFactor ?? defaultParams.speedFactor,
@@ -327,7 +329,8 @@ final class VPSManager: VPSWrapper {
       swapSprinkleInterval: settings?.swapSprinkleInterval ?? defaultParams.swapSprinkleInterval,
       swapSprinkleEndCount: settings?.swapSprinkleEndCount ?? defaultParams.swapSprinkleEndCount,
       swapSprinkleRatio: settings?.swapSprinkleRatio ?? defaultParams.swapSprinkleRatio,
-      mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize
+      mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize,
+      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold
     )
   }
 
@@ -406,7 +409,7 @@ extension VPSManager: VPSOutputHandler {
   }
 }
 
-extension VPSManager: LogOutputHandler {
+extension VPSManager: VPSLogOutputHandler {
   func onLog(text: String, id: String?) {
     //print("Logger", text)
   }
@@ -463,8 +466,22 @@ private extension PositionServiceSettings {
   var stepLengthStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_LENGTH_STD] }
   var stepDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_DIRECTION_STD] }
   var biasStd: Float? { floatValues?[.PARTICLE_FILTER_BIAS_STD] }
+  var biasLimit: KotlinPair<KotlinFloat, KotlinFloat>? {
+    guard
+      let values = floatArrayValues?[.PARTICLE_FILTER_BIAS_LIMIT],
+      values.count == 2
+    else { return nil }
+    return .init(first: .init(float: values[0]), second: .init(float: values[1]))
+  }
   var secondBiasStd: Float? { floatValues?[.PARTICLE_FILTER_SECOND_BIAS_STD] }
   var secondBiasMean: Float? { floatValues?[.PARTICLE_FILTER_SECOND_BIAS_MEAN] }
+  var secondBiasLimit: KotlinPair<KotlinFloat, KotlinFloat>? {
+    guard
+      let values = floatArrayValues?[.PARTICLE_FILTER_SECOND_BIAS_LIMIT],
+      values.count == 2
+    else { return nil }
+    return .init(first: .init(float: values[0]), second: .init(float: values[1]))
+  }
   var mixingFactor: Float? { floatValues?[.PARTICLE_FILTER_MIXING_FACTOR] }
   var startMethod: StartMethod? {
     guard let value = stringValues?[.PARTICLE_FILTER_START_METHOD] else { return nil }
@@ -483,6 +500,13 @@ private extension PositionServiceSettings {
   var kldEpsilon: Float? { floatValues?[.PARTICLE_FILTER_KLD_EPSILON] }
   var kldDelta: Float? { floatValues?[.PARTICLE_FILTER_KLD_DELTA] }
   var kldZ: Float? { floatValues?[.PARTICLE_FILTER_KLD_Z] }
+  var binSize: KotlinTriple<KotlinFloat, KotlinFloat, KotlinFloat>? {
+    guard
+      let values = floatArrayValues?[.PARTICLE_FILTER_BIN_SIZE],
+      values.count == 3
+    else { return nil }
+    return .init(first: .init(float: values[0]), second: .init(float: values[1]), third: .init(float: values[2]))
+  }
   var uxPositionConfidence: Float? { floatValues?[.PARTICLE_FILTER_UX_POSITION_CONFIDENCE] }
   var angleOffsetGainDegPerMin: Float? { floatValues?[.PARTICLE_FILTER_ANGLE_OFFSET_GAIN_DEG_PER_MIN] }
   var speedFactor: Float? { floatValues?[.PARTICLE_FILTER_SPEED_FACTOR] }
@@ -501,6 +525,7 @@ private extension PositionServiceSettings {
   var swapSprinkleEndCount: Int32? { intValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_END_COUNT]?.asInt32 }
   var swapSprinkleRatio: Float? { floatValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_RATIO] }
   var mlStepHistorySize: Int32? { intValues?[.PARTICLE_FILTER_ML_STEP_HISTORY_SIZE]?.asInt32 }
+  var idlePositionTimeThreshold: Int64? { intValues?[.PARTICLE_FILTER_IDLE_POSITION_TIME_THRESHOLD]?.asLong }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -560,8 +585,10 @@ private extension String {
   static let PARTICLE_FILTER_STEP_LENGTH_STD: String = "ios_particleFilter_stepLengthStd"
   static let PARTICLE_FILTER_STEP_DIRECTION_STD: String = "ios_particleFilter_stepDirectionStd"
   static let PARTICLE_FILTER_BIAS_STD: String = "ios_particleFilter_biasStd"
+  static let PARTICLE_FILTER_BIAS_LIMIT: String = "ios_particleFilter_biasLimit"
   static let PARTICLE_FILTER_SECOND_BIAS_STD: String = "ios_particleFilter_secondBiasStd"
   static let PARTICLE_FILTER_SECOND_BIAS_MEAN: String = "ios_particleFilter_secondBiasMean"
+  static let PARTICLE_FILTER_SECOND_BIAS_LIMIT: String = "ios_particleFilter_secondBiasLimit"
   static let PARTICLE_FILTER_MIXING_FACTOR: String = "ios_particleFilter_mixingFactor"
   static let PARTICLE_FILTER_START_METHOD: String = "ios_particleFilter_startMethod"
   static let PARTICLE_FILTER_START_POSITION_STD: String = "ios_particleFilter_startPositionStd"
@@ -574,6 +601,7 @@ private extension String {
   static let PARTICLE_FILTER_KLD_EPSILON: String = "ios_particleFilter_kldEpsilon"
   static let PARTICLE_FILTER_KLD_DELTA: String = "ios_particleFilter_kldDelta"
   static let PARTICLE_FILTER_KLD_Z: String = "ios_particleFilter_kldZ"
+  static let PARTICLE_FILTER_BIN_SIZE: String = "ios_particleFilter_binSize"
   static let PARTICLE_FILTER_UX_POSITION_CONFIDENCE: String = "ios_particleFilter_uxPositionConfidence"
   static let PARTICLE_FILTER_ANGLE_OFFSET_GAIN_DEG_PER_MIN: String = "ios_particleFilter_angleOffsetGainDegPerMin"
   static let PARTICLE_FILTER_SPEED_FACTOR: String = "ios_particleFilter_speedFactor"
@@ -592,6 +620,7 @@ private extension String {
   static let PARTICLE_FILTER_SWAP_SPRINKLE_END_COUNT: String = "ios_particleFilter_swapSprinkleEndCount"
   static let PARTICLE_FILTER_SWAP_SPRINKLE_RATIO: String = "ios_particleFilter_swapSprinkleRatio"
   static let PARTICLE_FILTER_ML_STEP_HISTORY_SIZE: String = "ios_particleFilter_mlStepHistorySize"
+  static let PARTICLE_FILTER_IDLE_POSITION_TIME_THRESHOLD: String = "ios_particleFilter_idlePositionTimeThreshold"
   static let PARTICLE_USE_RAY_TRACE_SENSOR_MODEL: String = "ios_particleFilter_useRayTraceSensorModel"
 }
 
