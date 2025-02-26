@@ -256,7 +256,9 @@ final class VPSManager: VPSWrapper {
       randomNumberGeneratorSeed: nil,
       saveOutputSignals: false,
       saveWiFiStatusUpdate: false,
-      saveWiFiScans: false
+      saveWiFiScans: false,
+      scoringParams: getScoringParams(settings: settings, defaultParams: getDefaultScoringParams(settings: settings)),
+      clusterSwapOutputActivated: false
     )
   }
 
@@ -330,7 +332,41 @@ final class VPSManager: VPSWrapper {
       swapSprinkleEndCount: settings?.swapSprinkleEndCount ?? defaultParams.swapSprinkleEndCount,
       swapSprinkleRatio: settings?.swapSprinkleRatio ?? defaultParams.swapSprinkleRatio,
       mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize,
-      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold
+      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold,
+      stdQuantile: settings?.stdQuantile ?? defaultParams.stdQuantile,
+      uncertainThreshold: settings?.uncertainThreshold ?? defaultParams.uncertainThreshold,
+      mlStepHistorySizeForOOBComeback: settings?.mlStepHistorySizeForOOBComeback ?? defaultParams.mlStepHistorySizeForOOBComeback,
+      wiFiStatusTimeLimit: settings?.wiFiStatusTimeLimit ?? defaultParams.wiFiStatusTimeLimit,
+      allowOutOfBounds: settings?.allowOutOfBounds ?? defaultParams.allowOutOfBounds,
+      maxAllowedStd: settings?.maxAllowedStd ?? defaultParams.maxAllowedStd
+    )
+  }
+
+  static func getDefaultScoringParams(settings: PositionServiceSettings?) -> ScoringParams {
+    guard
+      let option = settings?.stringValues?[.SCORING_PARAMS_VERSION],
+      let defaultEnum = VPSScoringParamsVersionEnum(rawValue: option)
+    else { return getDefaultParticleFilterSettings(settings: settings).scoringParams }
+    switch defaultEnum {
+    case .´default´: return VPSScoringParams.shared.default_
+    }
+  }
+
+  static func getScoringParams(settings: PositionServiceSettings?, defaultParams: ScoringParams) -> ScoringParams {
+    ScoringParams(
+      version: defaultParams.version,
+      dt: settings?.dt ?? defaultParams.dt,
+      scoringIntervalSec: settings?.scoringIntervalSec ?? defaultParams.scoringIntervalSec,
+      clusterSwapThreshold: settings?.clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
+      beforeLimitRmSec: settings?.beforeLimitRmSec ?? defaultParams.beforeLimitRmSec,
+      afterLimitRmSec: settings?.afterLimitRmSec ?? defaultParams.afterLimitRmSec,
+      maxGapRmSec: settings?.maxGapRmSec ?? defaultParams.maxGapRmSec,
+      beforeLimitCsSec: settings?.beforeLimitCsSec ?? defaultParams.beforeLimitCsSec,
+      afterLimitCsSec: settings?.afterLimitCsSec ?? defaultParams.afterLimitCsSec,
+      maxGapCsSec: settings?.maxGapCsSec ?? defaultParams.maxGapCsSec,
+      beforeLimitFsSec: settings?.beforeLimitFsSec ?? defaultParams.beforeLimitFsSec,
+      afterLimitFsSec: settings?.afterLimitFsSec ?? defaultParams.afterLimitFsSec,
+      maxGapFsSec: settings?.maxGapFsSec ?? defaultParams.maxGapFsSec
     )
   }
 
@@ -353,6 +389,10 @@ final class VPSManager: VPSWrapper {
   enum VPSParticleFilterSettingsVersionEnum: String {
     case v1 = "V1"
     case v2 = "V2"
+  }
+
+  enum VPSScoringParamsVersionEnum: String {
+    case ´default´ = "DEFAULT"
   }
 }
 
@@ -404,6 +444,10 @@ extension VPSManager: VPSOutputHandler {
       outputSignalPublisher.send(.particles(positions: positions))
     case let output as OutputSignal.FloorChangeSignal: break
       //outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
+    case let output as OutputSignal.ClusterSwapSignal: break
+    case let output as OutputSignal.ConsistencyScoreSignal:
+      print("ConsistencyScoreSignal", (output.score * 1000).rounded(.toNearestOrAwayFromZero))
+      outputSignalPublisher.send(.consistencyScoreSignal(Int((output.score * 1000).rounded(.toNearestOrAwayFromZero))))
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
@@ -526,6 +570,28 @@ private extension PositionServiceSettings {
   var swapSprinkleRatio: Float? { floatValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_RATIO] }
   var mlStepHistorySize: Int32? { intValues?[.PARTICLE_FILTER_ML_STEP_HISTORY_SIZE]?.asInt32 }
   var idlePositionTimeThreshold: Int64? { intValues?[.PARTICLE_FILTER_IDLE_POSITION_TIME_THRESHOLD]?.asLong }
+  var stdQuantile: Float? { floatValues?[.PARTICLE_FILTER_STD_QUANTILE] }
+  var uncertainThreshold: Float? { floatValues?[.PARTICLE_FILTER_UNCERTAIN_THRESHOLD] }
+  var mlStepHistorySizeForOOBComeback: Int32? { intValues?[.PARTICLE_FILTER_ML_STEP_HISTORY_SIZE_FOR_OOBCOMEBACK]?.asInt32 }
+  var wiFiStatusTimeLimit: Float? { floatValues?[.PARTICLE_FILTER_WIFI_STATUS_TIME_LIMIT] }
+  var allowOutOfBounds: Bool? { boolValues?[.PARTICLE_FILTER_ALLOW_OUT_OF_BOUNDS] }
+  var maxAllowedStd: Float? { floatValues?[.PARTICLE_FILTER_MAX_ALLOWED_STD] }
+
+
+  // SCORING PARAMS
+  //var version:  { [.SCORING_PARAMS_VERSION] }
+  var dt: Float? { floatValues?[.SCORING_PARAMS_DT] }
+  var scoringIntervalSec: Int32? { intValues?[.SCORING_PARAMS_SCORING_INTERVAL_SEC]?.asInt32 }
+  var clusterSwapThreshold: Float? { floatValues?[.SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD] }
+  var beforeLimitRmSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_RM_SEC]?.asInt32 }
+  var afterLimitRmSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_RM_SEC]?.asInt32 }
+  var maxGapRmSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_RM_SEC]?.asInt32 }
+  var beforeLimitCsSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_CS_SEC]?.asInt32 }
+  var afterLimitCsSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_CS_SEC]?.asInt32 }
+  var maxGapCsSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_CS_SEC]?.asInt32 }
+  var beforeLimitFsSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_FS_SEC]?.asInt32 }
+  var afterLimitFsSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_FS_SEC]?.asInt32 }
+  var maxGapFsSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_FS_SEC]?.asInt32 }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -621,7 +687,27 @@ private extension String {
   static let PARTICLE_FILTER_SWAP_SPRINKLE_RATIO: String = "ios_particleFilter_swapSprinkleRatio"
   static let PARTICLE_FILTER_ML_STEP_HISTORY_SIZE: String = "ios_particleFilter_mlStepHistorySize"
   static let PARTICLE_FILTER_IDLE_POSITION_TIME_THRESHOLD: String = "ios_particleFilter_idlePositionTimeThreshold"
+  static let PARTICLE_FILTER_STD_QUANTILE: String = "ios_particlefilter_stdQuantile"
+  static let PARTICLE_FILTER_UNCERTAIN_THRESHOLD: String = "ios_particlefilter_uncertainThreshold"
+  static let PARTICLE_FILTER_ML_STEP_HISTORY_SIZE_FOR_OOBCOMEBACK: String = "ios_particlefilter_mlStepHistorySizeForOOBComeback"
+  static let PARTICLE_FILTER_WIFI_STATUS_TIME_LIMIT: String = "ios_particlefilter_wiFiStatusTimeLimit"
+  static let PARTICLE_FILTER_ALLOW_OUT_OF_BOUNDS: String = "ios_particlefilter_allowOutOfBounds"
+  static let PARTICLE_FILTER_MAX_ALLOWED_STD: String = "ios_particlefilter_maxAllowedStd"
   static let PARTICLE_USE_RAY_TRACE_SENSOR_MODEL: String = "ios_particleFilter_useRayTraceSensorModel"
+
+  static let SCORING_PARAMS_VERSION: String = "ios_scoringParams_version"
+  static let SCORING_PARAMS_DT: String = "ios_scoringParams_dt"
+  static let SCORING_PARAMS_SCORING_INTERVAL_SEC: String = "ios_scoringParams_scoringIntervalSec"
+  static let SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD: String = "ios_scoringParams_clusterSwapThreshold"
+  static let SCORING_PARAMS_BEFORE_LIMIT_RM_SEC: String = "ios_scoringParams_beforeLimitRmSec"
+  static let SCORING_PARAMS_AFTER_LIMIT_RM_SEC: String = "ios_scoringParams_afterLimitRmSec"
+  static let SCORING_PARAMS_MAX_GAP_RM_SEC: String = "ios_scoringParams_maxGapRmSec"
+  static let SCORING_PARAMS_BEFORE_LIMIT_CS_SEC: String = "ios_scoringParams_beforeLimitCsSec"
+  static let SCORING_PARAMS_AFTER_LIMIT_CS_SEC: String = "ios_scoringParams_afterLimitCsSec"
+  static let SCORING_PARAMS_MAX_GAP_CS_SEC: String = "ios_scoringParams_maxGapCsSec"
+  static let SCORING_PARAMS_BEFORE_LIMIT_FS_SEC: String = "ios_scoringParams_beforeLimitFsSec"
+  static let SCORING_PARAMS_AFTER_LIMIT_FS_SEC: String = "ios_scoringParams_afterLimitFsSec"
+  static let SCORING_PARAMS_MAX_GAP_FS_SEC: String = "ios_scoringParams_maxGapFsSec"
 }
 
 extension vps.MLProcessedPath {

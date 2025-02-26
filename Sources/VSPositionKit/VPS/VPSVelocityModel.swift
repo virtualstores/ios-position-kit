@@ -108,24 +108,24 @@ extension VPSVelocityModel: VelocityModel {
     guard batchedData.count > 0, let input = createMlArray(data: batchedData) else { return }
     batchedData.removeAll()
     if manager.mlParams!.stepNumberInput, let stepNumber = createMlArray(stepNumber: stepNumber) {
-      doPrediction(input: input, timestamp: data.timestamp, stepNumber: stepNumber)
+      doPrediction(input: input, timestamp: data.nanoTimestamp, systemTimestamp: data.systemTimestamp, stepNumber: stepNumber)
     } else {
-      doPrediction(input: input, timestamp: data.timestamp)
+      doPrediction(input: input, timestamp: data.nanoTimestamp, systemTimestamp: data.systemTimestamp)
     }
     stepNumber += 1
   }
 
-  func doPrediction(input: MLMultiArray, timestamp: Int64) {
+  func doPrediction(input: MLMultiArray, timestamp: Int64, systemTimestamp: Int64) {
     let output = try? model?.prediction(input: ResnetInput(input: input))
     //print("OUTPUT", output?.output)
-    guard let modelOutput = output?.output.asModelOutput(timestamp: timestamp) else { return }
+    guard let modelOutput = output?.output.asModelOutput(timestamp: timestamp, systemTimestamp: systemTimestamp) else { return }
     handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
   }
 
-  func doPrediction(input: MLMultiArray, timestamp: Int64, stepNumber: MLMultiArray) {
+  func doPrediction(input: MLMultiArray, timestamp: Int64, systemTimestamp: Int64, stepNumber: MLMultiArray) {
     let output = try? modelV2?.prediction(input: ResnetV2Input(input: input, step_numbers: stepNumber))
     //print("OUTPUT V2", output?.output)
-    guard let modelOutput = output?.output.asModelOutput(timestamp: timestamp) else { return }
+    guard let modelOutput = output?.output.asModelOutput(timestamp: timestamp, systemTimestamp: systemTimestamp) else { return }
     handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
   }
 
@@ -135,12 +135,12 @@ extension VPSVelocityModel: VelocityModel {
 }
 
 private extension MLMultiArray {
-  func asModelOutput(timestamp: Int64) -> VelocityModelOutput {
+  func asModelOutput(timestamp: Int64, systemTimestamp: Int64) -> VelocityModelOutput {
     var arr = [KotlinFloat](repeating: 0, count: count)
     for i in 0..<count {
       arr[i] = KotlinFloat(value: Float(truncating: self[i]))
     }
-    return VelocityModelOutput(timestamp: timestamp, data: arr)
+    return VelocityModelOutput(timestamp: timestamp, systemTimestamp: systemTimestamp, data: arr)
   }
 }
 
