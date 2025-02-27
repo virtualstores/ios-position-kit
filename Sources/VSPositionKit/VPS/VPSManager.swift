@@ -258,7 +258,8 @@ final class VPSManager: VPSWrapper {
       saveWiFiStatusUpdate: false,
       saveWiFiScans: false,
       scoringParams: getScoringParams(settings: settings, defaultParams: getDefaultScoringParams(settings: settings)),
-      clusterSwapOutputActivated: false
+      clusterSwapOutputActivated: false,
+      trustedPositionParams: getTrustedPositionParams(settings: settings, defaultParams: getDefaultTrustedPositionParams(settings: settings))
     )
   }
 
@@ -355,18 +356,42 @@ final class VPSManager: VPSWrapper {
   static func getScoringParams(settings: PositionServiceSettings?, defaultParams: ScoringParams) -> ScoringParams {
     ScoringParams(
       version: defaultParams.version,
-      dt: settings?.dt ?? defaultParams.dt,
-      scoringIntervalSec: settings?.scoringIntervalSec ?? defaultParams.scoringIntervalSec,
-      clusterSwapThreshold: settings?.clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
-      beforeLimitRmSec: settings?.beforeLimitRmSec ?? defaultParams.beforeLimitRmSec,
-      afterLimitRmSec: settings?.afterLimitRmSec ?? defaultParams.afterLimitRmSec,
-      maxGapRmSec: settings?.maxGapRmSec ?? defaultParams.maxGapRmSec,
-      beforeLimitCsSec: settings?.beforeLimitCsSec ?? defaultParams.beforeLimitCsSec,
-      afterLimitCsSec: settings?.afterLimitCsSec ?? defaultParams.afterLimitCsSec,
-      maxGapCsSec: settings?.maxGapCsSec ?? defaultParams.maxGapCsSec,
-      beforeLimitFsSec: settings?.beforeLimitFsSec ?? defaultParams.beforeLimitFsSec,
-      afterLimitFsSec: settings?.afterLimitFsSec ?? defaultParams.afterLimitFsSec,
-      maxGapFsSec: settings?.maxGapFsSec ?? defaultParams.maxGapFsSec
+      dt: settings?.scoring_dt ?? defaultParams.dt,
+      scoringIntervalSec: settings?.scoring_scoringIntervalSec ?? defaultParams.scoringIntervalSec,
+      clusterSwapThreshold: settings?.scoring_clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
+      beforeLimitRmSec: settings?.scoring_beforeLimitRmSec ?? defaultParams.beforeLimitRmSec,
+      afterLimitRmSec: settings?.scoring_afterLimitRmSec ?? defaultParams.afterLimitRmSec,
+      maxGapRmSec: settings?.scoring_maxGapRmSec ?? defaultParams.maxGapRmSec,
+      beforeLimitCsSec: settings?.scoring_beforeLimitCsSec ?? defaultParams.beforeLimitCsSec,
+      afterLimitCsSec: settings?.scoring_afterLimitCsSec ?? defaultParams.afterLimitCsSec,
+      maxGapCsSec: settings?.scoring_maxGapCsSec ?? defaultParams.maxGapCsSec,
+      beforeLimitFsSec: settings?.scoring_beforeLimitFsSec ?? defaultParams.beforeLimitFsSec,
+      afterLimitFsSec: settings?.scoring_afterLimitFsSec ?? defaultParams.afterLimitFsSec,
+      maxGapFsSec: settings?.scoring_maxGapFsSec ?? defaultParams.maxGapFsSec
+    )
+  }
+
+  static func getDefaultTrustedPositionParams(settings: PositionServiceSettings?) -> TrustedPositionParams {
+    guard
+      let option = settings?.stringValues?[.TRUSTED_POSITION_PARAMS_VERSION],
+      let defaultEnum = VPSTrustedPositionParamsVersionEnum(rawValue: option)
+    else { return getDefaultParticleFilterSettings(settings: settings).trustedPositionParams }
+    switch defaultEnum {
+    case .´default´: return VPSTrustedPositionParams.shared.default_
+    }
+  }
+
+  static func getTrustedPositionParams(settings: PositionServiceSettings?, defaultParams: TrustedPositionParams) -> TrustedPositionParams {
+    .init(
+      version: defaultParams.version,
+      dt: settings?.trustedPosition_dt ?? defaultParams.dt,
+      trustedLimitSec: settings?.trustedPosition_trustedLimitSec ?? defaultParams.trustedLimitSec,
+      clusterSwapCoolDownSec: settings?.trustedPosition_clusterSwapCoolDownSec ?? defaultParams.clusterSwapCoolDownSec,
+      rescueModeCoolDownSec: settings?.trustedPosition_rescueModeCoolDownSec ?? defaultParams.rescueModeCoolDownSec,
+      stdLimit: settings?.trustedPosition_stdLimit ?? defaultParams.stdLimit,
+      stdLimitLarge: settings?.trustedPosition_stdLimitLarge ?? defaultParams.stdLimitLarge,
+      particleTrendLimit: settings?.trustedPosition_particleTrendLimit ?? defaultParams.particleTrendLimit,
+      consistencyScoreLimit: settings?.trustedPosition_consistencyScoreLimit ?? defaultParams.consistencyScoreLimit
     )
   }
 
@@ -392,6 +417,10 @@ final class VPSManager: VPSWrapper {
   }
 
   enum VPSScoringParamsVersionEnum: String {
+    case ´default´ = "DEFAULT"
+  }
+
+  enum VPSTrustedPositionParamsVersionEnum: String {
     case ´default´ = "DEFAULT"
   }
 }
@@ -595,19 +624,28 @@ private extension PositionServiceSettings {
 
 
   // SCORING PARAMS
-  //var version:  { [.SCORING_PARAMS_VERSION] }
-  var dt: Float? { floatValues?[.SCORING_PARAMS_DT] }
-  var scoringIntervalSec: Int32? { intValues?[.SCORING_PARAMS_SCORING_INTERVAL_SEC]?.asInt32 }
-  var clusterSwapThreshold: Float? { floatValues?[.SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD] }
-  var beforeLimitRmSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_RM_SEC]?.asInt32 }
-  var afterLimitRmSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_RM_SEC]?.asInt32 }
-  var maxGapRmSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_RM_SEC]?.asInt32 }
-  var beforeLimitCsSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_CS_SEC]?.asInt32 }
-  var afterLimitCsSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_CS_SEC]?.asInt32 }
-  var maxGapCsSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_CS_SEC]?.asInt32 }
-  var beforeLimitFsSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_FS_SEC]?.asInt32 }
-  var afterLimitFsSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_FS_SEC]?.asInt32 }
-  var maxGapFsSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_FS_SEC]?.asInt32 }
+  var scoring_dt: Float? { floatValues?[.SCORING_PARAMS_DT] }
+  var scoring_scoringIntervalSec: Int32? { intValues?[.SCORING_PARAMS_SCORING_INTERVAL_SEC]?.asInt32 }
+  var scoring_clusterSwapThreshold: Float? { floatValues?[.SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD] }
+  var scoring_beforeLimitRmSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_RM_SEC]?.asInt32 }
+  var scoring_afterLimitRmSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_RM_SEC]?.asInt32 }
+  var scoring_maxGapRmSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_RM_SEC]?.asInt32 }
+  var scoring_beforeLimitCsSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_CS_SEC]?.asInt32 }
+  var scoring_afterLimitCsSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_CS_SEC]?.asInt32 }
+  var scoring_maxGapCsSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_CS_SEC]?.asInt32 }
+  var scoring_beforeLimitFsSec: Int32? { intValues?[.SCORING_PARAMS_BEFORE_LIMIT_FS_SEC]?.asInt32 }
+  var scoring_afterLimitFsSec: Int32? { intValues?[.SCORING_PARAMS_AFTER_LIMIT_FS_SEC]?.asInt32 }
+  var scoring_maxGapFsSec: Int32? { intValues?[.SCORING_PARAMS_MAX_GAP_FS_SEC]?.asInt32 }
+
+  // TRUSTED POSITION PARAMS
+  var trustedPosition_dt: Float? { floatValues?[.TRUSTED_POSITION_PARAMS_DT] }
+  var trustedPosition_trustedLimitSec: Int32? { intValues?[.TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC]?.asInt32 }
+  var trustedPosition_clusterSwapCoolDownSec: Int32? { intValues?[.TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC]?.asInt32 }
+  var trustedPosition_rescueModeCoolDownSec: Int32? { intValues?[.TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC]?.asInt32 }
+  var trustedPosition_stdLimit: Float? { floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT] }
+  var trustedPosition_stdLimitLarge: Float? { floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE] }
+  var trustedPosition_particleTrendLimit: Float? { floatValues?[.TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT] }
+  var trustedPosition_consistencyScoreLimit: Float? { floatValues?[.TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT] }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -724,6 +762,16 @@ private extension String {
   static let SCORING_PARAMS_BEFORE_LIMIT_FS_SEC: String = "ios_scoringParams_beforeLimitFsSec"
   static let SCORING_PARAMS_AFTER_LIMIT_FS_SEC: String = "ios_scoringParams_afterLimitFsSec"
   static let SCORING_PARAMS_MAX_GAP_FS_SEC: String = "ios_scoringParams_maxGapFsSec"
+
+  static let TRUSTED_POSITION_PARAMS_VERSION: String = "ios_trustedPositoinParams_version"
+  static let TRUSTED_POSITION_PARAMS_DT: String = "ios_trustedPositoinParams_dt"
+  static let TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC: String = "ios_trustedPositoinParams_trustedLimitSec"
+  static let TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC: String = "ios_trustedPositoinParams_clusterSwapCoolDownSec"
+  static let TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC: String = "ios_trustedPositoinParams_rescueModeCoolDownSec"
+  static let TRUSTED_POSITION_PARAMS_STD_LIMIT: String = "ios_trustedPositoinParams_stdLimit"
+  static let TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE: String = "ios_trustedPositoinParams_stdLimitLarge"
+  static let TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT: String = "ios_trustedPositoinParams_particleTrendLimit"
+  static let TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT: String = "ios_trustedPositoinParams_consistencyScoreLimit"
 }
 
 extension vps.MLProcessedPath {
