@@ -399,33 +399,39 @@ final class VPSManager: VPSWrapper {
 extension VPSManager: VPSOutputHandler {
   func onOutputSignal(outputSignal: OutputSignal) {
     switch outputSignal {
-    case let signal as OutputSignal.Position:
+    case let output as OutputSignal.Position:
       let position = VPSOutputSignal.Position(
-        point: signal.position.asCGPoint,
-        std: signal.std.asDouble,
-        status: signal.status.asStatus,
+        point: output.position.asCGPoint,
+        std: output.std.asDouble,
+        status: output.status.asStatus,
+        activityState: output.activityState.asActivityState,
+        trustedPosition: output.trustedPosition,
         timestamp: Date()
       )
       outputSignalPublisher.send(.position(position: position))
-    case let signal as OutputSignal.UXPosition:
+    case let output as OutputSignal.UXPosition:
       let position = VPSOutputSignal.Position(
-        point: signal.position.asCGPoint,
-        std: signal.std.asDouble,
-        status: signal.status.asStatus,
+        point: output.position.asCGPoint,
+        std: output.std.asDouble,
+        status: output.status.asStatus,
+        activityState: .active,
+        trustedPosition: true,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ux(position: position))
-    case let signal as OutputSignal.MLOutputPosition:
+    case let output as OutputSignal.MLOutputPosition:
       let position = VPSOutputSignal.Position(
-        point: signal.position.asCGPoint,
-        std: signal.std.asDouble,
+        point: output.position.asCGPoint,
+        std: output.std.asDouble,
         status: .none,
+        activityState: .active,
+        trustedPosition: true,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ml(position: position))
-    case let signal as OutputSignal.Rotation:
+    case let output as OutputSignal.Rotation:
       //let rawDirection = signal.heading.asDouble
-      let resultAngle = (signal.heading + (particleFilterOffsetAngle ?? 0.0)).asDouble
+      let resultAngle = (output.heading + (particleFilterOffsetAngle ?? 0.0)).asDouble
       let heading = DoubleExtKt.radiansToDegrees(resultAngle)
       //print("Rotation", heading)
       outputSignalPublisher.send(.rotation(heading: heading))
@@ -446,7 +452,6 @@ extension VPSManager: VPSOutputHandler {
       //outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
     case let output as OutputSignal.ClusterSwapSignal: break
     case let output as OutputSignal.ConsistencyScoreSignal:
-      print("ConsistencyScoreSignal", (output.score * 1000).rounded(.toNearestOrAwayFromZero))
       outputSignalPublisher.send(.consistencyScoreSignal(Int((output.score * 1000).rounded(.toNearestOrAwayFromZero))))
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
@@ -464,7 +469,18 @@ extension OutputSignal.PositionStatus {
     switch self {
     case .confident: return .confident
     case .uncertain: return .uncertain
+    case .outOfBounds: return .outOfBounds
     default: return .none
+    }
+  }
+}
+
+extension OutputSignal.PositionActivityState {
+  var asActivityState: VPSOutputSignal.Position.ActivivtyState {
+    switch self {
+    case .active: return .active
+    case .idle: return .idle
+    default: return .active
     }
   }
 }
