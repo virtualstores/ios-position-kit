@@ -70,15 +70,17 @@ class FloorLevelData {
 }
 
 extension FloorLevelData: VPSFloorLevel {
-  var swapLocations: [vps.SwapLocation] {
-    []
-  }
-  
+  var swapLocations: [vps.SwapLocation] {[]}
+
+  var zones: [vps.Zone] { [] }
+
   var ceilingHeightInMeters: KotlinDouble? { .init(double: data.metersToNextFloor) }
   var id_: Int64 { data.rtls.id }
   var pixelsPerMeter: Double { data.rtls.pixelsPerMeter }
   var heightInMeters: Double { data.rtls.heightInMeters }
   var widthInMeters: Double { data.rtls.widthInMeters }
+  var geomagneticDeclination: KotlinFloat? { nil }
+  var northOffset: KotlinFloat? { data.rtls.north?.asKotlinFloat }
 
   func dispose() {
     mapFenceData.reset()

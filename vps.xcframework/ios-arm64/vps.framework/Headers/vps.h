@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsNavGraph, VpsPathProcessorPathProcess, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsNavGraphVertex, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinArray<T>, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsIPathfinderGoalType, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsConvolveMode, VpsCoordinateF, VpsOutputSignalPositionActivityState, VpsBaseEventWiFiObservation, VpsBaseEventWiFiScan, VpsFloorChangeInterpreterType, VpsFlowConverter<T, S>, VpsVPSParamsSystem, VpsFloorLevelHandler, VpsFloorChangeInterpreterSettings, VpsRawSensorData, VpsBaseEvent, VpsFloorChangeSignal, VpsFlowConverterBuilder<T, S>, VpsFloorChangeInterpreter, VpsFloorChangeInterpreterBuilder, VpsInAndOutTrigger, VpsInputSignal, VpsFloorChangeControllerCompanion, VpsFloorChangeSignalWiFiFloorChangeSignal, VpsOutputSignal, VpsFloorChangeController, VpsFloorChangeControllerBuilder, VpsFloorChangeDetector, VpsBaseEventWifiStatusUpdate, VpsAltitudeClassifierParams, VpsClassifierState, VpsClassifierEvent, VpsKotlinFloatArray, VpsConvertAltitudeToClassifierEvent, VpsConvertAltitudeToClassifierEventBuilder, VpsNode<T>, VpsAltitudeBasedFloorChangeInterpreterFloorState, VpsAverageVariance, VpsFloorSensorParameters, VpsAltitudeBasedFloorChangeInterpreter, VpsAltitudeBasedFloorChangeInterpreterBuilder, VpsFloorSensorParametersCompanion, VpsSensorDataType, VpsSensorFrequencyDetector, VpsAverageVarianceDoublePack, VpsAverageVarianceFloatPack, VpsBaseEventStart, VpsPositioningEngine, VpsPositioningEngineBuilder, VpsPositionEngineSettings, VpsLocation, VpsOutputSignalLngLatLocationSource, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsParticleFilterParams, VpsParticleFilterEvent, VpsNLModelOutput, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilterSettings, VpsParticleFilter, VpsParticleFilterBuilder, VpsOutputSignalUXPosition, VpsAbstractParticleFilter, VpsPose, VpsOutputSignalSyncSignal, VpsBaseEventStepEvent, VpsGaussianKDE, VpsFloorLevelHandlerMapInformation, VpsStartMethod, VpsSyncMethod, VpsParticleFilterKLD, VpsParticleFilterKLDV2, VpsFeatures, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsRotationHandlerSettings, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsRawSensorPack, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsModelToEventParameters, VpsVelocityModelOutput, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsStairsInterpreter, VpsStairsInterpreterBuilder, VpsCoordinateD, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsReplayAngleCorrectionCompanion, VpsReplayAngleCorrection, VpsReplayStartPosition, VpsReplayStartLngLat, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySyncLngLat, VpsWifiStatusUpdate, VpsWifiScanUpdate, VpsReplayFloorChange, VpsReplayLngLat, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplayFloorChangeCompanion, VpsReplayLngLatCompanion, VpsReplaySensorDataCompanion, VpsReplayStartLngLatCompanion, VpsReplayStartPositionCompanion, VpsReplaySyncLngLatCompanion, VpsReplaySyncPositionCompanion, VpsFeaturesCompanion, VpsRawSensorPackCompanion, VpsEventType, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsPoseCompanion, VpsSyncCritera, VpsKotlinThrowable, VpsKotlinException, VpsWifiScanDataCompanion, VpsWifiScanData, VpsMLProcessedPath, VpsLFiltInitCond, VpsAccessPoint, VpsSwapLocation, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams_, VpsFlow<T>, VpsInputSignalStart, VpsVPSLog, VpsCoordinateDCompanion, VpsAccessPointCoordinate, VpsCoordinateFCompanion, VpsLocationCompanion, VpsWiFiAltitudeFusionParams, VpsVPSFloorChangeHandlerSettings, VpsFlowBuilder<T>, VpsVPSModelToEventParameters, VpsParticleFilterParamsVersion, VpsParticleFilterSettingsVersion, VpsParticleFilterSettingsParticleFilterVersion, VpsVPSParticleFilterParams, VpsVPSParticleFilterSettings, VpsPositionEngineType, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsRawSensorDataCompanion, VpsTensorCompanion, VpsVelocityModelOutputCompanion, VpsIosInterpolationModuleParams, VpsBaseEventCompanion, VpsBaseEventAngleCorrectionEventCompanion, VpsBaseEventAngleCorrectionEvent, VpsBaseEventFloorChangeEventCompanion, VpsBaseEventFloorChangeEvent, VpsBaseEventLngLatEventCompanion, VpsBaseEventLngLatEvent, VpsBaseEventStairEventCompanion, VpsBaseEventStairEvent, VpsBaseEventStartCompanion, VpsBaseEventStartStartType, VpsBaseEventStartLngLatEventCompanion, VpsBaseEventStartLngLatEvent, VpsBaseEventStartPositionEventCompanion, VpsBaseEventStartPositionEvent, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventSyncCompanion, VpsBaseEventSyncSyncType, VpsBaseEventSync, VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion, VpsBaseEventSyncAccessPointFloorSwapSyncEvent, VpsBaseEventSyncLngLatEventCompanion, VpsBaseEventSyncLngLatEvent, VpsBaseEventSyncPositionEventCompanion, VpsBaseEventSyncPositionEvent, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWiFiScanCompanion, VpsBaseEventWifiStatusUpdateCompanion, VpsInputSignalType, VpsInputSignalStartStartType, VpsInputSignalSyncSyncType, VpsInputSignalSync, VpsOutputSignalCompanion, VpsOutputSignalType, VpsOutputSignalFloorChangeSignalCompanion, VpsOutputSignalLngLatLocationCompanion, VpsOutputSignalLngLatLocationSourceCompanion, VpsOutputSignalMLOutputPositionCompanion, VpsOutputSignalParticleSignalCompanion, VpsOutputSignalPositionStatus, VpsOutputSignalPositionCompanion, VpsOutputSignalPositionActivityStateCompanion, VpsOutputSignalPositionStatusCompanion, VpsOutputSignalRescueModeSignalCompanion, VpsOutputSignalRotationCompanion, VpsOutputSignalRotationDeviationAngleCompanion, VpsOutputSignalSyncSignalCompanion, VpsOutputSignalTypeCompanion, VpsOutputSignalUXPositionStatus, VpsOutputSignalUXPositionCompanion, VpsOutputSignalWiFiFloorChangeSignalCompanion, VpsSwapLocationSwapLocationPoint, VpsSwapLocationSwapLocationPath, VpsSwapLocationCompanion, VpsSwapLocationSwapLocationPathCompanion, VpsSwapLocationSwapLocationPathDirection, VpsSwapLocationSwapLocationPointCompanion, VpsNLModelParams, VpsVelocityModelParams, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsVPSParams, VpsVPSParamsPackage, VpsKotlinDoubleIterator, VpsKotlinFloatIterator, VpsKotlinIntIterator, VpsInputSignalSensorData, VpsInputSignalStartPosition, VpsInputSignalSyncPosition, VpsInputSignalExit, VpsInputSignalLngLat, VpsInputSignalSyncLngLat, VpsInputSignalAngleCorrection, VpsInputSignalFloorChange, VpsInputSignalStairInfo, VpsInputSignalStartLngLat, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinByteIterator, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing;
+@class VpsVPSConfig, VpsPathfinderCoordinateF, VpsNavGraph, VpsPathProcessorPathProcess, VpsDjikstrasOptimizedCompanion, VpsDjikstrasOptimizedOldNodeGraph, VpsNavGraphVertex, VpsPriorityQueueUsingSinglyLinkedList<T>, VpsPathProcessor, VpsPathProcessorBSpline, VpsKotlinDoubleArray, VpsKotlinArray<T>, VpsKotlinEnumCompanion, VpsKotlinEnum<E>, VpsKotlinPair<__covariant A, __covariant B>, VpsTSPThreeOptAlgorithmCompanion, VpsKotlinIntArray, VpsKotlinRandom, VpsIPathfinderGoalType, VpsNavGraphCompanion, VpsNavGraphVertexCompanion, VpsPathfinderCoordinateFCompanion, VpsConvolveMode, VpsCoordinateF, VpsOutputSignalPositionActivityState, VpsOutputSignalPositionStatus, VpsBaseEventWiFiObservation, VpsBaseEventWiFiScan, VpsFloorChangeInterpreterType, VpsFlowConverter<T, S>, VpsVPSParamsSystem, VpsFloorLevelHandler, VpsFloorChangeInterpreterSettings, VpsRawSensorData, VpsBaseEvent, VpsFloorChangeSignal, VpsFlowConverterBuilder<T, S>, VpsFloorChangeInterpreter, VpsFloorChangeInterpreterBuilder, VpsInAndOutTrigger, VpsInputSignal, VpsFloorChangeControllerCompanion, VpsFloorChangeSignalWiFiFloorChangeSignal, VpsOutputSignal, VpsFloorChangeController, VpsFloorChangeControllerBuilder, VpsFloorChangeDetector, VpsBaseEventWifiStatusUpdate, VpsAltitudeClassifierParams, VpsClassifierState, VpsClassifierEvent, VpsKotlinFloatArray, VpsConvertAltitudeToClassifierEvent, VpsConvertAltitudeToClassifierEventBuilder, VpsNode<T>, VpsAltitudeBasedFloorChangeInterpreterFloorState, VpsAverageVariance, VpsFloorSensorParameters, VpsAltitudeBasedFloorChangeInterpreter, VpsAltitudeBasedFloorChangeInterpreterBuilder, VpsFloorSensorParametersCompanion, VpsSensorDataType, VpsSensorFrequencyDetector, VpsAverageVarianceDoublePack, VpsAverageVarianceFloatPack, VpsBaseEventStart, VpsPositioningEngine, VpsPositioningEngineBuilder, VpsPositionEngineSettings, VpsLocation, VpsOutputSignalLngLatLocationSource, VpsKotlinTriple<__covariant A, __covariant B, __covariant C>, VpsParticleFilterParams, VpsScoringParams, VpsTrustedPositionParams, VpsPose, VpsParticleFilterEvent, VpsNLModelOutput, VpsEventHandler, VpsEventHandlerBuilder, VpsEventHandlerNaiveOutput, VpsEventHandlerNaiveOutputBuilder, VpsParticleFilterSettings, VpsParticleFilter, VpsParticleFilterBuilder, VpsOutputSignalUXPosition, VpsAbstractParticleFilter, VpsOutputSignalSyncSignal, VpsBaseEventStepEvent, VpsGaussianKDE, VpsFloorLevelHandlerMapInformation, VpsStartMethod, VpsSyncMethod, VpsParticleFilterKLD, VpsParticleFilterKLDV2, VpsFeatures, VpsTensor, VpsFeatureToTensorValue, VpsFeatureToTensorValueBuilder, VpsRotationHandlerSettings, VpsFlowConverterRawSensorDataToRotation, VpsFlowConverterRawSensorDataToRotationBuilder, VpsRawSensorPack, VpsFlowConverterRawSensorDataToSensorDataFrame, VpsFlowConverterRotationToOutputSignal, VpsModelToEventParameters, VpsVelocityModelOutput, VpsModelToEvent, VpsModelToEventBuilder, VpsTensorToModelOutput, VpsTensorToModelOutputBuilder, VpsInterpolationModule, VpsInterpolationModuleBuilder, VpsInterpolationModuleParams, VpsMagnetometerDriftEstimatorParams, VpsMagnetometerDriftEstimator, VpsMagnetometerDriftEstimatorBuilder, VpsMathUtil, VpsVelocityModelParamsFeaturesEntries, VpsAverageAccelerationSmoother, VpsFeaturePacker, VpsFeaturePackerBuilder, VpsEmbeddedRotationHandler, VpsEmbeddedRotationHandlerBuilder, VpsRotationHandler, VpsStairsInterpreter, VpsStairsInterpreterBuilder, VpsCoordinateD, VpsLegacyReplaySensorData, VpsLegacyReplaySyncPosition, VpsLegacyReplayStartPosition, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdate, VpsLegacyReplayWiFiDataLegacyReplayWifiScan, VpsLegacyReplayDataV9Companion, VpsLegacyReplayDataV9, VpsLegacyReplaySensorDataCompanion, VpsLegacyReplayStartPositionCompanion, VpsLegacyReplaySyncPositionCompanion, VpsLegacyReplayWiFiDataCompanion, VpsLegacyReplayWiFiData, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResult, VpsLegacyReplayWiFiDataLegacyReplayWifiScanCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiScanLegacyReplayWifiScanResultCompanion, VpsLegacyReplayWiFiDataLegacyReplayWifiStatusUpdateCompanion, VpsReplayAngleCorrectionCompanion, VpsReplayAngleCorrection, VpsReplayStartPosition, VpsReplayStartLngLat, VpsReplayExit, VpsReplaySyncPosition, VpsReplaySyncLngLat, VpsWifiStatusUpdate, VpsWifiScanUpdate, VpsReplayFloorChange, VpsReplayLngLat, VpsReplaySensorData, VpsReplayDataV1Companion, VpsReplayDataV1, VpsReplayExitCompanion, VpsReplayFloorChangeCompanion, VpsReplayLngLatCompanion, VpsReplaySensorDataCompanion, VpsReplayStartLngLatCompanion, VpsReplayStartPositionCompanion, VpsReplaySyncLngLatCompanion, VpsReplaySyncPositionCompanion, VpsFeaturesCompanion, VpsRawSensorPackCompanion, VpsEventType, VpsEventTypeHolderCompanion, VpsEventTypeHolder, VpsPoseCompanion, VpsSyncCritera, VpsKotlinThrowable, VpsKotlinException, VpsWifiScanDataCompanion, VpsWifiScanData, VpsMLProcessedPath, VpsLFiltInitCond, VpsAccessPoint, VpsSwapLocation, VpsZone, VpsFeatureToTensorValueParams, VpsInterpolationModuleParams_, VpsFlow<T>, VpsInputSignalStart, VpsVPSLog, VpsCoordinateDCompanion, VpsAccessPointCoordinate, VpsCoordinateFCompanion, VpsLocationCompanion, VpsWiFiAltitudeFusionParams, VpsVPSFloorChangeHandlerSettings, VpsFlowBuilder<T>, VpsVPSModelToEventParameters, VpsParticleFilterParamsVersion, VpsParticleFilterSettingsVersion, VpsParticleFilterSettingsParticleFilterVersion, VpsPositionStdSettings, VpsPositionStdSettingsStrategy, VpsVPSParticleFilterParams, VpsVPSParticleFilterSettings, VpsPositionEngineType, VpsPartitionRecorderDataPackage, VpsPartitionRecorder<T>, VpsScoringParamsVersion, VpsVPSScoringParams, VpsRawSensorDataCompanion, VpsTensorCompanion, VpsVelocityModelOutputCompanion, VpsIosInterpolationModuleParams, VpsMagnetometerDriftEstimatorParamsVersion, VpsVPSMagnetometerDriftEstimatorParams, VpsBaseEventCompanion, VpsBaseEventAngleCorrectionEventCompanion, VpsBaseEventAngleCorrectionEvent, VpsBaseEventFloorChangeEventCompanion, VpsBaseEventFloorChangeEvent, VpsBaseEventLngLatEventCompanion, VpsBaseEventLngLatEvent, VpsBaseEventStairEventCompanion, VpsBaseEventStairEvent, VpsBaseEventStartCompanion, VpsBaseEventStartStartType, VpsBaseEventStartLngLatEventCompanion, VpsBaseEventStartLngLatEvent, VpsBaseEventStartPositionEventCompanion, VpsBaseEventStartPositionEvent, VpsStepType, VpsBaseEventStepEventCompanion, VpsBaseEventSyncCompanion, VpsBaseEventSyncSyncType, VpsBaseEventSync, VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion, VpsBaseEventSyncAccessPointFloorSwapSyncEvent, VpsBaseEventSyncLngLatEventCompanion, VpsBaseEventSyncLngLatEvent, VpsBaseEventSyncPositionEventCompanion, VpsBaseEventSyncPositionEvent, VpsBaseEventWiFiObservationCompanion, VpsBaseEventWiFiScanCompanion, VpsBaseEventWifiStatusUpdateCompanion, VpsInputSignalType, VpsInputSignalStartStartType, VpsInputSignalSyncSyncType, VpsInputSignalSync, VpsOutputSignalCompanion, VpsOutputSignalType, VpsOutputSignalClusterSwapSignalCompanion, VpsOutputSignalConsistencyScoreSignalCompanion, VpsOutputSignalFloorChangeSignalCompanion, VpsOutputSignalLngLatLocationCompanion, VpsOutputSignalLngLatLocationSourceCompanion, VpsOutputSignalMLOutputPositionCompanion, VpsOutputSignalParticleSignalCompanion, VpsOutputSignalPositionCompanion, VpsOutputSignalPositionActivityStateCompanion, VpsOutputSignalPositionStatusCompanion, VpsOutputSignalRescueModeSignalCompanion, VpsOutputSignalRotationCompanion, VpsOutputSignalRotationDeviationAngleCompanion, VpsOutputSignalSyncSignalCompanion, VpsOutputSignalTypeCompanion, VpsOutputSignalUXPositionStatus, VpsOutputSignalUXPositionCompanion, VpsOutputSignalWiFiFloorChangeSignalCompanion, VpsSwapLocationSwapLocationPoint, VpsSwapLocationSwapLocationPath, VpsSwapLocationCompanion, VpsSwapLocationSwapLocationPathCompanion, VpsSwapLocationSwapLocationPathDirection, VpsSwapLocationSwapLocationPointCompanion, VpsNLModelParams, VpsVelocityModelParams, VpsTrustedPositionParamsVersion, VpsVPSTrustedPositionParams, VpsAccessPointCompanion, VpsAccessPointCoordinateCompanion, VpsWifiScanUpdateScanResult, VpsWifiScanUpdateCompanion, VpsWifiScanUpdateScanResultCompanion, VpsWifiStatusUpdateCompanion, VpsZoneType, VpsZoneCompanion, VpsVPSParams, VpsVPSParamsPackage, VpsKotlinDoubleIterator, VpsKotlinFloatIterator, VpsKotlinIntIterator, VpsInputSignalSensorData, VpsInputSignalStartPosition, VpsInputSignalSyncPosition, VpsInputSignalExit, VpsInputSignalLngLat, VpsInputSignalSyncLngLat, VpsInputSignalAngleCorrection, VpsInputSignalFloorChange, VpsInputSignalStairInfo, VpsInputSignalStartLngLat, VpsInputSignalWifiScan, VpsInputSignalWifiStatus, VpsKotlinRandomDefault, VpsKotlinByteArray, VpsKotlinByteIterator, VpsKotlinx_serialization_coreSerializersModule, VpsKotlinx_serialization_coreSerialKind, VpsKotlinNothing;
 
 @protocol VpsIPathfinderGoal, VpsIPathfinderListener, VpsIPathfinder, VpsKotlinComparable, VpsIPathfinderPath, VpsKotlinx_serialization_coreKSerializer, VpsPositionEngineRepositoryRead, VpsPositionEngineRepositoryWrite, VpsPositionEngineRepository, VpsFlowConnection, VpsInAndOutListener, VpsNodeHandler, VpsNLModel, VpsFusionFilter, VpsRandomNumberGenerator, VpsAbstractParticleFilterRescueModeHelper, VpsVelocityModelHandler, VpsVelocityModel, VpsCoordinateConverter, VpsKotlinIterator, VpsVPSFloorLevel, VpsVPSOutputHandler, VpsVPSLogOutputHandler, VpsUploader, VpsKotlinx_serialization_coreEncoder, VpsKotlinx_serialization_coreSerialDescriptor, VpsKotlinx_serialization_coreSerializationStrategy, VpsKotlinx_serialization_coreDecoder, VpsKotlinx_serialization_coreDeserializationStrategy, VpsKotlinx_serialization_coreCompositeEncoder, VpsKotlinAnnotation, VpsKotlinx_serialization_coreCompositeDecoder, VpsKotlinx_serialization_coreSerializersModuleCollector, VpsKotlinKClass, VpsKotlinKDeclarationContainer, VpsKotlinKAnnotatedElement, VpsKotlinKClassifier;
 
@@ -161,6 +161,7 @@ __attribute__((swift_name("IPathfinder")))
 - (void)addGoalGoal:(id<VpsIPathfinderGoal>)goal callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("addGoal(goal:callback:)")));
 - (void)addGoalsGoals:(id)goals callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("addGoals(goals:callback:)")));
 - (void)addListenerListener:(id<VpsIPathfinderListener>)listener __attribute__((swift_name("addListener(listener:)")));
+- (void)clearUserPosition __attribute__((swift_name("clearUserPosition()")));
 - (void)forceRefreshWithTSP:(BOOL)withTSP overridePosition:(VpsPathfinderCoordinateF * _Nullable)overridePosition callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("forceRefresh(withTSP:overridePosition:callback:)")));
 - (void)popGoal __attribute__((swift_name("popGoal()")));
 - (void)removeGoalId:(NSString *)id callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("removeGoal(id:callback:)")));
@@ -171,17 +172,18 @@ __attribute__((swift_name("IPathfinder")))
 @property (readonly) id<VpsIPathfinderGoal> _Nullable currentGoal __attribute__((swift_name("currentGoal")));
 @property (readonly) BOOL hasGoal __attribute__((swift_name("hasGoal")));
 @property (readonly) NSArray<id<VpsIPathfinderGoal>> *sortedGoals __attribute__((swift_name("sortedGoals")));
-@property (readonly) VpsPathfinderCoordinateF *startPosition __attribute__((swift_name("startPosition")));
+@property (readonly) VpsPathfinderCoordinateF * _Nullable startPosition __attribute__((swift_name("startPosition")));
 @property (readonly) VpsPathfinderCoordinateF *stopPosition __attribute__((swift_name("stopPosition")));
 @end
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BasePathfinder")))
 @interface VpsBasePathfinder : VpsBase <VpsIPathfinder>
-- (instancetype)initWithHeightInPixels:(float)heightInPixels widthInPixels:(float)widthInPixels pixelsPerMeter:(float)pixelsPerMeter navGraph:(VpsNavGraph *)navGraph pathRefreshDistance:(float)pathRefreshDistance pathProcess:(VpsPathProcessorPathProcess *)pathProcess windowSize:(int32_t)windowSize startPosition:(VpsPathfinderCoordinateF *)startPosition stopPosition:(VpsPathfinderCoordinateF *)stopPosition __attribute__((swift_name("init(heightInPixels:widthInPixels:pixelsPerMeter:navGraph:pathRefreshDistance:pathProcess:windowSize:startPosition:stopPosition:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithHeightInPixels:(float)heightInPixels widthInPixels:(float)widthInPixels pixelsPerMeter:(float)pixelsPerMeter navGraph:(VpsNavGraph *)navGraph pathRefreshDistance:(float)pathRefreshDistance pathProcess:(VpsPathProcessorPathProcess *)pathProcess windowSize:(int32_t)windowSize startPosition:(VpsPathfinderCoordinateF * _Nullable)startPosition stopPosition:(VpsPathfinderCoordinateF *)stopPosition __attribute__((swift_name("init(heightInPixels:widthInPixels:pixelsPerMeter:navGraph:pathRefreshDistance:pathProcess:windowSize:startPosition:stopPosition:)"))) __attribute__((objc_designated_initializer));
 - (void)addGoalGoal:(id<VpsIPathfinderGoal>)goal callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("addGoal(goal:callback:)")));
 - (void)addGoalsGoals:(id)goals callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("addGoals(goals:callback:)")));
 - (void)addListenerListener:(id<VpsIPathfinderListener>)listener __attribute__((swift_name("addListener(listener:)")));
+- (void)clearUserPosition __attribute__((swift_name("clearUserPosition()")));
 - (VpsPathfinderCoordinateF *)flipY:(VpsPathfinderCoordinateF *)receiver __attribute__((swift_name("flipY(_:)")));
 - (void)forceRefreshWithTSP:(BOOL)withTSP overridePosition:(VpsPathfinderCoordinateF * _Nullable)overridePosition callback:(void (^ _Nullable)(void))callback __attribute__((swift_name("forceRefresh(withTSP:overridePosition:callback:)")));
 - (VpsPathfinderCoordinateF *)pixelsToMeters:(VpsPathfinderCoordinateF *)receiver __attribute__((swift_name("pixelsToMeters(_:)")));
@@ -199,7 +201,7 @@ __attribute__((swift_name("BasePathfinder")))
 @property (readonly) float pathRefreshDistance __attribute__((swift_name("pathRefreshDistance")));
 @property (readonly) float pixelsPerMeter __attribute__((swift_name("pixelsPerMeter")));
 @property (readonly) NSArray<id<VpsIPathfinderGoal>> *sortedGoals __attribute__((swift_name("sortedGoals")));
-@property (readonly) VpsPathfinderCoordinateF *startPosition __attribute__((swift_name("startPosition")));
+@property (readonly) VpsPathfinderCoordinateF * _Nullable startPosition __attribute__((swift_name("startPosition")));
 @property (readonly) VpsPathfinderCoordinateF *stopPosition __attribute__((swift_name("stopPosition")));
 @property (readonly) float widthInPixels __attribute__((swift_name("widthInPixels")));
 @property (readonly) int32_t windowSize __attribute__((swift_name("windowSize")));
@@ -346,6 +348,7 @@ __attribute__((swift_name("IPathfinderListener")))
 @protocol VpsIPathfinderListener
 @required
 - (void)onCurrentGoalUpdatedGoal:(id<VpsIPathfinderGoal> _Nullable)goal __attribute__((swift_name("onCurrentGoalUpdated(goal:)")));
+- (void)onGoalsUpdatedGoals:(NSArray<id<VpsIPathfinderGoal>> *)goals __attribute__((swift_name("onGoalsUpdated(goals:)")));
 - (void)onPathUpdatedPath:(id<VpsIPathfinderPath>)path __attribute__((swift_name("onPathUpdated(path:)")));
 - (void)onSortedGoalUpdatedGoals:(NSArray<id<VpsIPathfinderGoal>> *)goals __attribute__((swift_name("onSortedGoalUpdated(goals:)")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
@@ -479,23 +482,37 @@ __attribute__((swift_name("ConvolveMode")))
 __attribute__((swift_name("PositionEngineRepositoryRead")))
 @protocol VpsPositionEngineRepositoryRead
 @required
+@property (readonly) VpsFloat * _Nullable currentMagneticDeviation __attribute__((swift_name("currentMagneticDeviation")));
 @property (readonly) VpsCoordinateF *currentPosition __attribute__((swift_name("currentPosition")));
 @property (readonly) VpsOutputSignalPositionActivityState *currentPositionActivityState __attribute__((swift_name("currentPositionActivityState")));
+@property (readonly) float currentPositionSTD __attribute__((swift_name("currentPositionSTD")));
+@property (readonly) VpsOutputSignalPositionStatus *currentPositionStatus __attribute__((swift_name("currentPositionStatus")));
+@property (readonly) BOOL currentPositionTrusted __attribute__((swift_name("currentPositionTrusted")));
 @property (readonly) VpsBaseEventWiFiObservation * _Nullable currentWiFiObservation __attribute__((swift_name("currentWiFiObservation")));
 @property (readonly) VpsBaseEventWiFiScan * _Nullable currentWiFiScan __attribute__((swift_name("currentWiFiScan")));
 @property (readonly) VpsFloorChangeInterpreterType * _Nullable floorChangeInterpreterType __attribute__((swift_name("floorChangeInterpreterType")));
 @property (readonly) BOOL justGotWiFiScan __attribute__((swift_name("justGotWiFiScan")));
+@property (readonly) BOOL recentFloorSwap __attribute__((swift_name("recentFloorSwap")));
+@property (readonly) BOOL recentOutOfBounds __attribute__((swift_name("recentOutOfBounds")));
+@property (readonly) BOOL recentRescueMode __attribute__((swift_name("recentRescueMode")));
 @end
 
 __attribute__((swift_name("PositionEngineRepositoryWrite")))
 @protocol VpsPositionEngineRepositoryWrite
 @required
+- (void)setCurrentMagneticDeviationDeviationAngle:(float)deviationAngle __attribute__((swift_name("setCurrentMagneticDeviation(deviationAngle:)")));
 - (void)setCurrentPositionPosition:(VpsCoordinateF *)position __attribute__((swift_name("setCurrentPosition(position:)")));
 - (void)setCurrentPositionActivityStateState:(VpsOutputSignalPositionActivityState *)state __attribute__((swift_name("setCurrentPositionActivityState(state:)")));
+- (void)setCurrentPositionSTDStd:(float)std __attribute__((swift_name("setCurrentPositionSTD(std:)")));
+- (void)setCurrentPositionStatusStatus:(VpsOutputSignalPositionStatus *)status __attribute__((swift_name("setCurrentPositionStatus(status:)")));
+- (void)setCurrentPositionTrustedTrusted:(BOOL)trusted __attribute__((swift_name("setCurrentPositionTrusted(trusted:)")));
 - (void)setCurrentWifiObservationWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)wiFiObservation __attribute__((swift_name("setCurrentWifiObservation(wiFiObservation:)")));
 - (void)setCurrentWifiScanWifiScan:(VpsBaseEventWiFiScan * _Nullable)wifiScan __attribute__((swift_name("setCurrentWifiScan(wifiScan:)")));
 - (void)setFloorChangeInterpreterTypeType:(VpsFloorChangeInterpreterType *)type __attribute__((swift_name("setFloorChangeInterpreterType(type:)")));
 - (void)setJustGotWiFiScanInput:(BOOL)input __attribute__((swift_name("setJustGotWiFiScan(input:)")));
+- (void)setRecentFloorSwapRecent:(BOOL)recent __attribute__((swift_name("setRecentFloorSwap(recent:)")));
+- (void)setRecentOutOfBoundsRecent:(BOOL)recent __attribute__((swift_name("setRecentOutOfBounds(recent:)")));
+- (void)setRecentRescueModeRecent:(BOOL)recent __attribute__((swift_name("setRecentRescueMode(recent:)")));
 @end
 
 __attribute__((swift_name("PositionEngineRepository")))
@@ -508,18 +525,32 @@ __attribute__((swift_name("PositionEngineRepositoryImpl")))
 @interface VpsPositionEngineRepositoryImpl : VpsBase <VpsPositionEngineRepository>
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)setCurrentMagneticDeviationDeviationAngle:(float)deviationAngle __attribute__((swift_name("setCurrentMagneticDeviation(deviationAngle:)")));
 - (void)setCurrentPositionPosition:(VpsCoordinateF *)position __attribute__((swift_name("setCurrentPosition(position:)")));
 - (void)setCurrentPositionActivityStateState:(VpsOutputSignalPositionActivityState *)state __attribute__((swift_name("setCurrentPositionActivityState(state:)")));
+- (void)setCurrentPositionSTDStd:(float)std __attribute__((swift_name("setCurrentPositionSTD(std:)")));
+- (void)setCurrentPositionStatusStatus:(VpsOutputSignalPositionStatus *)status __attribute__((swift_name("setCurrentPositionStatus(status:)")));
+- (void)setCurrentPositionTrustedTrusted:(BOOL)trusted __attribute__((swift_name("setCurrentPositionTrusted(trusted:)")));
 - (void)setCurrentWifiObservationWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)wiFiObservation __attribute__((swift_name("setCurrentWifiObservation(wiFiObservation:)")));
 - (void)setCurrentWifiScanWifiScan:(VpsBaseEventWiFiScan * _Nullable)wifiScan __attribute__((swift_name("setCurrentWifiScan(wifiScan:)")));
 - (void)setFloorChangeInterpreterTypeType:(VpsFloorChangeInterpreterType *)type __attribute__((swift_name("setFloorChangeInterpreterType(type:)")));
 - (void)setJustGotWiFiScanInput:(BOOL)input __attribute__((swift_name("setJustGotWiFiScan(input:)")));
+- (void)setRecentFloorSwapRecent:(BOOL)recent __attribute__((swift_name("setRecentFloorSwap(recent:)")));
+- (void)setRecentOutOfBoundsRecent:(BOOL)recent __attribute__((swift_name("setRecentOutOfBounds(recent:)")));
+- (void)setRecentRescueModeRecent:(BOOL)recent __attribute__((swift_name("setRecentRescueMode(recent:)")));
+@property (readonly) VpsFloat * _Nullable currentMagneticDeviation __attribute__((swift_name("currentMagneticDeviation")));
 @property (readonly) VpsCoordinateF *currentPosition __attribute__((swift_name("currentPosition")));
 @property (readonly) VpsOutputSignalPositionActivityState *currentPositionActivityState __attribute__((swift_name("currentPositionActivityState")));
+@property (readonly) float currentPositionSTD __attribute__((swift_name("currentPositionSTD")));
+@property (readonly) VpsOutputSignalPositionStatus *currentPositionStatus __attribute__((swift_name("currentPositionStatus")));
+@property (readonly) BOOL currentPositionTrusted __attribute__((swift_name("currentPositionTrusted")));
 @property (readonly) VpsBaseEventWiFiObservation * _Nullable currentWiFiObservation __attribute__((swift_name("currentWiFiObservation")));
 @property (readonly) VpsBaseEventWiFiScan * _Nullable currentWiFiScan __attribute__((swift_name("currentWiFiScan")));
 @property (readonly) VpsFloorChangeInterpreterType * _Nullable floorChangeInterpreterType __attribute__((swift_name("floorChangeInterpreterType")));
 @property (readonly) BOOL justGotWiFiScan __attribute__((swift_name("justGotWiFiScan")));
+@property (readonly) BOOL recentFloorSwap __attribute__((swift_name("recentFloorSwap")));
+@property (readonly) BOOL recentOutOfBounds __attribute__((swift_name("recentOutOfBounds")));
+@property (readonly) BOOL recentRescueMode __attribute__((swift_name("recentRescueMode")));
 @end
 
 __attribute__((swift_name("FlowConnection")))
@@ -1000,13 +1031,18 @@ __attribute__((swift_name("OpenTerrainFusionFilter")))
 
 __attribute__((swift_name("AbstractParticleFilter")))
 @interface VpsAbstractParticleFilter : VpsBase
-- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params random:(id<VpsRandomNumberGenerator>)random rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper __attribute__((swift_name("init(mapData:positionEngineRepository:params:random:rescueModeHelper:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params random:(id<VpsRandomNumberGenerator>)random rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper scoringParams:(VpsScoringParams *)scoringParams trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams __attribute__((swift_name("init(mapData:positionEngineRepository:params:random:rescueModeHelper:scoringParams:trustedPositionParams:)"))) __attribute__((objc_designated_initializer));
 - (void)end __attribute__((swift_name("end()")));
 - (void)setStartStart:(VpsBaseEventStart *)start __attribute__((swift_name("setStart(start:)")));
 - (VpsCoordinateF * _Nullable)updateEvent:(VpsBaseEvent *)event __attribute__((swift_name("update(event:)")));
 - (void)updateCurrentPositionCurrentPosition:(VpsCoordinateF *)currentPosition __attribute__((swift_name("updateCurrentPosition(currentPosition:)")));
+- (void)updateCurrentPositionSTDParticles:(NSMutableArray<VpsPose *> *)particles origin:(VpsCoordinateF *)origin quantile:(float)quantile __attribute__((swift_name("updateCurrentPositionSTD(particles:origin:quantile:)")));
+- (void)updateCurrentPositionTrustedCurrentPositionTrusted:(BOOL)currentPositionTrusted __attribute__((swift_name("updateCurrentPositionTrusted(currentPositionTrusted:)")));
 - (void)updateCurrentWiFiObservationCurrentWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)currentWiFiObservation __attribute__((swift_name("updateCurrentWiFiObservation(currentWiFiObservation:)")));
 - (void)updateCurrentWiFiScanCurrentWiFiScan:(VpsBaseEventWiFiScan * _Nullable)currentWiFiScan __attribute__((swift_name("updateCurrentWiFiScan(currentWiFiScan:)")));
+- (void)updatePositionStatusStatus:(VpsOutputSignalPositionStatus *)status __attribute__((swift_name("updatePositionStatus(status:)")));
+@property void (^ _Nullable clusterSwapListener)(VpsParticleFilterEvent *) __attribute__((swift_name("clusterSwapListener")));
+@property void (^ _Nullable consistencyScoreListener)(VpsParticleFilterEvent *) __attribute__((swift_name("consistencyScoreListener")));
 @property (readonly) VpsCoordinateF *currentPosition __attribute__((swift_name("currentPosition")));
 @property (readonly) VpsFloorLevelHandler *mapData __attribute__((swift_name("mapData")));
 @property VpsParticleFilterParams *params __attribute__((swift_name("params")));
@@ -1014,12 +1050,17 @@ __attribute__((swift_name("AbstractParticleFilter")))
 @property (readonly) id<VpsRandomNumberGenerator> random __attribute__((swift_name("random")));
 @property (readonly) id<VpsAbstractParticleFilterRescueModeHelper> _Nullable rescueModeHelper __attribute__((swift_name("rescueModeHelper")));
 @property void (^ _Nullable rescueModeListener)(VpsParticleFilterEvent *) __attribute__((swift_name("rescueModeListener")));
+@property (readonly) VpsScoringParams *scoringParams __attribute__((swift_name("scoringParams")));
+@property (readonly) VpsTrustedPositionParams *trustedPositionParams __attribute__((swift_name("trustedPositionParams")));
 @end
 
 __attribute__((swift_name("AbstractParticleFilterRescueModeHelper")))
 @protocol VpsAbstractParticleFilterRescueModeHelper
 @required
-- (VpsNLModelOutput * _Nullable)getNLModelOutPut __attribute__((swift_name("getNLModelOutPut()")));
+- (void)clearAndFillMLHistoryNewPositions:(NSArray<VpsCoordinateF *> *)newPositions __attribute__((swift_name("clearAndFillMLHistory(newPositions:)")));
+- (void)clearMLHistoryNewStartPosition:(VpsCoordinateF *)newStartPosition __attribute__((swift_name("clearMLHistory(newStartPosition:)")));
+- (VpsNLModelOutput * _Nullable)getNLModelOutPutMlPositions:(VpsKotlinArray<VpsKotlinFloatArray *> *)mlPositions __attribute__((swift_name("getNLModelOutPut(mlPositions:)")));
+- (VpsNLModelOutput * _Nullable)getNLModelOutPutForcePrediction:(BOOL)forcePrediction __attribute__((swift_name("getNLModelOutPut(forcePrediction:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -1065,7 +1106,10 @@ __attribute__((swift_name("ParticleFilter")))
 - (instancetype)initWithFloorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler settings:(VpsParticleFilterSettings *)settings nlModel:(id<VpsNLModel> _Nullable)nlModel positioningEngineRepository:(id<VpsPositionEngineRepository>)positioningEngineRepository __attribute__((swift_name("init(floorLevelHandler:settings:nlModel:positioningEngineRepository:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
-- (VpsNLModelOutput * _Nullable)getNLModelOutPut __attribute__((swift_name("getNLModelOutPut()")));
+- (void)clearAndFillMLHistoryNewPositions:(NSArray<VpsCoordinateF *> *)newPositions __attribute__((swift_name("clearAndFillMLHistory(newPositions:)")));
+- (void)clearMLHistoryNewStartPosition:(VpsCoordinateF *)newStartPosition __attribute__((swift_name("clearMLHistory(newStartPosition:)")));
+- (VpsNLModelOutput * _Nullable)getNLModelOutPutMlPositions:(VpsKotlinArray<VpsKotlinFloatArray *> *)mlPositions __attribute__((swift_name("getNLModelOutPut(mlPositions:)")));
+- (VpsNLModelOutput * _Nullable)getNLModelOutPutForcePrediction:(BOOL)forcePrediction __attribute__((swift_name("getNLModelOutPut(forcePrediction:)")));
 - (void)onExit __attribute__((swift_name("onExit()")));
 - (void)onInputData:(VpsBaseEvent *)data __attribute__((swift_name("onInput(data:)")));
 - (void)setStartData:(VpsBaseEventStart *)data __attribute__((swift_name("setStart(data:)")));
@@ -1100,7 +1144,9 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("NaiveMapOutputFilter")))
 @interface VpsNaiveMapOutputFilter : VpsAbstractParticleFilter
 - (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData params:(VpsParticleFilterParams *)params __attribute__((swift_name("init(mapData:params:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params random:(id<VpsRandomNumberGenerator>)random rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper __attribute__((swift_name("init(mapData:positionEngineRepository:params:random:rescueModeHelper:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params random:(id<VpsRandomNumberGenerator>)random rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper scoringParams:(VpsScoringParams *)scoringParams trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams __attribute__((swift_name("init(mapData:positionEngineRepository:params:random:rescueModeHelper:scoringParams:trustedPositionParams:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (void)clearAndFillMLHistoryNewPositions:(NSArray<VpsCoordinateF *> *)newPositions __attribute__((swift_name("clearAndFillMLHistory(newPositions:)")));
+- (void)clearMLHistoryNewStartPosition:(VpsCoordinateF *)newStartPosition __attribute__((swift_name("clearMLHistory(newStartPosition:)")));
 - (void)end __attribute__((swift_name("end()")));
 - (VpsKotlinPair<VpsKotlinArray<VpsKotlinFloatArray *> *, VpsFloat *> *)getMLPositions __attribute__((swift_name("getMLPositions()")));
 - (void)setStartStart:(VpsBaseEventStart *)start __attribute__((swift_name("setStart(start:)")));
@@ -1117,8 +1163,8 @@ __attribute__((swift_name("ParticleDriftCalculator")))
 
 __attribute__((swift_name("ParticleFilterKLD")))
 @interface VpsParticleFilterKLD : VpsAbstractParticleFilter
-- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params randomNumberGenerator:(id<VpsRandomNumberGenerator>)randomNumberGenerator rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper __attribute__((swift_name("init(mapData:positionEngineRepository:params:randomNumberGenerator:rescueModeHelper:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params random:(id<VpsRandomNumberGenerator>)random rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper __attribute__((swift_name("init(mapData:positionEngineRepository:params:random:rescueModeHelper:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params randomNumberGenerator:(id<VpsRandomNumberGenerator>)randomNumberGenerator rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper scoringParams:(VpsScoringParams *)scoringParams trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams __attribute__((swift_name("init(mapData:positionEngineRepository:params:randomNumberGenerator:rescueModeHelper:scoringParams:trustedPositionParams:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params random:(id<VpsRandomNumberGenerator>)random rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper scoringParams:(VpsScoringParams *)scoringParams trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams __attribute__((swift_name("init(mapData:positionEngineRepository:params:random:rescueModeHelper:scoringParams:trustedPositionParams:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 
 /**
  * @note This method has protected visibility in Kotlin source and is intended only for use by subclasses.
@@ -1129,6 +1175,11 @@ __attribute__((swift_name("ParticleFilterKLD")))
  * @note This method has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
 - (VpsPose *)createGaussSampleLoc_positionX:(float)loc_positionX loc_positionY:(float)loc_positionY scale_position:(float)scale_position loc_angle:(float)loc_angle scale_angle:(float)scale_angle scale_bias:(float)scale_bias scale_bias_2:(float)scale_bias_2 loc_speed_2:(float)loc_speed_2 mixing_factor:(float)mixing_factor bias_limit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)bias_limit second_bias_limit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)second_bias_limit __attribute__((swift_name("createGaussSample(loc_positionX:loc_positionY:scale_position:loc_angle:scale_angle:scale_bias:scale_bias_2:loc_speed_2:mixing_factor:bias_limit:second_bias_limit:)")));
+
+/**
+ * @note This method has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+- (VpsPose *)createGaussSampleRTLoc_positionX:(float)loc_positionX loc_positionY:(float)loc_positionY scale_position:(float)scale_position loc_angle:(float)loc_angle scale_angle:(float)scale_angle scale_bias:(float)scale_bias scale_bias_2:(float)scale_bias_2 loc_speed_2:(float)loc_speed_2 mixing_factor:(float)mixing_factor bias_limit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)bias_limit second_bias_limit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)second_bias_limit __attribute__((swift_name("createGaussSampleRT(loc_positionX:loc_positionY:scale_position:loc_angle:scale_angle:scale_bias:scale_bias_2:loc_speed_2:mixing_factor:bias_limit:second_bias_limit:)")));
 - (VpsOutputSignalSyncSignal *)createSyncSignalPositionAfterSync:(VpsCoordinateF *)positionAfterSync __attribute__((swift_name("createSyncSignal(positionAfterSync:)")));
 - (void)end __attribute__((swift_name("end()")));
 
@@ -1190,6 +1241,36 @@ __attribute__((swift_name("ParticleFilterKLD")))
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
+@property (readonly) float floorSwapDirectionStd __attribute__((swift_name("floorSwapDirectionStd")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) float floorSwapPositionStd __attribute__((swift_name("floorSwapPositionStd")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) float floorSwapSprinkleDirectionStd __attribute__((swift_name("floorSwapSprinkleDirectionStd")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) float floorSwapSprinklePositionStd __attribute__((swift_name("floorSwapSprinklePositionStd")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property BOOL hasSprinkledRecentlyStdCondition __attribute__((swift_name("hasSprinkledRecentlyStdCondition")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property BOOL hasSprinkledRecentlyStdLargeCondition __attribute__((swift_name("hasSprinkledRecentlyStdLargeCondition")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
 @property (readonly) float kldDelta __attribute__((swift_name("kldDelta")));
 
 /**
@@ -1232,12 +1313,32 @@ __attribute__((swift_name("ParticleFilterKLD")))
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
+@property VpsCoordinateF * _Nullable previousPosition __attribute__((swift_name("previousPosition")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) float rescueCompassAngRatio __attribute__((swift_name("rescueCompassAngRatio")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
 @property (readonly) float rescueDirectionStd __attribute__((swift_name("rescueDirectionStd")));
 
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
+@property (readonly) float rescueKDEAngRatio __attribute__((swift_name("rescueKDEAngRatio")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
 @property (readonly) float rescuePositionStd __attribute__((swift_name("rescuePositionStd")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) float rescueStartAngRatio __attribute__((swift_name("rescueStartAngRatio")));
 @property float rotationDeviationAngle __attribute__((swift_name("rotationDeviationAngle")));
 
 /**
@@ -1308,6 +1409,16 @@ __attribute__((swift_name("ParticleFilterKLD")))
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
+@property (readonly) float stdLimit __attribute__((swift_name("stdLimit")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) float stdLimitLarge __attribute__((swift_name("stdLimitLarge")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
 @property (readonly) float stepDirectionStd __attribute__((swift_name("stepDirectionStd")));
 
 /**
@@ -1319,6 +1430,16 @@ __attribute__((swift_name("ParticleFilterKLD")))
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
 */
 @property int32_t stepsPerSyncCounter __attribute__((swift_name("stepsPerSyncCounter")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property int32_t stepsSinceSprinkle __attribute__((swift_name("stepsSinceSprinkle")));
+
+/**
+ * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
+*/
+@property (readonly) int32_t stepsSinceSprinkleLimit __attribute__((swift_name("stepsSinceSprinkleLimit")));
 
 /**
  * @note This property has protected visibility in Kotlin source and is intended only for use by subclasses.
@@ -1363,7 +1484,7 @@ __attribute__((swift_name("ParticleFilterKLD")))
 
 __attribute__((swift_name("ParticleFilterKLDV2")))
 @interface VpsParticleFilterKLDV2 : VpsParticleFilterKLD
-- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params randomNumberGenerator:(id<VpsRandomNumberGenerator>)randomNumberGenerator rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper __attribute__((swift_name("init(mapData:positionEngineRepository:params:randomNumberGenerator:rescueModeHelper:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params randomNumberGenerator:(id<VpsRandomNumberGenerator>)randomNumberGenerator rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper scoringParams:(VpsScoringParams *)scoringParams trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams __attribute__((swift_name("init(mapData:positionEngineRepository:params:randomNumberGenerator:rescueModeHelper:scoringParams:trustedPositionParams:)"))) __attribute__((objc_designated_initializer));
 
 /**
  * @note This method has protected visibility in Kotlin source and is intended only for use by subclasses.
@@ -1374,7 +1495,7 @@ __attribute__((swift_name("ParticleFilterKLDV2")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticleFilterKLDWiFi")))
 @interface VpsParticleFilterKLDWiFi : VpsParticleFilterKLDV2
-- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params randomNumberGenerator:(id<VpsRandomNumberGenerator>)randomNumberGenerator rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper __attribute__((swift_name("init(mapData:positionEngineRepository:params:randomNumberGenerator:rescueModeHelper:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMapData:(VpsFloorLevelHandler *)mapData positionEngineRepository:(id<VpsPositionEngineRepository>)positionEngineRepository params:(VpsParticleFilterParams *)params randomNumberGenerator:(id<VpsRandomNumberGenerator>)randomNumberGenerator rescueModeHelper:(id<VpsAbstractParticleFilterRescueModeHelper> _Nullable)rescueModeHelper scoringParams:(VpsScoringParams *)scoringParams trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams __attribute__((swift_name("init(mapData:positionEngineRepository:params:randomNumberGenerator:rescueModeHelper:scoringParams:trustedPositionParams:)"))) __attribute__((objc_designated_initializer));
 
 /**
  * @note This method has protected visibility in Kotlin source and is intended only for use by subclasses.
@@ -1639,6 +1760,31 @@ __attribute__((swift_name("InterpolationModule.Params")))
 @property (readonly) BOOL use_magnetometer __attribute__((swift_name("use_magnetometer")));
 @end
 
+__attribute__((swift_name("MagnetometerDriftEstimator")))
+@interface VpsMagnetometerDriftEstimator : VpsFlowConverter<VpsRawSensorPack *, VpsFeatures *>
+- (instancetype)initWithStart_angle:(float)start_angle positioningEngineRepository:(id<VpsPositionEngineRepository>)positioningEngineRepository floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler params:(VpsMagnetometerDriftEstimatorParams *)params __attribute__((swift_name("init(start_angle:positioningEngineRepository:floorLevelHandler:params:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
++ (instancetype)new __attribute__((unavailable));
+- (void)onExit __attribute__((swift_name("onExit()")));
+- (void)onInputData:(VpsRawSensorPack *)data __attribute__((swift_name("onInput(data:)")));
+- (void)updateData:(VpsRawSensorPack *)data __attribute__((swift_name("update(data:)")));
+@property (readonly) VpsFloorLevelHandler *floorLevelHandler __attribute__((swift_name("floorLevelHandler")));
+@property (readonly) VpsMagnetometerDriftEstimatorParams *params __attribute__((swift_name("params")));
+@property (readonly) id<VpsPositionEngineRepository> positioningEngineRepository __attribute__((swift_name("positioningEngineRepository")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MagnetometerDriftEstimator.Builder")))
+@interface VpsMagnetometerDriftEstimatorBuilder : VpsFlowConverterBuilder<VpsMagnetometerDriftEstimator *, VpsFeatures *>
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (VpsMagnetometerDriftEstimator *)build __attribute__((swift_name("build()")));
+- (VpsMagnetometerDriftEstimatorBuilder *)setFloorLevelHandlerHandler:(VpsFloorLevelHandler *)handler __attribute__((swift_name("setFloorLevelHandler(handler:)")));
+- (VpsMagnetometerDriftEstimatorBuilder *)setParametersParameters:(VpsMagnetometerDriftEstimatorParams *)parameters __attribute__((swift_name("setParameters(parameters:)")));
+- (VpsMagnetometerDriftEstimatorBuilder *)setPositionEngineRepositoryPositioningEngineRepository:(id<VpsPositionEngineRepository>)positioningEngineRepository __attribute__((swift_name("setPositionEngineRepository(positioningEngineRepository:)")));
+- (VpsMagnetometerDriftEstimatorBuilder *)setStartAngleStartAngle:(float)startAngle __attribute__((swift_name("setStartAngle(startAngle:)")));
+@end
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("MathUtil")))
 @interface VpsMathUtil : VpsBase
@@ -1709,6 +1855,7 @@ __attribute__((swift_name("AverageAccelerationSmoother")))
 @property int32_t kernel_size __attribute__((swift_name("kernel_size")));
 @property NSMutableArray<id> *mag __attribute__((swift_name("mag")));
 @property NSMutableArray<VpsKotlinFloatArray *> *rot __attribute__((swift_name("rot")));
+@property NSMutableArray<VpsLong *> *systemTime __attribute__((swift_name("systemTime")));
 @property NSMutableArray<VpsLong *> *time __attribute__((swift_name("time")));
 @end
 
@@ -1842,6 +1989,8 @@ __attribute__((swift_name("ParticleFilterEvent")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (class, readonly) VpsParticleFilterEvent *rescueMode __attribute__((swift_name("rescueMode")));
+@property (class, readonly) VpsParticleFilterEvent *clusterSwap __attribute__((swift_name("clusterSwap")));
+@property (class, readonly) VpsParticleFilterEvent *consistencyScore __attribute__((swift_name("consistencyScore")));
 + (VpsKotlinArray<VpsParticleFilterEvent *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsParticleFilterEvent *> *entries __attribute__((swift_name("entries")));
 @end
@@ -2421,14 +2570,15 @@ __attribute__((swift_name("ReplaySyncPosition.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Features")))
 @interface VpsFeatures : VpsBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:data:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsFeaturesCompanion *companion __attribute__((swift_name("companion")));
-- (VpsFeatures *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
+- (VpsFeatures *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp data:(VpsKotlinFloatArray *)data __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:data:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VpsKotlinFloatArray *data __attribute__((swift_name("data")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property (readonly) int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -2449,9 +2599,9 @@ __attribute__((swift_name("Features.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("RawSensorPack")))
 @interface VpsRawSensorPack : VpsBase
-- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("init(nanoTimestamp:accelerometer:gyroscope:rotation:magnetometer:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:accelerometer:gyroscope:rotation:magnetometer:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsRawSensorPackCompanion *companion __attribute__((swift_name("companion")));
-- (VpsRawSensorPack *)doCopyNanoTimestamp:(int64_t)nanoTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("doCopy(nanoTimestamp:accelerometer:gyroscope:rotation:magnetometer:)")));
+- (VpsRawSensorPack *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp accelerometer:(VpsKotlinFloatArray *)accelerometer gyroscope:(VpsKotlinFloatArray *)gyroscope rotation:(VpsKotlinFloatArray *)rotation magnetometer:(VpsKotlinFloatArray * _Nullable)magnetometer __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:accelerometer:gyroscope:rotation:magnetometer:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
@@ -2460,6 +2610,7 @@ __attribute__((swift_name("RawSensorPack")))
 @property (readonly) VpsKotlinFloatArray * _Nullable magnetometer __attribute__((swift_name("magnetometer")));
 @property (readonly) int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) VpsKotlinFloatArray *rotation __attribute__((swift_name("rotation")));
+@property (readonly) int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -2860,11 +3011,13 @@ __attribute__((swift_name("FloorLevelHandler")))
 - (instancetype)initWithFloorLevels:(NSDictionary<VpsLong *, id<VpsVPSFloorLevel>> *)floorLevels initialFloorLevelId:(VpsLong * _Nullable)initialFloorLevelId debug:(BOOL)debug __attribute__((swift_name("init(floorLevels:initialFloorLevelId:debug:)"))) __attribute__((objc_designated_initializer));
 - (BOOL)isValidCoordinateX:(double)x y:(double)y __attribute__((swift_name("isValidCoordinate(x:y:)")));
 - (BOOL)isValidPointP:(VpsPose *)p __attribute__((swift_name("isValidPoint(p:)")));
+- (BOOL)isValidPointP_:(VpsCoordinateF *)p __attribute__((swift_name("isValidPoint(p_:)")));
 - (BOOL)isValidPointX:(double)x y:(double)y __attribute__((swift_name("isValidPoint(x:y:)")));
 - (BOOL)isValidPointX:(float)x y_:(float)y __attribute__((swift_name("isValidPoint(x:y_:)")));
 - (void)setFloorLevelFloorLevelId:(int64_t)floorLevelId __attribute__((swift_name("setFloorLevel(floorLevelId:)")));
 @property (readonly) NSArray<VpsAccessPoint *> *allAccessPoints __attribute__((swift_name("allAccessPoints")));
 @property (readonly) NSArray<VpsSwapLocation *> *allSwapLocations __attribute__((swift_name("allSwapLocations")));
+@property (readonly) NSArray<VpsZone *> *allZones __attribute__((swift_name("allZones")));
 @property (readonly) NSArray<VpsAccessPoint *> *currentFloorAccessPoints __attribute__((swift_name("currentFloorAccessPoints")));
 @property (readonly) VpsDouble * _Nullable currentFloorCeilingHeightInMeters __attribute__((swift_name("currentFloorCeilingHeightInMeters")));
 @property (readonly) double currentFloorHeightInMeters __attribute__((swift_name("currentFloorHeightInMeters")));
@@ -2872,8 +3025,11 @@ __attribute__((swift_name("FloorLevelHandler")))
 @property (readonly) int64_t currentFloorLevelId __attribute__((swift_name("currentFloorLevelId")));
 @property (readonly) NSArray<VpsSwapLocation *> *currentFloorSwapLocations __attribute__((swift_name("currentFloorSwapLocations")));
 @property (readonly) double currentFloorWidthInMeters __attribute__((swift_name("currentFloorWidthInMeters")));
+@property (readonly) VpsFloat * _Nullable currentGeomagneticDeclination __attribute__((swift_name("currentGeomagneticDeclination")));
 @property (readonly) VpsFloorLevelHandlerMapInformation *currentMapInformation __attribute__((swift_name("currentMapInformation")));
+@property (readonly) VpsFloat * _Nullable currentNorthOffset __attribute__((swift_name("currentNorthOffset")));
 @property (readonly) double currentPixelsPerMeter __attribute__((swift_name("currentPixelsPerMeter")));
+@property (readonly) NSArray<VpsZone *> *currentZones __attribute__((swift_name("currentZones")));
 @property (readonly) BOOL debug __attribute__((swift_name("debug")));
 @property (readonly) NSDictionary<VpsLong *, id<VpsVPSFloorLevel>> *floorLevels __attribute__((swift_name("floorLevels")));
 @end
@@ -2895,7 +3051,7 @@ __attribute__((swift_name("FloorLevelHandler.MapInformation")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VPS")))
 @interface VpsVPS : VpsBase <VpsFlowConnection>
-- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler outputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system featureToTensorValueParams:(VpsFeatureToTensorValueParams *)featureToTensorValueParams interpolationParams:(VpsInterpolationModuleParams_ *)interpolationParams modelToEventParameters:(VpsModelToEventParameters *)modelToEventParameters positionEngineSettings:(VpsPositionEngineSettings *)positionEngineSettings floorChangeInterpreterSettings:(VpsFloorChangeInterpreterSettings *)floorChangeInterpreterSettings rotationHandlerSettings:(VpsRotationHandlerSettings *)rotationHandlerSettings debugMode:(BOOL)debugMode extendedDebugMode:(BOOL)extendedDebugMode modelOutputHandler:(VpsFlow<VpsVelocityModelOutput *> * _Nullable)modelOutputHandler nlModel:(id<VpsNLModel> _Nullable)nlModel isRotationOutputActive:(BOOL)isRotationOutputActive __attribute__((swift_name("init(velocityModel:floorLevelHandler:outputHandler:system:featureToTensorValueParams:interpolationParams:modelToEventParameters:positionEngineSettings:floorChangeInterpreterSettings:rotationHandlerSettings:debugMode:extendedDebugMode:modelOutputHandler:nlModel:isRotationOutputActive:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithVelocityModel:(id<VpsVelocityModel>)velocityModel floorLevelHandler:(VpsFloorLevelHandler *)floorLevelHandler outputHandler:(id<VpsVPSOutputHandler>)outputHandler system:(VpsVPSParamsSystem *)system featureToTensorValueParams:(VpsFeatureToTensorValueParams *)featureToTensorValueParams interpolationParams:(VpsInterpolationModuleParams_ *)interpolationParams modelToEventParameters:(VpsModelToEventParameters *)modelToEventParameters positionEngineSettings:(VpsPositionEngineSettings *)positionEngineSettings floorChangeInterpreterSettings:(VpsFloorChangeInterpreterSettings *)floorChangeInterpreterSettings rotationHandlerSettings:(VpsRotationHandlerSettings *)rotationHandlerSettings magnetometerDriftEstimatorParams:(VpsMagnetometerDriftEstimatorParams *)magnetometerDriftEstimatorParams debugMode:(BOOL)debugMode extendedDebugMode:(BOOL)extendedDebugMode modelOutputHandler:(VpsFlow<VpsVelocityModelOutput *> * _Nullable)modelOutputHandler nlModel:(id<VpsNLModel> _Nullable)nlModel isRotationOutputActive:(BOOL)isRotationOutputActive __attribute__((swift_name("init(velocityModel:floorLevelHandler:outputHandler:system:featureToTensorValueParams:interpolationParams:modelToEventParameters:positionEngineSettings:floorChangeInterpreterSettings:rotationHandlerSettings:magnetometerDriftEstimatorParams:debugMode:extendedDebugMode:modelOutputHandler:nlModel:isRotationOutputActive:)"))) __attribute__((objc_designated_initializer));
 - (void)flush __attribute__((swift_name("flush()")));
 - (void)doInitSignal:(VpsInputSignalStart *)signal __attribute__((swift_name("doInit(signal:)")));
 - (void)onExit __attribute__((swift_name("onExit()")));
@@ -2987,6 +3143,7 @@ __attribute__((swift_name("CoordinateF")))
 - (VpsCoordinateF *)doCopyX:(float)x y:(float)y __attribute__((swift_name("doCopy(x:y:)")));
 - (float)distanceToOther:(VpsCoordinateF *)other __attribute__((swift_name("distanceTo(other:)")));
 - (float)distanceToOther_:(VpsAccessPointCoordinate *)other __attribute__((swift_name("distanceTo(other_:)")));
+- (float)distanceToSquaredOther:(VpsCoordinateF *)other __attribute__((swift_name("distanceToSquared(other:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (VpsCoordinateD *)toCoordinateD __attribute__((swift_name("toCoordinateD()")));
@@ -3051,11 +3208,14 @@ __attribute__((swift_name("VPSFloorLevel")))
 - (BOOL)isValidCoordinateX:(float)x y_:(float)y __attribute__((swift_name("isValidCoordinate(x:y_:)")));
 @property (readonly) NSArray<VpsAccessPoint *> *accessPoints __attribute__((swift_name("accessPoints")));
 @property (readonly) VpsDouble * _Nullable ceilingHeightInMeters __attribute__((swift_name("ceilingHeightInMeters")));
+@property (readonly) VpsFloat * _Nullable geomagneticDeclination __attribute__((swift_name("geomagneticDeclination")));
 @property (readonly) double heightInMeters __attribute__((swift_name("heightInMeters")));
 @property (readonly) int64_t id_ __attribute__((swift_name("id_")));
+@property (readonly) VpsFloat * _Nullable northOffset __attribute__((swift_name("northOffset")));
 @property (readonly) double pixelsPerMeter __attribute__((swift_name("pixelsPerMeter")));
 @property (readonly) NSArray<VpsSwapLocation *> *swapLocations __attribute__((swift_name("swapLocations")));
 @property (readonly) double widthInMeters __attribute__((swift_name("widthInMeters")));
+@property (readonly) NSArray<VpsZone *> *zones __attribute__((swift_name("zones")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3191,31 +3351,46 @@ __attribute__((swift_name("VPSModelToEventParameters")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticleFilterParams")))
 @interface VpsParticleFilterParams : VpsBase
-- (instancetype)initWithVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd biasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)biasLimit secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean secondBiasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)secondBiasLimit mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL idleWiFiDistanceSyncCriteria:(float)idleWiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize idlePositionTimeThreshold:(int64_t)idlePositionTimeThreshold __attribute__((swift_name("init(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:biasLimit:secondBiasStd:secondBiasMean:secondBiasLimit:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:idleWiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:idlePositionTimeThreshold:)"))) __attribute__((objc_designated_initializer));
-- (VpsParticleFilterParams *)doCopyVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd biasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)biasLimit secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean secondBiasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)secondBiasLimit mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL idleWiFiDistanceSyncCriteria:(float)idleWiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize idlePositionTimeThreshold:(int64_t)idlePositionTimeThreshold __attribute__((swift_name("doCopy(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:biasLimit:secondBiasStd:secondBiasMean:secondBiasLimit:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:idleWiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:idlePositionTimeThreshold:)")));
+- (instancetype)initWithVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd biasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)biasLimit secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean secondBiasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)secondBiasLimit mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL wiFiDistanceSyncCriteria:(float)wiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize idlePositionTimeThreshold:(int64_t)idlePositionTimeThreshold stdQuantile:(float)stdQuantile uncertainThreshold:(float)uncertainThreshold mlStepHistorySizeForOOBComeback:(int32_t)mlStepHistorySizeForOOBComeback wiFiStatusTimeLimit:(float)wiFiStatusTimeLimit allowOutOfBounds:(BOOL)allowOutOfBounds maxAllowedStd:(float)maxAllowedStd rssiScanThreshold:(int32_t)rssiScanThreshold bundleAPsInScan:(BOOL)bundleAPsInScan scanGridResolution:(float)scanGridResolution scanErrorRatioThreshold:(float)scanErrorRatioThreshold wiFiSprinkleDirectionStd:(float)wiFiSprinkleDirectionStd scanErrorSprinkleLocationStdCoefficient:(float)scanErrorSprinkleLocationStdCoefficient rescueKDEAngRatio:(float)rescueKDEAngRatio rescueStartAngRatio:(float)rescueStartAngRatio rescueCompassAngRatio:(float)rescueCompassAngRatio wifiSprinkleDistanceCriteria:(float)wifiSprinkleDistanceCriteria floorSwapPositionStd:(float)floorSwapPositionStd floorSwapDirectionStd:(float)floorSwapDirectionStd floorSwapSprinklePositionStd:(float)floorSwapSprinklePositionStd floorSwapSprinkleDirectionStd:(float)floorSwapSprinkleDirectionStd idleWiFiSprinkle:(BOOL)idleWiFiSprinkle __attribute__((swift_name("init(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:biasLimit:secondBiasStd:secondBiasMean:secondBiasLimit:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:wiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:idlePositionTimeThreshold:stdQuantile:uncertainThreshold:mlStepHistorySizeForOOBComeback:wiFiStatusTimeLimit:allowOutOfBounds:maxAllowedStd:rssiScanThreshold:bundleAPsInScan:scanGridResolution:scanErrorRatioThreshold:wiFiSprinkleDirectionStd:scanErrorSprinkleLocationStdCoefficient:rescueKDEAngRatio:rescueStartAngRatio:rescueCompassAngRatio:wifiSprinkleDistanceCriteria:floorSwapPositionStd:floorSwapDirectionStd:floorSwapSprinklePositionStd:floorSwapSprinkleDirectionStd:idleWiFiSprinkle:)"))) __attribute__((objc_designated_initializer));
+- (VpsParticleFilterParams *)doCopyVersion:(VpsParticleFilterParamsVersion *)version maxNumParticles:(int32_t)maxNumParticles minNumParticles:(int32_t)minNumParticles stepLengthStd:(float)stepLengthStd stepDirectionStd:(float)stepDirectionStd biasStd:(float)biasStd biasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)biasLimit secondBiasStd:(float)secondBiasStd secondBiasMean:(float)secondBiasMean secondBiasLimit:(VpsKotlinPair<VpsFloat *, VpsFloat *> *)secondBiasLimit mixingFactor:(float)mixingFactor startMethod:(VpsStartMethod *)startMethod startPositionStd:(float)startPositionStd startDirectionStd:(float)startDirectionStd syncMethod:(VpsSyncMethod *)syncMethod syncPositionStd:(float)syncPositionStd syncDirectionStd:(float)syncDirectionStd rescuePositionStd:(float)rescuePositionStd rescueDirectionStd:(float)rescueDirectionStd kldEpsilon:(float)kldEpsilon kldDelta:(float)kldDelta kldZ:(float)kldZ binSize:(VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *)binSize uxPositionConfidence:(float)uxPositionConfidence angleOffsetGainDegPerMin:(float)angleOffsetGainDegPerMin speedFactor:(float)speedFactor naiveOutputSyncMovement:(BOOL)naiveOutputSyncMovement useMLSyncSpeedFilter:(BOOL)useMLSyncSpeedFilter sprinkleSyncThreshold:(float)sprinkleSyncThreshold sprinklePercentage:(float)sprinklePercentage useRayTraceSensorModel:(BOOL)useRayTraceSensorModel nlThreshold:(float)nlThreshold rescueOnNL:(BOOL)rescueOnNL wiFiDistanceSyncCriteria:(float)wiFiDistanceSyncCriteria idleWiFiSecondsCriteria:(float)idleWiFiSecondsCriteria wiFiPathLossCoefficient:(float)wiFiPathLossCoefficient wiFiMeasuredPower:(int32_t)wiFiMeasuredPower swapSprinkleInterval:(int32_t)swapSprinkleInterval swapSprinkleEndCount:(int32_t)swapSprinkleEndCount swapSprinkleRatio:(float)swapSprinkleRatio mlStepHistorySize:(int32_t)mlStepHistorySize idlePositionTimeThreshold:(int64_t)idlePositionTimeThreshold stdQuantile:(float)stdQuantile uncertainThreshold:(float)uncertainThreshold mlStepHistorySizeForOOBComeback:(int32_t)mlStepHistorySizeForOOBComeback wiFiStatusTimeLimit:(float)wiFiStatusTimeLimit allowOutOfBounds:(BOOL)allowOutOfBounds maxAllowedStd:(float)maxAllowedStd rssiScanThreshold:(int32_t)rssiScanThreshold bundleAPsInScan:(BOOL)bundleAPsInScan scanGridResolution:(float)scanGridResolution scanErrorRatioThreshold:(float)scanErrorRatioThreshold wiFiSprinkleDirectionStd:(float)wiFiSprinkleDirectionStd scanErrorSprinkleLocationStdCoefficient:(float)scanErrorSprinkleLocationStdCoefficient rescueKDEAngRatio:(float)rescueKDEAngRatio rescueStartAngRatio:(float)rescueStartAngRatio rescueCompassAngRatio:(float)rescueCompassAngRatio wifiSprinkleDistanceCriteria:(float)wifiSprinkleDistanceCriteria floorSwapPositionStd:(float)floorSwapPositionStd floorSwapDirectionStd:(float)floorSwapDirectionStd floorSwapSprinklePositionStd:(float)floorSwapSprinklePositionStd floorSwapSprinkleDirectionStd:(float)floorSwapSprinkleDirectionStd idleWiFiSprinkle:(BOOL)idleWiFiSprinkle __attribute__((swift_name("doCopy(version:maxNumParticles:minNumParticles:stepLengthStd:stepDirectionStd:biasStd:biasLimit:secondBiasStd:secondBiasMean:secondBiasLimit:mixingFactor:startMethod:startPositionStd:startDirectionStd:syncMethod:syncPositionStd:syncDirectionStd:rescuePositionStd:rescueDirectionStd:kldEpsilon:kldDelta:kldZ:binSize:uxPositionConfidence:angleOffsetGainDegPerMin:speedFactor:naiveOutputSyncMovement:useMLSyncSpeedFilter:sprinkleSyncThreshold:sprinklePercentage:useRayTraceSensorModel:nlThreshold:rescueOnNL:wiFiDistanceSyncCriteria:idleWiFiSecondsCriteria:wiFiPathLossCoefficient:wiFiMeasuredPower:swapSprinkleInterval:swapSprinkleEndCount:swapSprinkleRatio:mlStepHistorySize:idlePositionTimeThreshold:stdQuantile:uncertainThreshold:mlStepHistorySizeForOOBComeback:wiFiStatusTimeLimit:allowOutOfBounds:maxAllowedStd:rssiScanThreshold:bundleAPsInScan:scanGridResolution:scanErrorRatioThreshold:wiFiSprinkleDirectionStd:scanErrorSprinkleLocationStdCoefficient:rescueKDEAngRatio:rescueStartAngRatio:rescueCompassAngRatio:wifiSprinkleDistanceCriteria:floorSwapPositionStd:floorSwapDirectionStd:floorSwapSprinklePositionStd:floorSwapSprinkleDirectionStd:idleWiFiSprinkle:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL allowOutOfBounds __attribute__((swift_name("allowOutOfBounds")));
 @property (readonly) float angleOffsetGainDegPerMin __attribute__((swift_name("angleOffsetGainDegPerMin")));
 @property (readonly) VpsKotlinPair<VpsFloat *, VpsFloat *> *biasLimit __attribute__((swift_name("biasLimit")));
 @property (readonly) float biasStd __attribute__((swift_name("biasStd")));
 @property (readonly) VpsKotlinTriple<VpsFloat *, VpsFloat *, VpsFloat *> *binSize __attribute__((swift_name("binSize")));
+@property (readonly) BOOL bundleAPsInScan __attribute__((swift_name("bundleAPsInScan")));
+@property (readonly) float floorSwapDirectionStd __attribute__((swift_name("floorSwapDirectionStd")));
+@property (readonly) float floorSwapPositionStd __attribute__((swift_name("floorSwapPositionStd")));
+@property (readonly) float floorSwapSprinkleDirectionStd __attribute__((swift_name("floorSwapSprinkleDirectionStd")));
+@property (readonly) float floorSwapSprinklePositionStd __attribute__((swift_name("floorSwapSprinklePositionStd")));
 @property (readonly) int64_t idlePositionTimeThreshold __attribute__((swift_name("idlePositionTimeThreshold")));
-@property (readonly) float idleWiFiDistanceSyncCriteria __attribute__((swift_name("idleWiFiDistanceSyncCriteria")));
 @property (readonly) float idleWiFiSecondsCriteria __attribute__((swift_name("idleWiFiSecondsCriteria")));
+@property (readonly) BOOL idleWiFiSprinkle __attribute__((swift_name("idleWiFiSprinkle")));
 @property (readonly) float kldDelta __attribute__((swift_name("kldDelta")));
 @property (readonly) float kldEpsilon __attribute__((swift_name("kldEpsilon")));
 @property (readonly) float kldZ __attribute__((swift_name("kldZ")));
+@property (readonly) float maxAllowedStd __attribute__((swift_name("maxAllowedStd")));
 @property (readonly) int32_t maxNumParticles __attribute__((swift_name("maxNumParticles")));
 @property (readonly) int32_t minNumParticles __attribute__((swift_name("minNumParticles")));
 @property (readonly) float mixingFactor __attribute__((swift_name("mixingFactor")));
 @property (readonly) int32_t mlStepHistorySize __attribute__((swift_name("mlStepHistorySize")));
+@property (readonly) int32_t mlStepHistorySizeForOOBComeback __attribute__((swift_name("mlStepHistorySizeForOOBComeback")));
 @property (readonly) BOOL naiveOutputSyncMovement __attribute__((swift_name("naiveOutputSyncMovement")));
 @property (readonly) float nlThreshold __attribute__((swift_name("nlThreshold")));
+@property (readonly) float rescueCompassAngRatio __attribute__((swift_name("rescueCompassAngRatio")));
 @property (readonly) float rescueDirectionStd __attribute__((swift_name("rescueDirectionStd")));
+@property (readonly) float rescueKDEAngRatio __attribute__((swift_name("rescueKDEAngRatio")));
 @property (readonly) BOOL rescueOnNL __attribute__((swift_name("rescueOnNL")));
 @property (readonly) float rescuePositionStd __attribute__((swift_name("rescuePositionStd")));
+@property (readonly) float rescueStartAngRatio __attribute__((swift_name("rescueStartAngRatio")));
+@property (readonly) int32_t rssiScanThreshold __attribute__((swift_name("rssiScanThreshold")));
+@property (readonly) float scanErrorRatioThreshold __attribute__((swift_name("scanErrorRatioThreshold")));
+@property (readonly) float scanErrorSprinkleLocationStdCoefficient __attribute__((swift_name("scanErrorSprinkleLocationStdCoefficient")));
+@property (readonly) float scanGridResolution __attribute__((swift_name("scanGridResolution")));
 @property (readonly) VpsKotlinPair<VpsFloat *, VpsFloat *> *secondBiasLimit __attribute__((swift_name("secondBiasLimit")));
 @property (readonly) float secondBiasMean __attribute__((swift_name("secondBiasMean")));
 @property (readonly) float secondBiasStd __attribute__((swift_name("secondBiasStd")));
@@ -3225,6 +3400,7 @@ __attribute__((swift_name("ParticleFilterParams")))
 @property (readonly) float startDirectionStd __attribute__((swift_name("startDirectionStd")));
 @property (readonly) VpsStartMethod *startMethod __attribute__((swift_name("startMethod")));
 @property (readonly) float startPositionStd __attribute__((swift_name("startPositionStd")));
+@property (readonly) float stdQuantile __attribute__((swift_name("stdQuantile")));
 @property (readonly) float stepDirectionStd __attribute__((swift_name("stepDirectionStd")));
 @property (readonly) float stepLengthStd __attribute__((swift_name("stepLengthStd")));
 @property (readonly) int32_t swapSprinkleEndCount __attribute__((swift_name("swapSprinkleEndCount")));
@@ -3233,12 +3409,17 @@ __attribute__((swift_name("ParticleFilterParams")))
 @property (readonly) float syncDirectionStd __attribute__((swift_name("syncDirectionStd")));
 @property (readonly) VpsSyncMethod *syncMethod __attribute__((swift_name("syncMethod")));
 @property (readonly) float syncPositionStd __attribute__((swift_name("syncPositionStd")));
+@property (readonly) float uncertainThreshold __attribute__((swift_name("uncertainThreshold")));
 @property (readonly) BOOL useMLSyncSpeedFilter __attribute__((swift_name("useMLSyncSpeedFilter")));
 @property (readonly) BOOL useRayTraceSensorModel __attribute__((swift_name("useRayTraceSensorModel")));
 @property (readonly) float uxPositionConfidence __attribute__((swift_name("uxPositionConfidence")));
 @property (readonly) VpsParticleFilterParamsVersion *version __attribute__((swift_name("version")));
+@property (readonly) float wiFiDistanceSyncCriteria __attribute__((swift_name("wiFiDistanceSyncCriteria")));
 @property (readonly) int32_t wiFiMeasuredPower __attribute__((swift_name("wiFiMeasuredPower")));
 @property (readonly) float wiFiPathLossCoefficient __attribute__((swift_name("wiFiPathLossCoefficient")));
+@property (readonly) float wiFiSprinkleDirectionStd __attribute__((swift_name("wiFiSprinkleDirectionStd")));
+@property (readonly) float wiFiStatusTimeLimit __attribute__((swift_name("wiFiStatusTimeLimit")));
+@property (readonly) float wifiSprinkleDistanceCriteria __attribute__((swift_name("wifiSprinkleDistanceCriteria")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3262,21 +3443,25 @@ __attribute__((swift_name("ParticleFilterParams.Version")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ParticleFilterSettings")))
 @interface VpsParticleFilterSettings : VpsBase
-- (instancetype)initWithVersion:(VpsParticleFilterSettingsVersion *)version uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsParticleFilterVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans __attribute__((swift_name("init(version:uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:)"))) __attribute__((objc_designated_initializer));
-- (VpsParticleFilterSettings *)doCopyVersion:(VpsParticleFilterSettingsVersion *)version uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsParticleFilterVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans __attribute__((swift_name("doCopy(version:uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:)")));
+- (instancetype)initWithVersion:(VpsParticleFilterSettingsVersion *)version uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsParticleFilterVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans scoringParams:(VpsScoringParams *)scoringParams clusterSwapOutputActivated:(BOOL)clusterSwapOutputActivated trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams positionStdSettings:(VpsPositionStdSettings *)positionStdSettings __attribute__((swift_name("init(version:uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:scoringParams:clusterSwapOutputActivated:trustedPositionParams:positionStdSettings:)"))) __attribute__((objc_designated_initializer));
+- (VpsParticleFilterSettings *)doCopyVersion:(VpsParticleFilterSettingsVersion *)version uxPositionActivated:(BOOL)uxPositionActivated mlPositionActivated:(BOOL)mlPositionActivated particlePositionActivated:(BOOL)particlePositionActivated particlesOutputActivated:(BOOL)particlesOutputActivated particleFilterVersion:(VpsParticleFilterSettingsParticleFilterVersion *)particleFilterVersion particleFilterParams:(VpsParticleFilterParams *)particleFilterParams randomNumberGeneratorSeed:(VpsLong * _Nullable)randomNumberGeneratorSeed saveOutputSignals:(BOOL)saveOutputSignals saveWiFiStatusUpdate:(BOOL)saveWiFiStatusUpdate saveWiFiScans:(BOOL)saveWiFiScans scoringParams:(VpsScoringParams *)scoringParams clusterSwapOutputActivated:(BOOL)clusterSwapOutputActivated trustedPositionParams:(VpsTrustedPositionParams *)trustedPositionParams positionStdSettings:(VpsPositionStdSettings *)positionStdSettings __attribute__((swift_name("doCopy(version:uxPositionActivated:mlPositionActivated:particlePositionActivated:particlesOutputActivated:particleFilterVersion:particleFilterParams:randomNumberGeneratorSeed:saveOutputSignals:saveWiFiStatusUpdate:saveWiFiScans:scoringParams:clusterSwapOutputActivated:trustedPositionParams:positionStdSettings:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL clusterSwapOutputActivated __attribute__((swift_name("clusterSwapOutputActivated")));
 @property (readonly) BOOL mlPositionActivated __attribute__((swift_name("mlPositionActivated")));
 @property (readonly) VpsParticleFilterParams *particleFilterParams __attribute__((swift_name("particleFilterParams")));
 @property (readonly) VpsParticleFilterSettingsParticleFilterVersion *particleFilterVersion __attribute__((swift_name("particleFilterVersion")));
 @property (readonly) BOOL particlePositionActivated __attribute__((swift_name("particlePositionActivated")));
 @property (readonly) BOOL particlesOutputActivated __attribute__((swift_name("particlesOutputActivated")));
+@property (readonly) VpsPositionStdSettings *positionStdSettings __attribute__((swift_name("positionStdSettings")));
 @property (readonly) VpsLong * _Nullable randomNumberGeneratorSeed __attribute__((swift_name("randomNumberGeneratorSeed")));
 @property (readonly) BOOL saveOutputSignals __attribute__((swift_name("saveOutputSignals")));
 @property (readonly) BOOL saveWiFiScans __attribute__((swift_name("saveWiFiScans")));
 @property (readonly) BOOL saveWiFiStatusUpdate __attribute__((swift_name("saveWiFiStatusUpdate")));
+@property (readonly) VpsScoringParams *scoringParams __attribute__((swift_name("scoringParams")));
+@property (readonly) VpsTrustedPositionParams *trustedPositionParams __attribute__((swift_name("trustedPositionParams")));
 @property (readonly) BOOL uxPositionActivated __attribute__((swift_name("uxPositionActivated")));
 @property (readonly) VpsParticleFilterSettingsVersion *version __attribute__((swift_name("version")));
 @end
@@ -3309,6 +3494,36 @@ __attribute__((swift_name("ParticleFilterSettings.Version")))
 @property (class, readonly) VpsParticleFilterSettingsVersion *wifi __attribute__((swift_name("wifi")));
 + (VpsKotlinArray<VpsParticleFilterSettingsVersion *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsParticleFilterSettingsVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PositionStdSettings")))
+@interface VpsPositionStdSettings : VpsBase
+- (instancetype)initWithStrategy:(VpsPositionStdSettingsStrategy *)strategy stdDefault:(float)stdDefault isCapped:(BOOL)isCapped minStd:(VpsFloat * _Nullable)minStd maxStd:(VpsFloat * _Nullable)maxStd __attribute__((swift_name("init(strategy:stdDefault:isCapped:minStd:maxStd:)"))) __attribute__((objc_designated_initializer));
+- (VpsPositionStdSettings *)doCopyStrategy:(VpsPositionStdSettingsStrategy *)strategy stdDefault:(float)stdDefault isCapped:(BOOL)isCapped minStd:(VpsFloat * _Nullable)minStd maxStd:(VpsFloat * _Nullable)maxStd __attribute__((swift_name("doCopy(strategy:stdDefault:isCapped:minStd:maxStd:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (float)getCappedStdCurrentStd:(float)currentStd __attribute__((swift_name("getCappedStd(currentStd:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) BOOL isCapped __attribute__((swift_name("isCapped")));
+@property (readonly) VpsFloat * _Nullable maxStd __attribute__((swift_name("maxStd")));
+@property (readonly) VpsFloat * _Nullable minStd __attribute__((swift_name("minStd")));
+@property (readonly) float stdDefault __attribute__((swift_name("stdDefault")));
+@property (readonly) VpsPositionStdSettingsStrategy *strategy __attribute__((swift_name("strategy")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("PositionStdSettings.Strategy")))
+@interface VpsPositionStdSettingsStrategy : VpsKotlinEnum<VpsPositionStdSettingsStrategy *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsPositionStdSettingsStrategy *reportTescoSpecial __attribute__((swift_name("reportTescoSpecial")));
+@property (class, readonly) VpsPositionStdSettingsStrategy *reportActual __attribute__((swift_name("reportActual")));
+@property (class, readonly) VpsPositionStdSettingsStrategy *reportActualOnlyWhenUntrusted __attribute__((swift_name("reportActualOnlyWhenUntrusted")));
+@property (class, readonly) VpsPositionStdSettingsStrategy *reportOnlyDefault __attribute__((swift_name("reportOnlyDefault")));
++ (VpsKotlinArray<VpsPositionStdSettingsStrategy *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsPositionStdSettingsStrategy *> *entries __attribute__((swift_name("entries")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3487,6 +3702,62 @@ __attribute__((swift_name("RotationHandlerSettings")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ScoringParams")))
+@interface VpsScoringParams : VpsBase
+- (instancetype)initWithVersion:(VpsScoringParamsVersion *)version dt:(float)dt scoringIntervalSec:(int32_t)scoringIntervalSec clusterSwapThreshold:(float)clusterSwapThreshold beforeLimitRmSec:(int32_t)beforeLimitRmSec afterLimitRmSec:(int32_t)afterLimitRmSec maxGapRmSec:(int32_t)maxGapRmSec beforeLimitCsSec:(int32_t)beforeLimitCsSec afterLimitCsSec:(int32_t)afterLimitCsSec maxGapCsSec:(int32_t)maxGapCsSec beforeLimitFsSec:(int32_t)beforeLimitFsSec afterLimitFsSec:(int32_t)afterLimitFsSec maxGapFsSec:(int32_t)maxGapFsSec __attribute__((swift_name("init(version:dt:scoringIntervalSec:clusterSwapThreshold:beforeLimitRmSec:afterLimitRmSec:maxGapRmSec:beforeLimitCsSec:afterLimitCsSec:maxGapCsSec:beforeLimitFsSec:afterLimitFsSec:maxGapFsSec:)"))) __attribute__((objc_designated_initializer));
+- (VpsScoringParams *)doCopyVersion:(VpsScoringParamsVersion *)version dt:(float)dt scoringIntervalSec:(int32_t)scoringIntervalSec clusterSwapThreshold:(float)clusterSwapThreshold beforeLimitRmSec:(int32_t)beforeLimitRmSec afterLimitRmSec:(int32_t)afterLimitRmSec maxGapRmSec:(int32_t)maxGapRmSec beforeLimitCsSec:(int32_t)beforeLimitCsSec afterLimitCsSec:(int32_t)afterLimitCsSec maxGapCsSec:(int32_t)maxGapCsSec beforeLimitFsSec:(int32_t)beforeLimitFsSec afterLimitFsSec:(int32_t)afterLimitFsSec maxGapFsSec:(int32_t)maxGapFsSec __attribute__((swift_name("doCopy(version:dt:scoringIntervalSec:clusterSwapThreshold:beforeLimitRmSec:afterLimitRmSec:maxGapRmSec:beforeLimitCsSec:afterLimitCsSec:maxGapCsSec:beforeLimitFsSec:afterLimitFsSec:maxGapFsSec:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t afterLimitCs __attribute__((swift_name("afterLimitCs")));
+@property (readonly) int32_t afterLimitCsSec __attribute__((swift_name("afterLimitCsSec")));
+@property (readonly) int32_t afterLimitFs __attribute__((swift_name("afterLimitFs")));
+@property (readonly) int32_t afterLimitFsSec __attribute__((swift_name("afterLimitFsSec")));
+@property (readonly) int32_t afterLimitRm __attribute__((swift_name("afterLimitRm")));
+@property (readonly) int32_t afterLimitRmSec __attribute__((swift_name("afterLimitRmSec")));
+@property (readonly) int32_t beforeLimitCs __attribute__((swift_name("beforeLimitCs")));
+@property (readonly) int32_t beforeLimitCsSec __attribute__((swift_name("beforeLimitCsSec")));
+@property (readonly) int32_t beforeLimitFs __attribute__((swift_name("beforeLimitFs")));
+@property (readonly) int32_t beforeLimitFsSec __attribute__((swift_name("beforeLimitFsSec")));
+@property (readonly) int32_t beforeLimitRm __attribute__((swift_name("beforeLimitRm")));
+@property (readonly) int32_t beforeLimitRmSec __attribute__((swift_name("beforeLimitRmSec")));
+@property (readonly) float clusterSwapThreshold __attribute__((swift_name("clusterSwapThreshold")));
+@property (readonly) float clusterSwapThresholdSquared __attribute__((swift_name("clusterSwapThresholdSquared")));
+@property (readonly) float dt __attribute__((swift_name("dt")));
+@property (readonly) int32_t maxGapCs __attribute__((swift_name("maxGapCs")));
+@property (readonly) int32_t maxGapCsSec __attribute__((swift_name("maxGapCsSec")));
+@property (readonly) int32_t maxGapFs __attribute__((swift_name("maxGapFs")));
+@property (readonly) int32_t maxGapFsSec __attribute__((swift_name("maxGapFsSec")));
+@property (readonly) int32_t maxGapRm __attribute__((swift_name("maxGapRm")));
+@property (readonly) int32_t maxGapRmSec __attribute__((swift_name("maxGapRmSec")));
+@property (readonly) int32_t scoringInterval __attribute__((swift_name("scoringInterval")));
+@property (readonly) int32_t scoringIntervalSec __attribute__((swift_name("scoringIntervalSec")));
+@property (readonly) VpsScoringParamsVersion *version __attribute__((swift_name("version")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ScoringParams.Version")))
+@interface VpsScoringParamsVersion : VpsKotlinEnum<VpsScoringParamsVersion *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsScoringParamsVersion *default_ __attribute__((swift_name("default_")));
++ (VpsKotlinArray<VpsScoringParamsVersion *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsScoringParamsVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSScoringParams")))
+@interface VpsVPSScoringParams : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSScoringParams __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSScoringParams *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsScoringParams *default_ __attribute__((swift_name("default_")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("NLModelOutput")))
 @interface VpsNLModelOutput : VpsBase
 - (instancetype)initWithPatchCenter:(VpsKotlinFloatArray *)patchCenter heatmap:(VpsKotlinArray<VpsKotlinFloatArray *> *)heatmap resolution:(float)resolution __attribute__((swift_name("init(patchCenter:heatmap:resolution:)"))) __attribute__((objc_designated_initializer));
@@ -3569,14 +3840,15 @@ __attribute__((swift_name("SensorDataType")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Tensor")))
 @interface VpsTensor : VpsBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsKotlinFloatArray *> *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp data:(VpsKotlinArray<VpsKotlinFloatArray *> *)data __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:data:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsTensorCompanion *companion __attribute__((swift_name("companion")));
-- (VpsTensor *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsKotlinFloatArray *> *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
+- (VpsTensor *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp data:(VpsKotlinArray<VpsKotlinFloatArray *> *)data __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:data:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VpsKotlinArray<VpsKotlinFloatArray *> *data __attribute__((swift_name("data")));
-@property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
+@property (readonly) int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property (readonly) int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3597,13 +3869,14 @@ __attribute__((swift_name("Tensor.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VelocityModelOutput")))
 @interface VpsVelocityModelOutput : VpsBase
-- (instancetype)initWithTimestamp:(int64_t)timestamp data:(NSArray<VpsFloat *> *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithTimestamp:(int64_t)timestamp systemTimestamp:(int64_t)systemTimestamp data:(NSArray<VpsFloat *> *)data __attribute__((swift_name("init(timestamp:systemTimestamp:data:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsVelocityModelOutputCompanion *companion __attribute__((swift_name("companion")));
-- (VpsVelocityModelOutput *)doCopyTimestamp:(int64_t)timestamp data:(NSArray<VpsFloat *> *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
+- (VpsVelocityModelOutput *)doCopyTimestamp:(int64_t)timestamp systemTimestamp:(int64_t)systemTimestamp data:(NSArray<VpsFloat *> *)data __attribute__((swift_name("doCopy(timestamp:systemTimestamp:data:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSArray<VpsFloat *> *data __attribute__((swift_name("data")));
+@property (readonly) int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @property (readonly) int64_t timestamp __attribute__((swift_name("timestamp")));
 @end
 
@@ -3650,6 +3923,42 @@ __attribute__((swift_name("IosInterpolationModuleParams")))
 @property (readonly, getter=default) VpsInterpolationModuleParams_ *default_ __attribute__((swift_name("default_")));
 @end
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MagnetometerDriftEstimatorParams")))
+@interface VpsMagnetometerDriftEstimatorParams : VpsBase
+- (instancetype)initWithVersion:(VpsMagnetometerDriftEstimatorParamsVersion *)version useMagnetometer:(BOOL)useMagnetometer alpha:(float)alpha __attribute__((swift_name("init(version:useMagnetometer:alpha:)"))) __attribute__((objc_designated_initializer));
+- (VpsMagnetometerDriftEstimatorParams *)doCopyVersion:(VpsMagnetometerDriftEstimatorParamsVersion *)version useMagnetometer:(BOOL)useMagnetometer alpha:(float)alpha __attribute__((swift_name("doCopy(version:useMagnetometer:alpha:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float alpha __attribute__((swift_name("alpha")));
+@property (readonly) BOOL useMagnetometer __attribute__((swift_name("useMagnetometer")));
+@property (readonly) VpsMagnetometerDriftEstimatorParamsVersion *version __attribute__((swift_name("version")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("MagnetometerDriftEstimatorParams.Version")))
+@interface VpsMagnetometerDriftEstimatorParamsVersion : VpsKotlinEnum<VpsMagnetometerDriftEstimatorParamsVersion *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsMagnetometerDriftEstimatorParamsVersion *default_ __attribute__((swift_name("default_")));
++ (VpsKotlinArray<VpsMagnetometerDriftEstimatorParamsVersion *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsMagnetometerDriftEstimatorParamsVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSMagnetometerDriftEstimatorParams")))
+@interface VpsVPSMagnetometerDriftEstimatorParams : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSMagnetometerDriftEstimatorParams __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSMagnetometerDriftEstimatorParams *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsMagnetometerDriftEstimatorParams *default_ __attribute__((swift_name("default_")));
+@property (readonly) VpsMagnetometerDriftEstimatorParams *iosMagnetometerDriftEstimatorParams __attribute__((swift_name("iosMagnetometerDriftEstimatorParams")));
+@end
+
 
 /**
  * @note annotations
@@ -3659,7 +3968,8 @@ __attribute__((swift_name("BaseEvent")))
 @interface VpsBaseEvent : VpsBase
 @property (class, readonly, getter=companion) VpsBaseEventCompanion *companion __attribute__((swift_name("companion")));
 @property VpsEventType *event_type __attribute__((swift_name("event_type")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 
@@ -3670,14 +3980,15 @@ __attribute__((swift_name("BaseEvent")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.AngleCorrectionEvent")))
 @interface VpsBaseEventAngleCorrectionEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp angle:(float)angle __attribute__((swift_name("init(timestamp:angle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp angle:(float)angle __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:angle:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventAngleCorrectionEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventAngleCorrectionEvent *)doCopyTimestamp:(int64_t)timestamp angle:(float)angle __attribute__((swift_name("doCopy(timestamp:angle:)")));
+- (VpsBaseEventAngleCorrectionEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp angle:(float)angle __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:angle:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) float angle __attribute__((swift_name("angle")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3709,15 +4020,16 @@ __attribute__((swift_name("BaseEvent.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.FloorChangeEvent")))
 @interface VpsBaseEventFloorChangeEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("init(timestamp:floorLevelId:startPosition:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:floorLevelId:startPosition:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventFloorChangeEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventFloorChangeEvent *)doCopyTimestamp:(int64_t)timestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("doCopy(timestamp:floorLevelId:startPosition:)")));
+- (VpsBaseEventFloorChangeEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp floorLevelId:(int64_t)floorLevelId startPosition:(VpsCoordinateF *)startPosition __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:floorLevelId:startPosition:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) int64_t floorLevelId __attribute__((swift_name("floorLevelId")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) VpsCoordinateF *startPosition __attribute__((swift_name("startPosition")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3738,14 +4050,15 @@ __attribute__((swift_name("BaseEvent.FloorChangeEventCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.LngLatEvent")))
 @interface VpsBaseEventLngLatEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp location:(VpsLocation *)location __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:location:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventLngLatEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
+- (VpsBaseEventLngLatEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:location:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VpsLocation *location __attribute__((swift_name("location")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3766,14 +4079,15 @@ __attribute__((swift_name("BaseEvent.LngLatEventCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.StairEvent")))
 @interface VpsBaseEventStairEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("init(timestamp:isInStair:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp isInStair:(BOOL)isInStair __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:isInStair:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventStairEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStairEvent *)doCopyTimestamp:(int64_t)timestamp isInStair:(BOOL)isInStair __attribute__((swift_name("doCopy(timestamp:isInStair:)")));
+- (VpsBaseEventStairEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp isInStair:(BOOL)isInStair __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:isInStair:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) BOOL isInStair __attribute__((swift_name("isInStair")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3816,14 +4130,15 @@ __attribute__((swift_name("BaseEvent.StartCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.StartLngLatEvent")))
 @interface VpsBaseEventStartLngLatEvent : VpsBaseEventStart
-- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp location:(VpsLocation *)location __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:location:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventStartLngLatEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStartLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
+- (VpsBaseEventStartLngLatEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:location:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VpsLocation *location __attribute__((swift_name("location")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3844,15 +4159,16 @@ __attribute__((swift_name("BaseEvent.StartLngLatEventCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.StartPositionEvent")))
 @interface VpsBaseEventStartPositionEvent : VpsBaseEventStart
-- (instancetype)initWithTimestamp:(int64_t)timestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("init(timestamp:start_pos:start_angle:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:start_pos:start_angle:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventStartPositionEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStartPositionEvent *)doCopyTimestamp:(int64_t)timestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("doCopy(timestamp:start_pos:start_angle:)")));
+- (VpsBaseEventStartPositionEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp start_pos:(VpsCoordinateF *)start_pos start_angle:(float)start_angle __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:start_pos:start_angle:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) float start_angle __attribute__((swift_name("start_angle")));
 @property (readonly) VpsCoordinateF *start_pos __attribute__((swift_name("start_pos")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3885,21 +4201,22 @@ __attribute__((swift_name("BaseEvent.StartStartType")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.StepEvent")))
 @interface VpsBaseEventStepEvent : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("init(timestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventStepEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventStepEvent *)doCopyTimestamp:(int64_t)timestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("doCopy(timestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)")));
+- (VpsBaseEventStepEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp duration:(int32_t)duration direction:(float)direction speed:(float)speed step_certainty:(float)step_certainty success:(BOOL)success step_type:(VpsStepType *)step_type direction_certainty:(VpsFloat * _Nullable)direction_certainty relative_direction:(VpsFloat * _Nullable)relative_direction __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:duration:direction:speed:step_certainty:success:step_type:direction_certainty:relative_direction:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) float direction __attribute__((swift_name("direction")));
 @property (readonly) VpsFloat * _Nullable direction_certainty __attribute__((swift_name("direction_certainty")));
 @property (readonly) int32_t duration __attribute__((swift_name("duration")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) VpsFloat * _Nullable relative_direction __attribute__((swift_name("relative_direction")));
 @property (readonly) float speed __attribute__((swift_name("speed")));
 @property (readonly) float step_certainty __attribute__((swift_name("step_certainty")));
 @property (readonly) VpsStepType *step_type __attribute__((swift_name("step_type")));
 @property (readonly) BOOL success __attribute__((swift_name("success")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3931,14 +4248,15 @@ __attribute__((swift_name("BaseEvent.Sync")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.SyncAccessPointFloorSwapSyncEvent")))
 @interface VpsBaseEventSyncAccessPointFloorSwapSyncEvent : VpsBaseEventSync
-- (instancetype)initWithTimestamp:(int64_t)timestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("init(timestamp:wifiStatusUpdate:possibleEntries:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:wifiStatusUpdate:possibleEntries:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventSyncAccessPointFloorSwapSyncEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventSyncAccessPointFloorSwapSyncEvent *)doCopyTimestamp:(int64_t)timestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("doCopy(timestamp:wifiStatusUpdate:possibleEntries:)")));
+- (VpsBaseEventSyncAccessPointFloorSwapSyncEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp wifiStatusUpdate:(VpsBaseEventWifiStatusUpdate *)wifiStatusUpdate possibleEntries:(NSArray<VpsCoordinateF *> *)possibleEntries __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:wifiStatusUpdate:possibleEntries:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) NSArray<VpsCoordinateF *> *possibleEntries __attribute__((swift_name("possibleEntries")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @property (readonly) VpsBaseEventWifiStatusUpdate *wifiStatusUpdate __attribute__((swift_name("wifiStatusUpdate")));
 @end
 
@@ -3971,14 +4289,15 @@ __attribute__((swift_name("BaseEvent.SyncCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.SyncLngLatEvent")))
 @interface VpsBaseEventSyncLngLatEvent : VpsBaseEventSync
-- (instancetype)initWithTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("init(timestamp:location:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp location:(VpsLocation *)location __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:location:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventSyncLngLatEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventSyncLngLatEvent *)doCopyTimestamp:(int64_t)timestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(timestamp:location:)")));
+- (VpsBaseEventSyncLngLatEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp location:(VpsLocation *)location __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:location:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property VpsLocation *location __attribute__((swift_name("location")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -3999,16 +4318,17 @@ __attribute__((swift_name("BaseEvent.SyncLngLatEventCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.SyncPositionEvent")))
 @interface VpsBaseEventSyncPositionEvent : VpsBaseEventSync
-- (instancetype)initWithTimestamp:(int64_t)timestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("init(timestamp:sync_position:ean:offset:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:sync_position:ean:offset:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventSyncPositionEventCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventSyncPositionEvent *)doCopyTimestamp:(int64_t)timestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("doCopy(timestamp:sync_position:ean:offset:)")));
+- (VpsBaseEventSyncPositionEvent *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp sync_position:(VpsCoordinateF *)sync_position ean:(NSString *)ean offset:(VpsCoordinateF *)offset __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:sync_position:ean:offset:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property NSString *ean __attribute__((swift_name("ean")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property VpsCoordinateF *offset __attribute__((swift_name("offset")));
 @property VpsCoordinateF *sync_position __attribute__((swift_name("sync_position")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -4042,18 +4362,19 @@ __attribute__((swift_name("BaseEvent.SyncSyncType")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.WiFiObservation")))
 @interface VpsBaseEventWiFiObservation : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(timestamp:bssid:rssi:frequency:rtl_id:accessPoint:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:bssid:rssi:frequency:rtl_id:accessPoint:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventWiFiObservationCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventWiFiObservation *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(timestamp:bssid:rssi:frequency:rtl_id:accessPoint:)")));
+- (VpsBaseEventWiFiObservation *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp bssid:(NSString *)bssid rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency rtl_id:(NSString * _Nullable)rtl_id accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:bssid:rssi:frequency:rtl_id:accessPoint:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property VpsAccessPoint * _Nullable accessPoint __attribute__((swift_name("accessPoint")));
 @property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
 @property (readonly) VpsInt * _Nullable frequency __attribute__((swift_name("frequency")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
 @property (readonly) NSString * _Nullable rtl_id __attribute__((swift_name("rtl_id")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -4074,15 +4395,16 @@ __attribute__((swift_name("BaseEvent.WiFiObservationCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.WiFiScan")))
 @interface VpsBaseEventWiFiScan : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("init(timestamp:data:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:data:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventWiFiScanCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventWiFiScan *)doCopyTimestamp:(int64_t)timestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("doCopy(timestamp:data:)")));
+- (VpsBaseEventWiFiScan *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp data:(VpsKotlinArray<VpsBaseEventWiFiObservation *> *)data __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:data:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VpsKotlinArray<VpsBaseEventWiFiObservation *> *data __attribute__((swift_name("data")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -4103,18 +4425,19 @@ __attribute__((swift_name("BaseEvent.WiFiScanCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BaseEvent.WifiStatusUpdate")))
 @interface VpsBaseEventWifiStatusUpdate : VpsBaseEvent
-- (instancetype)initWithTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(timestamp:bssid:rtl_id:rssi:frequency:accessPoint:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("init(nanoTimestamp:systemTimestamp:bssid:rtl_id:rssi:frequency:accessPoint:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsBaseEventWifiStatusUpdateCompanion *companion __attribute__((swift_name("companion")));
-- (VpsBaseEventWifiStatusUpdate *)doCopyTimestamp:(int64_t)timestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(timestamp:bssid:rtl_id:rssi:frequency:accessPoint:)")));
+- (VpsBaseEventWifiStatusUpdate *)doCopyNanoTimestamp:(int64_t)nanoTimestamp systemTimestamp:(int64_t)systemTimestamp bssid:(NSString *)bssid rtl_id:(NSString *)rtl_id rssi:(int32_t)rssi frequency:(VpsInt * _Nullable)frequency accessPoint:(VpsAccessPoint * _Nullable)accessPoint __attribute__((swift_name("doCopy(nanoTimestamp:systemTimestamp:bssid:rtl_id:rssi:frequency:accessPoint:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property VpsAccessPoint * _Nullable accessPoint __attribute__((swift_name("accessPoint")));
 @property (readonly) NSString *bssid __attribute__((swift_name("bssid")));
 @property (readonly) VpsInt * _Nullable frequency __attribute__((swift_name("frequency")));
+@property int64_t nanoTimestamp __attribute__((swift_name("nanoTimestamp")));
 @property (readonly) int32_t rssi __attribute__((swift_name("rssi")));
 @property (readonly) NSString *rtl_id __attribute__((swift_name("rtl_id")));
-@property int64_t timestamp __attribute__((swift_name("timestamp")));
+@property int64_t systemTimestamp __attribute__((swift_name("systemTimestamp")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -4334,6 +4657,30 @@ __attribute__((swift_name("OutputSignal")))
 @property (readonly) VpsOutputSignalType *type __attribute__((swift_name("type")));
 @end
 
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.ClusterSwapSignal")))
+@interface VpsOutputSignalClusterSwapSignal : VpsOutputSignal
+- (instancetype)initWithIndex:(int32_t)index __attribute__((swift_name("init(index:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsOutputSignalClusterSwapSignalCompanion *companion __attribute__((swift_name("companion")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t index __attribute__((swift_name("index")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.ClusterSwapSignalCompanion")))
+@interface VpsOutputSignalClusterSwapSignalCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsOutputSignalClusterSwapSignalCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("OutputSignal.Companion")))
 @interface VpsOutputSignalCompanion : VpsBase
@@ -4343,6 +4690,30 @@ __attribute__((swift_name("OutputSignal.Companion")))
 @property (class, readonly, getter=shared) VpsOutputSignalCompanion *shared __attribute__((swift_name("shared")));
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializerTypeParamsSerializers:(VpsKotlinArray<id<VpsKotlinx_serialization_coreKSerializer>> *)typeParamsSerializers __attribute__((swift_name("serializer(typeParamsSerializers:)")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.ConsistencyScoreSignal")))
+@interface VpsOutputSignalConsistencyScoreSignal : VpsOutputSignal
+- (instancetype)initWithScore:(float)score __attribute__((swift_name("init(score:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsOutputSignalConsistencyScoreSignalCompanion *companion __attribute__((swift_name("companion")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) float score __attribute__((swift_name("score")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("OutputSignal.ConsistencyScoreSignalCompanion")))
+@interface VpsOutputSignalConsistencyScoreSignalCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsOutputSignalConsistencyScoreSignalCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end
 
 
@@ -4483,7 +4854,7 @@ __attribute__((swift_name("OutputSignal.ParticleSignalCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("OutputSignal.Position")))
 @interface VpsOutputSignalPosition : VpsOutputSignal
-- (instancetype)initWithPosition:(VpsCoordinateF *)position std:(float)std status:(VpsOutputSignalPositionStatus *)status activityState:(VpsOutputSignalPositionActivityState *)activityState currentFloorLevelId:(int64_t)currentFloorLevelId currentWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)currentWiFiObservation currentWiFiScan:(VpsBaseEventWiFiScan * _Nullable)currentWiFiScan __attribute__((swift_name("init(position:std:status:activityState:currentFloorLevelId:currentWiFiObservation:currentWiFiScan:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithPosition:(VpsCoordinateF *)position std:(float)std status:(VpsOutputSignalPositionStatus *)status activityState:(VpsOutputSignalPositionActivityState *)activityState currentFloorLevelId:(int64_t)currentFloorLevelId currentWiFiObservation:(VpsBaseEventWiFiObservation * _Nullable)currentWiFiObservation currentWiFiScan:(VpsBaseEventWiFiScan * _Nullable)currentWiFiScan trustedPosition:(BOOL)trustedPosition __attribute__((swift_name("init(position:std:status:activityState:currentFloorLevelId:currentWiFiObservation:currentWiFiScan:trustedPosition:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsOutputSignalPositionCompanion *companion __attribute__((swift_name("companion")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VpsOutputSignalPositionActivityState *activityState __attribute__((swift_name("activityState")));
@@ -4493,6 +4864,7 @@ __attribute__((swift_name("OutputSignal.Position")))
 @property (readonly) VpsCoordinateF *position __attribute__((swift_name("position")));
 @property (readonly) VpsOutputSignalPositionStatus *status __attribute__((swift_name("status")));
 @property (readonly) float std __attribute__((swift_name("std")));
+@property (readonly) BOOL trustedPosition __attribute__((swift_name("trustedPosition")));
 @end
 
 
@@ -4548,6 +4920,7 @@ __attribute__((swift_name("OutputSignal.PositionStatus")))
 @property (class, readonly, getter=companion) VpsOutputSignalPositionStatusCompanion *companion __attribute__((swift_name("companion")));
 @property (class, readonly) VpsOutputSignalPositionStatus *confident __attribute__((swift_name("confident")));
 @property (class, readonly) VpsOutputSignalPositionStatus *uncertain __attribute__((swift_name("uncertain")));
+@property (class, readonly) VpsOutputSignalPositionStatus *outOfBounds __attribute__((swift_name("outOfBounds")));
 + (VpsKotlinArray<VpsOutputSignalPositionStatus *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsOutputSignalPositionStatus *> *entries __attribute__((swift_name("entries")));
 @end
@@ -4571,10 +4944,10 @@ __attribute__((swift_name("OutputSignal.PositionStatusCompanion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("OutputSignal.RescueModeSignal")))
 @interface VpsOutputSignalRescueModeSignal : VpsOutputSignal
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithIndex:(int32_t)index __attribute__((swift_name("init(index:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VpsOutputSignalRescueModeSignalCompanion *companion __attribute__((swift_name("companion")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t index __attribute__((swift_name("index")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -4684,6 +5057,8 @@ __attribute__((swift_name("OutputSignal.Type_")))
 @property (class, readonly) VpsOutputSignalType *wifiFloorChange __attribute__((swift_name("wifiFloorChange")));
 @property (class, readonly) VpsOutputSignalType *rescueMode __attribute__((swift_name("rescueMode")));
 @property (class, readonly) VpsOutputSignalType *particles __attribute__((swift_name("particles")));
+@property (class, readonly) VpsOutputSignalType *clusterSwap __attribute__((swift_name("clusterSwap")));
+@property (class, readonly) VpsOutputSignalType *consistencyScore __attribute__((swift_name("consistencyScore")));
 + (VpsKotlinArray<VpsOutputSignalType *> *)values __attribute__((swift_name("values()")));
 @property (class, readonly) NSArray<VpsOutputSignalType *> *entries __attribute__((swift_name("entries")));
 @end
@@ -4963,6 +5338,51 @@ __attribute__((swift_name("VelocityModelParams.FeaturesEntries")))
 @property (class, readonly) NSArray<VpsVelocityModelParamsFeaturesEntries *> *entries __attribute__((swift_name("entries")));
 @end
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TrustedPositionParams")))
+@interface VpsTrustedPositionParams : VpsBase
+- (instancetype)initWithVersion:(VpsTrustedPositionParamsVersion *)version dt:(float)dt trustedLimitSec:(int32_t)trustedLimitSec clusterSwapCoolDownSec:(int32_t)clusterSwapCoolDownSec rescueModeCoolDownSec:(int32_t)rescueModeCoolDownSec stdLimit:(float)stdLimit stdLimitLarge:(float)stdLimitLarge particleTrendLimit:(float)particleTrendLimit consistencyScoreLimit:(float)consistencyScoreLimit stepsSinceSprinkleLimit:(int32_t)stepsSinceSprinkleLimit __attribute__((swift_name("init(version:dt:trustedLimitSec:clusterSwapCoolDownSec:rescueModeCoolDownSec:stdLimit:stdLimitLarge:particleTrendLimit:consistencyScoreLimit:stepsSinceSprinkleLimit:)"))) __attribute__((objc_designated_initializer));
+- (VpsTrustedPositionParams *)doCopyVersion:(VpsTrustedPositionParamsVersion *)version dt:(float)dt trustedLimitSec:(int32_t)trustedLimitSec clusterSwapCoolDownSec:(int32_t)clusterSwapCoolDownSec rescueModeCoolDownSec:(int32_t)rescueModeCoolDownSec stdLimit:(float)stdLimit stdLimitLarge:(float)stdLimitLarge particleTrendLimit:(float)particleTrendLimit consistencyScoreLimit:(float)consistencyScoreLimit stepsSinceSprinkleLimit:(int32_t)stepsSinceSprinkleLimit __attribute__((swift_name("doCopy(version:dt:trustedLimitSec:clusterSwapCoolDownSec:rescueModeCoolDownSec:stdLimit:stdLimitLarge:particleTrendLimit:consistencyScoreLimit:stepsSinceSprinkleLimit:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSDictionary<NSString *, NSString *> *)map __attribute__((swift_name("map()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) int32_t clusterSwapCoolDown __attribute__((swift_name("clusterSwapCoolDown")));
+@property (readonly) int32_t clusterSwapCoolDownSec __attribute__((swift_name("clusterSwapCoolDownSec")));
+@property (readonly) float consistencyScoreLimit __attribute__((swift_name("consistencyScoreLimit")));
+@property (readonly) float dt __attribute__((swift_name("dt")));
+@property (readonly) float particleTrendLimit __attribute__((swift_name("particleTrendLimit")));
+@property (readonly) int32_t rescueModeCoolDown __attribute__((swift_name("rescueModeCoolDown")));
+@property (readonly) int32_t rescueModeCoolDownSec __attribute__((swift_name("rescueModeCoolDownSec")));
+@property (readonly) float stdLimit __attribute__((swift_name("stdLimit")));
+@property (readonly) float stdLimitLarge __attribute__((swift_name("stdLimitLarge")));
+@property (readonly) int32_t stepsSinceSprinkleLimit __attribute__((swift_name("stepsSinceSprinkleLimit")));
+@property (readonly) int32_t trustedLimit __attribute__((swift_name("trustedLimit")));
+@property (readonly) int32_t trustedLimitSec __attribute__((swift_name("trustedLimitSec")));
+@property (readonly) VpsTrustedPositionParamsVersion *version __attribute__((swift_name("version")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("TrustedPositionParams.Version")))
+@interface VpsTrustedPositionParamsVersion : VpsKotlinEnum<VpsTrustedPositionParamsVersion *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsTrustedPositionParamsVersion *default_ __attribute__((swift_name("default_")));
++ (VpsKotlinArray<VpsTrustedPositionParamsVersion *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsTrustedPositionParamsVersion *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VPSTrustedPositionParams")))
+@interface VpsVPSTrustedPositionParams : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)vPSTrustedPositionParams __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsVPSTrustedPositionParams *shared __attribute__((swift_name("shared")));
+@property (readonly, getter=default) VpsTrustedPositionParams *default_ __attribute__((swift_name("default_")));
+@end
+
 
 /**
  * @note annotations
@@ -5114,6 +5534,48 @@ __attribute__((swift_name("WifiStatusUpdate.Companion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VpsWifiStatusUpdateCompanion *shared __attribute__((swift_name("shared")));
 - (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlinx.serialization.Serializable
+*/
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Zone")))
+@interface VpsZone : VpsBase
+- (instancetype)initWithId:(NSString *)id name:(NSString *)name coordinates:(NSArray<NSArray<NSArray<VpsDouble *> *> *> *)coordinates point:(VpsCoordinateF *)point type:(VpsZoneType *)type __attribute__((swift_name("init(id:name:coordinates:point:type:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VpsZoneCompanion *companion __attribute__((swift_name("companion")));
+- (VpsZone *)doCopyId:(NSString *)id name:(NSString *)name coordinates:(NSArray<NSArray<NSArray<VpsDouble *> *> *> *)coordinates point:(VpsCoordinateF *)point type:(VpsZoneType *)type __attribute__((swift_name("doCopy(id:name:coordinates:point:type:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSArray<NSArray<NSArray<VpsDouble *> *> *> *coordinates __attribute__((swift_name("coordinates")));
+@property (readonly) NSString *id __attribute__((swift_name("id")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) VpsCoordinateF *point __attribute__((swift_name("point")));
+@property (readonly) VpsZoneType *type __attribute__((swift_name("type")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Zone.Companion")))
+@interface VpsZoneCompanion : VpsBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VpsZoneCompanion *shared __attribute__((swift_name("shared")));
+- (id<VpsKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Zone.Type_")))
+@interface VpsZoneType : VpsKotlinEnum<VpsZoneType *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) VpsZoneType *enterExit __attribute__((swift_name("enterExit")));
++ (VpsKotlinArray<VpsZoneType *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<VpsZoneType *> *entries __attribute__((swift_name("entries")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -5451,7 +5913,9 @@ __attribute__((swift_name("FloatExtKt")))
 + (float)convertStartAngleToExpectedRadians:(float)receiver __attribute__((swift_name("convertStartAngleToExpectedRadians(_:)")));
 + (float)degreesToRadians:(float)receiver __attribute__((swift_name("degreesToRadians(_:)")));
 + (float)meterToPixels:(float)receiver pixelsPerMeters:(float)pixelsPerMeters __attribute__((swift_name("meterToPixels(_:pixelsPerMeters:)")));
++ (float)mod:(float)receiver divisor:(float)divisor __attribute__((swift_name("mod(_:divisor:)")));
 + (float)radiansToDegrees:(float)receiver __attribute__((swift_name("radiansToDegrees(_:)")));
++ (float)wrapToRange:(float)receiver min:(float)min max:(float)max __attribute__((swift_name("wrapToRange(_:min:max:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -5465,10 +5929,13 @@ __attribute__((swift_name("ListExtKt")))
 @interface VpsListExtKt : VpsBase
 + (float)alreadySortedListMedian:(NSArray<VpsFloat *> *)receiver __attribute__((swift_name("alreadySortedListMedian(_:)")));
 + (NSArray<NSArray<id> *> *)chunkedNice:(NSArray<id> *)receiver n:(int32_t)n __attribute__((swift_name("chunkedNice(_:n:)")));
++ (int32_t)distinctModeOrMedian:(NSArray<VpsInt *> *)receiver __attribute__((swift_name("distinctModeOrMedian(_:)")));
++ (NSArray<VpsZone *> *)filter:(NSArray<VpsZone *> *)receiver type:(VpsZoneType *)type __attribute__((swift_name("filter(_:type:)")));
 + (VpsAccessPoint * _Nullable)findMatchForBssid:(NSArray<VpsAccessPoint *> *)receiver bssid:(NSString *)bssid __attribute__((swift_name("findMatchForBssid(_:bssid:)")));
 + (float)getTotalDistance:(NSMutableArray<VpsKotlinFloatArray *> *)receiver __attribute__((swift_name("getTotalDistance(_:)")));
 + (VpsFloat * _Nullable)mean:(NSMutableArray<VpsFloat *> *)receiver __attribute__((swift_name("mean(_:)")));
-+ (VpsFloat * _Nullable)median:(NSMutableArray<VpsFloat *> *)receiver __attribute__((swift_name("median(_:)")));
++ (int32_t)median:(NSArray<VpsInt *> *)receiver __attribute__((swift_name("median(_:)")));
++ (VpsFloat * _Nullable)median_:(NSMutableArray<VpsFloat *> *)receiver __attribute__((swift_name("median(__:)")));
 + (void)shuffle:(NSMutableArray<id> *)receiver generator:(id<VpsRandomNumberGenerator> _Nullable)generator __attribute__((swift_name("shuffle(_:generator:)")));
 @end
 
@@ -5514,8 +5981,12 @@ __attribute__((swift_name("PathfinderCoordinateFExtKt")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("WifiMethodsKt")))
 @interface VpsWifiMethodsKt : VpsBase
++ (VpsKotlinTriple<VpsCoordinateF *, VpsFloat *, VpsFloat *> * _Nullable)computeScanScan:(VpsBaseEventWiFiScan *)scan mapData:(VpsFloorLevelHandler *)mapData currentPosition:(VpsCoordinateF *)currentPosition N:(float)N measuredPower:(int32_t)measuredPower bundleByAPandFrequency:(BOOL)bundleByAPandFrequency rssiThreshold:(int32_t)rssiThreshold resolution:(float)resolution __attribute__((swift_name("computeScan(scan:mapData:currentPosition:N:measuredPower:bundleByAPandFrequency:rssiThreshold:resolution:)")));
 + (float)distanceToApSimpleRssi:(int32_t)rssi N:(float)N measuredPower:(int32_t)measuredPower __attribute__((swift_name("distanceToApSimple(rssi:N:measuredPower:)")));
 + (VpsCoordinateF * _Nullable)getScanPosSimpleScan:(VpsBaseEventWiFiScan *)scan N:(float)N measuredPower:(int32_t)measuredPower __attribute__((swift_name("getScanPosSimple(scan:N:measuredPower:)")));
++ (NSArray<VpsFloat *> *)linspaceStart:(float)start end:(float)end points:(int32_t)points __attribute__((swift_name("linspace(start:end:points:)")));
++ (VpsKotlinPair<NSArray<NSArray<VpsFloat *> *> *, NSArray<NSArray<VpsFloat *> *> *> *)meshgridX:(NSArray<VpsFloat *> *)x y:(NSArray<VpsFloat *> *)y __attribute__((swift_name("meshgrid(x:y:)")));
++ (float)weightedAverageValues:(NSArray<VpsFloat *> *)values weights:(NSArray<VpsFloat *> *)weights __attribute__((swift_name("weightedAverage(values:weights:)")));
 + (VpsCoordinateF *)weightedMassCenterCenters:(NSArray<VpsCoordinateF *> *)centers radii:(NSArray<VpsFloat *> *)radii __attribute__((swift_name("weightedMassCenter(centers:radii:)")));
 @end
 
