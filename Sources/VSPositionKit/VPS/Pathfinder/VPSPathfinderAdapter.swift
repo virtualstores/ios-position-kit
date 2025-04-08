@@ -13,6 +13,7 @@ import vps
 
 public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
   public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> = .init(nil)
+  public var goalsUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
   public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
   public var pathUpdatedPublisher: CurrentValueSubject<Path?, Never> = .init(nil)
 
@@ -21,7 +22,7 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
   private let vpsPathfinder: vps.IPathfinder
   let serialDispatch: DispatchQueue = DispatchQueue(label: "se.tt2.pathfinder")
 
-  public init(converter: ICoordinateConverter, height: Double, width: Double, pixelsPerMeter: Float, navGraph: TT2NavGraph, startPosition: CGPoint, stopPosition: CGPoint, pathRefreshDistance: Float = 100.0) {
+  public init(converter: ICoordinateConverter, height: Double, width: Double, pixelsPerMeter: Float, navGraph: TT2NavGraph, startPosition: CGPoint?, stopPosition: CGPoint, pathRefreshDistance: Float = 100.0) {
     self.vpsPathfinder = BasePathfinder(
       heightInPixels: Float(converter.convertFromMetersToPixels(input: height)),
       widthInPixels: Float(converter.convertFromMetersToPixels(input: width)),
@@ -30,7 +31,7 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
       pathRefreshDistance: pathRefreshDistance,
       pathProcess: .masmoothing, 
       windowSize: 3,
-      startPosition: startPosition.asPathfinderCoordinateF,
+      startPosition: startPosition?.asPathfinderCoordinateF,
       stopPosition: stopPosition.asPathfinderCoordinateF
     )
 
@@ -75,6 +76,10 @@ extension VPSPathfinderAdapter: IPathfinderListener {
 
   public func onCurrentGoalUpdated(goal: IPathfinderGoal?) {
     DispatchQueue.main.async { self.currentGoalUpdatedPublisher.send( goal?.asGoal) }
+  }
+
+  public func onGoalsUpdated(goals: [IPathfinderGoal]) {
+    DispatchQueue.main.async { self.goalsUpdatedPublisher.send( goals.map { $0.asGoal }) }
   }
 
   public func onPathUpdated(path: IPathfinderPath) {

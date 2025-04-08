@@ -113,14 +113,13 @@ final class VPSManager: VPSWrapper {
         positionEngineSettings: PositionEngineSettings.ParticleFilter(particleFilterSettings: particleFilterSettings),
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3),
+        magnetometerDriftEstimatorParams: .init(version: .default_, useMagnetometer: false, alpha: 0.999),
         debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil,
         nlModel: nlModel,
         isRotationOutputActive: true
       )
-
-
     }
   }
 
@@ -164,6 +163,14 @@ final class VPSManager: VPSWrapper {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
     }
+  }
+
+  func forceSyncPosition(position: CGPoint, angle: Double) {
+    //let signal = InputSignal.SyncForce(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, position: position.asCoordinateF, angle: angle.asFloat)
+    //recorder.record(inputSignal: signal)
+    //serialDispatch.async {
+    //  self.vps?.onInputSignal(signal: signal)
+    //}
   }
 
   func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
@@ -256,7 +263,11 @@ final class VPSManager: VPSWrapper {
       randomNumberGeneratorSeed: nil,
       saveOutputSignals: false,
       saveWiFiStatusUpdate: false,
-      saveWiFiScans: false
+      saveWiFiScans: false,
+      scoringParams: getScoringParams(settings: settings, defaultParams: getDefaultScoringParams(settings: settings)),
+      clusterSwapOutputActivated: false,
+      trustedPositionParams: getTrustedPositionParams(settings: settings, defaultParams: getDefaultTrustedPositionParams(settings: settings)),
+      positionStdSettings: getPositionStdSettings(settings: settings)
     )
   }
 
@@ -322,7 +333,7 @@ final class VPSManager: VPSWrapper {
       useRayTraceSensorModel: settings?.useRayTraceSensorModel ?? defaultParams.useRayTraceSensorModel,
       nlThreshold: settings?.nlThreshold ?? defaultParams.nlThreshold,
       rescueOnNL: settings?.rescueOnNL ?? defaultParams.rescueOnNL,
-      idleWiFiDistanceSyncCriteria: settings?.idleWiFiDistanceSyncCriteria ?? defaultParams.idleWiFiDistanceSyncCriteria,
+      wiFiDistanceSyncCriteria: settings?.wiFiDistanceSyncCriteria ?? defaultParams.wiFiDistanceSyncCriteria,
       idleWiFiSecondsCriteria: settings?.idleWiFiSecondsCriteria ?? defaultParams.idleWiFiSecondsCriteria,
       wiFiPathLossCoefficient: settings?.wiFiPathLossCoefficient ?? defaultParams.wiFiPathLossCoefficient,
       wiFiMeasuredPower: settings?.wiFiMeasuredPower ?? defaultParams.wiFiMeasuredPower,
@@ -330,8 +341,109 @@ final class VPSManager: VPSWrapper {
       swapSprinkleEndCount: settings?.swapSprinkleEndCount ?? defaultParams.swapSprinkleEndCount,
       swapSprinkleRatio: settings?.swapSprinkleRatio ?? defaultParams.swapSprinkleRatio,
       mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize,
-      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold
+      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold,
+      stdQuantile: settings?.stdQuantile ?? defaultParams.stdQuantile,
+      uncertainThreshold: settings?.uncertainThreshold ?? defaultParams.uncertainThreshold,
+      mlStepHistorySizeForOOBComeback: settings?.mlStepHistorySizeForOOBComeback ?? defaultParams.mlStepHistorySizeForOOBComeback,
+      wiFiStatusTimeLimit: settings?.wiFiStatusTimeLimit ?? defaultParams.wiFiStatusTimeLimit,
+      allowOutOfBounds: settings?.allowOutOfBounds ?? defaultParams.allowOutOfBounds,
+      maxAllowedStd: settings?.maxAllowedStd ?? defaultParams.maxAllowedStd,
+      rssiScanThreshold: defaultParams.rssiScanThreshold,
+      bundleAPsInScan: defaultParams.bundleAPsInScan,
+      scanGridResolution: defaultParams.scanGridResolution,
+      scanErrorRatioThreshold: defaultParams.scanErrorRatioThreshold,
+      wiFiSprinkleDirectionStd: defaultParams.wiFiSprinkleDirectionStd,
+      scanErrorSprinkleLocationStdCoefficient: defaultParams.scanErrorSprinkleLocationStdCoefficient,
+      rescueKDEAngRatio: defaultParams.rescueKDEAngRatio,
+      rescueStartAngRatio: defaultParams.rescueStartAngRatio,
+      rescueCompassAngRatio: defaultParams.rescueCompassAngRatio,
+      wifiSprinkleDistanceCriteria: defaultParams.wifiSprinkleDistanceCriteria,
+      floorSwapPositionStd: defaultParams.floorSwapPositionStd,
+      floorSwapDirectionStd: defaultParams.floorSwapDirectionStd,
+      floorSwapSprinklePositionStd: defaultParams.floorSwapSprinklePositionStd,
+      floorSwapSprinkleDirectionStd: defaultParams.floorSwapSprinkleDirectionStd,
+      idleWiFiSprinkle: defaultParams.idleWiFiSprinkle
     )
+  }
+
+  static func getDefaultScoringParams(settings: PositionServiceSettings?) -> ScoringParams {
+    guard
+      let option = settings?.stringValues?[.SCORING_PARAMS_VERSION],
+      let defaultEnum = VPSScoringParamsVersionEnum(rawValue: option)
+    else { return getDefaultParticleFilterSettings(settings: settings).scoringParams }
+    switch defaultEnum {
+    case .´default´: return VPSScoringParams.shared.default_
+    }
+  }
+
+  static func getScoringParams(settings: PositionServiceSettings?, defaultParams: ScoringParams) -> ScoringParams {
+    ScoringParams(
+      version: defaultParams.version,
+      dt: settings?.scoring_dt ?? defaultParams.dt,
+      scoringIntervalSec: settings?.scoring_scoringIntervalSec ?? defaultParams.scoringIntervalSec,
+      clusterSwapThreshold: settings?.scoring_clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
+      beforeLimitRmSec: settings?.scoring_beforeLimitRmSec ?? defaultParams.beforeLimitRmSec,
+      afterLimitRmSec: settings?.scoring_afterLimitRmSec ?? defaultParams.afterLimitRmSec,
+      maxGapRmSec: settings?.scoring_maxGapRmSec ?? defaultParams.maxGapRmSec,
+      beforeLimitCsSec: settings?.scoring_beforeLimitCsSec ?? defaultParams.beforeLimitCsSec,
+      afterLimitCsSec: settings?.scoring_afterLimitCsSec ?? defaultParams.afterLimitCsSec,
+      maxGapCsSec: settings?.scoring_maxGapCsSec ?? defaultParams.maxGapCsSec,
+      beforeLimitFsSec: settings?.scoring_beforeLimitFsSec ?? defaultParams.beforeLimitFsSec,
+      afterLimitFsSec: settings?.scoring_afterLimitFsSec ?? defaultParams.afterLimitFsSec,
+      maxGapFsSec: settings?.scoring_maxGapFsSec ?? defaultParams.maxGapFsSec
+    )
+  }
+
+  static func getDefaultTrustedPositionParams(settings: PositionServiceSettings?) -> TrustedPositionParams {
+    guard
+      let option = settings?.stringValues?[.TRUSTED_POSITION_PARAMS_VERSION],
+      let defaultEnum = VPSTrustedPositionParamsVersionEnum(rawValue: option)
+    else { return getDefaultParticleFilterSettings(settings: settings).trustedPositionParams }
+    switch defaultEnum {
+    case .´default´: return VPSTrustedPositionParams.shared.default_
+    }
+  }
+
+  static func getTrustedPositionParams(settings: PositionServiceSettings?, defaultParams: TrustedPositionParams) -> TrustedPositionParams {
+    .init(
+      version: defaultParams.version,
+      dt: settings?.trustedPosition_dt ?? defaultParams.dt,
+      trustedLimitSec: settings?.trustedPosition_trustedLimitSec ?? defaultParams.trustedLimitSec,
+      clusterSwapCoolDownSec: settings?.trustedPosition_clusterSwapCoolDownSec ?? defaultParams.clusterSwapCoolDownSec,
+      rescueModeCoolDownSec: settings?.trustedPosition_rescueModeCoolDownSec ?? defaultParams.rescueModeCoolDownSec,
+      stdLimit: settings?.trustedPosition_stdLimit ?? defaultParams.stdLimit,
+      stdLimitLarge: settings?.trustedPosition_stdLimitLarge ?? defaultParams.stdLimitLarge,
+      particleTrendLimit: settings?.trustedPosition_particleTrendLimit ?? defaultParams.particleTrendLimit,
+      consistencyScoreLimit: settings?.trustedPosition_consistencyScoreLimit ?? defaultParams.consistencyScoreLimit,
+      stepsSinceSprinkleLimit: defaultParams.stepsSinceSprinkleLimit
+    )
+  }
+
+  static func getPositionStdSettings(settings: PositionServiceSettings?) -> PositionStdSettings {
+    // TODO: Get from position service settings
+    .init(
+      strategy: PositionStdSettingsStrategyEnum(rawValue: settings?.positionStdSettings_strategy ?? "")?.toKotlin() ?? .reportActual,
+      stdDefault: settings?.positionStdSettings_stdDefault ?? 2.0,
+      isCapped: settings?.positionStdSettings_isCapped ?? false,
+      minStd: settings?.positionStdSettings_minStd?.asKotlinFloat,
+      maxStd: settings?.positionStdSettings_maxStd?.asKotlinFloat
+    )
+  }
+
+  enum PositionStdSettingsStrategyEnum: String {
+    case reportTescoSpecial
+    case reportActual
+    case reportActualOnlyWhenUntrusted
+    case reportOnlyDefault
+
+    func toKotlin() -> PositionStdSettings.Strategy {
+      switch self {
+      case .reportTescoSpecial: return .reportTescoSpecial
+      case .reportActual: return .reportActual
+      case .reportActualOnlyWhenUntrusted: return .reportActualOnlyWhenUntrusted
+      case .reportOnlyDefault: return .reportOnlyDefault
+      }
+    }
   }
 
   enum VPSParticleFilterDefaultEnum: String {
@@ -354,38 +466,52 @@ final class VPSManager: VPSWrapper {
     case v1 = "V1"
     case v2 = "V2"
   }
+
+  enum VPSScoringParamsVersionEnum: String {
+    case ´default´ = "DEFAULT"
+  }
+
+  enum VPSTrustedPositionParamsVersionEnum: String {
+    case ´default´ = "DEFAULT"
+  }
 }
 
 extension VPSManager: VPSOutputHandler {
   func onOutputSignal(outputSignal: OutputSignal) {
     switch outputSignal {
-    case let signal as OutputSignal.Position:
+    case let output as OutputSignal.Position:
       let position = VPSOutputSignal.Position(
-        point: signal.position.asCGPoint,
-        std: signal.std.asDouble,
-        status: signal.status.asStatus,
+        point: output.position.asCGPoint,
+        std: output.std.asDouble,
+        status: output.status.asStatus,
+        activityState: output.activityState.asActivityState,
+        trustedPosition: output.trustedPosition,
         timestamp: Date()
       )
       outputSignalPublisher.send(.position(position: position))
-    case let signal as OutputSignal.UXPosition:
+    case let output as OutputSignal.UXPosition:
       let position = VPSOutputSignal.Position(
-        point: signal.position.asCGPoint,
-        std: signal.std.asDouble,
-        status: signal.status.asStatus,
+        point: output.position.asCGPoint,
+        std: output.std.asDouble,
+        status: output.status.asStatus,
+        activityState: .active,
+        trustedPosition: true,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ux(position: position))
-    case let signal as OutputSignal.MLOutputPosition:
+    case let output as OutputSignal.MLOutputPosition:
       let position = VPSOutputSignal.Position(
-        point: signal.position.asCGPoint,
-        std: signal.std.asDouble,
+        point: output.position.asCGPoint,
+        std: output.std.asDouble,
         status: .none,
+        activityState: .active,
+        trustedPosition: true,
         timestamp: Date()
       )
       outputSignalPublisher.send(.ml(position: position))
-    case let signal as OutputSignal.Rotation:
+    case let output as OutputSignal.Rotation:
       //let rawDirection = signal.heading.asDouble
-      let resultAngle = (signal.heading + (particleFilterOffsetAngle ?? 0.0)).asDouble
+      let resultAngle = (output.heading + (particleFilterOffsetAngle ?? 0.0)).asDouble
       let heading = DoubleExtKt.radiansToDegrees(resultAngle)
       //print("Rotation", heading)
       outputSignalPublisher.send(.rotation(heading: heading))
@@ -404,6 +530,9 @@ extension VPSManager: VPSOutputHandler {
       outputSignalPublisher.send(.particles(positions: positions))
     case let output as OutputSignal.FloorChangeSignal: break
       //outputSignalPublisher.send(.floorChange(difference: Int(output.floorDifference), timestamp: Date()))
+    case let output as OutputSignal.ClusterSwapSignal: break
+    case let output as OutputSignal.ConsistencyScoreSignal:
+      outputSignalPublisher.send(.consistencyScoreSignal(Int((output.score * 1000).rounded(.toNearestOrAwayFromZero))))
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
@@ -420,7 +549,18 @@ extension OutputSignal.PositionStatus {
     switch self {
     case .confident: return .confident
     case .uncertain: return .uncertain
+    case .outOfBounds: return .outOfBounds
     default: return .none
+    }
+  }
+}
+
+extension OutputSignal.PositionActivityState {
+  var asActivityState: VPSOutputSignal.Position.ActivivtyState {
+    switch self {
+    case .active: return .active
+    case .idle: return .idle
+    default: return .active
     }
   }
 }
@@ -517,7 +657,7 @@ private extension PositionServiceSettings {
   var useRayTraceSensorModel: Bool? { boolValues?[.PARTICLE_USE_RAY_TRACE_SENSOR_MODEL] }
   var nlThreshold: Float? { floatValues?[.PARTICLE_FILTER_NL_THRESHOLD] }
   var rescueOnNL: Bool? { boolValues?[.PARTICLE_FILTER_RESCUE_ON_NL] }
-  var idleWiFiDistanceSyncCriteria: Float? { floatValues?[.PARTICLE_FILTER_IDLE_WIFI_DISTANCE_SYNC_CRITERIA] }
+  var wiFiDistanceSyncCriteria: Float? { floatValues?[.PARTICLE_FILTER_WIFI_DISTANCE_SYNC_CRITERIA] }
   var idleWiFiSecondsCriteria: Float? { floatValues?[.PARTICLE_FILTER_IDLE_WIFI_SECONDS_SYNC_CRITERIA] }
   var wiFiPathLossCoefficient: Float? { floatValues?[.PARTICLE_FILTER_WIFI_PATH_LOSS_COEFFICient] }
   var wiFiMeasuredPower: Int32? { intValues?[.PARTICLE_FILTER_WIFI_MESURED_POWER]?.asInt32 }
@@ -526,6 +666,43 @@ private extension PositionServiceSettings {
   var swapSprinkleRatio: Float? { floatValues?[.PARTICLE_FILTER_SWAP_SPRINKLE_RATIO] }
   var mlStepHistorySize: Int32? { intValues?[.PARTICLE_FILTER_ML_STEP_HISTORY_SIZE]?.asInt32 }
   var idlePositionTimeThreshold: Int64? { intValues?[.PARTICLE_FILTER_IDLE_POSITION_TIME_THRESHOLD]?.asLong }
+  var stdQuantile: Float? { floatValues?[.PARTICLE_FILTER_STD_QUANTILE] }
+  var uncertainThreshold: Float? { floatValues?[.PARTICLE_FILTER_UNCERTAIN_THRESHOLD] }
+  var mlStepHistorySizeForOOBComeback: Int32? { intValues?[.PARTICLE_FILTER_ML_STEP_HISTORY_SIZE_FOR_OOBCOMEBACK]?.asInt32 }
+  var wiFiStatusTimeLimit: Float? { floatValues?[.PARTICLE_FILTER_WIFI_STATUS_TIME_LIMIT] }
+  var allowOutOfBounds: Bool? { boolValues?[.PARTICLE_FILTER_ALLOW_OUT_OF_BOUNDS] }
+  var maxAllowedStd: Float? { floatValues?[.PARTICLE_FILTER_MAX_ALLOWED_STD] }
+
+  // SCORING PARAMS
+  var scoring_dt: Float? { floatValues?[.FOR_IOS + .SCORING_PARAMS_DT] ?? floatValues?[.SCORING_PARAMS_DT] }
+  var scoring_scoringIntervalSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_SCORING_INTERVAL_SEC] ?? intValues?[.SCORING_PARAMS_SCORING_INTERVAL_SEC])?.asInt32 }
+  var scoring_clusterSwapThreshold: Float? { floatValues?[.FOR_IOS + .SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD] ?? floatValues?[.SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD] }
+  var scoring_beforeLimitRmSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_BEFORE_LIMIT_RM_SEC] ?? intValues?[.SCORING_PARAMS_BEFORE_LIMIT_RM_SEC])?.asInt32 }
+  var scoring_afterLimitRmSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_AFTER_LIMIT_RM_SEC] ?? intValues?[.SCORING_PARAMS_AFTER_LIMIT_RM_SEC])?.asInt32 }
+  var scoring_maxGapRmSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_MAX_GAP_RM_SEC] ?? intValues?[.SCORING_PARAMS_MAX_GAP_RM_SEC])?.asInt32 }
+  var scoring_beforeLimitCsSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_BEFORE_LIMIT_CS_SEC] ?? intValues?[.SCORING_PARAMS_BEFORE_LIMIT_CS_SEC])?.asInt32 }
+  var scoring_afterLimitCsSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_AFTER_LIMIT_CS_SEC] ?? intValues?[.SCORING_PARAMS_AFTER_LIMIT_CS_SEC])?.asInt32 }
+  var scoring_maxGapCsSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_MAX_GAP_CS_SEC] ?? intValues?[.SCORING_PARAMS_MAX_GAP_CS_SEC])?.asInt32 }
+  var scoring_beforeLimitFsSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_BEFORE_LIMIT_FS_SEC] ?? intValues?[.SCORING_PARAMS_BEFORE_LIMIT_FS_SEC])?.asInt32 }
+  var scoring_afterLimitFsSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_AFTER_LIMIT_FS_SEC] ?? intValues?[.SCORING_PARAMS_AFTER_LIMIT_FS_SEC])?.asInt32 }
+  var scoring_maxGapFsSec: Int32? { (intValues?[.FOR_IOS + .SCORING_PARAMS_MAX_GAP_FS_SEC] ?? intValues?[.SCORING_PARAMS_MAX_GAP_FS_SEC])?.asInt32 }
+
+  // TRUSTED POSITION PARAMS
+  var trustedPosition_dt: Float? { floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_DT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_DT] }
+  var trustedPosition_trustedLimitSec: Int32? { (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC] ?? intValues?[.TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC])?.asInt32 }
+  var trustedPosition_clusterSwapCoolDownSec: Int32? { (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC] ?? intValues?[.TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC])?.asInt32 }
+  var trustedPosition_rescueModeCoolDownSec: Int32? { (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC] ?? intValues?[.TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC])?.asInt32 }
+  var trustedPosition_stdLimit: Float? { floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_STD_LIMIT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT] }
+  var trustedPosition_stdLimitLarge: Float? { floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE] ?? floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE] }
+  var trustedPosition_particleTrendLimit: Float? { floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT] }
+  var trustedPosition_consistencyScoreLimit: Float? { floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT] }
+
+  // POSITION STD SETTINGS
+  var positionStdSettings_strategy: String? { stringValues?[.FOR_IOS + .POSTION_STD_SETTINGS_STRATEGY] ?? stringValues?[.POSTION_STD_SETTINGS_STRATEGY] }
+  var positionStdSettings_stdDefault: Float? { floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_STD_DEFAULT] ?? floatValues?[.POSTION_STD_SETTINGS_STD_DEFAULT] }
+  var positionStdSettings_isCapped: Bool? { boolValues?[.FOR_IOS + .POSTION_STD_SETTINGS_IS_CAPPED] ?? boolValues?[.POSTION_STD_SETTINGS_IS_CAPPED] }
+  var positionStdSettings_minStd: Float? { floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_MIN_STD] ?? floatValues?[.POSTION_STD_SETTINGS_MIN_STD] }
+  var positionStdSettings_maxStd: Float? { floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_MAX_STD] ?? floatValues?[.POSTION_STD_SETTINGS_MAX_STD] }
 
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
@@ -542,6 +719,7 @@ private extension PositionServiceSettings {
 }
 
 private extension String {
+  static let FOR_IOS: String = "ios_"
   /**
    * SDK Settings
    */
@@ -612,7 +790,7 @@ private extension String {
   static let PARTICLE_FILTER_MIN_NUM_PARTICLES: String = "ios_particleFilter_minNumParticles"
   static let PARTICLE_FILTER_NL_THRESHOLD: String = "ios_particleFilter_nlThreshold"
   static let PARTICLE_FILTER_RESCUE_ON_NL: String = "ios_particleFilter_rescueOnNL"
-  static let PARTICLE_FILTER_IDLE_WIFI_DISTANCE_SYNC_CRITERIA: String = "ios_particleFilter_idleWiFiDistanceSyncCriteria"
+  static let PARTICLE_FILTER_WIFI_DISTANCE_SYNC_CRITERIA: String = "ios_particleFilter_WiFiDistanceSyncCriteria"
   static let PARTICLE_FILTER_IDLE_WIFI_SECONDS_SYNC_CRITERIA: String = "ios_particleFilter_idleWiFiSecondsCriteria"
   static let PARTICLE_FILTER_WIFI_PATH_LOSS_COEFFICient: String = "ios_particleFilter_wiFiPathLossCoefficient"
   static let PARTICLE_FILTER_WIFI_MESURED_POWER: String = "ios_particleFilter_wiFiMeasuredPower"
@@ -621,7 +799,43 @@ private extension String {
   static let PARTICLE_FILTER_SWAP_SPRINKLE_RATIO: String = "ios_particleFilter_swapSprinkleRatio"
   static let PARTICLE_FILTER_ML_STEP_HISTORY_SIZE: String = "ios_particleFilter_mlStepHistorySize"
   static let PARTICLE_FILTER_IDLE_POSITION_TIME_THRESHOLD: String = "ios_particleFilter_idlePositionTimeThreshold"
+  static let PARTICLE_FILTER_STD_QUANTILE: String = "ios_particlefilter_stdQuantile"
+  static let PARTICLE_FILTER_UNCERTAIN_THRESHOLD: String = "ios_particlefilter_uncertainThreshold"
+  static let PARTICLE_FILTER_ML_STEP_HISTORY_SIZE_FOR_OOBCOMEBACK: String = "ios_particlefilter_mlStepHistorySizeForOOBComeback"
+  static let PARTICLE_FILTER_WIFI_STATUS_TIME_LIMIT: String = "ios_particlefilter_wiFiStatusTimeLimit"
+  static let PARTICLE_FILTER_ALLOW_OUT_OF_BOUNDS: String = "ios_particlefilter_allowOutOfBounds"
+  static let PARTICLE_FILTER_MAX_ALLOWED_STD: String = "ios_particlefilter_maxAllowedStd"
   static let PARTICLE_USE_RAY_TRACE_SENSOR_MODEL: String = "ios_particleFilter_useRayTraceSensorModel"
+
+  static let SCORING_PARAMS_VERSION: String = "scoringParams_version"
+  static let SCORING_PARAMS_DT: String = "scoringParams_dt"
+  static let SCORING_PARAMS_SCORING_INTERVAL_SEC: String = "scoringParams_scoringIntervalSec"
+  static let SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD: String = "scoringParams_clusterSwapThreshold"
+  static let SCORING_PARAMS_BEFORE_LIMIT_RM_SEC: String = "scoringParams_beforeLimitRmSec"
+  static let SCORING_PARAMS_AFTER_LIMIT_RM_SEC: String = "scoringParams_afterLimitRmSec"
+  static let SCORING_PARAMS_MAX_GAP_RM_SEC: String = "scoringParams_maxGapRmSec"
+  static let SCORING_PARAMS_BEFORE_LIMIT_CS_SEC: String = "scoringParams_beforeLimitCsSec"
+  static let SCORING_PARAMS_AFTER_LIMIT_CS_SEC: String = "scoringParams_afterLimitCsSec"
+  static let SCORING_PARAMS_MAX_GAP_CS_SEC: String = "scoringParams_maxGapCsSec"
+  static let SCORING_PARAMS_BEFORE_LIMIT_FS_SEC: String = "scoringParams_beforeLimitFsSec"
+  static let SCORING_PARAMS_AFTER_LIMIT_FS_SEC: String = "scoringParams_afterLimitFsSec"
+  static let SCORING_PARAMS_MAX_GAP_FS_SEC: String = "scoringParams_maxGapFsSec"
+
+  static let TRUSTED_POSITION_PARAMS_VERSION: String = "trustedPositionParams_version"
+  static let TRUSTED_POSITION_PARAMS_DT: String = "trustedPositionParams_dt"
+  static let TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC: String = "trustedPositionParams_trustedLimitSec"
+  static let TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC: String = "trustedPositionParams_clusterSwapCoolDownSec"
+  static let TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC: String = "trustedPositionParams_rescueModeCoolDownSec"
+  static let TRUSTED_POSITION_PARAMS_STD_LIMIT: String = "trustedPositionParams_stdLimit"
+  static let TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE: String = "trustedPositionParams_stdLimitLarge"
+  static let TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT: String = "trustedPositionParams_particleTrendLimit"
+  static let TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT: String = "trustedPositionParams_consistencyScoreLimit"
+
+  static let POSTION_STD_SETTINGS_STRATEGY: String = "positionStdSettings_strategy"
+  static let POSTION_STD_SETTINGS_STD_DEFAULT: String = "positionStdSettings_stdDefault"
+  static let POSTION_STD_SETTINGS_IS_CAPPED: String = "positionStdSettings_isCapped"
+  static let POSTION_STD_SETTINGS_MIN_STD: String = "positionStdSettings_minStd"
+  static let POSTION_STD_SETTINGS_MAX_STD: String = "positionStdSettings_maxStd"
 }
 
 extension vps.MLProcessedPath {

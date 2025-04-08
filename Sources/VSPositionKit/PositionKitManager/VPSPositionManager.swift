@@ -87,6 +87,10 @@ extension VPSPositionManager: IPositionKit {
     vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
   }
 
+  public func forceSyncPosition(position: CGPoint, angle: Double) {
+    vps.forceSyncPosition(position: position, angle: angle)
+  }
+
   public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
     vps.syncAngleCorrection(angle: angle, positions: positions)
   }

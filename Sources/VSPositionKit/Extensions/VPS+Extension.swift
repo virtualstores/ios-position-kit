@@ -71,6 +71,14 @@ extension IPathfinderPath {
   }
 }
 
+extension Double {
+  var asKotlinFloat: KotlinFloat { .init(float: self.asFloat) }
+}
+
+extension Float {
+  var asKotlinFloat: KotlinFloat { .init(float: self) }
+}
+
 extension KotlinFloat {
   var asDouble: Double { Double(truncating: self) }
   var asFloat: Float { Float(truncating: self) }
