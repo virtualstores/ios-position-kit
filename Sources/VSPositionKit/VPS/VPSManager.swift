@@ -5,14 +5,15 @@
 // Created by Hripsime on 2022-01-31.
 // Copyright Virtual Stores - 2021
 
-import Foundation
-import VSFoundation
-import CoreGraphics
 import Combine
-import vps
-import VSSensorFusion
-import UIKit
+import CoreGraphics
+import CoreLocation
+import Foundation
 import os.log
+import UIKit
+import VSFoundation
+import VSSensorFusion
+import vps
 
 public let vpsVersion = VPSConfig.shared.VPS_VERSION
 public let velocityModelInterfaceVersion = VPSConfig.shared.VELOCITY_MODEL_INTERFACE_VERSION
@@ -36,6 +37,7 @@ final class VPSManager: VPSWrapper {
   private let modelToEventParameters: ModelToEventParameters
   private let particleFilterSettings: ParticleFilterSettings
   private let positionServiceSettings: PositionServiceSettings?
+  private let engine: PositionEngineSettings
   private var vps: VPS?
   private lazy var nlModel: NLModel? = {
     guard 
@@ -51,7 +53,7 @@ final class VPSManager: VPSWrapper {
   private var cancellable = Set<AnyCancellable>()
   private var particleFilterOffsetAngle: Float?
 
-  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager) {
+  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager, engine: TT2Settings.TT2Engine) {
     self.automaticSensorRecording = automaticSensorRecording
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
@@ -62,6 +64,16 @@ final class VPSManager: VPSWrapper {
     )
     self.particleFilterSettings = Self.getParticleFilterSettings(settings: positionServiceSettings)
     self.positionServiceSettings = positionServiceSettings
+    switch engine {
+    case .gpsFusion:
+      self.engine = .GPSFusion(mlAdjustmentActivated: true, useNoMapFilter: false)
+    case .indoor:
+      self.engine = .ParticleFilter(particleFilterSettings: particleFilterSettings)
+    case .noMap:
+      self.engine = .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: true)
+    case .openTerrain:
+      self.engine = .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: false)
+    }
     self.bindPublishers()
     //Log.shared.outputHandler = self
   }
@@ -87,6 +99,75 @@ final class VPSManager: VPSWrapper {
       .compactMap { $0 }
       .sink { [weak self] in self?.recordingPublisher.send($0) }
       .store(in: &cancellable)
+
+    BackgroundAccessManager.locationPublisher
+      .compactMap { $0 }
+      .sink { (result) in
+        switch result {
+        case .finished: break
+        case .failure(let error): break
+        }
+      } receiveValue: { [weak self] (location) in
+        guard let self = self else { return }
+        if vpsRunning {
+          let signal = InputSignal.LngLat(
+            nanoTimestamp: .nanoTime,
+            systemTimestamp: .currentTimeMillis,
+            location: location.asLocation
+          )
+          recorder.record(inputSignal: signal)
+          serialDispatch.async {
+            self.vps?.onInputSignal(signal: signal)
+          }
+        } else {
+          outputSignalPublisher.send(.gps(.init(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude,
+            accuracy: location.horizontalAccuracy,
+            bearing: location.course,
+            altitude: location.altitude
+          )))
+        }
+      }.store(in: &cancellable)
+
+    BackgroundAccessManager.locationHeadingPublisher
+      .compactMap { $0 }
+      .sink { (result) in
+        switch result {
+        case .finished: break
+        case .failure(let error): break
+        }
+      } receiveValue: { [weak self] (heading) in
+        guard let self = self else { return }
+        //print("HEADING", 450 - heading.headingDirection)
+        //print("START")
+        //print("MagneticHeading", heading.magneticHeading)
+        //print("TrueHeading", heading.trueHeading)
+        //print("HeadingAccuracy", heading.headingAccuracy)
+        //print("X", heading.x)
+        //print("Y", heading.y)
+        //print("Z", heading.z)
+        //print("Timestamp", heading.timestamp.currentTimeMillis)
+        //print("END")
+        if vpsRunning {
+          let signal = InputSignal.CompassHeading(
+            nanoTimestamp: .nanoTime,
+            systemTimestamp: .currentTimeMillis,
+            magneticHeading: heading.magneticHeading.asFloat,
+            trueHeading: heading.trueHeading.asFloat,
+            headingAccuracy: heading.headingAccuracy.asFloat,
+            x: heading.x.asFloat,
+            y: heading.y.asFloat,
+            z: heading.z.asFloat
+          )
+          recorder.record(inputSignal: signal)
+          serialDispatch.async {
+            self.vps?.onInputSignal(signal: signal)
+          }
+        } else {
+          outputSignalPublisher.send(.rotation(heading: 450 - heading.headingDirection))
+        }
+      }.store(in: &cancellable)
   }
 
   var sessionId: String?
@@ -110,10 +191,10 @@ final class VPSManager: VPSWrapper {
         featureToTensorValueParams: FeatureToTensorValueParams(packageFrequency: 30),
         interpolationParams: IosInterpolationModuleParams.shared.default_,
         modelToEventParameters: modelToEventParameters,
-        positionEngineSettings: PositionEngineSettings.ParticleFilter(particleFilterSettings: particleFilterSettings),
+        positionEngineSettings: engine,
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3),
-        magnetometerDriftEstimatorParams: .init(version: .default_, useMagnetometer: false, alpha: 0.999),
+        magnetometerDriftEstimatorParams: VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams,
         debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil,
@@ -136,6 +217,7 @@ final class VPSManager: VPSWrapper {
       self.vps?.onInputSignal(signal: signal)
     }
     recorder.stopRecording()
+    //vps = nil
     vpsRunning = false
     particleFilterOffsetAngle = nil
   }
@@ -161,6 +243,39 @@ final class VPSManager: VPSWrapper {
     recorder.record(inputSignal: signal)
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
+      self.vps?.onInputSignal(signal: signal)
+    }
+  }
+
+  func syncPosition(location: CLLocation) {
+    let signal = InputSignal.SyncLngLat(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
+    recorder.record(inputSignal: signal)
+    serialDispatch.async {
+      //pthread_setname_np("VPSManager")
+      self.vps?.onInputSignal(signal: signal)
+    }
+  }
+
+  func syncGNSS(isStartSequence: Bool) {
+    let signal = InputSignal.SyncGNSSSync(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, isStartSequence: isStartSequence)
+    recorder.record(inputSignal: signal)
+    serialDispatch.async {
+      self.vps?.onInputSignal(signal: signal)
+    }
+  }
+
+  func syncManual(location: CLLocation?, isStartSequence: Bool) {
+    let signal = InputSignal.SyncManualSync(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location?.asLocation, isStartSequence: isStartSequence)
+    recorder.record(inputSignal: signal)
+    serialDispatch.async {
+      self.vps?.onInputSignal(signal: signal)
+    }
+  }
+
+  func startLngLatFixedNorth(location: CLLocation) {
+    let signal = InputSignal.StartLngLatFixedNorth(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
+    recorder.record(inputSignal: signal)
+    serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
     }
   }
@@ -489,6 +604,13 @@ extension VPSManager: VPSOutputHandler {
         timestamp: Date()
       )
       outputSignalPublisher.send(.position(position: position))
+    case let output as OutputSignal.LngLatLocation:
+      outputSignalPublisher.send(
+        .latLng(.init(
+          mlLocation: output.mlLocation.asLocation,
+          gpsLocation: output.gpsLocation.asLocation,
+          reliableSource: output.reliableSource.asSource
+        )))
     case let output as OutputSignal.UXPosition:
       let position = VPSOutputSignal.Position(
         point: output.position.asCGPoint,
@@ -571,6 +693,54 @@ extension OutputSignal.UXPositionStatus {
     case .confident: return .confident
     case .uncertain: return .uncertain
     default: return .none
+    }
+  }
+}
+
+private extension CLLocation {
+  var asLocation: Location {
+    var ca: KotlinDouble?
+    if #available(iOS 13.4, *) {
+      ca = .init(double: courseAccuracy)
+    }
+    var ea: KotlinDouble?
+    if #available(iOS 15, *) {
+      ea = .init(double: ellipsoidalAltitude)
+    }
+    return .init(
+      longitude: coordinate.longitude,
+      latitude: coordinate.latitude,
+      accuracy: .init(double: horizontalAccuracy),
+      bearing: .init(double: course),
+      bearingAccuracy: ca,
+      altitude: .init(double: altitude),
+      verticalAccuracy: .init(double: verticalAccuracy),
+      speed: .init(double: speed),
+      speedAccuracy: .init(double: speedAccuracy),
+      ellipsoidalAltitude: ea
+    )
+  }
+}
+
+private extension Location {
+  var asLocation: VPSOutputSignal.LatLngPosition.Location {
+    .init(
+      latitude: latitude,
+      longitude: longitude,
+      accuracy: accuracy?.doubleValue,
+      bearing: bearing?.doubleValue,
+      altitude: altitude?.doubleValue
+    )
+  }
+}
+
+private extension OutputSignal.LngLatLocationSource {
+  var asSource: VPSOutputSignal.LatLngPosition.Source {
+    switch self {
+    case .gps: return .gps
+    case .undefined: return .undefined
+    case .vpsMl: return .vpsML
+    default: return .undefined
     }
   }
 }

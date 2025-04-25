@@ -35,12 +35,20 @@ public protocol IPositionKit {
     func prepareAngle()
 
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine)
 
     /// Start navigation setup methode
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
+
+    func syncPosition(location: CLLocation)
+
+    func syncGNSS(isStartSequence: Bool)
+
+    func syncManual(location: CLLocation?, isStartSequence: Bool)
+
+    func startLngLatFixedNorth(location: CLLocation)
 
     //func forceSyncPosition(position: CGPoint, angle: Double)
 

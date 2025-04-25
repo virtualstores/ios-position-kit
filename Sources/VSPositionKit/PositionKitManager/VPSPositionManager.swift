@@ -55,7 +55,7 @@ public final class VPSPositionManager {
 }
 
 extension VPSPositionManager: IPositionKit {
-  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
+  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
       floorHeightDiffInMeters: floorheight,
@@ -64,8 +64,13 @@ extension VPSPositionManager: IPositionKit {
       mapData: mapData,
       positionServiceSettings: positionServiceSettings,
       converter: converter,
-      modelManager: modelManger
+      modelManager: modelManger,
+      engine: engine
     )
+
+    //DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    //  self.backgroundAccess.start()
+    //}
 
     bindPublishers()
   }
@@ -85,6 +90,22 @@ extension VPSPositionManager: IPositionKit {
 
   public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
+  }
+
+  public func syncPosition(location: CLLocation) {
+    vps.syncPosition(location: location)
+  }
+
+  public func syncGNSS(isStartSequence: Bool) {
+    vps.syncGNSS(isStartSequence: isStartSequence)
+  }
+
+  public func syncManual(location: CLLocation?, isStartSequence: Bool) {
+    vps.syncManual(location: location, isStartSequence: isStartSequence)
+  }
+
+  public func startLngLatFixedNorth(location: CLLocation) {
+    vps.startLngLatFixedNorth(location: location)
   }
 
   public func forceSyncPosition(position: CGPoint, angle: Double) {
@@ -125,5 +146,13 @@ extension VPSPositionManager: IPositionKit {
 
   public func set(sessionId: String?) {
     vps.set(sessionId: sessionId)
+  }
+
+  public func startGPS() {
+    backgroundAccess.start()
+  }
+
+  public func stopGPS() {
+    backgroundAccess.stop()
   }
 }

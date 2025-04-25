@@ -79,7 +79,7 @@ extension FloorLevelData: VPSFloorLevel {
   var pixelsPerMeter: Double { data.rtls.pixelsPerMeter }
   var heightInMeters: Double { data.rtls.heightInMeters }
   var widthInMeters: Double { data.rtls.widthInMeters }
-  var geomagneticDeclination: KotlinFloat? { nil }
+  var geomagneticDeclination: KotlinFloat? { .init(float: 7.3) }
   var northOffset: KotlinFloat? { data.rtls.north?.asKotlinFloat }
 
   func dispose() {
