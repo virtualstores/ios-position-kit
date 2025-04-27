@@ -88,6 +88,10 @@ extension VPSPositionManager: IPositionKit {
     backgroundAccess.vpsRunning(isRunning: true)
   }
 
+  public func startLngLatFixedNorth(location: CLLocation) {
+    vps.startLngLatFixedNorth(location: location)
+  }
+
   public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
   }
@@ -102,10 +106,6 @@ extension VPSPositionManager: IPositionKit {
 
   public func syncManual(location: CLLocation?, isStartSequence: Bool) {
     vps.syncManual(location: location, isStartSequence: isStartSequence)
-  }
-
-  public func startLngLatFixedNorth(location: CLLocation) {
-    vps.startLngLatFixedNorth(location: location)
   }
 
   public func forceSyncPosition(position: CGPoint, angle: Double) {

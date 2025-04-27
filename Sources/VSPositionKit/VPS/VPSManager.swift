@@ -238,6 +238,16 @@ final class VPSManager: VPSWrapper {
     }
   }
 
+  func startLngLatFixedNorth(location: CLLocation) {
+    start()
+    vpsRunning = true
+    let signal = InputSignal.StartLngLatFixedNorth(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
+    recorder.record(inputSignal: signal)
+    serialDispatch.async {
+      self.vps?.onInputSignal(signal: signal)
+    }
+  }
+
   func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     let signal = InputSignal.SyncPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(inputSignal: signal)
@@ -266,14 +276,6 @@ final class VPSManager: VPSWrapper {
 
   func syncManual(location: CLLocation?, isStartSequence: Bool) {
     let signal = InputSignal.SyncManualSync(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location?.asLocation, isStartSequence: isStartSequence)
-    recorder.record(inputSignal: signal)
-    serialDispatch.async {
-      self.vps?.onInputSignal(signal: signal)
-    }
-  }
-
-  func startLngLatFixedNorth(location: CLLocation) {
-    let signal = InputSignal.StartLngLatFixedNorth(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
     recorder.record(inputSignal: signal)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
