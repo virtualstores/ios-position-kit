@@ -194,7 +194,7 @@ final class VPSManager: VPSWrapper {
         positionEngineSettings: engine,
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3),
-        magnetometerDriftEstimatorParams: VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams,
+        magnetometerDriftEstimatorParams: Self.getDefaultMagnetometerDriftEstimatorParams(settings: positionServiceSettings),
         debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil,
@@ -547,6 +547,21 @@ final class VPSManager: VPSWrapper {
     )
   }
 
+  static func getDefaultMagnetometerDriftEstimatorParams(settings: PositionServiceSettings?) -> MagnetometerDriftEstimatorParams {
+    MagnetometerDriftEstimatorParams(
+      version: VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.version,
+      useMagnetometer: settings?.magnetometerDriftEstimator_useMagnetometer ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.useMagnetometer,
+      alpha: settings?.magnetometerDriftEstimator_alpha ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.alpha,
+      maxGain: settings?.magnetometerDriftEstimator_maxGain ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.maxGain,
+      maxRate: settings?.magnetometerDriftEstimator_maxRate ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.maxRate,
+      accLowerLimit: settings?.magnetometerDriftEstimator_accLowerLimit ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.accLowerLimit,
+      accUpperLimit: settings?.magnetometerDriftEstimator_accUpperLimit ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.accUpperLimit,
+      magExpectedNorm: settings?.magnetometerDriftEstimator_magExpectedNorm ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.magExpectedNorm,
+      sigmaMag: settings?.magnetometerDriftEstimator_sigmaMag ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.sigmaMag,
+      useDriftCorrection: settings?.magnetometerDriftEstimator_useDriftCorrection ?? VPSMagnetometerDriftEstimatorParams.shared.iosMagnetometerDriftEstimatorParams.useDriftCorrection
+    )
+  }
+
   enum PositionStdSettingsStrategyEnum: String {
     case reportTescoSpecial
     case reportActual
@@ -876,6 +891,16 @@ private extension PositionServiceSettings {
   var positionStdSettings_minStd: Float? { floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_MIN_STD] ?? floatValues?[.POSTION_STD_SETTINGS_MIN_STD] }
   var positionStdSettings_maxStd: Float? { floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_MAX_STD] ?? floatValues?[.POSTION_STD_SETTINGS_MAX_STD] }
 
+  var magnetometerDriftEstimator_useMagnetometer: Bool? { boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_MAGNETOMETER] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_MAGNETOMETER] }
+  var magnetometerDriftEstimator_alpha: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_ALPHA] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_ALPHA] }
+  var magnetometerDriftEstimator_maxGain: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_GAIN] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAX_GAIN] }
+  var magnetometerDriftEstimator_maxRate: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_RATE] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAX_RATE] }
+  var magnetometerDriftEstimator_accLowerLimit: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_ACC_LOWER_LIMIT] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_ACC_LOWER_LIMIT] }
+  var magnetometerDriftEstimator_accUpperLimit: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_ACC_UPPER_LIMIT] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_ACC_UPPER_LIMIT] }
+  var magnetometerDriftEstimator_magExpectedNorm: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPECTED_NORM] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPECTED_NORM] }
+  var magnetometerDriftEstimator_sigmaMag: Float? { floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_MAG] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_MAG] }
+  var magnetometerDriftEstimator_useDriftCorrection: Bool? { boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_DRIFT_CORRECTION] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_DRIFT_CORRECTION] }
+
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
     case global = "GLOBAL"
@@ -1008,6 +1033,16 @@ private extension String {
   static let POSTION_STD_SETTINGS_IS_CAPPED: String = "positionStdSettings_isCapped"
   static let POSTION_STD_SETTINGS_MIN_STD: String = "positionStdSettings_minStd"
   static let POSTION_STD_SETTINGS_MAX_STD: String = "positionStdSettings_maxStd"
+
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_MAGNETOMETER: String = "magnetometerDriftEstimatorParams_useMagnetometer"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ALPHA: String = "magnetometerDriftEstimatorParams_alpha"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_MAX_GAIN: String = "magnetometerDriftEstimatorParams_maxGain"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_MAX_RATE: String = "magnetometerDriftEstimatorParams_maxRate"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ACC_LOWER_LIMIT: String = "magnetometerDriftEstimatorParams_accLowerLimit"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ACC_UPPER_LIMIT: String = "magnetometerDriftEstimatorParams_accUpperLimit"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPECTED_NORM: String = "magnetometerDriftEstimatorParams_magExpectedNorm"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_MAG: String = "magnetometerDriftEstimatorParams_sigmaMag"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_DRIFT_CORRECTION: String = "magnetometerDriftEstimatorParams_useDriftCorrection"
 }
 
 extension vps.MLProcessedPath {
