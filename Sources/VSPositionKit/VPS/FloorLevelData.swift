@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import VSFoundation
 import UIKit
+import VSFoundation
+import VSSensorFusion
 import vps
 
 class FloorLevelData {
@@ -67,6 +68,8 @@ class FloorLevelData {
   private func isValidCoordinate2DMap(x: Double, y: Double) -> Float {
     isValidCoordinate(x: x, y: y) ? 0 : 1
   }
+
+  var declination: Double?
 }
 
 extension FloorLevelData: VPSFloorLevel {
@@ -79,7 +82,12 @@ extension FloorLevelData: VPSFloorLevel {
   var pixelsPerMeter: Double { data.rtls.pixelsPerMeter }
   var heightInMeters: Double { data.rtls.heightInMeters }
   var widthInMeters: Double { data.rtls.widthInMeters }
-  var geomagneticDeclination: KotlinFloat? { .init(float: 7.3) }
+  var geomagneticDeclination: KotlinFloat? {
+    if declination == nil, let coordinate = BackgroundAccessManager.locationPublisher.value?.coordinate {
+      declination = Geomagnetism(longitude: coordinate.longitude, latitude: coordinate.latitude).declination
+    }
+    return declination?.asKotlinFloat ?? .init(float: 7.3) // Stockholm Geomagnetic Declination
+  }
   var northOffset: KotlinFloat? { data.rtls.north?.asKotlinFloat }
 
   func dispose() {

@@ -220,6 +220,7 @@ final class VPSManager: VPSWrapper {
     //vps = nil
     vpsRunning = false
     particleFilterOffsetAngle = nil
+    (floorLevelHandler.currentFloorLevel as! FloorLevelData).declination = nil
   }
 
   func stopRecording() {
