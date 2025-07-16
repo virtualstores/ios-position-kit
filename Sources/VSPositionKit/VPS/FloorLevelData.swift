@@ -69,7 +69,23 @@ class FloorLevelData {
     isValidCoordinate(x: x, y: y) ? 0 : 1
   }
 
-  var declination: Double?
+  var geomagnetism: Geomagnetism?
+  func setupGeomagnetism() {
+    guard let coordinate = BackgroundAccessManager.locationPublisher.value?.coordinate else { return }
+    geomagnetism = Geomagnetism(longitude: coordinate.longitude, latitude: coordinate.latitude)
+  }
+  var declination: Double {
+    if geomagnetism == nil { setupGeomagnetism() }
+    return geomagnetism?.declination ?? 7.3 // Stockholm Geomagnetic Declination
+  }
+  var inclination: Double {
+    if geomagnetism == nil { setupGeomagnetism() }
+    return geomagnetism?.inclination ?? 70
+  }
+  var magnitude: Double {
+    if geomagnetism == nil { setupGeomagnetism() }
+    return geomagnetism?.magnitude ?? 4
+  }
 }
 
 extension FloorLevelData: VPSFloorLevel {
@@ -82,12 +98,9 @@ extension FloorLevelData: VPSFloorLevel {
   var pixelsPerMeter: Double { data.rtls.pixelsPerMeter }
   var heightInMeters: Double { data.rtls.heightInMeters }
   var widthInMeters: Double { data.rtls.widthInMeters }
-  var geomagneticDeclination: KotlinFloat? {
-    if declination == nil, let coordinate = BackgroundAccessManager.locationPublisher.value?.coordinate {
-      declination = Geomagnetism(longitude: coordinate.longitude, latitude: coordinate.latitude).declination
-    }
-    return declination?.asKotlinFloat ?? .init(float: 7.3) // Stockholm Geomagnetic Declination
-  }
+  var geomagneticDeclination: KotlinFloat? { declination.asKotlinFloat }
+  var geomagneticInclination: KotlinFloat? { inclination.asKotlinFloat }
+  var geomagneticMagnitude: KotlinFloat? { magnitude.asKotlinFloat }
   var northOffset: KotlinFloat? { data.rtls.north?.asKotlinFloat }
 
   func dispose() {

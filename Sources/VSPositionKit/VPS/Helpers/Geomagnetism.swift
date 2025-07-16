@@ -385,6 +385,10 @@ class Geomagnetism {
 	/** Geomagnetic East West (easterly component) field intensity/strength (nano Teslas)*/
 	private(set) var eastIntensity:Double = Double.nan
 
+  var magnitude: Double {
+    sqrt(pow(horizontalIntensity, 2) + pow(verticalIntensity, 2))
+  }
+
 	/** The maximum order of spherical harmonic model*/
 	private var maxord:Int
 

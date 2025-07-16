@@ -50,7 +50,7 @@ public protocol IPositionKit {
 
     func startLngLatFixedNorth(location: CLLocation)
 
-    //func forceSyncPosition(position: CGPoint, angle: Double)
+    func forceSyncPosition(position: CGPoint, angle: Double, forceAngle: Bool)
 
     func syncAngleCorrection(angle: Double, positions: [CGPoint])
 

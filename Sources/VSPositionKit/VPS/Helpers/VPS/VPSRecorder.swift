@@ -21,7 +21,7 @@ public final class VPSRecorder {
   private var hasRecorded = false
 
   init(maxRecordingTimePerPartInMillis: Int64?) {
-    replayRecorder = ReplayV1Recorder(uploader: self, recordingPartInterval: maxRecordingTimePerPartInMillis?.asKotlinLong)
+    replayRecorder = ReplayV1Recorder(uploader: self, recordingPartInterval: maxRecordingTimePerPartInMillis?.asKotlinLong, packageOption: .jsonString)
   }
 
   func set(sessionId: String) {
@@ -80,13 +80,13 @@ public final class VPSRecorder {
 
 extension VPSRecorder: Uploader {
   public func onPartialUpload(dataPackage: PartitionRecorderDataPackage) {
-    guard isRecording else { return }
-    dataPublisher.send((dataPackage.identifier, dataPackage.data, sessionId, false))
+    guard isRecording, let data = dataPackage.dataAsJSONString else { return }
+    dataPublisher.send((dataPackage.identifier, data, sessionId, false))
   }
 
   public func onEndUpload(dataPackage: PartitionRecorderDataPackage) {
-    guard hasRecorded else { return }
-    dataPublisher.send((dataPackage.identifier, dataPackage.data, sessionId, true))
+    guard hasRecorded, let data = dataPackage.dataAsJSONString else { return }
+    dataPublisher.send((dataPackage.identifier, data, sessionId, true))
     reset()
   }
 }

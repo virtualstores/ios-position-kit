@@ -108,8 +108,8 @@ extension VPSPositionManager: IPositionKit {
     vps.syncManual(location: location, isStartSequence: isStartSequence)
   }
 
-  public func forceSyncPosition(position: CGPoint, angle: Double) {
-    vps.forceSyncPosition(position: position, angle: angle)
+  public func forceSyncPosition(position: CGPoint, angle: Double, forceAngle: Bool) {
+    vps.forceSyncPosition(position: position, angle: angle, forceAngle: forceAngle)
   }
 
   public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
