@@ -722,6 +722,7 @@ extension VPSManager: VPSOutputHandler {
     case let output as OutputSignal.ClusterSwapSignal: break
     case let output as OutputSignal.ConsistencyScoreSignal:
       outputSignalPublisher.send(.consistencyScoreSignal(Int((output.score * 1000).rounded(.toNearestOrAwayFromZero))))
+    case let output as OutputSignal.SyncSignal: break
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
