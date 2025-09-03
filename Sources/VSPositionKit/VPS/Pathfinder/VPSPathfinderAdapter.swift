@@ -17,9 +17,9 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
   public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
   public var pathUpdatedPublisher: CurrentValueSubject<Path?, Never> = .init(nil)
 
-  public var hasGoal: CurrentValueSubject<Bool, Never> { .init(self.vpsPathfinder.hasGoal) }
+  public var hasGoal: Bool { vpsPathfinder?.hasGoal ?? false }
 
-  private let vpsPathfinder: vps.IPathfinder
+  private var vpsPathfinder: vps.IPathfinder?
   let serialDispatch: DispatchQueue = DispatchQueue(label: "se.tt2.pathfinder")
 
   public init(converter: ICoordinateConverter, height: Double, width: Double, pixelsPerMeter: Float, navGraph: TT2NavGraph, startPosition: CGPoint?, stopPosition: CGPoint, pathRefreshDistance: Float = 100.0) {
@@ -35,39 +35,46 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
       stopPosition: stopPosition.asPathfinderCoordinateF
     )
 
-    self.vpsPathfinder.addListener(listener: self)
+    vpsPathfinder?.addListener(listener: self)
+  }
+
+  deinit {
+    self.vpsPathfinder?.setGoals(goals: [])
+    self.vpsPathfinder?.clearUserPosition()
+    self.vpsPathfinder?.removeListener(listener: self)
+    self.vpsPathfinder = nil
   }
 
   public func setUserPosition(position: CGPoint?) {
-    serialDispatch.async { self.vpsPathfinder.setUserPosition(position: position?.asPathfinderCoordinateF) }
+    serialDispatch.async { self.vpsPathfinder?.setUserPosition(position: position?.asPathfinderCoordinateF) }
   }
 
-  public func add(goal: Goal, completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.addGoal(goal: goal.asVPSGoal, callback: completion) }
+  public func add(goal: Goal, completion: (() -> ())?) {
+    serialDispatch.async { self.vpsPathfinder?.addGoal(goal: goal.asVPSGoal, callback: completion) }
   }
 
-  public func add(goals: [Goal], completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.addGoals(goals: goals.map { $0.asVPSGoal }, callback: completion) }
+  public func add(goals: [Goal], completion: (() -> ())?) {
+    serialDispatch.async { self.vpsPathfinder?.addGoals(goals: goals.map { $0.asVPSGoal }, callback: completion) }
   }
 
-  public func set(goals: [Goal], completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.setGoals(goals: goals.map { $0.asVPSGoal }, callback: completion) }
+  public func set(goals: [Goal], completion: (() -> ())?) {
+    serialDispatch.async { self.vpsPathfinder?.setGoals(goals: goals.map { $0.asVPSGoal }, callback: completion) }
   }
 
-  public func remove(id: String, completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.removeGoal(id: id, callback: completion) }
+  public func remove(id: String, completion: (() -> ())?) {
+    serialDispatch.async { self.vpsPathfinder?.removeGoal(id: id, callback: completion) }
   }
 
-  public func remove(ids: [String], completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.removeGoals(ids: ids, callback: completion) }
+  public func remove(ids: [String], completion: (() -> ())?) {
+    serialDispatch.async { self.vpsPathfinder?.removeGoals(ids: ids, callback: completion) }
   }
 
   public func popGoal() {
-    serialDispatch.async { self.vpsPathfinder.popGoal() }
+    serialDispatch.async { self.vpsPathfinder?.popGoal() }
   }
 
-  public func forceRefresh(withTSP: Bool, overridePosition: CGPoint?, completion: @escaping () -> Void) {
-    serialDispatch.async { self.vpsPathfinder.forceRefresh(withTSP: withTSP, overridePosition: overridePosition?.asPathfinderCoordinateF, callback: completion) }
+  public func forceRefresh(withTSP: Bool, overridePosition: CGPoint?, completion: (() -> ())?) {
+    serialDispatch.async { self.vpsPathfinder?.forceRefresh(withTSP: withTSP, overridePosition: overridePosition?.asPathfinderCoordinateF, callback: completion) }
   }
 }
 
