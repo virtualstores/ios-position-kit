@@ -11,7 +11,7 @@ import CoreGraphics
 import VSFoundation
 import vps
 
-public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
+public final class VPSPathfinderAdapter: VSFoundation.IPathfinder, Disposable {
   public var currentGoalUpdatedPublisher: CurrentValueSubject<Goal?, Never> = .init(nil)
   public var goalsUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
   public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
@@ -19,6 +19,7 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
 
   public var hasGoal: Bool { vpsPathfinder?.hasGoal ?? false }
 
+  private let tag = "VPSPathfinderAdapter"
   private var vpsPathfinder: vps.IPathfinder?
   let serialDispatch: DispatchQueue = DispatchQueue(label: "se.tt2.pathfinder")
 
@@ -39,6 +40,12 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder {
   }
 
   deinit {
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
+    dispose()
+  }
+
+  public func dispose() {
+    Logger(verbosity: .info).log(tag: tag, message: "dispose")
     self.vpsPathfinder?.setGoals(goals: [])
     self.vpsPathfinder?.clearUserPosition()
     self.vpsPathfinder?.removeListener(listener: self)
