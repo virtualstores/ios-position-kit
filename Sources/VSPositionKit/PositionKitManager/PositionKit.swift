@@ -12,7 +12,7 @@ import VSFoundation
 import CoreLocation
 
 /// Manager for PositionKit data. Will give positions
-public protocol IPositionKit {
+public protocol IPositionKit: Disposable {
     /// Publishes the current heading from CLLocationManager
     var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { get }
     /// Publishes all recorded data

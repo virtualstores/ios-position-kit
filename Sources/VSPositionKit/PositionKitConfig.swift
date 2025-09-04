@@ -29,4 +29,12 @@ struct PositionKitConfig: Config {
       VPSSensorManager()
     }
   }
+
+  func deconfigure(_ injector: Injector) {
+    // TODO:
+  }
+
+  func dispose() {
+    // TODO:
+  }
 }

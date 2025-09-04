@@ -23,4 +23,12 @@ struct PositionKitTestConfig: Config {
       FakeSensorManager()
     }
   }
+
+  func deconfigure(_ injector: Injector) {
+    // TODO:
+  }
+
+  func dispose() {
+    // TODO:
+  }
 }

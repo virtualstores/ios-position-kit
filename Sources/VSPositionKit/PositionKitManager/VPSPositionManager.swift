@@ -29,6 +29,7 @@ public final class VPSPositionManager {
   @Inject var backgroundAccess: IBackgroundAccessManager
   @Inject var sensor: VPSSensorManager
 
+  private let tag = "PositionManager"
   private var _vps: VPSManager?
   private var vps: VPSManager {
     guard let vps = _vps else { fatalError("PositionKit not setup") }
@@ -38,7 +39,8 @@ public final class VPSPositionManager {
   public init() {}
 
   deinit {
-    stop()
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
+    dispose()
   }
 
   func bindPublishers() {
@@ -55,6 +57,11 @@ public final class VPSPositionManager {
 }
 
 extension VPSPositionManager: IPositionKit {
+  public func dispose() {
+    Logger(verbosity: .info).log(tag: tag, message: "dispose")
+    stop()
+  }
+  
   public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
@@ -125,7 +132,7 @@ extension VPSPositionManager: IPositionKit {
       sensor.stop()
       backgroundAccess.vpsRunning(isRunning: false)
     }
-    vps.stop()
+    _vps?.stop()
   }
 
   public func stopRecording() {
