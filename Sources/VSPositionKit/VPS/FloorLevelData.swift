@@ -71,7 +71,7 @@ class FloorLevelData {
 
   var geomagnetism: Geomagnetism?
   func setupGeomagnetism() {
-    guard let coordinate = BackgroundAccessManager.locationPublisher.value?.coordinate else { return }
+    guard let coordinate = BackgroundAccessManager.locationPublisher?.value?.coordinate else { return }
     geomagnetism = Geomagnetism(longitude: coordinate.longitude, latitude: coordinate.latitude)
   }
   var declination: Double {

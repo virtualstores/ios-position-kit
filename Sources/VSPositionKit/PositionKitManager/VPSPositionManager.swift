@@ -14,7 +14,7 @@ import CoreGraphics
 import CoreLocation
 
 public final class VPSPositionManager {
-  public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { backgroundAccess.locationHeadingPublisher }
+  public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error>? { backgroundAccess.locationHeadingPublisher }
   public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
   public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> { sensor.altimeterPublisher }
@@ -23,7 +23,7 @@ public final class VPSPositionManager {
 
   public var rtlsOption: RtlsOptions?
 
-  private let context = Context(PositionKitConfig())
+  private var context: Context? = Context(PositionKitConfig())
   private var cancellable = Set<AnyCancellable>()
 
   @Inject var backgroundAccess: IBackgroundAccessManager
@@ -66,6 +66,11 @@ extension VPSPositionManager: IPositionKit {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
     stopSensors()
     _vps?.dispose()
+    context?.deconfigure {
+      Logger(verbosity: .info).log(tag: tag, message: "deconfigure")
+    }
+    context?.dispose()
+    context = nil
   }
   
   public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {

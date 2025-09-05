@@ -38,7 +38,7 @@ public class VPSCompassHeadingController {
     guard
       data.gravity.data.count == 3,
       /*data.magnetometer.data.count == 3*/
-      let heading = BackgroundAccessManager.locationHeadingPublisher.value
+      let heading = BackgroundAccessManager.locationHeadingPublisher?.value
     else { return }
     //print("DATA", "GRAVITY", data.gravity.data)
     //print("DATA", "MAGNETOMETER", data.magnetometer.data)

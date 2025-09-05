@@ -99,7 +99,7 @@ final class VPSManager: VPSWrapper, Disposable {
       .sink { [weak self] in self?.recordingPublisher.send($0) }
       .store(in: &cancellable)
 
-    BackgroundAccessManager.locationPublisher
+    BackgroundAccessManager.locationPublisher?
       .compactMap { $0 }
       .sink { (result) in
         switch result {
@@ -129,7 +129,7 @@ final class VPSManager: VPSWrapper, Disposable {
         }
       }.store(in: &cancellable)
 
-    BackgroundAccessManager.locationHeadingPublisher
+    BackgroundAccessManager.locationHeadingPublisher?
       .compactMap { $0 }
       .sink { (result) in
         switch result {
@@ -184,7 +184,7 @@ final class VPSManager: VPSWrapper, Disposable {
       nlModel?.setFloorLevelHandler(floorLevelHandler: floorLevelHandler)
       vps = VPS(
         velocityModel: VPSVelocityModel(manager: modelManager),
-        modeClassifierModel: nil, // TODO: Ask CJ about this
+        modeClassifierModel: nil,
         nlModel: nlModel,
         floorLevelHandler: floorLevelHandler,
         outputHandler: self,
@@ -196,7 +196,7 @@ final class VPSManager: VPSWrapper, Disposable {
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3, rotationOutputActive: true, rotationCalculateLimit: 3),
         magnetometerDriftEstimatorParams: Self.getMagnetometerDriftEstimatorParams(settings: positionServiceSettings, defaultParams: Self.getDefaultMagnetometerDriftEstimatorParams(for: engine)),
-        debugMode: false,
+        debugMode: true,
         extendedDebugMode: false,
         modelOutputHandler: nil
       )
