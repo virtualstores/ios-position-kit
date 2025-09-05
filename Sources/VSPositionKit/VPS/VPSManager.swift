@@ -18,7 +18,7 @@ import vps
 public let vpsVersion = VPSConfig.shared.VPS_VERSION
 public let velocityModelInterfaceVersion = VPSConfig.shared.VELOCITY_MODEL_INTERFACE_VERSION
 
-final class VPSManager: VPSWrapper {
+final class VPSManager: VPSWrapper, Disposable {
   @Inject var sensor: VPSSensorManager
 
   var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
@@ -50,6 +50,7 @@ final class VPSManager: VPSWrapper {
 
   var isRecording: Bool { recorder.isRecording }
 
+  private let tag = "VPSManager"
   private var cancellable = Set<AnyCancellable>()
   private var particleFilterOffsetAngle: Float?
 
@@ -70,6 +71,17 @@ final class VPSManager: VPSWrapper {
   }
 
   deinit {
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
+    dispose()
+  }
+
+  public func dispose() {
+    Logger(verbosity: .info).log(tag: tag, message: "dispose")
+    stop()
+    // TODO: DO this
+    //vps.dispose()
+    recorder.dispose()
+    nlModel = nil
     cancellable.removeAll()
   }
 

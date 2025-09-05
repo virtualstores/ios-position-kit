@@ -25,7 +25,7 @@ public protocol IPositionKit: Disposable {
     func start(withoutAltimeter: Bool) throws
 
     /// Stops position managers.
-    func stop(stopSensors: Bool)
+    func stop(shouldStopSensors: Bool)
 
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)

@@ -54,12 +54,18 @@ public final class VPSPositionManager {
       .sink { [weak self] in self?.outputSignalPublisher.send($0) }
       .store(in: &cancellable)
   }
+
+  func stopSensors() {
+    sensor.stop()
+    backgroundAccess.vpsRunning(isRunning: false)
+  }
 }
 
 extension VPSPositionManager: IPositionKit {
   public func dispose() {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
-    stop()
+    stopSensors()
+    _vps?.dispose()
   }
   
   public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
@@ -127,12 +133,11 @@ extension VPSPositionManager: IPositionKit {
     vps.startRecording(sessionId: nil)
   }
 
-  public func stop(stopSensors: Bool = true) {
-    if stopSensors {
-      sensor.stop()
-      backgroundAccess.vpsRunning(isRunning: false)
+  public func stop(shouldStopSensors: Bool = true) {
+    if shouldStopSensors {
+      stopSensors()
     }
-    _vps?.stop()
+    vps.stop()
   }
 
   public func stopRecording() {
