@@ -34,7 +34,6 @@ final class VPSManager: VPSWrapper, Disposable {
   private let recorder: VPSRecorder
   private let floorLevelHandler: FloorLevelHandler
   private let modelManager: VPSModelManager
-  private let modelToEventParameters: ModelToEventParameters
   private let particleFilterSettings: ParticleFilterSettings
   private let positionServiceSettings: PositionServiceSettings?
   private let engine: TT2Settings.TT2Engine
@@ -59,10 +58,6 @@ final class VPSManager: VPSWrapper, Disposable {
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
-    self.modelToEventParameters = ModelToEventParameters(
-      useSquareDriftFilter: positionServiceSettings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
-      squareDriftFilterGain: positionServiceSettings?.squareDriftFilterGain ?? VPSModelToEventParameters.shared.default_.squareDriftFilterGain
-    )
     self.particleFilterSettings = Self.getParticleFilterSettings(settings: positionServiceSettings)
     self.positionServiceSettings = positionServiceSettings
     self.engine = engine
@@ -77,9 +72,9 @@ final class VPSManager: VPSWrapper, Disposable {
 
   public func dispose() {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
-    stop()
     // TODO: DO this
     //vps.dispose()
+    vps = nil
     recorder.dispose()
     nlModel = nil
     cancellable.removeAll()
@@ -188,12 +183,13 @@ final class VPSManager: VPSWrapper, Disposable {
       nlModel?.setFloorLevelHandler(floorLevelHandler: floorLevelHandler)
       vps = VPS(
         velocityModel: VPSVelocityModel(manager: modelManager),
+        modeClassifierModel: nil, // TODO: Ask CJ about this
         floorLevelHandler: floorLevelHandler,
         outputHandler: self,
         system: .ios,
         featureToTensorValueParams: FeatureToTensorValueParams(packageFrequency: 30),
         interpolationParams: IosInterpolationModuleParams.shared.default_,
-        modelToEventParameters: modelToEventParameters,
+        modelToEventParameters: Self.createModelToEventParameters(settings: positionServiceSettings),
         positionEngineSettings: Self.createVPSEngine(settings: particleFilterSettings, engine: engine),
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3, rotationOutputActive: true, rotationCalculateLimit: 3),
@@ -362,6 +358,17 @@ final class VPSManager: VPSWrapper, Disposable {
     return 0.0
   }
 
+  static func createModelToEventParameters(settings: PositionServiceSettings?) -> ModelToEventParameters {
+    .init(
+      useSquareDriftFilter: settings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
+      squareDriftFilterGain: settings?.squareDriftFilterGain ?? VPSModelToEventParameters.shared.default_.squareDriftFilterGain,
+      speedThresholdForStairClassification: VPSModelToEventParameters.shared.default_.speedThresholdForStairClassification, // TODO: Get from setings
+      modeKalmanFilterParams: VPSModelToEventParameters.shared.default_.modeKalmanFilterParams, // TODO: Get from setings
+      stairSimpleFilterParams: VPSModelToEventParameters.shared.default_.stairSimpleFilterParams // TODO: Get from setings
+    )
+  }
+
+
   static func createVPSEngine(settings: ParticleFilterSettings, engine: TT2Settings.TT2Engine) -> PositionEngineSettings {
     switch engine {
     case .gpsFusion:
@@ -502,7 +509,9 @@ final class VPSManager: VPSWrapper, Disposable {
       strongRssiScanThreshold: settings?.strongRssiScanThreshold ?? defaultParams.strongRssiScanThreshold,
       weakRssiScanThreshold: settings?.weakRssiScanThreshold ?? defaultParams.weakRssiScanThreshold,
       nRequiredScans: settings?.nRequiredScans ?? defaultParams.nRequiredScans,
-      minDistanceOOB: settings?.minDistanceOOB ?? defaultParams.minDistanceOOB
+      minDistanceOOB: settings?.minDistanceOOB ?? defaultParams.minDistanceOOB,
+      stairSpeedFactor: defaultParams.stairSpeedFactor, // TODO: Get from setings
+      exitZoneRatioForOOB: defaultParams.exitZoneRatioForOOB // TODO: Get from setings
     )
   }
 
