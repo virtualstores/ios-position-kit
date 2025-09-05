@@ -11,7 +11,7 @@ import VSFoundation
 import vps
 
 class VPSVelocityModel {
-  let manager: VPSModelManager
+  var manager: VPSModelManager
   lazy var model: Resnet? = {
     guard let model = manager.mlModel else { return nil }
     return Resnet(model: model)
@@ -24,11 +24,14 @@ class VPSVelocityModel {
   var batchedData: [[Double]] = []
   var stepNumber = 0
 
+  private let tag = "VPSVelocityModel"
+
   init(manager: VPSModelManager) {
     self.manager = manager
   }
 
   deinit {
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
     onDestroy()
   }
 
@@ -87,7 +90,10 @@ extension VPSVelocityModel: VelocityModel {
 
   func onDestroy() {
     model = nil
+    modelV2 = nil
     handler = nil
+    // TODO: Is this needed??????????????????????
+    //manager = .init()
     onExit()
   }
 
@@ -131,7 +137,7 @@ extension VPSVelocityModel: VelocityModel {
     handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
   }
 
-  func setHandler(handler_ handler: VelocityModelHandler) {
+  func setHandler(handler_ handler: VelocityModelHandler?) {
     self.handler = handler
   }
 }

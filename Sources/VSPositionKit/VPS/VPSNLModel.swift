@@ -77,7 +77,7 @@ extension VPSNLModel: NLModel {
     try? model?.prediction(input: NLResnetInput(trajectory_coordinates: input, map_img: map2D))
   }
 
-  func setFloorLevelHandler(floorLevelHandler: FloorLevelHandler) {
+  func setFloorLevelHandler(floorLevelHandler: FloorLevelHandler?) {
     self.floorLevelHandler = floorLevelHandler
   }
 }

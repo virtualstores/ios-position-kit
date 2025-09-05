@@ -72,9 +72,10 @@ final class VPSManager: VPSWrapper, Disposable {
 
   public func dispose() {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
-    // TODO: DO this
-    //vps.dispose()
-    vps = nil
+    serialDispatch.async { [weak self] in
+      self?.vps?.onDestroy()
+      self?.vps = nil
+    }
     recorder.dispose()
     nlModel = nil
     cancellable.removeAll()
@@ -184,6 +185,7 @@ final class VPSManager: VPSWrapper, Disposable {
       vps = VPS(
         velocityModel: VPSVelocityModel(manager: modelManager),
         modeClassifierModel: nil, // TODO: Ask CJ about this
+        nlModel: nlModel,
         floorLevelHandler: floorLevelHandler,
         outputHandler: self,
         system: .ios,
@@ -196,8 +198,7 @@ final class VPSManager: VPSWrapper, Disposable {
         magnetometerDriftEstimatorParams: Self.getMagnetometerDriftEstimatorParams(settings: positionServiceSettings, defaultParams: Self.getDefaultMagnetometerDriftEstimatorParams(for: engine)),
         debugMode: false,
         extendedDebugMode: false,
-        modelOutputHandler: nil,
-        nlModel: nlModel
+        modelOutputHandler: nil
       )
     }
   }

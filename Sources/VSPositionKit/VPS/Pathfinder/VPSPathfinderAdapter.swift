@@ -46,10 +46,14 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder, Disposable {
 
   public func dispose() {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
-    self.vpsPathfinder?.setGoals(goals: [])
-    self.vpsPathfinder?.clearUserPosition()
-    self.vpsPathfinder?.removeListener(listener: self)
-    self.vpsPathfinder = nil
+    vpsPathfinder?.removeListener(listener: self)
+    serialDispatch.async { [weak self] in
+      self?.vpsPathfinder?.setGoals(goals: [])
+      self?.vpsPathfinder?.clearUserPosition()
+
+      self?.vpsPathfinder?.dispose()
+      self?.vpsPathfinder = nil
+    }
   }
 
   public func setUserPosition(position: CGPoint?) {
