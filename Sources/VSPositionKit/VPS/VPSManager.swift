@@ -99,7 +99,7 @@ final class VPSManager: VPSWrapper, Disposable {
       .sink { [weak self] in self?.recordingPublisher.send($0) }
       .store(in: &cancellable)
 
-    BackgroundAccessManager.locationPublisher?
+    BackgroundAccessManager.locationPublisher
       .compactMap { $0 }
       .sink { (result) in
         switch result {
@@ -129,7 +129,7 @@ final class VPSManager: VPSWrapper, Disposable {
         }
       }.store(in: &cancellable)
 
-    BackgroundAccessManager.locationHeadingPublisher?
+    BackgroundAccessManager.locationHeadingPublisher
       .compactMap { $0 }
       .sink { (result) in
         switch result {
@@ -196,7 +196,7 @@ final class VPSManager: VPSWrapper, Disposable {
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3, rotationOutputActive: true, rotationCalculateLimit: 3),
         magnetometerDriftEstimatorParams: Self.getMagnetometerDriftEstimatorParams(settings: positionServiceSettings, defaultParams: Self.getDefaultMagnetometerDriftEstimatorParams(for: engine)),
-        debugMode: true,
+        debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil
       )
@@ -211,13 +211,13 @@ final class VPSManager: VPSWrapper, Disposable {
   func stop() {
     let signal = InputSignal.Exit(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis)
     recorder.record(inputSignal: signal)
+    recorder.stopRecording()
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
+      self.vps?.onDestroy()
+      self.vps = nil
     }
-    recorder.stopRecording()
-    // TODO: Should this be nilled?
-    //vps = nil
     vpsRunning = false
     particleFilterOffsetAngle = nil
     (floorLevelHandler.currentFloorLevel as? FloorLevelData)?.geomagnetism = nil

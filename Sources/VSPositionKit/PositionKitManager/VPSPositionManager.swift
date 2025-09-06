@@ -14,7 +14,7 @@ import CoreGraphics
 import CoreLocation
 
 public final class VPSPositionManager {
-  public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error>? { backgroundAccess.locationHeadingPublisher }
+  public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { backgroundAccess.locationHeadingPublisher }
   public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
   public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> { sensor.altimeterPublisher }
