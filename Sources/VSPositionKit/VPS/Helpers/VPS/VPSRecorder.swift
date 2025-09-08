@@ -32,11 +32,8 @@ public final class VPSRecorder: Disposable {
 
   public func dispose() {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
-//    serialDispatch.async {
-      // TODO: Do this
-      self.replayRecorder?.dispose()
-      self.replayRecorder = nil
-//    }
+    replayRecorder?.dispose()
+    replayRecorder = nil
   }
 
   func set(sessionId: String) {

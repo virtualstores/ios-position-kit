@@ -369,7 +369,6 @@ final class VPSManager: VPSWrapper, Disposable {
     )
   }
 
-
   static func createVPSEngine(settings: ParticleFilterSettings, engine: TT2Settings.TT2Engine) -> PositionEngineSettings {
     switch engine {
     case .gpsFusion:

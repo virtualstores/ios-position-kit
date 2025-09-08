@@ -11,7 +11,7 @@ import VSFoundation
 import vps
 
 class VPSVelocityModel {
-  var manager: VPSModelManager
+  let manager: VPSModelManager
   lazy var model: Resnet? = {
     guard let model = manager.mlModel else { return nil }
     return Resnet(model: model)
@@ -92,8 +92,6 @@ extension VPSVelocityModel: VelocityModel {
     model = nil
     modelV2 = nil
     handler = nil
-    // TODO: Is this needed??????????????????????
-    //manager = .init()
     onExit()
   }
 

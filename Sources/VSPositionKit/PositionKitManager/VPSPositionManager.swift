@@ -66,9 +66,6 @@ extension VPSPositionManager: IPositionKit {
     Logger(verbosity: .info).log(tag: tag, message: "dispose")
     stopSensors()
     _vps?.dispose()
-    context?.deconfigure {
-      Logger(verbosity: .info).log(tag: tag, message: "deconfigure")
-    }
     context?.dispose()
     context = nil
   }
