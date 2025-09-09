@@ -23,12 +23,13 @@ public final class VPSPositionManager {
 
   public var rtlsOption: RtlsOptions?
 
-  private let context = Context(PositionKitConfig())
+  private var context: Context? = Context(PositionKitConfig())
   private var cancellable = Set<AnyCancellable>()
 
   @Inject var backgroundAccess: IBackgroundAccessManager
   @Inject var sensor: VPSSensorManager
 
+  private let tag = "PositionManager"
   private var _vps: VPSManager?
   private var vps: VPSManager {
     guard let vps = _vps else { fatalError("PositionKit not setup") }
@@ -38,7 +39,8 @@ public final class VPSPositionManager {
   public init() {}
 
   deinit {
-    stop()
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
+    dispose()
   }
 
   func bindPublishers() {
@@ -52,10 +54,23 @@ public final class VPSPositionManager {
       .sink { [weak self] in self?.outputSignalPublisher.send($0) }
       .store(in: &cancellable)
   }
+
+  func stopSensors() {
+    sensor.stop()
+    backgroundAccess.vpsRunning(isRunning: false)
+  }
 }
 
 extension VPSPositionManager: IPositionKit {
-  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager) {
+  public func dispose() {
+    Logger(verbosity: .info).log(tag: tag, message: "dispose")
+    stopSensors()
+    _vps?.dispose()
+    context?.dispose()
+    context = nil
+  }
+  
+  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
       floorHeightDiffInMeters: floorheight,
@@ -64,8 +79,13 @@ extension VPSPositionManager: IPositionKit {
       mapData: mapData,
       positionServiceSettings: positionServiceSettings,
       converter: converter,
-      modelManager: modelManger
+      modelManager: modelManger,
+      engine: engine
     )
+
+    //DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    //  self.backgroundAccess.start()
+    //}
 
     bindPublishers()
   }
@@ -83,12 +103,28 @@ extension VPSPositionManager: IPositionKit {
     backgroundAccess.vpsRunning(isRunning: true)
   }
 
+  public func startLngLatFixedNorth(location: CLLocation) {
+    vps.startLngLatFixedNorth(location: location)
+  }
+
   public func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     vps.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
   }
 
-  public func forceSyncPosition(position: CGPoint, angle: Double) {
-    vps.forceSyncPosition(position: position, angle: angle)
+  public func syncPosition(location: CLLocation) {
+    vps.syncPosition(location: location)
+  }
+
+  public func syncGNSS(isStartSequence: Bool) {
+    vps.syncGNSS(isStartSequence: isStartSequence)
+  }
+
+  public func syncManual(location: CLLocation?, isStartSequence: Bool) {
+    vps.syncManual(location: location, isStartSequence: isStartSequence)
+  }
+
+  public func forceSyncPosition(position: CGPoint, angle: Double, forceAngle: Bool) {
+    vps.forceSyncPosition(position: position, angle: angle, forceAngle: forceAngle)
   }
 
   public func syncAngleCorrection(angle: Double, positions: [CGPoint]) {
@@ -99,10 +135,9 @@ extension VPSPositionManager: IPositionKit {
     vps.startRecording(sessionId: nil)
   }
 
-  public func stop(stopSensors: Bool = true) {
-    if stopSensors {
-      sensor.stop()
-      backgroundAccess.vpsRunning(isRunning: false)
+  public func stop(shouldStopSensors: Bool = true) {
+    if shouldStopSensors {
+      stopSensors()
     }
     vps.stop()
   }
@@ -125,5 +160,13 @@ extension VPSPositionManager: IPositionKit {
 
   public func set(sessionId: String?) {
     vps.set(sessionId: sessionId)
+  }
+
+  public func startGPS() {
+    backgroundAccess.start()
+  }
+
+  public func stopGPS() {
+    backgroundAccess.stop()
   }
 }

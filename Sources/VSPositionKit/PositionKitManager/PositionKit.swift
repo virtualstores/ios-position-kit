@@ -12,7 +12,7 @@ import VSFoundation
 import CoreLocation
 
 /// Manager for PositionKit data. Will give positions
-public protocol IPositionKit {
+public protocol IPositionKit: Disposable {
     /// Publishes the current heading from CLLocationManager
     var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { get }
     /// Publishes all recorded data
@@ -25,7 +25,7 @@ public protocol IPositionKit {
     func start(withoutAltimeter: Bool) throws
 
     /// Stops position managers.
-    func stop(stopSensors: Bool)
+    func stop(shouldStopSensors: Bool)
 
     /// Temporary setter for activating and deactivating background access
     func setBackgroundAccess(isActive: Bool)
@@ -35,14 +35,22 @@ public protocol IPositionKit {
     func prepareAngle()
 
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager)
+    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine)
 
     /// Start navigation setup methode
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
-    //func forceSyncPosition(position: CGPoint, angle: Double)
+    func syncPosition(location: CLLocation)
+
+    func syncGNSS(isStartSequence: Bool)
+
+    func syncManual(location: CLLocation?, isStartSequence: Bool)
+
+    func startLngLatFixedNorth(location: CLLocation)
+
+    func forceSyncPosition(position: CGPoint, angle: Double, forceAngle: Bool)
 
     func syncAngleCorrection(angle: Double, positions: [CGPoint])
 
