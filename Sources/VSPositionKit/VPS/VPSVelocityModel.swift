@@ -24,11 +24,14 @@ class VPSVelocityModel {
   var batchedData: [[Double]] = []
   var stepNumber = 0
 
+  private let tag = "VPSVelocityModel"
+
   init(manager: VPSModelManager) {
     self.manager = manager
   }
 
   deinit {
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
     onDestroy()
   }
 
@@ -73,6 +76,8 @@ class VPSVelocityModel {
 }
 
 extension VPSVelocityModel: VelocityModel {
+  var name: String { "VPSVelocityModel" }
+
   var params: VelocityModelParams {
     VelocityModelParams(
       batchComputeSize: 1,
@@ -85,6 +90,7 @@ extension VPSVelocityModel: VelocityModel {
 
   func onDestroy() {
     model = nil
+    modelV2 = nil
     handler = nil
     onExit()
   }
@@ -101,7 +107,7 @@ extension VPSVelocityModel: VelocityModel {
     stepNumber = 0
   }
 
-  func onInput(data___ data: Tensor) {
+  func onInput(data__ data: Tensor) {
     guard let convertedData = data.data.convertToDouble else { return }
     batchedData.append(convertedData.flatMap({ $0 }))
     //batchedData.append(data.data.map({ $0.map({ Double(truncating: $0) }) }).flatMap { $0 })
@@ -129,7 +135,7 @@ extension VPSVelocityModel: VelocityModel {
     handler?.onVelocityModelOutPut(modelOutput: [modelOutput])
   }
 
-  func setHandler(handler: VelocityModelHandler) {
+  func setHandler(handler_ handler: VelocityModelHandler?) {
     self.handler = handler
   }
 }

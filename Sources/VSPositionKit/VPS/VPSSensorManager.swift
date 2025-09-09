@@ -13,12 +13,13 @@ import VSFoundation
 import VSSensorFusion
 import vps
 
-final class VPSSensorManager {
+final class VPSSensorManager: Disposable {
   @Inject var sensorManager: ISensorManager
   var serialDispatch = DispatchQueue(label: "VPSSensorManagerSerial")
 
   var dataPublisher: CurrentValueSubject<RawSensorData?, Never> = .init(nil)
   var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> { sensorManager.altimeterPublisher }
+  private let tag = "VPSSensorManager"
   private var replayHandler = ReplayHandler()
   private var motion: MotionSensorData?
   private var cancellable = Set<AnyCancellable>()
@@ -28,6 +29,12 @@ final class VPSSensorManager {
   }
 
   deinit {
+    Logger(verbosity: .info).log(tag: tag, message: "deinit")
+    dispose()
+  }
+
+  public func dispose() {
+    Logger(verbosity: .info).log(tag: tag, message: "dispose")
     cancellable.removeAll()
   }
 
@@ -58,7 +65,7 @@ final class VPSSensorManager {
     sensorManager.stopAltimeter()
   }
 
-  let compassSensorManager = VPSCompassHeadingController()
+  //let compassSensorManager = VPSCompassHeadingController()
   func bindPublishers() {
     sensorManager.sensorPublisher
       .compactMap { $0 }
