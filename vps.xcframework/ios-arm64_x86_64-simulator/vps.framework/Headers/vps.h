@@ -2009,6 +2009,7 @@ __attribute__((swift_name("MathUtil")))
 - (VpsKotlinDoubleArray *)getStartQuaternionQ:(VpsKotlinDoubleArray *)q __attribute__((swift_name("getStartQuaternion(q:)")));
 - (VpsKotlinFloatArray *)getStartQuaternionQ_:(VpsKotlinFloatArray *)q __attribute__((swift_name("getStartQuaternion(q_:)")));
 - (double)getYawQ:(VpsKotlinDoubleArray *)q deviceAxis:(id)deviceAxis __attribute__((swift_name("getYaw(q:deviceAxis:)")));
+- (float)getYawQ:(VpsKotlinFloatArray *)q deviceAxis_:(id)deviceAxis __attribute__((swift_name("getYaw(q:deviceAxis_:)")));
 - (VpsKotlinFloatArray *)linear_interpolateD0:(VpsKotlinPair<VpsLong *, VpsKotlinFloatArray *> *)d0 d1:(VpsKotlinPair<VpsLong *, VpsKotlinFloatArray *> *)d1 t:(int64_t)t __attribute__((swift_name("linear_interpolate(d0:d1:t:)")));
 - (VpsKotlinDoubleArray *)q_conjQ:(VpsKotlinDoubleArray *)q __attribute__((swift_name("q_conj(q:)")));
 - (VpsKotlinFloatArray *)q_conjQ_:(VpsKotlinFloatArray *)q __attribute__((swift_name("q_conj(q_:)")));
@@ -7311,6 +7312,7 @@ __attribute__((swift_name("KotlinFloatArray")))
 - (VpsKotlinFloatArray *)quaternionMultiplyWithQuaternion:(VpsKotlinFloatArray *)quaternion __attribute__((swift_name("quaternionMultiplyWith(quaternion:)")));
 - (VpsKotlinIntArray *)randomChoicesIndicesK:(int32_t)k random:(id<VpsRandomNumberGenerator>)random __attribute__((swift_name("randomChoicesIndices(k:random:)")));
 - (NSArray<VpsInt *> *)randomChoicesIndicesOldK:(int32_t)k random:(id<VpsRandomNumberGenerator>)random __attribute__((swift_name("randomChoicesIndicesOld(k:random:)"))) __attribute__((deprecated("Old implementation")));
+- (VpsKotlinDoubleArray *)toDoubleArray __attribute__((swift_name("toDoubleArray()")));
 - (NSString *)toPrintString __attribute__((swift_name("toPrintString()")));
 @end
 
