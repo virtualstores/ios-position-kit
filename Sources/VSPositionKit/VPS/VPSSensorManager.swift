@@ -92,26 +92,44 @@ final class VPSSensorManager: Disposable {
   }
 
   private func reportSensorData(for data: MotionSensorData) {
-    let accelerationArr = KotlinFloatArray(size: Int32(data.acceleration.data.count))
-    let gravityArr = KotlinFloatArray(size: Int32(data.gravity.data.count))
-    let rotationArr = KotlinFloatArray(size: Int32(data.rotation.data.count))
-    let geomagneticArr = KotlinFloatArray(size: Int32(data.magnetometer.data.count))
-    let accelerometerArr = KotlinFloatArray(size: Int32(data.accelerometer.data.count))
-    let gyroscopeArr = KotlinFloatArray(size: Int32(data.gyroscope.data.count))
+    dataPublisher.send(createRawSensorData(with: data, type: .acceleration))
+    dataPublisher.send(createRawSensorData(with: data, type: .gravity))
+    dataPublisher.send(createRawSensorData(with: data, type: .rotation))
+    dataPublisher.send(createRawSensorData(with: data, type: .geomagneticUncalibrated))
+    dataPublisher.send(createRawSensorData(with: data, type: .accelerometer))
+    dataPublisher.send(createRawSensorData(with: data, type: .gyroscopeUncalibrated))
+  }
 
-    data.acceleration.data.enumerated().forEach { accelerationArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
-    data.gravity.data.enumerated().forEach { gravityArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
-    data.rotation.data.enumerated().forEach { rotationArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
-    data.magnetometer.data.enumerated().forEach { geomagneticArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
-    data.accelerometer.data.enumerated().forEach { accelerometerArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
-    data.gyroscope.data.enumerated().forEach { gyroscopeArr.set(index: Int32($0.offset), value: $0.element.asFloat) }
+  private func createRawSensorData(with sensorData: MotionSensorData, type: vps.SensorDataType) -> RawSensorData? {
+    let data: [Double]
+    switch type {
+    case .acceleration:
+      data = sensorData.acceleration.data
+    case .gravity:
+      data = sensorData.gravity.data
+    case .rotation:
+      data = sensorData.rotation.data
+    case .geomagnetic, .geomagneticUncalibrated:
+      data = sensorData.magnetometer.data
+    case .accelerometer:
+      data = sensorData.accelerometer.data
+    case .gyroscopeUncalibrated:
+      data = sensorData.gyroscope.data
+    default:
+      Logger(verbosity: .critical).log(tag: tag, message: "Case not handled: \(type)")
+      return nil
+    }
 
-    dataPublisher.send(RawSensorData(values: accelerationArr, sensorType: .acceleration, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
-    dataPublisher.send(RawSensorData(values: gravityArr, sensorType: .gravity, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
-    dataPublisher.send(RawSensorData(values: rotationArr, sensorType: .rotation, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
-    dataPublisher.send(RawSensorData(values: geomagneticArr, sensorType: .geomagnetic, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
-    dataPublisher.send(RawSensorData(values: accelerometerArr, sensorType: .accelerometer, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
-    dataPublisher.send(RawSensorData(values: gyroscopeArr, sensorType: .gyroscopeUncalibrated, nanoTimestamp: Int64(data.timestampLocalNano), sensorTimestamp: Int64(data.timestampSensor), systemTimestamp: Int64(data.timestampLocal)))
+    let arr = KotlinFloatArray(size: Int32(data.count))
+    data.enumerated().forEach { arr.set(index: $0.offset.asInt32, value: $0.element.asFloat) }
+
+    return RawSensorData(
+      values: arr,
+      sensorType: type,
+      nanoTimestamp: Int64(sensorData.timestampLocalNano),
+      sensorTimestamp: Int64(sensorData.timestampSensor),
+      systemTimestamp: Int64(sensorData.timestampLocal)
+    )
   }
 
   private func reportAltimeterData(data: AltitudeSensorData) {

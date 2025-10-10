@@ -13,7 +13,8 @@ import Combine
 
 protocol VPSWrapper {
     /// Publishes all recorded data
-    var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
+    var recordingInputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
+    var recordingOutputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
 
     /// Publishes output signals from VPS
     var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> { get }
@@ -26,9 +27,6 @@ protocol VPSWrapper {
 
     /// Start navigation setup methode
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
-
-    /// Set position change  methode
-    func setPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
 
     /// Start recording for vps
     func startRecording(sessionId: String?)

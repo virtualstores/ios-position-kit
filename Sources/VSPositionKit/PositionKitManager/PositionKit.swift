@@ -16,7 +16,8 @@ public protocol IPositionKit: Disposable {
     /// Publishes the current heading from CLLocationManager
     var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { get }
     /// Publishes all recorded data
-    var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
+    var recordingInputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
+    var recordingOutputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { get }
 
     /// Publishes output signals from VPS
     var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> { get }
@@ -35,7 +36,7 @@ public protocol IPositionKit: Disposable {
     func prepareAngle()
 
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine)
+    func setupMapFence(with mapData: MapFence, storeId: Int64, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine)
 
     /// Start navigation setup methode
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)
