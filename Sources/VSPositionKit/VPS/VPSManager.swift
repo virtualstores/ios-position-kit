@@ -21,7 +21,8 @@ public let velocityModelInterfaceVersion = VPSConfig.shared.VELOCITY_MODEL_INTER
 final class VPSManager: VPSWrapper, Disposable {
   @Inject var sensor: VPSSensorManager
 
-  var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
+  var recordingInputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { recorder.inputPublisher }
+  var recordingOutputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> { recorder.outputPublisher }
   var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
   var vpsParticleFilterSettings: [String:String] { particleFilterSettings.map() }
 
@@ -38,6 +39,9 @@ final class VPSManager: VPSWrapper, Disposable {
   private let positionServiceSettings: PositionServiceSettings?
   private let engine: TT2Settings.TT2Engine
   private var vps: VPS?
+  private var automaticMagMappingRecording: Bool {
+    positionServiceSettings?.boolValues?["ios_sdk_magMappingRecordingActive"] ?? false
+  }
   private lazy var nlModel: NLModel? = {
     guard 
       #available(iOS 14.0, *),
@@ -47,15 +51,13 @@ final class VPSManager: VPSWrapper, Disposable {
     return VPSNLModel(manager: modelManager)
   }()
 
-  var isRecording: Bool { recorder.isRecording }
-
   private let tag = "VPSManager"
   private var cancellable = Set<AnyCancellable>()
   private var particleFilterOffsetAngle: Float?
 
-  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager, engine: TT2Settings.TT2Engine) {
+  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, storeId: Int64, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager, engine: TT2Settings.TT2Engine) {
     self.automaticSensorRecording = automaticSensorRecording
-    self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong)
+    self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong, storeId: storeId)
     self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
     self.particleFilterSettings = Self.getParticleFilterSettings(settings: positionServiceSettings)
@@ -87,17 +89,12 @@ final class VPSManager: VPSWrapper, Disposable {
       .sink { [weak self] (data) in
         guard self?.vpsRunning ?? false else { return }
         let signal = InputSignal.SensorData(rawSensorData: data)
-        self?.recorder.record(inputSignal: signal)
+        self?.recorder.record(signal: signal)
         self?.serialDispatch.async {
           //pthread_setname_np("VPSManager")
           self?.vps?.onInputSignal(signal: signal)
         }
       }.store(in: &cancellable)
-
-    recorder.dataPublisher
-      .compactMap { $0 }
-      .sink { [weak self] in self?.recordingPublisher.send($0) }
-      .store(in: &cancellable)
 
     BackgroundAccessManager.locationPublisher
       .compactMap { $0 }
@@ -114,7 +111,7 @@ final class VPSManager: VPSWrapper, Disposable {
             systemTimestamp: .currentTimeMillis,
             location: location.asLocation
           )
-          recorder.record(inputSignal: signal)
+          recorder.record(signal: signal)
           serialDispatch.async {
             self.vps?.onInputSignal(signal: signal)
           }
@@ -159,7 +156,7 @@ final class VPSManager: VPSWrapper, Disposable {
             y: heading.y.asFloat,
             z: heading.z.asFloat
           )
-          recorder.record(inputSignal: signal)
+          recorder.record(signal: signal)
           serialDispatch.async {
             self.vps?.onInputSignal(signal: signal)
           }
@@ -172,11 +169,17 @@ final class VPSManager: VPSWrapper, Disposable {
   var sessionId: String?
   func set(sessionId: String?) {
     self.sessionId = sessionId
+    if let sessionId = sessionId {
+      recorder.set(sessionId: sessionId)
+    }
   }
 
   func start() {
     if automaticSensorRecording {
-      recorder.startRecording(sessionId: sessionId)
+      recorder.startInputRecording(sessionId: sessionId)
+    }
+    if (automaticMagMappingRecording || automaticSensorRecording) && engine == .indoor {
+      recorder.startOutputRecording(sessionId: sessionId)
     }
     serialDispatch.async { [weak self] in
       guard let self = self else { return }
@@ -195,22 +198,23 @@ final class VPSManager: VPSWrapper, Disposable {
         positionEngineSettings: Self.createVPSEngine(settings: particleFilterSettings, engine: engine),
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3, rotationOutputActive: true, rotationCalculateLimit: 3),
-        magnetometerDriftEstimatorParams: Self.getMagnetometerDriftEstimatorParams(settings: positionServiceSettings, defaultParams: Self.getDefaultMagnetometerDriftEstimatorParams(for: engine)),
+        magnetometerDriftEstimatorParams: Self.getMagnetometerDriftEstimatorParams(settings: positionServiceSettings, defaultParams: Self.getDefaultMagnetometerDriftEstimatorParams(settings: positionServiceSettings, for: engine)),
+        orientationParams: Self.getOrientationParams(settings: positionServiceSettings),
         debugMode: false,
         extendedDebugMode: false,
-        modelOutputHandler: nil
+        modelOutputHandler: nil,
+        safeModeActivated: true
       )
     }
   }
 
   func startRecording(sessionId: String?) {
-    guard !isRecording else { return }
-    recorder.startRecording(sessionId: sessionId)
+    recorder.startInputRecording(sessionId: sessionId)
   }
 
   func stop() {
     let signal = InputSignal.Exit(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     recorder.stopRecording()
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
@@ -224,7 +228,6 @@ final class VPSManager: VPSWrapper, Disposable {
   }
 
   func stopRecording() {
-    guard isRecording else { return }
     recorder.stopRecording()
   }
 
@@ -232,10 +235,20 @@ final class VPSManager: VPSWrapper, Disposable {
     start()
     vpsRunning = true
     let signal = InputSignal.StartPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
+    }
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+      self.outputSignalPublisher.send(.position(position: .init(
+        point: positions.first!,
+        std: 1,
+        status: .confident,
+        activityState: .active,
+        trustedPosition: true,
+        timestamp: .init()
+      )))
     }
   }
 
@@ -243,7 +256,7 @@ final class VPSManager: VPSWrapper, Disposable {
     start()
     vpsRunning = true
     let signal = InputSignal.StartLngLatFixedNorth(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
     }
@@ -251,7 +264,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
   func syncPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     let signal = InputSignal.SyncPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
@@ -260,7 +273,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
   func syncPosition(location: CLLocation) {
     let signal = InputSignal.SyncLngLat(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
@@ -269,7 +282,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
   func syncGNSS(isStartSequence: Bool) {
     let signal = InputSignal.SyncGNSSSync(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, isStartSequence: isStartSequence)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
     }
@@ -277,7 +290,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
   func syncManual(location: CLLocation?, isStartSequence: Bool) {
     let signal = InputSignal.SyncManualSync(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location?.asLocation, isStartSequence: isStartSequence)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
     }
@@ -285,7 +298,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
   func forceSyncPosition(position: CGPoint, angle: Double, forceAngle: Bool) {
     let signal = InputSignal.SyncForce(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, position: position.asCoordinateF, angle: angle.asFloat, forceAngle: forceAngle)
-    recorder.record(inputSignal: signal)
+    recorder.record(signal: signal)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
     }
@@ -296,8 +309,8 @@ final class VPSManager: VPSWrapper, Disposable {
     // TODO: ASK CJ about location
     let angleCorrection = InputSignal.AngleCorrection(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, angle: Float(angle), location: nil)
 
-    recorder.record(inputSignal: syncPosition)
-    recorder.record(inputSignal: angleCorrection)
+    recorder.record(signal: syncPosition)
+    recorder.record(signal: angleCorrection)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: syncPosition)
       self.vps?.onInputSignal(signal: angleCorrection)
@@ -306,19 +319,6 @@ final class VPSManager: VPSWrapper, Disposable {
 
   func setPathfinder(pathfinder: BasePathfinder) {
     self.pathfinder = pathfinder
-  }
-
-  // why does this exist? is this not the same as sync?
-  func setPosition(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
-    serialDispatch.async { [weak self] in
-      guard let self = self else { return }
-      //pthread_setname_np("VPSManager")
-      if vpsRunning {
-        self.syncPosition(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
-      } else {
-        startNavigation(positions: positions, syncPosition: syncPosition, syncAngle: syncAngle, angle: angle, uncertainAngle: uncertainAngle)
-      }
-    }
   }
 
   func processMLPath(path: [CGPoint], pathEndPoint: CGPoint) -> VSFoundation.MLProcessedPath {
@@ -358,7 +358,7 @@ final class VPSManager: VPSWrapper, Disposable {
     //return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
     return 0.0
   }
-
+  
   static func createModelToEventParameters(settings: PositionServiceSettings?) -> ModelToEventParameters {
     .init(
       useSquareDriftFilter: settings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
@@ -372,13 +372,16 @@ final class VPSManager: VPSWrapper, Disposable {
   static func createVPSEngine(settings: ParticleFilterSettings, engine: TT2Settings.TT2Engine) -> PositionEngineSettings {
     switch engine {
     case .gpsFusion:
-      return .GPSFusion(mlAdjustmentActivated: true, useNoMapFilter: false, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
+//      return .GPSFusion(mlAdjustmentActivated: true, useNoMapFilter: false, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
+      return .GNSSFusion(noMapFilterParams: VPSNoMapFilterParams.shared.default_)
     case .indoor:
       return .ParticleFilter(particleFilterSettings: settings)
     case .noMap:
-      return .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: true, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
+//      return .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: true, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
+      return .GNSSFusion(noMapFilterParams: VPSNoMapFilterParams.shared.default_)
     case .openTerrain:
-      return .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: false, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
+//      return .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: false, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
+      return .GNSSFusion(noMapFilterParams: VPSNoMapFilterParams.shared.default_)
     }
   }
 
@@ -410,7 +413,7 @@ final class VPSManager: VPSWrapper, Disposable {
       scoringParams: getScoringParams(settings: settings, defaultParams: getDefaultScoringParams(settings: settings)),
       clusterSwapOutputActivated: false,
       trustedPositionParams: getTrustedPositionParams(settings: settings, defaultParams: getDefaultTrustedPositionParams(settings: settings)),
-      positionStdSettings: getPositionStdSettings(settings: settings)
+      positionStdSettings: getPositionStdSettings(settings: settings, defaultParams: VPSPositionStdSettings.shared.default_)
     )
   }
 
@@ -510,8 +513,8 @@ final class VPSManager: VPSWrapper, Disposable {
       weakRssiScanThreshold: settings?.weakRssiScanThreshold ?? defaultParams.weakRssiScanThreshold,
       nRequiredScans: settings?.nRequiredScans ?? defaultParams.nRequiredScans,
       minDistanceOOB: settings?.minDistanceOOB ?? defaultParams.minDistanceOOB,
-      stairSpeedFactor: defaultParams.stairSpeedFactor, // TODO: Get from setings
-      exitZoneRatioForOOB: defaultParams.exitZoneRatioForOOB // TODO: Get from setings
+      stairSpeedFactor: settings?.stairSpeedFactor ?? defaultParams.stairSpeedFactor,
+      exitZoneRatioForOOB: settings?.exitZoneRatioForOOB ?? defaultParams.exitZoneRatioForOOB
     )
   }
 
@@ -527,7 +530,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
   static func getScoringParams(settings: PositionServiceSettings?, defaultParams: ScoringParams) -> ScoringParams {
     ScoringParams(
-      version: defaultParams.version,
+      version: .default_,
       dt: settings?.scoring_dt ?? defaultParams.dt,
       scoringIntervalSec: settings?.scoring_scoringIntervalSec ?? defaultParams.scoringIntervalSec,
       clusterSwapThreshold: settings?.scoring_clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
@@ -572,23 +575,35 @@ final class VPSManager: VPSWrapper, Disposable {
     )
   }
 
-  static func getPositionStdSettings(settings: PositionServiceSettings?) -> PositionStdSettings {
-    // TODO: Get from position service settings
+  static func getPositionStdSettings(settings: PositionServiceSettings?, defaultParams: PositionStdSettings) -> PositionStdSettings {
     .init(
-      strategy: PositionStdSettingsStrategyEnum(rawValue: settings?.positionStdSettings_strategy ?? "")?.toKotlin() ?? .reportActual,
-      stdDefault: settings?.positionStdSettings_stdDefault ?? 2.0,
-      isCapped: settings?.positionStdSettings_isCapped ?? false,
-      minStd: settings?.positionStdSettings_minStd?.asKotlinFloat,
-      maxStd: settings?.positionStdSettings_maxStd?.asKotlinFloat
+      strategy: PositionStdSettingsStrategyEnum(rawValue: settings?.positionStdSettings_strategy ?? "")?.toKotlin() ?? defaultParams.strategy,
+      stdDefault: settings?.positionStdSettings_stdDefault ?? defaultParams.stdDefault,
+      isCapped: settings?.positionStdSettings_isCapped ?? defaultParams.isCapped,
+      minStd: settings?.positionStdSettings_minStd?.asKotlinFloat ?? defaultParams.minStd,
+      maxStd: settings?.positionStdSettings_maxStd?.asKotlinFloat ?? defaultParams.maxStd
     )
   }
 
-  static func getDefaultMagnetometerDriftEstimatorParams(for engine: TT2Settings.TT2Engine) -> MagnetometerDriftEstimatorParams {
-    switch engine {
-    case .indoor:
+  static func getDefaultMagnetometerDriftEstimatorParams(settings: PositionServiceSettings?, for engine: TT2Settings.TT2Engine) -> MagnetometerDriftEstimatorParams {
+    switch settings?.stringValues?["ios_magnetometerDriftEstimator_version"] {
+    case "FORCE_MAG_START":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsForceMagStart
+    case "NO_MAG_START":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsNoMagStart
+    case "UNCERTAIN_START_BILKA":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsBilka
+    case "IOS_INDOORS":
       return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSIndoors
-    case .gpsFusion, .noMap, .openTerrain:
+    case "IOS_OUTDOORS":
       return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSOutdoors
+    default:
+      switch engine {
+      case .indoor:
+        return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSIndoors
+      case .gpsFusion, .noMap, .openTerrain:
+        return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSOutdoors
+      }
     }
   }
 
@@ -629,15 +644,29 @@ final class VPSManager: VPSWrapper, Disposable {
       magUseYChannel: settings?.magnetometerDriftEstimator_magUseYChannel ?? defaultParams.magUseYChannel,
       magUseZChannel: settings?.magnetometerDriftEstimator_magUseZChannel ?? defaultParams.magUseZChannel,
       distanceThreshold: settings?.magnetometerDriftEstimator_distanceThreshold ?? defaultParams.distanceThreshold,
-      useDistanceThreshold: settings?.magnetometerDriftEstimator_useDistanceThreshold ?? defaultParams.useDistanceThreshold
+      useDistanceThreshold: settings?.magnetometerDriftEstimator_useDistanceThreshold ?? defaultParams.useDistanceThreshold,
+      queueFillThreshold: settings?.queueFillThreshold ?? defaultParams.queueFillThreshold,
+      ignoreCalibrationInterval: settings?.ignoreCalibrationInterval ?? defaultParams.ignoreCalibrationInterval,
+      useTangentResidual: settings?.useTangentResidual ?? defaultParams.useTangentResidual,
+      useNorthOptimizerAtUncertainStart: settings?.useNorthOptimizerAtUncertainStart ?? defaultParams.useNorthOptimizerAtUncertainStart,
+      northOptimizerStartAngleTolerance: settings?.northOptimizerStartAngleTolerance ?? defaultParams.northOptimizerStartAngleTolerance
     )
   }
 
+  static func getOrientationParams(settings: PositionServiceSettings?) -> OrientationParams {
+    switch settings?.stringValues?["ios_orientationParams_version"] {
+    case "BILKA":
+      return VPSOrientationParams.shared.OrientationParamsBilka
+    default:
+      return VPSOrientationParams.shared.OrientationParamsAutomatic
+    }
+  }
+
   enum PositionStdSettingsStrategyEnum: String {
-    case reportTescoSpecial
-    case reportActual
-    case reportActualOnlyWhenUntrusted
-    case reportOnlyDefault
+    case reportTescoSpecial = "REPORT_TESCO_SPECIAL"
+    case reportActual = "REPORT_ACTUAL"
+    case reportActualOnlyWhenUntrusted = "REPORT_ACTUAL_ONLY_WHEN_UNTRUSTED"
+    case reportOnlyDefault = "REPORT_ONLY_DEFAULT"
 
     func toKotlin() -> PositionStdSettings.Strategy {
       switch self {
@@ -681,6 +710,7 @@ final class VPSManager: VPSWrapper, Disposable {
 
 extension VPSManager: VPSOutputHandler {
   func onOutputSignal(outputSignal: OutputSignal) {
+    recorder.record(signal: outputSignal)
     switch outputSignal {
     case let output as OutputSignal.Position:
       let position = VPSOutputSignal.Position(
@@ -696,8 +726,8 @@ extension VPSManager: VPSOutputHandler {
       outputSignalPublisher.send(
         .latLng(.init(
           mlLocation: output.mlLocation.asLocation,
-          gpsLocation: output.gpsLocation.asLocation,
-          reliableSource: output.reliableSource.asSource
+          gpsLocation: output.gnssLocation.asLocation,
+          reliableSource: .undefined
         )))
     case let output as OutputSignal.UXPosition:
       let position = VPSOutputSignal.Position(
@@ -744,6 +774,8 @@ extension VPSManager: VPSOutputHandler {
     case let output as OutputSignal.ConsistencyScoreSignal:
       outputSignalPublisher.send(.consistencyScoreSignal(Int((output.score * 1000).rounded(.toNearestOrAwayFromZero))))
     case let output as OutputSignal.SyncSignal: break
+    case let output as OutputSignal.UserInfoVPSError:
+      outputSignalPublisher.send(.userInfoVPSError(output.asVPSError))
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
@@ -786,6 +818,12 @@ extension OutputSignal.UXPositionStatus {
   }
 }
 
+extension OutputSignal.UserInfoVPSError {
+  var asVPSError: VPSOutputSignal.UserInfoVPSError {
+    .init(description: description(), stacktrace: stacktrace)
+  }
+}
+
 private extension CLLocation {
   var asLocation: Location {
     var ca: KotlinDouble?
@@ -806,7 +844,9 @@ private extension CLLocation {
       verticalAccuracy: .init(double: verticalAccuracy),
       speed: .init(double: speed),
       speedAccuracy: .init(double: speedAccuracy),
-      ellipsoidalAltitude: ea
+      ellipsoidalAltitude: ea,
+      source: .androidInternal,
+      usedConstellations: nil
     )
   }
 }
@@ -823,16 +863,16 @@ private extension Location {
   }
 }
 
-private extension OutputSignal.LngLatLocationSource {
-  var asSource: VPSOutputSignal.LatLngPosition.Source {
-    switch self {
-    case .gps: return .gps
-    case .undefined: return .undefined
-    case .vpsMl: return .vpsML
-    default: return .undefined
-    }
-  }
-}
+//private extension OutputSignal.LngLatLocationSource {
+//  var asSource: VPSOutputSignal.LatLngPosition.Source {
+//    switch self {
+//    case .gps: return .gps
+//    case .undefined: return .undefined
+//    case .vpsMl: return .vpsML
+//    default: return .undefined
+//    }
+//  }
+//}
 
 private extension PositionServiceSettings.VPSStartMethod {
   var asStartMethod: StartMethod {
@@ -950,6 +990,8 @@ private extension PositionServiceSettings {
   var weakRssiScanThreshold: Int32? { intValues?[.PARTICLE_FILTER_WEAK_RSSI_SCAN_THRESHOLD]?.asInt32 }
   var nRequiredScans: Int32? { intValues?[.PARTICLE_FILTER_N_REQUIRED_SCANS]?.asInt32 }
   var minDistanceOOB: Float? { floatValues?[.PARTICLE_FILTER_MIN_DISTANCE_OOB] }
+  var stairSpeedFactor: Float? { floatValues?[.PARTICLE_FILTER_STAIR_SPEED_FACTOR] }
+  var exitZoneRatioForOOB: Float? { floatValues?[.PARTICLE_FILTER_EXIT_ZONE_RATIO_FOR_OOB] }
 
   // SCORING PARAMS
   var scoring_dt: Float? {
@@ -1162,6 +1204,26 @@ private extension PositionServiceSettings {
     boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_DISTANCE_THRESHOLD] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_DISTANCE_THRESHOLD]
   }
 
+  var queueFillThreshold: Float? {
+    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_QUEUE_FILL_THRESHOLD] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_QUEUE_FILL_THRESHOLD]
+  }
+
+  var ignoreCalibrationInterval: Bool? {
+    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL]
+  }
+
+  var useTangentResidual: Bool? {
+    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL]
+  }
+
+  var useNorthOptimizerAtUncertainStart: Bool? {
+    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START]
+  }
+
+  var northOptimizerStartAngleTolerance: KotlinFloat? {
+    (floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE])?.asKotlinFloat
+  }
+
   enum VPSStartMethod: String {
     case gauss = "GAUSS"
     case global = "GLOBAL"
@@ -1283,6 +1345,8 @@ private extension String {
   static let PARTICLE_FILTER_WEAK_RSSI_SCAN_THRESHOLD: String = "ios_particleFilter_weakRssiScanThreshold"
   static let PARTICLE_FILTER_N_REQUIRED_SCANS: String = "ios_particleFilter_nRequiredScans"
   static let PARTICLE_FILTER_MIN_DISTANCE_OOB: String = "ios_particleFilter_minDistanceOOB"
+  static let PARTICLE_FILTER_STAIR_SPEED_FACTOR: String = "ios_particleFilter_stairSpeedFactor"
+  static let PARTICLE_FILTER_EXIT_ZONE_RATIO_FOR_OOB: String = "ios_particleFilter_exitZoneRatioForOOB"
 
   static let SCORING_PARAMS_VERSION: String = "scoringParams_version"
   static let SCORING_PARAMS_DT: String = "scoringParams_dt"
@@ -1354,6 +1418,11 @@ private extension String {
   static let MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Z_CHANNEL: String = "magnetometerDriftEstimator_magUseZChannel"
   static let MAGNETOMETER_DRIFT_ESTIMATOR_DISTANCE_THRESHOLD: String = "magnetometerDriftEstimator_distanceThreshold"
   static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_DISTANCE_THRESHOLD: String = "magnetometerDriftEstimator_useDistanceThreshold"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_QUEUE_FILL_THRESHOLD: String = "magnetometerDriftEstimator_queueFillThreshold"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL: String = "magnetometerDriftEstimator_ignoreCalibrationInterval"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL: String = "magnetometerDriftEstimator_useTangentResidual"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START: String = "magnetometerDriftEstimator_useNorthOptimizerAtUncertainStart"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE: String = "magnetometerDriftEstimator_northOptimizerStartAngleTolerance"
 }
 
 extension vps.MLProcessedPath {

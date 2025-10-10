@@ -15,11 +15,11 @@ import CoreLocation
 
 public final class VPSPositionManager {
   public var locationHeadingPublisher: CurrentValueSubject<CLHeading?, Error> { backgroundAccess.locationHeadingPublisher }
-  public var recordingPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
+  public var recordingInputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
+  public var recordingOutputPublisher: CurrentValueSubject<(identifier: String, data: String, sessionId: String, lastFile: Bool)?, Never> = .init(nil)
   public var outputSignalPublisher: CurrentValueSubject<VPSOutputSignal?, Never> = .init(nil)
   public var altimeterPublisher: CurrentValueSubject<AltitudeSensorData?, SensorError> { sensor.altimeterPublisher }
   public var vpsParticleFilterSettings: [String:String] { vps.vpsParticleFilterSettings }
-  public var isRecording: Bool { vps.isRecording }
 
   public var rtlsOption: RtlsOptions?
 
@@ -44,9 +44,14 @@ public final class VPSPositionManager {
   }
 
   func bindPublishers() {
-    vps.recordingPublisher
+    vps.recordingInputPublisher
       .compactMap { $0 }
-      .sink { [weak self] in self?.recordingPublisher.send($0) }
+      .sink { [weak self] in self?.recordingInputPublisher.send($0) }
+      .store(in: &cancellable)
+
+    vps.recordingOutputPublisher
+      .compactMap { $0 }
+      .sink { [weak self] in self?.recordingOutputPublisher.send($0) }
       .store(in: &cancellable)
 
     vps.outputSignalPublisher
@@ -68,12 +73,14 @@ extension VPSPositionManager: IPositionKit {
     _vps?.dispose()
     context?.dispose()
     context = nil
+    cancellable.removeAll()
   }
   
-  public func setupMapFence(with mapData: MapFence, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
+  public func setupMapFence(with mapData: MapFence, storeId: Int64, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
       floorHeightDiffInMeters: floorheight,
+      storeId: storeId,
       rtls: rtlsOption,
       automaticSensorRecording: automaticSensorRecording,
       mapData: mapData,
