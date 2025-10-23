@@ -12,7 +12,7 @@ import Foundation
 import os.log
 import UIKit
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 import vps
 
 public let vpsVersion = VPSConfig.shared.VPS_VERSION
@@ -240,15 +240,17 @@ final class VPSManager: VPSWrapper, Disposable {
       //pthread_setname_np("VPSManager")
       self.vps?.onInputSignal(signal: signal)
     }
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-      self.outputSignalPublisher.send(.position(position: .init(
-        point: positions.first!,
-        std: 1,
-        status: .confident,
-        activityState: .active,
-        trustedPosition: true,
-        timestamp: .init()
-      )))
+    if let position = positions.first {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+        self?.outputSignalPublisher.send(.position(position: .init(
+          point: position,
+          std: 1,
+          status: .confident,
+          activityState: .active,
+          trustedPosition: true,
+          timestamp: .init()
+        )))
+      }
     }
   }
 

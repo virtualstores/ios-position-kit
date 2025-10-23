@@ -8,7 +8,7 @@
 
 import Foundation
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 
 class PositionKitConfig: Config {
   var disposables = [Disposable]()
