@@ -1,7 +1,7 @@
 //import XCTest
 //@testable import VSPositionKit
 //import VSFoundation
-//import VSSensorFusion
+//import TT2SensorFusion
 //
 //final class ios_position_kit_manager_Tests: XCTestCase {
 //  func test_data_flow_through_interpreter_and_enginge() throws {

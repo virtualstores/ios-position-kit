@@ -13,22 +13,26 @@ let package = Package(
     products: [
         .library(
             name: "VSPositionKit",
-            
             targets: ["VSPositionKit"]),
+        .library(name: "TT2SensorFusion", targets: ["TT2SensorFusion"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/virtualstores/ios-foundation.git", .upToNextMajor(from: "1.0.0")),
-        .package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .exact("1.5.0")),
-        //.package(url: "https://github.com/virtualstores/ios-sensor-fusion.git", .branchItem("GPS-to-TT2"))
     ],
     targets: [
         .target(
+          name: "TT2SensorFusion",
+          dependencies: [
+            .product(name: "VSFoundation", package: "ios-foundation")
+          ],
+        ),
+        .target(
             name: "VSPositionKit",
             dependencies: [
+                "TT2SensorFusion",
                 .target(name: "VPS"),
                 .product(name: "VSFoundation", package: "ios-foundation"),
-                .product(name: "VSSensorFusion", package: "ios-sensor-fusion"),
             ]),
         .testTarget(
             name: "VSPositionKitTests",

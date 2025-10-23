@@ -10,7 +10,7 @@ import Foundation
 import CoreMotion
 import Combine
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 import vps
 
 final class VPSSensorManager: Disposable {

@@ -7,7 +7,7 @@
 
 import Foundation
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 import CoreMotion
 import Combine
 

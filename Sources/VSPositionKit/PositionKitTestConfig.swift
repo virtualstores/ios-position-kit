@@ -6,7 +6,7 @@
 
 import Foundation
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 
 struct PositionKitTestConfig: Config {
   init() {}

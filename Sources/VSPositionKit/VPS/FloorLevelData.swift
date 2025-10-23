@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 import vps
 
 class FloorLevelData {

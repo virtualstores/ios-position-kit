@@ -8,7 +8,7 @@ import Foundation
 import XCTest
 @testable import VSPositionKit
 import VSFoundation
-import VSSensorFusion
+import TT2SensorFusion
 
 final class altitude_floor_Tests: XCTestCase {
   class FloorTestDelegate: IFloorChangeDelegate {

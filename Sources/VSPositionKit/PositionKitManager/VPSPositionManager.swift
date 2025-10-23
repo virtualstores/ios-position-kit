@@ -8,7 +8,7 @@
 
 import Foundation
 import Combine
-import VSSensorFusion
+import TT2SensorFusion
 import VSFoundation
 import CoreGraphics
 import CoreLocation
