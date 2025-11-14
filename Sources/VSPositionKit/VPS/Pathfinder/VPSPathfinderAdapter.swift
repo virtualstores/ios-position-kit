@@ -17,6 +17,8 @@ public final class VPSPathfinderAdapter: VSFoundation.IPathfinder, Disposable {
   public var sortedGoalUpdatedPublisher: CurrentValueSubject<[Goal]?, Never> = .init(nil)
   public var pathUpdatedPublisher: CurrentValueSubject<Path?, Never> = .init(nil)
 
+  public var currentGoal: Goal? { vpsPathfinder?.currentGoal?.asGoal }
+  public var sortedGoals: [Goal]? { vpsPathfinder?.sortedGoals.map { $0.asGoal } }
   public var hasGoal: Bool { vpsPathfinder?.hasGoal ?? false }
 
   private let tag = "VPSPathfinderAdapter"
