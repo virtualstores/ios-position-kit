@@ -443,6 +443,7 @@ final class VPSManager: VPSWrapper, Disposable {
     case .v3: return VPSParticleFilterParams.shared.particleFilterV3
     case .mixedGauss: return VPSParticleFilterParams.shared.particleFilterMixedGauss
     case .sprinkle: return VPSParticleFilterParams.shared.sprinkleFilter
+    case .bilka: return VPSParticleFilterParams.shared.particleFilterParamsBilka
     }
   }
 
@@ -516,7 +517,10 @@ final class VPSManager: VPSWrapper, Disposable {
       nRequiredScans: settings?.nRequiredScans ?? defaultParams.nRequiredScans,
       minDistanceOOB: settings?.minDistanceOOB ?? defaultParams.minDistanceOOB,
       stairSpeedFactor: settings?.stairSpeedFactor ?? defaultParams.stairSpeedFactor,
-      exitZoneRatioForOOB: settings?.exitZoneRatioForOOB ?? defaultParams.exitZoneRatioForOOB
+      exitZoneRatioForOOB: settings?.exitZoneRatioForOOB ?? defaultParams.exitZoneRatioForOOB,
+      useKDEX0Step: settings?.useKDEX0Step ?? defaultParams.useKDEX0Step,
+      uncertainStartPositionStd: settings?.uncertainStartPositionStd ?? defaultParams.uncertainStartPositionStd,
+      uncertainStartDirectionStd: settings?.uncertainStartDirectionStd ?? defaultParams.uncertainStartDirectionStd
     )
   }
 
@@ -688,6 +692,7 @@ final class VPSManager: VPSWrapper, Disposable {
     case v3 = "V3"
     case mixedGauss = "MIXED_GAUSS"
     case sprinkle = "SPRINKLE"
+    case bilka = "BILKA"
   }
 
   enum VPSParticleFilterSettingsEnum: String {
@@ -994,6 +999,9 @@ private extension PositionServiceSettings {
   var minDistanceOOB: Float? { floatValues?[.PARTICLE_FILTER_MIN_DISTANCE_OOB] }
   var stairSpeedFactor: Float? { floatValues?[.PARTICLE_FILTER_STAIR_SPEED_FACTOR] }
   var exitZoneRatioForOOB: Float? { floatValues?[.PARTICLE_FILTER_EXIT_ZONE_RATIO_FOR_OOB] }
+  var useKDEX0Step: Bool? { boolValues?[.PARTICLE_FILTER_USE_KDEX0_STEP] }
+  var uncertainStartPositionStd: Float? { floatValues?[.PARTICLE_FILTER_UNCERTAIN_START_POSITION_STD] }
+  var uncertainStartDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_UNCERTAIN_START_DIRECTION_STD] }
 
   // SCORING PARAMS
   var scoring_dt: Float? {
@@ -1349,6 +1357,9 @@ private extension String {
   static let PARTICLE_FILTER_MIN_DISTANCE_OOB: String = "ios_particleFilter_minDistanceOOB"
   static let PARTICLE_FILTER_STAIR_SPEED_FACTOR: String = "ios_particleFilter_stairSpeedFactor"
   static let PARTICLE_FILTER_EXIT_ZONE_RATIO_FOR_OOB: String = "ios_particleFilter_exitZoneRatioForOOB"
+  static let PARTICLE_FILTER_USE_KDEX0_STEP: String = "ios_particleFilter_useKDEX0Step"
+  static let PARTICLE_FILTER_UNCERTAIN_START_POSITION_STD: String = "ios_particleFilter_uncertainStartPositionStd"
+  static let PARTICLE_FILTER_UNCERTAIN_START_DIRECTION_STD: String = "ios_particleFilter_uncertainStartDirectionStd"
 
   static let SCORING_PARAMS_VERSION: String = "scoringParams_version"
   static let SCORING_PARAMS_DT: String = "scoringParams_dt"
