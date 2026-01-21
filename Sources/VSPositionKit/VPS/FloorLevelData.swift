@@ -69,22 +69,22 @@ class FloorLevelData {
     isValidCoordinate(x: x, y: y) ? 0 : 1
   }
 
-  var geomagnetism: Geomagnetism?
+  lazy var geomagnetism: Geomagnetism = {
+    let coordinate = BackgroundAccessManager.locationPublisher.value?.coordinate ?? data.storeCoordinate
+    return Geomagnetism(longitude: coordinate.longitude, latitude: coordinate.latitude)
+  }()
   func setupGeomagnetism() {
     guard let coordinate = BackgroundAccessManager.locationPublisher.value?.coordinate else { return }
     geomagnetism = Geomagnetism(longitude: coordinate.longitude, latitude: coordinate.latitude)
   }
   var declination: Double {
-    if geomagnetism == nil { setupGeomagnetism() }
-    return geomagnetism?.declination ?? 7.3 // Stockholm Geomagnetic Declination
+    return geomagnetism.declination // ?? 7.48 // Stockholm Geomagnetic Declination
   }
   var inclination: Double {
-    if geomagnetism == nil { setupGeomagnetism() }
-    return geomagnetism?.inclination ?? 70
+    return geomagnetism.inclination // ?? 72.87
   }
   var magnitude: Double {
-    if geomagnetism == nil { setupGeomagnetism() }
-    return geomagnetism?.magnitude ?? 4
+    return geomagnetism.magnitude // ?? 51.83
   }
 }
 

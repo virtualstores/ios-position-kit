@@ -386,7 +386,7 @@ class Geomagnetism {
 	private(set) var eastIntensity:Double = Double.nan
 
   var magnitude: Double {
-    sqrt(pow(horizontalIntensity, 2) + pow(verticalIntensity, 2))
+    (sqrt(pow(horizontalIntensity, 2) + pow(verticalIntensity, 2))) / 1000
   }
 
 	/** The maximum order of spherical harmonic model*/

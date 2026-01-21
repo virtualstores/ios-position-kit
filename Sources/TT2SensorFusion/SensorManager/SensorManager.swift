@@ -133,7 +133,7 @@ public class SensorManager: ISensorManager {
               timestampLocal: Date().currentTimeMillis,
               timestampLocalNano: .nanoTime,
               altitudeData: [data.relativeAltitude.doubleValue],
-              barometerData: [data.pressure.doubleValue],
+              barometerData: [data.pressure.doubleValue * 10],
               cmAltitude: data
             ))
         }
