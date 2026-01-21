@@ -51,16 +51,24 @@ final class VPSManager: VPSWrapper, Disposable {
     return VPSNLModel(manager: modelManager)
   }()
 
+  private lazy var npModel: NorthPredictorModel? = {
+    guard
+      #available(iOS 15.0, *),
+      positionServiceSettings?.npModelActivated ?? true
+    else { return nil }
+    return VPSNPModel(manager: modelManager)
+  }()
+
   private let tag = "VPSManager"
   private var cancellable = Set<AnyCancellable>()
   private var particleFilterOffsetAngle: Float?
 
-  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, storeId: Int64, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager, engine: TT2Settings.TT2Engine) {
+  init(floorHeightDiffInMeters: Double, trueNorthOffset: Double = 0.0, storeId: Int64, rtls: RtlsOptions, automaticSensorRecording: Bool, mapData: MapFence, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManager: VPSModelManager, engine: TT2Settings.TT2Engine, storeCoordinate: CLLocationCoordinate2D) {
     self.automaticSensorRecording = automaticSensorRecording
     self.recorder = VPSRecorder(maxRecordingTimePerPartInMillis: positionServiceSettings?.intValues?["maxRecordingTimePerPartInMillis"]?.asLong, storeId: storeId)
-    self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter))], initialFloorLevelId: nil, debug: false)
+    self.floorLevelHandler = FloorLevelHandler(floorLevels: [KotlinLong(value: rtls.id):FloorLevelData(data: FloorData(rtls: rtls, mapFence: mapData, metersToNextFloor: floorHeightDiffInMeters, converter: converter, storeCoordinate: storeCoordinate))], initialFloorLevelId: nil, debug: false)
     self.modelManager = modelManager
-    self.particleFilterSettings = Self.getParticleFilterSettings(settings: positionServiceSettings)
+    self.particleFilterSettings = .init(settings: positionServiceSettings, defaultParams: .getDefault(settings: positionServiceSettings))
     self.positionServiceSettings = positionServiceSettings
     self.engine = engine
     self.bindPublishers()
@@ -189,17 +197,20 @@ final class VPSManager: VPSWrapper, Disposable {
         velocityModel: VPSVelocityModel(manager: modelManager),
         modeClassifierModel: nil,
         nlModel: nlModel,
+        adModel: nil,
         floorLevelHandler: floorLevelHandler,
         outputHandler: self,
         system: .ios,
         featureToTensorValueParams: FeatureToTensorValueParams(packageFrequency: 30),
         interpolationParams: IosInterpolationModuleParams.shared.default_,
-        modelToEventParameters: Self.createModelToEventParameters(settings: positionServiceSettings),
+        modelToEventParameters: .init(settings: positionServiceSettings),
         positionEngineSettings: Self.createVPSEngine(settings: particleFilterSettings, engine: engine),
         floorChangeInterpreterSettings: VPSFloorChangeHandlerSettings.shared.default_,
         rotationHandlerSettings: .init(rotationOutputLimit: 3, rotationOutputActive: true, rotationCalculateLimit: 3),
-        magnetometerDriftEstimatorParams: Self.getMagnetometerDriftEstimatorParams(settings: positionServiceSettings, defaultParams: Self.getDefaultMagnetometerDriftEstimatorParams(settings: positionServiceSettings, for: engine)),
+        magnetometerDriftEstimatorParams: .init(settings: positionServiceSettings, defaultParams: .getDefault(settings: positionServiceSettings, for: engine)),
+        northPredictorModel: npModel,
         orientationParams: Self.getOrientationParams(settings: positionServiceSettings),
+        orientationModuleParams: .init(defaultParams: VPSOrientationModuleParams.shared.default_),
         debugMode: false,
         extendedDebugMode: false,
         modelOutputHandler: nil,
@@ -224,7 +235,7 @@ final class VPSManager: VPSWrapper, Disposable {
     }
     vpsRunning = false
     particleFilterOffsetAngle = nil
-    (floorLevelHandler.currentFloorLevel as? FloorLevelData)?.geomagnetism = nil
+    //(floorLevelHandler.currentFloorLevel as? FloorLevelData)?.geomagnetism = nil
   }
 
   func stopRecording() {
@@ -234,7 +245,7 @@ final class VPSManager: VPSWrapper, Disposable {
   func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool) {
     start()
     vpsRunning = true
-    let signal = InputSignal.StartPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
+    let signal = InputSignal.StartPosition(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, sessionId: "", deviceModel: UIDevice.current.modelName, positions: positions.map({ $0.asCoordinateF }), syncPosition: syncPosition, syncAngle: syncAngle, angle: Float(angle), uncertainAngle: uncertainAngle)
     recorder.record(signal: signal)
     serialDispatch.async {
       //pthread_setname_np("VPSManager")
@@ -257,7 +268,7 @@ final class VPSManager: VPSWrapper, Disposable {
   func startLngLatFixedNorth(location: CLLocation) {
     start()
     vpsRunning = true
-    let signal = InputSignal.StartLngLatFixedNorth(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, location: location.asLocation)
+    let signal = InputSignal.StartLngLatFixedNorth(nanoTimestamp: .nanoTime, systemTimestamp: .currentTimeMillis, sessionId: "", deviceModel: UIDevice.current.modelName, location: location.asLocation)
     recorder.record(signal: signal)
     serialDispatch.async {
       self.vps?.onInputSignal(signal: signal)
@@ -360,16 +371,6 @@ final class VPSManager: VPSWrapper, Disposable {
     //return VectorUtils().radiansToDegrees(angRad: Double(VectorUtilsKt.getRotatedAxisAngleOnPlane(rotationVector: newQuat, axis: array))) - cachedAngle
     return 0.0
   }
-  
-  static func createModelToEventParameters(settings: PositionServiceSettings?) -> ModelToEventParameters {
-    .init(
-      useSquareDriftFilter: settings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
-      squareDriftFilterGain: settings?.squareDriftFilterGain ?? VPSModelToEventParameters.shared.default_.squareDriftFilterGain,
-      speedThresholdForStairClassification: VPSModelToEventParameters.shared.default_.speedThresholdForStairClassification, // TODO: Get from setings
-      modeKalmanFilterParams: VPSModelToEventParameters.shared.default_.modeKalmanFilterParams, // TODO: Get from setings
-      stairSimpleFilterParams: VPSModelToEventParameters.shared.default_.stairSimpleFilterParams // TODO: Get from setings
-    )
-  }
 
   static func createVPSEngine(settings: ParticleFilterSettings, engine: TT2Settings.TT2Engine) -> PositionEngineSettings {
     switch engine {
@@ -385,278 +386,6 @@ final class VPSManager: VPSWrapper, Disposable {
 //      return .GPSFusion(mlAdjustmentActivated: false, useNoMapFilter: false, noMapFilterParams: VPSNoMapFilterParams.shared.default_)
       return .GNSSFusion(noMapFilterParams: VPSNoMapFilterParams.shared.default_)
     }
-  }
-
-  static func getDefaultParticleFilterSettings(settings: PositionServiceSettings?) -> ParticleFilterSettings {
-    guard
-      let option = settings?.stringValues?[.PARTICLE_FILTER_SETTINGS],
-      let defaultEnum = VPSParticleFilterSettingsEnum.init(rawValue: option)
-    else { return VPSParticleFilterSettings.shared.default_ }
-    switch defaultEnum {
-    case .´default´: return VPSParticleFilterSettings.shared.default_
-    case .nl: return VPSParticleFilterSettings.shared.v2
-    case .v1: return VPSParticleFilterSettings.shared.v1
-    }
-  }
-
-  static func getParticleFilterSettings(settings: PositionServiceSettings?) -> ParticleFilterSettings {
-    ParticleFilterSettings(
-      version: getDefaultParticleFilterSettings(settings: settings).version,
-      uxPositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_UX_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).uxPositionActivated,
-      mlPositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_ML_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).mlPositionActivated,
-      particlePositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_POS_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).particlePositionActivated,
-      particlesOutputActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_PARTICLES_OUTPUT_ACTIVATED] ?? getDefaultParticleFilterSettings(settings: settings).particlesOutputActivated,
-      particleFilterVersion: getParticleFilterVersion(settings: settings) ?? getDefaultParticleFilterSettings(settings: settings).particleFilterVersion,
-      particleFilterParams: getParticleFilterParams(settings: settings, defaultParams: getDefaultParams(settings: settings)),
-      randomNumberGeneratorSeed: nil,
-      saveOutputSignals: false,
-      saveWiFiStatusUpdate: false,
-      saveWiFiScans: false,
-      scoringParams: getScoringParams(settings: settings, defaultParams: getDefaultScoringParams(settings: settings)),
-      clusterSwapOutputActivated: false,
-      trustedPositionParams: getTrustedPositionParams(settings: settings, defaultParams: getDefaultTrustedPositionParams(settings: settings)),
-      positionStdSettings: getPositionStdSettings(settings: settings, defaultParams: VPSPositionStdSettings.shared.default_)
-    )
-  }
-
-  static func getParticleFilterVersion(settings: PositionServiceSettings?) -> ParticleFilterSettings.ParticleFilterVersion? {
-    guard
-      let option = settings?.stringValues?[.PARTICLE_FILTER_SETTINGS_VERSION],
-      let defaultEnum = VPSParticleFilterSettingsVersionEnum(rawValue: option)
-    else { return nil }
-    switch defaultEnum {
-    case .v1: return ParticleFilterSettings.ParticleFilterVersion.v1
-    case .v2: return ParticleFilterSettings.ParticleFilterVersion.v2
-    }
-  }
-
-  static func getDefaultParams(settings: PositionServiceSettings?) -> ParticleFilterParams {
-    guard
-      let option = settings?.stringValues?[.PARTICLE_FILTER_DEFAULT_PARAMS],
-      let defaultEnum = VPSParticleFilterDefaultEnum(rawValue: option)
-    else { return getDefaultParticleFilterSettings(settings: settings).particleFilterParams }
-    switch defaultEnum {
-    case .´default´: return VPSParticleFilterParams.shared.default_
-    case .compass: return VPSParticleFilterParams.shared.compass
-    case .v1: return VPSParticleFilterParams.shared.particleFilterV1
-    case .v2: return VPSParticleFilterParams.shared.particleFilterV2
-    case .v3: return VPSParticleFilterParams.shared.particleFilterV3
-    case .mixedGauss: return VPSParticleFilterParams.shared.particleFilterMixedGauss
-    case .sprinkle: return VPSParticleFilterParams.shared.sprinkleFilter
-    case .bilka: return VPSParticleFilterParams.shared.particleFilterParamsBilka
-    }
-  }
-
-  static func getParticleFilterParams(settings: PositionServiceSettings?, defaultParams: ParticleFilterParams) -> ParticleFilterParams {
-    ParticleFilterParams(
-      version: defaultParams.version,
-      maxNumParticles: settings?.maxNumParticles ?? defaultParams.maxNumParticles,
-      minNumParticles: settings?.minNumParticles ?? defaultParams.minNumParticles,
-      stepLengthStd: settings?.stepLengthStd ?? defaultParams.stepLengthStd,
-      stepDirectionStd: settings?.stepDirectionStd ?? defaultParams.stepDirectionStd,
-      biasStd: settings?.biasStd ?? defaultParams.biasStd,
-      biasLimit: settings?.biasLimit ?? defaultParams.biasLimit,
-      secondBiasStd: settings?.secondBiasStd ?? defaultParams.secondBiasStd,
-      secondBiasMean: settings?.secondBiasMean ?? defaultParams.secondBiasMean,
-      secondBiasLimit: settings?.secondBiasLimit ?? defaultParams.secondBiasLimit,
-      mixingFactor: settings?.mixingFactor ?? defaultParams.mixingFactor,
-      startMethod: settings?.startMethod ?? defaultParams.startMethod,
-      startPositionStd: settings?.startPositionStd ?? defaultParams.startPositionStd,
-      startDirectionStd: settings?.startDirectionStd ?? defaultParams.startDirectionStd,
-      syncMethod: settings?.syncMethod ?? defaultParams.syncMethod,
-      syncPositionStd: settings?.syncPositionStd ?? defaultParams.syncPositionStd,
-      syncDirectionStd: settings?.syncDirectionStd ?? defaultParams.syncDirectionStd,
-      rescuePositionStd: settings?.rescuePositionStd ?? defaultParams.rescuePositionStd,
-      rescueDirectionStd: settings?.rescueDirectionStd ?? defaultParams.rescueDirectionStd,
-      kldEpsilon: settings?.kldEpsilon ?? defaultParams.kldEpsilon,
-      kldDelta: settings?.kldDelta ?? defaultParams.kldDelta,
-      kldZ: settings?.kldZ ?? defaultParams.kldZ,
-      binSize: settings?.binSize ?? defaultParams.binSize,
-      uxPositionConfidence: settings?.uxPositionConfidence ?? defaultParams.uxPositionConfidence,
-      angleOffsetGainDegPerMin: settings?.angleOffsetGainDegPerMin ?? defaultParams.angleOffsetGainDegPerMin,
-      speedFactor: settings?.speedFactor ?? defaultParams.speedFactor,
-      naiveOutputSyncMovement: settings?.naiveOutputSyncMovement ?? defaultParams.naiveOutputSyncMovement,
-      useMLSyncSpeedFilter: settings?.useMLSyncSpeedFilter ?? defaultParams.useMLSyncSpeedFilter,
-      sprinkleSyncThreshold: settings?.sprinkleSyncThreshold ?? defaultParams.sprinkleSyncThreshold,
-      sprinklePercentage: settings?.sprinklePercentage ?? defaultParams.sprinklePercentage,
-      useRayTraceSensorModel: settings?.useRayTraceSensorModel ?? defaultParams.useRayTraceSensorModel,
-      nlThreshold: settings?.nlThreshold ?? defaultParams.nlThreshold,
-      rescueOnNL: settings?.rescueOnNL ?? defaultParams.rescueOnNL,
-      wiFiDistanceSyncCriteria: settings?.wiFiDistanceSyncCriteria ?? defaultParams.wiFiDistanceSyncCriteria,
-      idleWiFiSecondsCriteria: settings?.idleWiFiSecondsCriteria ?? defaultParams.idleWiFiSecondsCriteria,
-      wiFiPathLossCoefficient: settings?.wiFiPathLossCoefficient ?? defaultParams.wiFiPathLossCoefficient,
-      wiFiMeasuredPower: settings?.wiFiMeasuredPower ?? defaultParams.wiFiMeasuredPower,
-      swapSprinkleInterval: settings?.swapSprinkleInterval ?? defaultParams.swapSprinkleInterval,
-      swapSprinkleEndCount: settings?.swapSprinkleEndCount ?? defaultParams.swapSprinkleEndCount,
-      swapSprinkleRatio: settings?.swapSprinkleRatio ?? defaultParams.swapSprinkleRatio,
-      mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize,
-      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold,
-      stdQuantile: settings?.stdQuantile ?? defaultParams.stdQuantile,
-      uncertainThreshold: settings?.uncertainThreshold ?? defaultParams.uncertainThreshold,
-      mlStepHistorySizeForOOBComeback: settings?.mlStepHistorySizeForOOBComeback ?? defaultParams.mlStepHistorySizeForOOBComeback,
-      wiFiStatusTimeLimit: settings?.wiFiStatusTimeLimit ?? defaultParams.wiFiStatusTimeLimit,
-      allowOutOfBounds: settings?.allowOutOfBounds ?? defaultParams.allowOutOfBounds,
-      maxAllowedStd: settings?.maxAllowedStd ?? defaultParams.maxAllowedStd,
-      rssiScanThreshold: settings?.rssiScanThreshold ?? defaultParams.rssiScanThreshold,
-      bundleAPsInScan: settings?.bundleAPsInScan ?? defaultParams.bundleAPsInScan,
-      scanGridResolution: settings?.scanGridResolution ?? defaultParams.scanGridResolution,
-      scanErrorRatioThreshold: settings?.scanErrorRatioThreshold ?? defaultParams.scanErrorRatioThreshold,
-      wiFiSprinkleDirectionStd: settings?.wiFiSprinkleDirectionStd ?? defaultParams.wiFiSprinkleDirectionStd,
-      scanErrorSprinkleLocationStdCoefficient: settings?.scanErrorSprinkleLocationStdCoefficient ?? defaultParams.scanErrorSprinkleLocationStdCoefficient,
-      rescueKDEAngRatio: settings?.rescueKDEAngRatio ?? defaultParams.rescueKDEAngRatio,
-      rescueStartAngRatio: settings?.rescueStartAngRatio ?? defaultParams.rescueStartAngRatio,
-      rescueCompassAngRatio: settings?.rescueCompassAngRatio ?? defaultParams.rescueCompassAngRatio,
-      wifiSprinkleDistanceCriteria: settings?.wifiSprinkleDistanceCriteria ?? defaultParams.wifiSprinkleDistanceCriteria,
-      floorSwapPositionStd: settings?.floorSwapPositionStd ?? defaultParams.floorSwapPositionStd,
-      floorSwapDirectionStd: settings?.floorSwapDirectionStd ?? defaultParams.floorSwapDirectionStd,
-      floorSwapSprinklePositionStd: settings?.floorSwapSprinklePositionStd ?? defaultParams.floorSwapSprinklePositionStd,
-      floorSwapSprinkleDirectionStd: settings?.floorSwapSprinkleDirectionStd ?? defaultParams.floorSwapSprinkleDirectionStd,
-      idleWiFiSprinkle: settings?.idleWiFiSprinkle ?? defaultParams.idleWiFiSprinkle,
-      strongRssiScanThreshold: settings?.strongRssiScanThreshold ?? defaultParams.strongRssiScanThreshold,
-      weakRssiScanThreshold: settings?.weakRssiScanThreshold ?? defaultParams.weakRssiScanThreshold,
-      nRequiredScans: settings?.nRequiredScans ?? defaultParams.nRequiredScans,
-      minDistanceOOB: settings?.minDistanceOOB ?? defaultParams.minDistanceOOB,
-      stairSpeedFactor: settings?.stairSpeedFactor ?? defaultParams.stairSpeedFactor,
-      exitZoneRatioForOOB: settings?.exitZoneRatioForOOB ?? defaultParams.exitZoneRatioForOOB,
-      useKDEX0Step: settings?.useKDEX0Step ?? defaultParams.useKDEX0Step,
-      uncertainStartPositionStd: settings?.uncertainStartPositionStd ?? defaultParams.uncertainStartPositionStd,
-      uncertainStartDirectionStd: settings?.uncertainStartDirectionStd ?? defaultParams.uncertainStartDirectionStd
-    )
-  }
-
-  static func getDefaultScoringParams(settings: PositionServiceSettings?) -> ScoringParams {
-    guard
-      let option = settings?.stringValues?[.SCORING_PARAMS_VERSION],
-      let defaultEnum = VPSScoringParamsVersionEnum(rawValue: option)
-    else { return getDefaultParticleFilterSettings(settings: settings).scoringParams }
-    switch defaultEnum {
-    case .´default´: return VPSScoringParams.shared.default_
-    }
-  }
-
-  static func getScoringParams(settings: PositionServiceSettings?, defaultParams: ScoringParams) -> ScoringParams {
-    ScoringParams(
-      version: .default_,
-      dt: settings?.scoring_dt ?? defaultParams.dt,
-      scoringIntervalSec: settings?.scoring_scoringIntervalSec ?? defaultParams.scoringIntervalSec,
-      clusterSwapThreshold: settings?.scoring_clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
-      beforeLimitRmSec: settings?.scoring_beforeLimitRmSec ?? defaultParams.beforeLimitRmSec,
-      afterLimitRmSec: settings?.scoring_afterLimitRmSec ?? defaultParams.afterLimitRmSec,
-      maxGapRmSec: settings?.scoring_maxGapRmSec ?? defaultParams.maxGapRmSec,
-      beforeLimitCsSec: settings?.scoring_beforeLimitCsSec ?? defaultParams.beforeLimitCsSec,
-      afterLimitCsSec: settings?.scoring_afterLimitCsSec ?? defaultParams.afterLimitCsSec,
-      maxGapCsSec: settings?.scoring_maxGapCsSec ?? defaultParams.maxGapCsSec,
-      beforeLimitFsSec: settings?.scoring_beforeLimitFsSec ?? defaultParams.beforeLimitFsSec,
-      afterLimitFsSec: settings?.scoring_afterLimitFsSec ?? defaultParams.afterLimitFsSec,
-      maxGapFsSec: settings?.scoring_maxGapFsSec ?? defaultParams.maxGapFsSec
-    )
-  }
-
-  static func getDefaultTrustedPositionParams(settings: PositionServiceSettings?) -> TrustedPositionParams {
-    guard
-      let option = settings?.stringValues?[.TRUSTED_POSITION_PARAMS_VERSION],
-      let defaultEnum = VPSTrustedPositionParamsVersionEnum(rawValue: option)
-    else { return getDefaultParticleFilterSettings(settings: settings).trustedPositionParams }
-    switch defaultEnum {
-    case .´default´: return VPSTrustedPositionParams.shared.default_
-    }
-  }
-
-  static func getTrustedPositionParams(settings: PositionServiceSettings?, defaultParams: TrustedPositionParams) -> TrustedPositionParams {
-    .init(
-      version: defaultParams.version,
-      dt: settings?.trustedPosition_dt ?? defaultParams.dt,
-      trustedLimitSec: settings?.trustedPosition_trustedLimitSec ?? defaultParams.trustedLimitSec,
-      clusterSwapCoolDownSec: settings?.trustedPosition_clusterSwapCoolDownSec ?? defaultParams.clusterSwapCoolDownSec,
-      rescueModeCoolDownSec: settings?.trustedPosition_rescueModeCoolDownSec ?? defaultParams.rescueModeCoolDownSec,
-      stdLimit: settings?.trustedPosition_stdLimit ?? defaultParams.stdLimit,
-      stdLimitLarge: settings?.trustedPosition_stdLimitLarge ?? defaultParams.stdLimitLarge,
-      particleTrendLimit: settings?.trustedPosition_particleTrendLimit ?? defaultParams.particleTrendLimit,
-      consistencyScoreLimit: settings?.trustedPosition_consistencyScoreLimit ?? defaultParams.consistencyScoreLimit,
-      stepsSinceSprinkleLimit: settings?.trustedPosition_stepsSinceSprinkleLimit ?? defaultParams.stepsSinceSprinkleLimit,
-      clusterSwapCoolDownSecOOB: settings?.trustedPosition_clusterSwapCoolDownSecOOB ?? defaultParams.clusterSwapCoolDownSecOOB,
-      trustedLimitSecOOB: settings?.trustedPosition_trustedLimitSecOOB ?? defaultParams.trustedLimitSecOOB,
-      stdLimitOOB: settings?.trustedPosition_stdLimitOOB ?? defaultParams.stdLimitOOB,
-      particleTrendLimitOOB: settings?.trustedPosition_particleTrendLimitOOB ?? defaultParams.particleTrendLimitOOB
-    )
-  }
-
-  static func getPositionStdSettings(settings: PositionServiceSettings?, defaultParams: PositionStdSettings) -> PositionStdSettings {
-    .init(
-      strategy: PositionStdSettingsStrategyEnum(rawValue: settings?.positionStdSettings_strategy ?? "")?.toKotlin() ?? defaultParams.strategy,
-      stdDefault: settings?.positionStdSettings_stdDefault ?? defaultParams.stdDefault,
-      isCapped: settings?.positionStdSettings_isCapped ?? defaultParams.isCapped,
-      minStd: settings?.positionStdSettings_minStd?.asKotlinFloat ?? defaultParams.minStd,
-      maxStd: settings?.positionStdSettings_maxStd?.asKotlinFloat ?? defaultParams.maxStd
-    )
-  }
-
-  static func getDefaultMagnetometerDriftEstimatorParams(settings: PositionServiceSettings?, for engine: TT2Settings.TT2Engine) -> MagnetometerDriftEstimatorParams {
-    switch settings?.stringValues?["ios_magnetometerDriftEstimator_version"] {
-    case "FORCE_MAG_START":
-      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsForceMagStart
-    case "NO_MAG_START":
-      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsNoMagStart
-    case "UNCERTAIN_START_BILKA":
-      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsBilka
-    case "IOS_INDOORS":
-      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSIndoors
-    case "IOS_OUTDOORS":
-      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSOutdoors
-    default:
-      switch engine {
-      case .indoor:
-        return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSIndoors
-      case .gpsFusion, .noMap, .openTerrain:
-        return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSOutdoors
-      }
-    }
-  }
-
-  static func getMagnetometerDriftEstimatorParams(settings: PositionServiceSettings?, defaultParams: MagnetometerDriftEstimatorParams) -> MagnetometerDriftEstimatorParams {
-    .init(
-      version: defaultParams.version,
-      useMagnetometer: settings?.magnetometerDriftEstimator_useMagnetometer ?? defaultParams.useMagnetometer,
-      alpha: settings?.magnetometerDriftEstimator_alpha ?? defaultParams.alpha,
-      maxRate: settings?.magnetometerDriftEstimator_maxRate ?? defaultParams.maxRate,
-      accLowerLimit: settings?.magnetometerDriftEstimator_accLowerLimit ?? defaultParams.accLowerLimit,
-      accUpperLimit: settings?.magnetometerDriftEstimator_accUpperLimit ?? defaultParams.accUpperLimit,
-      magExpectedNorm: settings?.magnetometerDriftEstimator_magExpectedNorm ?? defaultParams.magExpectedNorm,
-      sigmaMag: settings?.magnetometerDriftEstimator_sigmaMag ?? defaultParams.sigmaMag,
-      useOSCalib: settings?.magnetometerDriftEstimator_useOSCalib ?? defaultParams.useOSCalib,
-      maxQueueLengthSeconds: settings?.magnetometerDriftEstimator_maxQueueLengthSeconds ?? defaultParams.maxQueueLengthSeconds,
-      biasAlpha: settings?.magnetometerDriftEstimator_biasAlpha ?? defaultParams.biasAlpha,
-      normLambda: settings?.magnetometerDriftEstimator_normLambda ?? defaultParams.normLambda,
-      magExpectedDip: settings?.magnetometerDriftEstimator_magExpectedDip ?? defaultParams.magExpectedDip,
-      magExpectedDeclination: settings?.magnetometerDriftEstimator_magExpectedDeclination ?? defaultParams.magExpectedDeclination,
-      sigmaInc: settings?.magnetometerDriftEstimator_sigmaInc ?? defaultParams.sigmaInc,
-      maxGain: settings?.magnetometerDriftEstimator_maxGain ?? defaultParams.maxGain,
-      useDriftCorrection: settings?.magnetometerDriftEstimator_useDriftCorrection ?? defaultParams.useDriftCorrection,
-      nIters: settings?.magnetometerDriftEstimator_nIters ?? defaultParams.nIters,
-      bounds: settings?.magnetometerDriftEstimator_bounds ?? defaultParams.bounds,
-      subSampling: settings?.magnetometerDriftEstimator_subSampling ?? defaultParams.subSampling,
-      computeInterval: settings?.magnetometerDriftEstimator_computeInterval ?? defaultParams.computeInterval,
-      sensorBufferSize: settings?.magnetometerDriftEstimator_sensorBufferSize ?? defaultParams.sensorBufferSize,
-      fs: settings?.magnetometerDriftEstimator_fs ?? defaultParams.fs,
-      bruteThreshold: settings?.magnetometerDriftEstimator_bruteThreshold ?? defaultParams.bruteThreshold,
-      doBackTracking: settings?.magnetometerDriftEstimator_doBackTracking ?? defaultParams.doBackTracking,
-      doSingleBackTrack: settings?.magnetometerDriftEstimator_doSingleBackTrack ?? defaultParams.doSingleBackTrack,
-      numSimilarDriftEstimatesToTriggerBackTrack: settings?.magnetometerDriftEstimator_numSimilarDriftEstimatesToTriggerBackTrack ?? defaultParams.numSimilarDriftEstimatesToTriggerBackTrack,
-      driftEstimateSimilarityThreshold: settings?.magnetometerDriftEstimator_driftEstimateSimilarityThreshold ?? defaultParams.driftEstimateSimilarityThreshold,
-      driftDiffToTriggerBackTrack: settings?.magnetometerDriftEstimator_driftDiffToTriggerBackTrack ?? defaultParams.driftDiffToTriggerBackTrack,
-      meanSmoothingStdSeconds: settings?.magnetometerDriftEstimator_meanSmoothingStdSeconds ?? defaultParams.meanSmoothingStdSeconds,
-      stdSmoothingStdSeconds: settings?.magnetometerDriftEstimator_stdSmoothingStdSeconds ?? defaultParams.stdSmoothingStdSeconds,
-      magUseXChannel: settings?.magnetometerDriftEstimator_magUseXChannel ?? defaultParams.magUseXChannel,
-      magUseYChannel: settings?.magnetometerDriftEstimator_magUseYChannel ?? defaultParams.magUseYChannel,
-      magUseZChannel: settings?.magnetometerDriftEstimator_magUseZChannel ?? defaultParams.magUseZChannel,
-      distanceThreshold: settings?.magnetometerDriftEstimator_distanceThreshold ?? defaultParams.distanceThreshold,
-      useDistanceThreshold: settings?.magnetometerDriftEstimator_useDistanceThreshold ?? defaultParams.useDistanceThreshold,
-      queueFillThreshold: settings?.queueFillThreshold ?? defaultParams.queueFillThreshold,
-      ignoreCalibrationInterval: settings?.ignoreCalibrationInterval ?? defaultParams.ignoreCalibrationInterval,
-      useTangentResidual: settings?.useTangentResidual ?? defaultParams.useTangentResidual,
-      useNorthOptimizerAtUncertainStart: settings?.useNorthOptimizerAtUncertainStart ?? defaultParams.useNorthOptimizerAtUncertainStart,
-      northOptimizerStartAngleTolerance: settings?.northOptimizerStartAngleTolerance ?? defaultParams.northOptimizerStartAngleTolerance
-    )
   }
 
   static func getOrientationParams(settings: PositionServiceSettings?) -> OrientationParams {
@@ -682,36 +411,6 @@ final class VPSManager: VPSWrapper, Disposable {
       case .reportOnlyDefault: return .reportOnlyDefault
       }
     }
-  }
-
-  enum VPSParticleFilterDefaultEnum: String {
-    case ´default´ = "DEFAULT"
-    case compass = "COMPASS"
-    case v1 = "V1"
-    case v2 = "V2"
-    case v3 = "V3"
-    case mixedGauss = "MIXED_GAUSS"
-    case sprinkle = "SPRINKLE"
-    case bilka = "BILKA"
-  }
-
-  enum VPSParticleFilterSettingsEnum: String {
-    case ´default´ = "DEFAULT"
-    case nl = "V2"
-    case v1 = "V1"
-  }
-
-  enum VPSParticleFilterSettingsVersionEnum: String {
-    case v1 = "V1"
-    case v2 = "V2"
-  }
-
-  enum VPSScoringParamsVersionEnum: String {
-    case ´default´ = "DEFAULT"
-  }
-
-  enum VPSTrustedPositionParamsVersionEnum: String {
-    case ´default´ = "DEFAULT"
   }
 }
 
@@ -902,11 +601,381 @@ private extension PositionServiceSettings.VPSSyncMethod {
   }
 }
 
+private extension ParticleFilterSettings {
+  enum VPSParticleFilterSettingsEnum: String {
+    case ´default´ = "DEFAULT"
+    case nl = "V2"
+    case v1 = "V1"
+  }
+
+  static func getDefault(settings: PositionServiceSettings?) -> ParticleFilterSettings {
+    guard
+      let option = settings?.stringValues?[.PARTICLE_FILTER_SETTINGS],
+      let defaultEnum = VPSParticleFilterSettingsEnum.init(rawValue: option)
+    else { return VPSParticleFilterSettings.shared.default_ }
+    switch defaultEnum {
+    case .´default´: return VPSParticleFilterSettings.shared.default_
+    case .nl: return VPSParticleFilterSettings.shared.v2
+    case .v1: return VPSParticleFilterSettings.shared.v1
+    }
+  }
+
+  convenience init(settings: PositionServiceSettings?, defaultParams: ParticleFilterSettings) {
+    self.init(
+      version: defaultParams.version,
+      uxPositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_UX_ACTIVATED] ?? defaultParams.uxPositionActivated,
+      mlPositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_ML_ACTIVATED] ?? defaultParams.mlPositionActivated,
+      particlePositionActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_POS_ACTIVATED] ?? defaultParams.particlePositionActivated,
+      particlesOutputActivated: settings?.boolValues?[.PARTICLE_FILTER_SETTINGS_PARTICLES_OUTPUT_ACTIVATED] ?? defaultParams.particlesOutputActivated,
+      particleFilterVersion: .getVersion(settings: settings) ?? defaultParams.particleFilterVersion,
+      particleFilterParams: .init(settings: settings, defaultParams: .getDefault(settings: settings)),
+      randomNumberGeneratorSeed: nil,
+      saveOutputSignals: false,
+      saveWiFiStatusUpdate: false,
+      saveWiFiScans: false,
+      scoringParams: .init(settings: settings, defaultParams: .getDefault(settings: settings)),
+      clusterSwapOutputActivated: false,
+      trustedPositionParams: .init(settings: settings, defaultParams: .getDefault(settings: settings)),
+      positionStdSettings: .init(settings: settings, defaultParams: VPSPositionStdSettings.shared.default_)
+    )
+  }
+}
+
+private extension ModelToEventParameters {
+  convenience init(settings: PositionServiceSettings?) {
+    self.init(
+      useSquareDriftFilter: settings?.useSquareDriftFilter ?? VPSModelToEventParameters.shared.default_.useSquareDriftFilter,
+      squareDriftFilterGain: settings?.squareDriftFilterGain ?? VPSModelToEventParameters.shared.default_.squareDriftFilterGain,
+      speedThresholdForStairClassification: VPSModelToEventParameters.shared.default_.speedThresholdForStairClassification, // TODO: Get from setings
+      modeKalmanFilterParams: VPSModelToEventParameters.shared.default_.modeKalmanFilterParams, // TODO: Get from setings
+      stairSimpleFilterParams: VPSModelToEventParameters.shared.default_.stairSimpleFilterParams // TODO: Get from setings
+    )
+  }
+}
+
+private extension ParticleFilterSettings.ParticleFilterVersion {
+  enum VPSParticleFilterSettingsVersionEnum: String {
+    case v1 = "V1"
+    case v2 = "V2"
+  }
+
+  static func getVersion(settings: PositionServiceSettings?) -> ParticleFilterSettings.ParticleFilterVersion? {
+    guard
+      let option = settings?.stringValues?[.PARTICLE_FILTER_SETTINGS_VERSION],
+      let defaultEnum = VPSParticleFilterSettingsVersionEnum(rawValue: option)
+    else { return nil }
+    switch defaultEnum {
+    case .v1: return ParticleFilterSettings.ParticleFilterVersion.v1
+    case .v2: return ParticleFilterSettings.ParticleFilterVersion.v2
+    }
+  }
+}
+
+private extension ParticleFilterParams {
+  enum VPSParticleFilterDefaultEnum: String {
+    case ´default´ = "DEFAULT"
+    case compass = "COMPASS"
+    case v1 = "V1"
+    case v2 = "V2"
+    case v3 = "V3"
+    case mixedGauss = "MIXED_GAUSS"
+    case sprinkle = "SPRINKLE"
+    case bilka = "BILKA"
+  }
+
+  static func getDefault(settings: PositionServiceSettings?) -> ParticleFilterParams {
+    guard
+      let option = settings?.stringValues?[.PARTICLE_FILTER_DEFAULT_PARAMS],
+      let defaultEnum = VPSParticleFilterDefaultEnum(rawValue: option)
+    else { return ParticleFilterSettings.getDefault(settings: settings).particleFilterParams }
+    switch defaultEnum {
+    case .´default´: return VPSParticleFilterParams.shared.default_
+    case .compass: return VPSParticleFilterParams.shared.compass
+    case .v1: return VPSParticleFilterParams.shared.particleFilterV1
+    case .v2: return VPSParticleFilterParams.shared.particleFilterV2
+    case .v3: return VPSParticleFilterParams.shared.particleFilterV3
+    case .mixedGauss: return VPSParticleFilterParams.shared.particleFilterMixedGauss
+    case .sprinkle: return VPSParticleFilterParams.shared.sprinkleFilter
+    case .bilka: return VPSParticleFilterParams.shared.particleFilterParamsBilka
+    }
+  }
+
+  convenience init(settings: PositionServiceSettings?, defaultParams: ParticleFilterParams) {
+    self.init(
+      version: defaultParams.version,
+      maxNumParticles: settings?.maxNumParticles ?? defaultParams.maxNumParticles,
+      minNumParticles: settings?.minNumParticles ?? defaultParams.minNumParticles,
+      stepLengthStd: settings?.stepLengthStd ?? defaultParams.stepLengthStd,
+      stepDirectionStd: settings?.stepDirectionStd ?? defaultParams.stepDirectionStd,
+      biasStd: settings?.biasStd ?? defaultParams.biasStd,
+      biasLimit: settings?.biasLimit ?? defaultParams.biasLimit,
+      secondBiasStd: settings?.secondBiasStd ?? defaultParams.secondBiasStd,
+      secondBiasMean: settings?.secondBiasMean ?? defaultParams.secondBiasMean,
+      secondBiasLimit: settings?.secondBiasLimit ?? defaultParams.secondBiasLimit,
+      mixingFactor: settings?.mixingFactor ?? defaultParams.mixingFactor,
+      startMethod: settings?.startMethod ?? defaultParams.startMethod,
+      startPositionStd: settings?.startPositionStd ?? defaultParams.startPositionStd,
+      startDirectionStd: settings?.startDirectionStd ?? defaultParams.startDirectionStd,
+      syncMethod: settings?.syncMethod ?? defaultParams.syncMethod,
+      syncPositionStd: settings?.syncPositionStd ?? defaultParams.syncPositionStd,
+      syncDirectionStd: settings?.syncDirectionStd ?? defaultParams.syncDirectionStd,
+      rescuePositionStd: settings?.rescuePositionStd ?? defaultParams.rescuePositionStd,
+      rescueDirectionStd: settings?.rescueDirectionStd ?? defaultParams.rescueDirectionStd,
+      kldEpsilon: settings?.kldEpsilon ?? defaultParams.kldEpsilon,
+      kldDelta: settings?.kldDelta ?? defaultParams.kldDelta,
+      kldZ: settings?.kldZ ?? defaultParams.kldZ,
+      binSize: settings?.binSize ?? defaultParams.binSize,
+      uxPositionConfidence: settings?.uxPositionConfidence ?? defaultParams.uxPositionConfidence,
+      angleOffsetGainDegPerMin: settings?.angleOffsetGainDegPerMin ?? defaultParams.angleOffsetGainDegPerMin,
+      speedFactor: settings?.speedFactor ?? defaultParams.speedFactor,
+      naiveOutputSyncMovement: settings?.naiveOutputSyncMovement ?? defaultParams.naiveOutputSyncMovement,
+      useMLSyncSpeedFilter: settings?.useMLSyncSpeedFilter ?? defaultParams.useMLSyncSpeedFilter,
+      sprinkleSyncThreshold: settings?.sprinkleSyncThreshold ?? defaultParams.sprinkleSyncThreshold,
+      sprinklePercentage: settings?.sprinklePercentage ?? defaultParams.sprinklePercentage,
+      useRayTraceSensorModel: settings?.useRayTraceSensorModel ?? defaultParams.useRayTraceSensorModel,
+      nlThreshold: settings?.nlThreshold ?? defaultParams.nlThreshold,
+      rescueOnNL: settings?.rescueOnNL ?? defaultParams.rescueOnNL,
+      wiFiDistanceSyncCriteria: settings?.wiFiDistanceSyncCriteria ?? defaultParams.wiFiDistanceSyncCriteria,
+      idleWiFiSecondsCriteria: settings?.idleWiFiSecondsCriteria ?? defaultParams.idleWiFiSecondsCriteria,
+      wiFiPathLossCoefficient: settings?.wiFiPathLossCoefficient ?? defaultParams.wiFiPathLossCoefficient,
+      wiFiMeasuredPower: settings?.wiFiMeasuredPower ?? defaultParams.wiFiMeasuredPower,
+      swapSprinkleInterval: settings?.swapSprinkleInterval ?? defaultParams.swapSprinkleInterval,
+      swapSprinkleEndCount: settings?.swapSprinkleEndCount ?? defaultParams.swapSprinkleEndCount,
+      swapSprinkleRatio: settings?.swapSprinkleRatio ?? defaultParams.swapSprinkleRatio,
+      mlStepHistorySize: settings?.mlStepHistorySize ?? defaultParams.mlStepHistorySize,
+      idlePositionTimeThreshold: settings?.idlePositionTimeThreshold ?? defaultParams.idlePositionTimeThreshold,
+      stdQuantile: settings?.stdQuantile ?? defaultParams.stdQuantile,
+      uncertainThreshold: settings?.uncertainThreshold ?? defaultParams.uncertainThreshold,
+      mlStepHistorySizeForOOBComeback: settings?.mlStepHistorySizeForOOBComeback ?? defaultParams.mlStepHistorySizeForOOBComeback,
+      wiFiStatusTimeLimit: settings?.wiFiStatusTimeLimit ?? defaultParams.wiFiStatusTimeLimit,
+      allowOutOfBounds: settings?.allowOutOfBounds ?? defaultParams.allowOutOfBounds,
+      maxAllowedStd: settings?.maxAllowedStd ?? defaultParams.maxAllowedStd,
+      rssiScanThreshold: settings?.rssiScanThreshold ?? defaultParams.rssiScanThreshold,
+      bundleAPsInScan: settings?.bundleAPsInScan ?? defaultParams.bundleAPsInScan,
+      scanGridResolution: settings?.scanGridResolution ?? defaultParams.scanGridResolution,
+      scanErrorRatioThreshold: settings?.scanErrorRatioThreshold ?? defaultParams.scanErrorRatioThreshold,
+      wiFiSprinkleDirectionStd: settings?.wiFiSprinkleDirectionStd ?? defaultParams.wiFiSprinkleDirectionStd,
+      scanErrorSprinkleLocationStdCoefficient: settings?.scanErrorSprinkleLocationStdCoefficient ?? defaultParams.scanErrorSprinkleLocationStdCoefficient,
+      rescueKDEAngRatio: settings?.rescueKDEAngRatio ?? defaultParams.rescueKDEAngRatio,
+      rescueStartAngRatio: settings?.rescueStartAngRatio ?? defaultParams.rescueStartAngRatio,
+      rescueCompassAngRatio: settings?.rescueCompassAngRatio ?? defaultParams.rescueCompassAngRatio,
+      wifiSprinkleDistanceCriteria: settings?.wifiSprinkleDistanceCriteria ?? defaultParams.wifiSprinkleDistanceCriteria,
+      floorSwapPositionStd: settings?.floorSwapPositionStd ?? defaultParams.floorSwapPositionStd,
+      floorSwapDirectionStd: settings?.floorSwapDirectionStd ?? defaultParams.floorSwapDirectionStd,
+      floorSwapSprinklePositionStd: settings?.floorSwapSprinklePositionStd ?? defaultParams.floorSwapSprinklePositionStd,
+      floorSwapSprinkleDirectionStd: settings?.floorSwapSprinkleDirectionStd ?? defaultParams.floorSwapSprinkleDirectionStd,
+      idleWiFiSprinkle: settings?.idleWiFiSprinkle ?? defaultParams.idleWiFiSprinkle,
+      strongRssiScanThreshold: settings?.strongRssiScanThreshold ?? defaultParams.strongRssiScanThreshold,
+      weakRssiScanThreshold: settings?.weakRssiScanThreshold ?? defaultParams.weakRssiScanThreshold,
+      nRequiredScans: settings?.nRequiredScans ?? defaultParams.nRequiredScans,
+      minDistanceOOB: settings?.minDistanceOOB ?? defaultParams.minDistanceOOB,
+      stairSpeedFactor: settings?.stairSpeedFactor ?? defaultParams.stairSpeedFactor,
+      exitZoneRatioForOOB: settings?.exitZoneRatioForOOB ?? defaultParams.exitZoneRatioForOOB,
+      useKDEX0Step: settings?.useKDEX0Step ?? defaultParams.useKDEX0Step,
+      uncertainStartPositionStd: settings?.uncertainStartPositionStd ?? defaultParams.uncertainStartPositionStd,
+      uncertainStartDirectionStd: settings?.uncertainStartDirectionStd ?? defaultParams.uncertainStartDirectionStd,
+      useGlobalKDESearch: settings?.useGlobalKDESearch ?? defaultParams.useGlobalKDESearch,
+      magSprinkleSyncThreshold: settings?.magSprinkleSyncThreshold ?? defaultParams.magSprinkleSyncThreshold
+    )
+  }
+}
+
+private extension ScoringParams {
+  enum VPSScoringParamsVersionEnum: String {
+    case ´default´ = "DEFAULT"
+  }
+
+  static func getDefault(settings: PositionServiceSettings?) -> ScoringParams {
+    guard
+      let option = settings?.stringValues?[.SCORING_PARAMS_VERSION],
+      let defaultEnum = VPSScoringParamsVersionEnum(rawValue: option)
+    else { return ParticleFilterSettings.getDefault(settings: settings).scoringParams }
+    switch defaultEnum {
+    case .´default´: return VPSScoringParams.shared.default_
+    }
+  }
+
+  convenience init(settings: PositionServiceSettings?, defaultParams: ScoringParams) {
+    self.init(
+      version: .default_,
+      dt: settings?.scoring_dt ?? defaultParams.dt,
+      scoringIntervalSec: settings?.scoring_scoringIntervalSec ?? defaultParams.scoringIntervalSec,
+      clusterSwapThreshold: settings?.scoring_clusterSwapThreshold ?? defaultParams.clusterSwapThreshold,
+      beforeLimitRmSec: settings?.scoring_beforeLimitRmSec ?? defaultParams.beforeLimitRmSec,
+      afterLimitRmSec: settings?.scoring_afterLimitRmSec ?? defaultParams.afterLimitRmSec,
+      maxGapRmSec: settings?.scoring_maxGapRmSec ?? defaultParams.maxGapRmSec,
+      beforeLimitCsSec: settings?.scoring_beforeLimitCsSec ?? defaultParams.beforeLimitCsSec,
+      afterLimitCsSec: settings?.scoring_afterLimitCsSec ?? defaultParams.afterLimitCsSec,
+      maxGapCsSec: settings?.scoring_maxGapCsSec ?? defaultParams.maxGapCsSec,
+      beforeLimitFsSec: settings?.scoring_beforeLimitFsSec ?? defaultParams.beforeLimitFsSec,
+      afterLimitFsSec: settings?.scoring_afterLimitFsSec ?? defaultParams.afterLimitFsSec,
+      maxGapFsSec: settings?.scoring_maxGapFsSec ?? defaultParams.maxGapFsSec,
+      beforeLimitSsSec: settings?.scoring_beforeLimitSsSec ?? defaultParams.beforeLimitSsSec,
+      afterLimitSsSec: settings?.scoring_afterLimitSsSec ?? defaultParams.afterLimitSsSec,
+      maxGapSsSec: settings?.scoring_maxGapSsSec ?? defaultParams.maxGapSsSec,
+      endDistanceScore: settings?.scoring_endDistanceScore ?? defaultParams.endDistanceScore,
+      endDistanceThresholdZone: settings?.scoring_endDistanceThresholdZone ?? defaultParams.endDistanceThresholdZone,
+      endDistanceThresholdStopSync: settings?.scoring_endDistanceThresholdStopSync ?? defaultParams.endDistanceThresholdStopSync,
+      endDistancePenaltyThreshold: settings?.scoring_endDistancePenaltyThreshold ?? defaultParams.endDistancePenaltyThreshold,
+      endDistancePenaltyScore: settings?.scoring_endDistancePenaltyScore ?? defaultParams.endDistancePenaltyScore,
+      stopSyncWeightingPositive: settings?.scoring_stopSyncWeightingPositive ?? defaultParams.stopSyncWeightingPositive,
+      stopSyncWeightingNegative: settings?.scoring_stopSyncWeightingNegative ?? defaultParams.stopSyncWeightingNegative
+    )
+  }
+}
+
+private extension TrustedPositionParams {
+  enum VPSTrustedPositionParamsVersionEnum: String {
+    case ´default´ = "DEFAULT"
+  }
+
+  static func getDefault(settings: PositionServiceSettings?) -> TrustedPositionParams {
+    guard
+      let option = settings?.stringValues?[.TRUSTED_POSITION_PARAMS_VERSION],
+      let defaultEnum = VPSTrustedPositionParamsVersionEnum(rawValue: option)
+    else { return ParticleFilterSettings.getDefault(settings: settings).trustedPositionParams }
+    switch defaultEnum {
+    case .´default´: return VPSTrustedPositionParams.shared.default_
+    }
+  }
+
+  convenience init(settings: PositionServiceSettings?, defaultParams: TrustedPositionParams) {
+    self.init(
+      version: defaultParams.version,
+      dt: settings?.trustedPosition_dt ?? defaultParams.dt,
+      trustedLimitSec: settings?.trustedPosition_trustedLimitSec ?? defaultParams.trustedLimitSec,
+      clusterSwapCoolDownSec: settings?.trustedPosition_clusterSwapCoolDownSec ?? defaultParams.clusterSwapCoolDownSec,
+      rescueModeCoolDownSec: settings?.trustedPosition_rescueModeCoolDownSec ?? defaultParams.rescueModeCoolDownSec,
+      stdLimit: settings?.trustedPosition_stdLimit ?? defaultParams.stdLimit,
+      stdLimitLarge: settings?.trustedPosition_stdLimitLarge ?? defaultParams.stdLimitLarge,
+      particleTrendLimit: settings?.trustedPosition_particleTrendLimit ?? defaultParams.particleTrendLimit,
+      consistencyScoreLimit: settings?.trustedPosition_consistencyScoreLimit ?? defaultParams.consistencyScoreLimit,
+      stepsSinceSprinkleLimit: settings?.trustedPosition_stepsSinceSprinkleLimit ?? defaultParams.stepsSinceSprinkleLimit,
+      clusterSwapCoolDownSecOOB: settings?.trustedPosition_clusterSwapCoolDownSecOOB ?? defaultParams.clusterSwapCoolDownSecOOB,
+      trustedLimitSecOOB: settings?.trustedPosition_trustedLimitSecOOB ?? defaultParams.trustedLimitSecOOB,
+      stdLimitOOB: settings?.trustedPosition_stdLimitOOB ?? defaultParams.stdLimitOOB,
+      particleTrendLimitOOB: settings?.trustedPosition_particleTrendLimitOOB ?? defaultParams.particleTrendLimitOOB
+    )
+  }
+}
+
+private extension PositionStdSettings {
+  convenience init(settings: PositionServiceSettings?, defaultParams: PositionStdSettings) {
+    self.init(
+      strategy: VPSManager.PositionStdSettingsStrategyEnum(rawValue: settings?.positionStdSettings_strategy ?? "")?.toKotlin() ?? defaultParams.strategy,
+      stdDefault: settings?.positionStdSettings_stdDefault ?? defaultParams.stdDefault,
+      isCapped: settings?.positionStdSettings_isCapped ?? defaultParams.isCapped,
+      minStd: settings?.positionStdSettings_minStd?.asKotlinFloat ?? defaultParams.minStd,
+      maxStd: settings?.positionStdSettings_maxStd?.asKotlinFloat ?? defaultParams.maxStd
+    )
+  }
+}
+
+private extension MagnetometerDriftEstimatorParams {
+  static func getDefault(settings: PositionServiceSettings?, for engine: TT2Settings.TT2Engine) -> MagnetometerDriftEstimatorParams {
+    switch settings?.stringValues?["ios_magnetometerDriftEstimator_version"] {
+    case "FORCE_MAG_START":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsForceMagStart
+    case "NO_MAG_START":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsNoMagStart
+    case "UNCERTAIN_START_BILKA":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsBilka
+    case "IOS_INDOORS":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSIndoors
+    case "IOS_OUTDOORS":
+      return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSOutdoors
+    default:
+      switch engine {
+      case .indoor:
+        return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSIndoors
+      case .gpsFusion, .noMap, .openTerrain:
+        return VPSMagnetometerDriftEstimatorParams.shared.MagnetometerParamsIOSOutdoors
+      }
+    }
+  }
+
+  convenience init(settings: PositionServiceSettings?, defaultParams: MagnetometerDriftEstimatorParams) {
+    self.init(
+      version: defaultParams.version,
+      useMagnetometer: settings?.magnetometerDriftEstimator_useMagnetometer ?? defaultParams.useMagnetometer,
+      alpha: settings?.magnetometerDriftEstimator_alpha ?? defaultParams.alpha,
+      maxRate: settings?.magnetometerDriftEstimator_maxRate ?? defaultParams.maxRate,
+      accLowerLimit: settings?.magnetometerDriftEstimator_accLowerLimit ?? defaultParams.accLowerLimit,
+      accUpperLimit: settings?.magnetometerDriftEstimator_accUpperLimit ?? defaultParams.accUpperLimit,
+      magExpectedNorm: settings?.magnetometerDriftEstimator_magExpectedNorm ?? defaultParams.magExpectedNorm,
+      sigmaMag: settings?.magnetometerDriftEstimator_sigmaMag ?? defaultParams.sigmaMag,
+      useOSCalib: settings?.magnetometerDriftEstimator_useOSCalib ?? defaultParams.useOSCalib,
+      maxQueueLengthSeconds: settings?.magnetometerDriftEstimator_maxQueueLengthSeconds ?? defaultParams.maxQueueLengthSeconds,
+      biasAlpha: settings?.magnetometerDriftEstimator_biasAlpha ?? defaultParams.biasAlpha,
+      normLambda: settings?.magnetometerDriftEstimator_normLambda ?? defaultParams.normLambda,
+      magExpectedDip: settings?.magnetometerDriftEstimator_magExpectedDip ?? defaultParams.magExpectedDip,
+      magExpectedDeclination: settings?.magnetometerDriftEstimator_magExpectedDeclination ?? defaultParams.magExpectedDeclination,
+      sigmaInc: settings?.magnetometerDriftEstimator_sigmaInc ?? defaultParams.sigmaInc,
+      maxGain: settings?.magnetometerDriftEstimator_maxGain ?? defaultParams.maxGain,
+      useDriftCorrection: settings?.magnetometerDriftEstimator_useDriftCorrection ?? defaultParams.useDriftCorrection,
+      nIters: settings?.magnetometerDriftEstimator_nIters ?? defaultParams.nIters,
+      bounds: settings?.magnetometerDriftEstimator_bounds ?? defaultParams.bounds,
+      subSampling: settings?.magnetometerDriftEstimator_subSampling ?? defaultParams.subSampling,
+      computeInterval: settings?.magnetometerDriftEstimator_computeInterval ?? defaultParams.computeInterval,
+      sensorBufferSize: settings?.magnetometerDriftEstimator_sensorBufferSize ?? defaultParams.sensorBufferSize,
+      fs: settings?.magnetometerDriftEstimator_fs ?? defaultParams.fs,
+      bruteThreshold: settings?.magnetometerDriftEstimator_bruteThreshold ?? defaultParams.bruteThreshold,
+      doBackTracking: settings?.magnetometerDriftEstimator_doBackTracking ?? defaultParams.doBackTracking,
+      doSingleBackTrack: settings?.magnetometerDriftEstimator_doSingleBackTrack ?? defaultParams.doSingleBackTrack,
+      numSimilarDriftEstimatesToTriggerBackTrack: settings?.magnetometerDriftEstimator_numSimilarDriftEstimatesToTriggerBackTrack ?? defaultParams.numSimilarDriftEstimatesToTriggerBackTrack,
+      driftEstimateSimilarityThreshold: settings?.magnetometerDriftEstimator_driftEstimateSimilarityThreshold ?? defaultParams.driftEstimateSimilarityThreshold,
+      driftDiffToTriggerBackTrack: settings?.magnetometerDriftEstimator_driftDiffToTriggerBackTrack ?? defaultParams.driftDiffToTriggerBackTrack,
+      meanSmoothingStdSeconds: settings?.magnetometerDriftEstimator_meanSmoothingStdSeconds ?? defaultParams.meanSmoothingStdSeconds,
+      stdSmoothingStdSeconds: settings?.magnetometerDriftEstimator_stdSmoothingStdSeconds ?? defaultParams.stdSmoothingStdSeconds,
+      magUseXChannel: settings?.magnetometerDriftEstimator_magUseXChannel ?? defaultParams.magUseXChannel,
+      magUseYChannel: settings?.magnetometerDriftEstimator_magUseYChannel ?? defaultParams.magUseYChannel,
+      magUseZChannel: settings?.magnetometerDriftEstimator_magUseZChannel ?? defaultParams.magUseZChannel,
+      distanceThreshold: settings?.magnetometerDriftEstimator_distanceThreshold ?? defaultParams.distanceThreshold,
+      useDistanceThreshold: settings?.magnetometerDriftEstimator_useDistanceThreshold ?? defaultParams.useDistanceThreshold,
+      queueFillThreshold: settings?.magnetometerDriftEstimator_queueFillThreshold ?? defaultParams.queueFillThreshold,
+      ignoreCalibrationInterval: settings?.magnetometerDriftEstimator_ignoreCalibrationInterval ?? defaultParams.ignoreCalibrationInterval,
+      useTangentResidual: settings?.magnetometerDriftEstimator_useTangentResidual ?? defaultParams.useTangentResidual,
+      useNorthOptimizerAtUncertainStart: settings?.magnetometerDriftEstimator_useNorthOptimizerAtUncertainStart ?? defaultParams.useNorthOptimizerAtUncertainStart,
+      useNorthOptimizerAtCertainStart: settings?.magnetometerDriftEstimator_useNorthOptimizerAtCertainStart ?? defaultParams.useNorthOptimizerAtCertainStart,
+      northOptimizerStartAngleTolerance: settings?.magnetometerDriftEstimator_northOptimizerStartAngleTolerance ?? defaultParams.northOptimizerStartAngleTolerance,
+      useMLResiduals: settings?.magnetometerDriftEstimator_useMLResiduals ?? defaultParams.useMLResiduals,
+      useBatchedResiduals: settings?.magnetometerDriftEstimator_useBatchedResiduals ?? defaultParams.useBatchedResiduals,
+      useCheapGridSearch: settings?.magnetometerDriftEstimator_useCheapGridSearch ?? defaultParams.useCheapGridSearch,
+      cheapSearchInterval: settings?.magnetometerDriftEstimator_cheapSearchInterval ?? defaultParams.cheapSearchInterval,
+      useAnomalyGating: settings?.magnetometerDriftEstimator_useAnomalyGating ?? defaultParams.useAnomalyGating,
+      anomalyThreshold: settings?.magnetometerDriftEstimator_anomalyThreshold ?? defaultParams.anomalyThreshold,
+      anomalyWindowStart: settings?.magnetometerDriftEstimator_anomalyWindowStart ?? defaultParams.anomalyWindowStart,
+      anomalyWindowStep: settings?.magnetometerDriftEstimator_anomalyWindowStep ?? defaultParams.anomalyWindowStep,
+      anomalyWindowStride: settings?.magnetometerDriftEstimator_anomalyWindowStride ?? defaultParams.anomalyWindowStride,
+      anomalyStableCount: settings?.magnetometerDriftEstimator_anomalyStableCount ?? defaultParams.anomalyStableCount,
+      anomalyAngleConsistencyThreshold: settings?.magnetometerDriftEstimator_anomalyAngleConsistencyThreshold ?? defaultParams.anomalyAngleConsistencyThreshold,
+      anomalyMaxStart: settings?.magnetometerDriftEstimator_anomalyMaxStart ?? defaultParams.anomalyMaxStart,
+      useForceSyncOnCertainStart: settings?.magnetometerDriftEstimator_useForceSyncOnCertainStart ?? defaultParams.useForceSyncOnCertainStart
+    )
+  }
+}
+
+private extension OrientationModuleParams {
+  convenience init(defaultParams: OrientationModuleParams) {
+    self.init(
+      isActive: false,
+      useFilter: false,
+      updateFrequency: defaultParams.updateFrequency,
+      orientationFilterParams: defaultParams.orientationFilterParams,
+      temperatureFilterParams: defaultParams.temperatureFilterParams,
+      restDetectorParams: defaultParams.restDetectorParams,
+      trfFusionParams: defaultParams.trfFusionParams
+    )
+  }
+}
+
 private extension PositionServiceSettings {
   var useSquareDriftFilter: Bool? { boolValues?[.MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_ACTIVE] }
   var squareDriftFilterGain: Float? { floatValues?[.MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_GAIN] }
   var nlModelActivated: Bool? { boolValues?[.NL_MODEL_ACTIVATED] }
+  var npModelActivated: Bool? { boolValues?[.NP_MODEL_ACTIVATED] }
 
+  // MARK: PARTICLE FILTER PARAMS
   var maxNumParticles: Int32? { intValues?[.PARTICLE_FILTER_MAX_NUM_PARTICLES]?.asInt32 }
   var minNumParticles: Int32? { intValues?[.PARTICLE_FILTER_MIN_NUM_PARTICLES]?.asInt32 }
   var stepLengthStd: Float? { floatValues?[.PARTICLE_FILTER_STEP_LENGTH_STD] }
@@ -1002,152 +1071,72 @@ private extension PositionServiceSettings {
   var useKDEX0Step: Bool? { boolValues?[.PARTICLE_FILTER_USE_KDEX0_STEP] }
   var uncertainStartPositionStd: Float? { floatValues?[.PARTICLE_FILTER_UNCERTAIN_START_POSITION_STD] }
   var uncertainStartDirectionStd: Float? { floatValues?[.PARTICLE_FILTER_UNCERTAIN_START_DIRECTION_STD] }
+  var useGlobalKDESearch: Bool? { boolValues?[.PARTICLE_FILTER_USE_GLOBAL_KDE_SEARCH] }
+  var magSprinkleSyncThreshold: Float? { floatValues?[.PARTICLE_FILTER_MAG_SPRINKLE_SYNC_THRESHOLD] }
 
-  // SCORING PARAMS
-  var scoring_dt: Float? {
-    floatValues?[.FOR_IOS + .SCORING_PARAMS_DT] ?? floatValues?[.SCORING_PARAMS_DT]
-  }
-  var scoring_scoringIntervalSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_SCORING_INTERVAL_SEC] ?? intValues?[.SCORING_PARAMS_SCORING_INTERVAL_SEC])?.asInt32
-  }
-  var scoring_clusterSwapThreshold: Float? {
-    floatValues?[.FOR_IOS + .SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD] ?? floatValues?[.SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD]
-  }
-  var scoring_beforeLimitRmSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_BEFORE_LIMIT_RM_SEC] ?? intValues?[.SCORING_PARAMS_BEFORE_LIMIT_RM_SEC])?.asInt32
-  }
-  var scoring_afterLimitRmSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_AFTER_LIMIT_RM_SEC] ?? intValues?[.SCORING_PARAMS_AFTER_LIMIT_RM_SEC])?.asInt32
-  }
-  var scoring_maxGapRmSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_MAX_GAP_RM_SEC] ?? intValues?[.SCORING_PARAMS_MAX_GAP_RM_SEC])?.asInt32
-  }
-  var scoring_beforeLimitCsSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_BEFORE_LIMIT_CS_SEC] ?? intValues?[.SCORING_PARAMS_BEFORE_LIMIT_CS_SEC])?.asInt32
-  }
-  var scoring_afterLimitCsSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_AFTER_LIMIT_CS_SEC] ?? intValues?[.SCORING_PARAMS_AFTER_LIMIT_CS_SEC])?.asInt32
-  }
-  var scoring_maxGapCsSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_MAX_GAP_CS_SEC] ?? intValues?[.SCORING_PARAMS_MAX_GAP_CS_SEC])?.asInt32
-  }
-  var scoring_beforeLimitFsSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_BEFORE_LIMIT_FS_SEC] ?? intValues?[.SCORING_PARAMS_BEFORE_LIMIT_FS_SEC])?.asInt32
-  }
-  var scoring_afterLimitFsSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_AFTER_LIMIT_FS_SEC] ?? intValues?[.SCORING_PARAMS_AFTER_LIMIT_FS_SEC])?.asInt32
-  }
-  var scoring_maxGapFsSec: Int32? {
-    (intValues?[.FOR_IOS + .SCORING_PARAMS_MAX_GAP_FS_SEC] ?? intValues?[.SCORING_PARAMS_MAX_GAP_FS_SEC])?.asInt32
-  }
+  // MARK: SCORING PARAMS
+  var scoring_dt: Float? { getValue(forKey: .SCORING_PARAMS_DT) }
+  var scoring_scoringIntervalSec: Int32? { getValue(forKey: .SCORING_PARAMS_SCORING_INTERVAL_SEC) }
+  var scoring_clusterSwapThreshold: Float? { getValue(forKey: .SCORING_PARAMS_CLUSTER_SWAP_THRESHOLD) }
+  var scoring_beforeLimitRmSec: Int32? { getValue(forKey: .SCORING_PARAMS_BEFORE_LIMIT_RM_SEC) }
+  var scoring_afterLimitRmSec: Int32? { getValue(forKey: .SCORING_PARAMS_AFTER_LIMIT_RM_SEC) }
+  var scoring_maxGapRmSec: Int32? { getValue(forKey: .SCORING_PARAMS_MAX_GAP_RM_SEC) }
+  var scoring_beforeLimitCsSec: Int32? { getValue(forKey: .SCORING_PARAMS_BEFORE_LIMIT_CS_SEC) }
+  var scoring_afterLimitCsSec: Int32? { getValue(forKey: .SCORING_PARAMS_AFTER_LIMIT_CS_SEC) }
+  var scoring_maxGapCsSec: Int32? { getValue(forKey: .SCORING_PARAMS_MAX_GAP_CS_SEC) }
+  var scoring_beforeLimitFsSec: Int32? { getValue(forKey: .SCORING_PARAMS_BEFORE_LIMIT_FS_SEC) }
+  var scoring_afterLimitFsSec: Int32? { getValue(forKey: .SCORING_PARAMS_AFTER_LIMIT_FS_SEC) }
+  var scoring_maxGapFsSec: Int32? { getValue(forKey: .SCORING_PARAMS_MAX_GAP_FS_SEC) }
+  var scoring_beforeLimitSsSec: Int32? { getValue(forKey: .SCORING_PARAMS_BEFORE_LIMIT_SS_Sec) }
+  var scoring_afterLimitSsSec: Int32? { getValue(forKey: .SCORING_PARAMS_AFTE_LIMIT_SS_Sec) }
+  var scoring_maxGapSsSec: Int32? { getValue(forKey: .SCORING_PARAMS_MAX_GAP_SS_Sec) }
+  var scoring_endDistanceScore: Bool? { getValue(forKey: .SCORING_PARAMS_END_DISANCE_SCORE) }
+  var scoring_endDistanceThresholdZone: Float? { getValue(forKey: .SCORING_PARAMS_END_DISTANCE_THRESHOLD_ZONE) }
+  var scoring_endDistanceThresholdStopSync: Float? { getValue(forKey: .SCORING_PARAMS_END_DISTANCE_THRESHOLD_STOP_SYNC) }
+  var scoring_endDistancePenaltyThreshold: Float? { getValue(forKey: .SCORING_PARAMS_END_DISTANCE_PENALTY_THRESHOLD) }
+  var scoring_endDistancePenaltyScore: Float? { getValue(forKey: .SCORING_PARAMS_END_DISTANCE_PENALTY_SCORE) }
+  var scoring_stopSyncWeightingPositive: Float? { getValue(forKey: .SCORING_PARAMS_STOP_SYNC_WEIGHTING_POSITIVE) }
+  var scoring_stopSyncWeightingNegative: Float? { getValue(forKey: .SCORING_PARAMS_STOP_SYNC_WEIGHTING_NEGATIVE) }
 
-  // TRUSTED POSITION PARAMS
-  var trustedPosition_dt: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_DT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_DT]
-  }
-  var trustedPosition_trustedLimitSec: Int32? {
-    (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC] ?? intValues?[.TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC])?.asInt32
-  }
-  var trustedPosition_clusterSwapCoolDownSec: Int32? {
-    (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC] ?? intValues?[.TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC])?.asInt32
-  }
-  var trustedPosition_rescueModeCoolDownSec: Int32? {
-    (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC] ?? intValues?[.TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC])?.asInt32
-  }
-  var trustedPosition_stdLimit: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_STD_LIMIT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT]
-  }
-  var trustedPosition_stdLimitLarge: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE] ?? floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE]
-  }
-  var trustedPosition_particleTrendLimit: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT]
-  }
-  var trustedPosition_consistencyScoreLimit: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT] ?? floatValues?[.TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT]
-  }
-  var trustedPosition_stepsSinceSprinkleLimit: Int32? {
-    (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_STEPS_SINCE_SPRINKLE_LIMIT] ?? intValues?[.TRUSTED_POSITION_PARAMS_STEPS_SINCE_SPRINKLE_LIMIT])?.asInt32
-  }
-  var trustedPosition_clusterSwapCoolDownSecOOB: Int32? {
-    (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC_OOB] ?? intValues?[.TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC_OOB])?.asInt32
-  }
-  var trustedPosition_trustedLimitSecOOB: Int32? {
-    (intValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC_OOB] ?? intValues?[.TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC_OOB])?.asInt32
-  }
-  var trustedPosition_stdLimitOOB: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_STD_LIMIT_OOB]  ?? floatValues?[.TRUSTED_POSITION_PARAMS_STD_LIMIT_OOB]
-  }
-  var trustedPosition_particleTrendLimitOOB: Float? {
-    floatValues?[.FOR_IOS + .TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT_OOB] ?? floatValues?[.TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT_OOB]
-  }
+  // MARK: TRUSTED POSITION PARAMS
+  var trustedPosition_dt: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_DT) }
+  var trustedPosition_trustedLimitSec: Int32? { getValue(forKey: .TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC) }
+  var trustedPosition_clusterSwapCoolDownSec: Int32? { getValue(forKey: .TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC) }
+  var trustedPosition_rescueModeCoolDownSec: Int32? { getValue(forKey: .TRUSTED_POSITION_PARAMS_RESCUE_MODE_COOLDOWN_SEC) }
+  var trustedPosition_stdLimit: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_STD_LIMIT) }
+  var trustedPosition_stdLimitLarge: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_STD_LIMIT_LARGE) }
+  var trustedPosition_particleTrendLimit: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT) }
+  var trustedPosition_consistencyScoreLimit: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_CONSISTENCY_SCORE_LIMIT) }
+  var trustedPosition_stepsSinceSprinkleLimit: Int32? { getValue(forKey: .TRUSTED_POSITION_PARAMS_STEPS_SINCE_SPRINKLE_LIMIT) }
+  var trustedPosition_clusterSwapCoolDownSecOOB: Int32? { getValue(forKey: .TRUSTED_POSITION_PARAMS_CLUSTER_SWAP_COOLDOWN_SEC_OOB) }
+  var trustedPosition_trustedLimitSecOOB: Int32? { getValue(forKey: .TRUSTED_POSITION_PARAMS_TRUSTED_LIMIT_SEC_OOB) }
+  var trustedPosition_stdLimitOOB: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_STD_LIMIT_OOB) }
+  var trustedPosition_particleTrendLimitOOB: Float? { getValue(forKey: .TRUSTED_POSITION_PARAMS_PARTICLE_TREND_LIMIT_OOB) }
 
-  // POSITION STD SETTINGS
-  var positionStdSettings_strategy: String? {
-    stringValues?[.FOR_IOS + .POSTION_STD_SETTINGS_STRATEGY] ?? stringValues?[.POSTION_STD_SETTINGS_STRATEGY]
-  }
-  var positionStdSettings_stdDefault: Float? {
-    floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_STD_DEFAULT] ?? floatValues?[.POSTION_STD_SETTINGS_STD_DEFAULT]
-  }
-  var positionStdSettings_isCapped: Bool? {
-    boolValues?[.FOR_IOS + .POSTION_STD_SETTINGS_IS_CAPPED] ?? boolValues?[.POSTION_STD_SETTINGS_IS_CAPPED]
-  }
-  var positionStdSettings_minStd: Float? {
-    floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_MIN_STD] ?? floatValues?[.POSTION_STD_SETTINGS_MIN_STD]
-  }
-  var positionStdSettings_maxStd: Float? {
-    floatValues?[.FOR_IOS + .POSTION_STD_SETTINGS_MAX_STD] ?? floatValues?[.POSTION_STD_SETTINGS_MAX_STD]
-  }
+  // MARK: POSITION STD SETTINGS
+  var positionStdSettings_strategy: String? { getValue(forKey: .POSTION_STD_SETTINGS_STRATEGY) }
+  var positionStdSettings_stdDefault: Float? { getValue(forKey: .POSTION_STD_SETTINGS_STD_DEFAULT) }
+  var positionStdSettings_isCapped: Bool? { getValue(forKey: .POSTION_STD_SETTINGS_IS_CAPPED) }
+  var positionStdSettings_minStd: Float? { getValue(forKey: .POSTION_STD_SETTINGS_MIN_STD) }
+  var positionStdSettings_maxStd: Float? { getValue(forKey: .POSTION_STD_SETTINGS_MAX_STD) }
 
-  // MAGNETOMETER DRIFT ESTIMATOR
-  var magnetometerDriftEstimator_useMagnetometer: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_MAGNETOMETER] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_MAGNETOMETER]
-  }
-  var magnetometerDriftEstimator_alpha: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_ALPHA] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_ALPHA]
-  }
-  var magnetometerDriftEstimator_maxRate: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_RATE] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAX_RATE]
-  }
-  var magnetometerDriftEstimator_accLowerLimit: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_ACC_LOWER_LIMIT] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_ACC_LOWER_LIMIT]
-  }
-  var magnetometerDriftEstimator_accUpperLimit: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_ACC_UPPER_LIMIT] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_ACC_UPPER_LIMIT]
-  }
-  var magnetometerDriftEstimator_magExpectedNorm: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPECTED_NORM] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPECTED_NORM]
-  }
-  var magnetometerDriftEstimator_sigmaMag: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_MAG] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_MAG]
-  }
-  var magnetometerDriftEstimator_useOSCalib: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_OS_CALIB] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_OS_CALIB]
-  }
-  var magnetometerDriftEstimator_maxQueueLengthSeconds: Int32? {
-    (intValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_QUEUE_LENGTH_SECONDS] ?? intValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAX_QUEUE_LENGTH_SECONDS])?.asInt32
-  }
-  var magnetometerDriftEstimator_biasAlpha: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_BIAS_ALPHA] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_BIAS_ALPHA]
-  }
-  var magnetometerDriftEstimator_normLambda: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_NORM_LAMBDA] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_NORM_LAMBDA]
-  }
-  var magnetometerDriftEstimator_magExpectedDip: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPEECTED_DIP] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPEECTED_DIP]
-  }
-  var magnetometerDriftEstimator_magExpectedDeclination: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPEECTED_DECLINATION] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPEECTED_DECLINATION]
-  }
-  var magnetometerDriftEstimator_sigmaInc: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_INC] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_INC]
-  }
-  var magnetometerDriftEstimator_maxGain: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_GAIN] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAX_GAIN]
-  }
-  var magnetometerDriftEstimator_useDriftCorrection: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_DRIFT_CORRECTION] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_DRIFT_CORRECTION]
-  }
+  // MARK: MAGNETOMETER DRIFT ESTIMATOR
+  var magnetometerDriftEstimator_useMagnetometer: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_MAGNETOMETER) }
+  var magnetometerDriftEstimator_alpha: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ALPHA) }
+  var magnetometerDriftEstimator_maxRate: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_RATE) }
+  var magnetometerDriftEstimator_accLowerLimit: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ACC_LOWER_LIMIT) }
+  var magnetometerDriftEstimator_accUpperLimit: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ACC_UPPER_LIMIT) }
+  var magnetometerDriftEstimator_magExpectedNorm: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPECTED_NORM) }
+  var magnetometerDriftEstimator_sigmaMag: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_MAG) }
+  var magnetometerDriftEstimator_useOSCalib: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_OS_CALIB) }
+  var magnetometerDriftEstimator_maxQueueLengthSeconds: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_QUEUE_LENGTH_SECONDS) }
+  var magnetometerDriftEstimator_biasAlpha: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_BIAS_ALPHA) }
+  var magnetometerDriftEstimator_normLambda: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_NORM_LAMBDA) }
+  var magnetometerDriftEstimator_magExpectedDip: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPEECTED_DIP) }
+  var magnetometerDriftEstimator_magExpectedDeclination: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_EXPEECTED_DECLINATION) }
+  var magnetometerDriftEstimator_sigmaInc: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_SIGMA_INC) }
+  var magnetometerDriftEstimator_maxGain: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAX_GAIN) }
+  var magnetometerDriftEstimator_useDriftCorrection: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_DRIFT_CORRECTION) }
   var magnetometerDriftEstimator_nIters: [KotlinInt]? {
     guard
       let values = intArrayValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_N_ITERS] ?? intArrayValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_N_ITERS]
@@ -1162,76 +1151,63 @@ private extension PositionServiceSettings {
     else { return nil }
     return .init(first: .init(value: values[0].asDouble), second: .init(value: values[1].asDouble))
   }
-  var magnetometerDriftEstimator_subSampling: Int32? {
-    (intValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_SUB_SAMPLING] ?? intValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_SUB_SAMPLING])?.asInt32
-  }
-  var magnetometerDriftEstimator_computeInterval: Int32? {
-    (intValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_COMPUTE_INTERVAL] ?? intValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_COMPUTE_INTERVAL])?.asInt32
-  }
-  var magnetometerDriftEstimator_sensorBufferSize: Int32? {
-    (intValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_SENSOR_BUFFER_SIZE] ?? intValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_SENSOR_BUFFER_SIZE])?.asInt32
-  }
-  var magnetometerDriftEstimator_fs: Double? {
-    (floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_FS] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_FS])?.asDouble
-  }
-  var magnetometerDriftEstimator_bruteThreshold: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_BRUTE_THRESHOLD] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_BRUTE_THRESHOLD]
-  }
-  var magnetometerDriftEstimator_doBackTracking: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_DO_BACK_TRACKING] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_DO_BACK_TRACKING]
-  }
-  var magnetometerDriftEstimator_doSingleBackTrack: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_DO_SINGLE_BACK_TRACK] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_DO_SINGLE_BACK_TRACK]
-  }
-  var magnetometerDriftEstimator_numSimilarDriftEstimatesToTriggerBackTrack: Int32? {
-    (intValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_NUM_SIMILAR_DRIFT_ESTIMATES_TO_TRIGGER_BACK_TRACK] ?? intValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_NUM_SIMILAR_DRIFT_ESTIMATES_TO_TRIGGER_BACK_TRACK])?.asInt32
-  }
-  var magnetometerDriftEstimator_driftEstimateSimilarityThreshold: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_DRIFT_ESTIMATE_SIMILARITY_THRESHOLD] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_DRIFT_ESTIMATE_SIMILARITY_THRESHOLD]
-  }
-  var magnetometerDriftEstimator_driftDiffToTriggerBackTrack: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_DRIFT_DIFF_TO_TRIGGER_BACK_TRACK] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_DRIFT_DIFF_TO_TRIGGER_BACK_TRACK]
-  }
-  var magnetometerDriftEstimator_meanSmoothingStdSeconds: Double? {
-    (floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MEAN_SMOOTHING_STD_SECONDS] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MEAN_SMOOTHING_STD_SECONDS])?.asDouble
-  }
-  var magnetometerDriftEstimator_stdSmoothingStdSeconds: Double? {
-    (floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_STD_SMOOTHING_STD_SECONDS] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_STD_SMOOTHING_STD_SECONDS])?.asDouble
-  }
-  var magnetometerDriftEstimator_magUseXChannel: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_X_CHANNEL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_X_CHANNEL]
-  }
-  var magnetometerDriftEstimator_magUseYChannel: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Y_CHANNEL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Y_CHANNEL]
-  }
-  var magnetometerDriftEstimator_magUseZChannel: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Z_CHANNEL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Z_CHANNEL]
-  }
-  var magnetometerDriftEstimator_distanceThreshold: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_DISTANCE_THRESHOLD] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_DISTANCE_THRESHOLD]
-  }
-  var magnetometerDriftEstimator_useDistanceThreshold: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_DISTANCE_THRESHOLD] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_DISTANCE_THRESHOLD]
-  }
+  var magnetometerDriftEstimator_subSampling: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_SUB_SAMPLING) }
+  var magnetometerDriftEstimator_computeInterval: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_COMPUTE_INTERVAL) }
+  var magnetometerDriftEstimator_sensorBufferSize: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_SENSOR_BUFFER_SIZE) }
+  var magnetometerDriftEstimator_fs: Double? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_FS) }
+  var magnetometerDriftEstimator_bruteThreshold: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_BRUTE_THRESHOLD) }
+  var magnetometerDriftEstimator_doBackTracking: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_DO_BACK_TRACKING) }
+  var magnetometerDriftEstimator_doSingleBackTrack: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_DO_SINGLE_BACK_TRACK) }
+  var magnetometerDriftEstimator_numSimilarDriftEstimatesToTriggerBackTrack: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_NUM_SIMILAR_DRIFT_ESTIMATES_TO_TRIGGER_BACK_TRACK) }
+  var magnetometerDriftEstimator_driftEstimateSimilarityThreshold: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_DRIFT_ESTIMATE_SIMILARITY_THRESHOLD) }
+  var magnetometerDriftEstimator_driftDiffToTriggerBackTrack: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_DRIFT_DIFF_TO_TRIGGER_BACK_TRACK) }
+  var magnetometerDriftEstimator_meanSmoothingStdSeconds: Double? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MEAN_SMOOTHING_STD_SECONDS) }
+  var magnetometerDriftEstimator_stdSmoothingStdSeconds: Double? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_STD_SMOOTHING_STD_SECONDS) }
+  var magnetometerDriftEstimator_magUseXChannel: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_X_CHANNEL) }
+  var magnetometerDriftEstimator_magUseYChannel: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Y_CHANNEL) }
+  var magnetometerDriftEstimator_magUseZChannel: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_MAG_USE_Z_CHANNEL) }
+  var magnetometerDriftEstimator_distanceThreshold: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_DISTANCE_THRESHOLD) }
+  var magnetometerDriftEstimator_useDistanceThreshold: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_DISTANCE_THRESHOLD) }
+  var magnetometerDriftEstimator_queueFillThreshold: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_QUEUE_FILL_THRESHOLD) }
+  var magnetometerDriftEstimator_ignoreCalibrationInterval: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL) }
+  var magnetometerDriftEstimator_useTangentResidual: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL) }
+  var magnetometerDriftEstimator_useNorthOptimizerAtUncertainStart: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START) }
+  var magnetometerDriftEstimator_useNorthOptimizerAtCertainStart: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_CERTAIN_START) }
+  var magnetometerDriftEstimator_northOptimizerStartAngleTolerance: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE) }
+  var magnetometerDriftEstimator_useMLResiduals: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_ML_RESIDUALS) }
+  var magnetometerDriftEstimator_useBatchedResiduals: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_BATCHED_RESIDUALS) }
+  var magnetometerDriftEstimator_useCheapGridSearch: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_CHEAP_GRID_SEARCH) }
+  var magnetometerDriftEstimator_cheapSearchInterval: Double? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_CHEA_SEARCH_INTERVAL) }
+  var magnetometerDriftEstimator_useAnomalyGating: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_ANOMALY_GATING) }
+  var magnetometerDriftEstimator_anomalyThreshold: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_THRESHOLD) }
+  var magnetometerDriftEstimator_anomalyWindowStart: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_WINDOW_START) }
+  var magnetometerDriftEstimator_anomalyWindowStep: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_WINDOW_STEP) }
+  var magnetometerDriftEstimator_anomalyWindowStride: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_WINDOW_STRIDE) }
+  var magnetometerDriftEstimator_anomalyStableCount: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_STATBLE_COUNT) }
+  var magnetometerDriftEstimator_anomalyAngleConsistencyThreshold: Float? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_ANGLE_CONSISTENCY_THRESHOLD) }
+  var magnetometerDriftEstimator_anomalyMaxStart: Int32? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_MAX_START) }
+  var magnetometerDriftEstimator_useForceSyncOnCertainStart: Bool? { getValue(forKey: .MAGNETOMETER_DRIFT_ESTIMATOR_USE_FORCE_SYNC_ON_CERTAIN_START) }
 
-  var queueFillThreshold: Float? {
-    floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_QUEUE_FILL_THRESHOLD] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_QUEUE_FILL_THRESHOLD]
-  }
-
-  var ignoreCalibrationInterval: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL]
-  }
-
-  var useTangentResidual: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL]
-  }
-
-  var useNorthOptimizerAtUncertainStart: Bool? {
-    boolValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START] ?? boolValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START]
-  }
-
-  var northOptimizerStartAngleTolerance: KotlinFloat? {
-    (floatValues?[.FOR_IOS + .MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE] ?? floatValues?[.MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE])?.asKotlinFloat
+  // MARK: Get Value
+  func getValue<T>(forKey key: String) -> T? {
+    switch T.self {
+    case is Bool.Type:
+      return (boolValues?[.FOR_IOS + key] ?? boolValues?[key]) as? T
+    case is Double.Type:
+      return (floatValues?[.FOR_IOS + key] ?? floatValues?[key])?.asDouble as? T
+    case is Float.Type:
+      return (floatValues?[.FOR_IOS + key] ?? floatValues?[key]) as? T
+    case is Int.Type:
+      return (intValues?[.FOR_IOS + key] ?? intValues?[key]) as? T
+    case is Int32.Type:
+      return (intValues?[.FOR_IOS + key] ?? intValues?[key])?.asInt32 as? T
+    case is String.Type:
+      return (stringValues?[.FOR_IOS + key] ?? stringValues?[key]) as? T
+    default:
+      //preconditionFailure("Unsupported type \(T.self) for key \(key). Please add a case for this type in the extension.")
+      Logger(verbosity: .warning).log(message: "Unsupported type \(T.self) for key \(key). Please add a case for this type in the extension.")
+      return nil
+    }
   }
 
   enum VPSStartMethod: String {
@@ -1265,6 +1241,7 @@ private extension String {
   static let MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_ACTIVE: String = "ios_vps_modelToEvent_squareFilterActive"
   static let MODEL_TO_EVENT_PARAMS_SQUARE_FILTER_GAIN: String = "ios_vps_modelToEvent_squareFilterGain"
   static let NL_MODEL_ACTIVATED: String = "ios_vps_nlModelActivated"
+  static let NP_MODEL_ACTIVATED: String = "ios_vps_npModelActivated"
 
   /**
    * ParticleFilterSettings
@@ -1360,6 +1337,8 @@ private extension String {
   static let PARTICLE_FILTER_USE_KDEX0_STEP: String = "ios_particleFilter_useKDEX0Step"
   static let PARTICLE_FILTER_UNCERTAIN_START_POSITION_STD: String = "ios_particleFilter_uncertainStartPositionStd"
   static let PARTICLE_FILTER_UNCERTAIN_START_DIRECTION_STD: String = "ios_particleFilter_uncertainStartDirectionStd"
+  static let PARTICLE_FILTER_USE_GLOBAL_KDE_SEARCH: String = "ios_particleFilter_useGlobalKDESearch"
+  static let PARTICLE_FILTER_MAG_SPRINKLE_SYNC_THRESHOLD: String = "ios_particleFilter_magSprinkleSyncThreshold"
 
   static let SCORING_PARAMS_VERSION: String = "scoringParams_version"
   static let SCORING_PARAMS_DT: String = "scoringParams_dt"
@@ -1374,6 +1353,16 @@ private extension String {
   static let SCORING_PARAMS_BEFORE_LIMIT_FS_SEC: String = "scoringParams_beforeLimitFsSec"
   static let SCORING_PARAMS_AFTER_LIMIT_FS_SEC: String = "scoringParams_afterLimitFsSec"
   static let SCORING_PARAMS_MAX_GAP_FS_SEC: String = "scoringParams_maxGapFsSec"
+  static let SCORING_PARAMS_BEFORE_LIMIT_SS_Sec : String = "scoringParams_beforeLimitSsSec"
+  static let SCORING_PARAMS_AFTE_LIMIT_SS_Sec : String = "scoringParams_afterLimitSsSec"
+  static let SCORING_PARAMS_MAX_GAP_SS_Sec : String = "scoringParams_maxGapSsSec"
+  static let SCORING_PARAMS_END_DISANCE_SCORE : String = "scoringParams_endDistanceScore"
+  static let SCORING_PARAMS_END_DISTANCE_THRESHOLD_ZONE : String = "scoringParams_endDistanceThresholdZone"
+  static let SCORING_PARAMS_END_DISTANCE_THRESHOLD_STOP_SYNC : String = "scoringParams_endDistanceThresholdStopSync"
+  static let SCORING_PARAMS_END_DISTANCE_PENALTY_THRESHOLD : String = "scoringParams_endDistancePenaltyThreshold"
+  static let SCORING_PARAMS_END_DISTANCE_PENALTY_SCORE : String = "scoringParams_endDistancePenaltyScore"
+  static let SCORING_PARAMS_STOP_SYNC_WEIGHTING_POSITIVE : String = "scoringParams_stopSyncWeightingPositive"
+  static let SCORING_PARAMS_STOP_SYNC_WEIGHTING_NEGATIVE : String = "scoringParams_stopSyncWeightingNegative"
 
   static let TRUSTED_POSITION_PARAMS_VERSION: String = "trustedPositionParams_version"
   static let TRUSTED_POSITION_PARAMS_DT: String = "trustedPositionParams_dt"
@@ -1435,7 +1424,21 @@ private extension String {
   static let MAGNETOMETER_DRIFT_ESTIMATOR_IGNORE_CALIBRATION_INTERVAL: String = "magnetometerDriftEstimator_ignoreCalibrationInterval"
   static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_TANGENT_RESIDUAL: String = "magnetometerDriftEstimator_useTangentResidual"
   static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_UNCERTAIN_START: String = "magnetometerDriftEstimator_useNorthOptimizerAtUncertainStart"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_NORTH_OPTIMIZER_AT_CERTAIN_START: String = "magnetometerDriftEstimator_useNorthOptimizerAtCertainStart"
   static let MAGNETOMETER_DRIFT_ESTIMATOR_NORTH_OPTIMIZER_START_ANGLE_TOLERANCE: String = "magnetometerDriftEstimator_northOptimizerStartAngleTolerance"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_ML_RESIDUALS: String = "magnetometerDriftEstimator_useMLResiduals"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_BATCHED_RESIDUALS: String = "magnetometerDriftEstimator_useBatchedResiduals"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_CHEAP_GRID_SEARCH: String = "magnetometerDriftEstimator_useCheapGridSearch"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_CHEA_SEARCH_INTERVAL: String = "magnetometerDriftEstimator_cheapSearchInterval"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_ANOMALY_GATING: String = "magnetometerDriftEstimator_useAnomalyGating"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_THRESHOLD: String = "magnetometerDriftEstimator_anomalyThreshold"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_WINDOW_START: String = "magnetometerDriftEstimator_anomalyWindowStart"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_WINDOW_STEP: String = "magnetometerDriftEstimator_anomalyWindowStep"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_WINDOW_STRIDE: String = "magnetometerDriftEstimator_anomalyWindowStride"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_STATBLE_COUNT: String = "magnetometerDriftEstimator_anomalyStableCount"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_ANGLE_CONSISTENCY_THRESHOLD: String = "magnetometerDriftEstimator_anomalyAngleConsistencyThreshold"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_ANOMALY_MAX_START: String = "magnetometerDriftEstimator_anomalyMaxStart"
+  static let MAGNETOMETER_DRIFT_ESTIMATOR_USE_FORCE_SYNC_ON_CERTAIN_START: String = "magnetometerDriftEstimator_useForceSyncOnCertainStart"
 }
 
 extension vps.MLProcessedPath {

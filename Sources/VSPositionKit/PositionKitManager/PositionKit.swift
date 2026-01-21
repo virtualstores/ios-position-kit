@@ -36,7 +36,7 @@ public protocol IPositionKit: Disposable {
     func prepareAngle()
 
     /// MapFence setup methode
-    func setupMapFence(with mapData: MapFence, storeId: Int64, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine)
+    func setupMapFence(with mapData: MapFence, storeId: Int64, rtlsOption: RtlsOptions, floorheight: Double, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine, storeCoordinate: CLLocationCoordinate2D)
 
     /// Start navigation setup methode
     func startNavigation(positions: [CGPoint], syncPosition: Bool, syncAngle: Bool, angle: Double, uncertainAngle: Bool)

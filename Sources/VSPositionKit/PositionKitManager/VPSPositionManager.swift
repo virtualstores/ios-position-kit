@@ -76,7 +76,7 @@ extension VPSPositionManager: IPositionKit {
     cancellable.removeAll()
   }
   
-  public func setupMapFence(with mapData: MapFence, storeId: Int64, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine) {
+  public func setupMapFence(with mapData: MapFence, storeId: Int64, rtlsOption: RtlsOptions, floorheight: Double = 3.6, parameterPackage: ParameterPackage, automaticSensorRecording: Bool, positionServiceSettings: PositionServiceSettings?, converter: ICoordinateConverter, modelManger: VPSModelManager, engine: TT2Settings.TT2Engine, storeCoordinate: CLLocationCoordinate2D) {
     self.rtlsOption = rtlsOption
     _vps = VPSManager(
       floorHeightDiffInMeters: floorheight,
@@ -87,7 +87,8 @@ extension VPSPositionManager: IPositionKit {
       positionServiceSettings: positionServiceSettings,
       converter: converter,
       modelManager: modelManger,
-      engine: engine
+      engine: engine,
+      storeCoordinate: storeCoordinate
     )
 
     //DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
