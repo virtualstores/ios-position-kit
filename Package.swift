@@ -11,9 +11,7 @@ let package = Package(
         .watchOS(.v6)
     ],
     products: [
-        .library(
-            name: "VSPositionKit",
-            targets: ["VSPositionKit"]),
+        .library(name: "VSPositionKit",targets: ["VSPositionKit"]),
         .library(name: "TT2SensorFusion", targets: ["TT2SensorFusion"])
     ],
     dependencies: [
