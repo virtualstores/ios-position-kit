@@ -34,21 +34,23 @@ class VPSNPModel {
       precondition(input[0][c].count == window, "Jagged input array")
     }
 
-    let shape: [NSNumber] = [1, 6, window].map { NSNumber(value: $0) }
-    let array = try MLMultiArray(shape: shape, dataType: .float32)
-
-    // Flattening: [1][6][T] → contiguous memory
-    let ptr = array.dataPointer.bindMemory( to: Float.self, capacity: 6 * window)
-
-    var idx = 0
-    for c in 0..<6 {
-      for t in 0..<window {
-        ptr[idx] = Float(input[0][c][t])
-        idx += 1
+    // Flatten + validate + convert to Float in one pass, in the same
+    // channel-major order the model expects for shape [1, 6, window]
+    let scalars: [Float] = try input[0].flatMap { channel -> [Float] in
+      try channel.map { value in
+        guard value.isFinite else {
+          throw NSError(
+            domain: "VPSNPModel",
+            code: 422,
+            userInfo: [NSLocalizedDescriptionKey: "Non-finite sensor value: \(value)"]
+          )
+        }
+        return Float(value)
       }
     }
 
-    return array
+    let shapedArray = MLShapedArray<Float>(scalars: scalars, shape: [1, 6, window])
+    return MLMultiArray(shapedArray)
   }
 }
 
@@ -84,7 +86,7 @@ private extension NPOutput {
     let count = y.count
     let result = KotlinFloatArray(size: Int32(count))
 
-    // Fast path: read as Float regardless of stored dtype
+    // Fast path: read as Float regardless of stored type
     for i in 0..<count {
       result.set(index: Int32(i), value: y[i].floatValue)
     }

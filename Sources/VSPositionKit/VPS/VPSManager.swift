@@ -482,6 +482,7 @@ extension VPSManager: VPSOutputHandler {
     case let output as OutputSignal.SyncSignal: break
     case let output as OutputSignal.UserInfoVPSError:
       outputSignalPublisher.send(.userInfoVPSError(output.asVPSError))
+    case let output as OutputSignal.MagnetometerMapData: break
     default: Logger(verbosity: .warning).log(message: "\(#function) - Case not handled - \(outputSignal)")
     }
   }
